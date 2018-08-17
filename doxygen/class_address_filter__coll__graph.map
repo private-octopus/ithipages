@@ -1,5 +1,0 @@
-<map id="AddressFilter" name="AddressFilter">
-<area shape="rect" id="node2" href="$class_bin_hash.html" title="{BinHash\&lt; IPAsKey \&gt;\n|&#45; tableSize\l&#45; tableCount\l|+ BinHash()\l+ ~BinHash()\l+ InsertOrAdd()\l+ Retrieve()\l+ Remove()\l+ Clear()\l+ GetCount()\l+ GetSize()\l+ GetEntry()\l&#45; Resize()\l&#45; DoInsert()\l}" alt="" coords="171,323,319,562"/>
-<area shape="rect" id="node3" href="$class_i_p_as_key.html" title="{IPAsKey\n|+ addr_len\l+ addr\l+ count\l+ hash\l|+ IPAsKey()\l+ ~IPAsKey()\l+ IsSameKey()\l+ Hash()\l+ CreateCopy()\l+ Add()\l}" alt="" coords="5,35,116,229"/>
-<area shape="rect" id="node4" href="$class_bin_hash.html" title="{BinHash\&lt; KeyObj \&gt;\n|&#45; tableSize\l&#45; tableCount\l&#45; hashBin\l|+ BinHash()\l+ ~BinHash()\l+ InsertOrAdd()\l+ Retrieve()\l+ Remove()\l+ Clear()\l+ GetCount()\l+ GetSize()\l+ GetEntry()\l&#45; Resize()\l&#45; DoInsert()\l}" alt="" coords="237,5,376,259"/>
-</map>

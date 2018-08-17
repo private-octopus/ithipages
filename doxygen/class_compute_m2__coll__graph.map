@@ -1,4 +1,0 @@
-<map id="ComputeM2" name="ComputeM2">
-<area shape="rect" id="node2" href="$class_compute_metric.html" title="{ComputeMetric\n|+ F_log\l|+ ComputeMetric()\l+ ~ComputeMetric()\l+ SetLog()\l+ Load()\l+ LoadMultipleFiles()\l+ Compute()\l+ Save()\l+ Write()\l}" alt="" coords="5,65,147,245"/>
-<area shape="rect" id="node3" href="$class_m2_data.html" title="{M2Data\n|+ dataset\l+ year\l+ month\l+ day\l+ M2Type\l|+ M2Data()\l+ ~M2Data()\l+ Load()\l+ ComputeMetrics()\l+ Sort()\l+ Save()\l+ get_file_name()\l+ parse_file_name()\l+ IsSooner()\l+ TldIsSmaller()\l+ IsReservedRegistrarId()\l+ get_file_suffix()\l}" alt="" coords="172,6,345,303"/>
-</map>

@@ -1,5 +1,0 @@
-<map id="CaptureSummary" name="CaptureSummary">
-<area shape="rect" id="node2" href="$class_bin_hash.html" title="{BinHash\&lt; TldAsKey \&gt;\n|&#45; tableSize\l&#45; tableCount\l|+ BinHash()\l+ ~BinHash()\l+ InsertOrAdd()\l+ Retrieve()\l+ Remove()\l+ Clear()\l+ GetCount()\l+ GetSize()\l+ GetEntry()\l&#45; Resize()\l&#45; DoInsert()\l}" alt="" coords="231,323,384,562"/>
-<area shape="rect" id="node3" href="$class_tld_as_key.html" title="{TldAsKey\n|+ tld_len\l+ tld\l+ count\l+ hash\l|+ TldAsKey()\l+ ~TldAsKey()\l+ IsSameKey()\l+ Hash()\l+ CreateCopy()\l+ Add()\l+ CanonicCopy()\l+ CompareTldEntries()\l}" alt="" coords="5,20,159,244"/>
-<area shape="rect" id="node4" href="$class_bin_hash.html" title="{BinHash\&lt; KeyObj \&gt;\n|&#45; tableSize\l&#45; tableCount\l&#45; hashBin\l|+ BinHash()\l+ ~BinHash()\l+ InsertOrAdd()\l+ Retrieve()\l+ Remove()\l+ Clear()\l+ GetCount()\l+ GetSize()\l+ GetEntry()\l&#45; Resize()\l&#45; DoInsert()\l}" alt="" coords="315,5,453,259"/>
-</map>

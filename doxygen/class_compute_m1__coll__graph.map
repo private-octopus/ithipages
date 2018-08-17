@@ -1,4 +1,0 @@
-<map id="ComputeM1" name="ComputeM1">
-<area shape="rect" id="node2" href="$class_compute_metric.html" title="{ComputeMetric\n|+ F_log\l|+ ComputeMetric()\l+ ~ComputeMetric()\l+ SetLog()\l+ Load()\l+ LoadMultipleFiles()\l+ Compute()\l+ Save()\l+ Write()\l}" alt="" coords="5,42,147,222"/>
-<area shape="rect" id="node3" href="$class_m1_data.html" title="{M1Data\n|+ dataset\l+ category_indices\l+ firstNotice\l+ totalDomain\l+ total1stN\l+ nbRegistrars50pc\l+ nbRegistrars90pc\l|+ M1Data()\l+ ~M1Data()\l+ Load()\l+ GetCategoryIndex()\l+ ParseFileName()\l+ RegistryIdIsSmaller()\l+ FirstNoticeIsBigger()\l}" alt="" coords="172,5,329,259"/>
-</map>
