@@ -163,8 +163,6 @@ Sorry, but for the other distributions you will have to clone the sources from G
 
 # Code analysis reports
 
-- Clang static code analysis reports:
-  - [issues found on 2018-06-28 15:27.02](analysis/2018-06-28-152702-4499-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch travis/reports](coverage/travis/reports/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
