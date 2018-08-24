@@ -12,5 +12,6 @@ var searchData=
   ['af',['af',['../structiaddr.html#a45379e58640ebf3eb678dd9d936cd0ee',1,'iaddr']]],
   ['allowedaddresses',['allowedAddresses',['../class_dns_stats.html#aa6c0d92f94e947e20ffffcc2c8906e3a',1,'DnsStats']]],
   ['alpha_5ftest_5fstrings',['alpha_test_strings',['../_pattern_test_8cpp.html#a58c00145c41ac8070f5ac6e277eaf764',1,'PatternTest.cpp']]],
+  ['authoritative_5fcapture_5ffile_5fname',['authoritative_capture_file_name',['../classithimetrics.html#a4012ff8d1c9dc0e8cdec4afc55cbab1a',1,'ithimetrics']]],
   ['average',['average',['../struct__metric__name__line.html#a5901f3535852998f6d26efb343d1506d',1,'_metric_name_line']]]
 ];

@@ -1,9 +1,12 @@
 <map id="lib/M1Data.h" name="lib/M1Data.h">
-<area shape="rect" id="node2" href="$ithimetrics_8h.html" title="lib/ithimetrics.h" alt="" coords="211,80,321,107"/>
-<area shape="rect" id="node7" href="$_m1_data_8cpp.html" title="lib/M1Data.cpp" alt="" coords="346,80,456,107"/>
-<area shape="rect" id="node8" href="$_m1_data_test_8cpp.html" title="test/M1DataTest.cpp" alt="" coords="481,80,625,107"/>
+<area shape="rect" id="node2" href="$ithimetrics_8h.html" title="lib/ithimetrics.h" alt="" coords="437,80,547,107"/>
+<area shape="rect" id="node10" href="$_m1_data_8cpp.html" title="lib/M1Data.cpp" alt="" coords="571,80,681,107"/>
+<area shape="rect" id="node11" href="$_m1_data_test_8cpp.html" title="test/M1DataTest.cpp" alt="" coords="706,80,851,107"/>
 <area shape="rect" id="node3" href="$src_2ithitest_8cpp.html" title="src/ithitest.cpp" alt="" coords="5,155,112,181"/>
 <area shape="rect" id="node4" href="$ithitools_8cpp.html" title="src/ithitools.cpp" alt="" coords="137,155,252,181"/>
 <area shape="rect" id="node5" href="$ithimetrics_8cpp.html" title="lib/ithimetrics.cpp" alt="" coords="277,155,400,181"/>
-<area shape="rect" id="node6" href="$_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="425,155,559,181"/>
+<area shape="rect" id="node6" href="$ithipublisher_8cpp.html" title="lib/ithipublisher.cpp" alt="" coords="425,155,559,181"/>
+<area shape="rect" id="node7" href="$_odi_publisher_8cpp.html" title="lib/OdiPublisher.cpp" alt="" coords="583,155,721,181"/>
+<area shape="rect" id="node8" href="$_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="746,155,880,181"/>
+<area shape="rect" id="node9" href="$_odi_publish_test_8cpp.html" title="test/OdiPublishTest.cpp" alt="" coords="905,155,1068,181"/>
 </map>

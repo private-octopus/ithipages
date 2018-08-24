@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['badarg',['BADARG',['../getopt_8c.html#aa66fa298ed3187720cb609e15cd7d22c',1,'getopt.c']]],
-  ['badch',['BADCH',['../getopt_8c.html#a1c8c2c090f7416155b04f9d6eb50faa0',1,'getopt.c']]],
   ['bannedaddresses',['bannedAddresses',['../class_dns_stats.html#a1d3c9b94543fc77b21157feb744adff9',1,'DnsStats']]],
   ['binhash',['BinHash',['../class_bin_hash.html',1,'BinHash&lt; KeyObj &gt;'],['../class_bin_hash.html#a57b824d67f99b59e340072a4651c1f46',1,'BinHash::BinHash()'],['../class_lru_hash.html#ae1c03af6ab02cb485a4257c993bd7efa',1,'LruHash::binHash()']]],
   ['binhash_3c_20dnshashentry_20_3e',['BinHash&lt; DnsHashEntry &gt;',['../class_bin_hash.html',1,'']]],

@@ -84,8 +84,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">M7Getter.cpp File Reference</div>  </div>
 </div><!--header-->
@@ -107,49 +105,6 @@ Include dependency graph for M7Getter.cpp:</div>
 </div>
 </div>
 <p><a href="">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a1e37803d996d61d3b0e9cfb85785afef"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_m7_getter_8cpp.html#a1e37803d996d61d3b0e9cfb85785afef">M7MetricFromExtract</a> (std::vector&lt; <a class="el" href="_capture_summary_8h.html#a4db370887b223be2b43e917ad6c267a0">CaptureLine</a> * &gt; *extract)</td></tr>
-<tr class="separator:a1e37803d996d61d3b0e9cfb85785afef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a1e37803d996d61d3b0e9cfb85785afef"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">double M7MetricFromExtract </td>
-          <td>(</td>
-          <td class="paramtype">std::vector&lt; <a class="el" href="_capture_summary_8h.html#a4db370887b223be2b43e917ad6c267a0">CaptureLine</a> * &gt; *&#160;</td>
-          <td class="paramname"><em>extract</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;{</div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <span class="keywordtype">double</span> ret = 0;</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    uint64_t total = 0;</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    uint64_t support = 0;</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; extract-&gt;size(); <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++) {</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        total += (*extract)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count;</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">if</span> ((*extract)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;key_type == 0 &amp;&amp; (*extract)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;key_number == 1) {</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            support += (*extract)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count;</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        }</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">if</span> (total &gt; 0) {</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        ret = (double)support;</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;        ret /= (double)total;</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    }</div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;}</div>
-<div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:65</div></div>
-</div><!-- fragment -->
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

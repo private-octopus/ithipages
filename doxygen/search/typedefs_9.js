@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['tld_5fcount_5ftest_5fhash_5finput_5ft',['tld_count_test_hash_input_t',['../_tld_count_test_8cpp.html#aadc16b070a9b6f285dc3179e4198cc1d',1,'TldCountTest.cpp']]]
+  ['pcap_5fhdr_5ft',['pcap_hdr_t',['../pcap__reader_8h.html#a920f9df871e856d00b9005f3ef2b785f',1,'pcap_reader.h']]],
+  ['pcaprec_5fhdr_5ft',['pcaprec_hdr_t',['../pcap__reader_8h.html#a6be5c5308ab53b5263332c2402c4f66e',1,'pcap_reader.h']]]
 ];

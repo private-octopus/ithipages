@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['ia_5fstr_5ft',['ia_str_t',['../dnscap__common_8h.html#a7d1b681fadb3dc2d0b61b4d6b0931896',1,'dnscap_common.h']]],
-  ['is_5fresponder_5ft',['is_responder_t',['../dnscap__common_8h.html#a5f765e546bdadae479157d62003fee34',1,'dnscap_common.h']]]
+  ['have_5fgetopt_5fmake_5fiso_5fcompilers_5fhappy',['have_getopt_make_iso_compilers_happy',['../getopt_8c.html#a8c0f8e3c741092fd93862685ac77a0eb',1,'getopt.c']]]
 ];

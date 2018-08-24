@@ -163,7 +163,5 @@ Sorry, but for the other distributions you will have to clone the sources from G
 
 # Code analysis reports
 
-- Code coverage from `ithitest` program:
-  - [from branch travis/reports](coverage/travis/reports/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 

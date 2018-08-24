@@ -5,7 +5,6 @@ var searchData=
   ['m2data',['M2Data',['../class_m2_data.html#a3a3d1fe67c5d307189549685e9af0f90',1,'M2Data']]],
   ['m2datatest',['M2DataTest',['../class_m2_data_test.html#a80fb8105973f224ed92b30cbbaea583f',1,'M2DataTest']]],
   ['m7getter',['M7Getter',['../class_m7_getter.html#a5cae41a0b73f6c9effac64072efcba43',1,'M7Getter']]],
-  ['m7metricfromextract',['M7MetricFromExtract',['../_m7_getter_8cpp.html#a1e37803d996d61d3b0e9cfb85785afef',1,'M7Getter.cpp']]],
   ['main',['main',['../src_2ithitest_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;ithitest.cpp'],['../ithitools_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;ithitools.cpp']]],
   ['merge',['Merge',['../class_capture_summary.html#a426034bdf9edaab5be355e4a1d630034',1,'CaptureSummary::Merge(char const *list_file_name)'],['../class_capture_summary.html#a48e4e32b1e3c3731666a6bf6e543e6ef',1,'CaptureSummary::Merge(size_t nb_files, char const **file_name)'],['../class_capture_summary.html#a5ab14e2206395572dfaf1e9bdd59ae0b',1,'CaptureSummary::Merge(size_t nb_summaries, CaptureSummary **cs)']]],
   ['mergelisttest',['MergeListTest',['../class_merge_list_test.html#ae078ab2b08b16dc76a70b74b62fbe8c5',1,'MergeListTest']]],

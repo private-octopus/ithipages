@@ -24,5 +24,6 @@ var searchData=
   ['allowedaddresses',['allowedAddresses',['../class_dns_stats.html#aa6c0d92f94e947e20ffffcc2c8906e3a',1,'DnsStats']]],
   ['alpha_5ftest_5fstrings',['alpha_test_strings',['../_pattern_test_8cpp.html#a58c00145c41ac8070f5ac6e277eaf764',1,'PatternTest.cpp']]],
   ['alphasort',['alphasort',['../dirent_8h.html#a2c77d7e189a8b8aa5df1e513d8e7e2f1',1,'dirent.h']]],
+  ['authoritative_5fcapture_5ffile_5fname',['authoritative_capture_file_name',['../classithimetrics.html#a4012ff8d1c9dc0e8cdec4afc55cbab1a',1,'ithimetrics']]],
   ['average',['average',['../struct__metric__name__line.html#a5901f3535852998f6d26efb343d1506d',1,'_metric_name_line::average()'],['../classm5ingest_1_1m5__summary.html#a1e6a96ab2325f7f3e80a10b00b17eeaf',1,'m5ingest.m5_summary.average()']]]
 ];

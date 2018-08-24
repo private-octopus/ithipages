@@ -17,6 +17,7 @@ var searchData=
   ['cm4',['cm4',['../classithimetrics.html#ac7307874501a4f7ec82d410a52db7104',1,'ithimetrics']]],
   ['cm6',['cm6',['../classithimetrics.html#af37fcf775c9d9b78d76440110001a07f',1,'ithimetrics']]],
   ['cm7',['cm7',['../classithimetrics.html#a8fa915f6f3ea4af40f4e346aa85d1e79',1,'ithimetrics']]],
+  ['cm8',['cm8',['../classithimetrics.html#a009ab9518ce8672606cea97cdc8686f6',1,'ithimetrics']]],
   ['complaint',['complaint',['../structst___m1_data_line__t.html#adef9a9dc9d3af0881eaf92c80da2c068',1,'st_M1DataLine_t']]],
   ['complaints',['Complaints',['../structst___m1_data_line__t.html#a4bcf933c5df689cc5f1e2904caf0dd38',1,'st_M1DataLine_t']]],
   ['compliance_5ffile',['compliance_file',['../_metric_test_8cpp.html#a12d57b2f2eaf40c794818fc2c2720774',1,'MetricTest.cpp']]],
@@ -29,7 +30,7 @@ var searchData=
   ['compliance_5ftest_5ftotal_5f1st',['compliance_test_total_1st',['../_m1_data_test_8cpp.html#a6a25b86549f460b27eba5e753ef5c397',1,'M1DataTest.cpp']]],
   ['compliance_5ftest_5ftotal_5fdomains',['compliance_test_total_domains',['../_m1_data_test_8cpp.html#aed30fd9ee99ad153fa9bd2ce316ae786',1,'M1DataTest.cpp']]],
   ['count',['count',['../class_i_p_as_key.html#ad41d38425bbd1226fa0efb5cfa120b02',1,'IPAsKey::count()'],['../struct__capture__line.html#a6680338181b14ff954358b212c59086e',1,'_capture_line::count()'],['../class_dns_hash_entry.html#a202a5eba784883e3dbf03680398b2e6d',1,'DnsHashEntry::count()'],['../class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a',1,'TldAddressAsKey::count()'],['../class_tld_d_s_as_key.html#acf15c1955478dd9e8b0805c2d82f14d2',1,'TldDSAsKey::count()'],['../class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944',1,'TldAsKey::count()'],['../classhash_test_key.html#a8ad3545ff5eac18844f8a216244d9238',1,'hashTestKey::count()'],['../structst__tld__count__test__hash__input__t.html#a8380ee13360742d01dd35216cd28e997',1,'st_tld_count_test_hash_input_t::count()']]],
-  ['cs',['cs',['../class_compute_m3.html#acae76414161761155c32053de077d8fd',1,'ComputeM3::cs()'],['../class_compute_m4.html#a5c99e5a9b90f1450735738bcbf8c1ff5',1,'ComputeM4::cs()'],['../class_compute_m6.html#a60f885927b28aa9ebb4e1e80d8eea61e',1,'ComputeM6::cs()']]],
+  ['cs',['cs',['../class_compute_m3.html#acae76414161761155c32053de077d8fd',1,'ComputeM3::cs()'],['../class_compute_m4.html#a5c99e5a9b90f1450735738bcbf8c1ff5',1,'ComputeM4::cs()'],['../class_compute_m8.html#a4ab0c17dd8e1c01154d47f6b1d7967db',1,'ComputeM8::cs()'],['../class_compute_m6.html#a60f885927b28aa9ebb4e1e80d8eea61e',1,'ComputeM6::cs()']]],
   ['csv_5ftext',['csv_text',['../structst___csv_test__string__t.html#a629145238a2f6a4f93ec9ec4399b4672',1,'st_CsvTest_string_t::csv_text()'],['../structst___csv_test__int__t.html#aff2bd933acfe94c0d44dc3088115e83a',1,'st_CsvTest_int_t::csv_text()'],['../structst___csv_test__double__t.html#a02357e6cd8fddf74ad1fa36c32b43353',1,'st_CsvTest_double_t::csv_text()']]],
   ['current',['current',['../struct__metric__name__line.html#ab5f8dd0daf70e97b573782e5e206ffed',1,'_metric_name_line']]]
 ];

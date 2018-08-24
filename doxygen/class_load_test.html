@@ -215,31 +215,30 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#ifdef _WINDOWS</span></div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor"></span>        errno_t err = fopen_s(&amp;F, <a class="code" href="_load_test_8cpp.html#a3a74e31dad0066359d668dde81e7d143">good_file</a>, <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        <span class="keywordtype">bool</span> ret = (err == 0 &amp;&amp; F != NULL);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        ret = (err == 0 &amp;&amp; F != NULL);</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span>        <span class="keywordtype">bool</span> ret;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        F = fopen(<a class="code" href="_load_test_8cpp.html#a3a74e31dad0066359d668dde81e7d143">good_file</a>, <span class="stringliteral">&quot;r&quot;</span>);</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        ret = (F != NULL);</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">while</span> (ret &amp;&amp; fgets(buffer, <span class="keyword">sizeof</span>(buffer), F))</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        {</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            nb_lines++;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> (F != NULL)</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        {</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            fclose(F);</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <span class="keywordflow">if</span> (ret)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        {</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            ret = (nb_lines == cs.<a class="code" href="class_capture_summary.html#aec4a12b40d4175343d8588810b97f7b8">Size</a>());</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        }</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor"></span>        F = fopen(<a class="code" href="_load_test_8cpp.html#a3a74e31dad0066359d668dde81e7d143">good_file</a>, <span class="stringliteral">&quot;r&quot;</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        ret = (F != NULL);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        <span class="keywordflow">while</span> (ret &amp;&amp; fgets(buffer, <span class="keyword">sizeof</span>(buffer), F))</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            nb_lines++;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        <span class="keywordflow">if</span> (F != NULL)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            fclose(F);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">if</span> (ret)</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            ret = (nb_lines == cs.<a class="code" href="class_capture_summary.html#aec4a12b40d4175343d8588810b97f7b8">Size</a>());</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
 <div class="ttc" id="class_capture_summary_html_aec4a12b40d4175343d8588810b97f7b8"><div class="ttname"><a href="class_capture_summary.html#aec4a12b40d4175343d8588810b97f7b8">CaptureSummary::Size</a></div><div class="ttdeci">size_t Size()</div><div class="ttdef"><b>Definition:</b> CaptureSummary.cpp:418</div></div>
 <div class="ttc" id="class_capture_summary_html"><div class="ttname"><a href="class_capture_summary.html">CaptureSummary</a></div><div class="ttdef"><b>Definition:</b> CaptureSummary.h:43</div></div>
 <div class="ttc" id="_load_test_8cpp_html_a3a74e31dad0066359d668dde81e7d143"><div class="ttname"><a href="_load_test_8cpp.html#a3a74e31dad0066359d668dde81e7d143">good_file</a></div><div class="ttdeci">static char const * good_file</div><div class="ttdef"><b>Definition:</b> LoadTest.cpp:44</div></div>
@@ -267,13 +266,13 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;{</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <a class="code" href="class_capture_summary.html">CaptureSummary</a> cs;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordtype">bool</span> ret = !cs.<a class="code" href="class_capture_summary.html#a7ff019f491c823aa88f488c151f0ad9c">Load</a>(<a class="code" href="_load_test_8cpp.html#ad2fa19d262a606e446608e8534b6e306">no_such_file</a>);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <a class="code" href="class_capture_summary.html">CaptureSummary</a> cs;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keywordtype">bool</span> ret = !cs.<a class="code" href="class_capture_summary.html#a7ff019f491c823aa88f488c151f0ad9c">Load</a>(<a class="code" href="_load_test_8cpp.html#ad2fa19d262a606e446608e8534b6e306">no_such_file</a>);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;}</div>
 <div class="ttc" id="class_capture_summary_html"><div class="ttname"><a href="class_capture_summary.html">CaptureSummary</a></div><div class="ttdef"><b>Definition:</b> CaptureSummary.h:43</div></div>
 <div class="ttc" id="_load_test_8cpp_html_ad2fa19d262a606e446608e8534b6e306"><div class="ttname"><a href="_load_test_8cpp.html#ad2fa19d262a606e446608e8534b6e306">no_such_file</a></div><div class="ttdeci">static char const * no_such_file</div><div class="ttdef"><b>Definition:</b> LoadTest.cpp:43</div></div>
 <div class="ttc" id="class_capture_summary_html_a7ff019f491c823aa88f488c151f0ad9c"><div class="ttname"><a href="class_capture_summary.html#a7ff019f491c823aa88f488c151f0ad9c">CaptureSummary::Load</a></div><div class="ttdeci">bool Load(char const *file_name)</div><div class="ttdef"><b>Definition:</b> CaptureSummary.cpp:180</div></div>
@@ -312,7 +311,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
-<div class="ttc" id="class_load_test_html_a45267792b727330f8fb47313d577e592"><div class="ttname"><a href="class_load_test.html#a45267792b727330f8fb47313d577e592">LoadTest::DoNoSuchTest</a></div><div class="ttdeci">bool DoNoSuchTest()</div><div class="ttdef"><b>Definition:</b> LoadTest.cpp:101</div></div>
+<div class="ttc" id="class_load_test_html_a45267792b727330f8fb47313d577e592"><div class="ttname"><a href="class_load_test.html#a45267792b727330f8fb47313d577e592">LoadTest::DoNoSuchTest</a></div><div class="ttdeci">bool DoNoSuchTest()</div><div class="ttdef"><b>Definition:</b> LoadTest.cpp:100</div></div>
 <div class="ttc" id="class_load_test_html_a6f8c7d21eb6886e33e0de8d96d30ddea"><div class="ttname"><a href="class_load_test.html#a6f8c7d21eb6886e33e0de8d96d30ddea">LoadTest::DoGoodTest</a></div><div class="ttdeci">bool DoGoodTest()</div><div class="ttdef"><b>Definition:</b> LoadTest.cpp:60</div></div>
 </div><!-- fragment -->
 </div>

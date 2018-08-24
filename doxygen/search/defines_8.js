@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['my_5fbpftimeval',['MY_BPFTIMEVAL',['../dnscap__common_8h.html#a141d35116a36f3ee3765a9aa0eb3548b',1,'dnscap_common.h']]]
+  ['name_5fmax',['NAME_MAX',['../dirent_8h.html#ac64541bdd81c961304b9babef1402640',1,'dirent.h']]]
 ];
