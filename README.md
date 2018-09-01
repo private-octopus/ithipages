@@ -163,7 +163,5 @@ Sorry, but for the other distributions you will have to clone the sources from G
 
 # Code analysis reports
 
-- Clang static code analysis reports:
-  - [issues found on 2018-08-30 02:41.50](analysis/2018-08-30-024150-4366-1/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 
