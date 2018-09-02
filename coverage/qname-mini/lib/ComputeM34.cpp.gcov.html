@@ -88,20 +88,20 @@
 <span class="lineNum">      26 </span>            : 
 <a name="27"><span class="lineNum">      27 </span>            : static char const * leaked_local_names = &quot;(local host names)&quot;;</a>
 <span class="lineNum">      28 </span>            : 
-<span class="lineNum">      29 </span><span class="lineCov">       2984 : bool metric34_line_is_bigger(metric34_line_t x, metric34_line_t y)</span>
+<span class="lineNum">      29 </span><span class="lineCov">       4508 : bool metric34_line_is_bigger(metric34_line_t x, metric34_line_t y)</span>
 <span class="lineNum">      30 </span>            : {
-<span class="lineNum">      31 </span><span class="lineCov">       2984 :     bool ret = false;</span>
+<span class="lineNum">      31 </span><span class="lineCov">       4508 :     bool ret = false;</span>
 <span class="lineNum">      32 </span>            : 
-<span class="lineNum">      33 </span><span class="lineCov">       2984 :     if (x.frequency &gt; y.frequency)</span>
+<span class="lineNum">      33 </span><span class="lineCov">       4508 :     if (x.frequency &gt; y.frequency)</span>
 <span class="lineNum">      34 </span>            :     {
-<span class="lineNum">      35 </span><span class="lineCov">        298 :         ret = true;</span>
+<span class="lineNum">      35 </span><span class="lineCov">        316 :         ret = true;</span>
 <span class="lineNum">      36 </span>            :     }
-<span class="lineNum">      37 </span><span class="lineCov">       2686 :     else if (x.frequency == y.frequency)</span>
+<span class="lineNum">      37 </span><span class="lineCov">       4192 :     else if (x.frequency == y.frequency)</span>
 <span class="lineNum">      38 </span>            :     {
-<span class="lineNum">      39 </span><span class="lineCov">       2488 :         ret = CaptureSummary::compare_string(x.domain, y.domain) &gt; 0;</span>
+<span class="lineNum">      39 </span><span class="lineCov">       3976 :         ret = CaptureSummary::compare_string(x.domain, y.domain) &gt; 0;</span>
 <span class="lineNum">      40 </span>            :     }
 <span class="lineNum">      41 </span>            : 
-<span class="lineNum">      42 </span><span class="lineCov">       2984 :     return (ret);</span>
+<span class="lineNum">      42 </span><span class="lineCov">       4508 :     return (ret);</span>
 <a name="43"><span class="lineNum">      43 </span>            : }</a>
 <span class="lineNum">      44 </span>            : 
 <span class="lineNum">      45 </span><span class="lineCov">          8 : bool metric8_line_is_bigger(metric8_line_t x, metric8_line_t y)</span>
@@ -161,17 +161,17 @@
 <span class="lineNum">      99 </span><span class="lineCov">          8 :             DnsStats::GetTableName(table_id), &amp;extract);</span>
 <span class="lineNum">     100 </span><span class="lineCov">          8 :         mstring_x-&gt;reserve(extract.size());</span>
 <span class="lineNum">     101 </span>            : 
-<span class="lineNum">     102 </span><span class="lineCov">        534 :         for (size_t i = 0; i &lt; extract.size(); i++)</span>
+<span class="lineNum">     102 </span><span class="lineCov">        704 :         for (size_t i = 0; i &lt; extract.size(); i++)</span>
 <span class="lineNum">     103 </span>            :         {
 <span class="lineNum">     104 </span>            :             metric34_line_t line;
 <span class="lineNum">     105 </span>            : 
-<span class="lineNum">     106 </span><span class="lineCov">        526 :             line.domain[strlen(extract[i]-&gt;key_value)] = 0;</span>
-<span class="lineNum">     107 </span><span class="lineCov">        526 :             line.frequency = ((double)extract[i]-&gt;count) / ((double)nbqueries);</span>
+<span class="lineNum">     106 </span><span class="lineCov">        696 :             line.domain[strlen(extract[i]-&gt;key_value)] = 0;</span>
+<span class="lineNum">     107 </span><span class="lineCov">        696 :             line.frequency = ((double)extract[i]-&gt;count) / ((double)nbqueries);</span>
 <span class="lineNum">     108 </span>            : 
-<span class="lineNum">     109 </span><span class="lineCov">        526 :             if (extract.size() &lt; 8 || line.frequency &gt;= min_share)</span>
+<span class="lineNum">     109 </span><span class="lineCov">        696 :             if (extract.size() &lt; 8 || line.frequency &gt;= min_share)</span>
 <span class="lineNum">     110 </span>            :             {
-<span class="lineNum">     111 </span><span class="lineCov">        328 :                 memcpy(line.domain, extract[i]-&gt;key_value, strlen(extract[i]-&gt;key_value));</span>
-<span class="lineNum">     112 </span><span class="lineCov">        328 :                 mstring_x-&gt;push_back(line);</span>
+<span class="lineNum">     111 </span><span class="lineCov">        498 :                 memcpy(line.domain, extract[i]-&gt;key_value, strlen(extract[i]-&gt;key_value));</span>
+<span class="lineNum">     112 </span><span class="lineCov">        498 :                 mstring_x-&gt;push_back(line);</span>
 <span class="lineNum">     113 </span>            :             }
 <span class="lineNum">     114 </span>            :         }
 <span class="lineNum">     115 </span>            : 
@@ -482,9 +482,9 @@
 <span class="lineNum">     420 </span><span class="lineCov">          6 :             m4_4 -= m4_2[i].frequency;</span>
 <span class="lineNum">     421 </span>            :         }
 <span class="lineNum">     422 </span>            : 
-<span class="lineNum">     423 </span><span class="lineCov">        258 :         for (size_t i = 0; ret &amp;&amp; i &lt; m4_3.size(); i++)</span>
+<span class="lineNum">     423 </span><span class="lineCov">        428 :         for (size_t i = 0; ret &amp;&amp; i &lt; m4_3.size(); i++)</span>
 <span class="lineNum">     424 </span>            :         {
-<span class="lineNum">     425 </span><span class="lineCov">        256 :             m4_4 -= m4_3[i].frequency;</span>
+<span class="lineNum">     425 </span><span class="lineCov">        426 :             m4_4 -= m4_3[i].frequency;</span>
 <span class="lineNum">     426 </span>            :         }
 <span class="lineNum">     427 </span>            : 
 <span class="lineNum">     428 </span><span class="lineCov">          2 :         if (m4_4 &lt; 0)</span>
@@ -510,8 +510,8 @@
 <span class="lineNum">     448 </span><span class="lineCov">          6 :         ret = fprintf(F_out, &quot;M4.2, %s, %6f,\n&quot;, m4_2[i].domain, m4_2[i].frequency) &gt; 0;</span>
 <span class="lineNum">     449 </span>            :     }
 <span class="lineNum">     450 </span>            : 
-<span class="lineNum">     451 </span><span class="lineCov">        258 :     for (size_t i = 0; ret &amp;&amp; i &lt; m4_3.size(); i++) {</span>
-<span class="lineNum">     452 </span><span class="lineCov">        256 :         ret = fprintf(F_out, &quot;M4.3, %s, %6f,\n&quot;, m4_3[i].domain, m4_3[i].frequency) &gt; 0;</span>
+<span class="lineNum">     451 </span><span class="lineCov">        428 :     for (size_t i = 0; ret &amp;&amp; i &lt; m4_3.size(); i++) {</span>
+<span class="lineNum">     452 </span><span class="lineCov">        426 :         ret = fprintf(F_out, &quot;M4.3, %s, %6f,\n&quot;, m4_3[i].domain, m4_3[i].frequency) &gt; 0;</span>
 <span class="lineNum">     453 </span>            :     }
 <span class="lineNum">     454 </span>            : 
 <span class="lineNum">     455 </span><span class="lineCov">          2 :     if (ret) {</span>
