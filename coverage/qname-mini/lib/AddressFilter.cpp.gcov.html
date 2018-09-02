@@ -387,7 +387,7 @@
 <span class="lineNum">     325 </span>            : }
 <a name="326"><span class="lineNum">     326 </span>            : </a>
 <span class="lineNum">     327 </span>            : 
-<span class="lineNum">     328 </span><span class="lineCov">      29718 : StatsByIP::StatsByIP(uint8_t * addr, size_t addr_len, bool has_do, bool has_edns, bool mini_qname) :</span>
+<span class="lineNum">     328 </span><span class="lineCov">      29726 : StatsByIP::StatsByIP(uint8_t * addr, size_t addr_len, bool has_do, bool has_edns, bool mini_qname) :</span>
 <span class="lineNum">     329 </span>            :     HashNext(NULL),
 <span class="lineNum">     330 </span>            :     count(1),
 <span class="lineNum">     331 </span>            :     hash(0),
@@ -395,20 +395,20 @@
 <span class="lineNum">     333 </span>            :     nb_edns((has_edns)?1:0),
 <span class="lineNum">     334 </span>            :     nb_mini_qname((mini_qname)?1:0),
 <span class="lineNum">     335 </span>            :     query_seen(false),
-<span class="lineNum">     336 </span><span class="lineCov">      29718 :     response_seen(false)</span>
+<span class="lineNum">     336 </span><span class="lineCov">      29726 :     response_seen(false)</span>
 <span class="lineNum">     337 </span>            : {
-<span class="lineNum">     338 </span><span class="lineCov">      29718 :     if (addr_len &gt; 16)</span>
+<span class="lineNum">     338 </span><span class="lineCov">      29726 :     if (addr_len &gt; 16)</span>
 <span class="lineNum">     339 </span>            :     {
 <span class="lineNum">     340 </span><span class="lineNoCov">          0 :         addr_len = 16;</span>
 <span class="lineNum">     341 </span>            :     }
 <span class="lineNum">     342 </span>            : 
-<span class="lineNum">     343 </span><span class="lineCov">      29718 :     memcpy(this-&gt;addr, addr, addr_len);</span>
-<span class="lineNum">     344 </span><span class="lineCov">      29718 :     this-&gt;addr_len = addr_len;</span>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">      29718 : }</span></a>
+<span class="lineNum">     343 </span><span class="lineCov">      29726 :     memcpy(this-&gt;addr, addr, addr_len);</span>
+<span class="lineNum">     344 </span><span class="lineCov">      29726 :     this-&gt;addr_len = addr_len;</span>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">      29726 : }</span></a>
 <span class="lineNum">     346 </span>            : 
-<span class="lineNum">     347 </span><span class="lineCov">      34940 : StatsByIP::~StatsByIP()</span>
+<span class="lineNum">     347 </span><span class="lineCov">      34868 : StatsByIP::~StatsByIP()</span>
 <span class="lineNum">     348 </span>            : {
-<a name="349"><span class="lineNum">     349 </span><span class="lineCov">      34940 : }</span></a>
+<a name="349"><span class="lineNum">     349 </span><span class="lineCov">      34868 : }</span></a>
 <span class="lineNum">     350 </span>            : 
 <span class="lineNum">     351 </span><span class="lineCov">      24320 : bool StatsByIP::IsSameKey(StatsByIP * key)</span>
 <span class="lineNum">     352 </span>            : {
@@ -431,21 +431,21 @@
 <span class="lineNum">     369 </span>            : }
 <a name="370"><span class="lineNum">     370 </span>            : </a>
 <span class="lineNum">     371 </span>            : 
-<span class="lineNum">     372 </span><span class="lineCov">       5134 : StatsByIP * StatsByIP::CreateCopy()</span>
+<span class="lineNum">     372 </span><span class="lineCov">       5142 : StatsByIP * StatsByIP::CreateCopy()</span>
 <span class="lineNum">     373 </span>            : {
-<span class="lineNum">     374 </span><span class="lineCov">       5134 :     StatsByIP * x = new StatsByIP(addr, addr_len, false, false, false);</span>
+<span class="lineNum">     374 </span><span class="lineCov">       5142 :     StatsByIP * x = new StatsByIP(addr, addr_len, false, false, false);</span>
 <span class="lineNum">     375 </span>            : 
-<span class="lineNum">     376 </span><span class="lineCov">       5134 :     if (x != NULL)</span>
+<span class="lineNum">     376 </span><span class="lineCov">       5142 :     if (x != NULL)</span>
 <span class="lineNum">     377 </span>            :     {
-<span class="lineNum">     378 </span><span class="lineCov">       5134 :         x-&gt;hash = hash;</span>
-<span class="lineNum">     379 </span><span class="lineCov">       5134 :         x-&gt;nb_do = nb_do;</span>
-<span class="lineNum">     380 </span><span class="lineCov">       5134 :         x-&gt;nb_edns = nb_edns;</span>
-<span class="lineNum">     381 </span><span class="lineCov">       5134 :         x-&gt;nb_mini_qname = nb_mini_qname;</span>
-<span class="lineNum">     382 </span><span class="lineCov">       5134 :         x-&gt;query_seen = query_seen;</span>
-<span class="lineNum">     383 </span><span class="lineCov">       5134 :         x-&gt;response_seen = response_seen;</span>
+<span class="lineNum">     378 </span><span class="lineCov">       5142 :         x-&gt;hash = hash;</span>
+<span class="lineNum">     379 </span><span class="lineCov">       5142 :         x-&gt;nb_do = nb_do;</span>
+<span class="lineNum">     380 </span><span class="lineCov">       5142 :         x-&gt;nb_edns = nb_edns;</span>
+<span class="lineNum">     381 </span><span class="lineCov">       5142 :         x-&gt;nb_mini_qname = nb_mini_qname;</span>
+<span class="lineNum">     382 </span><span class="lineCov">       5142 :         x-&gt;query_seen = query_seen;</span>
+<span class="lineNum">     383 </span><span class="lineCov">       5142 :         x-&gt;response_seen = response_seen;</span>
 <span class="lineNum">     384 </span>            :     }
 <span class="lineNum">     385 </span>            : 
-<span class="lineNum">     386 </span><span class="lineCov">       5134 :     return x;</span>
+<span class="lineNum">     386 </span><span class="lineCov">       5142 :     return x;</span>
 <a name="387"><span class="lineNum">     387 </span>            : }</a>
 <span class="lineNum">     388 </span>            : 
 <span class="lineNum">     389 </span><span class="lineCov">      12014 : void StatsByIP::Add(StatsByIP * key)</span>
