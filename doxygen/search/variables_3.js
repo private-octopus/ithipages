@@ -17,7 +17,6 @@ var searchData=
   ['dnsprefixtable',['dnsPrefixTable',['../class_dns_stats.html#a48c9fd269fb2b365fe052987ac816899',1,'DnsStats']]],
   ['dnsprefixtestlist',['dnsPrefixTestList',['../_dns_prefix_test_8cpp.html#a43fb7023718b80b693ba79a08600faf6',1,'DnsPrefixTest.cpp']]],
   ['dnssec_5fname_5findex',['dnssec_name_index',['../class_dns_stats.html#a0e59b4467667c12338eb944c7e68bf19',1,'DnsStats']]],
-  ['dnssecaddresstable',['dnssecAddressTable',['../class_dns_stats.html#a7e8798d4d00a6847bbc9dac34a3aad4c',1,'DnsStats']]],
   ['dnssecprefixtable',['dnssecPrefixTable',['../class_dns_stats.html#a11a969c9f740a29493e469c471ef92d2',1,'DnsStats']]],
   ['dnsstat_5fflags',['dnsstat_flags',['../class_dns_stats.html#a49160d66ab07b64a37d5dbc93674c47c',1,'DnsStats']]],
   ['domain',['domain',['../struct__st__metric34__line__t.html#a7ebca330d73753612c4f336de778e257',1,'_st_metric34_line_t']]],

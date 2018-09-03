@@ -15,7 +15,7 @@ var searchData=
   ['firstnotice',['firstNotice',['../class_m1_data.html#addf381fea7ab8f7caf0e851fb564f07f',1,'M1Data']]],
   ['fragment_5flength',['fragment_length',['../classpcap__reader.html#af7306ef51f3d72db8ff33630db9725cb',1,'pcap_reader']]],
   ['frame_5fheader',['frame_header',['../classpcap__reader.html#a719ed8e5a1a3397253b4768cbcb690cf',1,'pcap_reader']]],
-  ['frequency',['frequency',['../struct__st__metric34__line__t.html#a61a03021e5f7657dccb24f64a8a8b9bd',1,'_st_metric34_line_t::frequency()'],['../struct__metric__line.html#a30c84ef2819f55957613a8e909d7a915',1,'_metric_line::frequency()']]],
+  ['frequency',['frequency',['../struct__st__metric34__line__t.html#a61a03021e5f7657dccb24f64a8a8b9bd',1,'_st_metric34_line_t::frequency()'],['../struct__st__metric8__line__t.html#a055b12805f6ff6893a08fda8d9587dec',1,'_st_metric8_line_t::frequency()'],['../struct__metric__line.html#a30c84ef2819f55957613a8e909d7a915',1,'_metric_line::frequency()']]],
   ['frequent_5faddress_5fmax_5fcount',['frequent_address_max_count',['../class_dns_stats.html#a55b828d8ac52cd3aebba8f521c79de4d',1,'DnsStats']]],
   ['frequentaddresses',['frequentAddresses',['../class_dns_stats.html#aadc3238e0cee58f2773a55081cccfc27',1,'DnsStats']]],
   ['frequently_5fleaked_5ftld',['frequently_leaked_tld',['../_capture_summary_8cpp.html#a1b5bb019370397b105451b0a58f7abdd',1,'CaptureSummary.cpp']]],

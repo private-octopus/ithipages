@@ -10,6 +10,7 @@ var searchData=
   ['mergelisttest',['MergeListTest',['../class_merge_list_test.html#ae078ab2b08b16dc76a70b74b62fbe8c5',1,'MergeListTest']]],
   ['mergetest',['MergeTest',['../class_merge_test.html#ade9db876c3082585b6b6271e07bc07b6',1,'MergeTest']]],
   ['metric34_5fline_5fis_5fbigger',['metric34_line_is_bigger',['../_compute_m34_8cpp.html#a30a2625d037cfda1589acc3aa07e40bd',1,'ComputeM34.cpp']]],
+  ['metric8_5fline_5fis_5fbigger',['metric8_line_is_bigger',['../_compute_m34_8cpp.html#abb8ece4c67ba43d84bff7381d1a25c7d',1,'ComputeM34.cpp']]],
   ['metriccapturefiletest',['MetricCaptureFileTest',['../class_metric_capture_file_test.html#a7d6a3b899576839c64523546d784a2b4',1,'MetricCaptureFileTest']]],
   ['metricdatetest',['MetricDateTest',['../class_metric_date_test.html#a06aee34e0c81c814b05d49a16b5a248b',1,'MetricDateTest']]],
   ['metricfileisearlier',['MetricFileIsEarlier',['../classithipublisher.html#a3e3e36aae12e9b24cd17bf1afb52533c',1,'ithipublisher']]],

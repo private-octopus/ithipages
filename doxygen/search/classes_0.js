@@ -10,6 +10,7 @@ var searchData=
   ['_5fst_5fmetric6_5fline_5ft',['_st_metric6_line_t',['../struct__st__metric6__line__t.html',1,'']]],
   ['_5fst_5fmetric6_5fparameter',['_st_metric6_parameter',['../struct__st__metric6__parameter.html',1,'']]],
   ['_5fst_5fmetric6_5fregistered_5ft',['_st_metric6_registered_t',['../struct__st__metric6__registered__t.html',1,'']]],
+  ['_5fst_5fmetric8_5fline_5ft',['_st_metric8_line_t',['../struct__st__metric8__line__t.html',1,'']]],
   ['_5fwdir',['_WDIR',['../struct___w_d_i_r.html',1,'']]],
   ['_5fwdirent',['_wdirent',['../struct__wdirent.html',1,'']]]
 ];

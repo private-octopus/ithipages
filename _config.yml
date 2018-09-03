@@ -294,6 +294,28 @@ include:
   - _publish_test_8h__incl.map
   - _publish_test_8h__incl.md5
   - _publish_test_8h__incl.png
+  - _q_name_minimization_8cpp.html
+  - _q_name_minimization_8cpp__incl.map
+  - _q_name_minimization_8cpp__incl.md5
+  - _q_name_minimization_8cpp__incl.png
+  - _q_name_minimization_8h__dep__incl.map
+  - _q_name_minimization_8h__dep__incl.md5
+  - _q_name_minimization_8h__dep__incl.png
+  - _q_name_minimization_8h.html
+  - _q_name_minimization_8h__incl.map
+  - _q_name_minimization_8h__incl.md5
+  - _q_name_minimization_8h__incl.png
+  - _q_name_test_8cpp.html
+  - _q_name_test_8cpp__incl.map
+  - _q_name_test_8cpp__incl.md5
+  - _q_name_test_8cpp__incl.png
+  - _q_name_test_8h__dep__incl.map
+  - _q_name_test_8h__dep__incl.md5
+  - _q_name_test_8h__dep__incl.png
+  - _q_name_test_8h.html
+  - _q_name_test_8h__incl.map
+  - _q_name_test_8h__incl.md5
+  - _q_name_test_8h__incl.png
   - _r_e_a_d_m_e_8md.html
   - _save_test_8cpp.html
   - _save_test_8cpp__incl.map
@@ -306,6 +328,17 @@ include:
   - _save_test_8h__incl.map
   - _save_test_8h__incl.md5
   - _save_test_8h__incl.png
+  - _stats_by_ip_test_8cpp.html
+  - _stats_by_ip_test_8cpp__incl.map
+  - _stats_by_ip_test_8cpp__incl.md5
+  - _stats_by_ip_test_8cpp__incl.png
+  - _stats_by_ip_test_8h__dep__incl.map
+  - _stats_by_ip_test_8h__dep__incl.md5
+  - _stats_by_ip_test_8h__dep__incl.png
+  - _stats_by_ip_test_8h.html
+  - _stats_by_ip_test_8h__incl.map
+  - _stats_by_ip_test_8h__incl.md5
+  - _stats_by_ip_test_8h__incl.png
   - _tld_as_key_8h__dep__incl.map
   - _tld_as_key_8h__dep__incl.md5
   - _tld_as_key_8h__dep__incl.png

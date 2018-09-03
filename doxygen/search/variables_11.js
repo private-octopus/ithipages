@@ -32,6 +32,7 @@ var searchData=
   ['registrynamebyid',['RegistryNameById',['../_dns_stats_8cpp.html#ad3dff8ccf079c24f3b59f5a6390fc0a5',1,'DnsStats.cpp']]],
   ['registrynamebyidnb',['RegistryNameByIdNb',['../_dns_stats_8cpp.html#ae5898fdd895840f11e267c87158609a8',1,'DnsStats.cpp']]],
   ['response_5fcount',['response_count',['../class_dns_stats.html#a8b8c760582daf0d3af840d28bf084bb2',1,'DnsStats']]],
+  ['response_5fseen',['response_seen',['../class_stats_by_i_p.html#a7eb59da3588d08922e2633623bbb1613',1,'StatsByIP']]],
   ['result',['result',['../structst__m2__data__test__case__t.html#aa87d6de1fb36f642b36a39cda2bf4c6b',1,'st_m2_data_test_case_t']]],
   ['rfc6761_5ftld',['rfc6761_tld',['../_dns_stats_8cpp.html#a983925048d7a16591cbce159b0acaec3',1,'DnsStats.cpp']]],
   ['root_5fcapture_5ffile_5fname',['root_capture_file_name',['../classithimetrics.html#a532e3e6ad59dcfcf755c4bc4f566760e',1,'ithimetrics']]],

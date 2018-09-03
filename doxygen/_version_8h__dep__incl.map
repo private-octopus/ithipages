@@ -1,4 +1,6 @@
 <map id="lib/Version.h" name="lib/Version.h">
-<area shape="rect" id="node2" href="$_capture_summary_8cpp.html" title="lib/CaptureSummary.cpp" alt="" coords="5,80,171,107"/>
-<area shape="rect" id="node3" href="$_dns_stats_8cpp.html" title="lib/DnsStats.cpp" alt="" coords="195,80,313,107"/>
+<area shape="rect" id="node2" href="$ithitools_8cpp.html" title="src/ithitools.cpp" alt="" coords="5,80,120,107"/>
+<area shape="rect" id="node3" href="$_capture_summary_8cpp.html" title="lib/CaptureSummary.cpp" alt="" coords="145,80,311,107"/>
+<area shape="rect" id="node4" href="$_dnscap_plug_in_8cpp.html" title="lib/DnscapPlugIn.cpp" alt="" coords="336,80,483,107"/>
+<area shape="rect" id="node5" href="$_dns_stats_8cpp.html" title="lib/DnsStats.cpp" alt="" coords="507,80,625,107"/>
 </map>

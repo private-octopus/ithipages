@@ -21,5 +21,6 @@ var searchData=
   ['publishdatam7',['PublishDataM7',['../classithipublisher.html#acaf3832236c038b3c09fda13640d75a1',1,'ithipublisher']]],
   ['publishdatam8',['PublishDataM8',['../classithipublisher.html#ac436a906dba80fe8262ca2078b0df274',1,'ithipublisher']]],
   ['publishmetricfile',['PublishMetricFile',['../class_odi_publisher.html#acaf93a545b7b73a899817368695c4b2b',1,'OdiPublisher']]],
+  ['publishopttable',['PublishOptTable',['../classithipublisher.html#a3389b65a475c86331eae22c7e44d7300',1,'ithipublisher']]],
   ['publishtest',['PublishTest',['../class_publish_test.html#a389aa87f6dd9fe1c044318e59e317c9e',1,'PublishTest']]]
 ];

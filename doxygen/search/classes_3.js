@@ -2,6 +2,7 @@ var searchData=
 [
   ['capturesummary',['CaptureSummary',['../class_capture_summary.html',1,'']]],
   ['capturetest',['CaptureTest',['../class_capture_test.html',1,'']]],
+  ['cmpnametest',['CmpNameTest',['../class_cmp_name_test.html',1,'']]],
   ['computem1',['ComputeM1',['../class_compute_m1.html',1,'']]],
   ['computem2',['ComputeM2',['../class_compute_m2.html',1,'']]],
   ['computem3',['ComputeM3',['../class_compute_m3.html',1,'']]],

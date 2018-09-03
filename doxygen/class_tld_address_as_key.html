@@ -167,29 +167,29 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01806"></a><span class="lineno"> 1806</span>&#160;    :</div>
-<div class="line"><a name="l01807"></a><span class="lineno"> 1807</span>&#160;    <a class="code" href="class_tld_address_as_key.html#a283711f1d3dc4ad22966dce3effe306e">HashNext</a>(NULL),</div>
-<div class="line"><a name="l01808"></a><span class="lineno"> 1808</span>&#160;    <a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a>(1),</div>
-<div class="line"><a name="l01809"></a><span class="lineno"> 1809</span>&#160;    <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a>(0)</div>
-<div class="line"><a name="l01810"></a><span class="lineno"> 1810</span>&#160;{</div>
-<div class="line"><a name="l01811"></a><span class="lineno"> 1811</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> &gt; 16)</div>
-<div class="line"><a name="l01812"></a><span class="lineno"> 1812</span>&#160;    {</div>
-<div class="line"><a name="l01813"></a><span class="lineno"> 1813</span>&#160;        <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> = 16;</div>
-<div class="line"><a name="l01814"></a><span class="lineno"> 1814</span>&#160;    }</div>
-<div class="line"><a name="l01815"></a><span class="lineno"> 1815</span>&#160;</div>
-<div class="line"><a name="l01816"></a><span class="lineno"> 1816</span>&#160;    memcpy(this-&gt;<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, <a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>);</div>
-<div class="line"><a name="l01817"></a><span class="lineno"> 1817</span>&#160;    this-&gt;<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> = <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>;</div>
-<div class="line"><a name="l01818"></a><span class="lineno"> 1818</span>&#160;</div>
-<div class="line"><a name="l01819"></a><span class="lineno"> 1819</span>&#160;    <a class="code" href="class_tld_as_key.html#a2450b612cf904e3fe8cda81a70a66741">TldAsKey::CanonicCopy</a>(this-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, <span class="keyword">sizeof</span>(this-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>) - 1, &amp;this-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>, <a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, <a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>);</div>
-<div class="line"><a name="l01820"></a><span class="lineno"> 1820</span>&#160;}</div>
-<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:194</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:192</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:191</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a283711f1d3dc4ad22966dce3effe306e"><div class="ttname"><a href="class_tld_address_as_key.html#a283711f1d3dc4ad22966dce3effe306e">TldAddressAsKey::HashNext</a></div><div class="ttdeci">TldAddressAsKey * HashNext</div><div class="ttdef"><b>Definition:</b> DnsStats.h:189</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:193</div></div>
-<div class="ttc" id="class_tld_as_key_html_a2450b612cf904e3fe8cda81a70a66741"><div class="ttname"><a href="class_tld_as_key.html#a2450b612cf904e3fe8cda81a70a66741">TldAsKey::CanonicCopy</a></div><div class="ttdeci">static void CanonicCopy(uint8_t *tldDest, size_t tldDestMax, size_t *tldDestLength, uint8_t *tldSrce, size_t tldSrceLength)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1782</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a100ee5134a8a35fe4beb7e0282a1629a"><div class="ttname"><a href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">TldAddressAsKey::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:195</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a854e064c185b5ff847b0ca1cc54daf37"><div class="ttname"><a href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">TldAddressAsKey::hash</a></div><div class="ttdeci">uint32_t hash</div><div class="ttdef"><b>Definition:</b> DnsStats.h:196</div></div>
+<div class="fragment"><div class="line"><a name="l01958"></a><span class="lineno"> 1958</span>&#160;    :</div>
+<div class="line"><a name="l01959"></a><span class="lineno"> 1959</span>&#160;    <a class="code" href="class_tld_address_as_key.html#a283711f1d3dc4ad22966dce3effe306e">HashNext</a>(NULL),</div>
+<div class="line"><a name="l01960"></a><span class="lineno"> 1960</span>&#160;    <a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a>(1),</div>
+<div class="line"><a name="l01961"></a><span class="lineno"> 1961</span>&#160;    <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a>(0)</div>
+<div class="line"><a name="l01962"></a><span class="lineno"> 1962</span>&#160;{</div>
+<div class="line"><a name="l01963"></a><span class="lineno"> 1963</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> &gt; 16)</div>
+<div class="line"><a name="l01964"></a><span class="lineno"> 1964</span>&#160;    {</div>
+<div class="line"><a name="l01965"></a><span class="lineno"> 1965</span>&#160;        <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> = 16;</div>
+<div class="line"><a name="l01966"></a><span class="lineno"> 1966</span>&#160;    }</div>
+<div class="line"><a name="l01967"></a><span class="lineno"> 1967</span>&#160;</div>
+<div class="line"><a name="l01968"></a><span class="lineno"> 1968</span>&#160;    memcpy(this-&gt;<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, <a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>);</div>
+<div class="line"><a name="l01969"></a><span class="lineno"> 1969</span>&#160;    this-&gt;<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> = <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>;</div>
+<div class="line"><a name="l01970"></a><span class="lineno"> 1970</span>&#160;</div>
+<div class="line"><a name="l01971"></a><span class="lineno"> 1971</span>&#160;    <a class="code" href="class_tld_as_key.html#a2450b612cf904e3fe8cda81a70a66741">TldAsKey::CanonicCopy</a>(this-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, <span class="keyword">sizeof</span>(this-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>) - 1, &amp;this-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>, <a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, <a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>);</div>
+<div class="line"><a name="l01972"></a><span class="lineno"> 1972</span>&#160;}</div>
+<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:198</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:196</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:195</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a283711f1d3dc4ad22966dce3effe306e"><div class="ttname"><a href="class_tld_address_as_key.html#a283711f1d3dc4ad22966dce3effe306e">TldAddressAsKey::HashNext</a></div><div class="ttdeci">TldAddressAsKey * HashNext</div><div class="ttdef"><b>Definition:</b> DnsStats.h:193</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:197</div></div>
+<div class="ttc" id="class_tld_as_key_html_a2450b612cf904e3fe8cda81a70a66741"><div class="ttname"><a href="class_tld_as_key.html#a2450b612cf904e3fe8cda81a70a66741">TldAsKey::CanonicCopy</a></div><div class="ttdeci">static void CanonicCopy(uint8_t *tldDest, size_t tldDestMax, size_t *tldDestLength, uint8_t *tldSrce, size_t tldSrceLength)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1934</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a100ee5134a8a35fe4beb7e0282a1629a"><div class="ttname"><a href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">TldAddressAsKey::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:199</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a854e064c185b5ff847b0ca1cc54daf37"><div class="ttname"><a href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">TldAddressAsKey::hash</a></div><div class="ttdeci">uint32_t hash</div><div class="ttdef"><b>Definition:</b> DnsStats.h:200</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -205,8 +205,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01823"></a><span class="lineno"> 1823</span>&#160;{</div>
-<div class="line"><a name="l01824"></a><span class="lineno"> 1824</span>&#160;}</div>
+<div class="fragment"><div class="line"><a name="l01975"></a><span class="lineno"> 1975</span>&#160;{</div>
+<div class="line"><a name="l01976"></a><span class="lineno"> 1976</span>&#160;}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -224,10 +224,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01869"></a><span class="lineno"> 1869</span>&#160;{</div>
-<div class="line"><a name="l01870"></a><span class="lineno"> 1870</span>&#160;    this-&gt;<a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a> += key-&gt;<a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a>;</div>
-<div class="line"><a name="l01871"></a><span class="lineno"> 1871</span>&#160;}</div>
-<div class="ttc" id="class_tld_address_as_key_html_a100ee5134a8a35fe4beb7e0282a1629a"><div class="ttname"><a href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">TldAddressAsKey::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:195</div></div>
+<div class="fragment"><div class="line"><a name="l02021"></a><span class="lineno"> 2021</span>&#160;{</div>
+<div class="line"><a name="l02022"></a><span class="lineno"> 2022</span>&#160;    this-&gt;<a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a> += key-&gt;<a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a>;</div>
+<div class="line"><a name="l02023"></a><span class="lineno"> 2023</span>&#160;}</div>
+<div class="ttc" id="class_tld_address_as_key_html_a100ee5134a8a35fe4beb7e0282a1629a"><div class="ttname"><a href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">TldAddressAsKey::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:199</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -243,23 +243,23 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01857"></a><span class="lineno"> 1857</span>&#160;{</div>
-<div class="line"><a name="l01858"></a><span class="lineno"> 1858</span>&#160;    <a class="code" href="class_tld_address_as_key.html">TldAddressAsKey</a>* ret = <span class="keyword">new</span> <a class="code" href="class_tld_address_as_key.html#a31ff481a6aae89b7a74264026d93c1ad">TldAddressAsKey</a>(<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>, <a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, <a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>);</div>
-<div class="line"><a name="l01859"></a><span class="lineno"> 1859</span>&#160;</div>
-<div class="line"><a name="l01860"></a><span class="lineno"> 1860</span>&#160;    <span class="keywordflow">if</span> (ret != NULL)</div>
-<div class="line"><a name="l01861"></a><span class="lineno"> 1861</span>&#160;    {</div>
-<div class="line"><a name="l01862"></a><span class="lineno"> 1862</span>&#160;        ret-&gt;<a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a> = <a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a>;</div>
-<div class="line"><a name="l01863"></a><span class="lineno"> 1863</span>&#160;    }</div>
-<div class="line"><a name="l01864"></a><span class="lineno"> 1864</span>&#160;</div>
-<div class="line"><a name="l01865"></a><span class="lineno"> 1865</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l01866"></a><span class="lineno"> 1866</span>&#160;}</div>
-<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:194</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:192</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:191</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a31ff481a6aae89b7a74264026d93c1ad"><div class="ttname"><a href="class_tld_address_as_key.html#a31ff481a6aae89b7a74264026d93c1ad">TldAddressAsKey::TldAddressAsKey</a></div><div class="ttdeci">TldAddressAsKey(uint8_t *addr, size_t addr_len, uint8_t *tld, size_t tld_len)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1805</div></div>
-<div class="ttc" id="class_tld_address_as_key_html"><div class="ttname"><a href="class_tld_address_as_key.html">TldAddressAsKey</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:178</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:193</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a100ee5134a8a35fe4beb7e0282a1629a"><div class="ttname"><a href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">TldAddressAsKey::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:195</div></div>
+<div class="fragment"><div class="line"><a name="l02009"></a><span class="lineno"> 2009</span>&#160;{</div>
+<div class="line"><a name="l02010"></a><span class="lineno"> 2010</span>&#160;    <a class="code" href="class_tld_address_as_key.html">TldAddressAsKey</a>* ret = <span class="keyword">new</span> <a class="code" href="class_tld_address_as_key.html#a31ff481a6aae89b7a74264026d93c1ad">TldAddressAsKey</a>(<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>, <a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, <a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>);</div>
+<div class="line"><a name="l02011"></a><span class="lineno"> 2011</span>&#160;</div>
+<div class="line"><a name="l02012"></a><span class="lineno"> 2012</span>&#160;    <span class="keywordflow">if</span> (ret != NULL)</div>
+<div class="line"><a name="l02013"></a><span class="lineno"> 2013</span>&#160;    {</div>
+<div class="line"><a name="l02014"></a><span class="lineno"> 2014</span>&#160;        ret-&gt;<a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a> = <a class="code" href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">count</a>;</div>
+<div class="line"><a name="l02015"></a><span class="lineno"> 2015</span>&#160;    }</div>
+<div class="line"><a name="l02016"></a><span class="lineno"> 2016</span>&#160;</div>
+<div class="line"><a name="l02017"></a><span class="lineno"> 2017</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l02018"></a><span class="lineno"> 2018</span>&#160;}</div>
+<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:198</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:196</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:195</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a31ff481a6aae89b7a74264026d93c1ad"><div class="ttname"><a href="class_tld_address_as_key.html#a31ff481a6aae89b7a74264026d93c1ad">TldAddressAsKey::TldAddressAsKey</a></div><div class="ttdeci">TldAddressAsKey(uint8_t *addr, size_t addr_len, uint8_t *tld, size_t tld_len)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1957</div></div>
+<div class="ttc" id="class_tld_address_as_key_html"><div class="ttname"><a href="class_tld_address_as_key.html">TldAddressAsKey</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:182</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:197</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a100ee5134a8a35fe4beb7e0282a1629a"><div class="ttname"><a href="class_tld_address_as_key.html#a100ee5134a8a35fe4beb7e0282a1629a">TldAddressAsKey::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:199</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -275,30 +275,30 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01837"></a><span class="lineno"> 1837</span>&#160;{</div>
-<div class="line"><a name="l01838"></a><span class="lineno"> 1838</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> == 0)</div>
-<div class="line"><a name="l01839"></a><span class="lineno"> 1839</span>&#160;    {</div>
-<div class="line"><a name="l01840"></a><span class="lineno"> 1840</span>&#160;        <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> = 0xCACAB0B0;</div>
-<div class="line"><a name="l01841"></a><span class="lineno"> 1841</span>&#160;</div>
-<div class="line"><a name="l01842"></a><span class="lineno"> 1842</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; <a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
-<div class="line"><a name="l01843"></a><span class="lineno"> 1843</span>&#160;        {</div>
-<div class="line"><a name="l01844"></a><span class="lineno"> 1844</span>&#160;            <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> = <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> * 101 + <a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>];</div>
-<div class="line"><a name="l01845"></a><span class="lineno"> 1845</span>&#160;        }</div>
-<div class="line"><a name="l01846"></a><span class="lineno"> 1846</span>&#160;</div>
-<div class="line"><a name="l01847"></a><span class="lineno"> 1847</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
-<div class="line"><a name="l01848"></a><span class="lineno"> 1848</span>&#160;        {</div>
-<div class="line"><a name="l01849"></a><span class="lineno"> 1849</span>&#160;            <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> = <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> * 101 + <a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>];</div>
-<div class="line"><a name="l01850"></a><span class="lineno"> 1850</span>&#160;        }</div>
-<div class="line"><a name="l01851"></a><span class="lineno"> 1851</span>&#160;    }</div>
-<div class="line"><a name="l01852"></a><span class="lineno"> 1852</span>&#160;</div>
-<div class="line"><a name="l01853"></a><span class="lineno"> 1853</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a>;</div>
-<div class="line"><a name="l01854"></a><span class="lineno"> 1854</span>&#160;}</div>
-<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:194</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:192</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:191</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:193</div></div>
+<div class="fragment"><div class="line"><a name="l01989"></a><span class="lineno"> 1989</span>&#160;{</div>
+<div class="line"><a name="l01990"></a><span class="lineno"> 1990</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> == 0)</div>
+<div class="line"><a name="l01991"></a><span class="lineno"> 1991</span>&#160;    {</div>
+<div class="line"><a name="l01992"></a><span class="lineno"> 1992</span>&#160;        <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> = 0xCACAB0B0;</div>
+<div class="line"><a name="l01993"></a><span class="lineno"> 1993</span>&#160;</div>
+<div class="line"><a name="l01994"></a><span class="lineno"> 1994</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; <a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a>; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
+<div class="line"><a name="l01995"></a><span class="lineno"> 1995</span>&#160;        {</div>
+<div class="line"><a name="l01996"></a><span class="lineno"> 1996</span>&#160;            <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> = <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> * 101 + <a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>];</div>
+<div class="line"><a name="l01997"></a><span class="lineno"> 1997</span>&#160;        }</div>
+<div class="line"><a name="l01998"></a><span class="lineno"> 1998</span>&#160;</div>
+<div class="line"><a name="l01999"></a><span class="lineno"> 1999</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; <a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a>; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
+<div class="line"><a name="l02000"></a><span class="lineno"> 2000</span>&#160;        {</div>
+<div class="line"><a name="l02001"></a><span class="lineno"> 2001</span>&#160;            <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> = <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a> * 101 + <a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>];</div>
+<div class="line"><a name="l02002"></a><span class="lineno"> 2002</span>&#160;        }</div>
+<div class="line"><a name="l02003"></a><span class="lineno"> 2003</span>&#160;    }</div>
+<div class="line"><a name="l02004"></a><span class="lineno"> 2004</span>&#160;</div>
+<div class="line"><a name="l02005"></a><span class="lineno"> 2005</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">hash</a>;</div>
+<div class="line"><a name="l02006"></a><span class="lineno"> 2006</span>&#160;}</div>
+<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:198</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:196</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:195</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:197</div></div>
 <div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:58</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a854e064c185b5ff847b0ca1cc54daf37"><div class="ttname"><a href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">TldAddressAsKey::hash</a></div><div class="ttdeci">uint32_t hash</div><div class="ttdef"><b>Definition:</b> DnsStats.h:196</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a854e064c185b5ff847b0ca1cc54daf37"><div class="ttname"><a href="class_tld_address_as_key.html#a854e064c185b5ff847b0ca1cc54daf37">TldAddressAsKey::hash</a></div><div class="ttdeci">uint32_t hash</div><div class="ttdef"><b>Definition:</b> DnsStats.h:200</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -315,18 +315,18 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l01827"></a><span class="lineno"> 1827</span>&#160;{</div>
-<div class="line"><a name="l01828"></a><span class="lineno"> 1828</span>&#160;    <span class="keywordtype">bool</span> ret = (this-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a> == key-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a> &amp;&amp;</div>
-<div class="line"><a name="l01829"></a><span class="lineno"> 1829</span>&#160;        (this-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a> == 0 || memcmp(this-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, key-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, this-&gt;tld_len) == 0) &amp;&amp;</div>
-<div class="line"><a name="l01830"></a><span class="lineno"> 1830</span>&#160;        this-&gt;<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> == key-&gt;<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> &amp;&amp;</div>
-<div class="line"><a name="l01831"></a><span class="lineno"> 1831</span>&#160;        memcmp(this-&gt;<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, key-&gt;<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, this-&gt;addr_len) == 0);</div>
-<div class="line"><a name="l01832"></a><span class="lineno"> 1832</span>&#160;</div>
-<div class="line"><a name="l01833"></a><span class="lineno"> 1833</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l01834"></a><span class="lineno"> 1834</span>&#160;}</div>
-<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:194</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:192</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:191</div></div>
-<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:193</div></div>
+<div class="fragment"><div class="line"><a name="l01979"></a><span class="lineno"> 1979</span>&#160;{</div>
+<div class="line"><a name="l01980"></a><span class="lineno"> 1980</span>&#160;    <span class="keywordtype">bool</span> ret = (this-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a> == key-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a> &amp;&amp;</div>
+<div class="line"><a name="l01981"></a><span class="lineno"> 1981</span>&#160;        (this-&gt;<a class="code" href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">tld_len</a> == 0 || memcmp(this-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, key-&gt;<a class="code" href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">tld</a>, this-&gt;tld_len) == 0) &amp;&amp;</div>
+<div class="line"><a name="l01982"></a><span class="lineno"> 1982</span>&#160;        this-&gt;<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> == key-&gt;<a class="code" href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">addr_len</a> &amp;&amp;</div>
+<div class="line"><a name="l01983"></a><span class="lineno"> 1983</span>&#160;        memcmp(this-&gt;<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, key-&gt;<a class="code" href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">addr</a>, this-&gt;addr_len) == 0);</div>
+<div class="line"><a name="l01984"></a><span class="lineno"> 1984</span>&#160;</div>
+<div class="line"><a name="l01985"></a><span class="lineno"> 1985</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l01986"></a><span class="lineno"> 1986</span>&#160;}</div>
+<div class="ttc" id="class_tld_address_as_key_html_a0ca30d816226d0be326b1e3b9af043b8"><div class="ttname"><a href="class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8">TldAddressAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:198</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a166bccba91c90ff3f3b4dd60ae0c2fb3"><div class="ttname"><a href="class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3">TldAddressAsKey::addr</a></div><div class="ttdeci">uint8_t addr[16]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:196</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_a0b7c9bca0364288dbd0a3b9d466acca8"><div class="ttname"><a href="class_tld_address_as_key.html#a0b7c9bca0364288dbd0a3b9d466acca8">TldAddressAsKey::addr_len</a></div><div class="ttdeci">size_t addr_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:195</div></div>
+<div class="ttc" id="class_tld_address_as_key_html_ae397f0d0cba0c75183c11091b724052d"><div class="ttname"><a href="class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d">TldAddressAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> DnsStats.h:197</div></div>
 </div><!-- fragment -->
 </div>
 </div>

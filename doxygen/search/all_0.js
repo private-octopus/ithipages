@@ -23,6 +23,7 @@ var searchData=
   ['_5fst_5fmetric6_5fline_5ft',['_st_metric6_line_t',['../struct__st__metric6__line__t.html',1,'']]],
   ['_5fst_5fmetric6_5fparameter',['_st_metric6_parameter',['../struct__st__metric6__parameter.html',1,'']]],
   ['_5fst_5fmetric6_5fregistered_5ft',['_st_metric6_registered_t',['../struct__st__metric6__registered__t.html',1,'']]],
+  ['_5fst_5fmetric8_5fline_5ft',['_st_metric8_line_t',['../struct__st__metric8__line__t.html',1,'']]],
   ['_5fwclosedir',['_wclosedir',['../dirent_8h.html#ad94806a93f9e8280fb5c7f692d6542bb',1,'dirent.h']]],
   ['_5fwdir',['_WDIR',['../struct___w_d_i_r.html',1,'_WDIR'],['../dirent_8h.html#a29ac3d7a7c3ecfd3db9de331f5b71279',1,'_WDIR():&#160;dirent.h']]],
   ['_5fwdirent',['_wdirent',['../struct__wdirent.html',1,'_wdirent'],['../dirent_8h.html#a7083dcfe4c262f51d7b4e065df46ebc5',1,'_wdirent():&#160;dirent.h']]],
