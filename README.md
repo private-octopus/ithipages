@@ -163,17 +163,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
 
 # Code analysis reports
 
-- Clang static code analysis reports:
-  - [issues found on 2018-08-30 02:41.50](analysis/2018-08-30-024150-4366-1/index.html)
-  - [issues found on 2018-09-01 19:38.30](analysis/2018-09-01-193830-4668-1/index.html)
-  - [issues found on 2018-09-01 22:55.50](analysis/2018-09-01-225550-4676-1/index.html)
-  - [issues found on 2018-09-02 02:05.20](analysis/2018-09-02-020520-4679-1/index.html)
-  - [issues found on 2018-09-02 02:41.33](analysis/2018-09-02-024133-4677-1/index.html)
 - Code coverage from `ithitest` program:
-  - [from branch doc-on-website](coverage/doc-on-website/index.html)
   - [from branch master](coverage/master/index.html)
-  - [from branch publish-from-repo-branches-only](coverage/publish-from-repo-branches-only/index.html)
-  - [from branch qname-mini](coverage/qname-mini/index.html)
-  - [from branch travis/reports](coverage/travis/reports/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 
