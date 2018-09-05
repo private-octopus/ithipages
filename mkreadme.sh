@@ -22,7 +22,7 @@ cat >> README.md << HEAD
 
 HEAD
 (
-if [ analysis/* != 'analysis/*' ]
+if [ "`ls -A analysis`" ]
 then
 	echo '- Clang static code analysis reports:'
 	for REPORTDIR in analysis/*
@@ -38,7 +38,7 @@ then
 		echo "  - [issues found on ${DATE} ${HOUR}:${MINS}.${SECS}](${REPORTDIR}/index.html)"
 	done
 fi
-if [ coverage/* != 'coverage/*' ]
+if [ "`ls -A coverage`" ]
 then
 	echo '- Code coverage from `ithitest` program:'
 	for SRCDIR in `find coverage -type d -name src`
