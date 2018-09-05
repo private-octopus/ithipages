@@ -170,10 +170,10 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2018-09-02 02:05.20](analysis/2018-09-02-020520-4679-1/index.html)
   - [issues found on 2018-09-02 02:41.33](analysis/2018-09-02-024133-4677-1/index.html)
 - Code coverage from `ithitest` program:
-  - [from branch publish-from-repo-branches-only](coverage/publish-from-repo-branches-only/index.html)
-  - [from branch travis/reports](coverage/travis/reports/index.html)
-  - [from branch qname-mini](coverage/qname-mini/index.html)
-  - [from branch master](coverage/master/index.html)
   - [from branch doc-on-website](coverage/doc-on-website/index.html)
+  - [from branch master](coverage/master/index.html)
+  - [from branch publish-from-repo-branches-only](coverage/publish-from-repo-branches-only/index.html)
+  - [from branch qname-mini](coverage/qname-mini/index.html)
+  - [from branch travis/reports](coverage/travis/reports/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 
