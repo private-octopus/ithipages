@@ -358,7 +358,7 @@
 <span class="lineNum">     296 </span><span class="lineCov">        102 :             key.key_type = 0; /* number */</span>
 <span class="lineNum">     297 </span><span class="lineCov">        102 :             key.key_number = hash_input_table[i].key_number;</span>
 <span class="lineNum">     298 </span>            :         } else {
-<span class="lineNum">     299 </span><span class="lineCov">          2 :             key.key_length = strlen(hash_input_table[i].key_text);</span>
+<span class="lineNum">     299 </span><span class="lineCov">          2 :             key.key_length = (uint32_t)strlen(hash_input_table[i].key_text);</span>
 <span class="lineNum">     300 </span><span class="lineCov">          2 :             key.key_type = 1; /* string */</span>
 <span class="lineNum">     301 </span><span class="lineCov">          2 :             memcpy(key.key_value, hash_input_table[i].key_text, key.key_length);</span>
 <span class="lineNum">     302 </span><span class="lineCov">          2 :             key.key_value[key.key_length] = 0;</span>
@@ -412,9 +412,9 @@
 <span class="lineNum">     350 </span><span class="lineCov">          4 :     BinHash&lt;DnsHashEntry&gt; hashTable;</span>
 <span class="lineNum">     351 </span>            :     int count_per_string[nbTargetNames+1];
 <span class="lineNum">     352 </span><span class="lineCov">          2 :     const int initial_count = 0x10000;</span>
-<span class="lineNum">     353 </span><span class="lineCov">          2 :     const int max_hash_size = 0x8000;</span>
+<span class="lineNum">     353 </span><span class="lineCov">          2 :     const uint32_t max_hash_size = 0x8000;</span>
 <span class="lineNum">     354 </span><span class="lineCov">          2 :     const int max_delta_count = 0x80;</span>
-<span class="lineNum">     355 </span><span class="lineCov">          2 :     const int max_tld_leakage_count = 0x80;</span>
+<span class="lineNum">     355 </span><span class="lineCov">          2 :     const uint32_t max_tld_leakage_count = 0x80;</span>
 <span class="lineNum">     356 </span><span class="lineCov">          2 :     int current_count = initial_count;</span>
 <span class="lineNum">     357 </span><span class="lineCov">          2 :     int total_keys = 0;</span>
 <span class="lineNum">     358 </span><span class="lineCov">          2 :     int dropped_keys = 0;</span>
@@ -518,7 +518,7 @@
 <span class="lineNum">     456 </span>            :                 {
 <span class="lineNum">     457 </span><span class="lineCov">      65536 :                     int tld_index = GetTldIndex(tld_entry-&gt;tld, tld_entry-&gt;tld_len);</span>
 <span class="lineNum">     458 </span><span class="lineCov">      65536 :                     if (tld_index &gt;= 0) {</span>
-<span class="lineNum">     459 </span><span class="lineCov">        336 :                         if (tld_index &lt; max_tld_leakage_count &amp;&amp;</span>
+<span class="lineNum">     459 </span><span class="lineCov">        336 :                         if (((uint32_t)tld_index) &lt; max_tld_leakage_count &amp;&amp;</span>
 <span class="lineNum">     460 </span><span class="lineCov">         42 :                             count_per_string[tld_index + 1] != (int)tld_entry-&gt;count) {</span>
 <span class="lineNum">     461 </span>            :                             TEST_LOG(&quot;TLD %s, count %d instead of %d\n&quot;,
 <span class="lineNum">     462 </span><span class="lineCov">          6 :                                 TargetNames[tld_index], tld_entry-&gt;count, count_per_string[tld_index + 1]);</span>
@@ -549,7 +549,7 @@
 <span class="lineNum">     487 </span>            : 
 <span class="lineNum">     488 </span><span class="lineCov">        256 :                     key.count = lines[i]-&gt;count;</span>
 <span class="lineNum">     489 </span><span class="lineCov">        256 :                     key.registry_id = REGISTRY_DNS_Frequent_TLD_Usage;</span>
-<span class="lineNum">     490 </span><span class="lineCov">        256 :                     key.key_length = lines[i]-&gt;tld_len;</span>
+<span class="lineNum">     490 </span><span class="lineCov">        256 :                     key.key_length = (uint32_t)lines[i]-&gt;tld_len;</span>
 <span class="lineNum">     491 </span><span class="lineCov">        256 :                     key.key_type = 1; /* string */</span>
 <span class="lineNum">     492 </span><span class="lineCov">        256 :                     memcpy(key.key_value, lines[i]-&gt;tld, lines[i]-&gt;tld_len);</span>
 <span class="lineNum">     493 </span><span class="lineCov">        256 :                     key.key_value[lines[i]-&gt;tld_len] = 0;</span>

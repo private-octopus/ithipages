@@ -31,8 +31,8 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">873</td>
-            <td class="headerCovTableEntry">1010</td>
+            <td class="headerCovTableEntry">874</td>
+            <td class="headerCovTableEntry">1011</td>
             <td class="headerCovTableEntryMed">86.4 %</td>
           </tr>
           <tr>
@@ -1472,7 +1472,7 @@
 <span class="lineNum">    1410 </span>            :     uint8_t * source_addr, size_t source_addr_length,
 <span class="lineNum">    1411 </span>            :     uint8_t * dest_addr, size_t dest_addr_length)
 <span class="lineNum">    1412 </span>            : {
-<span class="lineNum">    1413 </span>            :     bool is_response;
+<span class="lineNum">    1413 </span><span class="lineCov">      58674 :     bool is_response = false;</span>
 <span class="lineNum">    1414 </span>            : 
 <span class="lineNum">    1415 </span><span class="lineCov">      58674 :     bool has_header = true;</span>
 <span class="lineNum">    1416 </span><span class="lineCov">      58674 :     uint32_t flags = 0;</span>

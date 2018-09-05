@@ -246,7 +246,7 @@
 <span class="lineNum">     184 </span>            :         /* Load the selected data */
 <span class="lineNum">     185 </span><span class="lineCov">         48 :         for (size_t i = 0; ret &amp;&amp;  i &lt; file_list.size(); i++)</span>
 <span class="lineNum">     186 </span>            :         {
-<span class="lineNum">     187 </span><span class="lineCov">         32 :             ret = LoadFileData(i, dir_met_name);</span>
+<span class="lineNum">     187 </span><span class="lineCov">         32 :             ret = LoadFileData((int)i, dir_met_name);</span>
 <span class="lineNum">     188 </span>            :         }
 <span class="lineNum">     189 </span>            : 
 <span class="lineNum">     190 </span><span class="lineCov">         16 :         if (ret)</span>

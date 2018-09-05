@@ -252,7 +252,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordtype">char</span> * x = <span class="keyword">new</span> <span class="keywordtype">char</span>[len + 1];</div>
 <div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordflow">if</span> (x != NULL) {</div>
 <div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            memcpy(x, category, len + 1);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            ret = <a class="code" href="class_m1_data.html#a1e11cf867b993b45e13b571cc26c0702">category_indices</a>.size();</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            ret = (int)<a class="code" href="class_m1_data.html#a1e11cf867b993b45e13b571cc26c0702">category_indices</a>.size();</div>
 <div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <a class="code" href="class_m1_data.html#a1e11cf867b993b45e13b571cc26c0702">category_indices</a>.push_back((<span class="keywordtype">char</span> <span class="keyword">const</span> *)x);</div>
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        }</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>

@@ -164,7 +164,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
 # Code analysis reports
 
 - Code coverage from `ithitest` program:
-  - [from branch master](coverage/master/index.html)
   - [from branch centos-v-1-03](coverage/centos-v-1-03/index.html)
+  - [from branch master](coverage/master/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 

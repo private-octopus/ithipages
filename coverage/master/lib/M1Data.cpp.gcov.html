@@ -250,7 +250,7 @@
 <span class="lineNum">     188 </span><span class="lineNoCov">          0 :         char * x = new char[len + 1];</span>
 <span class="lineNum">     189 </span><span class="lineNoCov">          0 :         if (x != NULL) {</span>
 <span class="lineNum">     190 </span><span class="lineNoCov">          0 :             memcpy(x, category, len + 1);</span>
-<span class="lineNum">     191 </span><span class="lineNoCov">          0 :             ret = category_indices.size();</span>
+<span class="lineNum">     191 </span><span class="lineNoCov">          0 :             ret = (int)category_indices.size();</span>
 <span class="lineNum">     192 </span><span class="lineNoCov">          0 :             category_indices.push_back((char const *)x);</span>
 <span class="lineNum">     193 </span>            :         }
 <span class="lineNum">     194 </span>            :     }

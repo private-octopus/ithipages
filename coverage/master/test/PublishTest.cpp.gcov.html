@@ -204,7 +204,7 @@
 <span class="lineNum">     142 </span>            :     char const * target_file, char const * ref_file)
 <span class="lineNum">     143 </span>            : {
 <span class="lineNum">     144 </span>            : 
-<span class="lineNum">     145 </span><span class="lineCov">         16 :     bool ret = CreateTestDirectory(metric_id, metric_files, nb_files);</span>
+<span class="lineNum">     145 </span><span class="lineCov">         16 :     bool ret = CreateTestDirectory(metric_id, metric_files, (int)nb_files);</span>
 <span class="lineNum">     146 </span>            : 
 <span class="lineNum">     147 </span><span class="lineCov">         16 :     if (ret) {</span>
 <span class="lineNum">     148 </span><span class="lineCov">         16 :         ithipublisher pub(publish_test_dir_ithi, metric_id);</span>
