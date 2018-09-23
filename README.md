@@ -165,8 +165,8 @@ Sorry, but for the other distributions you will have to clone the sources from G
 
 - Code coverage from `ithitest` program:
   - [from branch centos-v-1-03](coverage/centos-v-1-03/index.html)
+  - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
   - [from branch master](coverage/master/index.html)
   - [from branch web-site-bugs-2018-09](coverage/web-site-bugs-2018-09/index.html)
-  - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 
