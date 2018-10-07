@@ -500,16 +500,16 @@
 <span class="lineNum">     438 </span><span class="lineCov">         20 :     return count;</span>
 <a name="439"><span class="lineNum">     439 </span>            : }</a>
 <span class="lineNum">     440 </span>            : 
-<span class="lineNum">     441 </span><span class="lineCov">         68 : void CaptureSummary::Extract(char const * table_name, std::vector&lt;CaptureLine*&gt;* extract)</span>
+<span class="lineNum">     441 </span><span class="lineCov">         66 : void CaptureSummary::Extract(char const * table_name, std::vector&lt;CaptureLine*&gt;* extract)</span>
 <span class="lineNum">     442 </span>            : {
-<span class="lineNum">     443 </span><span class="lineCov">      29240 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
+<span class="lineNum">     443 </span><span class="lineCov">      28380 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
 <span class="lineNum">     444 </span>            :     {
-<span class="lineNum">     445 </span><span class="lineCov">      29172 :         if (compare_string(table_name, summary[i]-&gt;registry_name) == 0)</span>
+<span class="lineNum">     445 </span><span class="lineCov">      28314 :         if (compare_string(table_name, summary[i]-&gt;registry_name) == 0)</span>
 <span class="lineNum">     446 </span>            :         {
-<span class="lineNum">     447 </span><span class="lineCov">        856 :             extract-&gt;push_back(summary[i]);</span>
+<span class="lineNum">     447 </span><span class="lineCov">        852 :             extract-&gt;push_back(summary[i]);</span>
 <span class="lineNum">     448 </span>            :         }
 <span class="lineNum">     449 </span>            :     }
-<a name="450"><span class="lineNum">     450 </span><span class="lineCov">         68 : }</span></a>
+<a name="450"><span class="lineNum">     450 </span><span class="lineCov">         66 : }</span></a>
 <span class="lineNum">     451 </span>            : 
 <span class="lineNum">     452 </span><span class="lineCov">          2 : bool CaptureSummary::Merge(char const * list_file_name)</span>
 <span class="lineNum">     453 </span>            : {
@@ -909,30 +909,30 @@
 <span class="lineNum">     847 </span><span class="lineCov">          8 :     return ret;</span>
 <a name="848"><span class="lineNum">     848 </span>            : }</a>
 <span class="lineNum">     849 </span>            : 
-<span class="lineNum">     850 </span><span class="lineCov">    6887670 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
+<span class="lineNum">     850 </span><span class="lineCov">    6886812 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
 <span class="lineNum">     851 </span>            : {
-<span class="lineNum">     852 </span><span class="lineCov">    6887670 :     int ret = 0;</span>
+<span class="lineNum">     852 </span><span class="lineCov">    6886812 :     int ret = 0;</span>
 <span class="lineNum">     853 </span>            :     uint8_t ux, uy;
 <span class="lineNum">     854 </span>            : 
-<span class="lineNum">     855 </span><span class="lineCov">   63502504 :     while (*x == *y &amp;&amp; *x != 0)</span>
+<span class="lineNum">     855 </span><span class="lineCov">   63500644 :     while (*x == *y &amp;&amp; *x != 0)</span>
 <span class="lineNum">     856 </span>            :     {
-<span class="lineNum">     857 </span><span class="lineCov">   49727164 :         x++;</span>
-<span class="lineNum">     858 </span><span class="lineCov">   49727164 :         y++;</span>
+<span class="lineNum">     857 </span><span class="lineCov">   49727020 :         x++;</span>
+<span class="lineNum">     858 </span><span class="lineCov">   49727020 :         y++;</span>
 <span class="lineNum">     859 </span>            :     }
 <span class="lineNum">     860 </span>            : 
-<span class="lineNum">     861 </span><span class="lineCov">    6887670 :     ux = (uint8_t)*x;</span>
-<span class="lineNum">     862 </span><span class="lineCov">    6887670 :     uy = (uint8_t)*y;</span>
+<span class="lineNum">     861 </span><span class="lineCov">    6886812 :     ux = (uint8_t)*x;</span>
+<span class="lineNum">     862 </span><span class="lineCov">    6886812 :     uy = (uint8_t)*y;</span>
 <span class="lineNum">     863 </span>            : 
-<span class="lineNum">     864 </span><span class="lineCov">    6887670 :     if (ux &lt; uy)</span>
+<span class="lineNum">     864 </span><span class="lineCov">    6886812 :     if (ux &lt; uy)</span>
 <span class="lineNum">     865 </span>            :     {
-<span class="lineNum">     866 </span><span class="lineCov">    1384702 :         ret = 1;</span>
+<span class="lineNum">     866 </span><span class="lineCov">    1383864 :         ret = 1;</span>
 <span class="lineNum">     867 </span>            :     }
-<span class="lineNum">     868 </span><span class="lineCov">    5502968 :     else if (ux &gt; uy)</span>
+<span class="lineNum">     868 </span><span class="lineCov">    5502948 :     else if (ux &gt; uy)</span>
 <span class="lineNum">     869 </span>            :     {
-<span class="lineNum">     870 </span><span class="lineCov">     666524 :         ret = -1;</span>
+<span class="lineNum">     870 </span><span class="lineCov">     666508 :         ret = -1;</span>
 <span class="lineNum">     871 </span>            :     }
 <span class="lineNum">     872 </span>            : 
-<span class="lineNum">     873 </span><span class="lineCov">    6887670 :     return ret;</span>
+<span class="lineNum">     873 </span><span class="lineCov">    6886812 :     return ret;</span>
 <a name="874"><span class="lineNum">     874 </span>            : }</a>
 <span class="lineNum">     875 </span>            : 
 <span class="lineNum">     876 </span><span class="lineCov">          2 : void CaptureSummary::MultiplyByConstantForTest(unsigned int multiplier)</span>
