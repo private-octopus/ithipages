@@ -12,6 +12,7 @@ var searchData=
   ['test_5fcases',['test_cases',['../_m2_data_test_8cpp.html#abbe11a42f38e8e943fecf5f69e46dff0',1,'M2DataTest.cpp']]],
   ['test_5fenum_5fbadplugin',['test_enum_BadPlugin',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030a670c6865c0bc0a280f40fb9c91e6e7c5',1,'ithi_test_class.cpp']]],
   ['test_5fenum_5fcapture',['test_enum_Capture',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030a60ffca3cdb432163df958b2c59b38761',1,'ithi_test_class.cpp']]],
+  ['test_5fenum_5fcapturefuzz',['test_enum_CaptureFuzz',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030a85262a1f8bb91cb057587c068a201f3c',1,'ithi_test_class.cpp']]],
   ['test_5fenum_5fcmpname',['test_enum_CmpName',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030a0abea59b3a238487c85babdbfb4052fb',1,'ithi_test_class.cpp']]],
   ['test_5fenum_5fcsv',['test_enum_Csv',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030a97879d1471d88f31783cc06ac9e2d185',1,'ithi_test_class.cpp']]],
   ['test_5fenum_5fdnsprefix',['test_enum_DnsPrefix',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030ae94b98f61615aab1492ea3a9ef707173',1,'ithi_test_class.cpp']]],

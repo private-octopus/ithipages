@@ -1,6 +1,7 @@
 var searchData=
 [
   ['canoniccopy',['CanonicCopy',['../class_tld_as_key.html#a2450b612cf904e3fe8cda81a70a66741',1,'TldAsKey']]],
+  ['capture_5ffuzz',['capture_fuzz',['../classcapture__fuzz.html#aa9ede3ae9b6537d9d07e981809e486f6',1,'capture_fuzz']]],
   ['capturelineislargercount',['CaptureLineIsLargerCount',['../class_capture_summary.html#a51b6ff75b0fac398015b63335ebeb96c',1,'CaptureSummary']]],
   ['capturelineislower',['CaptureLineIsLower',['../class_capture_summary.html#aaff9196676270c47ffd692cbd30c8125',1,'CaptureSummary']]],
   ['capturelineissamekey',['CaptureLineIsSameKey',['../class_capture_summary.html#a7cb23728bc7be3dc77e6e82bf0a57f15',1,'CaptureSummary']]],

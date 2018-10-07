@@ -19,5 +19,8 @@ var searchData=
   ['frequent_5faddress_5fmax_5fcount',['frequent_address_max_count',['../class_dns_stats.html#a55b828d8ac52cd3aebba8f521c79de4d',1,'DnsStats']]],
   ['frequentaddresses',['frequentAddresses',['../class_dns_stats.html#aadc3238e0cee58f2773a55081cccfc27',1,'DnsStats']]],
   ['frequently_5fleaked_5ftld',['frequently_leaked_tld',['../_capture_summary_8cpp.html#a1b5bb019370397b105451b0a58f7abdd',1,'CaptureSummary.cpp']]],
-  ['frequentroottld',['frequentRootTld',['../class_capture_summary.html#aa9e5711df125f87e5136428939cb3fbf',1,'CaptureSummary']]]
+  ['frequentroottld',['frequentRootTld',['../class_capture_summary.html#aa9e5711df125f87e5136428939cb3fbf',1,'CaptureSummary']]],
+  ['fuzz_5ffail',['fuzz_fail',['../classcapture__fuzz.html#a66ebeed9dd682526c9febc161a9cfbad',1,'capture_fuzz']]],
+  ['fuzz_5frandom_5fcontext',['fuzz_random_context',['../classcapture__fuzz.html#a4096c6da8a0135ca5ca11bbeafb4a69a',1,'capture_fuzz']]],
+  ['fuzzed_5flength',['fuzzed_length',['../classcapture__fuzz.html#aef6fb83c125420dd3027f423ec4d98b6',1,'capture_fuzz']]]
 ];

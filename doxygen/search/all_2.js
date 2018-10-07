@@ -11,6 +11,6 @@ var searchData=
   ['binhash_3c_20tldaddressaskey_20_3e',['BinHash&lt; TldAddressAsKey &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20tldaskey_20_3e',['BinHash&lt; TldAsKey &gt;',['../class_bin_hash.html',1,'']]],
   ['botnet',['Botnet',['../_m2_data_8h.html#a9ccee736362293dfd6864855156b3618a1d61fecd152e40b2deecd62e81544d64',1,'M2Data.h']]],
-  ['buffer',['buffer',['../classpcap__reader.html#ada40b9d06e142f1ce2e4b7eb9fb980c7',1,'pcap_reader']]],
-  ['buffer_5fsize',['buffer_size',['../classpcap__reader.html#aefd1a9536f5739c558c20a04559b46d1',1,'pcap_reader']]]
+  ['buffer',['buffer',['../classpcap__reader.html#ada40b9d06e142f1ce2e4b7eb9fb980c7',1,'pcap_reader::buffer()'],['../classcapture__fuzz.html#a3e208eacf664b76e73e79d7d9cd2aa14',1,'capture_fuzz::buffer()']]],
+  ['buffer_5fsize',['buffer_size',['../classpcap__reader.html#aefd1a9536f5739c558c20a04559b46d1',1,'pcap_reader::buffer_size()'],['../classcapture__fuzz.html#a4fb93f5cc275015e1b28da432f30d3ca',1,'capture_fuzz::buffer_size()']]]
 ];

@@ -221,23 +221,23 @@
 <span class="lineNum">     159 </span>            :     &quot;TVV&quot;
 <a name="160"><span class="lineNum">     160 </span>            : };</a>
 <span class="lineNum">     161 </span>            : 
-<span class="lineNum">     162 </span><span class="lineCov">       1090 : CaptureSummary::CaptureSummary()</span>
+<span class="lineNum">     162 </span><span class="lineCov">       1092 : CaptureSummary::CaptureSummary()</span>
 <span class="lineNum">     163 </span>            :     :
-<span class="lineNum">     164 </span><span class="lineCov">       1090 :     capture_version(ITHITOOLS_VERSION)</span>
+<span class="lineNum">     164 </span><span class="lineCov">       1092 :     capture_version(ITHITOOLS_VERSION)</span>
 <span class="lineNum">     165 </span>            : {
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">       1090 : }</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">       1092 : }</span></a>
 <span class="lineNum">     167 </span>            : 
-<span class="lineNum">     168 </span><span class="lineCov">       2180 : CaptureSummary::~CaptureSummary()</span>
+<span class="lineNum">     168 </span><span class="lineCov">       2184 : CaptureSummary::~CaptureSummary()</span>
 <span class="lineNum">     169 </span>            : {
-<span class="lineNum">     170 </span><span class="lineCov">     260692 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
+<span class="lineNum">     170 </span><span class="lineCov">     261914 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
 <span class="lineNum">     171 </span>            :     {
-<span class="lineNum">     172 </span><span class="lineCov">     259602 :         if (summary[i] != NULL)</span>
+<span class="lineNum">     172 </span><span class="lineCov">     260822 :         if (summary[i] != NULL)</span>
 <span class="lineNum">     173 </span>            :         {
-<span class="lineNum">     174 </span><span class="lineCov">     259602 :             delete summary[i];</span>
-<span class="lineNum">     175 </span><span class="lineCov">     259602 :             summary[i] = NULL;</span>
+<span class="lineNum">     174 </span><span class="lineCov">     260822 :             delete summary[i];</span>
+<span class="lineNum">     175 </span><span class="lineCov">     260822 :             summary[i] = NULL;</span>
 <span class="lineNum">     176 </span>            :         }
 <span class="lineNum">     177 </span>            :     }
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">       1090 : }</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">       1092 : }</span></a>
 <span class="lineNum">     179 </span>            : 
 <span class="lineNum">     180 </span><span class="lineCov">       1064 : bool CaptureSummary::Load(char const * file_name)</span>
 <span class="lineNum">     181 </span>            : {
@@ -356,22 +356,22 @@
 <span class="lineNum">     294 </span><span class="lineCov">         12 :     return ret;</span>
 <a name="295"><span class="lineNum">     295 </span>            : }</a>
 <span class="lineNum">     296 </span>            : 
-<span class="lineNum">     297 </span><span class="lineCov">     259602 : bool CaptureSummary::AddLine(CaptureLine * line, bool need_allocation)</span>
+<span class="lineNum">     297 </span><span class="lineCov">     260822 : bool CaptureSummary::AddLine(CaptureLine * line, bool need_allocation)</span>
 <span class="lineNum">     298 </span>            : {
-<span class="lineNum">     299 </span><span class="lineCov">     259602 :     bool ret = true;</span>
+<span class="lineNum">     299 </span><span class="lineCov">     260822 :     bool ret = true;</span>
 <span class="lineNum">     300 </span>            :     CaptureLine * new_line;
 <span class="lineNum">     301 </span>            : 
-<span class="lineNum">     302 </span><span class="lineCov">     259602 :     if (need_allocation)</span>
+<span class="lineNum">     302 </span><span class="lineCov">     260822 :     if (need_allocation)</span>
 <span class="lineNum">     303 </span>            :     {
-<span class="lineNum">     304 </span><span class="lineCov">     259602 :         new_line = new CaptureLine;</span>
+<span class="lineNum">     304 </span><span class="lineCov">     260822 :         new_line = new CaptureLine;</span>
 <span class="lineNum">     305 </span>            : 
-<span class="lineNum">     306 </span><span class="lineCov">     259602 :         if (new_line == NULL)</span>
+<span class="lineNum">     306 </span><span class="lineCov">     260822 :         if (new_line == NULL)</span>
 <span class="lineNum">     307 </span>            :         {
 <span class="lineNum">     308 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     309 </span>            :         }
 <span class="lineNum">     310 </span>            :         else
 <span class="lineNum">     311 </span>            :         {
-<span class="lineNum">     312 </span><span class="lineCov">     259602 :             memcpy(new_line, line, sizeof(CaptureLine));</span>
+<span class="lineNum">     312 </span><span class="lineCov">     260822 :             memcpy(new_line, line, sizeof(CaptureLine));</span>
 <span class="lineNum">     313 </span>            :         }
 <span class="lineNum">     314 </span>            :     }
 <span class="lineNum">     315 </span>            :     else
@@ -379,52 +379,52 @@
 <span class="lineNum">     317 </span><span class="lineNoCov">          0 :         new_line = line;</span>
 <span class="lineNum">     318 </span>            :     }
 <span class="lineNum">     319 </span>            : 
-<span class="lineNum">     320 </span><span class="lineCov">     259602 :     if (ret)</span>
+<span class="lineNum">     320 </span><span class="lineCov">     260822 :     if (ret)</span>
 <span class="lineNum">     321 </span>            :     {
-<span class="lineNum">     322 </span><span class="lineCov">     259602 :         summary.push_back(new_line);</span>
+<span class="lineNum">     322 </span><span class="lineCov">     260822 :         summary.push_back(new_line);</span>
 <span class="lineNum">     323 </span>            :     }
 <span class="lineNum">     324 </span>            : 
-<span class="lineNum">     325 </span><span class="lineCov">     259602 :     return ret;</span>
+<span class="lineNum">     325 </span><span class="lineCov">     260822 :     return ret;</span>
 <a name="326"><span class="lineNum">     326 </span>            : }</a>
 <span class="lineNum">     327 </span>            : 
-<span class="lineNum">     328 </span><span class="lineCov">         10 : void CaptureSummary::Reserve(size_t target_size)</span>
+<span class="lineNum">     328 </span><span class="lineCov">         12 : void CaptureSummary::Reserve(size_t target_size)</span>
 <span class="lineNum">     329 </span>            : {
-<span class="lineNum">     330 </span><span class="lineCov">         10 :     summary.reserve(target_size);</span>
-<a name="331"><span class="lineNum">     331 </span><span class="lineCov">         10 : }</span></a>
+<span class="lineNum">     330 </span><span class="lineCov">         12 :     summary.reserve(target_size);</span>
+<a name="331"><span class="lineNum">     331 </span><span class="lineCov">         12 : }</span></a>
 <span class="lineNum">     332 </span>            : 
-<span class="lineNum">     333 </span><span class="lineCov">    4312114 : bool CaptureSummary::CaptureLineIsLower(CaptureLine * x, CaptureLine * y)</span>
+<span class="lineNum">     333 </span><span class="lineCov">    4324904 : bool CaptureSummary::CaptureLineIsLower(CaptureLine * x, CaptureLine * y)</span>
 <span class="lineNum">     334 </span>            : {
-<span class="lineNum">     335 </span><span class="lineCov">    4312114 :     bool ret = false;</span>
+<span class="lineNum">     335 </span><span class="lineCov">    4324904 :     bool ret = false;</span>
 <span class="lineNum">     336 </span>            :     int cmp;
 <span class="lineNum">     337 </span>            : 
-<span class="lineNum">     338 </span><span class="lineCov">    4312114 :     cmp = CaptureSummary::compare_string(x-&gt;registry_name, y-&gt;registry_name);</span>
+<span class="lineNum">     338 </span><span class="lineCov">    4324904 :     cmp = CaptureSummary::compare_string(x-&gt;registry_name, y-&gt;registry_name);</span>
 <span class="lineNum">     339 </span>            : 
-<span class="lineNum">     340 </span><span class="lineCov">    4312114 :     if (cmp &gt; 0)</span>
+<span class="lineNum">     340 </span><span class="lineCov">    4324904 :     if (cmp &gt; 0)</span>
 <span class="lineNum">     341 </span>            :     {
-<span class="lineNum">     342 </span><span class="lineCov">     608120 :         ret = true;</span>
+<span class="lineNum">     342 </span><span class="lineCov">     609876 :         ret = true;</span>
 <span class="lineNum">     343 </span>            :     }
-<span class="lineNum">     344 </span><span class="lineCov">    3703994 :     else if (cmp == 0)</span>
+<span class="lineNum">     344 </span><span class="lineCov">    3715028 :     else if (cmp == 0)</span>
 <span class="lineNum">     345 </span>            :     {
-<span class="lineNum">     346 </span><span class="lineCov">    3503520 :         if (x-&gt;key_type &lt; y-&gt;key_type)</span>
+<span class="lineNum">     346 </span><span class="lineCov">    3513304 :         if (x-&gt;key_type &lt; y-&gt;key_type)</span>
 <span class="lineNum">     347 </span>            :         {
 <span class="lineNum">     348 </span><span class="lineNoCov">          0 :             ret = true;</span>
 <span class="lineNum">     349 </span>            :         }
-<span class="lineNum">     350 </span><span class="lineCov">    3503520 :         else if (x-&gt;key_type == y-&gt;key_type)</span>
+<span class="lineNum">     350 </span><span class="lineCov">    3513304 :         else if (x-&gt;key_type == y-&gt;key_type)</span>
 <span class="lineNum">     351 </span>            :         {
-<span class="lineNum">     352 </span><span class="lineCov">    3503520 :             if (x-&gt;key_type == 0)</span>
+<span class="lineNum">     352 </span><span class="lineCov">    3513304 :             if (x-&gt;key_type == 0)</span>
 <span class="lineNum">     353 </span>            :             {
-<span class="lineNum">     354 </span><span class="lineCov">    1365210 :                 ret = (x-&gt;key_number &lt; y-&gt;key_number);</span>
+<span class="lineNum">     354 </span><span class="lineCov">    1366126 :                 ret = (x-&gt;key_number &lt; y-&gt;key_number);</span>
 <span class="lineNum">     355 </span>            :             }
 <span class="lineNum">     356 </span>            :             else
 <span class="lineNum">     357 </span>            :             {
-<span class="lineNum">     358 </span><span class="lineCov">    2138310 :                 cmp = compare_string(x-&gt;key_value, y-&gt;key_value);</span>
+<span class="lineNum">     358 </span><span class="lineCov">    2147178 :                 cmp = compare_string(x-&gt;key_value, y-&gt;key_value);</span>
 <span class="lineNum">     359 </span>            : 
-<span class="lineNum">     360 </span><span class="lineCov">    2138310 :                 ret = cmp &gt; 0;</span>
+<span class="lineNum">     360 </span><span class="lineCov">    2147178 :                 ret = cmp &gt; 0;</span>
 <span class="lineNum">     361 </span>            :             }
 <span class="lineNum">     362 </span>            :         }
 <span class="lineNum">     363 </span>            :     }
 <span class="lineNum">     364 </span>            : 
-<span class="lineNum">     365 </span><span class="lineCov">    4312114 :     return ret;</span>
+<span class="lineNum">     365 </span><span class="lineCov">    4324904 :     return ret;</span>
 <a name="366"><span class="lineNum">     366 </span>            : }</a>
 <span class="lineNum">     367 </span>            : 
 <span class="lineNum">     368 </span><span class="lineCov">       3724 : bool CaptureSummary::CaptureLineIsLargerCount(CaptureLine * x, CaptureLine * y)</span>
@@ -472,10 +472,10 @@
 <span class="lineNum">     410 </span>            : }
 <a name="411"><span class="lineNum">     411 </span>            : </a>
 <span class="lineNum">     412 </span>            : 
-<span class="lineNum">     413 </span><span class="lineCov">         26 : void CaptureSummary::Sort()</span>
+<span class="lineNum">     413 </span><span class="lineCov">         28 : void CaptureSummary::Sort()</span>
 <span class="lineNum">     414 </span>            : {
-<span class="lineNum">     415 </span><span class="lineCov">         26 :     std::sort(summary.begin(), summary.end(), CaptureLineIsLower);</span>
-<a name="416"><span class="lineNum">     416 </span><span class="lineCov">         26 : }</span></a>
+<span class="lineNum">     415 </span><span class="lineCov">         28 :     std::sort(summary.begin(), summary.end(), CaptureLineIsLower);</span>
+<a name="416"><span class="lineNum">     416 </span><span class="lineCov">         28 : }</span></a>
 <span class="lineNum">     417 </span>            : 
 <span class="lineNum">     418 </span><span class="lineCov">     252248 : size_t CaptureSummary::Size()</span>
 <span class="lineNum">     419 </span>            : {
@@ -909,30 +909,30 @@
 <span class="lineNum">     847 </span><span class="lineCov">          8 :     return ret;</span>
 <a name="848"><span class="lineNum">     848 </span>            : }</a>
 <span class="lineNum">     849 </span>            : 
-<span class="lineNum">     850 </span><span class="lineCov">    6886812 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
+<span class="lineNum">     850 </span><span class="lineCov">    6908470 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
 <span class="lineNum">     851 </span>            : {
-<span class="lineNum">     852 </span><span class="lineCov">    6886812 :     int ret = 0;</span>
+<span class="lineNum">     852 </span><span class="lineCov">    6908470 :     int ret = 0;</span>
 <span class="lineNum">     853 </span>            :     uint8_t ux, uy;
 <span class="lineNum">     854 </span>            : 
-<span class="lineNum">     855 </span><span class="lineCov">   63500644 :     while (*x == *y &amp;&amp; *x != 0)</span>
+<span class="lineNum">     855 </span><span class="lineCov">   63699096 :     while (*x == *y &amp;&amp; *x != 0)</span>
 <span class="lineNum">     856 </span>            :     {
-<span class="lineNum">     857 </span><span class="lineCov">   49727020 :         x++;</span>
-<span class="lineNum">     858 </span><span class="lineCov">   49727020 :         y++;</span>
+<span class="lineNum">     857 </span><span class="lineCov">   49882156 :         x++;</span>
+<span class="lineNum">     858 </span><span class="lineCov">   49882156 :         y++;</span>
 <span class="lineNum">     859 </span>            :     }
 <span class="lineNum">     860 </span>            : 
-<span class="lineNum">     861 </span><span class="lineCov">    6886812 :     ux = (uint8_t)*x;</span>
-<span class="lineNum">     862 </span><span class="lineCov">    6886812 :     uy = (uint8_t)*y;</span>
+<span class="lineNum">     861 </span><span class="lineCov">    6908470 :     ux = (uint8_t)*x;</span>
+<span class="lineNum">     862 </span><span class="lineCov">    6908470 :     uy = (uint8_t)*y;</span>
 <span class="lineNum">     863 </span>            : 
-<span class="lineNum">     864 </span><span class="lineCov">    6886812 :     if (ux &lt; uy)</span>
+<span class="lineNum">     864 </span><span class="lineCov">    6908470 :     if (ux &lt; uy)</span>
 <span class="lineNum">     865 </span>            :     {
-<span class="lineNum">     866 </span><span class="lineCov">    1383864 :         ret = 1;</span>
+<span class="lineNum">     866 </span><span class="lineCov">    1390922 :         ret = 1;</span>
 <span class="lineNum">     867 </span>            :     }
-<span class="lineNum">     868 </span><span class="lineCov">    5502948 :     else if (ux &gt; uy)</span>
+<span class="lineNum">     868 </span><span class="lineCov">    5517548 :     else if (ux &gt; uy)</span>
 <span class="lineNum">     869 </span>            :     {
-<span class="lineNum">     870 </span><span class="lineCov">     666508 :         ret = -1;</span>
+<span class="lineNum">     870 </span><span class="lineCov">     671324 :         ret = -1;</span>
 <span class="lineNum">     871 </span>            :     }
 <span class="lineNum">     872 </span>            : 
-<span class="lineNum">     873 </span><span class="lineCov">    6886812 :     return ret;</span>
+<span class="lineNum">     873 </span><span class="lineCov">    6908470 :     return ret;</span>
 <a name="874"><span class="lineNum">     874 </span>            : }</a>
 <span class="lineNum">     875 </span>            : 
 <span class="lineNum">     876 </span><span class="lineCov">          2 : void CaptureSummary::MultiplyByConstantForTest(unsigned int multiplier)</span>

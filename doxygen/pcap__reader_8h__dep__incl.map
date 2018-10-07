@@ -3,7 +3,8 @@
 <area shape="rect" id="node3" href="$ithitools_8cpp.html" title="src/ithitools.cpp" alt="" coords="137,80,252,107"/>
 <area shape="rect" id="node4" href="$_dns_stats_8cpp.html" title="lib/DnsStats.cpp" alt="" coords="277,80,395,107"/>
 <area shape="rect" id="node5" href="$pcap__reader_8cpp.html" title="lib/pcap_reader.cpp" alt="" coords="419,80,553,107"/>
-<area shape="rect" id="node6" href="$_capture_test_8cpp.html" title="test/CaptureTest.cpp" alt="" coords="578,80,723,107"/>
-<area shape="rect" id="node7" href="$_get_name_test_8cpp.html" title="test/GetNameTest.cpp" alt="" coords="748,80,901,107"/>
-<area shape="rect" id="node8" href="$_plugin_test_8cpp.html" title="test/PluginTest.cpp" alt="" coords="927,80,1061,107"/>
+<area shape="rect" id="node6" href="$capture__fuzz_8cpp.html" title="test/capture_fuzz.cpp" alt="" coords="578,80,725,107"/>
+<area shape="rect" id="node7" href="$_capture_test_8cpp.html" title="test/CaptureTest.cpp" alt="" coords="750,80,895,107"/>
+<area shape="rect" id="node8" href="$_get_name_test_8cpp.html" title="test/GetNameTest.cpp" alt="" coords="920,80,1073,107"/>
+<area shape="rect" id="node9" href="$_plugin_test_8cpp.html" title="test/PluginTest.cpp" alt="" coords="1099,80,1233,107"/>
 </map>

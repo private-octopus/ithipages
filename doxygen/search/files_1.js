@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['capture_5ffuzz_2ecpp',['capture_fuzz.cpp',['../capture__fuzz_8cpp.html',1,'']]],
+  ['capture_5ffuzz_2eh',['capture_fuzz.h',['../capture__fuzz_8h.html',1,'']]],
   ['capturesummary_2ecpp',['CaptureSummary.cpp',['../_capture_summary_8cpp.html',1,'']]],
   ['capturesummary_2eh',['CaptureSummary.h',['../_capture_summary_8h.html',1,'']]],
   ['capturetest_2ecpp',['CaptureTest.cpp',['../_capture_test_8cpp.html',1,'']]],

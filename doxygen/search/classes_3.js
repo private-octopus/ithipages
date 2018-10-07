@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['capture_5ffuzz',['capture_fuzz',['../classcapture__fuzz.html',1,'']]],
   ['capturesummary',['CaptureSummary',['../class_capture_summary.html',1,'']]],
   ['capturetest',['CaptureTest',['../class_capture_test.html',1,'']]],
   ['cmpnametest',['CmpNameTest',['../class_cmp_name_test.html',1,'']]],

@@ -3,6 +3,7 @@ var searchData=
   ['_7eaddressfilter',['~AddressFilter',['../class_address_filter.html#ad303d00158eb26edfd401babaf3628be',1,'AddressFilter']]],
   ['_7eaddressusetracker',['~AddressUseTracker',['../class_address_use_tracker.html#ae8769eeefdaef4fcd4fa364d93b5ac0a',1,'AddressUseTracker']]],
   ['_7ebinhash',['~BinHash',['../class_bin_hash.html#ad5210c95a9919aa3791811a6d79aea1e',1,'BinHash']]],
+  ['_7ecapture_5ffuzz',['~capture_fuzz',['../classcapture__fuzz.html#a952613ad94a11a1c9a412edff2affa64',1,'capture_fuzz']]],
   ['_7ecapturesummary',['~CaptureSummary',['../class_capture_summary.html#a0ea34d003709b9f7122a18fb811c9dbe',1,'CaptureSummary']]],
   ['_7ecapturetest',['~CaptureTest',['../class_capture_test.html#a72c541e5a897927f178a4d4e39ff325c',1,'CaptureTest']]],
   ['_7ecmpnametest',['~CmpNameTest',['../class_cmp_name_test.html#a989c579990a6a7ce2c378821607af558',1,'CmpNameTest']]],

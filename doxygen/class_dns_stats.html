@@ -133,6 +133,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa1081c186470acf278a445bc53a897f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0583d4a14245c5fd18da3afd52289b5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dns_stats.html#ac0583d4a14245c5fd18da3afd52289b5">ExportStatsByIp</a> ()</td></tr>
 <tr class="separator:ac0583d4a14245c5fd18da3afd52289b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03c01884fddf2faba1bb358af3b1099c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dns_stats.html#a03c01884fddf2faba1bb358af3b1099c">SubmitPacket</a> (uint8_t *packet, uint32_t length, int ip_type, uint8_t *ip_header)</td></tr>
+<tr class="separator:a03c01884fddf2faba1bb358af3b1099c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -224,8 +226,6 @@ Public Attributes</h2></td></tr>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a6227c77ee3942f823b268383d369fcbe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dns_stats.html#a6227c77ee3942f823b268383d369fcbe">LoadPcapFile</a> (char const *fileName)</td></tr>
 <tr class="separator:a6227c77ee3942f823b268383d369fcbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03c01884fddf2faba1bb358af3b1099c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dns_stats.html#a03c01884fddf2faba1bb358af3b1099c">SubmitPacket</a> (uint8_t *packet, uint32_t length, int ip_type, uint8_t *ip_header)</td></tr>
-<tr class="separator:a03c01884fddf2faba1bb358af3b1099c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5584d008bf718bd243879651b1cc379c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dns_stats.html#a5584d008bf718bd243879651b1cc379c">SubmitQuery</a> (uint8_t *packet, uint32_t length, uint32_t start, bool is_response, int *qclass, int *qtype)</td></tr>
 <tr class="separator:a5584d008bf718bd243879651b1cc379c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6e56840524b5c6eaa29101bb1fd9c55"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_dns_stats.html#af6e56840524b5c6eaa29101bb1fd9c55">SubmitRecord</a> (uint8_t *packet, uint32_t length, uint32_t start, uint32_t *e_rcode, uint32_t *e_length, bool is_response)</td></tr>
@@ -3344,9 +3344,6 @@ Static Private Member Functions</h2></td></tr>
 <a class="anchor" id="a03c01884fddf2faba1bb358af3b1099c"></a>
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void DnsStats::SubmitPacket </td>
@@ -3378,11 +3375,6 @@ Static Private Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 <div class="fragment"><div class="line"><a name="l01396"></a><span class="lineno"> 1396</span>&#160;{</div>
 <div class="line"><a name="l01397"></a><span class="lineno"> 1397</span>&#160;    uint8_t * source_addr;</div>

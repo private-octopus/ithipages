@@ -2,6 +2,9 @@ var searchData=
 [
   ['cached',['cached',['../struct___w_d_i_r.html#a9b7432df163d1e291ba5925347fd4af3',1,'_WDIR']]],
   ['canoniccopy',['CanonicCopy',['../class_tld_as_key.html#a2450b612cf904e3fe8cda81a70a66741',1,'TldAsKey']]],
+  ['capture_5ffuzz',['capture_fuzz',['../classcapture__fuzz.html',1,'capture_fuzz'],['../classcapture__fuzz.html#aa9ede3ae9b6537d9d07e981809e486f6',1,'capture_fuzz::capture_fuzz()']]],
+  ['capture_5ffuzz_2ecpp',['capture_fuzz.cpp',['../capture__fuzz_8cpp.html',1,'']]],
+  ['capture_5ffuzz_2eh',['capture_fuzz.h',['../capture__fuzz_8h.html',1,'']]],
   ['capture_5flist_5fname',['capture_list_name',['../_merge_test_8cpp.html#a1a1aeea4bc9451ed9b1d1a5b39554ef9',1,'MergeTest.cpp']]],
   ['capture_5fversion',['capture_version',['../class_capture_summary.html#a4debbd81a78c2f6365860f71c69a64cb',1,'CaptureSummary']]],
   ['captureline',['CaptureLine',['../_capture_summary_8h.html#a4db370887b223be2b43e917ad6c267a0',1,'CaptureSummary.h']]],
