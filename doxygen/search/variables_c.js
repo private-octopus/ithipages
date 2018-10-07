@@ -21,7 +21,6 @@ var searchData=
   ['m4_5f3',['m4_3',['../class_compute_m4.html#af63f8190849cd316028fd5b2a17f0cfe',1,'ComputeM4']]],
   ['m4_5f4',['m4_4',['../class_compute_m4.html#a8a3d1b05b6153eea6da7a2ea1b2b9d27',1,'ComputeM4']]],
   ['m4_5f5',['m4_5',['../class_compute_m4.html#a4e0e43d767e75941c508beea3679cd74',1,'ComputeM4']]],
-  ['m4_5f6',['m4_6',['../class_compute_m4.html#a0f8b944e9bf5e4c9b52410b2d39622c1',1,'ComputeM4']]],
   ['m6',['m6',['../class_compute_m6.html#a88e3860f9f6fa58d29f62cf35ce55521',1,'ComputeM6']]],
   ['m6_5fmetrics_5flist',['m6_metrics_list',['../_compute_m6_8cpp.html#a81dc434a58179fd0c7eed85725e41c59',1,'ComputeM6.cpp']]],
   ['m6_5fprefix',['m6_prefix',['../struct__st__metric6__def__t.html#a0b15be9c5000e35db708717022339acd',1,'_st_metric6_def_t::m6_prefix()'],['../struct__st__metric6__line__t.html#a1e19f63b2e684da8be562ffaaf578679',1,'_st_metric6_line_t::m6_prefix()']]],
