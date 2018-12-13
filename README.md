@@ -169,6 +169,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
 
 - Clang static code analysis reports:
   - [issues found on 2018-12-13 01:57.40](analysis/2018-12-13-015740-6308-1/index.html)
+  - [issues found on 2018-12-13 03:48.15](analysis/2018-12-13-034815-6507-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
@@ -177,6 +178,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch centos-v-1-03](coverage/centos-v-1-03/index.html)
   - [from branch master](coverage/master/index.html)
   - [from branch export-partner](coverage/export-partner/index.html)
+  - [from branch display-cur-ave-min-max](coverage/display-cur-ave-min-max/index.html)
   - [from branch Revisit-m46](coverage/Revisit-m46/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 
