@@ -170,6 +170,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
 - Clang static code analysis reports:
   - [issues found on 2018-12-13 01:57.40](analysis/2018-12-13-015740-6308-1/index.html)
   - [issues found on 2018-12-13 03:48.15](analysis/2018-12-13-034815-6507-1/index.html)
+  - [issues found on 2018-12-13 16:52.58](analysis/2018-12-13-165258-6222-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
