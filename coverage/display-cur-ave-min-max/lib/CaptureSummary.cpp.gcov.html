@@ -909,30 +909,30 @@
 <span class="lineNum">     847 </span><span class="lineCov">          8 :     return ret;</span>
 <a name="848"><span class="lineNum">     848 </span>            : }</a>
 <span class="lineNum">     849 </span>            : 
-<span class="lineNum">     850 </span><span class="lineCov">    6908470 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
+<span class="lineNum">     850 </span><span class="lineCov">    6908488 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
 <span class="lineNum">     851 </span>            : {
-<span class="lineNum">     852 </span><span class="lineCov">    6908470 :     int ret = 0;</span>
+<span class="lineNum">     852 </span><span class="lineCov">    6908488 :     int ret = 0;</span>
 <span class="lineNum">     853 </span>            :     uint8_t ux, uy;
 <span class="lineNum">     854 </span>            : 
-<span class="lineNum">     855 </span><span class="lineCov">   63699096 :     while (*x == *y &amp;&amp; *x != 0)</span>
+<span class="lineNum">     855 </span><span class="lineCov">   63699174 :     while (*x == *y &amp;&amp; *x != 0)</span>
 <span class="lineNum">     856 </span>            :     {
-<span class="lineNum">     857 </span><span class="lineCov">   49882156 :         x++;</span>
-<span class="lineNum">     858 </span><span class="lineCov">   49882156 :         y++;</span>
+<span class="lineNum">     857 </span><span class="lineCov">   49882198 :         x++;</span>
+<span class="lineNum">     858 </span><span class="lineCov">   49882198 :         y++;</span>
 <span class="lineNum">     859 </span>            :     }
 <span class="lineNum">     860 </span>            : 
-<span class="lineNum">     861 </span><span class="lineCov">    6908470 :     ux = (uint8_t)*x;</span>
-<span class="lineNum">     862 </span><span class="lineCov">    6908470 :     uy = (uint8_t)*y;</span>
+<span class="lineNum">     861 </span><span class="lineCov">    6908488 :     ux = (uint8_t)*x;</span>
+<span class="lineNum">     862 </span><span class="lineCov">    6908488 :     uy = (uint8_t)*y;</span>
 <span class="lineNum">     863 </span>            : 
-<span class="lineNum">     864 </span><span class="lineCov">    6908470 :     if (ux &lt; uy)</span>
+<span class="lineNum">     864 </span><span class="lineCov">    6908488 :     if (ux &lt; uy)</span>
 <span class="lineNum">     865 </span>            :     {
-<span class="lineNum">     866 </span><span class="lineCov">    1390922 :         ret = 1;</span>
+<span class="lineNum">     866 </span><span class="lineCov">    1390926 :         ret = 1;</span>
 <span class="lineNum">     867 </span>            :     }
-<span class="lineNum">     868 </span><span class="lineCov">    5517548 :     else if (ux &gt; uy)</span>
+<span class="lineNum">     868 </span><span class="lineCov">    5517562 :     else if (ux &gt; uy)</span>
 <span class="lineNum">     869 </span>            :     {
-<span class="lineNum">     870 </span><span class="lineCov">     671324 :         ret = -1;</span>
+<span class="lineNum">     870 </span><span class="lineCov">     671326 :         ret = -1;</span>
 <span class="lineNum">     871 </span>            :     }
 <span class="lineNum">     872 </span>            : 
-<span class="lineNum">     873 </span><span class="lineCov">    6908470 :     return ret;</span>
+<span class="lineNum">     873 </span><span class="lineCov">    6908488 :     return ret;</span>
 <a name="874"><span class="lineNum">     874 </span>            : }</a>
 <span class="lineNum">     875 </span>            : 
 <span class="lineNum">     876 </span><span class="lineCov">          2 : void CaptureSummary::MultiplyByConstantForTest(unsigned int multiplier)</span>
