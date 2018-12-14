@@ -55,6 +55,6 @@ var searchData=
   ['gettld',['GetTLD',['../class_dns_stats.html#aa165282dc598f69694b99d76640e117d',1,'DnsStats']]],
   ['gettldindex',['GetTldIndex',['../class_tld_count_test.html#a99848fa447c64cff4464ead6319f0467',1,'TldCountTest']]],
   ['getupdatetime',['GetUpdateTime',['../class_odi_publisher.html#ae8f83124422efdbfe24202070963b594',1,'OdiPublisher']]],
-  ['getvector',['GetVector',['../classithipublisher.html#a11f44a5c4483ff5301f72c36d2229d45',1,'ithipublisher']]],
+  ['getvector',['GetVector',['../classithipublisher.html#a9d346fab407cc6ef1690dc962c8eaa29',1,'ithipublisher']]],
   ['getzoneprefix',['GetZonePrefix',['../class_dns_stats.html#a4f93c24ef5c3439a61c9081f4e1187ef',1,'DnsStats']]]
 ];

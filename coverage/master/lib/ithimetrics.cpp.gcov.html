@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-12-12</td>
+            <td class="headerValue">2018-12-14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -576,72 +576,72 @@
 <span class="lineNum">     514 </span>            : }
 <a name="515"><span class="lineNum">     515 </span>            : </a>
 <span class="lineNum">     516 </span>            : 
-<span class="lineNum">     517 </span><span class="lineCov">         80 : bool ithimetrics::ParseMetricFileName(const char * name, int * metric_id, int * year, int * month, int * day, size_t * name_offset)</span>
+<span class="lineNum">     517 </span><span class="lineCov">         82 : bool ithimetrics::ParseMetricFileName(const char * name, int * metric_id, int * year, int * month, int * day, size_t * name_offset)</span>
 <span class="lineNum">     518 </span>            : {
-<span class="lineNum">     519 </span><span class="lineCov">         80 :     size_t ch_index = 0;</span>
-<span class="lineNum">     520 </span><span class="lineCov">         80 :     size_t char_after_sep_index = 0;</span>
-<span class="lineNum">     521 </span><span class="lineCov">         80 :     size_t name_len = strlen(name);</span>
-<span class="lineNum">     522 </span><span class="lineCov">         80 :     int val[4] = { 0, 0, 0, 0 };</span>
-<span class="lineNum">     523 </span><span class="lineCov">         80 :     bool ret = true;</span>
+<span class="lineNum">     519 </span><span class="lineCov">         82 :     size_t ch_index = 0;</span>
+<span class="lineNum">     520 </span><span class="lineCov">         82 :     size_t char_after_sep_index = 0;</span>
+<span class="lineNum">     521 </span><span class="lineCov">         82 :     size_t name_len = strlen(name);</span>
+<span class="lineNum">     522 </span><span class="lineCov">         82 :     int val[4] = { 0, 0, 0, 0 };</span>
+<span class="lineNum">     523 </span><span class="lineCov">         82 :     bool ret = true;</span>
 <span class="lineNum">     524 </span>            : 
 <span class="lineNum">     525 </span>            :     /* Find the last separator in the file name */
-<span class="lineNum">     526 </span><span class="lineCov">         80 :     if (ret)</span>
+<span class="lineNum">     526 </span><span class="lineCov">         82 :     if (ret)</span>
 <span class="lineNum">     527 </span>            :     {
-<span class="lineNum">     528 </span><span class="lineCov">       1136 :         while (name[ch_index] != 0)</span>
+<span class="lineNum">     528 </span><span class="lineCov">       1174 :         while (name[ch_index] != 0)</span>
 <span class="lineNum">     529 </span>            :         {
-<span class="lineNum">     530 </span><span class="lineCov">        976 :             if (name[ch_index] == ITHI_FILE_PATH_SEP[0])</span>
+<span class="lineNum">     530 </span><span class="lineCov">       1010 :             if (name[ch_index] == ITHI_FILE_PATH_SEP[0])</span>
 <span class="lineNum">     531 </span>            :             {
 <span class="lineNum">     532 </span><span class="lineCov">         32 :                 char_after_sep_index = ch_index + 1;</span>
 <span class="lineNum">     533 </span>            :             }
-<span class="lineNum">     534 </span><span class="lineCov">        976 :             ch_index++;</span>
+<span class="lineNum">     534 </span><span class="lineCov">       1010 :             ch_index++;</span>
 <span class="lineNum">     535 </span>            :         }
 <span class="lineNum">     536 </span>            : 
 <span class="lineNum">     537 </span>            :         /* Check that the name length matches expectation */
-<span class="lineNum">     538 </span><span class="lineCov">         80 :         ret &amp;= (char_after_sep_index + 17u) &lt;= name_len;</span>
+<span class="lineNum">     538 </span><span class="lineCov">         82 :         ret &amp;= (char_after_sep_index + 17u) &lt;= name_len;</span>
 <span class="lineNum">     539 </span>            :     }
 <span class="lineNum">     540 </span>            : 
-<span class="lineNum">     541 </span><span class="lineCov">         80 :     if (ret)</span>
+<span class="lineNum">     541 </span><span class="lineCov">         82 :     if (ret)</span>
 <span class="lineNum">     542 </span>            :     {
 <span class="lineNum">     543 </span>            : 
-<span class="lineNum">     544 </span><span class="lineCov">         96 :         ret = name[char_after_sep_index] == 'M' &amp;&amp;</span>
-<span class="lineNum">     545 </span><span class="lineCov">         96 :             name[char_after_sep_index + 2] == '-' &amp;&amp;</span>
-<span class="lineNum">     546 </span><span class="lineCov">         96 :             name[char_after_sep_index + 7] == '-' &amp;&amp;</span>
-<span class="lineNum">     547 </span><span class="lineCov">         96 :             name[char_after_sep_index + 10] == '-' &amp;&amp;</span>
-<span class="lineNum">     548 </span><span class="lineCov">         96 :             name[char_after_sep_index + 13] == '.' &amp;&amp;</span>
-<span class="lineNum">     549 </span><span class="lineCov">         96 :             name[char_after_sep_index + 14] == 'c' &amp;&amp;</span>
-<span class="lineNum">     550 </span><span class="lineCov">         96 :             name[char_after_sep_index + 15] == 's' &amp;&amp;</span>
-<span class="lineNum">     551 </span><span class="lineCov">        144 :             name[char_after_sep_index + 16] == 'v' &amp;&amp;</span>
-<span class="lineNum">     552 </span><span class="lineCov">         96 :             name[char_after_sep_index + 17] == 0;</span>
+<span class="lineNum">     544 </span><span class="lineCov">        100 :         ret = name[char_after_sep_index] == 'M' &amp;&amp;</span>
+<span class="lineNum">     545 </span><span class="lineCov">        100 :             name[char_after_sep_index + 2] == '-' &amp;&amp;</span>
+<span class="lineNum">     546 </span><span class="lineCov">        100 :             name[char_after_sep_index + 7] == '-' &amp;&amp;</span>
+<span class="lineNum">     547 </span><span class="lineCov">        100 :             name[char_after_sep_index + 10] == '-' &amp;&amp;</span>
+<span class="lineNum">     548 </span><span class="lineCov">        100 :             name[char_after_sep_index + 13] == '.' &amp;&amp;</span>
+<span class="lineNum">     549 </span><span class="lineCov">        100 :             name[char_after_sep_index + 14] == 'c' &amp;&amp;</span>
+<span class="lineNum">     550 </span><span class="lineCov">        100 :             name[char_after_sep_index + 15] == 's' &amp;&amp;</span>
+<span class="lineNum">     551 </span><span class="lineCov">        150 :             name[char_after_sep_index + 16] == 'v' &amp;&amp;</span>
+<span class="lineNum">     552 </span><span class="lineCov">        100 :             name[char_after_sep_index + 17] == 0;</span>
 <span class="lineNum">     553 </span>            :     }
 <span class="lineNum">     554 </span>            : 
-<span class="lineNum">     555 </span><span class="lineCov">         80 :     if (ret)</span>
+<span class="lineNum">     555 </span><span class="lineCov">         82 :     if (ret)</span>
 <span class="lineNum">     556 </span>            :     {
 <span class="lineNum">     557 </span>            :         char digits[5];
-<span class="lineNum">     558 </span><span class="lineCov">         48 :         const int delta[4] = { 1, 3, 8, 11 };</span>
-<span class="lineNum">     559 </span><span class="lineCov">         48 :         const int len[4] = { 1, 4, 2, 2 };</span>
+<span class="lineNum">     558 </span><span class="lineCov">         50 :         const int delta[4] = { 1, 3, 8, 11 };</span>
+<span class="lineNum">     559 </span><span class="lineCov">         50 :         const int len[4] = { 1, 4, 2, 2 };</span>
 <span class="lineNum">     560 </span>            : 
-<span class="lineNum">     561 </span><span class="lineCov">        240 :         for (int i = 0; i &lt; 4; i++)</span>
+<span class="lineNum">     561 </span><span class="lineCov">        250 :         for (int i = 0; i &lt; 4; i++)</span>
 <span class="lineNum">     562 </span>            :         {
-<span class="lineNum">     563 </span><span class="lineCov">        624 :             for (int j = 0; j &lt; len[i]; j++)</span>
+<span class="lineNum">     563 </span><span class="lineCov">        650 :             for (int j = 0; j &lt; len[i]; j++)</span>
 <span class="lineNum">     564 </span>            :             {
-<span class="lineNum">     565 </span><span class="lineCov">        432 :                 digits[j] = name[char_after_sep_index + delta[i] + j];</span>
-<span class="lineNum">     566 </span><span class="lineCov">        432 :                 ret &amp;= (isdigit(digits[j]) != 0);</span>
+<span class="lineNum">     565 </span><span class="lineCov">        450 :                 digits[j] = name[char_after_sep_index + delta[i] + j];</span>
+<span class="lineNum">     566 </span><span class="lineCov">        450 :                 ret &amp;= (isdigit(digits[j]) != 0);</span>
 <span class="lineNum">     567 </span>            :             }
-<span class="lineNum">     568 </span><span class="lineCov">        192 :             digits[len[i]] = 0;</span>
-<span class="lineNum">     569 </span><span class="lineCov">        192 :             val[i] = atoi(digits);</span>
+<span class="lineNum">     568 </span><span class="lineCov">        200 :             digits[len[i]] = 0;</span>
+<span class="lineNum">     569 </span><span class="lineCov">        200 :             val[i] = atoi(digits);</span>
 <span class="lineNum">     570 </span>            :         }
 <span class="lineNum">     571 </span>            :     }
 <span class="lineNum">     572 </span>            : 
 <span class="lineNum">     573 </span>            :     /* In case of error, return whatever value was parsed, or possibly zero.
 <span class="lineNum">     574 </span>            :     */
 <span class="lineNum">     575 </span>            : 
-<span class="lineNum">     576 </span><span class="lineCov">         80 :     *metric_id = val[0];</span>
-<span class="lineNum">     577 </span><span class="lineCov">         80 :     *year = val[1];</span>
-<span class="lineNum">     578 </span><span class="lineCov">         80 :     *month = val[2];</span>
-<span class="lineNum">     579 </span><span class="lineCov">         80 :     *day = val[3];</span>
-<span class="lineNum">     580 </span><span class="lineCov">         80 :     *name_offset = char_after_sep_index;</span>
+<span class="lineNum">     576 </span><span class="lineCov">         82 :     *metric_id = val[0];</span>
+<span class="lineNum">     577 </span><span class="lineCov">         82 :     *year = val[1];</span>
+<span class="lineNum">     578 </span><span class="lineCov">         82 :     *month = val[2];</span>
+<span class="lineNum">     579 </span><span class="lineCov">         82 :     *day = val[3];</span>
+<span class="lineNum">     580 </span><span class="lineCov">         82 :     *name_offset = char_after_sep_index;</span>
 <span class="lineNum">     581 </span>            : 
-<span class="lineNum">     582 </span><span class="lineCov">         80 :     return ret;</span>
+<span class="lineNum">     582 </span><span class="lineCov">         82 :     return ret;</span>
 <span class="lineNum">     583 </span>            : }
 </pre>
       </td>
