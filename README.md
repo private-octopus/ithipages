@@ -173,10 +173,12 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2018-12-13 16:52.58](analysis/2018-12-13-165258-6222-1/index.html)
   - [issues found on 2018-12-13 23:09.12](analysis/2018-12-13-230912-6285-1/index.html)
   - [issues found on 2018-12-15 21:57.21](analysis/2018-12-15-215721-6469-1/index.html)
+  - [issues found on 2018-12-15 22:15.19](analysis/2018-12-15-221519-6527-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
   - [from branch web-site-bugs-2018-09](coverage/web-site-bugs-2018-09/index.html)
+  - [from branch first-page-v2](coverage/first-page-v2/index.html)
   - [from branch Fix-M1-bug](coverage/Fix-M1-bug/index.html)
   - [from branch centos-v-1-03](coverage/centos-v-1-03/index.html)
   - [from branch master](coverage/master/index.html)
