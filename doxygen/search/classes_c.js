@@ -6,5 +6,6 @@ var searchData=
   ['pcaprec_5fhdr_5fs',['pcaprec_hdr_s',['../structpcaprec__hdr__s.html',1,'']]],
   ['plugintest',['PluginTest',['../class_plugin_test.html',1,'']]],
   ['plugintestbad',['PluginTestBad',['../class_plugin_test_bad.html',1,'']]],
+  ['publishindextest',['PublishIndexTest',['../class_publish_index_test.html',1,'']]],
   ['publishtest',['PublishTest',['../class_publish_test.html',1,'']]]
 ];

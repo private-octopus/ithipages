@@ -40,7 +40,7 @@ var searchData=
   ['cm7',['cm7',['../classithimetrics.html#a8fa915f6f3ea4af40f4e346aa85d1e79',1,'ithimetrics']]],
   ['cm8',['cm8',['../classithimetrics.html#a009ab9518ce8672606cea97cdc8686f6',1,'ithimetrics']]],
   ['cmpnametest',['CmpNameTest',['../class_cmp_name_test.html',1,'CmpNameTest'],['../class_cmp_name_test.html#a65d0517e1122f441f41d752bc2a8f01c',1,'CmpNameTest::CmpNameTest()']]],
-  ['collectmetricfiles',['CollectMetricFiles',['../classithipublisher.html#a72ee4a7b60f70837750280588c225fcb',1,'ithipublisher']]],
+  ['collectmetricfiles',['CollectMetricFiles',['../classithipublisher.html#a72ee4a7b60f70837750280588c225fcb',1,'ithipublisher::CollectMetricFiles()'],['../classithi_index_publisher.html#a5dd39725f0de752052b333678e092bf5',1,'ithiIndexPublisher::CollectMetricFiles()']]],
   ['compare',['Compare',['../class_capture_summary.html#af80da0b51dbd4c06a85e4729e0604714',1,'CaptureSummary']]],
   ['compare_5ffiles',['compare_files',['../class_metric_test.html#adde9c94dc162dd349d19786fcd3ba4bd',1,'MetricTest']]],
   ['compare_5flines',['compare_lines',['../class_metric_test.html#aba58d43ee9eebd96f0cd09408ae7ab29',1,'MetricTest']]],

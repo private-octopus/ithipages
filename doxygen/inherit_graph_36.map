@@ -1,5 +1,5 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classithi__test__class.html" title="ithi_test_class" alt="" coords="5,613,112,640"/>
+<area shape="rect" id="node1" href="$classithi__test__class.html" title="ithi_test_class" alt="" coords="5,639,112,665"/>
 <area shape="rect" id="node2" href="$classcapture__fuzz.html" title="capture_fuzz" alt="" coords="187,5,285,32"/>
 <area shape="rect" id="node3" href="$class_capture_test.html" title="CaptureTest" alt="" coords="189,56,283,83"/>
 <area shape="rect" id="node4" href="$class_cmp_name_test.html" title="CmpNameTest" alt="" coords="181,107,291,133"/>
@@ -19,10 +19,11 @@
 <area shape="rect" id="node18" href="$class_pattern_test.html" title="PatternTest" alt="" coords="191,816,281,843"/>
 <area shape="rect" id="node19" href="$class_plugin_test.html" title="PluginTest" alt="" coords="194,867,278,893"/>
 <area shape="rect" id="node20" href="$class_plugin_test_bad.html" title="PluginTestBad" alt="" coords="183,917,289,944"/>
-<area shape="rect" id="node21" href="$class_publish_test.html" title="PublishTest" alt="" coords="191,968,281,995"/>
-<area shape="rect" id="node22" href="$class_q_name_test.html" title="QNameTest" alt="" coords="189,1019,283,1045"/>
-<area shape="rect" id="node23" href="$class_save_test.html" title="SaveTest" alt="" coords="197,1069,275,1096"/>
-<area shape="rect" id="node24" href="$class_stats_by_ip_test.html" title="StatsByIpTest" alt="" coords="183,1120,289,1147"/>
-<area shape="rect" id="node25" href="$classtest_rfc6761.html" title="testRfc6761" alt="" coords="189,1171,283,1197"/>
-<area shape="rect" id="node26" href="$class_tld_count_test.html" title="TldCountTest" alt="" coords="185,1221,287,1248"/>
+<area shape="rect" id="node21" href="$class_publish_index_test.html" title="PublishIndexTest" alt="" coords="175,968,297,995"/>
+<area shape="rect" id="node22" href="$class_publish_test.html" title="PublishTest" alt="" coords="191,1019,281,1045"/>
+<area shape="rect" id="node23" href="$class_q_name_test.html" title="QNameTest" alt="" coords="189,1069,283,1096"/>
+<area shape="rect" id="node24" href="$class_save_test.html" title="SaveTest" alt="" coords="197,1120,275,1147"/>
+<area shape="rect" id="node25" href="$class_stats_by_ip_test.html" title="StatsByIpTest" alt="" coords="183,1171,289,1197"/>
+<area shape="rect" id="node26" href="$classtest_rfc6761.html" title="testRfc6761" alt="" coords="189,1221,283,1248"/>
+<area shape="rect" id="node27" href="$class_tld_count_test.html" title="TldCountTest" alt="" coords="185,1272,287,1299"/>
 </map>

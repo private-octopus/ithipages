@@ -15,7 +15,7 @@ var searchData=
   ['clear',['Clear',['../class_bin_hash.html#a34414ec1b4e8a3aff124167804b13640',1,'BinHash::Clear()'],['../class_lru_hash.html#a75eb8ffbe8e15814bb55453c201b27a9',1,'LruHash::Clear()']]],
   ['closedir',['closedir',['../dirent_8h.html#a748b9bd26c040c2ad9107c9d8c1aab42',1,'dirent.h']]],
   ['cmpnametest',['CmpNameTest',['../class_cmp_name_test.html#a65d0517e1122f441f41d752bc2a8f01c',1,'CmpNameTest']]],
-  ['collectmetricfiles',['CollectMetricFiles',['../classithipublisher.html#a72ee4a7b60f70837750280588c225fcb',1,'ithipublisher']]],
+  ['collectmetricfiles',['CollectMetricFiles',['../classithipublisher.html#a72ee4a7b60f70837750280588c225fcb',1,'ithipublisher::CollectMetricFiles()'],['../classithi_index_publisher.html#a5dd39725f0de752052b333678e092bf5',1,'ithiIndexPublisher::CollectMetricFiles()']]],
   ['compare',['Compare',['../class_capture_summary.html#af80da0b51dbd4c06a85e4729e0604714',1,'CaptureSummary']]],
   ['compare_5ffiles',['compare_files',['../class_metric_test.html#adde9c94dc162dd349d19786fcd3ba4bd',1,'MetricTest']]],
   ['compare_5flines',['compare_lines',['../class_metric_test.html#aba58d43ee9eebd96f0cd09408ae7ab29',1,'MetricTest']]],

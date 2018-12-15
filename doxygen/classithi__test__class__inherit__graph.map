@@ -18,10 +18,11 @@
 <area shape="rect" id="node18" href="$class_pattern_test.html" title="{PatternTest\n||+ PatternTest()\l+ ~PatternTest()\l+ DoTest()\l&#45; TestOnePattern()\l&#45; TestRandom()\l}" alt="" coords="2561,321,2691,457"/>
 <area shape="rect" id="node19" href="$class_plugin_test.html" title="{PluginTest\n||+ PluginTest()\l+ ~PluginTest()\l+ DoTest()\l+ DoOneTest()\l&#45; LoadPcapFile()\l&#45; LoadOpt()\l}" alt="" coords="2716,314,2832,465"/>
 <area shape="rect" id="node20" href="$class_plugin_test_bad.html" title="{PluginTestBad\n|&#45; p_test\l|+ PluginTestBad()\l+ ~PluginTestBad()\l+ DoTest()\l}" alt="" coords="2858,336,2992,443"/>
-<area shape="rect" id="node21" href="$class_publish_test.html" title="{PublishTest\n||+ PublishTest()\l+ ~PublishTest()\l+ DoTest()\l+ DoOneTest()\l+ CreateTestDirectory()\l+ CopyFileToDirectory()\l}" alt="" coords="3017,314,3180,465"/>
-<area shape="rect" id="node22" href="$class_q_name_test.html" title="{QNameTest\n||+ QNameTest()\l+ ~QNameTest()\l+ DoTest()\l}" alt="" coords="3205,336,3325,443"/>
-<area shape="rect" id="node23" href="$class_save_test.html" title="{SaveTest\n||+ SaveTest()\l+ ~SaveTest()\l+ DoTest()\l}" alt="" coords="3351,336,3457,443"/>
-<area shape="rect" id="node24" href="$class_stats_by_ip_test.html" title="{StatsByIpTest\n||+ StatsByIpTest()\l+ ~StatsByIpTest()\l+ DoTest()\l+ OptionHashTest()\l}" alt="" coords="3482,329,3619,450"/>
-<area shape="rect" id="node25" href="$classtest_rfc6761.html" title="{testRfc6761\n||+ testRfc6761()\l+ ~testRfc6761()\l+ DoTest()\l}" alt="" coords="3643,336,3764,443"/>
-<area shape="rect" id="node26" href="$class_tld_count_test.html" title="{TldCountTest\n||+ TldCountTest()\l+ ~TldCountTest()\l+ DoTest()\l+ GetTldIndex()\l}" alt="" coords="3789,329,3917,450"/>
+<area shape="rect" id="node21" href="$class_publish_index_test.html" title="{PublishIndexTest\n||+ PublishIndexTest()\l+ ~PublishIndexTest()\l+ DoTest()\l}" alt="" coords="3017,336,3167,443"/>
+<area shape="rect" id="node22" href="$class_publish_test.html" title="{PublishTest\n||+ PublishTest()\l+ ~PublishTest()\l+ DoTest()\l+ DoOneTest()\l+ CreateTestDirectory()\l+ CopyFileToDirectory()\l}" alt="" coords="3192,314,3355,465"/>
+<area shape="rect" id="node23" href="$class_q_name_test.html" title="{QNameTest\n||+ QNameTest()\l+ ~QNameTest()\l+ DoTest()\l}" alt="" coords="3379,336,3500,443"/>
+<area shape="rect" id="node24" href="$class_save_test.html" title="{SaveTest\n||+ SaveTest()\l+ ~SaveTest()\l+ DoTest()\l}" alt="" coords="3525,336,3632,443"/>
+<area shape="rect" id="node25" href="$class_stats_by_ip_test.html" title="{StatsByIpTest\n||+ StatsByIpTest()\l+ ~StatsByIpTest()\l+ DoTest()\l+ OptionHashTest()\l}" alt="" coords="3657,329,3793,450"/>
+<area shape="rect" id="node26" href="$classtest_rfc6761.html" title="{testRfc6761\n||+ testRfc6761()\l+ ~testRfc6761()\l+ DoTest()\l}" alt="" coords="3818,336,3939,443"/>
+<area shape="rect" id="node27" href="$class_tld_count_test.html" title="{TldCountTest\n||+ TldCountTest()\l+ ~TldCountTest()\l+ DoTest()\l+ GetTldIndex()\l}" alt="" coords="3963,329,4092,450"/>
 </map>

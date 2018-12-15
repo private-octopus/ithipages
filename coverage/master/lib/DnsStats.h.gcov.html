@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2018-12-14</td>
+            <td class="headerValue">2018-12-15</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -317,7 +317,7 @@
 <span class="lineNum">     255 </span>            :     uint32_t edns_options_length;
 <span class="lineNum">     256 </span>            :     bool is_qname_minimized;
 <span class="lineNum">     257 </span>            : 
-<span class="lineNum">     258 </span>            : 
+<span class="lineNum">     258 </span>            :     static bool IsValidTldSyntax(uint8_t * tld, size_t length);
 <span class="lineNum">     259 </span>            :     static bool IsRfc6761Tld(uint8_t * tld, size_t length);
 <span class="lineNum">     260 </span>            :     static void SetToUpperCase(uint8_t * domain, size_t length);
 <span class="lineNum">     261 </span>            :     static char const * GetTableName(uint32_t tableId);

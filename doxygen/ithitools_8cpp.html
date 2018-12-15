@@ -637,29 +637,42 @@ Functions</h2></td></tr>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;            ret = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        }</div>
 <div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;</div>
-<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        <span class="keywordflow">if</span> (ret) {</div>
-<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            printf(<span class="stringliteral">&quot;ITHI JSON Data saved in directory &lt;%s&gt;.\n&quot;</span>, web_root);</div>
-<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        }</div>
-<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;    }</div>
-<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (exec_mode == <a class="code" href="ithitools_8cpp.html#a109af736ce3bdb5563f077c212dbe98da53871d6fda59c23724f9fe31263dbd35">ithi_mode_publish_odi</a>) {</div>
-<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keywordtype">bool</span> ret = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;</div>
-<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        <span class="keywordflow">if</span> (odi_dir == NULL) {</div>
-<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            odi_dir = <span class="stringliteral">&quot;.&quot;</span>;</div>
-<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;        }</div>
-<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;</div>
-<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        ret = <a class="code" href="class_odi_publisher.html#acaf93a545b7b73a899817368695c4b2b">OdiPublisher::PublishMetricFile</a>(metric_file_name, odi_dir, data_dir, 0);</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        <span class="keywordflow">if</span> (ret) {</div>
-<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;            printf(<span class="stringliteral">&quot;ITHI Metric &lt;%s&gt; saved in directory &lt;%s&gt;.\n&quot;</span>, metric_file_name, odi_dir);</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        }</div>
-<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;    }</div>
-<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;</div>
-<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordflow">return</span> exit_code;</div>
-<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;}</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        <span class="keywordflow">if</span> (ret &amp;&amp; exec_mode != <a class="code" href="ithitools_8cpp.html#a109af736ce3bdb5563f077c212dbe98da50bfafa723333b87792407034719ac82">ithi_mode_publish_partner</a>) {</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;            <a class="code" href="classithi_index_publisher.html">ithiIndexPublisher</a> pub(ithi_folder);</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;            ret = pub.CollectMetricFiles();</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;            <span class="keywordflow">if</span> (!ret) {</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;                fprintf(stderr, <span class="stringliteral">&quot;Cannot collect metric files.\n&quot;</span>);</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;            }</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;            <span class="keywordflow">else</span> {</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;                ret = pub.Publish(web_root);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;            }</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        }</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        <span class="keywordflow">if</span> (ret) {</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            printf(<span class="stringliteral">&quot;ITHI JSON Data saved in directory &lt;%s&gt;.\n&quot;</span>, web_root);</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        }</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;    }</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (exec_mode == <a class="code" href="ithitools_8cpp.html#a109af736ce3bdb5563f077c212dbe98da53871d6fda59c23724f9fe31263dbd35">ithi_mode_publish_odi</a>) {</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        <span class="keywordtype">bool</span> ret = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        <span class="keywordflow">if</span> (odi_dir == NULL) {</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;            odi_dir = <span class="stringliteral">&quot;.&quot;</span>;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        }</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;        ret = <a class="code" href="class_odi_publisher.html#acaf93a545b7b73a899817368695c4b2b">OdiPublisher::PublishMetricFile</a>(metric_file_name, odi_dir, data_dir, 0);</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;        <span class="keywordflow">if</span> (ret) {</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;            printf(<span class="stringliteral">&quot;ITHI Metric &lt;%s&gt; saved in directory &lt;%s&gt;.\n&quot;</span>, metric_file_name, odi_dir);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;        }</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;    }</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    <span class="keywordflow">return</span> exit_code;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;}</div>
 <div class="ttc" id="classithimetrics_html_aacc730eb5037ad77c59cee166a37c9eb"><div class="ttname"><a href="classithimetrics.html#aacc730eb5037ad77c59cee166a37c9eb">ithimetrics::SetIthiFolder</a></div><div class="ttdeci">bool SetIthiFolder(char const *folder)</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:112</div></div>
 <div class="ttc" id="classithimetrics_html_a6a256b8c018851ea16d789b000b524f2"><div class="ttname"><a href="classithimetrics.html#a6a256b8c018851ea16d789b000b524f2">ithimetrics::SaveMetricFiles</a></div><div class="ttdeci">bool SaveMetricFiles()</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:435</div></div>
 <div class="ttc" id="class_odi_publisher_html_acaf93a545b7b73a899817368695c4b2b"><div class="ttname"><a href="class_odi_publisher.html#acaf93a545b7b73a899817368695c4b2b">OdiPublisher::PublishMetricFile</a></div><div class="ttdeci">static bool PublishMetricFile(const char *metric_file_name, char const *odi_dir, char const *data_dir, time_t current_time)</div><div class="ttdef"><b>Definition:</b> OdiPublisher.cpp:48</div></div>
-<div class="ttc" id="class_dns_stats_html_a7aa190f64dba3a424829d8ee762c2c7d"><div class="ttname"><a href="class_dns_stats.html#a7aa190f64dba3a424829d8ee762c2c7d">DnsStats::LoadPcapFiles</a></div><div class="ttdeci">bool LoadPcapFiles(size_t nb_files, char const **fileNames)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1345</div></div>
+<div class="ttc" id="class_dns_stats_html_a7aa190f64dba3a424829d8ee762c2c7d"><div class="ttname"><a href="class_dns_stats.html#a7aa190f64dba3a424829d8ee762c2c7d">DnsStats::LoadPcapFiles</a></div><div class="ttdeci">bool LoadPcapFiles(size_t nb_files, char const **fileNames)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1356</div></div>
 <div class="ttc" id="classithimetrics_html_a35586aa48215755f9080313e5b0e9642"><div class="ttname"><a href="classithimetrics.html#a35586aa48215755f9080313e5b0e9642">ithimetrics::SetRecursiveCaptureFileName</a></div><div class="ttdeci">bool SetRecursiveCaptureFileName(char const *file_name)</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:252</div></div>
 <div class="ttc" id="classithimetrics_html_a7be3dd2b4e0ea66dcdcfe600991fe34d"><div class="ttname"><a href="classithimetrics.html#a7be3dd2b4e0ea66dcdcfe600991fe34d">ithimetrics::SetDateString</a></div><div class="ttdeci">bool SetDateString(char const *date_string)</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:117</div></div>
 <div class="ttc" id="ithitools_8cpp_html_a109af736ce3bdb5563f077c212dbe98da53871d6fda59c23724f9fe31263dbd35"><div class="ttname"><a href="ithitools_8cpp.html#a109af736ce3bdb5563f077c212dbe98da53871d6fda59c23724f9fe31263dbd35">ithi_mode_publish_odi</a></div><div class="ttdef"><b>Definition:</b> ithitools.cpp:142</div></div>
@@ -677,7 +690,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="classithimetrics_html_a761f383e326cccb715059d2b77c9b8e8"><div class="ttname"><a href="classithimetrics.html#a761f383e326cccb715059d2b77c9b8e8">ithimetrics::SetAbuseFileName</a></div><div class="ttdeci">bool SetAbuseFileName(char const *abuse_file_name, M2DataType f_type)</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:201</div></div>
 <div class="ttc" id="class_dns_stats_html"><div class="ttname"><a href="class_dns_stats.html">DnsStats</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:203</div></div>
 <div class="ttc" id="ithitools_8cpp_html_addea2018e480eece49bb50115d8f6ab9"><div class="ttname"><a href="ithitools_8cpp.html#addea2018e480eece49bb50115d8f6ab9">usage</a></div><div class="ttdeci">static int usage()</div><div class="ttdef"><b>Definition:</b> ithitools.cpp:49</div></div>
-<div class="ttc" id="class_dns_stats_html_a848a1259d9a85c23b0f4f5d4e3f4cc49"><div class="ttname"><a href="class_dns_stats.html#a848a1259d9a85c23b0f4f5d4e3f4cc49">DnsStats::ExportToCaptureSummary</a></div><div class="ttdeci">bool ExportToCaptureSummary(CaptureSummary *cs)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1750</div></div>
+<div class="ttc" id="class_dns_stats_html_a848a1259d9a85c23b0f4f5d4e3f4cc49"><div class="ttname"><a href="class_dns_stats.html#a848a1259d9a85c23b0f4f5d4e3f4cc49">DnsStats::ExportToCaptureSummary</a></div><div class="ttdeci">bool ExportToCaptureSummary(CaptureSummary *cs)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1761</div></div>
 <div class="ttc" id="_dnscap_plug_in_8cpp_html_a6a0a941cfd3bcf3d09444f907f9fa7b2"><div class="ttname"><a href="_dnscap_plug_in_8cpp.html#a6a0a941cfd3bcf3d09444f907f9fa7b2">default_csv_file</a></div><div class="ttdeci">static char const * default_csv_file</div><div class="ttdef"><b>Definition:</b> DnscapPlugIn.cpp:58</div></div>
 <div class="ttc" id="classithimetrics_html_a5af357679d8034a86937191cd2a852a6"><div class="ttname"><a href="classithimetrics.html#a5af357679d8034a86937191cd2a852a6">ithimetrics::SetMetricFileNames</a></div><div class="ttdeci">bool SetMetricFileNames(int metric_number, char const *metric_file_name)</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:122</div></div>
 <div class="ttc" id="_m2_data_8h_html_a4b288d3fecca776678f6845abd79a23face12adceb08e26a8afd64ec153e2693b"><div class="ttname"><a href="_m2_data_8h.html#a4b288d3fecca776678f6845abd79a23face12adceb08e26a8afd64ec153e2693b">Registrar</a></div><div class="ttdef"><b>Definition:</b> M2Data.h:32</div></div>
@@ -699,6 +712,7 @@ Functions</h2></td></tr>
 <div class="ttc" id="ithi__getopt_8h_html_ad5e1c16213bbee2d5e8cc363309f418c"><div class="ttname"><a href="ithi__getopt_8h.html#ad5e1c16213bbee2d5e8cc363309f418c">optind</a></div><div class="ttdeci">int optind</div></div>
 <div class="ttc" id="class_address_filter_html_aab0ca212bac76ae35f9acbef89fdd630"><div class="ttname"><a href="class_address_filter.html#aab0ca212bac76ae35f9acbef89fdd630">AddressFilter::AddToList</a></div><div class="ttdeci">void AddToList(char const *addrText)</div><div class="ttdef"><b>Definition:</b> AddressFilter.cpp:180</div></div>
 <div class="ttc" id="class_capture_summary_html_a426034bdf9edaab5be355e4a1d630034"><div class="ttname"><a href="class_capture_summary.html#a426034bdf9edaab5be355e4a1d630034">CaptureSummary::Merge</a></div><div class="ttdeci">bool Merge(char const *list_file_name)</div><div class="ttdef"><b>Definition:</b> CaptureSummary.cpp:452</div></div>
+<div class="ttc" id="classithi_index_publisher_html"><div class="ttname"><a href="classithi_index_publisher.html">ithiIndexPublisher</a></div><div class="ttdef"><b>Definition:</b> ithipublisher.h:101</div></div>
 <div class="ttc" id="classithimetrics_html_aa89f612282f8787d5a6af0656203ec6a"><div class="ttname"><a href="classithimetrics.html#aa89f612282f8787d5a6af0656203ec6a">ithimetrics::GetIthiFolderName</a></div><div class="ttdeci">const char * GetIthiFolderName()</div><div class="ttdef"><b>Definition:</b> ithimetrics.h:61</div></div>
 <div class="ttc" id="class_dns_stats_html_a49160d66ab07b64a37d5dbc93674c47c"><div class="ttname"><a href="class_dns_stats.html#a49160d66ab07b64a37d5dbc93674c47c">DnsStats::dnsstat_flags</a></div><div class="ttdeci">uint32_t dnsstat_flags</div><div class="ttdef"><b>Definition:</b> DnsStats.h:246</div></div>
 <div class="ttc" id="class_dns_stats_html_a60c1bd699282d0ae8ce43f5324541c5e"><div class="ttname"><a href="class_dns_stats.html#a60c1bd699282d0ae8ce43f5324541c5e">DnsStats::max_tld_leakage_count</a></div><div class="ttdeci">uint32_t max_tld_leakage_count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:240</div></div>
