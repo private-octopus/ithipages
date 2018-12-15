@@ -172,6 +172,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2018-12-13 03:48.15](analysis/2018-12-13-034815-6507-1/index.html)
   - [issues found on 2018-12-13 16:52.58](analysis/2018-12-13-165258-6222-1/index.html)
   - [issues found on 2018-12-13 23:09.12](analysis/2018-12-13-230912-6285-1/index.html)
+  - [issues found on 2018-12-15 21:57.21](analysis/2018-12-15-215721-6469-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
