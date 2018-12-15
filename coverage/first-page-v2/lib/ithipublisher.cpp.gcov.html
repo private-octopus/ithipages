@@ -1331,8 +1331,8 @@
 <span class="lineNum">    1269 </span><span class="lineNoCov">          0 :                     ret = false;</span>
 <span class="lineNum">    1270 </span>            :                 }
 <span class="lineNum">    1271 </span>            :                 else {
-<span class="lineNum">    1272 </span><span class="lineCov">         12 :                     ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1273 </span><span class="lineCov">         12 :                     ret = mdata-&gt;PrintVector(F, &amp;mvec, 100);</span>
+<span class="lineNum">    1272 </span><span class="lineCov">         12 :                     ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1273 </span><span class="lineCov">         12 :                     ret &amp;= mdata-&gt;PrintVector(F, &amp;mvec, 100);</span>
 <span class="lineNum">    1274 </span><span class="lineCov">         12 :                     if (ret) {</span>
 <span class="lineNum">    1275 </span><span class="lineCov">         12 :                         memcpy(threeNames[nb_published], name, name_len);</span>
 <span class="lineNum">    1276 </span><span class="lineCov">         12 :                         nb_published++;</span>
