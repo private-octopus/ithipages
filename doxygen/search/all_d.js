@@ -117,6 +117,6 @@ var searchData=
   ['morerecentkey',['MoreRecentKey',['../class_i_p_as_key_l_r_u.html#a7eb0b3d2fc0ec30b8a259c76eea3564d',1,'IPAsKeyLRU::MoreRecentKey()'],['../class_tld_as_key.html#af4843abe0d0870205642962367600f5b',1,'TldAsKey::MoreRecentKey()'],['../classhash_test_key.html#ad59aef5241099424f9f61cd036bcaca0',1,'hashTestKey::MoreRecentKey()']]],
   ['mostrecentlyused',['MostRecentlyUsed',['../class_lru_hash.html#a44ddf270c45cf0e15f6034ca9a5a5ca5',1,'LruHash']]],
   ['multiplybyconstantfortest',['MultiplyByConstantForTest',['../class_capture_summary.html#a5501c30ef284dbe92049535a981c9920',1,'CaptureSummary']]],
-  ['my_5fbpftimeval',['my_bpftimeval',['../dnscap__common_8h.html#abbd450bbb51a8d1e7a774f656ef2dc7c',1,'my_bpftimeval():&#160;dnscap_common.h'],['../dnscap__common_8h.html#a141d35116a36f3ee3765a9aa0eb3548b',1,'MY_BPFTIMEVAL():&#160;dnscap_common.h']]],
+  ['my_5fbpftimeval',['MY_BPFTIMEVAL',['../dnscap__common_8h.html#a141d35116a36f3ee3765a9aa0eb3548b',1,'MY_BPFTIMEVAL():&#160;dnscap_common.h'],['../dnscap__common_8h.html#abbd450bbb51a8d1e7a774f656ef2dc7c',1,'my_bpftimeval():&#160;dnscap_common.h']]],
   ['mypath',['mypath',['../namespacem5ingest.html#af569eaa224664d9fac699ef7a670fb6d',1,'m5ingest']]]
 ];

@@ -30,7 +30,6 @@ var searchData=
   ['readnext',['ReadNext',['../classpcap__reader.html#a680ef2474e1ebb4d05dd31a3c92d2d62',1,'pcap_reader']]],
   ['record_5fcount',['record_count',['../class_dns_stats.html#ac74b3c483ddca8a86ce62e0ecbe6b8c6',1,'DnsStats']]],
   ['recursive_5fcapture_5ffile_5fname',['recursive_capture_file_name',['../classithimetrics.html#a3e6f59486789514164c608d5f62509f8',1,'ithimetrics']]],
-  ['registerdnssecusagebyaddress',['RegisterDnssecUsageByAddress',['../class_dns_stats.html#acbc0c010c812f47a954d4412b457755a',1,'DnsStats']]],
   ['registerdnssecusagebyname',['RegisterDnssecUsageByName',['../class_dns_stats.html#aa591e29b1d34ff63916542eab1adcb90',1,'DnsStats']]],
   ['registerdnssecusagebyprefix',['RegisterDnssecUsageByPrefix',['../class_dns_stats.html#a20afd21afec2fee2889c26b993d712c5',1,'DnsStats']]],
   ['registeredtld',['registeredTld',['../class_dns_stats.html#af9a534509a2ec6bce5825a91d48eb6df',1,'DnsStats']]],

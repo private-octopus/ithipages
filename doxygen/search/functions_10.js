@@ -9,7 +9,6 @@ var searchData=
   ['readdir',['readdir',['../dirent_8h.html#aff48ec2514bda89769c968c66db181f3',1,'dirent.h']]],
   ['readdir_5fr',['readdir_r',['../dirent_8h.html#aba172ac13df3f453b85c5d68c5003213',1,'dirent.h']]],
   ['readnext',['ReadNext',['../classpcap__reader.html#a680ef2474e1ebb4d05dd31a3c92d2d62',1,'pcap_reader']]],
-  ['registerdnssecusagebyaddress',['RegisterDnssecUsageByAddress',['../class_dns_stats.html#acbc0c010c812f47a954d4412b457755a',1,'DnsStats']]],
   ['registerdnssecusagebyname',['RegisterDnssecUsageByName',['../class_dns_stats.html#aa591e29b1d34ff63916542eab1adcb90',1,'DnsStats']]],
   ['registerdnssecusagebyprefix',['RegisterDnssecUsageByPrefix',['../class_dns_stats.html#a20afd21afec2fee2889c26b993d712c5',1,'DnsStats']]],
   ['registernewoption',['RegisterNewOption',['../class_stats_by_i_p.html#adeb355209a41b7963af1e258c2910147',1,'StatsByIP']]],
