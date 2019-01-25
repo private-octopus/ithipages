@@ -176,6 +176,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2018-12-15 22:15.19](analysis/2018-12-15-221519-6527-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
+  - [from branch DirectCapture](coverage/DirectCapture/index.html)
   - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
   - [from branch web-site-bugs-2018-09](coverage/web-site-bugs-2018-09/index.html)
   - [from branch nb-gtld-in-m2](coverage/nb-gtld-in-m2/index.html)
