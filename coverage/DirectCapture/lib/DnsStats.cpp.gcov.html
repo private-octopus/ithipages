@@ -32,8 +32,8 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">896</td>
-            <td class="headerCovTableEntry">1027</td>
-            <td class="headerCovTableEntryMed">87.2 %</td>
+            <td class="headerCovTableEntry">1046</td>
+            <td class="headerCovTableEntryMed">85.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
@@ -41,8 +41,8 @@
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">74</td>
-            <td class="headerCovTableEntry">78</td>
-            <td class="headerCovTableEntryHi">94.9 %</td>
+            <td class="headerCovTableEntry">79</td>
+            <td class="headerCovTableEntryHi">93.7 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -2437,134 +2437,170 @@
 <span class="lineNum">    2375 </span><span class="lineCov">      17358 :     }</span>
 <a name="2376"><span class="lineNum">    2376 </span><span class="lineCov">      17358 : }</span></a>
 <span class="lineNum">    2377 </span>            : 
-<span class="lineNum">    2378 </span><span class="lineCov">          8 : void DnsStats::ExportStatsByIp()</span>
-<span class="lineNum">    2379 </span>            : {
-<span class="lineNum">    2380 </span>            :     StatsByIP *sbi;
-<span class="lineNum">    2381 </span><span class="lineCov">          8 :     uint32_t using_do_count = 0;</span>
-<span class="lineNum">    2382 </span><span class="lineCov">          8 :     uint32_t not_using_do_count = 0;</span>
-<span class="lineNum">    2383 </span><span class="lineCov">          8 :     uint32_t using_edns_count = 0;</span>
-<span class="lineNum">    2384 </span><span class="lineCov">          8 :     uint32_t not_using_edns_count = 0;</span>
-<span class="lineNum">    2385 </span><span class="lineCov">          8 :     uint32_t qname_minimizing_count = 0;</span>
-<span class="lineNum">    2386 </span><span class="lineCov">          8 :     uint32_t not_minimizing_count = 0;</span>
-<span class="lineNum">    2387 </span><span class="lineCov">          8 :     uint32_t total_queries = 0;</span>
-<span class="lineNum">    2388 </span>            : 
-<span class="lineNum">    2389 </span>            : 
-<span class="lineNum">    2390 </span><span class="lineCov">      16392 :     for (uint32_t i = 0; i &lt; statsByIp.GetSize(); i++)</span>
-<span class="lineNum">    2391 </span>            :     {
-<span class="lineNum">    2392 </span><span class="lineCov">      16384 :         sbi = statsByIp.GetEntry(i);</span>
-<span class="lineNum">    2393 </span>            : 
-<span class="lineNum">    2394 </span><span class="lineCov">      39498 :         while (sbi != NULL)</span>
-<span class="lineNum">    2395 </span>            :         {
-<span class="lineNum">    2396 </span><span class="lineCov">       6730 :             if (sbi-&gt;query_seen) {</span>
-<span class="lineNum">    2397 </span><span class="lineCov">       5750 :                 total_queries++;</span>
-<span class="lineNum">    2398 </span>            :             }
-<span class="lineNum">    2399 </span>            : 
-<span class="lineNum">    2400 </span><span class="lineCov">       6730 :             if (sbi-&gt;response_seen) {</span>
-<span class="lineNum">    2401 </span><span class="lineCov">       6180 :                 if (sbi-&gt;IsDoUsed()) {</span>
-<span class="lineNum">    2402 </span><span class="lineCov">       4076 :                     using_do_count++;</span>
-<span class="lineNum">    2403 </span>            :                 }
-<span class="lineNum">    2404 </span>            :                 else {
-<span class="lineNum">    2405 </span><span class="lineCov">       2104 :                     not_using_do_count++;</span>
-<span class="lineNum">    2406 </span>            :                 }
+<span class="lineNum">    2378 </span><span class="lineNoCov">          0 : void DnsStats::RegisterTcpSynByIp(uint8_t * source_addr,</span>
+<span class="lineNum">    2379 </span>            :     size_t source_addr_length, bool tcp_port_583, bool tcp_port_443)
+<span class="lineNum">    2380 </span>            : {
+<span class="lineNum">    2381 </span><span class="lineNoCov">          0 :     if ((tcp_port_583 &amp;&amp; tcp_port_443) || (!tcp_port_583 &amp;&amp; !tcp_port_443)) {</span>
+<span class="lineNum">    2382 </span><span class="lineNoCov">          0 :         return;</span>
+<span class="lineNum">    2383 </span>            :     }
+<span class="lineNum">    2384 </span><span class="lineNoCov">          0 :     StatsByIP x(source_addr, source_addr_length, false, false, false);</span>
+<span class="lineNum">    2385 </span><span class="lineNoCov">          0 :     StatsByIP * y = statsByIp.Retrieve(&amp;x);</span>
+<span class="lineNum">    2386 </span>            : 
+<span class="lineNum">    2387 </span><span class="lineNoCov">          0 :     if (y == NULL) {</span>
+<span class="lineNum">    2388 </span><span class="lineNoCov">          0 :         if (statsByIp.GetCount() &lt; max_stats_by_ip_count) {</span>
+<span class="lineNum">    2389 </span><span class="lineNoCov">          0 :             bool stored = false;</span>
+<span class="lineNum">    2390 </span>            : 
+<span class="lineNum">    2391 </span><span class="lineNoCov">          0 :             if ((y = statsByIp.InsertOrAdd(&amp;x, true, &amp;stored)) != NULL) {</span>
+<span class="lineNum">    2392 </span><span class="lineNoCov">          0 :                 y-&gt;query_seen = true;</span>
+<span class="lineNum">    2393 </span>            :             }
+<span class="lineNum">    2394 </span>            :         }
+<span class="lineNum">    2395 </span>            :     }
+<span class="lineNum">    2396 </span>            :     else {
+<span class="lineNum">    2397 </span><span class="lineNoCov">          0 :         if (!y-&gt;query_seen) {</span>
+<span class="lineNum">    2398 </span><span class="lineNoCov">          0 :             y-&gt;count++;</span>
+<span class="lineNum">    2399 </span><span class="lineNoCov">          0 :             y-&gt;query_seen = true;</span>
+<span class="lineNum">    2400 </span>            :         }
+<span class="lineNum">    2401 </span>            :     }
+<span class="lineNum">    2402 </span>            : 
+<span class="lineNum">    2403 </span><span class="lineNoCov">          0 :     if (y != NULL) {</span>
+<span class="lineNum">    2404 </span><span class="lineNoCov">          0 :         if (tcp_port_443) {</span>
+<span class="lineNum">    2405 </span><span class="lineNoCov">          0 :             y-&gt;nb_tcp_443++;</span>
+<span class="lineNum">    2406 </span>            :         }
 <span class="lineNum">    2407 </span>            : 
-<span class="lineNum">    2408 </span><span class="lineCov">       6180 :                 if (sbi-&gt;IsEdnsSupported()) {</span>
-<span class="lineNum">    2409 </span><span class="lineCov">       4376 :                     using_edns_count++;</span>
-<span class="lineNum">    2410 </span>            :                 }
-<span class="lineNum">    2411 </span>            :                 else {
-<span class="lineNum">    2412 </span><span class="lineCov">       1804 :                     not_using_edns_count++;</span>
-<span class="lineNum">    2413 </span>            :                 }
-<span class="lineNum">    2414 </span>            : 
-<span class="lineNum">    2415 </span><span class="lineCov">       6180 :                 if (sbi-&gt;IsQnameMinimized()) {</span>
-<span class="lineNum">    2416 </span><span class="lineCov">        836 :                     qname_minimizing_count++;</span>
-<span class="lineNum">    2417 </span>            :                 }
-<span class="lineNum">    2418 </span>            :                 else {
-<span class="lineNum">    2419 </span><span class="lineCov">       5344 :                     not_minimizing_count++;</span>
-<span class="lineNum">    2420 </span>            :                 }
-<span class="lineNum">    2421 </span>            :             }
-<span class="lineNum">    2422 </span>            : 
-<span class="lineNum">    2423 </span><span class="lineCov">       6730 :             sbi = sbi-&gt;HashNext;</span>
-<span class="lineNum">    2424 </span>            :         }
-<span class="lineNum">    2425 </span>            :     }
-<span class="lineNum">    2426 </span>            : 
-<span class="lineNum">    2427 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_DNSSEC_Client_Usage, 0, not_using_do_count);</span>
-<span class="lineNum">    2428 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_DNSSEC_Client_Usage, 1, using_do_count);</span>
+<span class="lineNum">    2408 </span><span class="lineNoCov">          0 :         if (tcp_port_583) {</span>
+<span class="lineNum">    2409 </span><span class="lineNoCov">          0 :             y-&gt;nb_tcp_583++;</span>
+<span class="lineNum">    2410 </span>            :         }
+<span class="lineNum">    2411 </span><span class="lineNoCov">          0 :     }</span>
+<a name="2412"><span class="lineNum">    2412 </span>            : }</a>
+<span class="lineNum">    2413 </span>            : 
+<span class="lineNum">    2414 </span><span class="lineCov">          8 : void DnsStats::ExportStatsByIp()</span>
+<span class="lineNum">    2415 </span>            : {
+<span class="lineNum">    2416 </span>            :     StatsByIP *sbi;
+<span class="lineNum">    2417 </span><span class="lineCov">          8 :     uint32_t using_do_count = 0;</span>
+<span class="lineNum">    2418 </span><span class="lineCov">          8 :     uint32_t not_using_do_count = 0;</span>
+<span class="lineNum">    2419 </span><span class="lineCov">          8 :     uint32_t using_edns_count = 0;</span>
+<span class="lineNum">    2420 </span><span class="lineCov">          8 :     uint32_t not_using_edns_count = 0;</span>
+<span class="lineNum">    2421 </span><span class="lineCov">          8 :     uint32_t qname_minimizing_count = 0;</span>
+<span class="lineNum">    2422 </span><span class="lineCov">          8 :     uint32_t not_minimizing_count = 0;</span>
+<span class="lineNum">    2423 </span><span class="lineCov">          8 :     uint32_t total_queries = 0;</span>
+<span class="lineNum">    2424 </span>            : 
+<span class="lineNum">    2425 </span>            : 
+<span class="lineNum">    2426 </span><span class="lineCov">      16392 :     for (uint32_t i = 0; i &lt; statsByIp.GetSize(); i++)</span>
+<span class="lineNum">    2427 </span>            :     {
+<span class="lineNum">    2428 </span><span class="lineCov">      16384 :         sbi = statsByIp.GetEntry(i);</span>
 <span class="lineNum">    2429 </span>            : 
-<span class="lineNum">    2430 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_EDNS_Client_Usage, 0, not_using_edns_count);</span>
-<span class="lineNum">    2431 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_EDNS_Client_Usage, 1, using_edns_count);</span>
-<span class="lineNum">    2432 </span>            : 
-<span class="lineNum">    2433 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_QNAME_MINIMIZATION_Usage, 0, not_minimizing_count);</span>
-<span class="lineNum">    2434 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_QNAME_MINIMIZATION_Usage, 1, qname_minimizing_count);</span>
+<span class="lineNum">    2430 </span><span class="lineCov">      39498 :         while (sbi != NULL)</span>
+<span class="lineNum">    2431 </span>            :         {
+<span class="lineNum">    2432 </span><span class="lineCov">       6730 :             if (sbi-&gt;query_seen) {</span>
+<span class="lineNum">    2433 </span><span class="lineCov">       5750 :                 total_queries++;</span>
+<span class="lineNum">    2434 </span>            :             }
 <span class="lineNum">    2435 </span>            : 
-<span class="lineNum">    2436 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_EDNS_OPT_USAGE_REF, 0, total_queries);</span>
-<span class="lineNum">    2437 </span>            : 
-<span class="lineNum">    2438 </span><span class="lineCov">          8 :     statsByIp.Clear();</span>
-<a name="2439"><span class="lineNum">    2439 </span><span class="lineCov">          8 : }</span></a>
-<span class="lineNum">    2440 </span>            : 
-<span class="lineNum">    2441 </span><span class="lineCov">       1388 : DnssecPrefixEntry::DnssecPrefixEntry() :</span>
-<span class="lineNum">    2442 </span>            :     HashNext(NULL),
-<span class="lineNum">    2443 </span>            :     hash(0),
-<span class="lineNum">    2444 </span>            :     prefix(NULL),
-<span class="lineNum">    2445 </span>            :     prefix_len(0),
-<span class="lineNum">    2446 </span><span class="lineCov">       1388 :     is_dnssec(false)</span>
-<span class="lineNum">    2447 </span>            : {
-<a name="2448"><span class="lineNum">    2448 </span><span class="lineCov">       1388 : }</span></a>
-<span class="lineNum">    2449 </span>            : 
-<span class="lineNum">    2450 </span><span class="lineCov">       1388 : DnssecPrefixEntry::~DnssecPrefixEntry()</span>
-<span class="lineNum">    2451 </span>            : {
-<a name="2452"><span class="lineNum">    2452 </span><span class="lineCov">       1388 : }</span></a>
-<span class="lineNum">    2453 </span>            : 
-<span class="lineNum">    2454 </span><span class="lineCov">        660 : bool DnssecPrefixEntry::IsSameKey(DnssecPrefixEntry * key)</span>
-<span class="lineNum">    2455 </span>            : {
-<span class="lineNum">    2456 </span><span class="lineCov">       1698 :     return (prefix_len == key-&gt;prefix_len &amp;&amp;</span>
-<span class="lineNum">    2457 </span><span class="lineCov">       1060 :         ((prefix_len == 0 &amp;&amp; prefix == NULL &amp;&amp; key-&gt;prefix == NULL) ||</span>
-<span class="lineNum">    2458 </span><span class="lineCov">       1590 :         (prefix_len &gt; 0 &amp;&amp; prefix != NULL &amp;&amp; key-&gt;prefix != NULL &amp;&amp;</span>
-<span class="lineNum">    2459 </span><span class="lineCov">       1190 :             memcmp(prefix, key-&gt;prefix, prefix_len) == 0)));</span>
-<a name="2460"><span class="lineNum">    2460 </span>            : }</a>
-<span class="lineNum">    2461 </span>            : 
-<span class="lineNum">    2462 </span><span class="lineCov">       1076 : uint32_t DnssecPrefixEntry::Hash()</span>
-<span class="lineNum">    2463 </span>            : {
-<span class="lineNum">    2464 </span><span class="lineCov">       1076 :     if (hash == 0)</span>
-<span class="lineNum">    2465 </span>            :     {
-<span class="lineNum">    2466 </span><span class="lineCov">       1076 :         hash = 0xCACAB0B0;</span>
-<span class="lineNum">    2467 </span>            : 
-<span class="lineNum">    2468 </span><span class="lineCov">      13986 :         for (size_t i = 0; i &lt; prefix_len; i++)</span>
-<span class="lineNum">    2469 </span>            :         {
-<span class="lineNum">    2470 </span><span class="lineCov">      12910 :             hash = hash * 101 + prefix[i];</span>
-<span class="lineNum">    2471 </span>            :         }
-<span class="lineNum">    2472 </span>            :     }
+<span class="lineNum">    2436 </span><span class="lineCov">       6730 :             if (sbi-&gt;response_seen) {</span>
+<span class="lineNum">    2437 </span><span class="lineCov">       6180 :                 if (sbi-&gt;IsDoUsed()) {</span>
+<span class="lineNum">    2438 </span><span class="lineCov">       4076 :                     using_do_count++;</span>
+<span class="lineNum">    2439 </span>            :                 }
+<span class="lineNum">    2440 </span>            :                 else {
+<span class="lineNum">    2441 </span><span class="lineCov">       2104 :                     not_using_do_count++;</span>
+<span class="lineNum">    2442 </span>            :                 }
+<span class="lineNum">    2443 </span>            : 
+<span class="lineNum">    2444 </span><span class="lineCov">       6180 :                 if (sbi-&gt;IsEdnsSupported()) {</span>
+<span class="lineNum">    2445 </span><span class="lineCov">       4376 :                     using_edns_count++;</span>
+<span class="lineNum">    2446 </span>            :                 }
+<span class="lineNum">    2447 </span>            :                 else {
+<span class="lineNum">    2448 </span><span class="lineCov">       1804 :                     not_using_edns_count++;</span>
+<span class="lineNum">    2449 </span>            :                 }
+<span class="lineNum">    2450 </span>            : 
+<span class="lineNum">    2451 </span><span class="lineCov">       6180 :                 if (sbi-&gt;IsQnameMinimized()) {</span>
+<span class="lineNum">    2452 </span><span class="lineCov">        836 :                     qname_minimizing_count++;</span>
+<span class="lineNum">    2453 </span>            :                 }
+<span class="lineNum">    2454 </span>            :                 else {
+<span class="lineNum">    2455 </span><span class="lineCov">       5344 :                     not_minimizing_count++;</span>
+<span class="lineNum">    2456 </span>            :                 }
+<span class="lineNum">    2457 </span>            :             }
+<span class="lineNum">    2458 </span>            : 
+<span class="lineNum">    2459 </span><span class="lineCov">       6730 :             sbi = sbi-&gt;HashNext;</span>
+<span class="lineNum">    2460 </span>            :         }
+<span class="lineNum">    2461 </span>            :     }
+<span class="lineNum">    2462 </span>            : 
+<span class="lineNum">    2463 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_DNSSEC_Client_Usage, 0, not_using_do_count);</span>
+<span class="lineNum">    2464 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_DNSSEC_Client_Usage, 1, using_do_count);</span>
+<span class="lineNum">    2465 </span>            : 
+<span class="lineNum">    2466 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_EDNS_Client_Usage, 0, not_using_edns_count);</span>
+<span class="lineNum">    2467 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_EDNS_Client_Usage, 1, using_edns_count);</span>
+<span class="lineNum">    2468 </span>            : 
+<span class="lineNum">    2469 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_QNAME_MINIMIZATION_Usage, 0, not_minimizing_count);</span>
+<span class="lineNum">    2470 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_QNAME_MINIMIZATION_Usage, 1, qname_minimizing_count);</span>
+<span class="lineNum">    2471 </span>            : 
+<span class="lineNum">    2472 </span><span class="lineCov">          8 :     SubmitRegistryNumberAndCount(REGISTRY_EDNS_OPT_USAGE_REF, 0, total_queries);</span>
 <span class="lineNum">    2473 </span>            : 
-<span class="lineNum">    2474 </span><span class="lineCov">       1076 :     return hash;</span>
-<a name="2475"><span class="lineNum">    2475 </span>            : }</a>
+<span class="lineNum">    2474 </span><span class="lineCov">          8 :     statsByIp.Clear();</span>
+<a name="2475"><span class="lineNum">    2475 </span><span class="lineCov">          8 : }</span></a>
 <span class="lineNum">    2476 </span>            : 
-<span class="lineNum">    2477 </span><span class="lineCov">        440 : DnssecPrefixEntry * DnssecPrefixEntry::CreateCopy()</span>
-<span class="lineNum">    2478 </span>            : {
-<span class="lineNum">    2479 </span>            : 
-<span class="lineNum">    2480 </span><span class="lineCov">        440 :     DnssecPrefixEntry * key = new DnssecPrefixEntry();</span>
-<span class="lineNum">    2481 </span>            : 
-<span class="lineNum">    2482 </span><span class="lineCov">        440 :     if (key != NULL)</span>
-<span class="lineNum">    2483 </span>            :     {
-<span class="lineNum">    2484 </span><span class="lineCov">        440 :         key-&gt;is_dnssec = is_dnssec;</span>
-<span class="lineNum">    2485 </span><span class="lineCov">        440 :         key-&gt;prefix_len = prefix_len;</span>
-<span class="lineNum">    2486 </span><span class="lineCov">        440 :         if (prefix_len &gt; 0) {</span>
-<span class="lineNum">    2487 </span><span class="lineCov">        440 :             key-&gt;prefix = new uint8_t[prefix_len];</span>
-<span class="lineNum">    2488 </span>            : 
-<span class="lineNum">    2489 </span><span class="lineCov">        440 :             if (key-&gt;prefix == NULL) {</span>
-<span class="lineNum">    2490 </span><span class="lineNoCov">          0 :                 delete key;</span>
-<span class="lineNum">    2491 </span><span class="lineNoCov">          0 :                 key = NULL;</span>
-<span class="lineNum">    2492 </span>            :             }
-<span class="lineNum">    2493 </span>            :             else {
-<span class="lineNum">    2494 </span><span class="lineCov">        440 :                 memcpy(key-&gt;prefix, prefix, prefix_len);</span>
-<span class="lineNum">    2495 </span>            :             }
-<span class="lineNum">    2496 </span>            :         }
-<span class="lineNum">    2497 </span>            :     }
-<span class="lineNum">    2498 </span>            : 
-<span class="lineNum">    2499 </span><span class="lineCov">        440 :     return key;</span>
-<a name="2500"><span class="lineNum">    2500 </span>            : }</a>
-<span class="lineNum">    2501 </span>            : 
-<span class="lineNum">    2502 </span><span class="lineCov">        508 : void DnssecPrefixEntry::Add(DnssecPrefixEntry * key)</span>
-<span class="lineNum">    2503 </span>            : {
-<span class="lineNum">    2504 </span><span class="lineCov">        508 :     is_dnssec |= key-&gt;is_dnssec;</span>
-<span class="lineNum">    2505 </span><span class="lineCov">        508 : }</span>
+<span class="lineNum">    2477 </span><span class="lineCov">       1388 : DnssecPrefixEntry::DnssecPrefixEntry() :</span>
+<span class="lineNum">    2478 </span>            :     HashNext(NULL),
+<span class="lineNum">    2479 </span>            :     hash(0),
+<span class="lineNum">    2480 </span>            :     prefix(NULL),
+<span class="lineNum">    2481 </span>            :     prefix_len(0),
+<span class="lineNum">    2482 </span><span class="lineCov">       1388 :     is_dnssec(false)</span>
+<span class="lineNum">    2483 </span>            : {
+<a name="2484"><span class="lineNum">    2484 </span><span class="lineCov">       1388 : }</span></a>
+<span class="lineNum">    2485 </span>            : 
+<span class="lineNum">    2486 </span><span class="lineCov">       1388 : DnssecPrefixEntry::~DnssecPrefixEntry()</span>
+<span class="lineNum">    2487 </span>            : {
+<a name="2488"><span class="lineNum">    2488 </span><span class="lineCov">       1388 : }</span></a>
+<span class="lineNum">    2489 </span>            : 
+<span class="lineNum">    2490 </span><span class="lineCov">        660 : bool DnssecPrefixEntry::IsSameKey(DnssecPrefixEntry * key)</span>
+<span class="lineNum">    2491 </span>            : {
+<span class="lineNum">    2492 </span><span class="lineCov">       1698 :     return (prefix_len == key-&gt;prefix_len &amp;&amp;</span>
+<span class="lineNum">    2493 </span><span class="lineCov">       1060 :         ((prefix_len == 0 &amp;&amp; prefix == NULL &amp;&amp; key-&gt;prefix == NULL) ||</span>
+<span class="lineNum">    2494 </span><span class="lineCov">       1590 :         (prefix_len &gt; 0 &amp;&amp; prefix != NULL &amp;&amp; key-&gt;prefix != NULL &amp;&amp;</span>
+<span class="lineNum">    2495 </span><span class="lineCov">       1190 :             memcmp(prefix, key-&gt;prefix, prefix_len) == 0)));</span>
+<a name="2496"><span class="lineNum">    2496 </span>            : }</a>
+<span class="lineNum">    2497 </span>            : 
+<span class="lineNum">    2498 </span><span class="lineCov">       1076 : uint32_t DnssecPrefixEntry::Hash()</span>
+<span class="lineNum">    2499 </span>            : {
+<span class="lineNum">    2500 </span><span class="lineCov">       1076 :     if (hash == 0)</span>
+<span class="lineNum">    2501 </span>            :     {
+<span class="lineNum">    2502 </span><span class="lineCov">       1076 :         hash = 0xCACAB0B0;</span>
+<span class="lineNum">    2503 </span>            : 
+<span class="lineNum">    2504 </span><span class="lineCov">      13986 :         for (size_t i = 0; i &lt; prefix_len; i++)</span>
+<span class="lineNum">    2505 </span>            :         {
+<span class="lineNum">    2506 </span><span class="lineCov">      12910 :             hash = hash * 101 + prefix[i];</span>
+<span class="lineNum">    2507 </span>            :         }
+<span class="lineNum">    2508 </span>            :     }
+<span class="lineNum">    2509 </span>            : 
+<span class="lineNum">    2510 </span><span class="lineCov">       1076 :     return hash;</span>
+<a name="2511"><span class="lineNum">    2511 </span>            : }</a>
+<span class="lineNum">    2512 </span>            : 
+<span class="lineNum">    2513 </span><span class="lineCov">        440 : DnssecPrefixEntry * DnssecPrefixEntry::CreateCopy()</span>
+<span class="lineNum">    2514 </span>            : {
+<span class="lineNum">    2515 </span>            : 
+<span class="lineNum">    2516 </span><span class="lineCov">        440 :     DnssecPrefixEntry * key = new DnssecPrefixEntry();</span>
+<span class="lineNum">    2517 </span>            : 
+<span class="lineNum">    2518 </span><span class="lineCov">        440 :     if (key != NULL)</span>
+<span class="lineNum">    2519 </span>            :     {
+<span class="lineNum">    2520 </span><span class="lineCov">        440 :         key-&gt;is_dnssec = is_dnssec;</span>
+<span class="lineNum">    2521 </span><span class="lineCov">        440 :         key-&gt;prefix_len = prefix_len;</span>
+<span class="lineNum">    2522 </span><span class="lineCov">        440 :         if (prefix_len &gt; 0) {</span>
+<span class="lineNum">    2523 </span><span class="lineCov">        440 :             key-&gt;prefix = new uint8_t[prefix_len];</span>
+<span class="lineNum">    2524 </span>            : 
+<span class="lineNum">    2525 </span><span class="lineCov">        440 :             if (key-&gt;prefix == NULL) {</span>
+<span class="lineNum">    2526 </span><span class="lineNoCov">          0 :                 delete key;</span>
+<span class="lineNum">    2527 </span><span class="lineNoCov">          0 :                 key = NULL;</span>
+<span class="lineNum">    2528 </span>            :             }
+<span class="lineNum">    2529 </span>            :             else {
+<span class="lineNum">    2530 </span><span class="lineCov">        440 :                 memcpy(key-&gt;prefix, prefix, prefix_len);</span>
+<span class="lineNum">    2531 </span>            :             }
+<span class="lineNum">    2532 </span>            :         }
+<span class="lineNum">    2533 </span>            :     }
+<span class="lineNum">    2534 </span>            : 
+<span class="lineNum">    2535 </span><span class="lineCov">        440 :     return key;</span>
+<a name="2536"><span class="lineNum">    2536 </span>            : }</a>
+<span class="lineNum">    2537 </span>            : 
+<span class="lineNum">    2538 </span><span class="lineCov">        508 : void DnssecPrefixEntry::Add(DnssecPrefixEntry * key)</span>
+<span class="lineNum">    2539 </span>            : {
+<span class="lineNum">    2540 </span><span class="lineCov">        508 :     is_dnssec |= key-&gt;is_dnssec;</span>
+<span class="lineNum">    2541 </span><span class="lineCov">        508 : }</span>
 </pre>
       </td>
     </tr>

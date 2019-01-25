@@ -131,9 +131,9 @@
 <span class="lineNum">      69 </span><span class="lineCov">         54 :     return test_enum_max_number;</span>
 <a name="70"><span class="lineNum">      70 </span>            : }</a>
 <span class="lineNum">      71 </span>            : 
-<span class="lineNum">      72 </span><span class="lineCov">         54 : char const * ithi_test_class::GetTestName(int number)</span>
+<span class="lineNum">      72 </span><span class="lineCov">         52 : char const * ithi_test_class::GetTestName(int number)</span>
 <span class="lineNum">      73 </span>            : {
-<span class="lineNum">      74 </span><span class="lineCov">         54 :     switch (number) {</span>
+<span class="lineNum">      74 </span><span class="lineCov">         52 :     switch (number) {</span>
 <span class="lineNum">      75 </span>            :     case test_enum_hash:
 <span class="lineNum">      76 </span><span class="lineCov">          2 :         return(&quot;hash&quot;);</span>
 <span class="lineNum">      77 </span>            :     case test_enum_Rfc6761:
@@ -183,7 +183,7 @@
 <span class="lineNum">     121 </span>            :     case test_enum_QNameMini:
 <span class="lineNum">     122 </span><span class="lineCov">          2 :         return(&quot;QNameMini&quot;);</span>
 <span class="lineNum">     123 </span>            :     case test_enum_StatsByIp:
-<span class="lineNum">     124 </span><span class="lineCov">          4 :         return(&quot;StatsByIp&quot;);</span>
+<span class="lineNum">     124 </span><span class="lineCov">          2 :         return(&quot;StatsByIp&quot;);</span>
 <span class="lineNum">     125 </span>            :     case test_enum_CaptureFuzz:
 <span class="lineNum">     126 </span><span class="lineCov">          2 :         return(&quot;CaptureFuzz&quot;);</span>
 <span class="lineNum">     127 </span>            :     default:
@@ -310,20 +310,20 @@
 <span class="lineNum">     248 </span><span class="lineNoCov">          0 :     return F_log;</span>
 <a name="249"><span class="lineNum">     249 </span>            : }</a>
 <span class="lineNum">     250 </span>            : 
-<span class="lineNum">     251 </span><span class="lineCov">         18 : void TEST_LOG(const char * fmt, ...)</span>
+<span class="lineNum">     251 </span><span class="lineCov">         16 : void TEST_LOG(const char * fmt, ...)</span>
 <span class="lineNum">     252 </span>            : {
 <span class="lineNum">     253 </span>            :     va_list args;
-<span class="lineNum">     254 </span><span class="lineCov">         18 :     va_start(args, fmt);</span>
-<span class="lineNum">     255 </span><span class="lineCov">         18 :     if (F_log != NULL)</span>
+<span class="lineNum">     254 </span><span class="lineCov">         16 :     va_start(args, fmt);</span>
+<span class="lineNum">     255 </span><span class="lineCov">         16 :     if (F_log != NULL)</span>
 <span class="lineNum">     256 </span>            :     {
 <span class="lineNum">     257 </span>            : #ifdef _WINDOWS
 <span class="lineNum">     258 </span>            :         vfprintf_s(F_log, fmt, args);
 <span class="lineNum">     259 </span>            : #else
-<span class="lineNum">     260 </span><span class="lineCov">         18 :         vfprintf(F_log, fmt, args);</span>
+<span class="lineNum">     260 </span><span class="lineCov">         16 :         vfprintf(F_log, fmt, args);</span>
 <span class="lineNum">     261 </span>            : #endif
 <span class="lineNum">     262 </span>            :     }
-<span class="lineNum">     263 </span><span class="lineCov">         18 :     va_end(args);</span>
-<span class="lineNum">     264 </span><span class="lineCov">         18 : }</span>
+<span class="lineNum">     263 </span><span class="lineCov">         16 :     va_end(args);</span>
+<span class="lineNum">     264 </span><span class="lineCov">         16 : }</span>
 <span class="lineNum">     265 </span>            : 
 </pre>
       </td>
