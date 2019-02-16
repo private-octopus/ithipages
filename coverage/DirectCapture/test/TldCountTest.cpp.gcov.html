@@ -31,8 +31,8 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">177</td>
-            <td class="headerCovTableEntry">189</td>
+            <td class="headerCovTableEntry">178</td>
+            <td class="headerCovTableEntry">190</td>
             <td class="headerCovTableEntryHi">93.7 %</td>
           </tr>
           <tr>
@@ -625,59 +625,61 @@
 <span class="lineNum">     563 </span><span class="lineNoCov">          0 :                 ret = false;</span>
 <span class="lineNum">     564 </span>            :             }
 <span class="lineNum">     565 </span>            :         }
-<span class="lineNum">     566 </span>            :     }
-<span class="lineNum">     567 </span><span class="lineCov">          4 :     return ret;</span>
-<a name="568"><span class="lineNum">     568 </span>            : }</a>
-<span class="lineNum">     569 </span>            : 
-<span class="lineNum">     570 </span><span class="lineCov">      65792 : int TldCountTest::GetTldIndex(uint8_t * tld, size_t tld_len)</span>
-<span class="lineNum">     571 </span>            : {
-<span class="lineNum">     572 </span><span class="lineCov">      65792 :     int low = -1;</span>
-<span class="lineNum">     573 </span><span class="lineCov">      65792 :     int high = nbTargetNames;</span>
-<span class="lineNum">     574 </span>            :     int middle;
-<span class="lineNum">     575 </span><span class="lineCov">      65792 :     int found = -1;</span>
-<span class="lineNum">     576 </span>            : 
-<span class="lineNum">     577 </span><span class="lineCov">     832914 :     while (found == -1 &amp;&amp; low &lt; high) {</span>
-<span class="lineNum">     578 </span>            :         uint8_t * r;
-<span class="lineNum">     579 </span>            :         size_t r_len;
-<span class="lineNum">     580 </span><span class="lineCov">     766800 :         int cmp = 0;</span>
-<span class="lineNum">     581 </span>            : 
-<span class="lineNum">     582 </span><span class="lineCov">     766800 :         middle = low + (high - low) / 2;</span>
+<span class="lineNum">     566 </span>            : 
+<span class="lineNum">     567 </span><span class="lineCov">          2 :         delete[] rand_table;</span>
+<span class="lineNum">     568 </span>            :     }
+<span class="lineNum">     569 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="570"><span class="lineNum">     570 </span>            : }</a>
+<span class="lineNum">     571 </span>            : 
+<span class="lineNum">     572 </span><span class="lineCov">      65792 : int TldCountTest::GetTldIndex(uint8_t * tld, size_t tld_len)</span>
+<span class="lineNum">     573 </span>            : {
+<span class="lineNum">     574 </span><span class="lineCov">      65792 :     int low = -1;</span>
+<span class="lineNum">     575 </span><span class="lineCov">      65792 :     int high = nbTargetNames;</span>
+<span class="lineNum">     576 </span>            :     int middle;
+<span class="lineNum">     577 </span><span class="lineCov">      65792 :     int found = -1;</span>
+<span class="lineNum">     578 </span>            : 
+<span class="lineNum">     579 </span><span class="lineCov">     832914 :     while (found == -1 &amp;&amp; low &lt; high) {</span>
+<span class="lineNum">     580 </span>            :         uint8_t * r;
+<span class="lineNum">     581 </span>            :         size_t r_len;
+<span class="lineNum">     582 </span><span class="lineCov">     766800 :         int cmp = 0;</span>
 <span class="lineNum">     583 </span>            : 
-<span class="lineNum">     584 </span><span class="lineCov">     766800 :         if (middle == low || middle == high) {</span>
-<span class="lineNum">     585 </span>            :             break;
-<span class="lineNum">     586 </span>            :         }
-<span class="lineNum">     587 </span>            : 
-<span class="lineNum">     588 </span><span class="lineCov">     701330 :         r = (uint8_t *) TargetNames[middle];</span>
-<span class="lineNum">     589 </span><span class="lineCov">     701330 :         r_len = strlen(TargetNames[middle]);</span>
-<span class="lineNum">     590 </span>            : 
-<span class="lineNum">     591 </span>            : 
-<span class="lineNum">     592 </span><span class="lineCov">    1867388 :         for (size_t i = 0; cmp == 0 &amp;&amp;  i &lt; tld_len; i++) {</span>
-<span class="lineNum">     593 </span><span class="lineCov">    1166058 :             if (i &gt; r_len || tld[i] &gt; r[i]) {</span>
-<span class="lineNum">     594 </span><span class="lineCov">     382772 :                 cmp = 1; /* Tld is below middle */</span>
-<span class="lineNum">     595 </span>            :             }
-<span class="lineNum">     596 </span><span class="lineCov">     783286 :             else if (tld[i] &lt; r[i]) {</span>
-<span class="lineNum">     597 </span><span class="lineCov">     318188 :                 cmp = -1; /* Tld is above middle */</span>
-<span class="lineNum">     598 </span>            :             }
-<span class="lineNum">     599 </span>            :         }
-<span class="lineNum">     600 </span><span class="lineCov">     701330 :         if (cmp == 0 &amp;&amp; r_len &gt; tld_len) {</span>
-<span class="lineNum">     601 </span><span class="lineCov">         48 :             cmp = -1; /* name is longer, tld is below it  */</span>
-<span class="lineNum">     602 </span>            :         }
-<span class="lineNum">     603 </span>            : 
-<span class="lineNum">     604 </span><span class="lineCov">     701330 :         switch (cmp) {</span>
-<span class="lineNum">     605 </span>            :         case -1:
-<span class="lineNum">     606 </span><span class="lineCov">     318236 :             high = middle;</span>
-<span class="lineNum">     607 </span><span class="lineCov">     318236 :             break;</span>
-<span class="lineNum">     608 </span>            :         case 0:
-<span class="lineNum">     609 </span><span class="lineCov">        322 :             found = middle;</span>
-<span class="lineNum">     610 </span><span class="lineCov">        322 :             break;</span>
-<span class="lineNum">     611 </span>            :         case 1:
-<span class="lineNum">     612 </span><span class="lineCov">     382772 :             low = middle;</span>
-<span class="lineNum">     613 </span><span class="lineCov">     382772 :             break;</span>
-<span class="lineNum">     614 </span>            :         }
-<span class="lineNum">     615 </span>            :     }
-<span class="lineNum">     616 </span>            : 
-<span class="lineNum">     617 </span><span class="lineCov">      65792 :     return found;</span>
-<span class="lineNum">     618 </span>            : }
+<span class="lineNum">     584 </span><span class="lineCov">     766800 :         middle = low + (high - low) / 2;</span>
+<span class="lineNum">     585 </span>            : 
+<span class="lineNum">     586 </span><span class="lineCov">     766800 :         if (middle == low || middle == high) {</span>
+<span class="lineNum">     587 </span>            :             break;
+<span class="lineNum">     588 </span>            :         }
+<span class="lineNum">     589 </span>            : 
+<span class="lineNum">     590 </span><span class="lineCov">     701330 :         r = (uint8_t *) TargetNames[middle];</span>
+<span class="lineNum">     591 </span><span class="lineCov">     701330 :         r_len = strlen(TargetNames[middle]);</span>
+<span class="lineNum">     592 </span>            : 
+<span class="lineNum">     593 </span>            : 
+<span class="lineNum">     594 </span><span class="lineCov">    1867388 :         for (size_t i = 0; cmp == 0 &amp;&amp;  i &lt; tld_len; i++) {</span>
+<span class="lineNum">     595 </span><span class="lineCov">    1166058 :             if (i &gt; r_len || tld[i] &gt; r[i]) {</span>
+<span class="lineNum">     596 </span><span class="lineCov">     382772 :                 cmp = 1; /* Tld is below middle */</span>
+<span class="lineNum">     597 </span>            :             }
+<span class="lineNum">     598 </span><span class="lineCov">     783286 :             else if (tld[i] &lt; r[i]) {</span>
+<span class="lineNum">     599 </span><span class="lineCov">     318188 :                 cmp = -1; /* Tld is above middle */</span>
+<span class="lineNum">     600 </span>            :             }
+<span class="lineNum">     601 </span>            :         }
+<span class="lineNum">     602 </span><span class="lineCov">     701330 :         if (cmp == 0 &amp;&amp; r_len &gt; tld_len) {</span>
+<span class="lineNum">     603 </span><span class="lineCov">         48 :             cmp = -1; /* name is longer, tld is below it  */</span>
+<span class="lineNum">     604 </span>            :         }
+<span class="lineNum">     605 </span>            : 
+<span class="lineNum">     606 </span><span class="lineCov">     701330 :         switch (cmp) {</span>
+<span class="lineNum">     607 </span>            :         case -1:
+<span class="lineNum">     608 </span><span class="lineCov">     318236 :             high = middle;</span>
+<span class="lineNum">     609 </span><span class="lineCov">     318236 :             break;</span>
+<span class="lineNum">     610 </span>            :         case 0:
+<span class="lineNum">     611 </span><span class="lineCov">        322 :             found = middle;</span>
+<span class="lineNum">     612 </span><span class="lineCov">        322 :             break;</span>
+<span class="lineNum">     613 </span>            :         case 1:
+<span class="lineNum">     614 </span><span class="lineCov">     382772 :             low = middle;</span>
+<span class="lineNum">     615 </span><span class="lineCov">     382772 :             break;</span>
+<span class="lineNum">     616 </span>            :         }
+<span class="lineNum">     617 </span>            :     }
+<span class="lineNum">     618 </span>            : 
+<span class="lineNum">     619 </span><span class="lineCov">      65792 :     return found;</span>
+<span class="lineNum">     620 </span>            : }
 </pre>
       </td>
     </tr>

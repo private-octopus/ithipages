@@ -31,8 +31,8 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">934</td>
-            <td class="headerCovTableEntry">1096</td>
+            <td class="headerCovTableEntry">939</td>
+            <td class="headerCovTableEntry">1102</td>
             <td class="headerCovTableEntryMed">85.2 %</td>
           </tr>
           <tr>
@@ -2635,66 +2635,75 @@
 <span class="lineNum">    2573 </span>            :     hash(0),
 <span class="lineNum">    2574 </span>            :     prefix(NULL),
 <span class="lineNum">    2575 </span>            :     prefix_len(0),
-<span class="lineNum">    2576 </span><span class="lineCov">       1388 :     is_dnssec(false)</span>
-<span class="lineNum">    2577 </span>            : {
-<a name="2578"><span class="lineNum">    2578 </span><span class="lineCov">       1388 : }</span></a>
-<span class="lineNum">    2579 </span>            : 
-<span class="lineNum">    2580 </span><span class="lineCov">       1388 : DnssecPrefixEntry::~DnssecPrefixEntry()</span>
-<span class="lineNum">    2581 </span>            : {
-<a name="2582"><span class="lineNum">    2582 </span><span class="lineCov">       1388 : }</span></a>
-<span class="lineNum">    2583 </span>            : 
-<span class="lineNum">    2584 </span><span class="lineCov">        660 : bool DnssecPrefixEntry::IsSameKey(DnssecPrefixEntry * key)</span>
-<span class="lineNum">    2585 </span>            : {
-<span class="lineNum">    2586 </span><span class="lineCov">       1698 :     return (prefix_len == key-&gt;prefix_len &amp;&amp;</span>
-<span class="lineNum">    2587 </span><span class="lineCov">       1060 :         ((prefix_len == 0 &amp;&amp; prefix == NULL &amp;&amp; key-&gt;prefix == NULL) ||</span>
-<span class="lineNum">    2588 </span><span class="lineCov">       1590 :         (prefix_len &gt; 0 &amp;&amp; prefix != NULL &amp;&amp; key-&gt;prefix != NULL &amp;&amp;</span>
-<span class="lineNum">    2589 </span><span class="lineCov">       1190 :             memcmp(prefix, key-&gt;prefix, prefix_len) == 0)));</span>
-<a name="2590"><span class="lineNum">    2590 </span>            : }</a>
-<span class="lineNum">    2591 </span>            : 
-<span class="lineNum">    2592 </span><span class="lineCov">       1076 : uint32_t DnssecPrefixEntry::Hash()</span>
-<span class="lineNum">    2593 </span>            : {
-<span class="lineNum">    2594 </span><span class="lineCov">       1076 :     if (hash == 0)</span>
-<span class="lineNum">    2595 </span>            :     {
-<span class="lineNum">    2596 </span><span class="lineCov">       1076 :         hash = 0xCACAB0B0;</span>
-<span class="lineNum">    2597 </span>            : 
-<span class="lineNum">    2598 </span><span class="lineCov">      13986 :         for (size_t i = 0; i &lt; prefix_len; i++)</span>
-<span class="lineNum">    2599 </span>            :         {
-<span class="lineNum">    2600 </span><span class="lineCov">      12910 :             hash = hash * 101 + prefix[i];</span>
-<span class="lineNum">    2601 </span>            :         }
-<span class="lineNum">    2602 </span>            :     }
-<span class="lineNum">    2603 </span>            : 
-<span class="lineNum">    2604 </span><span class="lineCov">       1076 :     return hash;</span>
-<a name="2605"><span class="lineNum">    2605 </span>            : }</a>
-<span class="lineNum">    2606 </span>            : 
-<span class="lineNum">    2607 </span><span class="lineCov">        440 : DnssecPrefixEntry * DnssecPrefixEntry::CreateCopy()</span>
-<span class="lineNum">    2608 </span>            : {
-<span class="lineNum">    2609 </span>            : 
-<span class="lineNum">    2610 </span><span class="lineCov">        440 :     DnssecPrefixEntry * key = new DnssecPrefixEntry();</span>
+<span class="lineNum">    2576 </span>            :     is_dnssec(false),
+<span class="lineNum">    2577 </span><span class="lineCov">       1388 :     prefix_data(NULL)</span>
+<span class="lineNum">    2578 </span>            : {
+<a name="2579"><span class="lineNum">    2579 </span><span class="lineCov">       1388 : }</span></a>
+<span class="lineNum">    2580 </span>            : 
+<span class="lineNum">    2581 </span><span class="lineCov">       1388 : DnssecPrefixEntry::~DnssecPrefixEntry()</span>
+<span class="lineNum">    2582 </span>            : {
+<span class="lineNum">    2583 </span><span class="lineCov">       1388 :     if (prefix_data != NULL) {</span>
+<span class="lineNum">    2584 </span><span class="lineCov">        440 :         delete[] prefix_data;</span>
+<span class="lineNum">    2585 </span><span class="lineCov">        440 :         prefix_data = NULL;</span>
+<span class="lineNum">    2586 </span>            :     }
+<a name="2587"><span class="lineNum">    2587 </span><span class="lineCov">       1388 : }</span></a>
+<span class="lineNum">    2588 </span>            : 
+<span class="lineNum">    2589 </span><span class="lineCov">        660 : bool DnssecPrefixEntry::IsSameKey(DnssecPrefixEntry * key)</span>
+<span class="lineNum">    2590 </span>            : {
+<span class="lineNum">    2591 </span><span class="lineCov">       1698 :     return (prefix_len == key-&gt;prefix_len &amp;&amp;</span>
+<span class="lineNum">    2592 </span><span class="lineCov">       1060 :         ((prefix_len == 0 &amp;&amp; prefix == NULL &amp;&amp; key-&gt;prefix == NULL) ||</span>
+<span class="lineNum">    2593 </span><span class="lineCov">       1590 :         (prefix_len &gt; 0 &amp;&amp; prefix != NULL &amp;&amp; key-&gt;prefix != NULL &amp;&amp;</span>
+<span class="lineNum">    2594 </span><span class="lineCov">       1190 :             memcmp(prefix, key-&gt;prefix, prefix_len) == 0)));</span>
+<a name="2595"><span class="lineNum">    2595 </span>            : }</a>
+<span class="lineNum">    2596 </span>            : 
+<span class="lineNum">    2597 </span><span class="lineCov">       1076 : uint32_t DnssecPrefixEntry::Hash()</span>
+<span class="lineNum">    2598 </span>            : {
+<span class="lineNum">    2599 </span><span class="lineCov">       1076 :     if (hash == 0)</span>
+<span class="lineNum">    2600 </span>            :     {
+<span class="lineNum">    2601 </span><span class="lineCov">       1076 :         hash = 0xCACAB0B0;</span>
+<span class="lineNum">    2602 </span>            : 
+<span class="lineNum">    2603 </span><span class="lineCov">      13986 :         for (size_t i = 0; i &lt; prefix_len; i++)</span>
+<span class="lineNum">    2604 </span>            :         {
+<span class="lineNum">    2605 </span><span class="lineCov">      12910 :             hash = hash * 101 + prefix[i];</span>
+<span class="lineNum">    2606 </span>            :         }
+<span class="lineNum">    2607 </span>            :     }
+<span class="lineNum">    2608 </span>            : 
+<span class="lineNum">    2609 </span><span class="lineCov">       1076 :     return hash;</span>
+<a name="2610"><span class="lineNum">    2610 </span>            : }</a>
 <span class="lineNum">    2611 </span>            : 
-<span class="lineNum">    2612 </span><span class="lineCov">        440 :     if (key != NULL)</span>
-<span class="lineNum">    2613 </span>            :     {
-<span class="lineNum">    2614 </span><span class="lineCov">        440 :         key-&gt;is_dnssec = is_dnssec;</span>
-<span class="lineNum">    2615 </span><span class="lineCov">        440 :         key-&gt;prefix_len = prefix_len;</span>
-<span class="lineNum">    2616 </span><span class="lineCov">        440 :         if (prefix_len &gt; 0) {</span>
-<span class="lineNum">    2617 </span><span class="lineCov">        440 :             key-&gt;prefix = new uint8_t[prefix_len];</span>
-<span class="lineNum">    2618 </span>            : 
-<span class="lineNum">    2619 </span><span class="lineCov">        440 :             if (key-&gt;prefix == NULL) {</span>
-<span class="lineNum">    2620 </span><span class="lineNoCov">          0 :                 delete key;</span>
-<span class="lineNum">    2621 </span><span class="lineNoCov">          0 :                 key = NULL;</span>
-<span class="lineNum">    2622 </span>            :             }
-<span class="lineNum">    2623 </span>            :             else {
-<span class="lineNum">    2624 </span><span class="lineCov">        440 :                 memcpy(key-&gt;prefix, prefix, prefix_len);</span>
-<span class="lineNum">    2625 </span>            :             }
-<span class="lineNum">    2626 </span>            :         }
-<span class="lineNum">    2627 </span>            :     }
-<span class="lineNum">    2628 </span>            : 
-<span class="lineNum">    2629 </span><span class="lineCov">        440 :     return key;</span>
-<a name="2630"><span class="lineNum">    2630 </span>            : }</a>
-<span class="lineNum">    2631 </span>            : 
-<span class="lineNum">    2632 </span><span class="lineCov">        508 : void DnssecPrefixEntry::Add(DnssecPrefixEntry * key)</span>
-<span class="lineNum">    2633 </span>            : {
-<span class="lineNum">    2634 </span><span class="lineCov">        508 :     is_dnssec |= key-&gt;is_dnssec;</span>
-<span class="lineNum">    2635 </span><span class="lineCov">        508 : }</span>
+<span class="lineNum">    2612 </span><span class="lineCov">        440 : DnssecPrefixEntry * DnssecPrefixEntry::CreateCopy()</span>
+<span class="lineNum">    2613 </span>            : {
+<span class="lineNum">    2614 </span>            : 
+<span class="lineNum">    2615 </span><span class="lineCov">        440 :     DnssecPrefixEntry * key = new DnssecPrefixEntry();</span>
+<span class="lineNum">    2616 </span>            : 
+<span class="lineNum">    2617 </span><span class="lineCov">        440 :     if (key != NULL)</span>
+<span class="lineNum">    2618 </span>            :     {
+<span class="lineNum">    2619 </span><span class="lineCov">        440 :         key-&gt;is_dnssec = is_dnssec;</span>
+<span class="lineNum">    2620 </span><span class="lineCov">        440 :         key-&gt;prefix_len = prefix_len;</span>
+<span class="lineNum">    2621 </span><span class="lineCov">        440 :         if (prefix_len &gt; 0) {</span>
+<span class="lineNum">    2622 </span><span class="lineCov">        440 :             if (key-&gt;prefix_data != NULL) {</span>
+<span class="lineNum">    2623 </span><span class="lineNoCov">          0 :                 delete[] key-&gt;prefix_data;</span>
+<span class="lineNum">    2624 </span>            :             }
+<span class="lineNum">    2625 </span><span class="lineCov">        440 :             key-&gt;prefix_data = new uint8_t[prefix_len];</span>
+<span class="lineNum">    2626 </span><span class="lineCov">        440 :             key-&gt;prefix = key-&gt;prefix_data;</span>
+<span class="lineNum">    2627 </span>            : 
+<span class="lineNum">    2628 </span><span class="lineCov">        440 :             if (key-&gt;prefix == NULL) {</span>
+<span class="lineNum">    2629 </span><span class="lineNoCov">          0 :                 delete key;</span>
+<span class="lineNum">    2630 </span><span class="lineNoCov">          0 :                 key = NULL;</span>
+<span class="lineNum">    2631 </span>            :             }
+<span class="lineNum">    2632 </span>            :             else {
+<span class="lineNum">    2633 </span><span class="lineCov">        440 :                 memcpy(key-&gt;prefix, prefix, prefix_len);</span>
+<span class="lineNum">    2634 </span>            :             }
+<span class="lineNum">    2635 </span>            :         }
+<span class="lineNum">    2636 </span>            :     }
+<span class="lineNum">    2637 </span>            : 
+<span class="lineNum">    2638 </span><span class="lineCov">        440 :     return key;</span>
+<a name="2639"><span class="lineNum">    2639 </span>            : }</a>
+<span class="lineNum">    2640 </span>            : 
+<span class="lineNum">    2641 </span><span class="lineCov">        508 : void DnssecPrefixEntry::Add(DnssecPrefixEntry * key)</span>
+<span class="lineNum">    2642 </span>            : {
+<span class="lineNum">    2643 </span><span class="lineCov">        508 :     is_dnssec |= key-&gt;is_dnssec;</span>
+<span class="lineNum">    2644 </span><span class="lineCov">        508 : }</span>
 </pre>
       </td>
     </tr>
