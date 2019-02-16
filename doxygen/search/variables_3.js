@@ -22,5 +22,6 @@ var searchData=
   ['domain',['domain',['../struct__st__metric34__line__t.html#a7ebca330d73753612c4f336de778e257',1,'_st_metric34_line_t']]],
   ['domains',['Domains',['../structst___m1_data_line__t.html#a4510ef60ec9283a8fbc64dca7a5568eb',1,'st_M1DataLine_t::Domains()'],['../structst___m1_reg_summary__t.html#aa68d826aaf19d48d01722566301e92a6',1,'st_M1RegSummary_t::Domains()'],['../structst___m2_data_line__t.html#a3c648ef5f9dc72efc9562e72abdb18b7',1,'st_M2DataLine_t::Domains()'],['../structst__m2__data__test__case__result__t.html#a7796c3cff62a5bfb20ae4175b6fbba95',1,'st_m2_data_test_case_result_t::Domains()'],['../namespaceconvertlist.html#ac5739d08bc9dd2ca336babafa055c863',1,'convertlist.domains()']]],
   ['double_5ftest',['double_test',['../_csv_test_8cpp.html#a3fd507ef7f016e47fe20c33ef7117487',1,'CsvTest.cpp']]],
-  ['ds_5fcount',['ds_count',['../class_tld_d_s_as_key.html#a468a53de874645abb5ea8b415646f13d',1,'TldDSAsKey']]]
+  ['ds_5fcount',['ds_count',['../class_tld_d_s_as_key.html#a468a53de874645abb5ea8b415646f13d',1,'TldDSAsKey']]],
+  ['duration_5fusec',['duration_usec',['../class_dns_stats.html#abc24d928ba42f756729a3f832d384a6c',1,'DnsStats']]]
 ];

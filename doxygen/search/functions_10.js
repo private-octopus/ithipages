@@ -14,6 +14,7 @@ var searchData=
   ['registernewoption',['RegisterNewOption',['../class_stats_by_i_p.html#adeb355209a41b7963af1e258c2910147',1,'StatsByIP']]],
   ['registeroptionsbyip',['RegisterOptionsByIp',['../class_dns_stats.html#aa1081c186470acf278a445bc53a897f2',1,'DnsStats']]],
   ['registerstatsbyip',['RegisterStatsByIp',['../class_dns_stats.html#ab7cd76f3b62eab353927c1953dfa02ee',1,'DnsStats']]],
+  ['registertcpsynbyip',['RegisterTcpSynByIp',['../class_dns_stats.html#a102caba8aaa395c53673ab1eb8038fa5',1,'DnsStats']]],
   ['registryidissmaller',['RegistryIdIsSmaller',['../class_m1_data.html#a1a74952570544fdc3a8efaac06c9b2e5',1,'M1Data']]],
   ['remove',['Remove',['../class_bin_hash.html#a7b5d7e7ee52759f5dd34c8c89f61a824',1,'BinHash::Remove()'],['../class_lru_hash.html#a42cde0b9bc38171499061d4e350ea6bc',1,'LruHash::Remove()']]],
   ['removelru',['RemoveLRU',['../class_lru_hash.html#aad1c32840a100641f5e5fda045f9d71e',1,'LruHash']]],

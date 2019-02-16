@@ -200,18 +200,18 @@ Additional Inherited Members</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;{</div>
 <div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <a class="code" href="class_lru_hash.html">LruHash&lt;TldAsKey&gt;</a> tldStringUsage;</div>
 <div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <a class="code" href="class_bin_hash.html">BinHash&lt;DnsHashEntry&gt;</a> hashTable;</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    <span class="keywordtype">int</span> count_per_string[<a class="code" href="_tld_count_test_8cpp.html#a00bcbd2c37f6a6d90ad2c843c7a0fd95">nbTargetNames</a>+1];</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> initial_count = 0x10000;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    uint64_t count_per_string[<a class="code" href="_tld_count_test_8cpp.html#a00bcbd2c37f6a6d90ad2c843c7a0fd95">nbTargetNames</a>+1];</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keyword">const</span> uint64_t initial_count = 0x10000;</div>
 <div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keyword">const</span> uint32_t max_hash_size = 0x8000;</div>
 <div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> max_delta_count = 0x80;</div>
 <div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    <span class="keyword">const</span> uint32_t max_tld_leakage_count = 0x80;</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    <span class="keywordtype">int</span> current_count = initial_count;</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keywordtype">int</span> total_keys = 0;</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keywordtype">int</span> dropped_keys = 0;</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordtype">int</span> kept_keys = 0;</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    <span class="keywordtype">int</span> expected_count = 0;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keywordtype">int</span> hashed_count = 0;</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    <span class="keywordtype">int</span> hashed_total = 0;</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    uint64_t current_count = initial_count;</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    uint64_t total_keys = 0;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    uint64_t dropped_keys = 0;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    uint64_t kept_keys = 0;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    uint64_t expected_count = 0;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    uint64_t hashed_count = 0;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    uint64_t hashed_total = 0;</div>
 <div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordtype">bool</span> ret = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordtype">size_t</span> * rand_table = NULL;</div>
 <div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;</div>
@@ -233,23 +233,23 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    total_keys *= 4;</div>
 <div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    <span class="comment">/* Simulate random arrivals */</span></div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    rand_table = <span class="keyword">new</span> <span class="keywordtype">size_t</span>[total_keys];</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    rand_table = <span class="keyword">new</span> <span class="keywordtype">size_t</span>[(size_t)total_keys];</div>
 <div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;</div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keywordflow">if</span> (rand_table == NULL) {</div>
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;        ret = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;        <a class="code" href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a>(<span class="stringliteral">&quot;Tld count test, cannot allocate rand_table[%d]\n&quot;</span>, total_keys);</div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        <span class="keywordtype">int</span> table_rank = 0;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        uint64_t table_rank = 0;</div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        <span class="comment">/* Build a list of ID with desired size and repetition */</span></div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt;= <a class="code" href="_tld_count_test_8cpp.html#a00bcbd2c37f6a6d90ad2c843c7a0fd95">nbTargetNames</a>; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++) {</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> c = 0; c &lt; count_per_string[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>] &amp;&amp; table_rank &lt; total_keys; c++) {</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;            <span class="keywordflow">for</span> (uint64_t c = 0; c &lt; count_per_string[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>] &amp;&amp; table_rank &lt; total_keys; c++) {</div>
 <div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                rand_table[table_rank++] = <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>;</div>
 <div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            }</div>
 <div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        }</div>
 <div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;</div>
 <div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="comment">/* Random shuffle of the list to simulate random arrivals */</span></div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> r = total_keys - 1; r &gt;= 1; r--) {</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            <span class="keywordtype">int</span> x = <a class="code" href="_tld_count_test_8cpp.html#a75c4446adc17054bbc5947680a8662e1">random_uniform</a>((uint32_t)(r + 1));</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">for</span> (uint64_t r = total_keys - 1; r &gt;= 1; r--) {</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;            uint32_t x = <a class="code" href="_tld_count_test_8cpp.html#a75c4446adc17054bbc5947680a8662e1">random_uniform</a>((uint32_t)(r + 1));</div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;            <span class="keywordflow">if</span> (x != r) {</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;                <span class="keywordtype">size_t</span> rtx = rand_table[x];</div>
@@ -259,7 +259,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        }</div>
 <div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="comment">/* Simulate insertion */</span></div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; total_keys; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordflow">for</span> (uint64_t <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; total_keys; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        {</div>
 <div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;            <span class="keywordtype">bool</span> stored = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;            <span class="keywordtype">char</span> rand_name[<a class="code" href="_tld_count_test_8cpp.html#a5faa06ca66b5a0ec604b283a16845c63">RANDOM_TLD_LENGTH</a> + 1];</div>
@@ -272,7 +272,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;            counter_entry.<a class="code" href="class_dns_hash_entry.html#a07d794c090dfba341baf1c02d504457b">key_type</a> = 0;</div>
 <div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;            counter_entry.<a class="code" href="class_dns_hash_entry.html#a47e70b14a12214aa799e62edb12577cc">key_length</a> = <span class="keyword">sizeof</span>(uint32_t);</div>
 <div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;            counter_entry.<a class="code" href="class_dns_hash_entry.html#af51ee6b8d765f68edca11e50aa88767e">key_number</a> = 0;</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            counter_entry.<a class="code" href="class_dns_hash_entry.html#a202a5eba784883e3dbf03680398b2e6d">count</a> = 1;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            counter_entry.<a class="code" href="class_dns_hash_entry.html#a3d63fa8c4284b50ece3922bccff666a6">count</a> = 1;</div>
 <div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;</div>
 <div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            (void)hashTable.<a class="code" href="class_bin_hash.html#a301497f461c5ab764cb77292a670df66">InsertOrAdd</a>(&amp;counter_entry, <span class="keyword">true</span>, &amp;stored);</div>
 <div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;</div>
@@ -286,9 +286,9 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;                }</div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            }</div>
 <div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;            inserted = tldStringUsage.<a class="code" href="class_lru_hash.html#a12b37fe073405154b03c1c7fd7810e8c">InsertOrAdd</a>(&amp;key, <span class="keyword">true</span>, &amp;stored);</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <span class="keywordflow">if</span> (inserted != NULL &amp;&amp; rand_table[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>] &gt; 0 &amp;&amp; (<span class="keywordtype">int</span>)inserted-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a> &gt; count_per_string[rand_table[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]]) {</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;            <span class="keywordflow">if</span> (inserted != NULL &amp;&amp; rand_table[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>] &gt; 0 &amp;&amp; inserted-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a> &gt; count_per_string[rand_table[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]]) {</div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;                <a class="code" href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a>(<span class="stringliteral">&quot;TLD %s, count %d instead of %d\n&quot;</span>,</div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                    <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[rand_table[i] - 1], inserted-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a>, count_per_string[rand_table[i]]);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;                    <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[rand_table[i] - 1], (<span class="keywordtype">int</span>)inserted-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a>, (<span class="keywordtype">int</span>)count_per_string[rand_table[i]]);</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;            }</div>
 <div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        }</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
@@ -300,19 +300,19 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;            uint32_t export_count = 0;</div>
 <div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;</div>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            <span class="keywordflow">for</span> (uint32_t <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; tldStringUsage.<a class="code" href="class_lru_hash.html#a78e01ae43c8826e5518c1031403a4f14">GetSize</a>(); <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;            <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; tldStringUsage.<a class="code" href="class_lru_hash.html#a78e01ae43c8826e5518c1031403a4f14">GetSize</a>(); i++)</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;            {</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                tld_entry = tldStringUsage.<a class="code" href="class_lru_hash.html#aa93320cac2c4984abfdc9e865e8c0946">GetEntry</a>(<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>);</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;                tld_entry = tldStringUsage.<a class="code" href="class_lru_hash.html#aa93320cac2c4984abfdc9e865e8c0946">GetEntry</a>(i);</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;                <span class="keywordflow">while</span> (tld_entry != NULL)</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;                {</div>
 <div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;                    <span class="keywordtype">int</span> tld_index = <a class="code" href="class_tld_count_test.html#a99848fa447c64cff4464ead6319f0467">GetTldIndex</a>(tld_entry-&gt;<a class="code" href="class_tld_as_key.html#a41a88335dcef029811cbe661cb0b7f46">tld</a>, tld_entry-&gt;<a class="code" href="class_tld_as_key.html#ab539687260bf5a1b8fc3698bee1e44f4">tld_len</a>);</div>
 <div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;                    <span class="keywordflow">if</span> (tld_index &gt;= 0) {</div>
 <div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;                        <span class="keywordflow">if</span> (((uint32_t)tld_index) &lt; max_tld_leakage_count &amp;&amp;</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;                            count_per_string[tld_index + 1] != (<span class="keywordtype">int</span>)tld_entry-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a>) {</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;                            count_per_string[tld_index + 1] != tld_entry-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a>) {</div>
 <div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                            <a class="code" href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a>(<span class="stringliteral">&quot;TLD %s, count %d instead of %d\n&quot;</span>,</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                                <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[tld_index], tld_entry-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a>, count_per_string[tld_index + 1]);</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                            <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)tld_entry-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a> &gt; count_per_string[tld_index + 1]) {</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                                <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[tld_index], (<span class="keywordtype">int</span>)tld_entry-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a>, (<span class="keywordtype">int</span>)count_per_string[tld_index + 1]);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;                            <span class="keywordflow">if</span> (tld_entry-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a> &gt; count_per_string[tld_index + 1]) {</div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                                ret = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;                            }</div>
 <div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;                        }</div>
@@ -327,35 +327,35 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;            std::sort(lines.begin(), lines.end(), <a class="code" href="class_tld_as_key.html#a47e58c0e0d3540adeb813e1715cdab48">TldAsKey::CompareTldEntries</a>);</div>
 <div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;</div>
 <div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;            <span class="comment">/* Retain the N most interesting values */</span></div>
-<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; lines.size(); <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;            <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> i = 0; i &lt; lines.size(); i++)</div>
 <div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;            {</div>
 <div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                <span class="keywordflow">if</span> (export_count &lt; max_tld_leakage_count)</div>
 <div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;                {</div>
 <div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;                    kept_keys += lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;<a class="code" href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">count</a>;</div>
 <div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;                    export_count++;</div>
-<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                    <span class="keywordtype">int</span> tld_index = <a class="code" href="class_tld_count_test.html#a99848fa447c64cff4464ead6319f0467">GetTldIndex</a>(lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;tld, lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;tld_len);</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;                    <span class="keywordtype">int</span> tld_index = <a class="code" href="class_tld_count_test.html#a99848fa447c64cff4464ead6319f0467">GetTldIndex</a>(lines[i]-&gt;tld, lines[i]-&gt;tld_len);</div>
 <div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;                    <a class="code" href="class_dns_hash_entry.html">DnsHashEntry</a> key;</div>
 <div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;                    <span class="keywordtype">bool</span> stored = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;</div>
-<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                    key.<a class="code" href="class_dns_hash_entry.html#a202a5eba784883e3dbf03680398b2e6d">count</a> = lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count;</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                    key.<a class="code" href="class_dns_hash_entry.html#a3d63fa8c4284b50ece3922bccff666a6">count</a> = lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count;</div>
 <div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                    key.<a class="code" href="class_dns_hash_entry.html#a20ec76fa3b8b0271646195784bfa4550">registry_id</a> = <a class="code" href="_dns_stats_8h.html#a0782b339c55cd799e25f688d9d11d3d2">REGISTRY_DNS_Frequent_TLD_Usage</a>;</div>
-<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                    key.<a class="code" href="class_dns_hash_entry.html#a47e70b14a12214aa799e62edb12577cc">key_length</a> = (uint32_t)lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;tld_len;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                    key.<a class="code" href="class_dns_hash_entry.html#a47e70b14a12214aa799e62edb12577cc">key_length</a> = (uint32_t)lines[i]-&gt;tld_len;</div>
 <div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;                    key.<a class="code" href="class_dns_hash_entry.html#a07d794c090dfba341baf1c02d504457b">key_type</a> = 1; <span class="comment">/* string */</span></div>
-<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                    memcpy(key.<a class="code" href="class_dns_hash_entry.html#af7abb1feb4ed89e213f4814800465765">key_value</a>, lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;tld, lines[i]-&gt;tld_len);</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;                    memcpy(key.<a class="code" href="class_dns_hash_entry.html#af7abb1feb4ed89e213f4814800465765">key_value</a>, lines[i]-&gt;tld, lines[i]-&gt;tld_len);</div>
 <div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;                    key.<a class="code" href="class_dns_hash_entry.html#af7abb1feb4ed89e213f4814800465765">key_value</a>[lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;tld_len] = 0;</div>
 <div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;</div>
 <div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;                    (void)hashTable.<a class="code" href="class_bin_hash.html#a301497f461c5ab764cb77292a670df66">InsertOrAdd</a>(&amp;key, <span class="keyword">true</span>, &amp;stored);</div>
 <div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;</div>
 <div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;                    <span class="keywordflow">if</span> (tld_index &lt; 0) {</div>
-<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                        <span class="keywordflow">if</span> (lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count &gt; 1) {</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;                        <span class="keywordflow">if</span> (lines[i]-&gt;count &gt; 1) {</div>
 <div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;                            <a class="code" href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a>(<span class="stringliteral">&quot;rank %d, random name, length %d, count %d\n&quot;</span>,</div>
-<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                                <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>, lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;tld_len, lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;                                (<span class="keywordtype">int</span>)i, lines[i]-&gt;tld_len, (<span class="keywordtype">int</span>)lines[i]-&gt;count);</div>
 <div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;                        }</div>
 <div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;                    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                        <span class="keywordflow">if</span> (count_per_string[tld_index + 1] != (<span class="keywordtype">int</span>)lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count) {</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;                        <span class="keywordflow">if</span> (count_per_string[tld_index + 1] != lines[i]-&gt;count) {</div>
 <div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;                            <a class="code" href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a>(<span class="stringliteral">&quot;rank %d, %s, count %d instead of %d\n&quot;</span>,</div>
-<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                                <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>, <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[tld_index], lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count, count_per_string[tld_index + 1]);</div>
-<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                            <span class="keywordflow">if</span> ((<span class="keywordtype">int</span>)lines[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]-&gt;count &gt; count_per_string[tld_index + 1]) {</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                                (<span class="keywordtype">int</span>)i, <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[tld_index], (<span class="keywordtype">int</span>)lines[i]-&gt;count, (<span class="keywordtype">int</span>)count_per_string[tld_index + 1]);</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                            <span class="keywordflow">if</span> (lines[i]-&gt;count &gt; count_per_string[tld_index + 1]) {</div>
 <div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;                                ret = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;                            }</div>
 <div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;                        }</div>
@@ -373,14 +373,14 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;</div>
 <div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        <span class="keywordflow">if</span> (!ret) {</div>
 <div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;            <a class="code" href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a>(<span class="stringliteral">&quot;Tld count test, kept_keys + dropped_keys: %d + %d = %d != total: %d\n&quot;</span>,</div>
-<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                kept_keys, dropped_keys, kept_keys + dropped_keys, total_keys);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;                (<span class="keywordtype">int</span>)kept_keys, (<span class="keywordtype">int</span>)dropped_keys, (<span class="keywordtype">int</span>)kept_keys + (<span class="keywordtype">int</span>)dropped_keys, (<span class="keywordtype">int</span>)total_keys);</div>
 <div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            <span class="keywordtype">int</span> delta_count = expected_count - kept_keys;</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;            int64_t delta_count = expected_count - kept_keys;</div>
 <div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;</div>
 <div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;            ret = (delta_count &lt;= max_delta_count) &amp;&amp; (-delta_count &lt;= max_delta_count);</div>
 <div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;            <span class="keywordflow">if</span> (!ret) {</div>
 <div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;                <a class="code" href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a>(<span class="stringliteral">&quot;Tld count test, expected_count: %d &gt;&gt; kept_keys: %d\n&quot;</span>,</div>
-<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                    expected_count, kept_keys);</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;                    (<span class="keywordtype">int</span>)expected_count, (<span class="keywordtype">int</span>)kept_keys);</div>
 <div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;            }</div>
 <div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;        }</div>
 <div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;</div>
@@ -388,17 +388,17 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;            <span class="comment">/* Verify the values from the hash table */</span></div>
 <div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;            <a class="code" href="class_dns_hash_entry.html">DnsHashEntry</a> *entry;</div>
 <div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;</div>
-<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;            <span class="keywordflow">for</span> (uint32_t <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; hashTable.<a class="code" href="class_bin_hash.html#a615adef9e67ae265cc1a0508220ab1f6">GetSize</a>(); <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;            <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; hashTable.<a class="code" href="class_bin_hash.html#a615adef9e67ae265cc1a0508220ab1f6">GetSize</a>(); i++)</div>
 <div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;            {</div>
-<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                entry = hashTable.<a class="code" href="class_bin_hash.html#ae1cf527106b123fbd5737a66b266f6c9">GetEntry</a>(<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>);</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;                entry = hashTable.<a class="code" href="class_bin_hash.html#ae1cf527106b123fbd5737a66b266f6c9">GetEntry</a>(i);</div>
 <div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;</div>
 <div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;                <span class="keywordflow">while</span> (entry != NULL)</div>
 <div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;                {</div>
 <div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                    <span class="keywordflow">if</span> (entry-&gt;<a class="code" href="class_dns_hash_entry.html#a20ec76fa3b8b0271646195784bfa4550">registry_id</a> == <a class="code" href="_dns_stats_8h.html#a0782b339c55cd799e25f688d9d11d3d2">REGISTRY_DNS_Frequent_TLD_Usage</a>) {</div>
-<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                        hashed_count += entry-&gt;<a class="code" href="class_dns_hash_entry.html#a202a5eba784883e3dbf03680398b2e6d">count</a>;</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;                        hashed_count += entry-&gt;<a class="code" href="class_dns_hash_entry.html#a3d63fa8c4284b50ece3922bccff666a6">count</a>;</div>
 <div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;                    }</div>
 <div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (entry-&gt;<a class="code" href="class_dns_hash_entry.html#a20ec76fa3b8b0271646195784bfa4550">registry_id</a> == <a class="code" href="_dns_stats_8h.html#ab9efa695750f75819898f9095113892b">REGISTRY_DNS_TLD_Usage_Count</a>) {</div>
-<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                        hashed_total = entry-&gt;<a class="code" href="class_dns_hash_entry.html#a202a5eba784883e3dbf03680398b2e6d">count</a>;</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;                        hashed_total = entry-&gt;<a class="code" href="class_dns_hash_entry.html#a3d63fa8c4284b50ece3922bccff666a6">count</a>;</div>
 <div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;                    }</div>
 <div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;</div>
 <div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                    entry = entry-&gt;<a class="code" href="class_dns_hash_entry.html#a3074eaafba10eabb74ab501b186e11bc">HashNext</a>;</div>
@@ -415,44 +415,46 @@ Additional Inherited Members</h2></td></tr>
 <div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;                ret = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;            }</div>
 <div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        }</div>
-<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    }</div>
-<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;    <span class="keywordflow">return</span> ret;</div>
-<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;}</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="keyword">delete</span>[] rand_table;</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;    }</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;}</div>
 <div class="ttc" id="class_lru_hash_html_a78e01ae43c8826e5518c1031403a4f14"><div class="ttname"><a href="class_lru_hash.html#a78e01ae43c8826e5518c1031403a4f14">LruHash::GetSize</a></div><div class="ttdeci">uint32_t GetSize()</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:309</div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a75c4446adc17054bbc5947680a8662e1"><div class="ttname"><a href="_tld_count_test_8cpp.html#a75c4446adc17054bbc5947680a8662e1">random_uniform</a></div><div class="ttdeci">static uint32_t random_uniform(uint32_t range_max)</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:323</div></div>
 <div class="ttc" id="class_bin_hash_html_a301497f461c5ab764cb77292a670df66"><div class="ttname"><a href="class_bin_hash.html#a301497f461c5ab764cb77292a670df66">BinHash::InsertOrAdd</a></div><div class="ttdeci">KeyObj * InsertOrAdd(KeyObj *key, bool need_alloc, bool *stored)</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:45</div></div>
-<div class="ttc" id="class_dns_hash_entry_html_a07d794c090dfba341baf1c02d504457b"><div class="ttname"><a href="class_dns_hash_entry.html#a07d794c090dfba341baf1c02d504457b">DnsHashEntry::key_type</a></div><div class="ttdeci">uint32_t key_type</div><div class="ttdef"><b>Definition:</b> DnsStats.h:131</div></div>
+<div class="ttc" id="class_dns_hash_entry_html_a07d794c090dfba341baf1c02d504457b"><div class="ttname"><a href="class_dns_hash_entry.html#a07d794c090dfba341baf1c02d504457b">DnsHashEntry::key_type</a></div><div class="ttdeci">uint32_t key_type</div><div class="ttdef"><b>Definition:</b> DnsStats.h:135</div></div>
 <div class="ttc" id="class_tld_as_key_html_adc7f44737cd2758c1618c2530bc90944"><div class="ttname"><a href="class_tld_as_key.html#adc7f44737cd2758c1618c2530bc90944">TldAsKey::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> TldAsKey.h:41</div></div>
-<div class="ttc" id="class_dns_hash_entry_html"><div class="ttname"><a href="class_dns_hash_entry.html">DnsHashEntry</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:116</div></div>
+<div class="ttc" id="class_dns_hash_entry_html"><div class="ttname"><a href="class_dns_hash_entry.html">DnsHashEntry</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:120</div></div>
 <div class="ttc" id="class_lru_hash_html"><div class="ttname"><a href="class_lru_hash.html">LruHash&lt; TldAsKey &gt;</a></div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a26e0ad6d7771d51aefb05daa8540bafc"><div class="ttname"><a href="_tld_count_test_8cpp.html#a26e0ad6d7771d51aefb05daa8540bafc">random_tld</a></div><div class="ttdeci">static char * random_tld(char n[RANDOM_TLD_LENGTH+1])</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:337</div></div>
-<div class="ttc" id="_dns_stats_8h_html_a0782b339c55cd799e25f688d9d11d3d2"><div class="ttname"><a href="_dns_stats_8h.html#a0782b339c55cd799e25f688d9d11d3d2">REGISTRY_DNS_Frequent_TLD_Usage</a></div><div class="ttdeci">#define REGISTRY_DNS_Frequent_TLD_Usage</div><div class="ttdef"><b>Definition:</b> DnsStats.h:80</div></div>
+<div class="ttc" id="_dns_stats_8h_html_a0782b339c55cd799e25f688d9d11d3d2"><div class="ttname"><a href="_dns_stats_8h.html#a0782b339c55cd799e25f688d9d11d3d2">REGISTRY_DNS_Frequent_TLD_Usage</a></div><div class="ttdeci">#define REGISTRY_DNS_Frequent_TLD_Usage</div><div class="ttdef"><b>Definition:</b> DnsStats.h:81</div></div>
 <div class="ttc" id="class_tld_as_key_html_a41a88335dcef029811cbe661cb0b7f46"><div class="ttname"><a href="class_tld_as_key.html#a41a88335dcef029811cbe661cb0b7f46">TldAsKey::tld</a></div><div class="ttdeci">uint8_t tld[65]</div><div class="ttdef"><b>Definition:</b> TldAsKey.h:40</div></div>
 <div class="ttc" id="class_tld_as_key_html_ab539687260bf5a1b8fc3698bee1e44f4"><div class="ttname"><a href="class_tld_as_key.html#ab539687260bf5a1b8fc3698bee1e44f4">TldAsKey::tld_len</a></div><div class="ttdeci">size_t tld_len</div><div class="ttdef"><b>Definition:</b> TldAsKey.h:39</div></div>
-<div class="ttc" id="_dns_stats_8h_html_ab9efa695750f75819898f9095113892b"><div class="ttname"><a href="_dns_stats_8h.html#ab9efa695750f75819898f9095113892b">REGISTRY_DNS_TLD_Usage_Count</a></div><div class="ttdeci">#define REGISTRY_DNS_TLD_Usage_Count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:81</div></div>
+<div class="ttc" id="_dns_stats_8h_html_ab9efa695750f75819898f9095113892b"><div class="ttname"><a href="_dns_stats_8h.html#ab9efa695750f75819898f9095113892b">REGISTRY_DNS_TLD_Usage_Count</a></div><div class="ttdeci">#define REGISTRY_DNS_TLD_Usage_Count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:82</div></div>
 <div class="ttc" id="class_tld_as_key_html"><div class="ttname"><a href="class_tld_as_key.html">TldAsKey</a></div><div class="ttdef"><b>Definition:</b> TldAsKey.h:24</div></div>
 <div class="ttc" id="class_lru_hash_html_a12b37fe073405154b03c1c7fd7810e8c"><div class="ttname"><a href="class_lru_hash.html#a12b37fe073405154b03c1c7fd7810e8c">LruHash::InsertOrAdd</a></div><div class="ttdeci">KeyObj * InsertOrAdd(KeyObj *key, bool need_alloc, bool *stored)</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:262</div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a4f47fde6751159b9a96da8019d826830"><div class="ttname"><a href="_tld_count_test_8cpp.html#a4f47fde6751159b9a96da8019d826830">fill_initial_table</a></div><div class="ttdeci">static void fill_initial_table(BinHash&lt; DnsHashEntry &gt; *hashTable)</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:287</div></div>
-<div class="ttc" id="class_dns_hash_entry_html_a20ec76fa3b8b0271646195784bfa4550"><div class="ttname"><a href="class_dns_hash_entry.html#a20ec76fa3b8b0271646195784bfa4550">DnsHashEntry::registry_id</a></div><div class="ttdeci">uint32_t registry_id</div><div class="ttdef"><b>Definition:</b> DnsStats.h:129</div></div>
+<div class="ttc" id="class_dns_hash_entry_html_a20ec76fa3b8b0271646195784bfa4550"><div class="ttname"><a href="class_dns_hash_entry.html#a20ec76fa3b8b0271646195784bfa4550">DnsHashEntry::registry_id</a></div><div class="ttdeci">uint32_t registry_id</div><div class="ttdef"><b>Definition:</b> DnsStats.h:133</div></div>
 <div class="ttc" id="class_bin_hash_html"><div class="ttname"><a href="class_bin_hash.html">BinHash&lt; DnsHashEntry &gt;</a></div></div>
-<div class="ttc" id="class_tld_count_test_html_a99848fa447c64cff4464ead6319f0467"><div class="ttname"><a href="class_tld_count_test.html#a99848fa447c64cff4464ead6319f0467">TldCountTest::GetTldIndex</a></div><div class="ttdeci">int GetTldIndex(uint8_t *tld, size_t tld_len)</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:570</div></div>
+<div class="ttc" id="class_tld_count_test_html_a99848fa447c64cff4464ead6319f0467"><div class="ttname"><a href="class_tld_count_test.html#a99848fa447c64cff4464ead6319f0467">TldCountTest::GetTldIndex</a></div><div class="ttdeci">int GetTldIndex(uint8_t *tld, size_t tld_len)</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:572</div></div>
 <div class="ttc" id="class_lru_hash_html_aa93320cac2c4984abfdc9e865e8c0946"><div class="ttname"><a href="class_lru_hash.html#aa93320cac2c4984abfdc9e865e8c0946">LruHash::GetEntry</a></div><div class="ttdeci">KeyObj * GetEntry(uint32_t indx)</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:313</div></div>
 <div class="ttc" id="ithi__test__class_8cpp_html_a067ad17d4113603efc0c04d078bde662"><div class="ttname"><a href="ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a></div><div class="ttdeci">void TEST_LOG(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> ithi_test_class.cpp:251</div></div>
-<div class="ttc" id="class_tld_as_key_html_a47e58c0e0d3540adeb813e1715cdab48"><div class="ttname"><a href="class_tld_as_key.html#a47e58c0e0d3540adeb813e1715cdab48">TldAsKey::CompareTldEntries</a></div><div class="ttdeci">static bool CompareTldEntries(TldAsKey *x, TldAsKey *y)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1110</div></div>
+<div class="ttc" id="class_tld_as_key_html_a47e58c0e0d3540adeb813e1715cdab48"><div class="ttname"><a href="class_tld_as_key.html#a47e58c0e0d3540adeb813e1715cdab48">TldAsKey::CompareTldEntries</a></div><div class="ttdeci">static bool CompareTldEntries(TldAsKey *x, TldAsKey *y)</div><div class="ttdef"><b>Definition:</b> DnsStats.cpp:1120</div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a5faa06ca66b5a0ec604b283a16845c63"><div class="ttname"><a href="_tld_count_test_8cpp.html#a5faa06ca66b5a0ec604b283a16845c63">RANDOM_TLD_LENGTH</a></div><div class="ttdeci">#define RANDOM_TLD_LENGTH</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:335</div></div>
-<div class="ttc" id="class_dns_hash_entry_html_af7abb1feb4ed89e213f4814800465765"><div class="ttname"><a href="class_dns_hash_entry.html#af7abb1feb4ed89e213f4814800465765">DnsHashEntry::key_value</a></div><div class="ttdeci">uint8_t key_value[64]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:135</div></div>
+<div class="ttc" id="class_dns_hash_entry_html_af7abb1feb4ed89e213f4814800465765"><div class="ttname"><a href="class_dns_hash_entry.html#af7abb1feb4ed89e213f4814800465765">DnsHashEntry::key_value</a></div><div class="ttdeci">uint8_t key_value[64]</div><div class="ttdef"><b>Definition:</b> DnsStats.h:139</div></div>
 <div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:58</div></div>
-<div class="ttc" id="class_dns_hash_entry_html_a47e70b14a12214aa799e62edb12577cc"><div class="ttname"><a href="class_dns_hash_entry.html#a47e70b14a12214aa799e62edb12577cc">DnsHashEntry::key_length</a></div><div class="ttdeci">uint32_t key_length</div><div class="ttdef"><b>Definition:</b> DnsStats.h:132</div></div>
-<div class="ttc" id="class_dns_hash_entry_html_af51ee6b8d765f68edca11e50aa88767e"><div class="ttname"><a href="class_dns_hash_entry.html#af51ee6b8d765f68edca11e50aa88767e">DnsHashEntry::key_number</a></div><div class="ttdeci">uint32_t key_number</div><div class="ttdef"><b>Definition:</b> DnsStats.h:134</div></div>
-<div class="ttc" id="class_dns_hash_entry_html_a202a5eba784883e3dbf03680398b2e6d"><div class="ttname"><a href="class_dns_hash_entry.html#a202a5eba784883e3dbf03680398b2e6d">DnsHashEntry::count</a></div><div class="ttdeci">uint32_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:130</div></div>
+<div class="ttc" id="class_dns_hash_entry_html_a47e70b14a12214aa799e62edb12577cc"><div class="ttname"><a href="class_dns_hash_entry.html#a47e70b14a12214aa799e62edb12577cc">DnsHashEntry::key_length</a></div><div class="ttdeci">uint32_t key_length</div><div class="ttdef"><b>Definition:</b> DnsStats.h:136</div></div>
+<div class="ttc" id="class_dns_hash_entry_html_af51ee6b8d765f68edca11e50aa88767e"><div class="ttname"><a href="class_dns_hash_entry.html#af51ee6b8d765f68edca11e50aa88767e">DnsHashEntry::key_number</a></div><div class="ttdeci">uint32_t key_number</div><div class="ttdef"><b>Definition:</b> DnsStats.h:138</div></div>
 <div class="ttc" id="class_bin_hash_html_a615adef9e67ae265cc1a0508220ab1f6"><div class="ttname"><a href="class_bin_hash.html#a615adef9e67ae265cc1a0508220ab1f6">BinHash::GetSize</a></div><div class="ttdeci">uint32_t GetSize()</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:142</div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a00bcbd2c37f6a6d90ad2c843c7a0fd95"><div class="ttname"><a href="_tld_count_test_8cpp.html#a00bcbd2c37f6a6d90ad2c843c7a0fd95">nbTargetNames</a></div><div class="ttdeci">static const size_t nbTargetNames</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:220</div></div>
 <div class="ttc" id="class_lru_hash_html_adbfd9fcae6c860c2be66825db44066eb"><div class="ttname"><a href="class_lru_hash.html#adbfd9fcae6c860c2be66825db44066eb">LruHash::GetCount</a></div><div class="ttdeci">uint32_t GetCount()</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:305</div></div>
 <div class="ttc" id="class_tld_as_key_html_aad7be0f73f0996034a70f341fa5a2d59"><div class="ttname"><a href="class_tld_as_key.html#aad7be0f73f0996034a70f341fa5a2d59">TldAsKey::HashNext</a></div><div class="ttdeci">TldAsKey * HashNext</div><div class="ttdef"><b>Definition:</b> TldAsKey.h:35</div></div>
 <div class="ttc" id="class_bin_hash_html_ae1cf527106b123fbd5737a66b266f6c9"><div class="ttname"><a href="class_bin_hash.html#ae1cf527106b123fbd5737a66b266f6c9">BinHash::GetEntry</a></div><div class="ttdeci">KeyObj * GetEntry(uint32_t indx)</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:146</div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a8212ed89c9be0f96159586d2350469dd"><div class="ttname"><a href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a></div><div class="ttdeci">static char const * TargetNames[]</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:40</div></div>
+<div class="ttc" id="class_dns_hash_entry_html_a3d63fa8c4284b50ece3922bccff666a6"><div class="ttname"><a href="class_dns_hash_entry.html#a3d63fa8c4284b50ece3922bccff666a6">DnsHashEntry::count</a></div><div class="ttdeci">uint64_t count</div><div class="ttdef"><b>Definition:</b> DnsStats.h:134</div></div>
 <div class="ttc" id="class_lru_hash_html_aad1c32840a100641f5e5fda045f9d71e"><div class="ttname"><a href="class_lru_hash.html#aad1c32840a100641f5e5fda045f9d71e">LruHash::RemoveLRU</a></div><div class="ttdeci">KeyObj * RemoveLRU()</div><div class="ttdef"><b>Definition:</b> HashBinGeneric.h:298</div></div>
-<div class="ttc" id="class_dns_hash_entry_html_a3074eaafba10eabb74ab501b186e11bc"><div class="ttname"><a href="class_dns_hash_entry.html#a3074eaafba10eabb74ab501b186e11bc">DnsHashEntry::HashNext</a></div><div class="ttdeci">DnsHashEntry * HashNext</div><div class="ttdef"><b>Definition:</b> DnsStats.h:126</div></div>
+<div class="ttc" id="class_dns_hash_entry_html_a3074eaafba10eabb74ab501b186e11bc"><div class="ttname"><a href="class_dns_hash_entry.html#a3074eaafba10eabb74ab501b186e11bc">DnsHashEntry::HashNext</a></div><div class="ttdeci">DnsHashEntry * HashNext</div><div class="ttdef"><b>Definition:</b> DnsStats.h:130</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -479,54 +481,54 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;{</div>
-<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;    <span class="keywordtype">int</span> low = -1;</div>
-<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;    <span class="keywordtype">int</span> high = <a class="code" href="_tld_count_test_8cpp.html#a00bcbd2c37f6a6d90ad2c843c7a0fd95">nbTargetNames</a>;</div>
-<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keywordtype">int</span> middle;</div>
-<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordtype">int</span> found = -1;</div>
-<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;</div>
-<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordflow">while</span> (found == -1 &amp;&amp; low &lt; high) {</div>
-<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        uint8_t * r;</div>
-<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <span class="keywordtype">size_t</span> r_len;</div>
-<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        <span class="keywordtype">int</span> cmp = 0;</div>
-<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;</div>
-<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        middle = low + (high - low) / 2;</div>
+<div class="fragment"><div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;{</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keywordtype">int</span> low = -1;</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keywordtype">int</span> high = <a class="code" href="_tld_count_test_8cpp.html#a00bcbd2c37f6a6d90ad2c843c7a0fd95">nbTargetNames</a>;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;    <span class="keywordtype">int</span> middle;</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;    <span class="keywordtype">int</span> found = -1;</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;    <span class="keywordflow">while</span> (found == -1 &amp;&amp; low &lt; high) {</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;        uint8_t * r;</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;        <span class="keywordtype">size_t</span> r_len;</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;        <span class="keywordtype">int</span> cmp = 0;</div>
 <div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;</div>
-<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        <span class="keywordflow">if</span> (middle == low || middle == high) {</div>
-<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        }</div>
-<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;</div>
-<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        r = (uint8_t *) <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[middle];</div>
-<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;        r_len = strlen(<a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[middle]);</div>
-<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;</div>
-<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;</div>
-<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; cmp == 0 &amp;&amp;  <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; tld_len; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++) {</div>
-<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &gt; r_len || tld[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>] &gt; r[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]) {</div>
-<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;                cmp = 1; <span class="comment">/* Tld is below middle */</span></div>
-<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;            }</div>
-<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tld[i] &lt; r[i]) {</div>
-<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;                cmp = -1; <span class="comment">/* Tld is above middle */</span></div>
-<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;            }</div>
-<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;        }</div>
-<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        <span class="keywordflow">if</span> (cmp == 0 &amp;&amp; r_len &gt; tld_len) {</div>
-<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;            cmp = -1; <span class="comment">/* name is longer, tld is below it  */</span></div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        }</div>
-<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;</div>
-<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="keywordflow">switch</span> (cmp) {</div>
-<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        <span class="keywordflow">case</span> -1:</div>
-<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;            high = middle;</div>
-<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            found = middle;</div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;        <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            low = middle;</div>
-<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;            <span class="keywordflow">break</span>;</div>
-<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;        }</div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    }</div>
-<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keywordflow">return</span> found;</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;}</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;        middle = low + (high - low) / 2;</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        <span class="keywordflow">if</span> (middle == low || middle == high) {</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;        }</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;        r = (uint8_t *) <a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[middle];</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;        r_len = strlen(<a class="code" href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a>[middle]);</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;</div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="keywordflow">for</span> (<span class="keywordtype">size_t</span> <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; cmp == 0 &amp;&amp;  <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; tld_len; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++) {</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &gt; r_len || tld[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>] &gt; r[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>]) {</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                cmp = 1; <span class="comment">/* Tld is below middle */</span></div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;            }</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (tld[i] &lt; r[i]) {</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;                cmp = -1; <span class="comment">/* Tld is above middle */</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;            }</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        }</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;        <span class="keywordflow">if</span> (cmp == 0 &amp;&amp; r_len &gt; tld_len) {</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;            cmp = -1; <span class="comment">/* name is longer, tld is below it  */</span></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        }</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordflow">switch</span> (cmp) {</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;        <span class="keywordflow">case</span> -1:</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;            high = middle;</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        <span class="keywordflow">case</span> 0:</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;            found = middle;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;        <span class="keywordflow">case</span> 1:</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;            low = middle;</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;            <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;        }</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    }</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    <span class="keywordflow">return</span> found;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;}</div>
 <div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:58</div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a00bcbd2c37f6a6d90ad2c843c7a0fd95"><div class="ttname"><a href="_tld_count_test_8cpp.html#a00bcbd2c37f6a6d90ad2c843c7a0fd95">nbTargetNames</a></div><div class="ttdeci">static const size_t nbTargetNames</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:220</div></div>
 <div class="ttc" id="_tld_count_test_8cpp_html_a8212ed89c9be0f96159586d2350469dd"><div class="ttname"><a href="_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd">TargetNames</a></div><div class="ttdeci">static char const * TargetNames[]</div><div class="ttdef"><b>Definition:</b> TldCountTest.cpp:40</div></div>

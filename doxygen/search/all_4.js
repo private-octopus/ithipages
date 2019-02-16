@@ -124,5 +124,6 @@ var searchData=
   ['dt_5freg',['DT_REG',['../dirent_8h.html#a9973595cf6775b1b29d7274ab4c0d623',1,'dirent.h']]],
   ['dt_5fsock',['DT_SOCK',['../dirent_8h.html#aaa6ed2fc54836a2c7d9b698923705f5e',1,'dirent.h']]],
   ['dt_5funknown',['DT_UNKNOWN',['../dirent_8h.html#a293ce58a2d39f35c52f7f4516a857057',1,'dirent.h']]],
-  ['dttoif',['DTTOIF',['../dirent_8h.html#a74d60eb436b31daadb1fa753c65f024a',1,'dirent.h']]]
+  ['dttoif',['DTTOIF',['../dirent_8h.html#a74d60eb436b31daadb1fa753c65f024a',1,'dirent.h']]],
+  ['duration_5fusec',['duration_usec',['../class_dns_stats.html#abc24d928ba42f756729a3f832d384a6c',1,'DnsStats']]]
 ];

@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">113</td>
-            <td class="headerCovTableEntry">171</td>
-            <td class="headerCovTableEntryLo">66.1 %</td>
+            <td class="headerCovTableEntry">114</td>
+            <td class="headerCovTableEntry">172</td>
+            <td class="headerCovTableEntryLo">66.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-02-15</td>
+            <td class="headerValue">2019-02-16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">24</td>
@@ -387,129 +387,130 @@
 <span class="lineNum">     325 </span>            : }
 <a name="326"><span class="lineNum">     326 </span>            : </a>
 <span class="lineNum">     327 </span>            : 
-<span class="lineNum">     328 </span><span class="lineCov">      42560 : StatsByIP::StatsByIP(uint8_t * addr, size_t addr_len, bool has_do, bool has_edns, bool mini_qname) :</span>
-<span class="lineNum">     329 </span>            :     HashNext(NULL),
-<span class="lineNum">     330 </span>            :     count(1),
-<span class="lineNum">     331 </span>            :     hash(0),
-<span class="lineNum">     332 </span>            :     nb_do((has_do)?1:0),
-<span class="lineNum">     333 </span>            :     nb_edns((has_edns)?1:0),
-<span class="lineNum">     334 </span>            :     nb_mini_qname((mini_qname)?1:0),
-<span class="lineNum">     335 </span>            :     query_seen(false),
-<span class="lineNum">     336 </span>            :     response_seen(false),
-<span class="lineNum">     337 </span><span class="lineCov">      42560 :     option_mask(0)</span>
-<span class="lineNum">     338 </span>            : {
-<span class="lineNum">     339 </span><span class="lineCov">      42560 :     if (addr_len &gt; 16)</span>
-<span class="lineNum">     340 </span>            :     {
-<span class="lineNum">     341 </span><span class="lineNoCov">          0 :         addr_len = 16;</span>
-<span class="lineNum">     342 </span>            :     }
-<span class="lineNum">     343 </span>            : 
-<span class="lineNum">     344 </span><span class="lineCov">      42560 :     memcpy(this-&gt;addr, addr, addr_len);</span>
-<span class="lineNum">     345 </span><span class="lineCov">      42560 :     this-&gt;addr_len = addr_len;</span>
-<a name="346"><span class="lineNum">     346 </span><span class="lineCov">      42560 : }</span></a>
-<span class="lineNum">     347 </span>            : 
-<span class="lineNum">     348 </span><span class="lineCov">      49308 : StatsByIP::~StatsByIP()</span>
-<span class="lineNum">     349 </span>            : {
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">      49308 : }</span></a>
-<span class="lineNum">     351 </span>            : 
-<span class="lineNum">     352 </span><span class="lineCov">      37188 : bool StatsByIP::IsSameKey(StatsByIP * key)</span>
-<span class="lineNum">     353 </span>            : {
-<span class="lineNum">     354 </span><span class="lineCov">      72554 :     bool ret = (key-&gt;addr_len == this-&gt;addr_len &amp;&amp;</span>
-<span class="lineNum">     355 </span><span class="lineCov">      72554 :         memcmp(key-&gt;addr, this-&gt;addr, this-&gt;addr_len) == 0);</span>
-<span class="lineNum">     356 </span><span class="lineCov">      37188 :     return ret;</span>
-<a name="357"><span class="lineNum">     357 </span>            : }</a>
-<span class="lineNum">     358 </span>            : 
-<span class="lineNum">     359 </span><span class="lineCov">      45100 : uint32_t StatsByIP::Hash()</span>
-<span class="lineNum">     360 </span>            : {
-<span class="lineNum">     361 </span><span class="lineCov">      45100 :     if (hash == 0)</span>
-<span class="lineNum">     362 </span>            :     {
-<span class="lineNum">     363 </span><span class="lineCov">      35810 :         hash = 0xDEADBEEF;</span>
-<span class="lineNum">     364 </span><span class="lineCov">     213130 :         for (size_t i = 0; i &lt; addr_len; i++)</span>
-<span class="lineNum">     365 </span>            :         {
-<span class="lineNum">     366 </span><span class="lineCov">     177320 :             hash = hash * 101 + addr[i];</span>
-<span class="lineNum">     367 </span>            :         }
-<span class="lineNum">     368 </span>            :     }
-<span class="lineNum">     369 </span><span class="lineCov">      45100 :     return hash;</span>
-<span class="lineNum">     370 </span>            : }
-<a name="371"><span class="lineNum">     371 </span>            : </a>
-<span class="lineNum">     372 </span>            : 
-<span class="lineNum">     373 </span><span class="lineCov">       6748 : StatsByIP * StatsByIP::CreateCopy()</span>
-<span class="lineNum">     374 </span>            : {
-<span class="lineNum">     375 </span><span class="lineCov">       6748 :     StatsByIP * x = new StatsByIP(addr, addr_len, false, false, false);</span>
-<span class="lineNum">     376 </span>            : 
-<span class="lineNum">     377 </span><span class="lineCov">       6748 :     if (x != NULL)</span>
-<span class="lineNum">     378 </span>            :     {
-<span class="lineNum">     379 </span><span class="lineCov">       6748 :         x-&gt;hash = hash;</span>
-<span class="lineNum">     380 </span><span class="lineCov">       6748 :         x-&gt;nb_do = nb_do;</span>
-<span class="lineNum">     381 </span><span class="lineCov">       6748 :         x-&gt;nb_edns = nb_edns;</span>
-<span class="lineNum">     382 </span><span class="lineCov">       6748 :         x-&gt;nb_mini_qname = nb_mini_qname;</span>
-<span class="lineNum">     383 </span><span class="lineCov">       6748 :         x-&gt;query_seen = query_seen;</span>
-<span class="lineNum">     384 </span><span class="lineCov">       6748 :         x-&gt;response_seen = response_seen;</span>
-<span class="lineNum">     385 </span><span class="lineCov">       6748 :         x-&gt;option_mask = option_mask;</span>
-<span class="lineNum">     386 </span>            :     }
-<span class="lineNum">     387 </span>            : 
-<span class="lineNum">     388 </span><span class="lineCov">       6748 :     return x;</span>
-<a name="389"><span class="lineNum">     389 </span>            : }</a>
-<span class="lineNum">     390 </span>            : 
-<span class="lineNum">     391 </span><span class="lineCov">      16880 : void StatsByIP::Add(StatsByIP * key)</span>
-<span class="lineNum">     392 </span>            : {
-<span class="lineNum">     393 </span><span class="lineCov">      16880 :     count += key-&gt;count;</span>
-<span class="lineNum">     394 </span><span class="lineCov">      16880 :     nb_do += key-&gt;nb_do;</span>
-<span class="lineNum">     395 </span><span class="lineCov">      16880 :     nb_edns += key-&gt;nb_edns;</span>
-<span class="lineNum">     396 </span><span class="lineCov">      16880 :     nb_mini_qname += key-&gt;nb_mini_qname;</span>
-<span class="lineNum">     397 </span><span class="lineCov">      16880 :     query_seen |= key-&gt;query_seen;</span>
-<span class="lineNum">     398 </span><span class="lineCov">      16880 :     response_seen |= key-&gt;response_seen;</span>
-<span class="lineNum">     399 </span><span class="lineCov">      16880 :     option_mask |= key-&gt;option_mask;</span>
-<a name="400"><span class="lineNum">     400 </span><span class="lineCov">      16880 : }</span></a>
-<span class="lineNum">     401 </span>            : 
-<span class="lineNum">     402 </span><span class="lineCov">       6198 : bool StatsByIP::IsDoUsed()</span>
-<span class="lineNum">     403 </span>            : {
-<span class="lineNum">     404 </span><span class="lineCov">       6198 :     return (nb_do &gt; 0);</span>
-<a name="405"><span class="lineNum">     405 </span>            : }</a>
-<span class="lineNum">     406 </span>            : 
-<span class="lineNum">     407 </span><span class="lineCov">       6198 : bool StatsByIP::IsEdnsSupported()</span>
-<span class="lineNum">     408 </span>            : {
-<span class="lineNum">     409 </span><span class="lineCov">       6198 :     return (nb_edns &gt; 0);</span>
-<a name="410"><span class="lineNum">     410 </span>            : }</a>
-<span class="lineNum">     411 </span>            : 
-<span class="lineNum">     412 </span><span class="lineCov">       6198 : bool StatsByIP::IsQnameMinimized()</span>
-<span class="lineNum">     413 </span>            : {
-<span class="lineNum">     414 </span><span class="lineCov">       6198 :     uint32_t ref_count = count;</span>
-<span class="lineNum">     415 </span>            : 
-<span class="lineNum">     416 </span><span class="lineCov">       6198 :     if (query_seen) {</span>
-<span class="lineNum">     417 </span><span class="lineCov">       5210 :         ref_count--;</span>
-<span class="lineNum">     418 </span>            :     }
-<span class="lineNum">     419 </span>            : 
-<span class="lineNum">     420 </span><span class="lineCov">       6198 :     return(nb_mini_qname == ref_count);</span>
-<span class="lineNum">     421 </span>            : }
-<span class="lineNum">     422 </span>            : 
-<span class="lineNum">     423 </span>            : /* Options should be counted at most once per resolver. To
-<span class="lineNum">     424 </span>            :  * verify that, we use a simple bit mask, much like a simplified
-<a name="425"><span class="lineNum">     425 </span>            :  * Bloome filter */</a>
-<span class="lineNum">     426 </span>            : 
-<span class="lineNum">     427 </span><span class="lineCov">        124 : bool StatsByIP::RegisterNewOption(uint16_t option_code)</span>
-<span class="lineNum">     428 </span>            : {
-<span class="lineNum">     429 </span><span class="lineCov">        124 :     uint32_t option_hash = option_code;</span>
-<span class="lineNum">     430 </span>            : 
-<span class="lineNum">     431 </span>            :     /* Compute a minimal 16 bit hash */
-<span class="lineNum">     432 </span><span class="lineCov">        124 :     option_hash ^= (option_code * 102);</span>
-<span class="lineNum">     433 </span><span class="lineCov">        124 :     option_hash ^= (option_hash &gt;&gt; 11);</span>
-<span class="lineNum">     434 </span><span class="lineCov">        124 :     option_hash *= 31;</span>
-<span class="lineNum">     435 </span><span class="lineCov">        124 :     option_hash ^= (option_hash &gt;&gt; 6);</span>
-<span class="lineNum">     436 </span>            : 
-<span class="lineNum">     437 </span>            :     /* Retain only the last 6 bits */
-<span class="lineNum">     438 </span><span class="lineCov">        124 :     option_hash &amp;= 0x3F;</span>
-<span class="lineNum">     439 </span><span class="lineCov">        124 :     uint64_t bit_mask = (1ull &lt;&lt; option_hash);</span>
-<span class="lineNum">     440 </span>            : 
-<span class="lineNum">     441 </span>            :     /* check the mask */
-<span class="lineNum">     442 </span><span class="lineCov">        124 :     bool ret = (option_mask&amp;bit_mask) == 0;</span>
-<span class="lineNum">     443 </span>            : 
-<span class="lineNum">     444 </span><span class="lineCov">        124 :     if (ret) {</span>
-<span class="lineNum">     445 </span><span class="lineCov">         66 :         option_mask |= bit_mask;</span>
-<span class="lineNum">     446 </span>            :     }
-<span class="lineNum">     447 </span>            : 
-<span class="lineNum">     448 </span><span class="lineCov">        124 :     return ret;</span>
-<span class="lineNum">     449 </span>            : }
-<span class="lineNum">     450 </span>            : 
+<span class="lineNum">     328 </span><span class="lineCov">      42560 : StatsByIP::StatsByIP(uint8_t * addr, size_t addr_len, bool has_do, bool has_edns, </span>
+<span class="lineNum">     329 </span>            :     bool not_qname_mini) :
+<span class="lineNum">     330 </span>            :     HashNext(NULL),
+<span class="lineNum">     331 </span>            :     count(1),
+<span class="lineNum">     332 </span>            :     hash(0),
+<span class="lineNum">     333 </span>            :     nb_do((has_do)?1:0),
+<span class="lineNum">     334 </span>            :     nb_edns((has_edns)?1:0),
+<span class="lineNum">     335 </span>            :     nb_not_qname_mini((not_qname_mini) ? 1 : 0),
+<span class="lineNum">     336 </span>            :     nb_tcp_443(0),
+<span class="lineNum">     337 </span>            :     nb_tcp_583(0),
+<span class="lineNum">     338 </span>            :     query_seen(false),
+<span class="lineNum">     339 </span>            :     response_seen(false),
+<span class="lineNum">     340 </span><span class="lineCov">      42560 :     option_mask(0)</span>
+<span class="lineNum">     341 </span>            : {
+<span class="lineNum">     342 </span><span class="lineCov">      42560 :     if (addr_len &gt; 16)</span>
+<span class="lineNum">     343 </span>            :     {
+<span class="lineNum">     344 </span><span class="lineNoCov">          0 :         addr_len = 16;</span>
+<span class="lineNum">     345 </span>            :     }
+<span class="lineNum">     346 </span>            : 
+<span class="lineNum">     347 </span><span class="lineCov">      42560 :     memcpy(this-&gt;addr, addr, addr_len);</span>
+<span class="lineNum">     348 </span><span class="lineCov">      42560 :     this-&gt;addr_len = addr_len;</span>
+<a name="349"><span class="lineNum">     349 </span><span class="lineCov">      42560 : }</span></a>
+<span class="lineNum">     350 </span>            : 
+<span class="lineNum">     351 </span><span class="lineCov">      49308 : StatsByIP::~StatsByIP()</span>
+<span class="lineNum">     352 </span>            : {
+<a name="353"><span class="lineNum">     353 </span><span class="lineCov">      49308 : }</span></a>
+<span class="lineNum">     354 </span>            : 
+<span class="lineNum">     355 </span><span class="lineCov">      37188 : bool StatsByIP::IsSameKey(StatsByIP * key)</span>
+<span class="lineNum">     356 </span>            : {
+<span class="lineNum">     357 </span><span class="lineCov">      72554 :     bool ret = (key-&gt;addr_len == this-&gt;addr_len &amp;&amp;</span>
+<span class="lineNum">     358 </span><span class="lineCov">      72554 :         memcmp(key-&gt;addr, this-&gt;addr, this-&gt;addr_len) == 0);</span>
+<span class="lineNum">     359 </span><span class="lineCov">      37188 :     return ret;</span>
+<a name="360"><span class="lineNum">     360 </span>            : }</a>
+<span class="lineNum">     361 </span>            : 
+<span class="lineNum">     362 </span><span class="lineCov">      45100 : uint32_t StatsByIP::Hash()</span>
+<span class="lineNum">     363 </span>            : {
+<span class="lineNum">     364 </span><span class="lineCov">      45100 :     if (hash == 0)</span>
+<span class="lineNum">     365 </span>            :     {
+<span class="lineNum">     366 </span><span class="lineCov">      35810 :         hash = 0xDEADBEEF;</span>
+<span class="lineNum">     367 </span><span class="lineCov">     213130 :         for (size_t i = 0; i &lt; addr_len; i++)</span>
+<span class="lineNum">     368 </span>            :         {
+<span class="lineNum">     369 </span><span class="lineCov">     177320 :             hash = hash * 101 + addr[i];</span>
+<span class="lineNum">     370 </span>            :         }
+<span class="lineNum">     371 </span>            :     }
+<span class="lineNum">     372 </span><span class="lineCov">      45100 :     return hash;</span>
+<span class="lineNum">     373 </span>            : }
+<a name="374"><span class="lineNum">     374 </span>            : </a>
+<span class="lineNum">     375 </span>            : 
+<span class="lineNum">     376 </span><span class="lineCov">       6748 : StatsByIP * StatsByIP::CreateCopy()</span>
+<span class="lineNum">     377 </span>            : {
+<span class="lineNum">     378 </span><span class="lineCov">       6748 :     StatsByIP * x = new StatsByIP(addr, addr_len, false, false, false);</span>
+<span class="lineNum">     379 </span>            : 
+<span class="lineNum">     380 </span><span class="lineCov">       6748 :     if (x != NULL)</span>
+<span class="lineNum">     381 </span>            :     {
+<span class="lineNum">     382 </span><span class="lineCov">       6748 :         x-&gt;hash = hash;</span>
+<span class="lineNum">     383 </span><span class="lineCov">       6748 :         x-&gt;nb_do = nb_do;</span>
+<span class="lineNum">     384 </span><span class="lineCov">       6748 :         x-&gt;nb_edns = nb_edns;</span>
+<span class="lineNum">     385 </span><span class="lineCov">       6748 :         x-&gt;nb_not_qname_mini = nb_not_qname_mini;</span>
+<span class="lineNum">     386 </span><span class="lineCov">       6748 :         x-&gt;nb_tcp_443 = nb_tcp_443;</span>
+<span class="lineNum">     387 </span><span class="lineCov">       6748 :         x-&gt;nb_tcp_583 = nb_tcp_583;</span>
+<span class="lineNum">     388 </span><span class="lineCov">       6748 :         x-&gt;query_seen = query_seen;</span>
+<span class="lineNum">     389 </span><span class="lineCov">       6748 :         x-&gt;response_seen = response_seen;</span>
+<span class="lineNum">     390 </span><span class="lineCov">       6748 :         x-&gt;option_mask = option_mask;</span>
+<span class="lineNum">     391 </span>            :     }
+<span class="lineNum">     392 </span>            : 
+<span class="lineNum">     393 </span><span class="lineCov">       6748 :     return x;</span>
+<a name="394"><span class="lineNum">     394 </span>            : }</a>
+<span class="lineNum">     395 </span>            : 
+<span class="lineNum">     396 </span><span class="lineCov">      16880 : void StatsByIP::Add(StatsByIP * key)</span>
+<span class="lineNum">     397 </span>            : {
+<span class="lineNum">     398 </span><span class="lineCov">      16880 :     count += key-&gt;count;</span>
+<span class="lineNum">     399 </span><span class="lineCov">      16880 :     nb_do += key-&gt;nb_do;</span>
+<span class="lineNum">     400 </span><span class="lineCov">      16880 :     nb_edns += key-&gt;nb_edns;</span>
+<span class="lineNum">     401 </span><span class="lineCov">      16880 :     nb_not_qname_mini += key-&gt;nb_not_qname_mini;</span>
+<span class="lineNum">     402 </span><span class="lineCov">      16880 :     nb_tcp_443 += key-&gt;nb_tcp_443;</span>
+<span class="lineNum">     403 </span><span class="lineCov">      16880 :     nb_tcp_583 += key-&gt;nb_tcp_583;</span>
+<span class="lineNum">     404 </span><span class="lineCov">      16880 :     query_seen |= key-&gt;query_seen;</span>
+<span class="lineNum">     405 </span><span class="lineCov">      16880 :     response_seen |= key-&gt;response_seen;</span>
+<span class="lineNum">     406 </span><span class="lineCov">      16880 :     option_mask |= key-&gt;option_mask;</span>
+<a name="407"><span class="lineNum">     407 </span><span class="lineCov">      16880 : }</span></a>
+<span class="lineNum">     408 </span>            : 
+<span class="lineNum">     409 </span><span class="lineCov">       6198 : bool StatsByIP::IsDoUsed()</span>
+<span class="lineNum">     410 </span>            : {
+<span class="lineNum">     411 </span><span class="lineCov">       6198 :     return (nb_do &gt; 0);</span>
+<a name="412"><span class="lineNum">     412 </span>            : }</a>
+<span class="lineNum">     413 </span>            : 
+<span class="lineNum">     414 </span><span class="lineCov">       6198 : bool StatsByIP::IsEdnsSupported()</span>
+<span class="lineNum">     415 </span>            : {
+<span class="lineNum">     416 </span><span class="lineCov">       6198 :     return (nb_edns &gt; 0);</span>
+<a name="417"><span class="lineNum">     417 </span>            : }</a>
+<span class="lineNum">     418 </span>            : 
+<span class="lineNum">     419 </span><span class="lineCov">       6198 : bool StatsByIP::IsQnameMinimized()</span>
+<span class="lineNum">     420 </span>            : {
+<span class="lineNum">     421 </span><span class="lineCov">       6198 :     return (nb_not_qname_mini == 0);</span>
+<span class="lineNum">     422 </span>            : }
+<span class="lineNum">     423 </span>            : 
+<span class="lineNum">     424 </span>            : /* Options should be counted at most once per resolver. To
+<span class="lineNum">     425 </span>            :  * verify that, we use a simple bit mask, much like a simplified
+<a name="426"><span class="lineNum">     426 </span>            :  * Bloome filter */</a>
+<span class="lineNum">     427 </span>            : 
+<span class="lineNum">     428 </span><span class="lineCov">        124 : bool StatsByIP::RegisterNewOption(uint16_t option_code)</span>
+<span class="lineNum">     429 </span>            : {
+<span class="lineNum">     430 </span><span class="lineCov">        124 :     uint32_t option_hash = option_code;</span>
+<span class="lineNum">     431 </span>            : 
+<span class="lineNum">     432 </span>            :     /* Compute a minimal 16 bit hash */
+<span class="lineNum">     433 </span><span class="lineCov">        124 :     option_hash ^= (option_code * 102);</span>
+<span class="lineNum">     434 </span><span class="lineCov">        124 :     option_hash ^= (option_hash &gt;&gt; 11);</span>
+<span class="lineNum">     435 </span><span class="lineCov">        124 :     option_hash *= 31;</span>
+<span class="lineNum">     436 </span><span class="lineCov">        124 :     option_hash ^= (option_hash &gt;&gt; 6);</span>
+<span class="lineNum">     437 </span>            : 
+<span class="lineNum">     438 </span>            :     /* Retain only the last 6 bits */
+<span class="lineNum">     439 </span><span class="lineCov">        124 :     option_hash &amp;= 0x3F;</span>
+<span class="lineNum">     440 </span><span class="lineCov">        124 :     uint64_t bit_mask = (1ull &lt;&lt; option_hash);</span>
+<span class="lineNum">     441 </span>            : 
+<span class="lineNum">     442 </span>            :     /* check the mask */
+<span class="lineNum">     443 </span><span class="lineCov">        124 :     bool ret = (option_mask&amp;bit_mask) == 0;</span>
+<span class="lineNum">     444 </span>            : 
+<span class="lineNum">     445 </span><span class="lineCov">        124 :     if (ret) {</span>
+<span class="lineNum">     446 </span><span class="lineCov">         66 :         option_mask |= bit_mask;</span>
+<span class="lineNum">     447 </span>            :     }
+<span class="lineNum">     448 </span>            : 
+<span class="lineNum">     449 </span><span class="lineCov">        124 :     return ret;</span>
+<span class="lineNum">     450 </span>            : }
+<span class="lineNum">     451 </span>            : 
 </pre>
       </td>
     </tr>

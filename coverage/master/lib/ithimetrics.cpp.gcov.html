@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-02-15</td>
+            <td class="headerValue">2019-02-16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -127,14 +127,14 @@
 <span class="lineNum">      65 </span><span class="lineCov">          2 :         ithi_folder = NULL;</span>
 <span class="lineNum">      66 </span>            :     }
 <span class="lineNum">      67 </span>            : 
-<span class="lineNum">      68 </span><span class="lineCov">          6 :     if (abuse_file_name_tlds == NULL) {</span>
-<span class="lineNum">      69 </span><span class="lineCov">          4 :         free(abuse_file_name_tlds);</span>
-<span class="lineNum">      70 </span><span class="lineCov">          4 :         abuse_file_name_tlds = NULL;</span>
+<span class="lineNum">      68 </span><span class="lineCov">          6 :     if (abuse_file_name_tlds != NULL) {</span>
+<span class="lineNum">      69 </span><span class="lineCov">          2 :         free(abuse_file_name_tlds);</span>
+<span class="lineNum">      70 </span><span class="lineCov">          2 :         abuse_file_name_tlds = NULL;</span>
 <span class="lineNum">      71 </span>            :     }
 <span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineCov">          6 :     if (abuse_file_name_registrars == NULL) {</span>
-<span class="lineNum">      74 </span><span class="lineCov">          4 :         free(abuse_file_name_registrars);</span>
-<span class="lineNum">      75 </span><span class="lineCov">          4 :         abuse_file_name_registrars = NULL;</span>
+<span class="lineNum">      73 </span><span class="lineCov">          6 :     if (abuse_file_name_registrars != NULL) {</span>
+<span class="lineNum">      74 </span><span class="lineCov">          2 :         free(abuse_file_name_registrars);</span>
+<span class="lineNum">      75 </span><span class="lineCov">          2 :         abuse_file_name_registrars = NULL;</span>
 <span class="lineNum">      76 </span>            :     }
 <span class="lineNum">      77 </span>            : 
 <span class="lineNum">      78 </span><span class="lineCov">         54 :     for (int i = 0; i &lt; ITHI_NUMBER_OF_METRICS; i++) {</span>

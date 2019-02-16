@@ -1,11 +1,14 @@
 var searchData=
 [
+  ['t_5fstart_5fsec',['t_start_sec',['../class_dns_stats.html#af8750ccc4e7e5d3a49e33c7ee2567b86',1,'DnsStats']]],
+  ['t_5fstart_5fusec',['t_start_usec',['../class_dns_stats.html#a9195fe91496a78bf87d732a25f1aef9b',1,'DnsStats']]],
   ['table',['table',['../class_address_filter.html#a60c66aec2c7d6f29f2a0d2b30eec49a4',1,'AddressFilter::table()'],['../class_address_use_tracker.html#a52d9f160414c2ff5a19905c63c316f79',1,'AddressUseTracker::table()']]],
   ['table_5fid',['table_id',['../struct__st__metric6__def__t.html#a4451bf1987af4fb707482297595db7fa',1,'_st_metric6_def_t']]],
   ['table_5flru_5fmax',['table_lru_max',['../class_address_use_tracker.html#a74570211f892141b0cae4088f900f4e5',1,'AddressUseTracker']]],
   ['tablecount',['tableCount',['../class_bin_hash.html#a3466abe11770186f1809965727d7af9f',1,'BinHash']]],
   ['tablesize',['tableSize',['../class_bin_hash.html#a58126511479ca38b52d673ef6fb1e5de',1,'BinHash']]],
   ['target',['target',['../_merge_test_8cpp.html#ae53d289a7fa0ee4d643567a7a9929ac2',1,'MergeTest.cpp']]],
+  ['target_5fnumber_5fdns_5fpackets',['target_number_dns_packets',['../class_dns_stats.html#a2b2170e487d6bcf5dcc1d6bdbb48e89d',1,'DnsStats']]],
   ['targetnames',['TargetNames',['../_tld_count_test_8cpp.html#a8212ed89c9be0f96159586d2350469dd',1,'TldCountTest.cpp']]],
   ['targetsize',['targetSize',['../class_lru_hash.html#ad5be1996a96230e63f6feeeaa3d23d4e',1,'LruHash']]],
   ['test_5fcases',['test_cases',['../_m2_data_test_8cpp.html#abbe11a42f38e8e943fecf5f69e46dff0',1,'M2DataTest.cpp']]],

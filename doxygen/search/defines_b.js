@@ -1,6 +1,7 @@
 var searchData=
 [
   ['random_5ftld_5flength',['RANDOM_TLD_LENGTH',['../_tld_count_test_8cpp.html#a5faa06ca66b5a0ec604b283a16845c63',1,'TldCountTest.cpp']]],
+  ['registry_5fcapture_5fduration',['REGISTRY_CAPTURE_DURATION',['../_dns_stats_8h.html#a2f0aa11e6f7d9aa84f41aa28058c6b08',1,'DnsStats.h']]],
   ['registry_5fdane_5fcertusage',['REGISTRY_DANE_CertUsage',['../_dns_stats_8h.html#a765822db522cba478ddbcefa4d59b156',1,'DnsStats.h']]],
   ['registry_5fdane_5ftlsamatchingtype',['REGISTRY_DANE_TlsaMatchingType',['../_dns_stats_8h.html#a9d25ba3a40ce04058136b7d9795f8b9e',1,'DnsStats.h']]],
   ['registry_5fdane_5ftlsaselector',['REGISTRY_DANE_TlsaSelector',['../_dns_stats_8h.html#a9e87939852b79779e5c5163c365eef2c',1,'DnsStats.h']]],
@@ -44,7 +45,9 @@ var searchData=
   ['registry_5fedns_5fversion_5fnumber',['REGISTRY_EDNS_Version_number',['../_dns_stats_8h.html#a42838439fa85e0582477687b35f46d48',1,'DnsStats.h']]],
   ['registry_5fithitools_5fversion',['REGISTRY_ITHITOOLS_VERSION',['../_dns_stats_8h.html#adfd8a4ed314845ed57a248057eba8461',1,'DnsStats.h']]],
   ['registry_5fqname_5fminimization_5fusage',['REGISTRY_QNAME_MINIMIZATION_Usage',['../_dns_stats_8h.html#a1c22ee5271d4d1a7e7695bbb3f25effc',1,'DnsStats.h']]],
+  ['registry_5ftcpsyn_5fper_5fproto',['REGISTRY_TCPSYN_PER_PROTO',['../_dns_stats_8h.html#a16f95b9c8d2e5c9726452b9074648b6f',1,'DnsStats.h']]],
   ['registry_5ftld_5fquery',['REGISTRY_TLD_query',['../_dns_stats_8h.html#ac7823b056d47739e6c7c1a04c5c81fb0',1,'DnsStats.h']]],
   ['registry_5ftld_5fresponse',['REGISTRY_TLD_response',['../_dns_stats_8h.html#a74ea5118cc79689be5f47c5f2a686725',1,'DnsStats.h']]],
-  ['registry_5ftool_5ffrequentaddress',['REGISTRY_TOOL_FrequentAddress',['../_dns_stats_8h.html#a6708d2dfa03d0657c0b221713fbde59a',1,'DnsStats.h']]]
+  ['registry_5ftool_5ffrequentaddress',['REGISTRY_TOOL_FrequentAddress',['../_dns_stats_8h.html#a6708d2dfa03d0657c0b221713fbde59a',1,'DnsStats.h']]],
+  ['registry_5fvolume_5fper_5fproto',['REGISTRY_VOLUME_PER_PROTO',['../_dns_stats_8h.html#addc8402f779b20d1789819f6c5ad5891',1,'DnsStats.h']]]
 ];

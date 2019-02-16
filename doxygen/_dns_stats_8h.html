@@ -98,12 +98,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="">HashBinGeneric.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="">CaptureSummary.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="">TldAsKey.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="">dnscap_common.h</a>&quot;</code><br/>
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for DnsStats.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_dns_stats_8h__incl.png" border="0" usemap="#lib_2_dns_stats_8h" alt=""/></div>
 <map name="lib_2_dns_stats_8h" id="lib_2_dns_stats_8h">
-<area shape="rect" id="node4" href="_address_filter_8h.html" title="AddressFilter.h" alt="" coords="34,80,144,107"/><area shape="rect" id="node5" href="_hash_bin_generic_8h.html" title="HashBinGeneric.h" alt="" coords="71,155,199,181"/><area shape="rect" id="node8" href="_capture_summary_8h.html" title="CaptureSummary.h" alt="" coords="221,80,355,107"/><area shape="rect" id="node10" href="_tld_as_key_8h.html" title="TldAsKey.h" alt="" coords="407,155,498,181"/></map>
+<area shape="rect" id="node4" href="_address_filter_8h.html" title="AddressFilter.h" alt="" coords="47,80,157,107"/><area shape="rect" id="node5" href="_hash_bin_generic_8h.html" title="HashBinGeneric.h" alt="" coords="69,155,197,181"/><area shape="rect" id="node8" href="_capture_summary_8h.html" title="CaptureSummary.h" alt="" coords="234,80,368,107"/><area shape="rect" id="node10" href="_tld_as_key_8h.html" title="TldAsKey.h" alt="" coords="405,155,496,181"/><area shape="rect" id="node11" href="dnscap__common_8h.html" title="dnscap_common.h" alt="" coords="570,80,701,107"/></map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -224,6 +225,12 @@ Macros</h2></td></tr>
 <tr class="separator:abd4695c92e86735557fd2aeffea3420f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab62191790f7c24844ddd4d7686c97d96"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_dns_stats_8h.html#ab62191790f7c24844ddd4d7686c97d96">REGISTRY_EDNS_OPT_USAGE_REF</a>&#160;&#160;&#160;46</td></tr>
 <tr class="separator:ab62191790f7c24844ddd4d7686c97d96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc8402f779b20d1789819f6c5ad5891"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_dns_stats_8h.html#addc8402f779b20d1789819f6c5ad5891">REGISTRY_VOLUME_PER_PROTO</a>&#160;&#160;&#160;47</td></tr>
+<tr class="separator:addc8402f779b20d1789819f6c5ad5891"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16f95b9c8d2e5c9726452b9074648b6f"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_dns_stats_8h.html#a16f95b9c8d2e5c9726452b9074648b6f">REGISTRY_TCPSYN_PER_PROTO</a>&#160;&#160;&#160;48</td></tr>
+<tr class="separator:a16f95b9c8d2e5c9726452b9074648b6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f0aa11e6f7d9aa84f41aa28058c6b08"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_dns_stats_8h.html#a2f0aa11e6f7d9aa84f41aa28058c6b08">REGISTRY_CAPTURE_DURATION</a>&#160;&#160;&#160;49</td></tr>
+<tr class="separator:a2f0aa11e6f7d9aa84f41aa28058c6b08"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afdeb5f7d34a0a1c16c3e6aab999470f6"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_dns_stats_8h.html#afdeb5f7d34a0a1c16c3e6aab999470f6">DNS_REGISTRY_ERROR_RRTYPE</a>&#160;&#160;&#160;(1&lt;&lt;0)</td></tr>
 <tr class="separator:afdeb5f7d34a0a1c16c3e6aab999470f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bf451af6a6a3810b0384e2d372ce611"><td class="memItemLeft" align="right" valign="top">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_dns_stats_8h.html#a3bf451af6a6a3810b0384e2d372ce611">DNS_REGISTRY_ERROR_RRCLASS</a>&#160;&#160;&#160;(1&lt;&lt;1)</td></tr>
@@ -407,6 +414,18 @@ Enumerations</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a> DNS_REGISTRY_ERROR_TLD&#160;&#160;&#160;(1&lt;&lt;6)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2f0aa11e6f7d9aa84f41aa28058c6b08"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a> REGISTRY_CAPTURE_DURATION&#160;&#160;&#160;49</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -929,6 +948,18 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a16f95b9c8d2e5c9726452b9074648b6f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a> REGISTRY_TCPSYN_PER_PROTO&#160;&#160;&#160;48</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ac7823b056d47739e6c7c1a04c5c81fb0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -959,6 +990,18 @@ Enumerations</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a> REGISTRY_TOOL_FrequentAddress&#160;&#160;&#160;35</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="addc8402f779b20d1789819f6c5ad5891"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#<a class="el" href="linktype_8h.html#a0ec3f1f76900803ac4f041eb90b84a34">define</a> REGISTRY_VOLUME_PER_PROTO&#160;&#160;&#160;47</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -999,14 +1042,14 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848"></a>DnsPrefixException</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
-<div class="fragment"><div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                    {</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <a class="code" href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437">DnsPrefixStd</a> = 0,</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618">DnsPrefixOneLevel</a>,</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848">DnsPrefixException</a></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;};</div>
-<div class="ttc" id="_dns_stats_8h_html_a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848"><div class="ttname"><a href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848">DnsPrefixException</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:142</div></div>
-<div class="ttc" id="_dns_stats_8h_html_a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618"><div class="ttname"><a href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618">DnsPrefixOneLevel</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:141</div></div>
-<div class="ttc" id="_dns_stats_8h_html_a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437"><div class="ttname"><a href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437">DnsPrefixStd</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:140</div></div>
+<div class="fragment"><div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                    {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437">DnsPrefixStd</a> = 0,</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618">DnsPrefixOneLevel</a>,</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848">DnsPrefixException</a></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;};</div>
+<div class="ttc" id="_dns_stats_8h_html_a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848"><div class="ttname"><a href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848">DnsPrefixException</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:146</div></div>
+<div class="ttc" id="_dns_stats_8h_html_a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618"><div class="ttname"><a href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618">DnsPrefixOneLevel</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:145</div></div>
+<div class="ttc" id="_dns_stats_8h_html_a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437"><div class="ttname"><a href="_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437">DnsPrefixStd</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:144</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1033,20 +1076,20 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><em><a class="anchor" id="ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea"></a>dnsStateFlagListTldUsed</em>&#160;</td><td class="fielddoc">
 </td></tr>
 </table>
-<div class="fragment"><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50">dnsStateFlagFilterLargeUsers</a> = 1,</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af1ba4d628a50c722351122bf6a88342c">dnsStateFlagCountTld</a> = 2,</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a0aecf9a823de6ad37e67bc374200f34b">dnsStateFlagCountQueryParms</a> = 4,</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22">dnsStateFlagCountUnderlinedNames</a> = 8,</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a20ac1accff6bf3eb4bf9d6cd770890e6">dnsStateFlagCountPacketSizes</a> = 16,</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea">dnsStateFlagListTldUsed</a> = 32</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
-<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a20ac1accff6bf3eb4bf9d6cd770890e6"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a20ac1accff6bf3eb4bf9d6cd770890e6">dnsStateFlagCountPacketSizes</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:112</div></div>
-<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50">dnsStateFlagFilterLargeUsers</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:108</div></div>
-<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea">dnsStateFlagListTldUsed</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:113</div></div>
-<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a0aecf9a823de6ad37e67bc374200f34b"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a0aecf9a823de6ad37e67bc374200f34b">dnsStateFlagCountQueryParms</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:110</div></div>
-<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22">dnsStateFlagCountUnderlinedNames</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:111</div></div>
-<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294af1ba4d628a50c722351122bf6a88342c"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af1ba4d628a50c722351122bf6a88342c">dnsStateFlagCountTld</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:109</div></div>
+<div class="fragment"><div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50">dnsStateFlagFilterLargeUsers</a> = 1,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af1ba4d628a50c722351122bf6a88342c">dnsStateFlagCountTld</a> = 2,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a0aecf9a823de6ad37e67bc374200f34b">dnsStateFlagCountQueryParms</a> = 4,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22">dnsStateFlagCountUnderlinedNames</a> = 8,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a20ac1accff6bf3eb4bf9d6cd770890e6">dnsStateFlagCountPacketSizes</a> = 16,</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <a class="code" href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea">dnsStateFlagListTldUsed</a> = 32</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
+<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a20ac1accff6bf3eb4bf9d6cd770890e6"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a20ac1accff6bf3eb4bf9d6cd770890e6">dnsStateFlagCountPacketSizes</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:116</div></div>
+<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50">dnsStateFlagFilterLargeUsers</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:112</div></div>
+<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea">dnsStateFlagListTldUsed</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:117</div></div>
+<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a0aecf9a823de6ad37e67bc374200f34b"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a0aecf9a823de6ad37e67bc374200f34b">dnsStateFlagCountQueryParms</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:114</div></div>
+<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22">dnsStateFlagCountUnderlinedNames</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:115</div></div>
+<div class="ttc" id="_dns_stats_8h_html_ae63f99fa7005c65b37d2248467620294af1ba4d628a50c722351122bf6a88342c"><div class="ttname"><a href="_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af1ba4d628a50c722351122bf6a88342c">dnsStateFlagCountTld</a></div><div class="ttdef"><b>Definition:</b> DnsStats.h:113</div></div>
 </div><!-- fragment -->
 </div>
 </div>

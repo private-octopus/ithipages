@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-02-15</td>
+            <td class="headerValue">2019-02-16</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -171,21 +171,21 @@
 <span class="lineNum">     109 </span>            :     uint32_t count;
 <span class="lineNum">     110 </span>            :     uint32_t nb_do;
 <span class="lineNum">     111 </span>            :     uint32_t nb_edns;
-<span class="lineNum">     112 </span>            :     uint32_t nb_mini_qname;
+<span class="lineNum">     112 </span>            :     uint32_t nb_not_mini_qname;
 <span class="lineNum">     113 </span>            :     bool is_do_used;
 <span class="lineNum">     114 </span>            :     bool is_edns_supported;
 <span class="lineNum">     115 </span>            :     bool is_qname_minimized;
 <span class="lineNum">     116 </span>            : } stats_by_ip_test_out_t;
 <span class="lineNum">     117 </span>            : 
 <span class="lineNum">     118 </span>            : static const stats_by_ip_test_out_t stats_by_ip_test_output[] = {
-<span class="lineNum">     119 </span>            :     { ip1, sizeof(ip1), 9, 0, 0, 0, false, false, false },
-<span class="lineNum">     120 </span>            :     { ip2, sizeof(ip2), 7, 0, 0, 7, false, false, true },
-<span class="lineNum">     121 </span>            :     { ip3, sizeof(ip3), 7, 0, 6, 0, false, true, false },
-<span class="lineNum">     122 </span>            :     { ip4, sizeof(ip4), 5, 0, 5, 5, false, true, true },
-<span class="lineNum">     123 </span>            :     { ip5, sizeof(ip5), 5, 4, 0, 0, true, false, false },
-<span class="lineNum">     124 </span>            :     { ip6, sizeof(ip6), 3, 3, 0, 3, true, false, true },
-<span class="lineNum">     125 </span>            :     { ip7, sizeof(ip7), 3, 2, 2, 0, true, true, false },
-<span class="lineNum">     126 </span>            :     { ip8, sizeof(ip8), 1, 1, 1, 1, true, true, true },
+<span class="lineNum">     119 </span>            :     { ip1, sizeof(ip1), 9, 0, 0, 8, false, false, false },
+<span class="lineNum">     120 </span>            :     { ip2, sizeof(ip2), 7, 0, 0, 0, false, false, true },
+<span class="lineNum">     121 </span>            :     { ip3, sizeof(ip3), 7, 0, 6, 6, false, true, false },
+<span class="lineNum">     122 </span>            :     { ip4, sizeof(ip4), 5, 0, 5, 0, false, true, true },
+<span class="lineNum">     123 </span>            :     { ip5, sizeof(ip5), 5, 4, 0, 4, true, false, false },
+<span class="lineNum">     124 </span>            :     { ip6, sizeof(ip6), 3, 3, 0, 0, true, false, true },
+<span class="lineNum">     125 </span>            :     { ip7, sizeof(ip7), 3, 2, 2, 2, true, true, false },
+<span class="lineNum">     126 </span>            :     { ip8, sizeof(ip8), 1, 1, 1, 0, true, true, true },
 <span class="lineNum">     127 </span>            :     { ip9, sizeof(ip9), 9, 4, 4, 4, true, true, false }
 <span class="lineNum">     128 </span>            : };
 <span class="lineNum">     129 </span>            : 
@@ -206,7 +206,7 @@
 <span class="lineNum">     144 </span>            :             stats_by_ip_test_input[i].addr_len,
 <span class="lineNum">     145 </span>            :             stats_by_ip_test_input[i].has_do,
 <span class="lineNum">     146 </span>            :             stats_by_ip_test_input[i].has_edns,
-<span class="lineNum">     147 </span><span class="lineCov">         88 :             stats_by_ip_test_input[i].mini_qname);</span>
+<span class="lineNum">     147 </span><span class="lineCov">         88 :             !stats_by_ip_test_input[i].mini_qname);</span>
 <span class="lineNum">     148 </span><span class="lineCov">         88 :         x.response_seen = true;</span>
 <span class="lineNum">     149 </span><span class="lineCov">         88 :         if (stats_by_ip_test_input[i].add_query) {</span>
 <span class="lineNum">     150 </span>            :             StatsByIP q (
@@ -270,9 +270,9 @@
 <span class="lineNum">     208 </span><span class="lineNoCov">          0 :                 y-&gt;nb_edns, stats_by_ip_test_output[i].nb_edns);</span>
 <span class="lineNum">     209 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     210 </span>            :         }
-<span class="lineNum">     211 </span><span class="lineCov">         18 :         else if (y-&gt;nb_mini_qname != stats_by_ip_test_output[i].nb_mini_qname) {</span>
-<span class="lineNum">     212 </span>            :             TEST_LOG(&quot;Output case #%d, nb_mini_qname = %d instead of %d\n&quot;, (int)i,
-<span class="lineNum">     213 </span><span class="lineNoCov">          0 :                 y-&gt;nb_mini_qname, stats_by_ip_test_output[i].nb_mini_qname);</span>
+<span class="lineNum">     211 </span><span class="lineCov">         18 :         else if (y-&gt;nb_not_qname_mini != stats_by_ip_test_output[i].nb_not_mini_qname) {</span>
+<span class="lineNum">     212 </span>            :             TEST_LOG(&quot;Output case #%d, nb_not_mini_qname = %d instead of %d\n&quot;, (int)i,
+<span class="lineNum">     213 </span><span class="lineNoCov">          0 :                 y-&gt;nb_not_qname_mini, stats_by_ip_test_output[i].nb_not_mini_qname);</span>
 <span class="lineNum">     214 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     215 </span>            :         }
 <span class="lineNum">     216 </span><span class="lineCov">         18 :         else if (y-&gt;IsDoUsed() != stats_by_ip_test_output[i].is_do_used) {</span>
@@ -301,7 +301,7 @@
 <span class="lineNum">     239 </span>            : 
 <span class="lineNum">     240 </span>            : /* Given the small size of the bit mask used to check for
 <span class="lineNum">     241 </span>            :  * double registrations, collisions are possible. We simply verify
-<span class="lineNum">     242 </span>            :  * that theydo not happen between the most popular OPT Option codes */
+<span class="lineNum">     242 </span>            :  * that they do not happen between the most popular OPT Option codes */
 <span class="lineNum">     243 </span>            : 
 <span class="lineNum">     244 </span>            : static uint16_t option_test_cases[] = { 8, 5, 6, 7, 10, 3, 0, 65001, 4 };
 <a name="245"><span class="lineNum">     245 </span>            : static const size_t nb_option_test_cases = sizeof(option_test_cases) / sizeof(uint16_t);</a>
@@ -314,7 +314,7 @@
 <span class="lineNum">     252 </span>            :         stats_by_ip_test_input[0].addr_len,
 <span class="lineNum">     253 </span>            :         stats_by_ip_test_input[0].has_do,
 <span class="lineNum">     254 </span>            :         stats_by_ip_test_input[0].has_edns,
-<span class="lineNum">     255 </span><span class="lineCov">          2 :         stats_by_ip_test_input[0].mini_qname);</span>
+<span class="lineNum">     255 </span><span class="lineCov">          2 :         !stats_by_ip_test_input[0].mini_qname);</span>
 <span class="lineNum">     256 </span>            : 
 <span class="lineNum">     257 </span><span class="lineCov">         20 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_option_test_cases; i++) {</span>
 <span class="lineNum">     258 </span><span class="lineCov">         18 :         if (!x.RegisterNewOption(option_test_cases[i])) {</span>

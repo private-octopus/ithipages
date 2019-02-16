@@ -18,6 +18,7 @@ var searchData=
   ['ip9',['ip9',['../_stats_by_ip_test_8cpp.html#a6fbcec4152ec64d2a6af31c62b70cb6a',1,'StatsByIpTest.cpp']]],
   ['ip_5foffset',['ip_offset',['../classpcap__reader.html#a9e44f230cc386cfc3e7d990d9d1b2068',1,'pcap_reader']]],
   ['ip_5fversion',['ip_version',['../classpcap__reader.html#aebce582f68b5206b0e1b3610fabfc510',1,'pcap_reader']]],
+  ['is_5fcapture_5fdns_5fonly',['is_capture_dns_only',['../class_dns_stats.html#a9d46d84b935fea297432f234096cd47a',1,'DnsStats']]],
   ['is_5fcapture_5fstopped',['is_capture_stopped',['../class_dns_stats.html#af92bf3bdd0e026db587d1a14d3bc70a6',1,'DnsStats']]],
   ['is_5fdnssec',['is_dnssec',['../class_dnssec_prefix_entry.html#aa775a7a9005572d4c14fb816fe546172',1,'DnssecPrefixEntry']]],
   ['is_5fdo_5fflag_5fset',['is_do_flag_set',['../class_dns_stats.html#aeb457b19b2d810c96771b54d88a721ec',1,'DnsStats']]],
