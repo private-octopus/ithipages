@@ -2555,7 +2555,7 @@
 <span class="lineNum">    2493 </span><span class="lineNoCov">          0 :         if (statsByIp.GetCount() &lt; max_stats_by_ip_count) {</span>
 <span class="lineNum">    2494 </span><span class="lineNoCov">          0 :             bool stored = false;</span>
 <span class="lineNum">    2495 </span>            : 
-<span class="lineNum">    2496 </span><span class="lineNoCov">          0 :             y = statsByIp.InsertOrAdd(&amp;x, true, &amp;stored);</span>
+<span class="lineNum">    2496 </span><span class="lineNoCov">          0 :             (void)statsByIp.InsertOrAdd(&amp;x, true, &amp;stored);</span>
 <span class="lineNum">    2497 </span>            :         }
 <span class="lineNum">    2498 </span>            :     }
 <span class="lineNum">    2499 </span>            :     else {
