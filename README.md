@@ -174,6 +174,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2018-12-13 23:09.12](analysis/2018-12-13-230912-6285-1/index.html)
   - [issues found on 2018-12-15 21:57.21](analysis/2018-12-15-215721-6469-1/index.html)
   - [issues found on 2018-12-15 22:15.19](analysis/2018-12-15-221519-6527-1/index.html)
+  - [issues found on 2019-02-28 03:12.45](analysis/2019-02-28-031245-6513-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch DirectCapture](coverage/DirectCapture/index.html)
