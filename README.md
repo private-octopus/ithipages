@@ -190,6 +190,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch compact-first](coverage/compact-first/index.html)
   - [from branch design-fixes](coverage/design-fixes/index.html)
   - [from branch display-cur-ave-min-max](coverage/display-cur-ave-min-max/index.html)
+  - [from branch explain-links](coverage/explain-links/index.html)
   - [from branch Revisit-m46](coverage/Revisit-m46/index.html)
 - [Doxygen documentation (for master branch)](doxygen/index.html)
 
