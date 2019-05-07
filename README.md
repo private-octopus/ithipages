@@ -188,6 +188,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch export-partner](coverage/export-partner/index.html)
   - [from branch tally-only-if-not-dnscap](coverage/tally-only-if-not-dnscap/index.html)
   - [from branch compact-first](coverage/compact-first/index.html)
+  - [from branch partner-check](coverage/partner-check/index.html)
   - [from branch design-fixes](coverage/design-fixes/index.html)
   - [from branch display-cur-ave-min-max](coverage/display-cur-ave-min-max/index.html)
   - [from branch explain-links](coverage/explain-links/index.html)
