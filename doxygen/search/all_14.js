@@ -84,6 +84,8 @@ var searchData=
   ['tldstringusage',['tldStringUsage',['../class_dns_stats.html#a43de46da3dc8ede5f5b872e57da35ad8',1,'DnsStats']]],
   ['tldtype',['TldType',['../structst___m2_data_line__t.html#a0130da8b7db3340d1ca2f207effefd03',1,'st_M2DataLine_t']]],
   ['tls_5frequest',['tls_request',['../structtls__request.html',1,'']]],
+  ['tlsa1',['tlsa1',['../namespacepartnercheck.html#a1f8004333b9fd519b3586eca16a39d25',1,'partnercheck']]],
+  ['tlsa2',['tlsa2',['../namespacepartnercheck.html#abe90ca367984bedaae9f248ad40a22d2',1,'partnercheck']]],
   ['tlsainput',['tlsaInput',['../namespacetlsa_input.html',1,'']]],
   ['tlsainput_2epy',['tlsaInput.py',['../tlsa_input_8py.html',1,'']]],
   ['to_5ffail',['to_fail',['../test_rfc6761_8cpp.html#a28874ba7de344bf349e94528f8b3a56e',1,'testRfc6761.cpp']]],

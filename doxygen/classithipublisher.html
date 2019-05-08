@@ -434,7 +434,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    <span class="keywordtype">double</span> sum = 0;</div>
 <div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;</div>
 <div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    *average = 0;</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    *current = 0;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    *<a class="code" href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">current</a> = 0;</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;</div>
 <div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <span class="keywordflow">if</span> (ret)</div>
 <div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    {</div>
@@ -447,11 +447,12 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;            *average = sum / (nb_months - 1);</div>
 <div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        }</div>
 <div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        *current = val[<a class="code" href="classithipublisher.html#a2961c31c94964a81caa324ced53d97da">nb_months</a> - 1];</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;        *<a class="code" href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">current</a> = val[<a class="code" href="classithipublisher.html#a2961c31c94964a81caa324ced53d97da">nb_months</a> - 1];</div>
 <div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    }</div>
 <div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    </div>
 <div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;}</div>
+<div class="ttc" id="namespacepartnercheck_html_a4eb108211e7aa111f5ce7eeb5b690dfa"><div class="ttname"><a href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">partnercheck.current</a></div><div class="ttdeci">tuple current</div><div class="ttdef"><b>Definition:</b> partnercheck.py:48</div></div>
 <div class="ttc" id="classithipublisher_html_a2961c31c94964a81caa324ced53d97da"><div class="ttname"><a href="classithipublisher.html#a2961c31c94964a81caa324ced53d97da">ithipublisher::nb_months</a></div><div class="ttdeci">int nb_months</div><div class="ttdef"><b>Definition:</b> ithipublisher.h:72</div></div>
 <div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:59</div></div>
 <div class="ttc" id="classithipublisher_html_a9d346fab407cc6ef1690dc962c8eaa29"><div class="ttname"><a href="classithipublisher.html#a9d346fab407cc6ef1690dc962c8eaa29">ithipublisher::GetVector</a></div><div class="ttdeci">bool GetVector(char const *metric_name, char const *key_value, std::vector&lt; double &gt; *metric)</div><div class="ttdef"><b>Definition:</b> ithipublisher.cpp:371</div></div>
@@ -491,10 +492,11 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    std::vector&lt;double&gt; val;</div>
 <div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordtype">bool</span> ret = <a class="code" href="classithipublisher.html#a9d346fab407cc6ef1690dc962c8eaa29">GetVector</a>(metric_name, key_value, &amp;val);</div>
 <div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    *current = val[<a class="code" href="classithipublisher.html#a2961c31c94964a81caa324ced53d97da">nb_months</a> - 1];</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    *<a class="code" href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">current</a> = val[<a class="code" href="classithipublisher.html#a2961c31c94964a81caa324ced53d97da">nb_months</a> - 1];</div>
 <div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;</div>
 <div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;}</div>
+<div class="ttc" id="namespacepartnercheck_html_a4eb108211e7aa111f5ce7eeb5b690dfa"><div class="ttname"><a href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">partnercheck.current</a></div><div class="ttdeci">tuple current</div><div class="ttdef"><b>Definition:</b> partnercheck.py:48</div></div>
 <div class="ttc" id="classithipublisher_html_a2961c31c94964a81caa324ced53d97da"><div class="ttname"><a href="classithipublisher.html#a2961c31c94964a81caa324ced53d97da">ithipublisher::nb_months</a></div><div class="ttdeci">int nb_months</div><div class="ttdef"><b>Definition:</b> ithipublisher.h:72</div></div>
 <div class="ttc" id="classithipublisher_html_a9d346fab407cc6ef1690dc962c8eaa29"><div class="ttname"><a href="classithipublisher.html#a9d346fab407cc6ef1690dc962c8eaa29">ithipublisher::GetVector</a></div><div class="ttdeci">bool GetVector(char const *metric_name, char const *key_value, std::vector&lt; double &gt; *metric)</div><div class="ttdef"><b>Definition:</b> ithipublisher.cpp:371</div></div>
 </div><!-- fragment -->
@@ -633,7 +635,7 @@ Public Attributes</h2></td></tr>
 <div class="fragment"><div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;{</div>
 <div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keywordtype">size_t</span> line_index = 0;</div>
 <div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordtype">int</span> current_year = <a class="code" href="classithipublisher.html#aafd52fa4b0068635487197fd53b459a1">first_year</a>;</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordtype">int</span> current_month = <a class="code" href="classithipublisher.html#a93261195f77e585c6b1c66e44d3ce62e">first_month</a>;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="namespacepartnercheck.html#a9d46217ef2fa351c303131c66c8ae48e">current_month</a> = <a class="code" href="classithipublisher.html#a93261195f77e585c6b1c66e44d3ce62e">first_month</a>;</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    metric-&gt;clear();</div>
 <div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;</div>
@@ -695,6 +697,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;}</div>
 <div class="ttc" id="classithipublisher_html_aafd52fa4b0068635487197fd53b459a1"><div class="ttname"><a href="classithipublisher.html#aafd52fa4b0068635487197fd53b459a1">ithipublisher::first_year</a></div><div class="ttdeci">int first_year</div><div class="ttdef"><b>Definition:</b> ithipublisher.h:70</div></div>
 <div class="ttc" id="classithipublisher_html_a2961c31c94964a81caa324ced53d97da"><div class="ttname"><a href="classithipublisher.html#a2961c31c94964a81caa324ced53d97da">ithipublisher::nb_months</a></div><div class="ttdeci">int nb_months</div><div class="ttdef"><b>Definition:</b> ithipublisher.h:72</div></div>
+<div class="ttc" id="namespacepartnercheck_html_a9d46217ef2fa351c303131c66c8ae48e"><div class="ttname"><a href="namespacepartnercheck.html#a9d46217ef2fa351c303131c66c8ae48e">partnercheck.current_month</a></div><div class="ttdeci">tuple current_month</div><div class="ttdef"><b>Definition:</b> partnercheck.py:51</div></div>
 <div class="ttc" id="classithipublisher_html_ab5af91331b164e5fd0d0e85006450d22"><div class="ttname"><a href="classithipublisher.html#ab5af91331b164e5fd0d0e85006450d22">ithipublisher::line_list</a></div><div class="ttdeci">std::vector&lt; MetricLine * &gt; line_list</div><div class="ttdef"><b>Definition:</b> ithipublisher.h:73</div></div>
 <div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:59</div></div>
 <div class="ttc" id="classithipublisher_html_a93261195f77e585c6b1c66e44d3ce62e"><div class="ttname"><a href="classithipublisher.html#a93261195f77e585c6b1c66e44d3ce62e">ithipublisher::first_month</a></div><div class="ttdeci">int first_month</div><div class="ttdef"><b>Definition:</b> ithipublisher.h:71</div></div>
@@ -1048,12 +1051,13 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;            ret = fprintf(F, <span class="stringliteral">&quot;,\n&quot;</span>) &gt; 0;</div>
 <div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        }</div>
 <div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        ret &amp;= (fprintf(F, <span class="stringliteral">&quot;[\&quot;%s\&quot;, %8f, %8f]&quot;</span>, </div>
-<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            (*<a class="code" href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">name_list</a>)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>].name, mult * (*<a class="code" href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">name_list</a>)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>].current, mult * (*<a class="code" href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">name_list</a>)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>].average) &gt; 0);</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;            (*<a class="code" href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">name_list</a>)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>].name, mult * (*<a class="code" href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">name_list</a>)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>].<a class="code" href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">current</a>, mult * (*<a class="code" href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">name_list</a>)[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>].average) &gt; 0);</div>
 <div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    }</div>
 <div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;</div>
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;    <span class="keywordflow">return</span> ret;</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;}</div>
 <div class="ttc" id="namespacetlsa_input_html_adb379382e4b2165083cdd160c539d82b"><div class="ttname"><a href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">tlsaInput.name_list</a></div><div class="ttdeci">tuple name_list</div><div class="ttdef"><b>Definition:</b> tlsaInput.py:55</div></div>
+<div class="ttc" id="namespacepartnercheck_html_a4eb108211e7aa111f5ce7eeb5b690dfa"><div class="ttname"><a href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">partnercheck.current</a></div><div class="ttdeci">tuple current</div><div class="ttdef"><b>Definition:</b> partnercheck.py:48</div></div>
 <div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:59</div></div>
 </div><!-- fragment -->
 </div>
@@ -1647,7 +1651,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00869"></a><span class="lineno">  869</span>&#160;</div>
 <div class="line"><a name="l00870"></a><span class="lineno">  870</span>&#160;            <span class="keywordflow">if</span> (ret)</div>
 <div class="line"><a name="l00871"></a><span class="lineno">  871</span>&#160;            {</div>
-<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;                <span class="keywordtype">double</span> average, current;</div>
+<div class="line"><a name="l00872"></a><span class="lineno">  872</span>&#160;                <span class="keywordtype">double</span> average, <a class="code" href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">current</a>;</div>
 <div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;</div>
 <div class="line"><a name="l00874"></a><span class="lineno">  874</span>&#160;                ret = <a class="code" href="classithipublisher.html#a7251968ec11d7636be741bf9f6a94bc1">GetAverageAndCurrent</a>(subMetX, NULL, &amp;average, &amp;current);</div>
 <div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;</div>
@@ -1706,7 +1710,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;</div>
 <div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;                ret &amp;= (fprintf(F, <span class="stringliteral">&quot;[%s, \&quot;%s\&quot;, %1f, %1f]&quot;</span>,</div>
 <div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;                    name_list[l].name, key_name, </div>
-<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;                    current_divider*name_list[l].current, average_divider*name_list[l].average) &gt; 0);</div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;                    current_divider*name_list[l].<a class="code" href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">current</a>, average_divider*name_list[l].average) &gt; 0);</div>
 <div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;            }</div>
 <div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;</div>
 <div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;            ret &amp;= fprintf(F, <span class="stringliteral">&quot;]&quot;</span>) &gt; 0;</div>
@@ -1726,6 +1730,7 @@ Public Attributes</h2></td></tr>
 <div class="line"><a name="l00948"></a><span class="lineno">  948</span>&#160;}</div>
 <div class="ttc" id="struct__st__metric6__def__t_html"><div class="ttname"><a href="struct__st__metric6__def__t.html">_st_metric6_def_t</a></div><div class="ttdef"><b>Definition:</b> ComputeM6.h:39</div></div>
 <div class="ttc" id="namespacetlsa_input_html_adb379382e4b2165083cdd160c539d82b"><div class="ttname"><a href="namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b">tlsaInput.name_list</a></div><div class="ttdeci">tuple name_list</div><div class="ttdef"><b>Definition:</b> tlsaInput.py:55</div></div>
+<div class="ttc" id="namespacepartnercheck_html_a4eb108211e7aa111f5ce7eeb5b690dfa"><div class="ttname"><a href="namespacepartnercheck.html#a4eb108211e7aa111f5ce7eeb5b690dfa">partnercheck.current</a></div><div class="ttdeci">tuple current</div><div class="ttdef"><b>Definition:</b> partnercheck.py:48</div></div>
 <div class="ttc" id="struct__st__metric6__def__t_html_af2ed9d5828f615a7c9614c416eab5f25"><div class="ttname"><a href="struct__st__metric6__def__t.html#af2ed9d5828f615a7c9614c416eab5f25">_st_metric6_def_t::nb_registered</a></div><div class="ttdeci">uint32_t nb_registered</div><div class="ttdef"><b>Definition:</b> ComputeM6.h:42</div></div>
 <div class="ttc" id="struct__st__metric6__registered__t_html_a61e2e7987bd45672c4eca6ee4348963f"><div class="ttname"><a href="struct__st__metric6__registered__t.html#a61e2e7987bd45672c4eca6ee4348963f">_st_metric6_registered_t::key</a></div><div class="ttdeci">uint32_t key</div><div class="ttdef"><b>Definition:</b> ComputeM6.h:30</div></div>
 <div class="ttc" id="struct__st__metric6__registered__t_html_ae325cf9d60ac7798e31e71e3f4ca8bb5"><div class="ttname"><a href="struct__st__metric6__registered__t.html#ae325cf9d60ac7798e31e71e3f4ca8bb5">_st_metric6_registered_t::key_name</a></div><div class="ttdeci">char const * key_name</div><div class="ttdef"><b>Definition:</b> ComputeM6.h:31</div></div>

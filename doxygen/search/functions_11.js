@@ -2,6 +2,7 @@ var searchData=
 [
   ['save',['Save',['../class_capture_summary.html#a8fafccbd61c2f47f7eeffc7eadbe5067',1,'CaptureSummary::Save()'],['../class_compute_metric.html#a2b9c1c55073bf9450a338906920bae33',1,'ComputeMetric::Save()'],['../classithimetrics.html#a69b251c82b8a3a2a71c4b9268573fbaa',1,'ithimetrics::Save()'],['../class_m2_data.html#a16e1b5b73e458628fca66006b183762b',1,'M2Data::Save()']]],
   ['save_5fas_5fcsv',['save_as_csv',['../classm5ingest_1_1m5__summary.html#a096f71ecb332b75e123149009efc0688',1,'m5ingest::m5_summary']]],
+  ['save_5fas_5fjson',['save_as_json',['../classpartnercheck_1_1partner__summary.html#a84dfe6ecdfd1f98d8b88acad0014b668',1,'partnercheck::partner_summary']]],
   ['savemetricfiles',['SaveMetricFiles',['../classithimetrics.html#a6a256b8c018851ea16d789b000b524f2',1,'ithimetrics']]],
   ['savetest',['SaveTest',['../class_save_test.html#ad4f89d2fbe616804da10fd57df4c1e93',1,'SaveTest']]],
   ['scalar_5fmetric_5ffrom_5fcapture',['scalar_metric_from_capture',['../_compute_m34_8cpp.html#a7ce21467395b91451f6941f7aab22bff',1,'ComputeM34.cpp']]],

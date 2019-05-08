@@ -32,6 +32,8 @@ var searchData=
   ['tlds_5ftest_5ftlds',['tlds_test_tlds',['../_metric_test_8cpp.html#abe4331f91341d67d6892204262878229',1,'MetricTest.cpp']]],
   ['tldstringusage',['tldStringUsage',['../class_dns_stats.html#a43de46da3dc8ede5f5b872e57da35ad8',1,'DnsStats']]],
   ['tldtype',['TldType',['../structst___m2_data_line__t.html#a0130da8b7db3340d1ca2f207effefd03',1,'st_M2DataLine_t']]],
+  ['tlsa1',['tlsa1',['../namespacepartnercheck.html#a1f8004333b9fd519b3586eca16a39d25',1,'partnercheck']]],
+  ['tlsa2',['tlsa2',['../namespacepartnercheck.html#abe90ca367984bedaae9f248ad40a22d2',1,'partnercheck']]],
   ['to_5ffail',['to_fail',['../test_rfc6761_8cpp.html#a28874ba7de344bf349e94528f8b3a56e',1,'testRfc6761.cpp']]],
   ['to_5fhash',['to_hash',['../hashtest_8cpp.html#af73aad3ced7a50de77f146beed88f101',1,'hashtest.cpp']]],
   ['to_5fhash_5flong',['to_hash_long',['../hashtest_8cpp.html#a10b04989ba06d6ea341fc798ec2b99d4',1,'hashtest.cpp']]],
