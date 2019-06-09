@@ -178,6 +178,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2019-06-09 23:03.18](analysis/2019-06-09-230318-6374-1/index.html)
   - [issues found on 2019-06-09 23:08.04](analysis/2019-06-09-230804-6426-1/index.html)
   - [issues found on 2019-06-09 23:11.38](analysis/2019-06-09-231138-6449-1/index.html)
+  - [issues found on 2019-06-09 23:32.46](analysis/2019-06-09-233246-6632-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch DirectCapture](coverage/DirectCapture/index.html)
