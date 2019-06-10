@@ -16,6 +16,7 @@ var searchData=
   ['m3_5f4_5f2',['m3_4_2',['../class_compute_m3.html#a2da1f60c4d9690794d8c6d310093948d',1,'ComputeM3']]],
   ['m3_5f5',['m3_5',['../class_compute_m3.html#a793fc34c0e194857f8b041aaf90432bf',1,'ComputeM3']]],
   ['m3_5f6',['m3_6',['../class_compute_m3.html#ad163a26e4d05938462b4944cbd8a400c',1,'ComputeM3']]],
+  ['m3_5f7',['m3_7',['../class_compute_m3.html#ae0011e80fa08989c1c46960fd1bc4656',1,'ComputeM3']]],
   ['m4_5f1',['m4_1',['../class_compute_m4.html#a04b0e2bf35a0d6e4afff5754a2927f55',1,'ComputeM4']]],
   ['m4_5f2',['m4_2',['../class_compute_m4.html#ac11b15f1d2c1c300caca71a012d93e8f',1,'ComputeM4']]],
   ['m4_5f3',['m4_3',['../class_compute_m4.html#af63f8190849cd316028fd5b2a17f0cfe',1,'ComputeM4']]],

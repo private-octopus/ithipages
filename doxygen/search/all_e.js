@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name',['name',['../struct__metric__name__line.html#ae215118d8b41c3c7ad3ee5c5bbdb4dee',1,'_metric_name_line::name()'],['../structst___m1_data_line__t.html#a08fb86bee2f5e897393ea80b03739b95',1,'st_M1DataLine_t::name()'],['../structst___m2_data_line__t.html#a51989169e3b8c73fbb5fef68febbd3d5',1,'st_M2DataLine_t::name()'],['../class_tld_d_s_as_key.html#a967235543bcdd9b6e069164b48ddd26f',1,'TldDSAsKey::name()'],['../structst__m2__data__test__case__result__t.html#a31500220c226f6d128ef73a53d0a07ef',1,'st_m2_data_test_case_result_t::name()']]],
+  ['name',['name',['../struct__metric__name__line.html#ae215118d8b41c3c7ad3ee5c5bbdb4dee',1,'_metric_name_line::name()'],['../structst___m1_data_line__t.html#a08fb86bee2f5e897393ea80b03739b95',1,'st_M1DataLine_t::name()'],['../structst___m2_data_line__t.html#a51989169e3b8c73fbb5fef68febbd3d5',1,'st_M2DataLine_t::name()'],['../class_tld_d_s_as_key.html#a967235543bcdd9b6e069164b48ddd26f',1,'TldDSAsKey::name()'],['../structst__is__ipv4__test__data.html#a48a8a80304f740da8b7053652f304ede',1,'st_is_ipv4_test_data::name()'],['../structst__m2__data__test__case__result__t.html#a31500220c226f6d128ef73a53d0a07ef',1,'st_m2_data_test_case_result_t::name()']]],
   ['name_5fcmp',['name_cmp',['../structst__qname__test__line__t.html#a5c7b927ec260d846b499deefc99b412a',1,'st_qname_test_line_t']]],
   ['name_5flen',['name_len',['../class_tld_d_s_as_key.html#a2b56263910a7688e17652f748ef9e1ac',1,'TldDSAsKey']]],
   ['name_5flist',['name_list',['../namespacetlsa_input.html#adb379382e4b2165083cdd160c539d82b',1,'tlsaInput']]],
@@ -70,7 +70,7 @@ var searchData=
   ['newlyabusivedomains',['NewlyAbusiveDomains',['../structst___m2_data_line__t.html#a3e1605f1648b6b4a57a24cc4a3005ee0',1,'st_M2DataLine_t']]],
   ['next_5fstart',['next_start',['../structst___csv_test__string__t.html#aefb9f2499a26d7438532d4fe233a5ceb',1,'st_CsvTest_string_t::next_start()'],['../structst___csv_test__int__t.html#a7e8686d4a35b001909516fd1f9380e08',1,'st_CsvTest_int_t::next_start()'],['../structst___csv_test__double__t.html#afaa099fd3c916f0a7dacd30d2249ebc1',1,'st_CsvTest_double_t::next_start()']]],
   ['no_5fsuch_5ffile',['no_such_file',['../_load_test_8cpp.html#ad2fa19d262a606e446608e8534b6e306',1,'LoadTest.cpp']]],
-  ['normalizenamepart',['NormalizeNamePart',['../class_dns_stats.html#a6181b04a54a702beebbf60b1e3b2a06a',1,'DnsStats']]],
+  ['normalizenamepart',['NormalizeNamePart',['../class_dns_stats.html#ac46d5382e9aa3c333b326a724b258ed6',1,'DnsStats']]],
   ['ns_5fstart',['ns_start',['../structst__qname__test__line__t.html#a7f9bcafc1979b45bf0f45725b378f0c3',1,'st_qname_test_line_t']]],
   ['num_5ftest_5fstrings',['num_test_strings',['../_pattern_test_8cpp.html#a616916ad0cb16e1b67e576b1c19d30d1',1,'PatternTest.cpp']]]
 ];

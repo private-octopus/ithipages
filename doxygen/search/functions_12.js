@@ -12,6 +12,7 @@ var searchData=
   ['tld_5fdga_5feval_5ft_5fu',['Tld_Dga_Eval_T_U',['../_name_pattern_8cpp.html#aa960e3f2d784c30697817c14a117b8db',1,'NamePattern.cpp']]],
   ['tldaddressaskey',['TldAddressAsKey',['../class_tld_address_as_key.html#a31ff481a6aae89b7a74264026d93c1ad',1,'TldAddressAsKey']]],
   ['tldaskey',['TldAsKey',['../class_tld_as_key.html#af63b39455ceefc7b05d574701bd43f70',1,'TldAsKey']]],
+  ['tldcheck',['TldCheck',['../class_dns_stats.html#a6a34ea57582c348576f0725eb9668618',1,'DnsStats']]],
   ['tldcounttest',['TldCountTest',['../class_tld_count_test.html#a523d80c708e70e175c2bde901597d07f',1,'TldCountTest']]],
   ['tlddsaskey',['TldDSAsKey',['../class_tld_d_s_as_key.html#afd8cf30a4c97b351af51c7cbe657d54c',1,'TldDSAsKey']]],
   ['tldissmaller',['TldIsSmaller',['../class_m2_data.html#a0eda0cd7c249cf277106417cfa60bd44',1,'M2Data']]],

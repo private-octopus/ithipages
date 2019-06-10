@@ -1,6 +1,7 @@
 var searchData=
 [
   ['saved_5ffile',['saved_file',['../_save_test_8cpp.html#a80c54be0e0ab85dcdaef21acf9f2af8a',1,'SaveTest.cpp']]],
+  ['secondldleakage',['secondLdLeakage',['../class_dns_stats.html#aa9e48590a837dd30ca900ecf423994f0',1,'DnsStats']]],
   ['selector',['selector',['../namespacetlsa_input.html#a53f59be2d7325ff01ad9e48b4745df8f',1,'tlsaInput']]],
   ['sep',['sep',['../namespaceconvertlist.html#a88a3d2d6e34d8f70f97af6dda27ef7a5',1,'convertlist']]],
   ['sigfigs',['sigfigs',['../structpcap__hdr__s.html#ae7ffd02adcc48fbf7d0a14224ed53863',1,'pcap_hdr_s']]],
