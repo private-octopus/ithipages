@@ -1,4 +1,4 @@
 <map id="ComputeM1" name="ComputeM1">
-<area shape="rect" id="node2" href="$class_compute_metric.html" title="{ComputeMetric\n|+ F_log\l|+ ComputeMetric()\l+ ~ComputeMetric()\l+ SetLog()\l+ Load()\l+ LoadMultipleFiles()\l+ Compute()\l+ Save()\l+ Write()\l}" alt="" coords="5,50,147,230"/>
-<area shape="rect" id="node3" href="$class_m1_data.html" title="{M1Data\n|+ dataset\l+ category_indices\l+ firstNotice\l+ totalDomain\l+ total1stN\l+ nbRegistrars50pc\l+ nbRegistrars90pc\l+ nb_registrars\l|+ M1Data()\l+ ~M1Data()\l+ Load()\l+ GetCategoryIndex()\l+ ParseFileName()\l+ RegistryIdIsSmaller()\l+ FirstNoticeIsBigger()\l}" alt="" coords="172,6,329,274"/>
+<area shape="rect" id="node2" href="$class_compute_metric.html" title="{ComputeMetric\n|+ F_log\l|+ ComputeMetric()\l+ ~ComputeMetric()\l+ SetLog()\l+ Load()\l+ LoadMultipleFiles()\l+ Compute()\l+ Save()\l+ Write()\l}" alt="" coords="5,49,161,229"/>
+<area shape="rect" id="node3" href="$class_m1_data.html" title="{M1Data\n|+ dataset\l+ category_indices\l+ firstNotice\l+ totalDomain\l+ total1stN\l+ nbRegistrars50pc\l+ nbRegistrars90pc\l+ nb_registrars\l|+ M1Data()\l+ ~M1Data()\l+ Load()\l+ GetCategoryIndex()\l+ ParseFileName()\l+ RegistryIdIsSmaller()\l+ FirstNoticeIsBigger()\l}" alt="" coords="185,5,352,273"/>
 </map>

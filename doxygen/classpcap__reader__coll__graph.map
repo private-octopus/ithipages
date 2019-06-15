@@ -1,4 +1,4 @@
 <map id="pcap_reader" name="pcap_reader">
-<area shape="rect" id="node2" href="$structpcap__hdr__s.html" title="{pcap_hdr_s\n|+ magic_number\l+ version_major\l+ version_minor\l+ thiszone\l+ sigfigs\l+ snaplen\l+ network\l|}" alt="" coords="5,5,123,171"/>
-<area shape="rect" id="node3" href="$structpcaprec__hdr__s.html" title="{pcaprec_hdr_s\n|+ ts_sec\l+ ts_usec\l+ incl_len\l+ orig_len\l|}" alt="" coords="148,27,255,149"/>
+<area shape="rect" id="node2" href="$structpcap__hdr__s.html" title="{pcap_hdr_s\n|+ magic_number\l+ version_major\l+ version_minor\l+ thiszone\l+ sigfigs\l+ snaplen\l+ network\l|}" alt="" coords="5,5,139,171"/>
+<area shape="rect" id="node3" href="$structpcaprec__hdr__s.html" title="{pcaprec_hdr_s\n|+ ts_sec\l+ ts_usec\l+ incl_len\l+ orig_len\l|}" alt="" coords="163,27,277,149"/>
 </map>

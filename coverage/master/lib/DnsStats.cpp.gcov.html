@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - DnsStats.cpp<span style="font-size: 80%;"> (source / <a href="DnsStats.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - DnsStats.cpp<span style="font-size: 80%;"> (source / <a href="DnsStats.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">1048</td>
-            <td class="headerCovTableEntry">1287</td>
-            <td class="headerCovTableEntryMed">81.4 %</td>
+            <td class="headerCovTableEntry">1046</td>
+            <td class="headerCovTableEntry">1288</td>
+            <td class="headerCovTableEntryMed">81.2 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">78</td>
@@ -557,7 +557,7 @@
 <span class="lineNum">     495 </span>            : {
 <span class="lineNum">     496 </span><span class="lineCov">    1407506 :     uint32_t l = 0;</span>
 <span class="lineNum">     497 </span>            : 
-<span class="lineNum">     498 </span><span class="lineCov">    3408196 :     while (start &lt; length)</span>
+<span class="lineNum">     498 </span><span class="lineCov">    2593874 :     while (start &lt; length)</span>
 <span class="lineNum">     499 </span>            :     {
 <span class="lineNum">     500 </span><span class="lineCov">    1997552 :         l = packet[start];</span>
 <span class="lineNum">     501 </span>            : 
@@ -664,7 +664,7 @@
 <span class="lineNum">     602 </span>            :     }
 <span class="lineNum">     603 </span>            : 
 <span class="lineNum">     604 </span>            :     /* Find the options in the payload */
-<span class="lineNum">     605 </span><span class="lineCov">     168134 :     while (current_index + 4 &lt;= length)</span>
+<span class="lineNum">     605 </span><span class="lineCov">      84460 :     while (current_index + 4 &lt;= length)</span>
 <span class="lineNum">     606 </span>            :     {
 <span class="lineNum">     607 </span><span class="lineCov">        262 :         uint32_t o_code = (content[current_index] &lt;&lt; 8) | content[current_index + 1];</span>
 <span class="lineNum">     608 </span><span class="lineCov">        262 :         uint32_t o_length = (content[current_index+2] &lt;&lt; 8) | content[current_index + 3];</span>
@@ -727,7 +727,7 @@
 <span class="lineNum">     665 </span>            : 
 <span class="lineNum">     666 </span><span class="lineCov">    2943832 : void DnsStats::SubmitRegistryNumberAndCount(uint32_t registry_id, uint32_t number, uint64_t count)</span>
 <span class="lineNum">     667 </span>            : {
-<span class="lineNum">     668 </span><span class="lineCov">    2943832 :     DnsHashEntry key;</span>
+<span class="lineNum">     668 </span><span class="lineCov">    5887664 :     DnsHashEntry key;</span>
 <span class="lineNum">     669 </span><span class="lineCov">    2943832 :     bool stored = false;</span>
 <span class="lineNum">     670 </span>            : 
 <span class="lineNum">     671 </span><span class="lineCov">    2943832 :     key.count = count;</span>
@@ -746,7 +746,7 @@
 <span class="lineNum">     684 </span>            : 
 <span class="lineNum">     685 </span><span class="lineCov">       7046 : void DnsStats::SubmitRegistryStringAndCount(uint32_t registry_id, uint32_t length, uint8_t * value, uint64_t count)</span>
 <span class="lineNum">     686 </span>            : {
-<span class="lineNum">     687 </span><span class="lineCov">       7046 :     DnsHashEntry key;</span>
+<span class="lineNum">     687 </span><span class="lineCov">      14092 :     DnsHashEntry key;</span>
 <span class="lineNum">     688 </span><span class="lineCov">       7046 :     bool stored = false;</span>
 <span class="lineNum">     689 </span>            : 
 <span class="lineNum">     690 </span><span class="lineCov">       7046 :     if (length &lt; 64)</span>
@@ -759,7 +759,7 @@
 <span class="lineNum">     697 </span><span class="lineCov">       7046 :         key.key_value[length] = 0;</span>
 <span class="lineNum">     698 </span>            : 
 <span class="lineNum">     699 </span><span class="lineCov">       7046 :         (void)hashTable.InsertOrAdd(&amp;key, true, &amp;stored);</span>
-<span class="lineNum">     700 </span><span class="lineCov">       7046 :     }</span>
+<span class="lineNum">     700 </span>            :     }
 <a name="701"><span class="lineNum">     701 </span><span class="lineCov">       7046 : }</span></a>
 <span class="lineNum">     702 </span>            : 
 <span class="lineNum">     703 </span><span class="lineCov">       1586 : void DnsStats::SubmitRegistryString(uint32_t registry_id, uint32_t length, uint8_t * value)</span>
@@ -850,7 +850,7 @@
 <span class="lineNum">     788 </span><span class="lineCov">      87410 :     uint32_t name_start = start;</span>
 <span class="lineNum">     789 </span><span class="lineCov">      87410 :     int nb_parts = 0;</span>
 <span class="lineNum">     790 </span>            : 
-<span class="lineNum">     791 </span><span class="lineCov">     397674 :     while (start &lt; length)</span>
+<span class="lineNum">     791 </span><span class="lineCov">     533118 :     while (start &lt; length)</span>
 <span class="lineNum">     792 </span>            :     {
 <span class="lineNum">     793 </span><span class="lineCov">     310230 :         l = packet[start];</span>
 <span class="lineNum">     794 </span>            : 
@@ -944,7 +944,7 @@
 <span class="lineNum">     882 </span><span class="lineCov">      15562 :     uint32_t start_next = 0;</span>
 <span class="lineNum">     883 </span><span class="lineCov">      15562 :     size_t name_index = 0;</span>
 <span class="lineNum">     884 </span>            : 
-<span class="lineNum">     885 </span><span class="lineCov">      64654 :     while (start &lt;length &amp;&amp; name_index &lt; name_max) {</span>
+<span class="lineNum">     885 </span><span class="lineCov">      82622 :     while (start &lt;length &amp;&amp; name_index &lt; name_max) {</span>
 <span class="lineNum">     886 </span><span class="lineCov">      49092 :         l = packet[start];</span>
 <span class="lineNum">     887 </span>            : 
 <span class="lineNum">     888 </span><span class="lineCov">      49092 :         if (l == 0)</span>
@@ -1027,7 +1027,7 @@
 <span class="lineNum">     965 </span>            : {
 <span class="lineNum">     966 </span><span class="lineCov">      12852 :     bool ret = false;</span>
 <span class="lineNum">     967 </span>            : 
-<span class="lineNum">     968 </span><span class="lineCov">      36170 :     while (start1 &lt; length &amp;&amp; start2 &lt; length) {</span>
+<span class="lineNum">     968 </span><span class="lineCov">      33784 :     while (start1 &lt; length &amp;&amp; start2 &lt; length) {</span>
 <span class="lineNum">     969 </span><span class="lineCov">      23276 :         if (start1 == start2) {</span>
 <span class="lineNum">     970 </span><span class="lineCov">        836 :             ret = true;</span>
 <span class="lineNum">     971 </span><span class="lineCov">        836 :             break;</span>
@@ -1092,12 +1092,12 @@
 <span class="lineNum">    1030 </span><span class="lineCov">       1864 :     bool is_ipv4 = true;</span>
 <span class="lineNum">    1031 </span>            : 
 <span class="lineNum">    1032 </span><span class="lineCov">       1864 :     i = name_length;</span>
-<span class="lineNum">    1033 </span><span class="lineCov">       7594 :     while (i &gt; 0 &amp;&amp; is_ipv4 &amp;&amp; nb_num_dot &lt; 4) {</span>
+<span class="lineNum">    1033 </span><span class="lineCov">       9596 :     while (i &gt; 0 &amp;&amp; is_ipv4 &amp;&amp; nb_num_dot &lt; 4) {</span>
 <span class="lineNum">    1034 </span><span class="lineCov">       3866 :         int mult = 1;</span>
 <span class="lineNum">    1035 </span><span class="lineCov">       3866 :         int r = 0;</span>
 <span class="lineNum">    1036 </span><span class="lineCov">       3866 :         int c = 0;</span>
 <span class="lineNum">    1037 </span>            : 
-<span class="lineNum">    1038 </span><span class="lineCov">      18468 :         while (is_ipv4 &amp;&amp; i &gt; 0) {</span>
+<span class="lineNum">    1038 </span><span class="lineCov">      25338 :         while (is_ipv4 &amp;&amp; i &gt; 0) {</span>
 <span class="lineNum">    1039 </span><span class="lineCov">      14158 :             i--;</span>
 <span class="lineNum">    1040 </span><span class="lineCov">      14158 :             c = name[i];</span>
 <span class="lineNum">    1041 </span><span class="lineCov">      14158 :             if (c &gt;= '0' &amp;&amp; c &lt;= '9') {</span>
@@ -1328,7 +1328,7 @@
 <span class="lineNum">    1266 </span><span class="lineCov">         24 : void DnsStats::ExportDomains(LruHash&lt;TldAsKey&gt; * table, uint32_t registry_id, uint32_t max_leak_count)</span>
 <span class="lineNum">    1267 </span>            : {
 <span class="lineNum">    1268 </span>            :     TldAsKey *tld_entry;
-<span class="lineNum">    1269 </span><span class="lineCov">         24 :     std::vector&lt;TldAsKey *&gt; lines(table-&gt;GetCount());</span>
+<span class="lineNum">    1269 </span><span class="lineCov">         48 :     std::vector&lt;TldAsKey *&gt; lines(table-&gt;GetCount());</span>
 <span class="lineNum">    1270 </span><span class="lineCov">         24 :     int vector_index = 0;</span>
 <span class="lineNum">    1271 </span><span class="lineCov">         24 :     uint32_t export_count = 0;</span>
 <span class="lineNum">    1272 </span>            : 
@@ -1336,7 +1336,7 @@
 <span class="lineNum">    1274 </span>            :     {
 <span class="lineNum">    1275 </span><span class="lineCov">      89088 :         tld_entry = table-&gt;GetEntry(i);</span>
 <span class="lineNum">    1276 </span>            : 
-<span class="lineNum">    1277 </span><span class="lineCov">     193496 :         while (tld_entry != NULL)</span>
+<span class="lineNum">    1277 </span><span class="lineCov">     119728 :         while (tld_entry != NULL)</span>
 <span class="lineNum">    1278 </span>            :         {
 <span class="lineNum">    1279 </span><span class="lineCov">      15320 :             lines[vector_index] = tld_entry;</span>
 <span class="lineNum">    1280 </span><span class="lineCov">      15320 :             vector_index++;</span>
@@ -1351,27 +1351,27 @@
 <span class="lineNum">    1289 </span>            :     {
 <span class="lineNum">    1290 </span><span class="lineCov">      15320 :         if (export_count &lt; max_leak_count &amp;&amp; lines[i]-&gt;tld_len &lt; 64)</span>
 <span class="lineNum">    1291 </span>            :         {
-<span class="lineNum">    1292 </span>            :             SubmitRegistryStringAndCount(registry_id,
-<span class="lineNum">    1293 </span><span class="lineCov">       3996 :                 (uint32_t) lines[i]-&gt;tld_len, lines[i]-&gt;tld, lines[i]-&gt;count);</span>
+<span class="lineNum">    1292 </span><span class="lineCov">      11988 :             SubmitRegistryStringAndCount(registry_id,</span>
+<span class="lineNum">    1293 </span><span class="lineCov">      15984 :                 (uint32_t) lines[i]-&gt;tld_len, lines[i]-&gt;tld, lines[i]-&gt;count);</span>
 <span class="lineNum">    1294 </span><span class="lineCov">       3996 :             export_count++;</span>
 <span class="lineNum">    1295 </span>            :         }
 <span class="lineNum">    1296 </span><span class="lineCov">      11324 :         else if (registry_id == REGISTRY_DNS_LeakedTLD)</span>
 <span class="lineNum">    1297 </span>            :         {
 <span class="lineNum">    1298 </span>            :             /* Add count of leaks by length -- should replace by pattern match later */
-<span class="lineNum">    1299 </span>            :             SubmitRegistryNumberAndCount(REGISTRY_DNS_LeakByLength, 
-<span class="lineNum">    1300 </span><span class="lineCov">       9860 :                 (uint32_t) lines[i]-&gt;tld_len, lines[i]-&gt;count);</span>
+<span class="lineNum">    1299 </span><span class="lineCov">      19720 :             SubmitRegistryNumberAndCount(REGISTRY_DNS_LeakByLength, </span>
+<span class="lineNum">    1300 </span><span class="lineCov">      29580 :                 (uint32_t) lines[i]-&gt;tld_len, lines[i]-&gt;count);</span>
 <span class="lineNum">    1301 </span>            :         }
 <span class="lineNum">    1302 </span><span class="lineCov">       1464 :         else if (registry_id == REGISTRY_DNS_LEAK_2NDLEVEL)</span>
 <span class="lineNum">    1303 </span>            :         {
 <span class="lineNum">    1304 </span>            :             /* Add count to the &quot;others&quot; line */
-<span class="lineNum">    1305 </span>            :             SubmitRegistryStringAndCount(REGISTRY_DNS_LEAK_2NDLEVEL, 
-<span class="lineNum">    1306 </span><span class="lineCov">       1464 :                 12, (uint8_t *)&quot;-- OTHERS --&quot;, lines[i]-&gt;count);</span>
+<span class="lineNum">    1305 </span><span class="lineCov">       1464 :             SubmitRegistryStringAndCount(REGISTRY_DNS_LEAK_2NDLEVEL, </span>
+<span class="lineNum">    1306 </span><span class="lineCov">       2928 :                 12, (uint8_t *)&quot;-- OTHERS --&quot;, lines[i]-&gt;count);</span>
 <span class="lineNum">    1307 </span>            :         }
 <span class="lineNum">    1308 </span><span class="lineNoCov">          0 :         else if (export_count &gt;= max_leak_count)</span>
 <span class="lineNum">    1309 </span>            :         {
 <span class="lineNum">    1310 </span><span class="lineNoCov">          0 :             break;</span>
 <span class="lineNum">    1311 </span>            :         }
-<span class="lineNum">    1312 </span><span class="lineCov">         24 :     }</span>
+<span class="lineNum">    1312 </span>            :     }
 <a name="1313"><span class="lineNum">    1313 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">    1314 </span>            : 
 <span class="lineNum">    1315 </span><span class="lineCov">          8 : void DnsStats::ExportLeakedDomains()</span>
@@ -1430,7 +1430,7 @@
 <span class="lineNum">    1368 </span>            : 
 <span class="lineNum">    1369 </span><span class="lineNoCov">          0 :                 if (AddressFilter::AddressText(addr, len, addr_text, sizeof(addr_text)))</span>
 <span class="lineNum">    1370 </span>            :                 {
-<span class="lineNum">    1371 </span>            :                     SubmitRegistryString(REGISTRY_TOOL_FrequentAddress,
+<span class="lineNum">    1371 </span><span class="lineNoCov">          0 :                     SubmitRegistryString(REGISTRY_TOOL_FrequentAddress,</span>
 <span class="lineNum">    1372 </span><span class="lineNoCov">          0 :                         (uint32_t) strlen(addr_text), (uint8_t *) addr_text);</span>
 <span class="lineNum">    1373 </span>            :                 }
 <span class="lineNum">    1374 </span>            : 
@@ -1473,7 +1473,7 @@
 <span class="lineNum">    1411 </span><span class="lineCov">     118150 :         uint8_t * x = (uint8_t *)rfc6761_tld[i];</span>
 <span class="lineNum">    1412 </span><span class="lineCov">     118150 :         bool match = true;</span>
 <span class="lineNum">    1413 </span>            : 
-<span class="lineNum">    1414 </span><span class="lineCov">     136864 :         for (; j &lt; length; j++)</span>
+<span class="lineNum">    1414 </span><span class="lineCov">     155578 :         for (; j &lt; length; j++)</span>
 <span class="lineNum">    1415 </span>            :         {
 <span class="lineNum">    1416 </span><span class="lineCov">     133766 :             if (x[j] == 0 || (x[j] != tld[j] &amp;&amp; (x[j] - 'A' + 'a') != tld[j]))</span>
 <span class="lineNum">    1417 </span>            :             {
@@ -1588,7 +1588,7 @@
 <span class="lineNum">    1526 </span><span class="lineCov">          2 : bool DnsStats::LoadPcapFile(char const * fileName)</span>
 <span class="lineNum">    1527 </span>            : {
 <span class="lineNum">    1528 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">    1529 </span><span class="lineCov">          2 :     pcap_reader reader;</span>
+<span class="lineNum">    1529 </span><span class="lineCov">          4 :     pcap_reader reader;</span>
 <span class="lineNum">    1530 </span><span class="lineCov">          2 :     size_t nb_records_read = 0;</span>
 <span class="lineNum">    1531 </span><span class="lineCov">          2 :     size_t nb_udp_dns_frag = 0;</span>
 <span class="lineNum">    1532 </span><span class="lineCov">          2 :     size_t nb_udp_dns = 0;</span>
@@ -1603,7 +1603,7 @@
 <span class="lineNum">    1541 </span>            :     }
 <span class="lineNum">    1542 </span>            :     else
 <span class="lineNum">    1543 </span>            :     {
-<span class="lineNum">    1544 </span><span class="lineCov">      20004 :         while (reader.ReadNext())</span>
+<span class="lineNum">    1544 </span><span class="lineCov">      40002 :         while (reader.ReadNext())</span>
 <span class="lineNum">    1545 </span>            :         {
 <span class="lineNum">    1546 </span><span class="lineCov">      20000 :             nb_records_read++;</span>
 <span class="lineNum">    1547 </span>            : 
@@ -1622,8 +1622,8 @@
 <span class="lineNum">    1560 </span>            : 
 <span class="lineNum">    1561 </span><span class="lineCov">      19558 :                     ts.tv_sec = reader.frame_header.ts_sec;</span>
 <span class="lineNum">    1562 </span><span class="lineCov">      19558 :                     ts.tv_usec = reader.frame_header.ts_usec;</span>
-<span class="lineNum">    1563 </span><span class="lineCov">      19558 :                     SubmitPacket(reader.buffer + reader.tp_offset + 8,</span>
-<span class="lineNum">    1564 </span><span class="lineCov">      39116 :                         reader.tp_length - 8, reader.ip_version, reader.buffer + reader.ip_offset, ts);</span>
+<span class="lineNum">    1563 </span><span class="lineCov">      39116 :                     SubmitPacket(reader.buffer + reader.tp_offset + 8,</span>
+<span class="lineNum">    1564 </span><span class="lineCov">      58674 :                         reader.tp_length - 8, reader.ip_version, reader.buffer + reader.ip_offset, ts);</span>
 <span class="lineNum">    1565 </span><span class="lineCov">      19558 :                     nb_udp_dns++;</span>
 <span class="lineNum">    1566 </span>            : 
 <span class="lineNum">    1567 </span><span class="lineCov">      19558 :                     if (target_number_dns_packets &gt; 0 &amp;&amp;</span>
@@ -1661,7 +1661,7 @@
 <span class="lineNum">    1599 </span><span class="lineNoCov">          0 :                     if (flags == 0x02) {</span>
 <span class="lineNum">    1600 </span>            :                         uint8_t * addr;
 <span class="lineNum">    1601 </span>            :                         size_t addr_length;
-<span class="lineNum">    1602 </span>            :                         GetSourceAddress(reader.ip_version, reader.buffer + reader.ip_offset,
+<span class="lineNum">    1602 </span><span class="lineNoCov">          0 :                         GetSourceAddress(reader.ip_version, reader.buffer + reader.ip_offset,</span>
 <span class="lineNum">    1603 </span><span class="lineNoCov">          0 :                             &amp;addr, &amp;addr_length);</span>
 <span class="lineNum">    1604 </span><span class="lineNoCov">          0 :                         RegisterTcpSynByIp(addr, addr_length, is_port_853, is_port_443);</span>
 <span class="lineNum">    1605 </span>            :                     }
@@ -1688,7 +1688,7 @@
 <span class="lineNum">    1626 </span>            :     /* Account for TCP in the total port 53 traffic */
 <span class="lineNum">    1627 </span><span class="lineCov">          2 :     SubmitRegistryNumberAndCount(REGISTRY_VOLUME_53ONLY, 0, data_tcp53);</span>
 <span class="lineNum">    1628 </span>            : 
-<span class="lineNum">    1629 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">    1629 </span><span class="lineCov">          4 :     return ret;</span>
 <a name="1630"><span class="lineNum">    1630 </span>            : }</a>
 <span class="lineNum">    1631 </span>            : 
 <span class="lineNum">    1632 </span><span class="lineCov">     117328 : void DnsStats::SubmitPacket(uint8_t * packet, uint32_t length, int ip_type, uint8_t* ip_header,</span>
@@ -1875,7 +1875,7 @@
 <span class="lineNum">    1813 </span>            :                         else
 <span class="lineNum">    1814 </span>            :                         {
 <span class="lineNum">    1815 </span>            :                             /* Insert in leakage table */
-<span class="lineNum">    1816 </span><span class="lineCov">      15940 :                             TldAsKey key(packet + tld_offset + 1, packet[tld_offset]);</span>
+<span class="lineNum">    1816 </span><span class="lineCov">      31880 :                             TldAsKey key(packet + tld_offset + 1, packet[tld_offset]);</span>
 <span class="lineNum">    1817 </span><span class="lineCov">      15940 :                             bool stored = false;</span>
 <span class="lineNum">    1818 </span><span class="lineCov">      15940 :                             (void)tldLeakage.InsertOrAdd(&amp;key, true, &amp;stored);</span>
 <span class="lineNum">    1819 </span>            : 
@@ -1928,13 +1928,13 @@
 <span class="lineNum">    1866 </span><span class="lineNoCov">          0 :                                     (void)secondLdLeakage.InsertOrAdd(&amp;key3, true, &amp;stored);</span>
 <span class="lineNum">    1867 </span><span class="lineNoCov">          0 :                                     delete removed;</span>
 <span class="lineNum">    1868 </span>            :                                 }
-<span class="lineNum">    1869 </span><span class="lineCov">      15940 :                             }</span>
+<span class="lineNum">    1869 </span>            :                             }
 <span class="lineNum">    1870 </span><span class="lineCov">      21050 :                         }</span>
 <span class="lineNum">    1871 </span>            :                     }
 <span class="lineNum">    1872 </span><span class="lineCov">      17416 :                     else if (rcode == DNS_RCODE_NOERROR)</span>
 <span class="lineNum">    1873 </span>            :                     {
 <span class="lineNum">    1874 </span>            :                         /* Analysis of useless traffic to the root */
-<span class="lineNum">    1875 </span><span class="lineCov">      16668 :                         TldAddressAsKey key(dest_addr, dest_addr_length, packet + tld_offset + 1, packet[tld_offset]);</span>
+<span class="lineNum">    1875 </span><span class="lineCov">      33336 :                         TldAddressAsKey key(dest_addr, dest_addr_length, packet + tld_offset + 1, packet[tld_offset]);</span>
 <span class="lineNum">    1876 </span>            : 
 <span class="lineNum">    1877 </span><span class="lineCov">      16668 :                         if (queryUsage.GetCount() &gt;= max_query_usage_count)</span>
 <span class="lineNum">    1878 </span>            :                         {
@@ -1957,7 +1957,7 @@
 <span class="lineNum">    1895 </span><span class="lineCov">      16668 :                         if (dnsstat_flags&amp;dnsStateFlagCountTld)</span>
 <span class="lineNum">    1896 </span>            :                         {
 <span class="lineNum">    1897 </span><span class="lineNoCov">          0 :                             SubmitRegistryString(REGISTRY_TLD_response, packet[tld_offset], packet + tld_offset + 1);</span>
-<span class="lineNum">    1898 </span><span class="lineCov">      16668 :                         }</span>
+<span class="lineNum">    1898 </span>            :                         }
 <span class="lineNum">    1899 </span>            :                     }
 <span class="lineNum">    1900 </span>            : 
 <span class="lineNum">    1901 </span><span class="lineCov">      38466 :                     if (enable_ip_address_report) {</span>
@@ -1969,7 +1969,7 @@
 <span class="lineNum">    1907 </span>            :                             sprintf_s((char *)name, sizeof(name), &quot;%d.%d.%d.%d/%d&quot;,
 <span class="lineNum">    1908 </span>            :                                 dest_addr[0], dest_addr[1], dest_addr[2], dest_addr[3], (int)x_type);
 <span class="lineNum">    1909 </span>            : #else
-<span class="lineNum">    1910 </span>            :                             sprintf((char *)name, &quot;%d.%d.%d.%d/%d&quot;,
+<span class="lineNum">    1910 </span><span class="lineNoCov">          0 :                             sprintf((char *)name, &quot;%d.%d.%d.%d/%d&quot;,</span>
 <span class="lineNum">    1911 </span><span class="lineNoCov">          0 :                                 dest_addr[0], dest_addr[1], dest_addr[2], dest_addr[3], (int)x_type);</span>
 <span class="lineNum">    1912 </span>            : #endif
 <span class="lineNum">    1913 </span>            :                         }
@@ -1983,7 +1983,7 @@
 <span class="lineNum">    1921 </span>            :                                 dest_addr[12], dest_addr[13], dest_addr[14], dest_addr[15],
 <span class="lineNum">    1922 </span>            :                                 (int)x_type);
 <span class="lineNum">    1923 </span>            : #else
-<span class="lineNum">    1924 </span>            :                             sprintf((char *)name,
+<span class="lineNum">    1924 </span><span class="lineNoCov">          0 :                             sprintf((char *)name,</span>
 <span class="lineNum">    1925 </span>            :                                 &quot;%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x:%02x%02x/%d&quot;,
 <span class="lineNum">    1926 </span><span class="lineNoCov">          0 :                                 dest_addr[0], dest_addr[1], dest_addr[2], dest_addr[3],</span>
 <span class="lineNum">    1927 </span><span class="lineNoCov">          0 :                                 dest_addr[4], dest_addr[5], dest_addr[6], dest_addr[7],</span>
@@ -2003,7 +2003,7 @@
 <span class="lineNum">    1941 </span><span class="lineCov">       5234 :             else if (gotTld)</span>
 <span class="lineNum">    1942 </span>            :             {
 <span class="lineNum">    1943 </span>            :                 /* Perform statistics on user traffic */
-<span class="lineNum">    1944 </span><span class="lineCov">       5234 :                 TldAsKey key(packet + tld_offset + 1, packet[tld_offset]);</span>
+<span class="lineNum">    1944 </span><span class="lineCov">      10468 :                 TldAsKey key(packet + tld_offset + 1, packet[tld_offset]);</span>
 <span class="lineNum">    1945 </span>            : 
 <span class="lineNum">    1946 </span>            :                 /* Check whether this TLD is in the registered list */
 <span class="lineNum">    1947 </span><span class="lineCov">       5234 :                 if (registeredTld.GetCount() == 0)</span>
@@ -2047,23 +2047,23 @@
 <span class="lineNum">    1985 </span>            :                         }
 <span class="lineNum">    1986 </span>            : 
 <span class="lineNum">    1987 </span><span class="lineCov">       2918 :                         if (is_binary) {</span>
-<span class="lineNum">    1988 </span><span class="lineCov">         54 :                             TldAsKey key2((uint8_t *)&quot;-- BINARY --&quot;, 12);</span>
+<span class="lineNum">    1988 </span><span class="lineCov">        108 :                             TldAsKey key2((uint8_t *)&quot;-- BINARY --&quot;, 12);</span>
 <span class="lineNum">    1989 </span>            : 
 <span class="lineNum">    1990 </span><span class="lineCov">         54 :                             tldStringUsage.InsertOrAdd(&amp;key2, true, &amp;stored);</span>
 <span class="lineNum">    1991 </span>            :                         }
 <span class="lineNum">    1992 </span><span class="lineCov">       2864 :                         else if (is_bad_syntax) {</span>
-<span class="lineNum">    1993 </span><span class="lineCov">         56 :                             TldAsKey key2((uint8_t *)&quot;-- SYNTAX --&quot;, 12);</span>
+<span class="lineNum">    1993 </span><span class="lineCov">        112 :                             TldAsKey key2((uint8_t *)&quot;-- SYNTAX --&quot;, 12);</span>
 <span class="lineNum">    1994 </span>            : 
 <span class="lineNum">    1995 </span><span class="lineCov">         56 :                             tldStringUsage.InsertOrAdd(&amp;key2, true, &amp;stored);</span>
 <span class="lineNum">    1996 </span>            :                         }
 <span class="lineNum">    1997 </span><span class="lineCov">       2808 :                         else if (is_numeric) {</span>
 <span class="lineNum">    1998 </span><span class="lineCov">        382 :                             if (IsIpv4Tld(packet, length, 12)) {</span>
-<span class="lineNum">    1999 </span><span class="lineCov">          4 :                                 TldAsKey key2((uint8_t *)&quot;-- IPV4 --&quot;, 10);</span>
+<span class="lineNum">    1999 </span><span class="lineCov">          8 :                                 TldAsKey key2((uint8_t *)&quot;-- IPV4 --&quot;, 10);</span>
 <span class="lineNum">    2000 </span>            : 
 <span class="lineNum">    2001 </span><span class="lineCov">          4 :                                 tldStringUsage.InsertOrAdd(&amp;key2, true, &amp;stored);</span>
 <span class="lineNum">    2002 </span>            :                             }
 <span class="lineNum">    2003 </span>            :                             else {
-<span class="lineNum">    2004 </span><span class="lineCov">        378 :                                 TldAsKey key2((uint8_t *)&quot;-- NUMBER --&quot;, 12);</span>
+<span class="lineNum">    2004 </span><span class="lineCov">        756 :                                 TldAsKey key2((uint8_t *)&quot;-- NUMBER --&quot;, 12);</span>
 <span class="lineNum">    2005 </span>            : 
 <span class="lineNum">    2006 </span><span class="lineCov">        378 :                                 tldStringUsage.InsertOrAdd(&amp;key2, true, &amp;stored);</span>
 <span class="lineNum">    2007 </span>            :                             }
@@ -2072,7 +2072,7 @@
 <span class="lineNum">    2010 </span><span class="lineCov">       2426 :                             tldStringUsage.InsertOrAdd(&amp;key, true, &amp;stored);</span>
 <span class="lineNum">    2011 </span>            :                         }
 <span class="lineNum">    2012 </span>            :                     }
-<span class="lineNum">    2013 </span><span class="lineCov">       5234 :                 }</span>
+<span class="lineNum">    2013 </span>            :                 }
 <span class="lineNum">    2014 </span>            :             }
 <span class="lineNum">    2015 </span>            : 
 <span class="lineNum">    2016 </span>            :         }
@@ -2174,7 +2174,7 @@
 <span class="lineNum">    2112 </span>            :         * for all other sources of traffic */
 <span class="lineNum">    2113 </span><span class="lineCov">      61912 :         if (is_response) {</span>
 <span class="lineNum">    2114 </span>            :             /* if (!rootAddresses.IsInList(source_addr, source_addr_length)) */ {
-<span class="lineNum">    2115 </span>            :                 is_qname_minimized = IsQNameMinimized(packet, length, qdcount, query_rclass, query_rtype,
+<span class="lineNum">    2115 </span><span class="lineCov">      18330 :                 is_qname_minimized = IsQNameMinimized(packet, length, qdcount, query_rclass, query_rtype,</span>
 <span class="lineNum">    2116 </span><span class="lineCov">      18330 :                     first_query_index, first_answer_index, first_ns_index);</span>
 <span class="lineNum">    2117 </span><span class="lineCov">      18330 :                 RegisterStatsByIp(dest_addr, dest_addr_length);</span>
 <span class="lineNum">    2118 </span>            : 
@@ -2204,7 +2204,7 @@
 <span class="lineNum">    2142 </span>            : 
 <span class="lineNum">    2143 </span><span class="lineCov">      43582 :                 if (!is_binary &amp;&amp; !is_bad_syntax) {</span>
 <span class="lineNum">    2144 </span><span class="lineCov">      40924 :                     SetToUpperCase(packet + tld_offset + 1, packet[tld_offset]);</span>
-<span class="lineNum">    2145 </span><span class="lineCov">      40924 :                     TldAsKey key(packet + tld_offset + 1, packet[tld_offset]);</span>
+<span class="lineNum">    2145 </span><span class="lineCov">      81848 :                     TldAsKey key(packet + tld_offset + 1, packet[tld_offset]);</span>
 <span class="lineNum">    2146 </span>            : 
 <span class="lineNum">    2147 </span><span class="lineCov">      40924 :                     if (registeredTld.GetCount() == 0)</span>
 <span class="lineNum">    2148 </span>            :                     {
@@ -2217,7 +2217,7 @@
 <span class="lineNum">    2155 </span>            :                          * Use the list of source addresses as a filter to
 <span class="lineNum">    2156 </span>            :                          * check the incoming EDNS options */
 <span class="lineNum">    2157 </span><span class="lineCov">      17358 :                         RegisterOptionsByIp(source_addr, source_addr_length);</span>
-<span class="lineNum">    2158 </span><span class="lineCov">      40924 :                     }</span>
+<span class="lineNum">    2158 </span>            :                     }
 <span class="lineNum">    2159 </span>            :                 }
 <span class="lineNum">    2160 </span>            :             }
 <span class="lineNum">    2161 </span>            :         }
@@ -2253,7 +2253,7 @@
 <span class="lineNum">    2191 </span>            :     {
 <span class="lineNum">    2192 </span><span class="lineCov">      16384 :         entry = hashTable.GetEntry(i);</span>
 <span class="lineNum">    2193 </span>            : 
-<span class="lineNum">    2194 </span><span class="lineCov">      37586 :         while (entry != NULL)</span>
+<span class="lineNum">    2194 </span><span class="lineCov">      26020 :         while (entry != NULL)</span>
 <span class="lineNum">    2195 </span>            :         {
 <span class="lineNum">    2196 </span>            :             CaptureLine line;
 <span class="lineNum">    2197 </span>            : 
@@ -2407,7 +2407,7 @@
 <span class="lineNum">    2345 </span>            : {
 <span class="lineNum">    2346 </span><span class="lineCov">    1990284 :     size_t i = 0;</span>
 <span class="lineNum">    2347 </span>            : 
-<span class="lineNum">    2348 </span><span class="lineCov">   29339656 :     for (; i &lt; tldSrceLength &amp;&amp; i &lt; tldDestMax; i++)</span>
+<span class="lineNum">    2348 </span><span class="lineCov">   56689028 :     for (; i &lt; tldSrceLength &amp;&amp; i &lt; tldDestMax; i++)</span>
 <span class="lineNum">    2349 </span>            :     {
 <span class="lineNum">    2350 </span><span class="lineCov">   27349372 :         int c = tldSrce[i];</span>
 <span class="lineNum">    2351 </span>            : 
@@ -2640,7 +2640,7 @@
 <span class="lineNum">    2578 </span><span class="lineCov">      10992 : const char * DnsStats::GetZonePrefix(const char * dnsName)</span>
 <span class="lineNum">    2579 </span>            : {
 <span class="lineNum">    2580 </span><span class="lineCov">      10992 :     const char * ret = NULL;</span>
-<span class="lineNum">    2581 </span><span class="lineCov">      10992 :     DnsPrefixEntry dpe;</span>
+<span class="lineNum">    2581 </span><span class="lineCov">      21984 :     DnsPrefixEntry dpe;</span>
 <span class="lineNum">    2582 </span>            :     DnsPrefixEntry * retrieved;
 <span class="lineNum">    2583 </span><span class="lineCov">      10992 :     int prefixOffset = 0;</span>
 <span class="lineNum">    2584 </span><span class="lineCov">      10992 :     int previousOffset = -1;</span>
@@ -2650,7 +2650,7 @@
 <span class="lineNum">    2588 </span><span class="lineCov">         10 :         LoadPrefixTable_from_memory();</span>
 <span class="lineNum">    2589 </span>            :     }
 <span class="lineNum">    2590 </span>            : 
-<span class="lineNum">    2591 </span><span class="lineCov">      24614 :     while (ret == NULL &amp;&amp; dnsName != NULL &amp;&amp; dnsName[prefixOffset] != '.') {</span>
+<span class="lineNum">    2591 </span><span class="lineCov">      16252 :     while (ret == NULL &amp;&amp; dnsName != NULL &amp;&amp; dnsName[prefixOffset] != '.') {</span>
 <span class="lineNum">    2592 </span><span class="lineCov">      13612 :         dpe.dnsPrefix = (char *)(dnsName + prefixOffset);</span>
 <span class="lineNum">    2593 </span><span class="lineCov">      13612 :         dpe.hash = 0;</span>
 <span class="lineNum">    2594 </span>            : 
@@ -2676,7 +2676,7 @@
 <span class="lineNum">    2614 </span>            :         } else {
 <span class="lineNum">    2615 </span><span class="lineCov">       2736 :             int offset = prefixOffset;</span>
 <span class="lineNum">    2616 </span>            : 
-<span class="lineNum">    2617 </span><span class="lineCov">      22004 :             while (dnsName[offset] != 0 &amp;&amp; dnsName[offset] != '.') {</span>
+<span class="lineNum">    2617 </span><span class="lineCov">      35800 :             while (dnsName[offset] != 0 &amp;&amp; dnsName[offset] != '.') {</span>
 <span class="lineNum">    2618 </span><span class="lineCov">      16532 :                 offset++;</span>
 <span class="lineNum">    2619 </span>            :             }
 <span class="lineNum">    2620 </span>            : 
@@ -2693,7 +2693,7 @@
 <span class="lineNum">    2631 </span>            :         }
 <span class="lineNum">    2632 </span>            :     }
 <span class="lineNum">    2633 </span>            : 
-<span class="lineNum">    2634 </span><span class="lineCov">      10992 :     return ret;</span>
+<span class="lineNum">    2634 </span><span class="lineCov">      21984 :     return ret;</span>
 <a name="2635"><span class="lineNum">    2635 </span>            : }</a>
 <span class="lineNum">    2636 </span>            : 
 <span class="lineNum">    2637 </span><span class="lineCov">      12550 : void DnsStats::RegisterDnssecUsageByName(uint8_t * packet, uint32_t length, uint32_t name_start,</span>
@@ -2714,7 +2714,7 @@
 <span class="lineNum">    2652 </span>            : 
 <span class="lineNum">    2653 </span>            :     /* Register */
 <span class="lineNum">    2654 </span><span class="lineCov">      12550 :     if (zone_prefix != NULL) {</span>
-<span class="lineNum">    2655 </span>            :         RegisterDnssecUsageByPrefix(&amp;dnssecPrefixTable,
+<span class="lineNum">    2655 </span><span class="lineCov">        962 :         RegisterDnssecUsageByPrefix(&amp;dnssecPrefixTable,</span>
 <span class="lineNum">    2656 </span><span class="lineCov">        962 :             (uint8_t *)zone_prefix, strlen(zone_prefix), is_dnssec);</span>
 <span class="lineNum">    2657 </span>            :     }
 <a name="2658"><span class="lineNum">    2658 </span><span class="lineCov">      12550 : }</span></a>
@@ -2729,7 +2729,7 @@
 <span class="lineNum">    2667 </span>            :     BinHash&lt;DnssecPrefixEntry&gt; * dnssecTable,
 <span class="lineNum">    2668 </span>            :     uint8_t * prefix, size_t prefix_length, bool is_dnssec)
 <span class="lineNum">    2669 </span>            : {
-<span class="lineNum">    2670 </span><span class="lineCov">        962 :     DnssecPrefixEntry dpe;</span>
+<span class="lineNum">    2670 </span><span class="lineCov">       1924 :     DnssecPrefixEntry dpe;</span>
 <span class="lineNum">    2671 </span><span class="lineCov">        962 :     bool stored = false;</span>
 <span class="lineNum">    2672 </span>            : 
 <span class="lineNum">    2673 </span><span class="lineCov">        962 :     dpe.prefix = prefix;</span>
@@ -2749,7 +2749,7 @@
 <span class="lineNum">    2687 </span>            :     {
 <span class="lineNum">    2688 </span><span class="lineCov">       1792 :         dpe = dnssecTable-&gt;GetEntry(i);</span>
 <span class="lineNum">    2689 </span>            : 
-<span class="lineNum">    2690 </span><span class="lineCov">       4038 :         while (dpe != NULL)</span>
+<span class="lineNum">    2690 </span><span class="lineCov">       2700 :         while (dpe != NULL)</span>
 <span class="lineNum">    2691 </span>            :         {
 <span class="lineNum">    2692 </span><span class="lineCov">        454 :             if (dpe-&gt;is_dnssec) {</span>
 <span class="lineNum">    2693 </span><span class="lineCov">         14 :                 usage_count++;</span>
@@ -2767,8 +2767,8 @@
 <span class="lineNum">    2705 </span>            : 
 <span class="lineNum">    2706 </span><span class="lineCov">      18330 : void DnsStats::RegisterStatsByIp(uint8_t * dest_addr, size_t dest_addr_length)</span>
 <span class="lineNum">    2707 </span>            : {
-<span class="lineNum">    2708 </span>            :     StatsByIP x(dest_addr, dest_addr_length, is_do_flag_set, is_using_edns,
-<span class="lineNum">    2709 </span><span class="lineCov">      18330 :         !is_qname_minimized);</span>
+<span class="lineNum">    2708 </span><span class="lineCov">      36660 :     StatsByIP x(dest_addr, dest_addr_length, is_do_flag_set, is_using_edns,</span>
+<span class="lineNum">    2709 </span><span class="lineCov">      73320 :         !is_qname_minimized);</span>
 <span class="lineNum">    2710 </span><span class="lineCov">      18330 :     StatsByIP * y = statsByIp.Retrieve(&amp;x);</span>
 <span class="lineNum">    2711 </span>            : 
 <span class="lineNum">    2712 </span><span class="lineCov">      18330 :     x.response_seen = true;</span>
@@ -2782,12 +2782,12 @@
 <span class="lineNum">    2720 </span>            :     }
 <span class="lineNum">    2721 </span>            :     else {
 <span class="lineNum">    2722 </span><span class="lineCov">      16800 :         y-&gt;Add(&amp;x);</span>
-<span class="lineNum">    2723 </span><span class="lineCov">      18330 :     }</span>
+<span class="lineNum">    2723 </span>            :     }
 <a name="2724"><span class="lineNum">    2724 </span><span class="lineCov">      18330 : }</span></a>
 <span class="lineNum">    2725 </span>            : 
 <span class="lineNum">    2726 </span><span class="lineCov">      17358 : void DnsStats::RegisterOptionsByIp(uint8_t * source_addr, size_t source_addr_length)</span>
 <span class="lineNum">    2727 </span>            : {
-<span class="lineNum">    2728 </span><span class="lineCov">      17358 :     StatsByIP x(source_addr, source_addr_length, false, false, false);</span>
+<span class="lineNum">    2728 </span><span class="lineCov">      34716 :     StatsByIP x(source_addr, source_addr_length, false, false, false);</span>
 <span class="lineNum">    2729 </span><span class="lineCov">      17358 :     StatsByIP * y = statsByIp.Retrieve(&amp;x);</span>
 <span class="lineNum">    2730 </span>            : 
 <span class="lineNum">    2731 </span><span class="lineCov">      17358 :     if (y == NULL) {</span>
@@ -2819,7 +2819,7 @@
 <span class="lineNum">    2757 </span>            :             }
 <span class="lineNum">    2758 </span><span class="lineCov">         88 :             current_index += 4 + o_length;</span>
 <span class="lineNum">    2759 </span>            :         }
-<span class="lineNum">    2760 </span><span class="lineCov">      17358 :     }</span>
+<span class="lineNum">    2760 </span>            :     }
 <a name="2761"><span class="lineNum">    2761 </span><span class="lineCov">      17358 : }</span></a>
 <span class="lineNum">    2762 </span>            : 
 <span class="lineNum">    2763 </span><span class="lineNoCov">          0 : void DnsStats::RegisterTcpSynByIp(uint8_t * source_addr,</span>
@@ -2848,7 +2848,7 @@
 <span class="lineNum">    2786 </span>            :     }
 <span class="lineNum">    2787 </span>            :     else {
 <span class="lineNum">    2788 </span><span class="lineNoCov">          0 :         y-&gt;Add(&amp;x);</span>
-<span class="lineNum">    2789 </span><span class="lineNoCov">          0 :     }</span>
+<span class="lineNum">    2789 </span>            :     }
 <span class="lineNum">    2790 </span>            : 
 <a name="2791"><span class="lineNum">    2791 </span>            : }</a>
 <span class="lineNum">    2792 </span>            : 
@@ -2869,7 +2869,7 @@
 <span class="lineNum">    2807 </span>            :     {
 <span class="lineNum">    2808 </span><span class="lineCov">      16384 :         sbi = statsByIp.GetEntry(i);</span>
 <span class="lineNum">    2809 </span>            : 
-<span class="lineNum">    2810 </span><span class="lineCov">      39498 :         while (sbi != NULL)</span>
+<span class="lineNum">    2810 </span><span class="lineCov">      29844 :         while (sbi != NULL)</span>
 <span class="lineNum">    2811 </span>            :         {
 <span class="lineNum">    2812 </span><span class="lineCov">       6730 :             if (sbi-&gt;query_seen) {</span>
 <span class="lineNum">    2813 </span><span class="lineCov">       5750 :                 total_queries++;</span>
@@ -2941,7 +2941,7 @@
 <span class="lineNum">    2879 </span>            : {
 <a name="2880"><span class="lineNum">    2880 </span><span class="lineCov">       1416 : }</span></a>
 <span class="lineNum">    2881 </span>            : 
-<span class="lineNum">    2882 </span><span class="lineCov">       1416 : DnssecPrefixEntry::~DnssecPrefixEntry()</span>
+<span class="lineNum">    2882 </span><span class="lineCov">       2832 : DnssecPrefixEntry::~DnssecPrefixEntry()</span>
 <span class="lineNum">    2883 </span>            : {
 <span class="lineNum">    2884 </span><span class="lineCov">       1416 :     if (prefix_data != NULL) {</span>
 <span class="lineNum">    2885 </span><span class="lineCov">        454 :         delete[] prefix_data;</span>
@@ -3085,7 +3085,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

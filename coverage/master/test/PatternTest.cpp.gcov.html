@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - PatternTest.cpp<span style="font-size: 80%;"> (source / <a href="PatternTest.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - PatternTest.cpp<span style="font-size: 80%;"> (source / <a href="PatternTest.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">46</td>
-            <td class="headerCovTableEntry">57</td>
-            <td class="headerCovTableEntryMed">80.7 %</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntry">51</td>
+            <td class="headerCovTableEntryMed">78.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -518,37 +518,37 @@
 <span class="lineNum">     456 </span>            : 
 <span class="lineNum">     457 </span><span class="lineCov">          2 :     if (!TestOnePattern(alpha_test_strings, </span>
 <span class="lineNum">     458 </span>            :         sizeof(alpha_test_strings) / sizeof(char const *),
-<span class="lineNum">     459 </span><span class="lineCov">          2 :         name_pattern_alpha))</span>
+<span class="lineNum">     459 </span>            :         name_pattern_alpha))
 <span class="lineNum">     460 </span>            :     {
 <span class="lineNum">     461 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     462 </span>            :     }
 <span class="lineNum">     463 </span><span class="lineCov">          2 :     else if (!TestOnePattern(dga_test_strings, </span>
 <span class="lineNum">     464 </span>            :         sizeof(dga_test_strings) / sizeof(char const *),
-<span class="lineNum">     465 </span><span class="lineCov">          2 :         name_pattern_alpha))</span>
+<span class="lineNum">     465 </span>            :         name_pattern_alpha))
 <span class="lineNum">     466 </span>            :     {
 <span class="lineNum">     467 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     468 </span>            :     }
 <span class="lineNum">     469 </span><span class="lineCov">          2 :     else if (!TestOnePattern(hexa_test_strings,</span>
 <span class="lineNum">     470 </span>            :         sizeof(hexa_test_strings) / sizeof(char const *),
-<span class="lineNum">     471 </span><span class="lineCov">          2 :         name_pattern_hexa))</span>
+<span class="lineNum">     471 </span>            :         name_pattern_hexa))
 <span class="lineNum">     472 </span>            :     {
 <span class="lineNum">     473 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     474 </span>            :     }
 <span class="lineNum">     475 </span><span class="lineCov">          2 :     else if (!TestOnePattern(num_test_strings,</span>
 <span class="lineNum">     476 </span>            :         sizeof(num_test_strings) / sizeof(char const *),
-<span class="lineNum">     477 </span><span class="lineCov">          2 :         name_pattern_num))</span>
+<span class="lineNum">     477 </span>            :         name_pattern_num))
 <span class="lineNum">     478 </span>            :     {
 <span class="lineNum">     479 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     480 </span>            :     }
 <span class="lineNum">     481 </span><span class="lineCov">          2 :     else if(!TestRandom(alpha_test_strings,</span>
 <span class="lineNum">     482 </span>            :         sizeof(alpha_test_strings) / sizeof(char const *),
-<span class="lineNum">     483 </span><span class="lineCov">          2 :         false))</span>
+<span class="lineNum">     483 </span>            :         false))
 <span class="lineNum">     484 </span>            :     {
 <span class="lineNum">     485 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     486 </span>            :     }
 <span class="lineNum">     487 </span><span class="lineCov">          2 :     else if (!TestRandom(dga_test_strings,</span>
 <span class="lineNum">     488 </span>            :         sizeof(dga_test_strings) / sizeof(char const *),
-<span class="lineNum">     489 </span><span class="lineCov">          2 :         true))</span>
+<span class="lineNum">     489 </span>            :         true))
 <span class="lineNum">     490 </span>            :     {
 <span class="lineNum">     491 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     492 </span>            :     }
@@ -562,7 +562,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

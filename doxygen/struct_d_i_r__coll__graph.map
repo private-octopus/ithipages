@@ -1,5 +1,5 @@
 <map id="DIR" name="DIR">
-<area shape="rect" id="node2" href="$struct___w_d_i_r.html" title="{_WDIR\n|+ data\l+ cached\l+ handle\l+ patt\l|}" alt="" coords="13,237,88,358"/>
-<area shape="rect" id="node3" href="$struct__wdirent.html" title="{_wdirent\n|+ d_ino\l+ d_off\l+ d_reclen\l+ d_namlen\l+ d_type\l+ d_name\l|}" alt="" coords="5,6,96,157"/>
-<area shape="rect" id="node4" href="$structdirent.html" title="{dirent\n|+ d_ino\l+ d_off\l+ d_reclen\l+ d_namlen\l+ d_type\l+ d_name\l|}" alt="" coords="113,222,204,373"/>
+<area shape="rect" id="node2" href="$struct___w_d_i_r.html" title="{_WDIR\n|+ data\l+ cached\l+ handle\l+ patt\l|}" alt="" coords="14,233,97,355"/>
+<area shape="rect" id="node3" href="$struct__wdirent.html" title="{_wdirent\n|+ d_ino\l+ d_off\l+ d_reclen\l+ d_namlen\l+ d_type\l+ d_name\l|}" alt="" coords="5,5,105,156"/>
+<area shape="rect" id="node4" href="$structdirent.html" title="{dirent\n|+ d_ino\l+ d_off\l+ d_reclen\l+ d_namlen\l+ d_type\l+ d_name\l|}" alt="" coords="120,219,220,369"/>
 </map>

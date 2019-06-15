@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - MetricTest.cpp<span style="font-size: 80%;"> (source / <a href="MetricTest.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - MetricTest.cpp<span style="font-size: 80%;"> (source / <a href="MetricTest.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">119</td>
-            <td class="headerCovTableEntry">162</td>
-            <td class="headerCovTableEntryLo">73.5 %</td>
+            <td class="headerCovTableEntry">118</td>
+            <td class="headerCovTableEntry">163</td>
+            <td class="headerCovTableEntryLo">72.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -132,7 +132,7 @@
 <span class="lineNum">      70 </span>            : 
 <span class="lineNum">      71 </span><span class="lineCov">          2 : bool MetricTest::DoTest()</span>
 <span class="lineNum">      72 </span>            : {
-<span class="lineNum">      73 </span><span class="lineCov">          2 :     CaptureSummary cs;</span>
+<span class="lineNum">      73 </span><span class="lineCov">          4 :     CaptureSummary cs;</span>
 <span class="lineNum">      74 </span><span class="lineCov">          2 :     bool ret = cs.Load(metric_test_input);</span>
 <span class="lineNum">      75 </span>            : 
 <span class="lineNum">      76 </span><span class="lineCov">          2 :     if (!ret)</span>
@@ -142,7 +142,7 @@
 <span class="lineNum">      80 </span>            : 
 <span class="lineNum">      81 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">      82 </span>            :     {
-<span class="lineNum">      83 </span><span class="lineCov">          2 :         ithimetrics met;</span>
+<span class="lineNum">      83 </span><span class="lineCov">          4 :         ithimetrics met;</span>
 <span class="lineNum">      84 </span>            : 
 <span class="lineNum">      85 </span><span class="lineCov">          2 :         if (!met.SetComplianceFileName(compliance_file))</span>
 <span class="lineNum">      86 </span>            :         {
@@ -191,7 +191,7 @@
 <span class="lineNum">     129 </span>            :             {
 <span class="lineNum">     130 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Could not save metrics to %s\n&quot;, metric_test_output);</span>
 <span class="lineNum">     131 </span>            :             }
-<span class="lineNum">     132 </span><span class="lineCov">          2 :         }</span>
+<span class="lineNum">     132 </span>            :         }
 <span class="lineNum">     133 </span>            :     }
 <span class="lineNum">     134 </span>            : 
 <span class="lineNum">     135 </span><span class="lineCov">          2 :     if (ret)</span>
@@ -199,7 +199,7 @@
 <span class="lineNum">     137 </span><span class="lineCov">          2 :         TEST_LOG(&quot;Saved metrics to %s\n&quot;, metric_test_output);</span>
 <span class="lineNum">     138 </span>            :     }
 <span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     140 </span><span class="lineCov">          4 :     return ret;</span>
 <a name="141"><span class="lineNum">     141 </span>            : }</a>
 <span class="lineNum">     142 </span>            : 
 <span class="lineNum">     143 </span><span class="lineCov">         54 : bool MetricTest::compare_files(char const * fname1, char const * fname2)</span>
@@ -241,7 +241,7 @@
 <span class="lineNum">     179 </span>            :         char buffer1[256];
 <span class="lineNum">     180 </span>            :         char buffer2[256];
 <span class="lineNum">     181 </span>            : 
-<span class="lineNum">     182 </span><span class="lineCov">       3674 :         while (ret &amp;&amp; fgets(buffer1, sizeof(buffer1), F1) != NULL)</span>
+<span class="lineNum">     182 </span><span class="lineCov">       7186 :         while (ret &amp;&amp; fgets(buffer1, sizeof(buffer1), F1) != NULL)</span>
 <span class="lineNum">     183 </span>            :         {
 <span class="lineNum">     184 </span><span class="lineCov">       3566 :             if (fgets(buffer2, sizeof(buffer2), F2) == NULL)</span>
 <span class="lineNum">     185 </span>            :             {
@@ -285,9 +285,9 @@
 <span class="lineNum">     223 </span><span class="lineCov">         54 :     return ret;</span>
 <a name="224"><span class="lineNum">     224 </span>            : }</a>
 <span class="lineNum">     225 </span>            : 
-<span class="lineNum">     226 </span><span class="lineCov">       3566 : bool MetricTest::compare_lines(char const * b1, char const * b2)</span>
+<span class="lineNum">     226 </span><span class="lineCov">      91066 : bool MetricTest::compare_lines(char const * b1, char const * b2)</span>
 <span class="lineNum">     227 </span>            : {
-<span class="lineNum">     228 </span><span class="lineCov">      94632 :     while (*b1 != 0 &amp;&amp; *b2 != 0)</span>
+<span class="lineNum">     228 </span><span class="lineCov">     178566 :     while (*b1 != 0 &amp;&amp; *b2 != 0)</span>
 <span class="lineNum">     229 </span>            :     {
 <span class="lineNum">     230 </span><span class="lineCov">      87500 :         if (*b1 != *b2)</span>
 <span class="lineNum">     231 </span>            :         {
@@ -297,12 +297,12 @@
 <span class="lineNum">     235 </span><span class="lineCov">      87500 :         b2++;</span>
 <span class="lineNum">     236 </span>            :     }
 <span class="lineNum">     237 </span>            : 
-<span class="lineNum">     238 </span><span class="lineCov">       7132 :     while (*b1 == '\n' || *b1 == '\r')</span>
+<span class="lineNum">     238 </span><span class="lineCov">       3566 :     while (*b1 == '\n' || *b1 == '\r')</span>
 <span class="lineNum">     239 </span>            :     {
 <span class="lineNum">     240 </span><span class="lineNoCov">          0 :         b1++;</span>
 <span class="lineNum">     241 </span>            :     }
 <span class="lineNum">     242 </span>            : 
-<span class="lineNum">     243 </span><span class="lineCov">       7132 :     while (*b2 == '\n' || *b2 == '\r')</span>
+<span class="lineNum">     243 </span><span class="lineCov">       3566 :     while (*b2 == '\n' || *b2 == '\r')</span>
 <span class="lineNum">     244 </span>            :     {
 <span class="lineNum">     245 </span><span class="lineNoCov">          0 :         b2++;</span>
 <span class="lineNum">     246 </span>            :     }
@@ -323,7 +323,7 @@
 <span class="lineNum">     261 </span>            : 
 <span class="lineNum">     262 </span><span class="lineCov">          2 : bool MetricDateTest::DoTest()</span>
 <span class="lineNum">     263 </span>            : {
-<span class="lineNum">     264 </span><span class="lineCov">          2 :     ithimetrics met;</span>
+<span class="lineNum">     264 </span><span class="lineCov">          4 :     ithimetrics met;</span>
 <span class="lineNum">     265 </span>            :     bool ret;
 <span class="lineNum">     266 </span>            : 
 <span class="lineNum">     267 </span><span class="lineCov">          2 :     ret = met.SetDefaultDate(metric_date_time_t_jan_31_2017);</span>
@@ -345,7 +345,7 @@
 <span class="lineNum">     283 </span>            :         }
 <span class="lineNum">     284 </span>            :     }
 <span class="lineNum">     285 </span>            : 
-<span class="lineNum">     286 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     286 </span><span class="lineCov">          4 :     return ret;</span>
 <a name="287"><span class="lineNum">     287 </span>            : }</a>
 <span class="lineNum">     288 </span>            : 
 <span class="lineNum">     289 </span><span class="lineCov">          2 : MetricCaptureFileTest::MetricCaptureFileTest()</span>
@@ -380,7 +380,7 @@
 <span class="lineNum">     318 </span>            : static char const * metric_test_capture = &quot;data/tiny-capture.csv&quot;;
 <span class="lineNum">     319 </span>            : #endif
 <span class="lineNum">     320 </span>            : 
-<a name="321"><span class="lineNum">     321 </span>            : static const char * metric_test_dir_list[] = {</a>
+<span class="lineNum">     321 </span>            : static const char * metric_test_dir_list[] = {
 <span class="lineNum">     322 </span>            :     metric_test_dir_ithi, metric_test_dir_input, metric_test_dir_m3, metric_test_dir_m46
 <span class="lineNum">     323 </span><span class="lineCov">          2 : };</span>
 <span class="lineNum">     324 </span>            : 
@@ -391,7 +391,7 @@
 <span class="lineNum">     329 </span><span class="lineCov">          2 : bool MetricCaptureFileTest::DoTest()</span>
 <span class="lineNum">     330 </span>            : {
 <span class="lineNum">     331 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">     332 </span><span class="lineCov">          2 :     ithimetrics met;</span>
+<span class="lineNum">     332 </span><span class="lineCov">          4 :     ithimetrics met;</span>
 <span class="lineNum">     333 </span>            : 
 <span class="lineNum">     334 </span>            :     /* First, prepare the ITHI directories in the current folder */
 <span class="lineNum">     335 </span><span class="lineCov">         10 :     for (size_t i = 0; ret &amp;&amp; i &lt; sizeof(metric_test_dir_list) / sizeof(char *); i++)</span>
@@ -464,19 +464,19 @@
 <span class="lineNum">     402 </span>            :         {
 <span class="lineNum">     403 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     404 </span>            : 
-<span class="lineNum">     405 </span>            :             TEST_LOG(&quot;Metric test: unexpected default root capture file.\n            %s\n instead of %s\n&quot;,
+<span class="lineNum">     405 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Metric test: unexpected default root capture file.\n            %s\n instead of %s\n&quot;,</span>
 <span class="lineNum">     406 </span><span class="lineNoCov">          0 :                 met.GetRootCaptureFileName(), metric_test_dir_m3_f);</span>
 <span class="lineNum">     407 </span>            :         }
 <span class="lineNum">     408 </span><span class="lineCov">          2 :         else if (strcmp(metric_test_dir_m46_f, met.GetRecursiveCaptureFileName()) != 0)</span>
 <span class="lineNum">     409 </span>            :         {
 <span class="lineNum">     410 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     411 </span>            : 
-<span class="lineNum">     412 </span>            :             TEST_LOG(&quot;Metric test: unexpected default recursive capture file.\n            %s\n instead of %s\n&quot;,
+<span class="lineNum">     412 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Metric test: unexpected default recursive capture file.\n            %s\n instead of %s\n&quot;,</span>
 <span class="lineNum">     413 </span><span class="lineNoCov">          0 :                 met.GetRecursiveCaptureFileName(), metric_test_dir_m46_f);</span>
 <span class="lineNum">     414 </span>            :         }
 <span class="lineNum">     415 </span>            :     }
 <span class="lineNum">     416 </span>            : 
-<span class="lineNum">     417 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     417 </span><span class="lineCov">          4 :     return ret;</span>
 <a name="418"><span class="lineNum">     418 </span>            : }</a>
 <span class="lineNum">     419 </span>            : 
 <span class="lineNum">     420 </span><span class="lineCov">         32 : bool MetricCaptureFileTest::CreateDirectoryIfAbsent(char const * dir_name)</span>
@@ -539,7 +539,7 @@
 <span class="lineNum">     477 </span>            :     {
 <span class="lineNum">     478 </span>            :         char buffer[512];
 <span class="lineNum">     479 </span>            : 
-<span class="lineNum">     480 </span><span class="lineCov">       3608 :         while (fgets(buffer, sizeof(buffer), F1) != NULL)</span>
+<span class="lineNum">     480 </span><span class="lineCov">       7054 :         while (fgets(buffer, sizeof(buffer), F1) != NULL)</span>
 <span class="lineNum">     481 </span>            :         {
 <span class="lineNum">     482 </span><span class="lineCov">       3500 :             if (fputs(buffer, F2) == EOF)</span>
 <span class="lineNum">     483 </span>            :             {
@@ -570,7 +570,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

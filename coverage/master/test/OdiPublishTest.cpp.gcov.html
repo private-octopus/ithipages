@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - OdiPublishTest.cpp<span style="font-size: 80%;"> (source / <a href="OdiPublishTest.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - OdiPublishTest.cpp<span style="font-size: 80%;"> (source / <a href="OdiPublishTest.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">41</td>
-            <td class="headerCovTableEntry">46</td>
-            <td class="headerCovTableEntryMed">89.1 %</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntryMed">88.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -158,7 +158,7 @@
 <span class="lineNum">      96 </span><span class="lineNoCov">          0 :             ret = x;</span>
 <span class="lineNum">      97 </span>            :         } else {
 <span class="lineNum">      98 </span><span class="lineCov">          6 :             if (strcmp(buffer, update_time_test[i].iso_time_string) != 0) {</span>
-<span class="lineNum">      99 </span>            :                 TEST_LOG(&quot;GetUpdateTime([%d]:%x) returns %s instead of %s\n&quot;, i,
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;GetUpdateTime([%d]:%x) returns %s instead of %s\n&quot;, i,</span>
 <span class="lineNum">     100 </span><span class="lineNoCov">          0 :                     (int)update_time_test[0].unix_time, buffer, update_time_test[i].iso_time_string);</span>
 <span class="lineNum">     101 </span><span class="lineNoCov">          0 :                 ret = false;</span>
 <span class="lineNum">     102 </span>            :             }
@@ -177,8 +177,8 @@
 <span class="lineNum">     115 </span>            : 
 <span class="lineNum">     116 </span>            :     /* Compose the folder name, and ensure that it exists */
 <span class="lineNum">     117 </span><span class="lineCov">         16 :     if (ret) {</span>
-<span class="lineNum">     118 </span>            :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s&quot;,
-<span class="lineNum">     119 </span><span class="lineCov">         16 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder);</span>
+<span class="lineNum">     118 </span><span class="lineCov">         16 :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s&quot;,</span>
+<span class="lineNum">     119 </span><span class="lineCov">         32 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder);</span>
 <span class="lineNum">     120 </span>            :     }
 <span class="lineNum">     121 </span>            : 
 <span class="lineNum">     122 </span><span class="lineCov">         16 :     if (ret) {</span>
@@ -196,8 +196,8 @@
 <span class="lineNum">     134 </span>            : 
 <span class="lineNum">     135 </span>            :     /* Compose the input file name */
 <span class="lineNum">     136 </span><span class="lineCov">         16 :     if (ret) {</span>
-<span class="lineNum">     137 </span>            :         ret = snprintf(input_file_name, sizeof(input_file_name), &quot;%s%s%s&quot;,
-<span class="lineNum">     138 </span><span class="lineCov">         16 :             ITHI_DEFAULT_DATA_FOLDER, ITHI_FILE_PATH_SEP, odi_publish_test[test_id].metric_file_in);</span>
+<span class="lineNum">     137 </span><span class="lineCov">         16 :         ret = snprintf(input_file_name, sizeof(input_file_name), &quot;%s%s%s&quot;,</span>
+<span class="lineNum">     138 </span><span class="lineCov">         32 :             ITHI_DEFAULT_DATA_FOLDER, ITHI_FILE_PATH_SEP, odi_publish_test[test_id].metric_file_in);</span>
 <span class="lineNum">     139 </span>            :     }
 <span class="lineNum">     140 </span>            :     /* Publish at test time */
 <span class="lineNum">     141 </span><span class="lineCov">         16 :     if (ret) {</span>
@@ -208,9 +208,9 @@
 <span class="lineNum">     146 </span>            :     }
 <span class="lineNum">     147 </span>            :     /* Compose the metric file name */
 <span class="lineNum">     148 </span><span class="lineCov">         16 :     if (ret) {</span>
-<span class="lineNum">     149 </span>            :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s%s%s&quot;,
-<span class="lineNum">     150 </span>            :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder,
-<span class="lineNum">     151 </span><span class="lineCov">         16 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_metric_file);</span>
+<span class="lineNum">     149 </span><span class="lineCov">         16 :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s%s%s&quot;,</span>
+<span class="lineNum">     150 </span><span class="lineCov">         16 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder,</span>
+<span class="lineNum">     151 </span><span class="lineCov">         32 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_metric_file);</span>
 <span class="lineNum">     152 </span>            :     }
 <span class="lineNum">     153 </span>            :     /* Verify that the metric file is present and matches the input */
 <span class="lineNum">     154 </span><span class="lineCov">         16 :     if (ret)</span>
@@ -219,14 +219,14 @@
 <span class="lineNum">     157 </span>            :     }
 <span class="lineNum">     158 </span>            :     /* Compose the JSON file name */
 <span class="lineNum">     159 </span><span class="lineCov">         16 :     if (ret) {</span>
-<span class="lineNum">     160 </span>            :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s%s%s&quot;,
-<span class="lineNum">     161 </span>            :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder,
-<span class="lineNum">     162 </span><span class="lineCov">         16 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_json_file);</span>
+<span class="lineNum">     160 </span><span class="lineCov">         16 :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s%s%s&quot;,</span>
+<span class="lineNum">     161 </span><span class="lineCov">         16 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder,</span>
+<span class="lineNum">     162 </span><span class="lineCov">         32 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_json_file);</span>
 <span class="lineNum">     163 </span>            :     }
 <span class="lineNum">     164 </span>            :     /* Compose the JSON ref name */
 <span class="lineNum">     165 </span><span class="lineCov">         16 :     if (ret) {</span>
-<span class="lineNum">     166 </span>            :         ret = snprintf(ref_file_name, sizeof(ref_file_name), &quot;%s%s%s&quot;,
-<span class="lineNum">     167 </span><span class="lineCov">         16 :             ITHI_DEFAULT_DATA_FOLDER, ITHI_FILE_PATH_SEP, odi_publish_test[test_id].json_file_ref);</span>
+<span class="lineNum">     166 </span><span class="lineCov">         16 :         ret = snprintf(ref_file_name, sizeof(ref_file_name), &quot;%s%s%s&quot;,</span>
+<span class="lineNum">     167 </span><span class="lineCov">         32 :             ITHI_DEFAULT_DATA_FOLDER, ITHI_FILE_PATH_SEP, odi_publish_test[test_id].json_file_ref);</span>
 <span class="lineNum">     168 </span>            :     }
 <span class="lineNum">     169 </span>            :     /* Verify that the JSON file is present and matches the input */
 <span class="lineNum">     170 </span><span class="lineCov">         16 :     if (ret)</span>
@@ -258,7 +258,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

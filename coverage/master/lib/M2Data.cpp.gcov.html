@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - M2Data.cpp<span style="font-size: 80%;"> (source / <a href="M2Data.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - M2Data.cpp<span style="font-size: 80%;"> (source / <a href="M2Data.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">181</td>
-            <td class="headerCovTableEntry">253</td>
-            <td class="headerCovTableEntryLo">71.5 %</td>
+            <td class="headerCovTableEntry">180</td>
+            <td class="headerCovTableEntry">252</td>
+            <td class="headerCovTableEntryLo">71.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -177,7 +177,7 @@
 <span class="lineNum">     115 </span><span class="lineCov">         10 :     ret = (F != NULL);</span>
 <span class="lineNum">     116 </span>            : #endif
 <span class="lineNum">     117 </span>            : 
-<span class="lineNum">     118 </span><span class="lineCov">         98 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
+<span class="lineNum">     118 </span><span class="lineCov">        166 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
 <span class="lineNum">     119 </span>            :     {
 <span class="lineNum">     120 </span><span class="lineCov">         78 :         int start = 0;</span>
 <span class="lineNum">     121 </span><span class="lineCov">         78 :         memset(&amp;line, 0, sizeof(M2DataLine_t));</span>
@@ -244,7 +244,7 @@
 <span class="lineNum">     182 </span><span class="lineCov">          4 : void M2Data::ComputeMetrics(double ithi_m2[4], double ithi_median[4], double ithi_ninety[4], uint32_t * nb_entries)</span>
 <span class="lineNum">     183 </span>            : {
 <span class="lineNum">     184 </span><span class="lineCov">          4 :     int totals[4] = { 0,0,0,0 };</span>
-<span class="lineNum">     185 </span><span class="lineCov">         20 :     std::vector&lt;double&gt; point_list[4];</span>
+<span class="lineNum">     185 </span><span class="lineCov">          8 :     std::vector&lt;double&gt; point_list[4];</span>
 <span class="lineNum">     186 </span><span class="lineCov">          4 :     int total_domains = 0;</span>
 <span class="lineNum">     187 </span>            : 
 <span class="lineNum">     188 </span><span class="lineCov">          4 :     *nb_entries = (uint32_t) dataset.size();</span>
@@ -287,7 +287,7 @@
 <span class="lineNum">     225 </span>            :             }
 <span class="lineNum">     226 </span><span class="lineCov">         16 :             ithi_median[x] = (double)abuse_rank;</span>
 <span class="lineNum">     227 </span>            : 
-<span class="lineNum">     228 </span><span class="lineCov">         50 :             while (running_total &gt; abuse_ninety &amp;&amp; abuse_rank &lt; point_list[j].size()) {</span>
+<span class="lineNum">     228 </span><span class="lineCov">         52 :             while (running_total &gt; abuse_ninety &amp;&amp; abuse_rank &lt; point_list[j].size()) {</span>
 <span class="lineNum">     229 </span><span class="lineCov">         18 :                 running_total += point_list[j][abuse_rank++];</span>
 <span class="lineNum">     230 </span>            :             }
 <span class="lineNum">     231 </span><span class="lineCov">         16 :             ithi_ninety[x] = (double)abuse_rank;</span>
@@ -295,7 +295,7 @@
 <span class="lineNum">     233 </span><span class="lineNoCov">          0 :             ithi_median[x] = 0;</span>
 <span class="lineNum">     234 </span><span class="lineNoCov">          0 :             ithi_ninety[x] = 0;</span>
 <span class="lineNum">     235 </span>            :         }
-<span class="lineNum">     236 </span><span class="lineCov">         20 :     }</span>
+<span class="lineNum">     236 </span>            :     }
 <a name="237"><span class="lineNum">     237 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">     238 </span>            : 
 <span class="lineNum">     239 </span><span class="lineNoCov">          0 : void M2Data::Sort()</span>
@@ -386,7 +386,7 @@
 <span class="lineNum">     324 </span><span class="lineCov">          6 :     char const * start = monthly_csv_file_path;</span>
 <span class="lineNum">     325 </span><span class="lineCov">          6 :     char const * x = monthly_csv_file_path;</span>
 <span class="lineNum">     326 </span>            : 
-<span class="lineNum">     327 </span><span class="lineCov">        164 :     while (*x)</span>
+<span class="lineNum">     327 </span><span class="lineCov">        310 :     while (*x)</span>
 <span class="lineNum">     328 </span>            :     {
 <span class="lineNum">     329 </span><span class="lineCov">        152 :         if (*x == file_sep)</span>
 <span class="lineNum">     330 </span>            :         {
@@ -681,7 +681,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

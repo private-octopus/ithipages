@@ -1,8 +1,8 @@
 var searchData=
 [
   ['bannedaddresses',['bannedAddresses',['../class_dns_stats.html#a1d3c9b94543fc77b21157feb744adff9',1,'DnsStats']]],
-  ['before',['before',['../namespacepartnercheck.html#ab136d61ed60f6a42baa8cd1dce9a9d23',1,'partnercheck']]],
-  ['before_5fmonth',['before_month',['../namespacepartnercheck.html#a58fd13b0861bc97c3f5ee0d19e3f3dfd',1,'partnercheck']]],
+  ['before',['before',['../namespacepartnercheck.html#a07581f543fa86cb3a06d6ac0ad5a9ea5',1,'partnercheck']]],
+  ['before_5fmonth',['before_month',['../namespacepartnercheck.html#aaa2ea1e91f496d459c9d3e082f1a0cb3',1,'partnercheck']]],
   ['binhash',['BinHash',['../class_bin_hash.html',1,'BinHash&lt; KeyObj &gt;'],['../class_lru_hash.html#ae1c03af6ab02cb485a4257c993bd7efa',1,'LruHash::binHash()'],['../class_bin_hash.html#a57b824d67f99b59e340072a4651c1f46',1,'BinHash::BinHash()']]],
   ['binhash_3c_20dnshashentry_20_3e',['BinHash&lt; DnsHashEntry &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20dnsprefixentry_20_3e',['BinHash&lt; DnsPrefixEntry &gt;',['../class_bin_hash.html',1,'']]],

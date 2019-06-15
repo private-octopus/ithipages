@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - M7Getter.cpp<span style="font-size: 80%;"> (source / <a href="M7Getter.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - M7Getter.cpp<span style="font-size: 80%;"> (source / <a href="M7Getter.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">122</td>
+            <td class="headerCovTableEntry">120</td>
             <td class="headerCovTableEntry">130</td>
-            <td class="headerCovTableEntryHi">93.8 %</td>
+            <td class="headerCovTableEntryHi">92.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -91,7 +91,7 @@
 <span class="lineNum">      29 </span>            : {
 <span class="lineNum">      30 </span>            :     FILE* F;
 <span class="lineNum">      31 </span>            :     char buffer[512];
-<span class="lineNum">      32 </span><span class="lineCov">          2 :     BinHash&lt;TldDSAsKey&gt; table;</span>
+<span class="lineNum">      32 </span><span class="lineCov">          4 :     BinHash&lt;TldDSAsKey&gt; table;</span>
 <span class="lineNum">      33 </span>            : 
 <span class="lineNum">      34 </span>            : #ifdef _WINDOWS
 <span class="lineNum">      35 </span>            :     errno_t err = fopen_s(&amp;F, root_zone_file_name, &quot;r&quot;);
@@ -111,7 +111,7 @@
 <span class="lineNum">      49 </span>            :         /*
 <span class="lineNum">      50 </span>            :          * Read the file and parse the records.
 <span class="lineNum">      51 </span>            :          */
-<span class="lineNum">      52 </span><span class="lineCov">      44990 :         while (fgets(buffer, sizeof(buffer), F) != NULL)</span>
+<span class="lineNum">      52 </span><span class="lineCov">      89974 :         while (fgets(buffer, sizeof(buffer), F) != NULL)</span>
 <span class="lineNum">      53 </span>            :         {
 <span class="lineNum">      54 </span>            :             /* Parse to find the name and the record type.
 <span class="lineNum">      55 </span>            :              * If this is a TLD, check whether this is a DS record, and add to hash table.
@@ -122,7 +122,7 @@
 <span class="lineNum">      60 </span>            : 
 <span class="lineNum">      61 </span><span class="lineCov">      44986 :             if (ParseRecord(buffer, &amp;tld, &amp;tld_length, &amp;has_ds))</span>
 <span class="lineNum">      62 </span>            :             {
-<span class="lineNum">      63 </span><span class="lineCov">      29130 :                 TldDSAsKey key(tld, tld_length, has_ds);</span>
+<span class="lineNum">      63 </span><span class="lineCov">      58260 :                 TldDSAsKey key(tld, tld_length, has_ds);</span>
 <span class="lineNum">      64 </span><span class="lineCov">      29130 :                 bool stored = false;</span>
 <span class="lineNum">      65 </span>            : 
 <span class="lineNum">      66 </span><span class="lineCov">      29130 :                 (void)table.InsertOrAdd(&amp;key, true, &amp;stored);</span>
@@ -138,7 +138,7 @@
 <span class="lineNum">      76 </span>            :         {
 <span class="lineNum">      77 </span><span class="lineCov">      16384 :             TldDSAsKey * key = table.GetEntry(i);</span>
 <span class="lineNum">      78 </span>            : 
-<span class="lineNum">      79 </span><span class="lineCov">      35850 :             while (key != NULL)</span>
+<span class="lineNum">      79 </span><span class="lineCov">      22548 :             while (key != NULL)</span>
 <span class="lineNum">      80 </span>            :             {
 <span class="lineNum">      81 </span><span class="lineCov">       3082 :                 nb_tld_queried++;</span>
 <span class="lineNum">      82 </span>            : 
@@ -161,7 +161,7 @@
 <span class="lineNum">      99 </span>            :         }
 <span class="lineNum">     100 </span>            :     }
 <span class="lineNum">     101 </span>            : 
-<span class="lineNum">     102 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     102 </span><span class="lineCov">          4 :     return ret;</span>
 <span class="lineNum">     103 </span>            : }
 <span class="lineNum">     104 </span>            : 
 <span class="lineNum">     105 </span>            : /*
@@ -219,10 +219,10 @@
 <span class="lineNum">     157 </span>            :         }
 <span class="lineNum">     158 </span>            :         else
 <span class="lineNum">     159 </span>            :         {
-<span class="lineNum">     160 </span><span class="lineCov">      77148 :             do</span>
+<span class="lineNum">     160 </span><span class="lineCov">      48018 :             do</span>
 <span class="lineNum">     161 </span>            :             {
 <span class="lineNum">     162 </span><span class="lineCov">      77148 :                 i++;</span>
-<span class="lineNum">     163 </span><span class="lineCov">     154296 :             } while (buffer[i] == ' ' || buffer[i] == '\t');</span>
+<span class="lineNum">     163 </span><span class="lineCov">      77148 :             } while (buffer[i] == ' ' || buffer[i] == '\t');</span>
 <span class="lineNum">     164 </span>            :         }
 <span class="lineNum">     165 </span>            :         /* skip TTL */
 <span class="lineNum">     166 </span><span class="lineCov">      29130 :         if (buffer[i] &lt; '0' || buffer[i] &gt; '9')</span>
@@ -231,10 +231,10 @@
 <span class="lineNum">     169 </span>            :         }
 <span class="lineNum">     170 </span>            :         else
 <span class="lineNum">     171 </span>            :         {
-<span class="lineNum">     172 </span><span class="lineCov">     160324 :             do</span>
+<span class="lineNum">     172 </span><span class="lineCov">     131194 :             do</span>
 <span class="lineNum">     173 </span>            :             {
 <span class="lineNum">     174 </span><span class="lineCov">     160324 :                 i++;</span>
-<span class="lineNum">     175 </span><span class="lineCov">     291518 :             } while (buffer[i] &gt;= '0' &amp;&amp; buffer[i] &lt;= '9');</span>
+<span class="lineNum">     175 </span><span class="lineCov">     160324 :             } while (buffer[i] &gt;= '0' &amp;&amp; buffer[i] &lt;= '9');</span>
 <span class="lineNum">     176 </span>            :         }
 <span class="lineNum">     177 </span>            :         /* skip more spaces */
 <span class="lineNum">     178 </span><span class="lineCov">      29130 :         if (buffer[i] != ' ' &amp;&amp; buffer[i] != '\t')</span>
@@ -243,10 +243,10 @@
 <span class="lineNum">     181 </span>            :         }
 <span class="lineNum">     182 </span>            :         else
 <span class="lineNum">     183 </span>            :         {
-<span class="lineNum">     184 </span><span class="lineCov">      29130 :             do</span>
+<span class="lineNum">     184 </span><span class="lineNoCov">          0 :             do</span>
 <span class="lineNum">     185 </span>            :             {
 <span class="lineNum">     186 </span><span class="lineCov">      29130 :                 i++;</span>
-<span class="lineNum">     187 </span><span class="lineCov">      58260 :             } while (buffer[i] == ' ' || buffer[i] == '\t');</span>
+<span class="lineNum">     187 </span><span class="lineCov">      29130 :             } while (buffer[i] == ' ' || buffer[i] == '\t');</span>
 <span class="lineNum">     188 </span>            :         }
 <span class="lineNum">     189 </span>            :         /* skip CLASS */
 <span class="lineNum">     190 </span><span class="lineCov">      58260 :         if ((buffer[i] == 'i' || buffer[i] == 'I') &amp;&amp;</span>
@@ -265,10 +265,10 @@
 <span class="lineNum">     203 </span>            :         }
 <span class="lineNum">     204 </span>            :         else
 <span class="lineNum">     205 </span>            :         {
-<span class="lineNum">     206 </span><span class="lineCov">      29130 :             do</span>
+<span class="lineNum">     206 </span><span class="lineNoCov">          0 :             do</span>
 <span class="lineNum">     207 </span>            :             {
 <span class="lineNum">     208 </span><span class="lineCov">      29130 :                 i++;</span>
-<span class="lineNum">     209 </span><span class="lineCov">      58260 :             } while (buffer[i] == ' ' || buffer[i] == '\t');</span>
+<span class="lineNum">     209 </span><span class="lineCov">      29130 :             } while (buffer[i] == ' ' || buffer[i] == '\t');</span>
 <span class="lineNum">     210 </span>            :         }
 <span class="lineNum">     211 </span>            :         /* check ds_bit */
 <span class="lineNum">     212 </span><span class="lineCov">      34632 :         if ((buffer[i] == 'd' || buffer[i] == 'D') &amp;&amp;</span>
@@ -407,7 +407,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

@@ -1,11 +1,11 @@
 <map id="lib/ithimetrics.h" name="lib/ithimetrics.h">
-<area shape="rect" id="node3" href="$_capture_summary_8h.html" title="CaptureSummary.h" alt="" coords="533,155,667,181"/>
-<area shape="rect" id="node10" href="$_m1_data_8h.html" title="M1Data.h" alt="" coords="327,155,405,181"/>
-<area shape="rect" id="node13" href="$_m2_data_8h.html" title="M2Data.h" alt="" coords="430,155,508,181"/>
-<area shape="rect" id="node14" href="$_compute_m34_8h.html" title="ComputeM34.h" alt="" coords="167,80,277,107"/>
-<area shape="rect" id="node15" href="$_compute_m6_8h.html" title="ComputeM6.h" alt="" coords="303,80,407,107"/>
-<area shape="rect" id="node16" href="$_m7_getter_8h.html" title="M7Getter.h" alt="" coords="5,80,91,107"/>
-<area shape="rect" id="node7" href="$_hash_bin_generic_8h.html" title="HashBinGeneric.h" alt="" coords="663,229,791,256"/>
-<area shape="rect" id="node9" href="$_tld_as_key_8h.html" title="TldAsKey.h" alt="" coords="815,229,905,256"/>
-<area shape="rect" id="node11" href="$_compute_metric_8h.html" title="ComputeMetric.h" alt="" coords="129,229,252,256"/>
+<area shape="rect" id="node3" href="$_capture_summary_8h.html" title="CaptureSummary.h" alt="" coords="557,155,704,181"/>
+<area shape="rect" id="node10" href="$_m1_data_8h.html" title="M1Data.h" alt="" coords="341,155,425,181"/>
+<area shape="rect" id="node13" href="$_m2_data_8h.html" title="M2Data.h" alt="" coords="449,155,533,181"/>
+<area shape="rect" id="node14" href="$_compute_m34_8h.html" title="ComputeM34.h" alt="" coords="173,80,293,107"/>
+<area shape="rect" id="node15" href="$_compute_m6_8h.html" title="ComputeM6.h" alt="" coords="317,80,429,107"/>
+<area shape="rect" id="node16" href="$_m7_getter_8h.html" title="M7Getter.h" alt="" coords="5,80,99,107"/>
+<area shape="rect" id="node7" href="$_hash_bin_generic_8h.html" title="HashBinGeneric.h" alt="" coords="692,229,828,256"/>
+<area shape="rect" id="node9" href="$_tld_as_key_8h.html" title="TldAsKey.h" alt="" coords="852,229,940,256"/>
+<area shape="rect" id="node11" href="$_compute_metric_8h.html" title="ComputeMetric.h" alt="" coords="143,229,275,256"/>
 </map>

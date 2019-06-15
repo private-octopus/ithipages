@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - TldCountTest.cpp<span style="font-size: 80%;"> (source / <a href="TldCountTest.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - TldCountTest.cpp<span style="font-size: 80%;"> (source / <a href="TldCountTest.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">178</td>
-            <td class="headerCovTableEntry">190</td>
-            <td class="headerCovTableEntryHi">93.7 %</td>
+            <td class="headerCovTableEntry">177</td>
+            <td class="headerCovTableEntry">193</td>
+            <td class="headerCovTableEntryHi">91.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
@@ -348,7 +348,7 @@
 <span class="lineNum">     286 </span>            : 
 <span class="lineNum">     287 </span><span class="lineCov">          2 : static void fill_initial_table(BinHash&lt;DnsHashEntry&gt; * hashTable) {</span>
 <span class="lineNum">     288 </span><span class="lineCov">        106 :     for (size_t i = 0; i &lt; nb_hash_input_table; i++) {</span>
-<span class="lineNum">     289 </span><span class="lineCov">        104 :         DnsHashEntry key;</span>
+<span class="lineNum">     289 </span><span class="lineCov">        208 :         DnsHashEntry key;</span>
 <span class="lineNum">     290 </span><span class="lineCov">        104 :         bool stored = false;</span>
 <span class="lineNum">     291 </span>            : 
 <span class="lineNum">     292 </span><span class="lineCov">        104 :         key.count = hash_input_table[i].count;</span>
@@ -365,7 +365,7 @@
 <span class="lineNum">     303 </span>            :         }
 <span class="lineNum">     304 </span>            : 
 <span class="lineNum">     305 </span><span class="lineCov">        104 :         (void)hashTable-&gt;InsertOrAdd(&amp;key, true, &amp;stored);</span>
-<span class="lineNum">     306 </span><span class="lineCov">        104 :     }</span>
+<span class="lineNum">     306 </span>            :     }
 <span class="lineNum">     307 </span><span class="lineCov">          2 : }</span>
 <span class="lineNum">     308 </span>            : 
 <span class="lineNum">     309 </span>            : 
@@ -387,9 +387,9 @@
 <span class="lineNum">     325 </span><span class="lineCov">   13789982 :     uint32_t delta = 0xFFFFFFFF % range_max;</span>
 <span class="lineNum">     326 </span>            :     uint32_t rnd;
 <span class="lineNum">     327 </span>            : 
-<span class="lineNum">     328 </span><span class="lineCov">   13790010 :     do {</span>
+<span class="lineNum">     328 </span><span class="lineCov">         28 :     do {</span>
 <span class="lineNum">     329 </span><span class="lineCov">   13790010 :         rnd = xorshift32();</span>
-<span class="lineNum">     330 </span>            :     } while (rnd &lt; delta);
+<span class="lineNum">     330 </span><span class="lineCov">   13790010 :     } while (rnd &lt; delta);</span>
 <span class="lineNum">     331 </span>            : 
 <span class="lineNum">     332 </span><span class="lineCov">   13789982 :     return rnd % range_max;</span>
 <span class="lineNum">     333 </span>            : }
@@ -408,7 +408,7 @@
 <span class="lineNum">     346 </span>            : 
 <span class="lineNum">     347 </span><span class="lineCov">          2 : bool TldCountTest::DoTest()</span>
 <span class="lineNum">     348 </span>            : {
-<span class="lineNum">     349 </span><span class="lineCov">          2 :     LruHash&lt;TldAsKey&gt; tldStringUsage;</span>
+<span class="lineNum">     349 </span><span class="lineCov">          4 :     LruHash&lt;TldAsKey&gt; tldStringUsage;</span>
 <span class="lineNum">     350 </span><span class="lineCov">          4 :     BinHash&lt;DnsHashEntry&gt; hashTable;</span>
 <span class="lineNum">     351 </span>            :     uint64_t count_per_string[nbTargetNames+1];
 <span class="lineNum">     352 </span><span class="lineCov">          2 :     const uint64_t initial_count = 0x10000;</span>
@@ -474,7 +474,7 @@
 <span class="lineNum">     412 </span><span class="lineCov">    1060768 :             bool stored = false;</span>
 <span class="lineNum">     413 </span>            :             char rand_name[RANDOM_TLD_LENGTH + 1];
 <span class="lineNum">     414 </span><span class="lineCov">    1060768 :             char const * tld = (rand_table[i] == 0)? random_tld(rand_name): TargetNames[rand_table[i]-1];</span>
-<span class="lineNum">     415 </span><span class="lineCov">    1060768 :             TldAsKey key((uint8_t *)tld, strlen(tld));</span>
+<span class="lineNum">     415 </span><span class="lineCov">    2121536 :             TldAsKey key((uint8_t *)tld, strlen(tld));</span>
 <span class="lineNum">     416 </span><span class="lineCov">    1060768 :             TldAsKey * inserted = NULL;</span>
 <span class="lineNum">     417 </span><span class="lineCov">    2121536 :             DnsHashEntry counter_entry;</span>
 <span class="lineNum">     418 </span>            : 
@@ -497,15 +497,15 @@
 <span class="lineNum">     435 </span>            :             }
 <span class="lineNum">     436 </span><span class="lineCov">    1060768 :             inserted = tldStringUsage.InsertOrAdd(&amp;key, true, &amp;stored);</span>
 <span class="lineNum">     437 </span><span class="lineCov">    1060768 :             if (inserted != NULL &amp;&amp; rand_table[i] &gt; 0 &amp;&amp; inserted-&gt;count &gt; count_per_string[rand_table[i]]) {</span>
-<span class="lineNum">     438 </span>            :                 TEST_LOG(&quot;TLD %s, count %d instead of %d\n&quot;,
+<span class="lineNum">     438 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;TLD %s, count %d instead of %d\n&quot;,</span>
 <span class="lineNum">     439 </span><span class="lineNoCov">          0 :                     TargetNames[rand_table[i] - 1], (int)inserted-&gt;count, (int)count_per_string[rand_table[i]]);</span>
 <span class="lineNum">     440 </span>            :             }
-<span class="lineNum">     441 </span><span class="lineCov">    1060768 :         }</span>
+<span class="lineNum">     441 </span>            :         }
 <span class="lineNum">     442 </span>            : 
 <span class="lineNum">     443 </span>            :         /* Simulate extraction */
 <span class="lineNum">     444 </span><span class="lineCov">          2 :         if (tldStringUsage.GetCount() &gt; 0) {</span>
 <span class="lineNum">     445 </span>            :             TldAsKey *tld_entry;
-<span class="lineNum">     446 </span><span class="lineCov">          2 :             std::vector&lt;TldAsKey *&gt; lines(tldStringUsage.GetCount());</span>
+<span class="lineNum">     446 </span><span class="lineCov">          4 :             std::vector&lt;TldAsKey *&gt; lines(tldStringUsage.GetCount());</span>
 <span class="lineNum">     447 </span><span class="lineCov">          2 :             int vector_index = 0;</span>
 <span class="lineNum">     448 </span><span class="lineCov">          2 :             uint32_t export_count = 0;</span>
 <span class="lineNum">     449 </span>            : 
@@ -514,14 +514,14 @@
 <span class="lineNum">     452 </span>            :             {
 <span class="lineNum">     453 </span><span class="lineCov">     262144 :                 tld_entry = tldStringUsage.GetEntry(i);</span>
 <span class="lineNum">     454 </span>            : 
-<span class="lineNum">     455 </span><span class="lineCov">     589824 :                 while (tld_entry != NULL)</span>
+<span class="lineNum">     455 </span><span class="lineCov">     393216 :                 while (tld_entry != NULL)</span>
 <span class="lineNum">     456 </span>            :                 {
 <span class="lineNum">     457 </span><span class="lineCov">      65536 :                     int tld_index = GetTldIndex(tld_entry-&gt;tld, tld_entry-&gt;tld_len);</span>
 <span class="lineNum">     458 </span><span class="lineCov">      65536 :                     if (tld_index &gt;= 0) {</span>
 <span class="lineNum">     459 </span><span class="lineCov">        336 :                         if (((uint32_t)tld_index) &lt; max_tld_leakage_count &amp;&amp;</span>
 <span class="lineNum">     460 </span><span class="lineCov">         42 :                             count_per_string[tld_index + 1] != tld_entry-&gt;count) {</span>
-<span class="lineNum">     461 </span>            :                             TEST_LOG(&quot;TLD %s, count %d instead of %d\n&quot;,
-<span class="lineNum">     462 </span><span class="lineCov">          6 :                                 TargetNames[tld_index], (int)tld_entry-&gt;count, (int)count_per_string[tld_index + 1]);</span>
+<span class="lineNum">     461 </span><span class="lineCov">         12 :                             TEST_LOG(&quot;TLD %s, count %d instead of %d\n&quot;,</span>
+<span class="lineNum">     462 </span><span class="lineCov">         18 :                                 TargetNames[tld_index], (int)tld_entry-&gt;count, (int)count_per_string[tld_index + 1]);</span>
 <span class="lineNum">     463 </span><span class="lineCov">          6 :                             if (tld_entry-&gt;count &gt; count_per_string[tld_index + 1]) {</span>
 <span class="lineNum">     464 </span><span class="lineNoCov">          0 :                                 ret = false;</span>
 <span class="lineNum">     465 </span>            :                             }
@@ -544,7 +544,7 @@
 <span class="lineNum">     482 </span><span class="lineCov">        256 :                     kept_keys += lines[i]-&gt;count;</span>
 <span class="lineNum">     483 </span><span class="lineCov">        256 :                     export_count++;</span>
 <span class="lineNum">     484 </span><span class="lineCov">        256 :                     int tld_index = GetTldIndex(lines[i]-&gt;tld, lines[i]-&gt;tld_len);</span>
-<span class="lineNum">     485 </span><span class="lineCov">        256 :                     DnsHashEntry key;</span>
+<span class="lineNum">     485 </span><span class="lineCov">        512 :                     DnsHashEntry key;</span>
 <span class="lineNum">     486 </span><span class="lineCov">        256 :                     bool stored = false;</span>
 <span class="lineNum">     487 </span>            : 
 <span class="lineNum">     488 </span><span class="lineCov">        256 :                     key.count = lines[i]-&gt;count;</span>
@@ -558,38 +558,38 @@
 <span class="lineNum">     496 </span>            : 
 <span class="lineNum">     497 </span><span class="lineCov">        256 :                     if (tld_index &lt; 0) {</span>
 <span class="lineNum">     498 </span><span class="lineCov">        228 :                         if (lines[i]-&gt;count &gt; 1) {</span>
-<span class="lineNum">     499 </span>            :                             TEST_LOG(&quot;rank %d, random name, length %d, count %d\n&quot;,
+<span class="lineNum">     499 </span><span class="lineNoCov">          0 :                             TEST_LOG(&quot;rank %d, random name, length %d, count %d\n&quot;,</span>
 <span class="lineNum">     500 </span><span class="lineNoCov">          0 :                                 (int)i, lines[i]-&gt;tld_len, (int)lines[i]-&gt;count);</span>
 <span class="lineNum">     501 </span>            :                         }
 <span class="lineNum">     502 </span>            :                     } else {
 <span class="lineNum">     503 </span><span class="lineCov">         28 :                         if (count_per_string[tld_index + 1] != lines[i]-&gt;count) {</span>
-<span class="lineNum">     504 </span>            :                             TEST_LOG(&quot;rank %d, %s, count %d instead of %d\n&quot;,
-<span class="lineNum">     505 </span><span class="lineCov">          6 :                                 (int)i, TargetNames[tld_index], (int)lines[i]-&gt;count, (int)count_per_string[tld_index + 1]);</span>
+<span class="lineNum">     504 </span><span class="lineCov">         12 :                             TEST_LOG(&quot;rank %d, %s, count %d instead of %d\n&quot;,</span>
+<span class="lineNum">     505 </span><span class="lineCov">         18 :                                 (int)i, TargetNames[tld_index], (int)lines[i]-&gt;count, (int)count_per_string[tld_index + 1]);</span>
 <span class="lineNum">     506 </span><span class="lineCov">          6 :                             if (lines[i]-&gt;count &gt; count_per_string[tld_index + 1]) {</span>
 <span class="lineNum">     507 </span><span class="lineNoCov">          0 :                                 ret = false;</span>
 <span class="lineNum">     508 </span>            :                             }
 <span class="lineNum">     509 </span>            :                         }
-<span class="lineNum">     510 </span><span class="lineCov">        256 :                     }</span>
+<span class="lineNum">     510 </span>            :                     }
 <span class="lineNum">     511 </span>            :                 }
 <span class="lineNum">     512 </span>            :                 else
 <span class="lineNum">     513 </span>            :                 {
 <span class="lineNum">     514 </span><span class="lineCov">      65280 :                     dropped_keys += lines[i]-&gt;count;</span>
 <span class="lineNum">     515 </span>            :                 }
-<span class="lineNum">     516 </span><span class="lineCov">          2 :             }</span>
+<span class="lineNum">     516 </span>            :             }
 <span class="lineNum">     517 </span>            :         }
 <span class="lineNum">     518 </span>            : 
 <span class="lineNum">     519 </span>            :         /* Verify count */
 <span class="lineNum">     520 </span><span class="lineCov">          2 :         ret &amp;= ((kept_keys + dropped_keys) == total_keys);</span>
 <span class="lineNum">     521 </span>            : 
 <span class="lineNum">     522 </span><span class="lineCov">          2 :         if (!ret) {</span>
-<span class="lineNum">     523 </span>            :             TEST_LOG(&quot;Tld count test, kept_keys + dropped_keys: %d + %d = %d != total: %d\n&quot;,
+<span class="lineNum">     523 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Tld count test, kept_keys + dropped_keys: %d + %d = %d != total: %d\n&quot;,</span>
 <span class="lineNum">     524 </span><span class="lineNoCov">          0 :                 (int)kept_keys, (int)dropped_keys, (int)kept_keys + (int)dropped_keys, (int)total_keys);</span>
 <span class="lineNum">     525 </span>            :         } else {
 <span class="lineNum">     526 </span><span class="lineCov">          2 :             int64_t delta_count = expected_count - kept_keys;</span>
 <span class="lineNum">     527 </span>            : 
 <span class="lineNum">     528 </span><span class="lineCov">          2 :             ret = (delta_count &lt;= max_delta_count) &amp;&amp; (-delta_count &lt;= max_delta_count);</span>
 <span class="lineNum">     529 </span><span class="lineCov">          2 :             if (!ret) {</span>
-<span class="lineNum">     530 </span>            :                 TEST_LOG(&quot;Tld count test, expected_count: %d &gt;&gt; kept_keys: %d\n&quot;,
+<span class="lineNum">     530 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Tld count test, expected_count: %d &gt;&gt; kept_keys: %d\n&quot;,</span>
 <span class="lineNum">     531 </span><span class="lineNoCov">          0 :                     (int)expected_count, (int)kept_keys);</span>
 <span class="lineNum">     532 </span>            :             }
 <span class="lineNum">     533 </span>            :         }
@@ -602,7 +602,7 @@
 <span class="lineNum">     540 </span>            :             {
 <span class="lineNum">     541 </span><span class="lineCov">       1024 :                 entry = hashTable.GetEntry(i);</span>
 <span class="lineNum">     542 </span>            : 
-<span class="lineNum">     543 </span><span class="lineCov">       2410 :                 while (entry != NULL)</span>
+<span class="lineNum">     543 </span><span class="lineCov">       1748 :                 while (entry != NULL)</span>
 <span class="lineNum">     544 </span>            :                 {
 <span class="lineNum">     545 </span><span class="lineCov">        362 :                     if (entry-&gt;registry_id == REGISTRY_DNS_Frequent_TLD_Usage) {</span>
 <span class="lineNum">     546 </span><span class="lineCov">        256 :                         hashed_count += entry-&gt;count;</span>
@@ -638,7 +638,7 @@
 <span class="lineNum">     576 </span>            :     int middle;
 <span class="lineNum">     577 </span><span class="lineCov">      65792 :     int found = -1;</span>
 <span class="lineNum">     578 </span>            : 
-<span class="lineNum">     579 </span><span class="lineCov">     832914 :     while (found == -1 &amp;&amp; low &lt; high) {</span>
+<span class="lineNum">     579 </span><span class="lineCov">    1468452 :     while (found == -1 &amp;&amp; low &lt; high) {</span>
 <span class="lineNum">     580 </span>            :         uint8_t * r;
 <span class="lineNum">     581 </span>            :         size_t r_len;
 <span class="lineNum">     582 </span><span class="lineCov">     766800 :         int cmp = 0;</span>
@@ -688,7 +688,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

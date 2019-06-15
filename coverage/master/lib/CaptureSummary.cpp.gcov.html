@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - CaptureSummary.cpp<span style="font-size: 80%;"> (source / <a href="CaptureSummary.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - CaptureSummary.cpp<span style="font-size: 80%;"> (source / <a href="CaptureSummary.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">264</td>
+            <td class="headerCovTableEntry">265</td>
             <td class="headerCovTableEntry">306</td>
-            <td class="headerCovTableEntryMed">86.3 %</td>
+            <td class="headerCovTableEntryMed">86.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -254,7 +254,7 @@
 <span class="lineNum">     192 </span><span class="lineCov">       1064 :     ret = (F != NULL);</span>
 <span class="lineNum">     193 </span>            : #endif
 <span class="lineNum">     194 </span>            : 
-<span class="lineNum">     195 </span><span class="lineCov">     260874 :     while ( ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
+<span class="lineNum">     195 </span><span class="lineCov">     518556 :     while ( ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
 <span class="lineNum">     196 </span>            :     {
 <span class="lineNum">     197 </span><span class="lineCov">     258746 :         int start = 0;</span>
 <span class="lineNum">     198 </span><span class="lineCov">     258746 :         start = CsvHelper::read_string(line.registry_name, sizeof(line.registry_name), start, buffer, sizeof(buffer));</span>
@@ -530,7 +530,7 @@
 <span class="lineNum">     468 </span>            : #endif
 <span class="lineNum">     469 </span>            : 
 <span class="lineNum">     470 </span>            :     /* Read each file name and add it to the list */
-<span class="lineNum">     471 </span><span class="lineCov">       1032 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F) != NULL) {</span>
+<span class="lineNum">     471 </span><span class="lineCov">       2058 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F) != NULL) {</span>
 <span class="lineNum">     472 </span>            :         /* Clean up the end of the buffer */
 <span class="lineNum">     473 </span><span class="lineCov">       1028 :         size_t len = strlen(buffer);</span>
 <span class="lineNum">     474 </span>            : 
@@ -554,11 +554,11 @@
 <span class="lineNum">     492 </span>            :             else
 <span class="lineNum">     493 </span>            :             {
 <span class="lineNum">     494 </span><span class="lineCov">          4 :                 size_t i = 0;</span>
-<span class="lineNum">     495 </span><span class="lineCov">       1032 :                 while (i &lt; nb_alloc){</span>
+<span class="lineNum">     495 </span><span class="lineCov">       2052 :                 while (i &lt; nb_alloc){</span>
 <span class="lineNum">     496 </span><span class="lineCov">       1024 :                     new_list[i] = file_list[i];</span>
 <span class="lineNum">     497 </span><span class="lineCov">       1024 :                     file_list[i++] = NULL;</span>
 <span class="lineNum">     498 </span>            :                 }
-<span class="lineNum">     499 </span><span class="lineCov">       2056 :                 while (i &lt; new_len) {</span>
+<span class="lineNum">     499 </span><span class="lineCov">       4100 :                 while (i &lt; new_len) {</span>
 <span class="lineNum">     500 </span><span class="lineCov">       2048 :                     new_list[i++] = NULL;</span>
 <span class="lineNum">     501 </span>            :                 }
 <span class="lineNum">     502 </span>            : 
@@ -656,7 +656,7 @@
 <span class="lineNum">     594 </span><span class="lineCov">          4 :     bool ret = true;</span>
 <span class="lineNum">     595 </span><span class="lineCov">          4 :     size_t max_size = 0;</span>
 <span class="lineNum">     596 </span><span class="lineCov">          4 :     size_t complete_size = 0;</span>
-<span class="lineNum">     597 </span><span class="lineCov">          4 :     std::vector&lt;CaptureLine *&gt; complete;</span>
+<span class="lineNum">     597 </span><span class="lineCov">          8 :     std::vector&lt;CaptureLine *&gt; complete;</span>
 <span class="lineNum">     598 </span><span class="lineCov">          8 :     std::vector&lt;CaptureLine *&gt; leaked_tld;</span>
 <span class="lineNum">     599 </span><span class="lineCov">          8 :     std::vector&lt;CaptureLine *&gt; frequent_tld;</span>
 <span class="lineNum">     600 </span><span class="lineCov">          4 :     char const * leak_tld_id = NULL;</span>
@@ -732,7 +732,7 @@
 <span class="lineNum">     670 </span>            :                 else
 <span class="lineNum">     671 </span>            :                 {
 <span class="lineNum">     672 </span><span class="lineNoCov">          0 :                     nb_locally_leaked_tld += cs[i]-&gt;summary[j]-&gt;count;</span>
-<span class="lineNum">     673 </span><span class="lineNoCov">          0 :                 }</span>
+<span class="lineNum">     673 </span>            :                 }
 <span class="lineNum">     674 </span>            :             }
 <span class="lineNum">     675 </span><span class="lineCov">     245100 :             else if (strcmp(cs[i]-&gt;summary[j]-&gt;registry_name, leak_tld_id) == 0)</span>
 <span class="lineNum">     676 </span>            :             {
@@ -777,12 +777,12 @@
 <span class="lineNum">     715 </span>            :      * Put the frequent tld and tls usage in separate lists */
 <span class="lineNum">     716 </span><span class="lineCov">          4 :     Reserve(max_size + 64* nb_summaries);</span>
 <span class="lineNum">     717 </span>            : 
-<span class="lineNum">     718 </span><span class="lineCov">        968 :     for (size_t i = 0; ret &amp;&amp; i &lt; complete.size();) {</span>
+<span class="lineNum">     718 </span><span class="lineCov">        964 :     for (size_t i = 0; ret &amp;&amp; i &lt; complete.size();) {</span>
 <span class="lineNum">     719 </span>            :         /* Read the next capture line */
 <span class="lineNum">     720 </span><span class="lineCov">        960 :         current_line = *complete[i++];</span>
 <span class="lineNum">     721 </span>            : 
 <span class="lineNum">     722 </span>            :         /* Summarize all matching lines */
-<span class="lineNum">     723 </span><span class="lineCov">     246060 :         while (i &lt; complete.size() &amp;&amp; CaptureLineIsSameKey(complete[i], &amp;current_line)) {</span>
+<span class="lineNum">     723 </span><span class="lineCov">     489240 :         while (i &lt; complete.size() &amp;&amp; CaptureLineIsSameKey(complete[i], &amp;current_line)) {</span>
 <span class="lineNum">     724 </span><span class="lineCov">     244140 :             current_line.count += complete[i]-&gt;count;</span>
 <span class="lineNum">     725 </span><span class="lineCov">     244140 :             i++;</span>
 <span class="lineNum">     726 </span>            :         }
@@ -846,102 +846,104 @@
 <span class="lineNum">     784 </span>            :         }
 <span class="lineNum">     785 </span>            :     }
 <span class="lineNum">     786 </span>            : 
-<span class="lineNum">     787 </span>            :     /* Add the leaked length to the current counts */
-<span class="lineNum">     788 </span><span class="lineCov">        964 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
-<span class="lineNum">     789 </span>            :     {
-<span class="lineNum">     790 </span><span class="lineCov">       2164 :         if (strcmp(summary[i]-&gt;registry_name, leak_by_length_id) == 0 &amp;&amp;</span>
-<span class="lineNum">     791 </span><span class="lineCov">       1204 :             summary[i]-&gt;key_number &gt; 0 &amp;&amp;</span>
-<span class="lineNum">     792 </span><span class="lineCov">        244 :             summary[i]-&gt;key_number &lt; 64)</span>
-<span class="lineNum">     793 </span>            :         {
-<span class="lineNum">     794 </span><span class="lineCov">        244 :             summary[i]-&gt;count += skipped_tld_length[summary[i]-&gt;key_number];</span>
-<span class="lineNum">     795 </span><span class="lineCov">        244 :             skipped_tld_length[summary[i]-&gt;key_number] = 0;</span>
-<span class="lineNum">     796 </span>            :         }
-<span class="lineNum">     797 </span>            :     }
-<span class="lineNum">     798 </span>            : 
-<span class="lineNum">     799 </span><span class="lineCov">        260 :     for (int i = 0; i &lt; 64; i++)</span>
-<span class="lineNum">     800 </span>            :     {
-<span class="lineNum">     801 </span><span class="lineCov">        256 :         if (skipped_tld_length[i] != 0)</span>
-<span class="lineNum">     802 </span>            :         {
-<span class="lineNum">     803 </span>            :             CaptureLine length_pattern;
-<span class="lineNum">     804 </span>            : 
-<span class="lineNum">     805 </span><span class="lineNoCov">          0 :             length_pattern.count = skipped_tld_length[i];</span>
-<span class="lineNum">     806 </span><span class="lineNoCov">          0 :             length_pattern.key_type = 0;</span>
-<span class="lineNum">     807 </span><span class="lineNoCov">          0 :             length_pattern.key_number = i;</span>
-<span class="lineNum">     808 </span>            : 
-<span class="lineNum">     809 </span><span class="lineNoCov">          0 :             memcpy(length_pattern.registry_name, leak_by_length_id, strlen(leak_by_length_id) + 1);</span>
-<span class="lineNum">     810 </span>            : 
-<span class="lineNum">     811 </span><span class="lineNoCov">          0 :             AddLine(&amp;length_pattern, true);</span>
-<span class="lineNum">     812 </span><span class="lineNoCov">          0 :             skipped_tld_length[i] = 0;</span>
-<span class="lineNum">     813 </span>            :         }
-<span class="lineNum">     814 </span>            :     }
-<span class="lineNum">     815 </span>            : 
-<span class="lineNum">     816 </span><span class="lineCov">          4 :     if (ret) {</span>
-<span class="lineNum">     817 </span>            :         /* Sort the whole thing again */
-<span class="lineNum">     818 </span><span class="lineCov">          4 :         Sort();</span>
-<span class="lineNum">     819 </span>            :     }
-<span class="lineNum">     820 </span>            : 
-<span class="lineNum">     821 </span>            :     /* Clean up */
+<span class="lineNum">     787 </span><span class="lineCov">          4 :     if (ret) {</span>
+<span class="lineNum">     788 </span>            :         /* Add the leaked length to the current counts */
+<span class="lineNum">     789 </span><span class="lineCov">        964 :         for (size_t i = 0; i &lt; summary.size(); i++)</span>
+<span class="lineNum">     790 </span>            :         {
+<span class="lineNum">     791 </span><span class="lineCov">       2164 :             if (strcmp(summary[i]-&gt;registry_name, leak_by_length_id) == 0 &amp;&amp;</span>
+<span class="lineNum">     792 </span><span class="lineCov">       1204 :                 summary[i]-&gt;key_number &gt; 0 &amp;&amp;</span>
+<span class="lineNum">     793 </span><span class="lineCov">        244 :                 summary[i]-&gt;key_number &lt; 64)</span>
+<span class="lineNum">     794 </span>            :             {
+<span class="lineNum">     795 </span><span class="lineCov">        244 :                 summary[i]-&gt;count += skipped_tld_length[summary[i]-&gt;key_number];</span>
+<span class="lineNum">     796 </span><span class="lineCov">        244 :                 skipped_tld_length[summary[i]-&gt;key_number] = 0;</span>
+<span class="lineNum">     797 </span>            :             }
+<span class="lineNum">     798 </span>            :         }
+<span class="lineNum">     799 </span>            : 
+<span class="lineNum">     800 </span><span class="lineCov">        260 :         for (int i = 0; i &lt; 64; i++)</span>
+<span class="lineNum">     801 </span>            :         {
+<span class="lineNum">     802 </span><span class="lineCov">        256 :             if (skipped_tld_length[i] != 0)</span>
+<span class="lineNum">     803 </span>            :             {
+<span class="lineNum">     804 </span>            :                 CaptureLine length_pattern;
+<span class="lineNum">     805 </span>            : 
+<span class="lineNum">     806 </span><span class="lineNoCov">          0 :                 length_pattern.count = skipped_tld_length[i];</span>
+<span class="lineNum">     807 </span><span class="lineNoCov">          0 :                 length_pattern.key_type = 0;</span>
+<span class="lineNum">     808 </span><span class="lineNoCov">          0 :                 length_pattern.key_number = i;</span>
+<span class="lineNum">     809 </span>            : 
+<span class="lineNum">     810 </span><span class="lineNoCov">          0 :                 memcpy(length_pattern.registry_name, leak_by_length_id, strlen(leak_by_length_id) + 1);</span>
+<span class="lineNum">     811 </span>            : 
+<span class="lineNum">     812 </span><span class="lineNoCov">          0 :                 AddLine(&amp;length_pattern, true);</span>
+<span class="lineNum">     813 </span><span class="lineNoCov">          0 :                 skipped_tld_length[i] = 0;</span>
+<span class="lineNum">     814 </span>            :             }
+<span class="lineNum">     815 </span>            :         }
+<span class="lineNum">     816 </span>            :     }
+<span class="lineNum">     817 </span>            : 
+<span class="lineNum">     818 </span><span class="lineCov">          4 :     if (ret) {</span>
+<span class="lineNum">     819 </span>            :         /* Sort the whole thing again */
+<span class="lineNum">     820 </span><span class="lineCov">          4 :         Sort();</span>
+<span class="lineNum">     821 </span>            :     }
 <span class="lineNum">     822 </span>            : 
-<span class="lineNum">     823 </span><span class="lineCov">          4 :     for (size_t i = 0; i &lt; frequent_tld.size(); i++)</span>
-<span class="lineNum">     824 </span>            :     {
-<span class="lineNum">     825 </span><span class="lineNoCov">          0 :         if (frequent_tld[i] != NULL)</span>
-<span class="lineNum">     826 </span>            :         {
-<span class="lineNum">     827 </span><span class="lineNoCov">          0 :             delete frequent_tld[i];</span>
-<span class="lineNum">     828 </span><span class="lineNoCov">          0 :             frequent_tld[i] = NULL;</span>
-<span class="lineNum">     829 </span>            :         }
-<span class="lineNum">     830 </span>            :     }
-<span class="lineNum">     831 </span>            : 
-<span class="lineNum">     832 </span><span class="lineCov">        516 :     for (size_t i = 0; i &lt; leaked_tld.size(); i++)</span>
-<span class="lineNum">     833 </span>            :     {
-<span class="lineNum">     834 </span><span class="lineCov">        512 :         if (leaked_tld[i] != NULL)</span>
-<span class="lineNum">     835 </span>            :         {
-<span class="lineNum">     836 </span><span class="lineCov">        512 :             delete leaked_tld[i];</span>
-<span class="lineNum">     837 </span><span class="lineCov">        512 :             leaked_tld[i] = NULL;</span>
-<span class="lineNum">     838 </span>            :         }
-<span class="lineNum">     839 </span>            :     }
-<span class="lineNum">     840 </span>            : 
-<span class="lineNum">     841 </span><span class="lineCov">          4 :     if (local_leak != NULL)</span>
-<span class="lineNum">     842 </span>            :     {
-<span class="lineNum">     843 </span><span class="lineCov">          4 :         delete local_leak;</span>
-<span class="lineNum">     844 </span><span class="lineCov">          4 :         local_leak = NULL;</span>
-<span class="lineNum">     845 </span>            :     }
-<span class="lineNum">     846 </span>            : 
-<span class="lineNum">     847 </span><span class="lineCov">          8 :     return ret;</span>
-<a name="848"><span class="lineNum">     848 </span>            : }</a>
-<span class="lineNum">     849 </span>            : 
-<span class="lineNum">     850 </span><span class="lineCov">    6971420 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
-<span class="lineNum">     851 </span>            : {
-<span class="lineNum">     852 </span><span class="lineCov">    6971420 :     int ret = 0;</span>
-<span class="lineNum">     853 </span>            :     uint8_t ux, uy;
-<span class="lineNum">     854 </span>            : 
-<span class="lineNum">     855 </span><span class="lineCov">   64074756 :     while (*x == *y &amp;&amp; *x != 0)</span>
-<span class="lineNum">     856 </span>            :     {
-<span class="lineNum">     857 </span><span class="lineCov">   50131916 :         x++;</span>
-<span class="lineNum">     858 </span><span class="lineCov">   50131916 :         y++;</span>
-<span class="lineNum">     859 </span>            :     }
-<span class="lineNum">     860 </span>            : 
-<span class="lineNum">     861 </span><span class="lineCov">    6971420 :     ux = (uint8_t)*x;</span>
-<span class="lineNum">     862 </span><span class="lineCov">    6971420 :     uy = (uint8_t)*y;</span>
-<span class="lineNum">     863 </span>            : 
-<span class="lineNum">     864 </span><span class="lineCov">    6971420 :     if (ux &lt; uy)</span>
-<span class="lineNum">     865 </span>            :     {
-<span class="lineNum">     866 </span><span class="lineCov">    1417710 :         ret = 1;</span>
-<span class="lineNum">     867 </span>            :     }
-<span class="lineNum">     868 </span><span class="lineCov">    5553710 :     else if (ux &gt; uy)</span>
-<span class="lineNum">     869 </span>            :     {
-<span class="lineNum">     870 </span><span class="lineCov">     689250 :         ret = -1;</span>
-<span class="lineNum">     871 </span>            :     }
-<span class="lineNum">     872 </span>            : 
-<span class="lineNum">     873 </span><span class="lineCov">    6971420 :     return ret;</span>
-<a name="874"><span class="lineNum">     874 </span>            : }</a>
-<span class="lineNum">     875 </span>            : 
-<span class="lineNum">     876 </span><span class="lineCov">          2 : void CaptureSummary::MultiplyByConstantForTest(unsigned int multiplier)</span>
-<span class="lineNum">     877 </span>            : {
-<span class="lineNum">     878 </span><span class="lineCov">        482 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
-<span class="lineNum">     879 </span>            :     {
-<span class="lineNum">     880 </span><span class="lineCov">        480 :         summary[i]-&gt;count *= multiplier;</span>
-<span class="lineNum">     881 </span>            :     }
-<span class="lineNum">     882 </span><span class="lineCov">          2 : }</span>
+<span class="lineNum">     823 </span>            :     /* Clean up */
+<span class="lineNum">     824 </span>            : 
+<span class="lineNum">     825 </span><span class="lineCov">          4 :     for (size_t i = 0; i &lt; frequent_tld.size(); i++)</span>
+<span class="lineNum">     826 </span>            :     {
+<span class="lineNum">     827 </span><span class="lineNoCov">          0 :         if (frequent_tld[i] != NULL)</span>
+<span class="lineNum">     828 </span>            :         {
+<span class="lineNum">     829 </span><span class="lineNoCov">          0 :             delete frequent_tld[i];</span>
+<span class="lineNum">     830 </span><span class="lineNoCov">          0 :             frequent_tld[i] = NULL;</span>
+<span class="lineNum">     831 </span>            :         }
+<span class="lineNum">     832 </span>            :     }
+<span class="lineNum">     833 </span>            : 
+<span class="lineNum">     834 </span><span class="lineCov">        516 :     for (size_t i = 0; i &lt; leaked_tld.size(); i++)</span>
+<span class="lineNum">     835 </span>            :     {
+<span class="lineNum">     836 </span><span class="lineCov">        512 :         if (leaked_tld[i] != NULL)</span>
+<span class="lineNum">     837 </span>            :         {
+<span class="lineNum">     838 </span><span class="lineCov">        512 :             delete leaked_tld[i];</span>
+<span class="lineNum">     839 </span><span class="lineCov">        512 :             leaked_tld[i] = NULL;</span>
+<span class="lineNum">     840 </span>            :         }
+<span class="lineNum">     841 </span>            :     }
+<span class="lineNum">     842 </span>            : 
+<span class="lineNum">     843 </span><span class="lineCov">          4 :     if (local_leak != NULL)</span>
+<span class="lineNum">     844 </span>            :     {
+<span class="lineNum">     845 </span><span class="lineCov">          4 :         delete local_leak;</span>
+<span class="lineNum">     846 </span><span class="lineCov">          4 :         local_leak = NULL;</span>
+<span class="lineNum">     847 </span>            :     }
+<span class="lineNum">     848 </span>            : 
+<span class="lineNum">     849 </span><span class="lineCov">          8 :     return ret;</span>
+<a name="850"><span class="lineNum">     850 </span>            : }</a>
+<span class="lineNum">     851 </span>            : 
+<span class="lineNum">     852 </span><span class="lineCov">    6971420 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
+<span class="lineNum">     853 </span>            : {
+<span class="lineNum">     854 </span><span class="lineCov">    6971420 :     int ret = 0;</span>
+<span class="lineNum">     855 </span>            :     uint8_t ux, uy;
+<span class="lineNum">     856 </span>            : 
+<span class="lineNum">     857 </span><span class="lineCov">  107235252 :     while (*x == *y &amp;&amp; *x != 0)</span>
+<span class="lineNum">     858 </span>            :     {
+<span class="lineNum">     859 </span><span class="lineCov">   50131916 :         x++;</span>
+<span class="lineNum">     860 </span><span class="lineCov">   50131916 :         y++;</span>
+<span class="lineNum">     861 </span>            :     }
+<span class="lineNum">     862 </span>            : 
+<span class="lineNum">     863 </span><span class="lineCov">    6971420 :     ux = (uint8_t)*x;</span>
+<span class="lineNum">     864 </span><span class="lineCov">    6971420 :     uy = (uint8_t)*y;</span>
+<span class="lineNum">     865 </span>            : 
+<span class="lineNum">     866 </span><span class="lineCov">    6971420 :     if (ux &lt; uy)</span>
+<span class="lineNum">     867 </span>            :     {
+<span class="lineNum">     868 </span><span class="lineCov">    1417710 :         ret = 1;</span>
+<span class="lineNum">     869 </span>            :     }
+<span class="lineNum">     870 </span><span class="lineCov">    5553710 :     else if (ux &gt; uy)</span>
+<span class="lineNum">     871 </span>            :     {
+<span class="lineNum">     872 </span><span class="lineCov">     689250 :         ret = -1;</span>
+<span class="lineNum">     873 </span>            :     }
+<span class="lineNum">     874 </span>            : 
+<span class="lineNum">     875 </span><span class="lineCov">    6971420 :     return ret;</span>
+<a name="876"><span class="lineNum">     876 </span>            : }</a>
+<span class="lineNum">     877 </span>            : 
+<span class="lineNum">     878 </span><span class="lineCov">          2 : void CaptureSummary::MultiplyByConstantForTest(unsigned int multiplier)</span>
+<span class="lineNum">     879 </span>            : {
+<span class="lineNum">     880 </span><span class="lineCov">        482 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
+<span class="lineNum">     881 </span>            :     {
+<span class="lineNum">     882 </span><span class="lineCov">        480 :         summary[i]-&gt;count *= multiplier;</span>
+<span class="lineNum">     883 </span>            :     }
+<span class="lineNum">     884 </span><span class="lineCov">          2 : }</span>
 </pre>
       </td>
     </tr>
@@ -950,7 +952,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

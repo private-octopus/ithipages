@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - QNameTest.cpp<span style="font-size: 80%;"> (source / <a href="QNameTest.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - QNameTest.cpp<span style="font-size: 80%;"> (source / <a href="QNameTest.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">21</td>
             <td class="headerCovTableEntry">25</td>
-            <td class="headerCovTableEntryMed">84.0 %</td>
+            <td class="headerCovTableEntry">31</td>
+            <td class="headerCovTableEntryMed">80.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -211,11 +211,11 @@
 <span class="lineNum">     149 </span>            : 
 <span class="lineNum">     150 </span><span class="lineCov">         26 :     for (size_t i = 0; i &lt; nb_qname_test_cases; i++) {</span>
 <span class="lineNum">     151 </span><span class="lineCov">         24 :         uint32_t n2 = (qname_test_case[i].an_start == 0) ? qname_test_case[i].ns_start : qname_test_case[i].an_start;</span>
-<span class="lineNum">     152 </span>            :         bool x = DnsStats::CompareDnsName(qname_test_case[i].packet,
-<span class="lineNum">     153 </span><span class="lineCov">         24 :             (uint32_t)qname_test_case[i].length, qname_test_case[i].qr_start, n2);</span>
+<span class="lineNum">     152 </span><span class="lineCov">         24 :         bool x = DnsStats::CompareDnsName(qname_test_case[i].packet,</span>
+<span class="lineNum">     153 </span><span class="lineCov">         48 :             (uint32_t)qname_test_case[i].length, qname_test_case[i].qr_start, n2);</span>
 <span class="lineNum">     154 </span>            : 
 <span class="lineNum">     155 </span><span class="lineCov">         24 :         if (x != qname_test_case[i].name_cmp) {</span>
-<span class="lineNum">     156 </span>            :             TEST_LOG(&quot;Comparison case %d fails, returns %s instead of %s\n&quot;, (int)i,
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Comparison case %d fails, returns %s instead of %s\n&quot;, (int)i,</span>
 <span class="lineNum">     157 </span><span class="lineNoCov">          0 :                 (x)?&quot;true&quot;:&quot;false&quot;, (qname_test_case[i].name_cmp) ? &quot;true&quot; : &quot;false&quot;);</span>
 <span class="lineNum">     158 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     159 </span>            :         }
@@ -238,13 +238,13 @@
 <span class="lineNum">     176 </span><span class="lineCov">          2 :     bool ret = true;</span>
 <span class="lineNum">     177 </span>            : 
 <span class="lineNum">     178 </span><span class="lineCov">         26 :     for (size_t i = 0; i &lt; nb_qname_test_cases; i++) {</span>
-<span class="lineNum">     179 </span>            :         bool x = DnsStats::IsQNameMinimized(qname_test_case[i].packet,
-<span class="lineNum">     180 </span>            :             (uint32_t)qname_test_case[i].length, qname_test_case[i].nb_queries,
-<span class="lineNum">     181 </span>            :             qname_test_case[i].q_class, qname_test_case[i].q_type,            
-<span class="lineNum">     182 </span><span class="lineCov">         24 :             qname_test_case[i].qr_start, qname_test_case[i].an_start, qname_test_case[i].ns_start);</span>
+<span class="lineNum">     179 </span><span class="lineCov">         72 :         bool x = DnsStats::IsQNameMinimized(qname_test_case[i].packet,</span>
+<span class="lineNum">     180 </span><span class="lineCov">         24 :             (uint32_t)qname_test_case[i].length, qname_test_case[i].nb_queries,</span>
+<span class="lineNum">     181 </span><span class="lineCov">         48 :             qname_test_case[i].q_class, qname_test_case[i].q_type,            </span>
+<span class="lineNum">     182 </span><span class="lineCov">         48 :             qname_test_case[i].qr_start, qname_test_case[i].an_start, qname_test_case[i].ns_start);</span>
 <span class="lineNum">     183 </span>            : 
 <span class="lineNum">     184 </span><span class="lineCov">         24 :         if (x != qname_test_case[i].is_minimized) {</span>
-<span class="lineNum">     185 </span>            :             TEST_LOG(&quot;Is QName case %d fails, returns %s instead of %s\n&quot;, (int)i,
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Is QName case %d fails, returns %s instead of %s\n&quot;, (int)i,</span>
 <span class="lineNum">     186 </span><span class="lineNoCov">          0 :                 (x) ? &quot;true&quot; : &quot;false&quot;, (qname_test_case[i].is_minimized) ? &quot;true&quot; : &quot;false&quot;);</span>
 <span class="lineNum">     187 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     188 </span>            :         }
@@ -259,7 +259,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

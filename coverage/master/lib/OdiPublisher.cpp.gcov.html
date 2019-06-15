@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - OdiPublisher.cpp<span style="font-size: 80%;"> (source / <a href="OdiPublisher.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - OdiPublisher.cpp<span style="font-size: 80%;"> (source / <a href="OdiPublisher.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">70</td>
-            <td class="headerCovTableEntry">83</td>
-            <td class="headerCovTableEntryMed">84.3 %</td>
+            <td class="headerCovTableEntry">73</td>
+            <td class="headerCovTableEntry">86</td>
+            <td class="headerCovTableEntryMed">84.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -123,7 +123,7 @@
 <span class="lineNum">      61 </span>            : 
 <span class="lineNum">      62 </span>            :     /* Get the oid metric name */
 <span class="lineNum">      63 </span><span class="lineCov">         16 :     if (ret) {</span>
-<span class="lineNum">      64 </span>            :         ret = snprintf(odi_file_name, sizeof(odi_file_name), &quot;%s%sITHI-M%1d%s%04d%02d%02d-2359.csv&quot;,
+<span class="lineNum">      64 </span><span class="lineCov">         16 :         ret = snprintf(odi_file_name, sizeof(odi_file_name), &quot;%s%sITHI-M%1d%s%04d%02d%02d-2359.csv&quot;,</span>
 <span class="lineNum">      65 </span><span class="lineCov">         16 :             odi_dir, ITHI_FILE_PATH_SEP, metric_id, ITHI_FILE_PATH_SEP, year, month, day) &gt; 0;</span>
 <span class="lineNum">      66 </span>            :     }
 <span class="lineNum">      67 </span>            : 
@@ -171,8 +171,8 @@
 <span class="lineNum">     109 </span>            : 
 <span class="lineNum">     110 </span><span class="lineCov">         22 :     if (ret)</span>
 <span class="lineNum">     111 </span>            :     {
-<span class="lineNum">     112 </span>            :         ret = snprintf(time_value, time_value_size, &quot;%04d-%02d-%02dT%02d:%02d:%02dUTC&quot;, tm.tm_year + 1900,
-<span class="lineNum">     113 </span><span class="lineCov">         22 :             tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec ) &gt; 0;</span>
+<span class="lineNum">     112 </span><span class="lineCov">         44 :         ret = snprintf(time_value, time_value_size, &quot;%04d-%02d-%02dT%02d:%02d:%02dUTC&quot;, tm.tm_year + 1900,</span>
+<span class="lineNum">     113 </span><span class="lineCov">         44 :             tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec ) &gt; 0;</span>
 <span class="lineNum">     114 </span>            :     }
 <span class="lineNum">     115 </span>            : 
 <span class="lineNum">     116 </span><span class="lineCov">         22 :     return ret;</span>
@@ -214,7 +214,7 @@
 <span class="lineNum">     152 </span>            :     }
 <span class="lineNum">     153 </span>            : #endif
 <span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span><span class="lineCov">         62 :     while (ret) {</span>
+<span class="lineNum">     155 </span><span class="lineCov">         76 :     while (ret) {</span>
 <span class="lineNum">     156 </span><span class="lineCov">         46 :         size_t nb_read = fread(line, 1, sizeof(line), F_in);</span>
 <span class="lineNum">     157 </span>            : 
 <span class="lineNum">     158 </span><span class="lineCov">         46 :         if (nb_read &gt; 0) {</span>
@@ -247,7 +247,7 @@
 <span class="lineNum">     185 </span><span class="lineCov">         16 :     FILE * F_in = NULL;</span>
 <span class="lineNum">     186 </span><span class="lineCov">         16 :     FILE * F_out = NULL;</span>
 <span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span>            :     ret = snprintf(source_file_name, sizeof(source_file_name), &quot;%s%sithi-m%1d.json&quot;,
+<span class="lineNum">     188 </span><span class="lineCov">         16 :     ret = snprintf(source_file_name, sizeof(source_file_name), &quot;%s%sithi-m%1d.json&quot;,</span>
 <span class="lineNum">     189 </span>            :         (data_dir == NULL)?ITHI_DEFAULT_DATA_FOLDER:data_dir,
 <span class="lineNum">     190 </span><span class="lineCov">         16 :         ITHI_FILE_PATH_SEP, metric_id);</span>
 <span class="lineNum">     191 </span>            : 
@@ -290,7 +290,7 @@
 <span class="lineNum">     228 </span>            : #endif
 <span class="lineNum">     229 </span>            :     }
 <span class="lineNum">     230 </span>            : 
-<span class="lineNum">     231 </span><span class="lineCov">        512 :     while (ret) {</span>
+<span class="lineNum">     231 </span><span class="lineCov">        976 :     while (ret) {</span>
 <span class="lineNum">     232 </span><span class="lineCov">        496 :         if (fgets(line, sizeof(line), F_in)) {</span>
 <span class="lineNum">     233 </span><span class="lineCov">        480 :             if (!updated) {</span>
 <span class="lineNum">     234 </span><span class="lineCov">         48 :                 if (strncmp(line, ithi_json_modified_header, strlen(ithi_json_modified_header)) == 0) {</span>
@@ -325,7 +325,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

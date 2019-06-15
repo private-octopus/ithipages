@@ -1,4 +1,4 @@
 <map id="ComputeM7" name="ComputeM7">
-<area shape="rect" id="node2" href="$class_compute_metric.html" title="{ComputeMetric\n|+ F_log\l|+ ComputeMetric()\l+ ~ComputeMetric()\l+ SetLog()\l+ Load()\l+ LoadMultipleFiles()\l+ Compute()\l+ Save()\l+ Write()\l}" alt="" coords="5,6,147,186"/>
-<area shape="rect" id="node3" href="$class_m7_getter.html" title="{M7Getter\n|+ nb_tld_queried\l+ nb_ds_present\l+ nb_cc_tld_queried\l+ nb_cc_ds_present\l|+ M7Getter()\l+ ~M7Getter()\l+ GetM7()\l&#45; ParseRecord()\l}" alt="" coords="171,13,311,179"/>
+<area shape="rect" id="node2" href="$class_compute_metric.html" title="{ComputeMetric\n|+ F_log\l|+ ComputeMetric()\l+ ~ComputeMetric()\l+ SetLog()\l+ Load()\l+ LoadMultipleFiles()\l+ Compute()\l+ Save()\l+ Write()\l}" alt="" coords="5,5,161,185"/>
+<area shape="rect" id="node3" href="$class_m7_getter.html" title="{M7Getter\n|+ nb_tld_queried\l+ nb_ds_present\l+ nb_cc_tld_queried\l+ nb_cc_ds_present\l|+ M7Getter()\l+ ~M7Getter()\l+ GetM7()\l&#45; ParseRecord()\l}" alt="" coords="186,13,338,178"/>
 </map>

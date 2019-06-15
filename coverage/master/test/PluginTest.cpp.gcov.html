@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - PluginTest.cpp<span style="font-size: 80%;"> (source / <a href="PluginTest.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - PluginTest.cpp<span style="font-size: 80%;"> (source / <a href="PluginTest.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">80</td>
-            <td class="headerCovTableEntry">83</td>
-            <td class="headerCovTableEntryHi">96.4 %</td>
+            <td class="headerCovTableEntry">85</td>
+            <td class="headerCovTableEntry">88</td>
+            <td class="headerCovTableEntryHi">96.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -154,7 +154,7 @@
 <span class="lineNum">      92 </span><span class="lineCov">          6 : bool PluginTest::LoadPcapFile(char const * fileName)</span>
 <span class="lineNum">      93 </span>            : {
 <span class="lineNum">      94 </span><span class="lineCov">          6 :     bool ret = true;</span>
-<span class="lineNum">      95 </span><span class="lineCov">          6 :     pcap_reader reader;</span>
+<span class="lineNum">      95 </span><span class="lineCov">         12 :     pcap_reader reader;</span>
 <span class="lineNum">      96 </span><span class="lineCov">          6 :     size_t nb_records_read = 0;</span>
 <span class="lineNum">      97 </span><span class="lineCov">          6 :     size_t nb_udp_dns_frag = 0;</span>
 <span class="lineNum">      98 </span><span class="lineCov">          6 :     size_t nb_udp_dns = 0;</span>
@@ -167,7 +167,7 @@
 <span class="lineNum">     105 </span>            :     }
 <span class="lineNum">     106 </span>            :     else
 <span class="lineNum">     107 </span>            :     {
-<span class="lineNum">     108 </span><span class="lineCov">      40012 :         while (reader.ReadNext())</span>
+<span class="lineNum">     108 </span><span class="lineCov">      80006 :         while (reader.ReadNext())</span>
 <span class="lineNum">     109 </span>            :         {
 <span class="lineNum">     110 </span><span class="lineCov">      40002 :             nb_records_read++;</span>
 <span class="lineNum">     111 </span>            : 
@@ -184,10 +184,10 @@
 <span class="lineNum">     122 </span>            :                     iaddr from; 
 <span class="lineNum">     123 </span>            :                     iaddr to;
 <span class="lineNum">     124 </span>            : 
-<span class="lineNum">     125 </span>            :                     GetSourceAddress(reader.ip_version,
-<span class="lineNum">     126 </span><span class="lineCov">      39118 :                         reader.buffer + reader.ip_offset, &amp;from);</span>
-<span class="lineNum">     127 </span>            :                     GetDestAddress(reader.ip_version,
-<span class="lineNum">     128 </span><span class="lineCov">      39118 :                         reader.buffer + reader.ip_offset, &amp;to);</span>
+<span class="lineNum">     125 </span><span class="lineCov">      39118 :                     GetSourceAddress(reader.ip_version,</span>
+<span class="lineNum">     126 </span><span class="lineCov">      78236 :                         reader.buffer + reader.ip_offset, &amp;from);</span>
+<span class="lineNum">     127 </span><span class="lineCov">      39118 :                     GetDestAddress(reader.ip_version,</span>
+<span class="lineNum">     128 </span><span class="lineCov">      78236 :                         reader.buffer + reader.ip_offset, &amp;to);</span>
 <span class="lineNum">     129 </span><span class="lineCov">      39118 :                     ts.tv_sec = reader.frame_header.ts_sec;</span>
 <span class="lineNum">     130 </span><span class="lineCov">      39118 :                     ts.tv_usec = reader.frame_header.ts_usec;</span>
 <span class="lineNum">     131 </span>            : 
@@ -203,10 +203,10 @@
 <span class="lineNum">     141 </span>            :                     }
 <span class="lineNum">     142 </span>            : 
 <span class="lineNum">     143 </span>            :                     /* Submit to the plugin */
-<span class="lineNum">     144 </span>            :                     libithicap_output(&quot;plugin-test&quot;, from, to, reader.tp_version,
-<span class="lineNum">     145 </span>            :                         DNSCAP_OUTPUT_ISDNS, reader.tp_port1, reader.tp_port2,
-<span class="lineNum">     146 </span>            :                         ts, (const u_char*) reader.buffer, 
-<span class="lineNum">     147 </span>            :                         (const unsigned)reader.frame_header.incl_len,
+<span class="lineNum">     144 </span><span class="lineCov">     117348 :                     libithicap_output(&quot;plugin-test&quot;, from, to, reader.tp_version,</span>
+<span class="lineNum">     145 </span><span class="lineCov">      78232 :                         DNSCAP_OUTPUT_ISDNS, reader.tp_port1, reader.tp_port2,</span>
+<span class="lineNum">     146 </span><span class="lineCov">      39116 :                         ts, (const u_char*) reader.buffer, </span>
+<span class="lineNum">     147 </span><span class="lineCov">      39116 :                         (const unsigned)reader.frame_header.incl_len,</span>
 <span class="lineNum">     148 </span><span class="lineCov">      39116 :                         (const u_char*)(reader.buffer + reader.tp_offset + 8), </span>
 <span class="lineNum">     149 </span><span class="lineCov">      78232 :                         (const unsigned)reader.tp_length - 8);</span>
 <span class="lineNum">     150 </span>            : 
@@ -224,7 +224,7 @@
 <span class="lineNum">     162 </span>            :         }
 <span class="lineNum">     163 </span>            :     }
 <span class="lineNum">     164 </span>            : 
-<span class="lineNum">     165 </span><span class="lineCov">          6 :     return ret;</span>
+<span class="lineNum">     165 </span><span class="lineCov">         12 :     return ret;</span>
 <a name="166"><span class="lineNum">     166 </span>            : }</a>
 <span class="lineNum">     167 </span>            : 
 <span class="lineNum">     168 </span><span class="lineCov">          2 : bool PluginTest::DoTest()</span>
@@ -260,7 +260,7 @@
 <span class="lineNum">     198 </span>            : 
 <span class="lineNum">     199 </span><span class="lineCov">          4 :     if (ret)</span>
 <span class="lineNum">     200 </span>            :     {
-<span class="lineNum">     201 </span><span class="lineCov">          4 :         CaptureSummary tcs;</span>
+<span class="lineNum">     201 </span><span class="lineCov">          8 :         CaptureSummary tcs;</span>
 <span class="lineNum">     202 </span><span class="lineCov">          8 :         CaptureSummary cs;</span>
 <span class="lineNum">     203 </span>            : 
 <span class="lineNum">     204 </span><span class="lineCov">          4 :         ret = tcs.Load(pcap_test_output);</span>
@@ -276,7 +276,7 @@
 <span class="lineNum">     214 </span><span class="lineCov">          4 :             tcs.Sort();</span>
 <span class="lineNum">     215 </span>            : 
 <span class="lineNum">     216 </span><span class="lineCov">          4 :             ret = cs.Compare(&amp;tcs);</span>
-<span class="lineNum">     217 </span><span class="lineCov">          4 :         }</span>
+<span class="lineNum">     217 </span>            :         }
 <span class="lineNum">     218 </span>            :     }
 <span class="lineNum">     219 </span>            : 
 <span class="lineNum">     220 </span><span class="lineCov">          4 :     return ret;</span>
@@ -302,7 +302,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

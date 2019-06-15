@@ -43,7 +43,7 @@ var searchData=
   ['test_5fenum_5ftldcount',['test_enum_TldCount',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030a91430a2e32bd105e94d29fe00730a26e',1,'ithi_test_class.cpp']]],
   ['test_5finput',['test_input',['../struct__dns__prefix__test__case__st.html#a5a8b0ad6e520213805314cadb87e5b2f',1,'_dns_prefix_test_case_st']]],
   ['test_5flist_5fenum',['test_list_enum',['../ithi__test__class_8cpp.html#a2999877777b3abb16f779fa66a681030',1,'ithi_test_class.cpp']]],
-  ['test_5flog',['TEST_LOG',['../ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662',1,'TEST_LOG(const char *fmt,...):&#160;ithi_test_class.cpp'],['../ithi__test__class_8h.html#a067ad17d4113603efc0c04d078bde662',1,'TEST_LOG(const char *fmt,...):&#160;ithi_test_class.cpp']]],
+  ['test_5flog',['TEST_LOG',['../ithi__test__class_8h.html#a067ad17d4113603efc0c04d078bde662',1,'TEST_LOG(const char *fmt,...):&#160;ithi_test_class.cpp'],['../ithi__test__class_8cpp.html#a067ad17d4113603efc0c04d078bde662',1,'TEST_LOG(const char *fmt,...):&#160;ithi_test_class.cpp']]],
   ['test_5fout',['test_out',['../class_get_name_test.html#a08fab3b816465ab221786bb5ce0f7eaa',1,'GetNameTest']]],
   ['test_5fpublish_5ftime',['test_publish_time',['../_odi_publish_test_8cpp.html#ae019383dfd71ff9b08cef35d8a4368bf',1,'OdiPublishTest.cpp']]],
   ['test_5ftype',['test_type',['../structst__m2__data__test__case__t.html#a4c2754458d5a3a70f8dfd12e779847ee',1,'st_m2_data_test_case_t']]],

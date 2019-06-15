@@ -1,4 +1,4 @@
 <map id="PluginTestBad" name="PluginTestBad">
-<area shape="rect" id="node2" href="$classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ SetLog()\l+ GetLog()\l}" alt="" coords="5,5,192,200"/>
-<area shape="rect" id="node3" href="$class_plugin_test.html" title="{PluginTest\n||+ PluginTest()\l+ ~PluginTest()\l+ DoTest()\l+ DoOneTest()\l&#45; LoadPcapFile()\l&#45; LoadOpt()\l}" alt="" coords="104,251,220,402"/>
+<area shape="rect" id="node2" href="$classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ SetLog()\l+ GetLog()\l}" alt="" coords="5,5,208,200"/>
+<area shape="rect" id="node3" href="$class_plugin_test.html" title="{PluginTest\n||+ PluginTest()\l+ ~PluginTest()\l+ DoTest()\l+ DoOneTest()\l&#45; LoadPcapFile()\l&#45; LoadOpt()\l}" alt="" coords="112,249,235,400"/>
 </map>

@@ -1,11 +1,11 @@
 <map id="lib/ComputeM34.h" name="lib/ComputeM34.h">
-<area shape="rect" id="node2" href="$_compute_m34_8cpp.html" title="lib/ComputeM34.cpp" alt="" coords="270,80,412,107"/>
-<area shape="rect" id="node3" href="$ithimetrics_8h.html" title="lib/ithimetrics.h" alt="" coords="437,80,547,107"/>
-<area shape="rect" id="node4" href="$src_2ithitest_8cpp.html" title="src/ithitest.cpp" alt="" coords="5,155,112,181"/>
-<area shape="rect" id="node5" href="$ithitools_8cpp.html" title="src/ithitools.cpp" alt="" coords="137,155,252,181"/>
-<area shape="rect" id="node6" href="$ithimetrics_8cpp.html" title="lib/ithimetrics.cpp" alt="" coords="277,155,400,181"/>
-<area shape="rect" id="node7" href="$ithipublisher_8cpp.html" title="lib/ithipublisher.cpp" alt="" coords="425,155,559,181"/>
-<area shape="rect" id="node8" href="$_odi_publisher_8cpp.html" title="lib/OdiPublisher.cpp" alt="" coords="583,155,721,181"/>
-<area shape="rect" id="node9" href="$_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="746,155,880,181"/>
-<area shape="rect" id="node10" href="$_odi_publish_test_8cpp.html" title="test/OdiPublishTest.cpp" alt="" coords="905,155,1068,181"/>
+<area shape="rect" id="node2" href="$ithimetrics_8h.html" title="lib/ithimetrics.h" alt="" coords="464,80,583,107"/>
+<area shape="rect" id="node10" href="$_compute_m34_8cpp.html" title="lib/ComputeM34.cpp" alt="" coords="607,80,760,107"/>
+<area shape="rect" id="node3" href="$src_2ithitest_8cpp.html" title="src/ithitest.cpp" alt="" coords="5,155,121,181"/>
+<area shape="rect" id="node4" href="$ithitools_8cpp.html" title="src/ithitools.cpp" alt="" coords="146,155,269,181"/>
+<area shape="rect" id="node5" href="$ithimetrics_8cpp.html" title="lib/ithimetrics.cpp" alt="" coords="293,155,428,181"/>
+<area shape="rect" id="node6" href="$ithipublisher_8cpp.html" title="lib/ithipublisher.cpp" alt="" coords="452,155,595,181"/>
+<area shape="rect" id="node7" href="$_odi_publisher_8cpp.html" title="lib/OdiPublisher.cpp" alt="" coords="619,155,764,181"/>
+<area shape="rect" id="node8" href="$_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="788,155,931,181"/>
+<area shape="rect" id="node9" href="$_odi_publish_test_8cpp.html" title="test/OdiPublishTest.cpp" alt="" coords="955,155,1124,181"/>
 </map>

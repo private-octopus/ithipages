@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - DnscapPlugIn.cpp<span style="font-size: 80%;"> (source / <a href="DnscapPlugIn.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - DnscapPlugIn.cpp<span style="font-size: 80%;"> (source / <a href="DnscapPlugIn.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">57</td>
-            <td class="headerCovTableEntry">115</td>
-            <td class="headerCovTableEntryLo">49.6 %</td>
+            <td class="headerCovTableEntry">58</td>
+            <td class="headerCovTableEntry">116</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -116,7 +116,7 @@
 <span class="lineNum">      54 </span>            :  * Common static variables. They have to be initialized and deleted as captures 
 <span class="lineNum">      55 </span>            :  * start and stop.
 <span class="lineNum">      56 </span>            :  */
-<a name="57"><span class="lineNum">      57 </span>            : </a>
+<span class="lineNum">      57 </span>            : 
 <span class="lineNum">      58 </span>            : static char const * default_csv_file = &quot;smalltest.csv&quot;;
 <span class="lineNum">      59 </span><span class="lineCov">          2 : static char const * libithicap_out_file = default_csv_file;</span>
 <span class="lineNum">      60 </span>            : static char const * libithicap_allowed = NULL;
@@ -164,7 +164,7 @@
 <span class="lineNum">     102 </span>            :         int opt;
 <span class="lineNum">     103 </span><span class="lineCov">          4 :         int exit_code = 0;</span>
 <span class="lineNum">     104 </span>            : 
-<span class="lineNum">     105 </span><span class="lineCov">         10 :         while (exit_code == 0 &amp;&amp; (opt = getopt(*argc, *argv, &quot;o:r:a:x:n:t:u:hfT&quot;)) != -1)</span>
+<span class="lineNum">     105 </span><span class="lineCov">          8 :         while (exit_code == 0 &amp;&amp; (opt = getopt(*argc, *argv, &quot;o:r:a:x:n:t:u:hfT&quot;)) != -1)</span>
 <span class="lineNum">     106 </span>            :         {
 <span class="lineNum">     107 </span><span class="lineCov">          2 :             switch (opt)</span>
 <span class="lineNum">     108 </span>            :             {
@@ -309,7 +309,7 @@
 <span class="lineNum">     247 </span><span class="lineCov">          4 :     int libithicap_close(my_bpftimeval ts)</span>
 <span class="lineNum">     248 </span>            :     {
 <span class="lineNum">     249 </span><span class="lineCov">          4 :         int exit_code = 0;</span>
-<span class="lineNum">     250 </span><span class="lineCov">          4 :         CaptureSummary cs;</span>
+<span class="lineNum">     250 </span><span class="lineCov">          8 :         CaptureSummary cs;</span>
 <span class="lineNum">     251 </span>            : 
 <span class="lineNum">     252 </span>            :         UNREFERENCED_PARAMETER(ts);
 <span class="lineNum">     253 </span>            : 
@@ -339,7 +339,7 @@
 <span class="lineNum">     277 </span><span class="lineNoCov">          0 :                 exit_code = -1;</span>
 <span class="lineNum">     278 </span>            :             }
 <span class="lineNum">     279 </span>            :         }
-<span class="lineNum">     280 </span><span class="lineCov">          4 :         return exit_code;</span>
+<span class="lineNum">     280 </span><span class="lineCov">          8 :         return exit_code;</span>
 <span class="lineNum">     281 </span>            :     }
 <span class="lineNum">     282 </span>            : 
 <span class="lineNum">     283 </span>            :     /*
@@ -406,7 +406,7 @@
 <span class="lineNum">     344 </span><span class="lineCov">       3732 :             break;</span>
 <span class="lineNum">     345 </span>            :         }
 <span class="lineNum">     346 </span>            : 
-<span class="lineNum">     347 </span>            :         libithicap_stats-&gt;SubmitPacket((uint8_t *)payload, payloadlen,
+<span class="lineNum">     347 </span><span class="lineCov">      39116 :         libithicap_stats-&gt;SubmitPacket((uint8_t *)payload, payloadlen,</span>
 <a name="348"><span class="lineNum">     348 </span><span class="lineCov">      39116 :             source_addr, source_addr_length, dest_addr, dest_addr_length, ts);</span></a>
 <span class="lineNum">     349 </span>            :     }
 <span class="lineNum">     350 </span><span class="lineCov">          6 : }</span>
@@ -418,7 +418,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 

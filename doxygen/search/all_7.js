@@ -2,7 +2,7 @@ var searchData=
 [
   ['get_5ffile_5fname',['get_file_name',['../class_m2_data.html#a3e850bb7d462cdfa3e226957c2d3602d',1,'M2Data']]],
   ['get_5ffile_5fsuffix',['get_file_suffix',['../class_m2_data.html#a8410395943256a295c31410766f8b8bb',1,'M2Data']]],
-  ['get_5flog_5ffile',['GET_LOG_FILE',['../ithi__test__class_8cpp.html#a93b0d68cd97fe7db47257b93248dfa58',1,'GET_LOG_FILE():&#160;ithi_test_class.cpp'],['../ithi__test__class_8h.html#a93b0d68cd97fe7db47257b93248dfa58',1,'GET_LOG_FILE():&#160;ithi_test_class.cpp']]],
+  ['get_5flog_5ffile',['GET_LOG_FILE',['../ithi__test__class_8h.html#a93b0d68cd97fe7db47257b93248dfa58',1,'GET_LOG_FILE():&#160;ithi_test_class.cpp'],['../ithi__test__class_8cpp.html#a93b0d68cd97fe7db47257b93248dfa58',1,'GET_LOG_FILE():&#160;ithi_test_class.cpp']]],
   ['get_5fnumber_5fof_5ftests',['get_number_of_tests',['../classithi__test__class.html#a7f6ef65418b04216166db41c03dc973d',1,'ithi_test_class']]],
   ['getabusefilename',['GetAbuseFileName',['../classithimetrics.html#a588cc3dad8a04aa66ac11707f75998d0',1,'ithimetrics']]],
   ['getauthoritativecapturefilename',['GetAuthoritativeCaptureFileName',['../classithimetrics.html#aec2df8989a43e1a48b00519bf64cd152',1,'ithimetrics']]],

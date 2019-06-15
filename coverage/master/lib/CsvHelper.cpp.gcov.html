@@ -19,7 +19,7 @@
         <table cellpadding=1 border=0 width="100%">
           <tr>
             <td width="10%" class="headerItem">Current view:</td>
-            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - CsvHelper.cpp<span style="font-size: 80%;"> (source / <a href="CsvHelper.cpp.func.html">functions</a>)</span></td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - CsvHelper.cpp<span style="font-size: 80%;"> (source / <a href="CsvHelper.cpp.func-sort-c.html">functions</a>)</span></td>
             <td width="5%"></td>
             <td width="15%"></td>
             <td width="10%" class="headerCovTableHead">Hit</td>
@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-06-10</td>
+            <td class="headerValue">2019-06-15 03:28:04</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -107,7 +107,7 @@
 <span class="lineNum">      45 </span>            : 
 <span class="lineNum">      46 </span>            : 
 <span class="lineNum">      47 </span>            :     /* Skip blanks */
-<span class="lineNum">      48 </span><span class="lineCov">     747224 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
+<span class="lineNum">      48 </span><span class="lineCov">     375586 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
 <span class="lineNum">      49 </span>            :     {
 <span class="lineNum">      50 </span><span class="lineCov">       1316 :         start++;</span>
 <span class="lineNum">      51 </span>            :     }
@@ -116,7 +116,7 @@
 <span class="lineNum">      54 </span><span class="lineCov">     373250 :     if (start &lt; buffer_max &amp;&amp; buffer[start] == '&quot;')</span>
 <span class="lineNum">      55 </span>            :     {
 <span class="lineNum">      56 </span><span class="lineCov">        296 :         start++;</span>
-<span class="lineNum">      57 </span><span class="lineCov">       2630 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0)</span>
+<span class="lineNum">      57 </span><span class="lineCov">       4372 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0)</span>
 <span class="lineNum">      58 </span>            :         {
 <span class="lineNum">      59 </span><span class="lineCov">       2334 :             if (buffer[start] == '&quot;')</span>
 <span class="lineNum">      60 </span>            :             {
@@ -153,7 +153,7 @@
 <span class="lineNum">      91 </span>            :     }
 <span class="lineNum">      92 </span>            :     else
 <span class="lineNum">      93 </span>            :     {
-<span class="lineNum">      94 </span><span class="lineCov">    1192670 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
+<span class="lineNum">      94 </span><span class="lineCov">    1267366 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
 <span class="lineNum">      95 </span>            :         {
 <span class="lineNum">      96 </span><span class="lineCov">     447354 :             if (x &lt; (text_max - 1))</span>
 <span class="lineNum">      97 </span>            :             {
@@ -168,7 +168,7 @@
 <span class="lineNum">     106 </span><span class="lineCov">     372954 :     *number = atoi(text);</span>
 <span class="lineNum">     107 </span>            : 
 <span class="lineNum">     108 </span>            :     /* Skip comma */
-<span class="lineNum">     109 </span><span class="lineCov">     745908 :     while (start &lt; buffer_max)</span>
+<span class="lineNum">     109 </span><span class="lineCov">     372954 :     while (start &lt; buffer_max)</span>
 <span class="lineNum">     110 </span>            :     {
 <span class="lineNum">     111 </span><span class="lineCov">     372954 :         if (buffer[start] == ',')</span>
 <span class="lineNum">     112 </span>            :         {
@@ -200,7 +200,7 @@
 <span class="lineNum">     138 </span>            : 
 <span class="lineNum">     139 </span>            : 
 <span class="lineNum">     140 </span>            :     /* Skip blanks */
-<span class="lineNum">     141 </span><span class="lineCov">     517492 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
+<span class="lineNum">     141 </span><span class="lineCov">     258746 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
 <span class="lineNum">     142 </span>            :     {
 <span class="lineNum">     143 </span><span class="lineNoCov">          0 :         start++;</span>
 <span class="lineNum">     144 </span>            :     }
@@ -246,7 +246,7 @@
 <span class="lineNum">     184 </span>            :     }
 <span class="lineNum">     185 </span>            :     else
 <span class="lineNum">     186 </span>            :     {
-<span class="lineNum">     187 </span><span class="lineCov">    1430762 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
+<span class="lineNum">     187 </span><span class="lineCov">    2085286 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
 <span class="lineNum">     188 </span>            :         {
 <span class="lineNum">     189 </span><span class="lineCov">     913270 :             if (x &lt; (text_max - 1))</span>
 <span class="lineNum">     190 </span>            :             {
@@ -261,7 +261,7 @@
 <span class="lineNum">     199 </span><span class="lineCov">     258746 :     *number = strtoull(text, &amp;end_ptr, 10);</span>
 <span class="lineNum">     200 </span>            : 
 <span class="lineNum">     201 </span>            :     /* Skip comma */
-<span class="lineNum">     202 </span><span class="lineCov">     517492 :     while (start &lt; buffer_max)</span>
+<span class="lineNum">     202 </span><span class="lineCov">     258746 :     while (start &lt; buffer_max)</span>
 <span class="lineNum">     203 </span>            :     {
 <span class="lineNum">     204 </span><span class="lineCov">     258746 :         if (buffer[start] == ',')</span>
 <span class="lineNum">     205 </span>            :         {
@@ -286,7 +286,7 @@
 <span class="lineNum">     224 </span><span class="lineCov">     408388 :     int x = 0;</span>
 <span class="lineNum">     225 </span>            : 
 <span class="lineNum">     226 </span>            :     /* Skip blanks */
-<span class="lineNum">     227 </span><span class="lineCov">     818318 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
+<span class="lineNum">     227 </span><span class="lineCov">     411472 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
 <span class="lineNum">     228 </span>            :     {
 <span class="lineNum">     229 </span><span class="lineCov">       1542 :         start++;</span>
 <span class="lineNum">     230 </span>            :     }
@@ -302,7 +302,7 @@
 <span class="lineNum">     240 </span>            :         }
 <span class="lineNum">     241 </span>            : #endif
 <span class="lineNum">     242 </span><span class="lineCov">        134 :         start++;</span>
-<span class="lineNum">     243 </span><span class="lineCov">       2324 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0)</span>
+<span class="lineNum">     243 </span><span class="lineCov">       4246 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0)</span>
 <span class="lineNum">     244 </span>            :         {
 <span class="lineNum">     245 </span><span class="lineCov">       2190 :             if (buffer[start] == '&quot;')</span>
 <span class="lineNum">     246 </span>            :             {
@@ -345,7 +345,7 @@
 <span class="lineNum">     283 </span>            :     }
 <span class="lineNum">     284 </span>            :     else
 <span class="lineNum">     285 </span>            :     {
-<span class="lineNum">     286 </span><span class="lineCov">    4722358 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
+<span class="lineNum">     286 </span><span class="lineCov">    8219954 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
 <span class="lineNum">     287 </span>            :         {
 <span class="lineNum">     288 </span><span class="lineCov">    3905850 :             if (x &lt; (text_max - 1))</span>
 <span class="lineNum">     289 </span>            :             {
@@ -358,7 +358,7 @@
 <span class="lineNum">     296 </span><span class="lineCov">     408388 :     text[x] = 0;</span>
 <span class="lineNum">     297 </span>            : 
 <span class="lineNum">     298 </span>            :     /* Skip comma */
-<span class="lineNum">     299 </span><span class="lineCov">     816776 :     while (start &lt; buffer_max)</span>
+<span class="lineNum">     299 </span><span class="lineCov">     408388 :     while (start &lt; buffer_max)</span>
 <span class="lineNum">     300 </span>            :     {
 <span class="lineNum">     301 </span><span class="lineCov">     408388 :         if (buffer[start] == ',')</span>
 <span class="lineNum">     302 </span>            :         {
@@ -385,7 +385,7 @@
 <span class="lineNum">     323 </span><span class="lineCov">       1418 :     int text_max = sizeof(text);</span>
 <span class="lineNum">     324 </span>            : 
 <span class="lineNum">     325 </span>            :     /* Skip blanks */
-<span class="lineNum">     326 </span><span class="lineCov">       4084 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
+<span class="lineNum">     326 </span><span class="lineCov">       3914 :     while (start &lt; buffer_max &amp;&amp; (buffer[start] == ' ' || buffer[start] == '\t'))</span>
 <span class="lineNum">     327 </span>            :     {
 <span class="lineNum">     328 </span><span class="lineCov">       1248 :         start++;</span>
 <span class="lineNum">     329 </span>            :     }
@@ -401,7 +401,7 @@
 <span class="lineNum">     339 </span>            :         }
 <span class="lineNum">     340 </span>            : #endif
 <span class="lineNum">     341 </span><span class="lineCov">          4 :         start++;</span>
-<span class="lineNum">     342 </span><span class="lineCov">         30 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0)</span>
+<span class="lineNum">     342 </span><span class="lineCov">         48 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0)</span>
 <span class="lineNum">     343 </span>            :         {
 <span class="lineNum">     344 </span><span class="lineCov">         26 :             if (buffer[start] == '&quot;')</span>
 <span class="lineNum">     345 </span>            :             {
@@ -429,7 +429,7 @@
 <span class="lineNum">     367 </span>            :     }
 <span class="lineNum">     368 </span>            :     else
 <span class="lineNum">     369 </span>            :     {
-<span class="lineNum">     370 </span><span class="lineCov">      13418 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
+<span class="lineNum">     370 </span><span class="lineCov">      22594 :         while (start &lt; buffer_max &amp;&amp; buffer[start] != 0 &amp;&amp; buffer[start] != ',')</span>
 <span class="lineNum">     371 </span>            :         {
 <span class="lineNum">     372 </span><span class="lineCov">      10590 :             if (x &lt; (text_max - 1))</span>
 <span class="lineNum">     373 </span>            :             {
@@ -444,7 +444,7 @@
 <span class="lineNum">     382 </span><span class="lineCov">       1418 :     *number = atof(text);</span>
 <span class="lineNum">     383 </span>            : 
 <span class="lineNum">     384 </span>            :     /* Skip comma */
-<span class="lineNum">     385 </span><span class="lineCov">       2836 :     while (start &lt; buffer_max)</span>
+<span class="lineNum">     385 </span><span class="lineCov">       1418 :     while (start &lt; buffer_max)</span>
 <span class="lineNum">     386 </span>            :     {
 <span class="lineNum">     387 </span><span class="lineCov">       1418 :         if (buffer[start] == ',')</span>
 <span class="lineNum">     388 </span>            :         {
@@ -471,7 +471,7 @@
 
   <table width="100%" border=0 cellspacing=0 cellpadding=0>
     <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
-    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.10</a></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
   </table>
   <br>
 
