@@ -1,0 +1,348 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - test/StatsByIpTest.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - StatsByIpTest.cpp<span style="font-size: 80%;"> (source / <a href="StatsByIpTest.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">56</td>
+            <td class="headerCovTableEntry">93</td>
+            <td class="headerCovTableEntryLo">60.2 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-06-26 23:16:07</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2018, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &quot;AddressFilter.h&quot;
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : #include &quot;StatsByIpTest.h&quot;
+<span class="lineNum">      25 </span>            : 
+<a name="26"><span class="lineNum">      26 </span>            : </a>
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span><span class="lineCov">          2 : StatsByIpTest::StatsByIpTest()</span>
+<span class="lineNum">      29 </span>            : {
+<span class="lineNum">      30 </span><span class="lineCov">          2 : }</span>
+<a name="31"><span class="lineNum">      31 </span>            : </a>
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span><span class="lineCov">          4 : StatsByIpTest::~StatsByIpTest()</span>
+<span class="lineNum">      34 </span>            : {
+<span class="lineNum">      35 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : uint8_t ip1[] = { 10, 0, 0, 1 };
+<span class="lineNum">      38 </span>            : uint8_t ip2[] = { 10, 0, 0, 2 };
+<span class="lineNum">      39 </span>            : uint8_t ip3[] = { 10, 0, 0, 3 };
+<span class="lineNum">      40 </span>            : uint8_t ip4[] = { 10, 0, 0, 4 };
+<span class="lineNum">      41 </span>            : uint8_t ip5[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1 };
+<span class="lineNum">      42 </span>            : uint8_t ip6[] = { 0x20, 1, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8 };
+<span class="lineNum">      43 </span>            : uint8_t ip7[] = { 0x20, 1, 0, 0, 0, 0, 0, 0, 2, 3, 4, 5, 6, 7, 8, 1 };
+<span class="lineNum">      44 </span>            : uint8_t ip8[] = { 0x20, 1, 0, 0, 0, 0, 0, 0, 3, 4, 5, 6, 7, 8, 1, 2 };
+<span class="lineNum">      45 </span>            : uint8_t ip9[] = { 0x20, 1, 0, 0, 0, 0, 0, 0, 4, 5, 6, 7, 8, 1, 2, 3 };
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : typedef struct st_stats_by_ip_test_in_t {
+<span class="lineNum">      48 </span>            :     uint8_t * addr;
+<span class="lineNum">      49 </span>            :     size_t addr_len;
+<span class="lineNum">      50 </span>            :     bool has_do;
+<span class="lineNum">      51 </span>            :     bool has_edns;
+<span class="lineNum">      52 </span>            :     bool mini_qname;
+<span class="lineNum">      53 </span>            :     bool is_new;
+<span class="lineNum">      54 </span>            :     bool add_query;
+<span class="lineNum">      55 </span>            : } stats_by_ip_test_in_t;
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : static const stats_by_ip_test_in_t stats_by_ip_test_input[] = {
+<span class="lineNum">      58 </span>            :     { ip1, sizeof(ip1), false, false, false, false, true },
+<span class="lineNum">      59 </span>            :     { ip2, sizeof(ip2), false, false, true, true, false },
+<span class="lineNum">      60 </span>            :     { ip3, sizeof(ip3), false, true, false, false, true },
+<span class="lineNum">      61 </span>            :     { ip4, sizeof(ip4), false, true, true, true, false },
+<span class="lineNum">      62 </span>            :     { ip5, sizeof(ip5), true, false, false, false, true },
+<span class="lineNum">      63 </span>            :     { ip6, sizeof(ip6), true, false, true, true, false },
+<span class="lineNum">      64 </span>            :     { ip7, sizeof(ip7), true, true, false, false, true },
+<span class="lineNum">      65 </span>            :     { ip8, sizeof(ip8), true, true, true, true, false },
+<span class="lineNum">      66 </span>            :     { ip1, sizeof(ip1), false, false, false, false, true },
+<span class="lineNum">      67 </span>            :     { ip2, sizeof(ip2), false, false, true, false, false },
+<span class="lineNum">      68 </span>            :     { ip3, sizeof(ip3), false, true, false, false, true },
+<span class="lineNum">      69 </span>            :     { ip4, sizeof(ip4), false, true, true, false, false },
+<span class="lineNum">      70 </span>            :     { ip5, sizeof(ip5), true, false, false, false, true },
+<span class="lineNum">      71 </span>            :     { ip6, sizeof(ip6), true, false, true, false, false },
+<span class="lineNum">      72 </span>            :     { ip7, sizeof(ip7), true, true, false, false, false },
+<span class="lineNum">      73 </span>            :     { ip1, sizeof(ip1), false, false, false, false, false },
+<span class="lineNum">      74 </span>            :     { ip2, sizeof(ip2), false, false, true, false, false },
+<span class="lineNum">      75 </span>            :     { ip3, sizeof(ip3), false, true, false, false, false },
+<span class="lineNum">      76 </span>            :     { ip4, sizeof(ip4), false, true, true, false, false },
+<span class="lineNum">      77 </span>            :     { ip5, sizeof(ip5), true, false, false, false, false },
+<span class="lineNum">      78 </span>            :     { ip6, sizeof(ip6), true, false, true, false, false },
+<span class="lineNum">      79 </span>            :     { ip1, sizeof(ip1), false, false, false, false, false },
+<span class="lineNum">      80 </span>            :     { ip2, sizeof(ip2), false, false, true, false, false },
+<span class="lineNum">      81 </span>            :     { ip3, sizeof(ip3), false, true, false, false, false },
+<span class="lineNum">      82 </span>            :     { ip4, sizeof(ip4), false, true, true, false, false },
+<span class="lineNum">      83 </span>            :     { ip5, sizeof(ip5), true, false, false, false, false },
+<span class="lineNum">      84 </span>            :     { ip1, sizeof(ip1), false, false, false, false, false },
+<span class="lineNum">      85 </span>            :     { ip2, sizeof(ip2), false, false, true, false, false },
+<span class="lineNum">      86 </span>            :     { ip3, sizeof(ip3), false, true, false, false, false },
+<span class="lineNum">      87 </span>            :     { ip4, sizeof(ip4), false, true, true, false, false },
+<span class="lineNum">      88 </span>            :     { ip1, sizeof(ip1), false, false, false, false, false },
+<span class="lineNum">      89 </span>            :     { ip2, sizeof(ip2), false, false, true, false, false },
+<span class="lineNum">      90 </span>            :     { ip3, sizeof(ip3), false, true, false, false, false },
+<span class="lineNum">      91 </span>            :     { ip1, sizeof(ip1), false, false, false, false, false },
+<span class="lineNum">      92 </span>            :     { ip2, sizeof(ip2), false, false, true, false, false },
+<span class="lineNum">      93 </span>            :     { ip1, sizeof(ip1), false, false, false, false, false },
+<span class="lineNum">      94 </span>            :     { ip9, sizeof(ip9), false, false, false, false, true },
+<span class="lineNum">      95 </span>            :     { ip9, sizeof(ip9), false, false, true, false, false },
+<span class="lineNum">      96 </span>            :     { ip9, sizeof(ip9), false, true, false, false, false },
+<span class="lineNum">      97 </span>            :     { ip9, sizeof(ip9), false, true, true, false, false },
+<span class="lineNum">      98 </span>            :     { ip9, sizeof(ip9), true, false, false, false, false },
+<span class="lineNum">      99 </span>            :     { ip9, sizeof(ip9), true, false, true, false, false },
+<span class="lineNum">     100 </span>            :     { ip9, sizeof(ip9), true, true, false, false, false },
+<span class="lineNum">     101 </span>            :     { ip9, sizeof(ip9), true, true, true, false, false }
+<span class="lineNum">     102 </span>            : };
+<span class="lineNum">     103 </span>            : 
+<span class="lineNum">     104 </span>            : static const size_t nb_stats_by_ip_test_input = sizeof(stats_by_ip_test_input) / sizeof(stats_by_ip_test_in_t);
+<span class="lineNum">     105 </span>            : 
+<span class="lineNum">     106 </span>            : typedef struct st_stats_by_ip_test_out_t {
+<span class="lineNum">     107 </span>            :     uint8_t * addr;
+<span class="lineNum">     108 </span>            :     size_t addr_len;
+<span class="lineNum">     109 </span>            :     uint32_t count;
+<span class="lineNum">     110 </span>            :     uint32_t nb_do;
+<span class="lineNum">     111 </span>            :     uint32_t nb_edns;
+<span class="lineNum">     112 </span>            :     uint32_t nb_not_mini_qname;
+<span class="lineNum">     113 </span>            :     bool is_do_used;
+<span class="lineNum">     114 </span>            :     bool is_edns_supported;
+<span class="lineNum">     115 </span>            :     bool is_qname_minimized;
+<span class="lineNum">     116 </span>            : } stats_by_ip_test_out_t;
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            : static const stats_by_ip_test_out_t stats_by_ip_test_output[] = {
+<span class="lineNum">     119 </span>            :     { ip1, sizeof(ip1), 9, 0, 0, 8, false, false, false },
+<span class="lineNum">     120 </span>            :     { ip2, sizeof(ip2), 7, 0, 0, 0, false, false, true },
+<span class="lineNum">     121 </span>            :     { ip3, sizeof(ip3), 7, 0, 6, 6, false, true, false },
+<span class="lineNum">     122 </span>            :     { ip4, sizeof(ip4), 5, 0, 5, 0, false, true, true },
+<span class="lineNum">     123 </span>            :     { ip5, sizeof(ip5), 5, 4, 0, 4, true, false, false },
+<span class="lineNum">     124 </span>            :     { ip6, sizeof(ip6), 3, 3, 0, 0, true, false, true },
+<span class="lineNum">     125 </span>            :     { ip7, sizeof(ip7), 3, 2, 2, 2, true, true, false },
+<span class="lineNum">     126 </span>            :     { ip8, sizeof(ip8), 1, 1, 1, 0, true, true, true },
+<span class="lineNum">     127 </span>            :     { ip9, sizeof(ip9), 9, 4, 4, 4, true, true, false }
+<span class="lineNum">     128 </span>            : };
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            : static const size_t nb_stats_by_ip_test_output = sizeof(stats_by_ip_test_output) / sizeof(stats_by_ip_test_out_t);
+<a name="132"><span class="lineNum">     132 </span>            : </a>
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span><span class="lineCov">          2 : bool StatsByIpTest::DoTest()</span>
+<span class="lineNum">     135 </span>            : {
+<span class="lineNum">     136 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     137 </span><span class="lineCov">          4 :     BinHash&lt;StatsByIP&gt; stats;</span>
+<span class="lineNum">     138 </span><span class="lineCov">          2 :     StatsByIP * y = NULL;</span>
+<span class="lineNum">     139 </span>            : 
+<span class="lineNum">     140 </span><span class="lineCov">         90 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_stats_by_ip_test_input; i++) {</span>
+<span class="lineNum">     141 </span><span class="lineCov">         88 :         bool stored = false;</span>
+<span class="lineNum">     142 </span>            :         StatsByIP x(
+<span class="lineNum">     143 </span><span class="lineCov">         88 :             stats_by_ip_test_input[i].addr,</span>
+<span class="lineNum">     144 </span><span class="lineCov">         88 :             stats_by_ip_test_input[i].addr_len,</span>
+<span class="lineNum">     145 </span><span class="lineCov">         88 :             stats_by_ip_test_input[i].has_do,</span>
+<span class="lineNum">     146 </span><span class="lineCov">         88 :             stats_by_ip_test_input[i].has_edns,</span>
+<span class="lineNum">     147 </span><span class="lineCov">        440 :             !stats_by_ip_test_input[i].mini_qname);</span>
+<span class="lineNum">     148 </span><span class="lineCov">         88 :         x.response_seen = true;</span>
+<span class="lineNum">     149 </span><span class="lineCov">         88 :         if (stats_by_ip_test_input[i].add_query) {</span>
+<span class="lineNum">     150 </span>            :             StatsByIP q (
+<span class="lineNum">     151 </span><span class="lineCov">         16 :                 stats_by_ip_test_input[i].addr,</span>
+<span class="lineNum">     152 </span><span class="lineCov">         16 :                 stats_by_ip_test_input[i].addr_len,</span>
+<span class="lineNum">     153 </span>            :                 false,
+<span class="lineNum">     154 </span>            :                 false,
+<span class="lineNum">     155 </span><span class="lineCov">         32 :                 false);</span>
+<span class="lineNum">     156 </span><span class="lineCov">         16 :             q.query_seen = true;</span>
+<span class="lineNum">     157 </span><span class="lineCov">         26 :             if (stats.Retrieve(&amp;q) == NULL &amp;&amp;</span>
+<span class="lineNum">     158 </span><span class="lineCov">         10 :                 stats.InsertOrAdd(&amp;q, true, &amp;stored) == NULL) {</span>
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Cannot add query #%d to hash table\n&quot;, (int)i);</span>
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :                 ret = false;</span>
+<span class="lineNum">     161 </span>            :             }
+<span class="lineNum">     162 </span>            :         }
+<span class="lineNum">     163 </span><span class="lineCov">         88 :         if (ret) {</span>
+<span class="lineNum">     164 </span><span class="lineCov">         88 :             y = stats.InsertOrAdd(&amp;x, true, &amp;stored);</span>
+<span class="lineNum">     165 </span><span class="lineCov">         88 :             if (y == NULL) {</span>
+<span class="lineNum">     166 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Cannot add input #%d to hash table\n&quot;, (int)i);</span>
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :                 ret = false;</span>
+<span class="lineNum">     168 </span>            :             }
+<span class="lineNum">     169 </span>            :             else {
+<span class="lineNum">     170 </span><span class="lineCov">         88 :                 if (stats_by_ip_test_input[i].is_new) {</span>
+<span class="lineNum">     171 </span><span class="lineCov">          8 :                     if (!stored) {</span>
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 :                         TEST_LOG(&quot;test input #%d was not stored, expected stored!\n&quot;, (int)i);</span>
+<span class="lineNum">     173 </span><span class="lineNoCov">          0 :                         ret = false;</span>
+<span class="lineNum">     174 </span>            :                     }
+<span class="lineNum">     175 </span>            :                 }
+<span class="lineNum">     176 </span><span class="lineCov">         80 :                 else if (stored) {</span>
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :                     TEST_LOG(&quot;test input #%d was stored, not expected!\n&quot;, (int)i);</span>
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :                     ret = false;</span>
+<span class="lineNum">     179 </span>            :                 }
+<span class="lineNum">     180 </span>            :             }
+<span class="lineNum">     181 </span>            :         }
+<span class="lineNum">     182 </span>            :     }
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span><span class="lineCov">         20 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_stats_by_ip_test_output; i++) {</span>
+<span class="lineNum">     185 </span>            :         StatsByIP x(
+<span class="lineNum">     186 </span><span class="lineCov">         18 :             stats_by_ip_test_output[i].addr,</span>
+<span class="lineNum">     187 </span><span class="lineCov">         18 :             stats_by_ip_test_output[i].addr_len,</span>
+<span class="lineNum">     188 </span><span class="lineCov">         36 :             false, false, false);</span>
+<span class="lineNum">     189 </span>            :         
+<span class="lineNum">     190 </span><span class="lineCov">         18 :         y = stats.Retrieve(&amp;x);</span>
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineCov">         18 :         if (y == NULL) {</span>
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Cannot retrieve output case #%d\n&quot;, (int)i);</span>
+<span class="lineNum">     194 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     195 </span>            :         }
+<span class="lineNum">     196 </span><span class="lineCov">         18 :         else if (y-&gt;count != stats_by_ip_test_output[i].count) {</span>
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Output case #%d, count = %d instead of %d\n&quot;, (int)i,</span>
+<span class="lineNum">     198 </span><span class="lineNoCov">          0 :                 y-&gt;count, stats_by_ip_test_output[i].count);</span>
+<span class="lineNum">     199 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     200 </span>            :         }
+<span class="lineNum">     201 </span><span class="lineCov">         18 :         else if (y-&gt;nb_do != stats_by_ip_test_output[i].nb_do) {</span>
+<span class="lineNum">     202 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Output case #%d, nb_do = %d instead of %d\n&quot;, (int)i,</span>
+<span class="lineNum">     203 </span><span class="lineNoCov">          0 :                 y-&gt;nb_do, stats_by_ip_test_output[i].nb_do);</span>
+<span class="lineNum">     204 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     205 </span>            :         }
+<span class="lineNum">     206 </span><span class="lineCov">         18 :         else if (y-&gt;nb_edns != stats_by_ip_test_output[i].nb_edns) {</span>
+<span class="lineNum">     207 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Output case #%d, nb_edns = %d instead of %d\n&quot;, (int)i,</span>
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :                 y-&gt;nb_edns, stats_by_ip_test_output[i].nb_edns);</span>
+<span class="lineNum">     209 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     210 </span>            :         }
+<span class="lineNum">     211 </span><span class="lineCov">         18 :         else if (y-&gt;nb_not_qname_mini != stats_by_ip_test_output[i].nb_not_mini_qname) {</span>
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Output case #%d, nb_not_mini_qname = %d instead of %d\n&quot;, (int)i,</span>
+<span class="lineNum">     213 </span><span class="lineNoCov">          0 :                 y-&gt;nb_not_qname_mini, stats_by_ip_test_output[i].nb_not_mini_qname);</span>
+<span class="lineNum">     214 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     215 </span>            :         }
+<span class="lineNum">     216 </span><span class="lineCov">         18 :         else if (y-&gt;IsDoUsed() != stats_by_ip_test_output[i].is_do_used) {</span>
+<span class="lineNum">     217 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Output case #%d, IsDoUsed() = %d instead of %d\n&quot;, (int)i,</span>
+<span class="lineNum">     218 </span><span class="lineNoCov">          0 :                 y-&gt;IsDoUsed(), stats_by_ip_test_output[i].is_do_used);</span>
+<span class="lineNum">     219 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     220 </span>            :         }
+<span class="lineNum">     221 </span><span class="lineCov">         18 :         else if (y-&gt;IsEdnsSupported() != stats_by_ip_test_output[i].is_edns_supported) {</span>
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Output case #%d, IsEdnsSupported() = %d instead of %d\n&quot;, (int)i,</span>
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :                 y-&gt;IsEdnsSupported(), stats_by_ip_test_output[i].is_edns_supported);</span>
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     225 </span>            :         }
+<span class="lineNum">     226 </span><span class="lineCov">         18 :         else if (y-&gt;IsQnameMinimized() != stats_by_ip_test_output[i].is_qname_minimized) {</span>
+<span class="lineNum">     227 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Output case #%d, IsQnameMinimized() = %d instead of %d\n&quot;, (int)i,</span>
+<span class="lineNum">     228 </span><span class="lineNoCov">          0 :                 y-&gt;IsQnameMinimized(), stats_by_ip_test_output[i].is_qname_minimized);</span>
+<span class="lineNum">     229 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     230 </span>            :         }
+<span class="lineNum">     231 </span>            :     }
+<span class="lineNum">     232 </span>            : 
+<span class="lineNum">     233 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     234 </span><span class="lineCov">          2 :         ret = OptionHashTest();</span>
+<span class="lineNum">     235 </span>            :     }
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span><span class="lineCov">          4 :     return ret;</span>
+<span class="lineNum">     238 </span>            : }
+<span class="lineNum">     239 </span>            : 
+<span class="lineNum">     240 </span>            : /* Given the small size of the bit mask used to check for
+<span class="lineNum">     241 </span>            :  * double registrations, collisions are possible. We simply verify
+<span class="lineNum">     242 </span>            :  * that they do not happen between the most popular OPT Option codes */
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span>            : static uint16_t option_test_cases[] = { 8, 5, 6, 7, 10, 3, 0, 65001, 4 };
+<a name="245"><span class="lineNum">     245 </span>            : static const size_t nb_option_test_cases = sizeof(option_test_cases) / sizeof(uint16_t);</a>
+<span class="lineNum">     246 </span>            : 
+<span class="lineNum">     247 </span><span class="lineCov">          2 : bool StatsByIpTest::OptionHashTest()</span>
+<span class="lineNum">     248 </span>            : {
+<span class="lineNum">     249 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     250 </span>            :     StatsByIP x(
+<span class="lineNum">     251 </span><span class="lineCov">          2 :         stats_by_ip_test_input[0].addr,</span>
+<span class="lineNum">     252 </span><span class="lineCov">          2 :         stats_by_ip_test_input[0].addr_len,</span>
+<span class="lineNum">     253 </span><span class="lineCov">          2 :         stats_by_ip_test_input[0].has_do,</span>
+<span class="lineNum">     254 </span><span class="lineCov">          2 :         stats_by_ip_test_input[0].has_edns,</span>
+<span class="lineNum">     255 </span><span class="lineCov">         10 :         !stats_by_ip_test_input[0].mini_qname);</span>
+<span class="lineNum">     256 </span>            : 
+<span class="lineNum">     257 </span><span class="lineCov">         20 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_option_test_cases; i++) {</span>
+<span class="lineNum">     258 </span><span class="lineCov">         18 :         if (!x.RegisterNewOption(option_test_cases[i])) {</span>
+<span class="lineNum">     259 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Could not register option #%d, value=%d\n&quot;, (int)i,</span>
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :                 option_test_cases[i]);</span>
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     262 </span>            :         }
+<span class="lineNum">     263 </span>            :         else {
+<span class="lineNum">     264 </span><span class="lineCov">         18 :             if (x.RegisterNewOption(option_test_cases[i])) {</span>
+<span class="lineNum">     265 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Could register option #%d twice, value=%d\n&quot;, (int)i,</span>
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :                     option_test_cases[i]);</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :                 ret = false;</span>
+<span class="lineNum">     268 </span>            :             }
+<span class="lineNum">     269 </span>            :         }
+<span class="lineNum">     270 </span>            :     }
+<span class="lineNum">     271 </span><span class="lineCov">          4 :     return ret;</span>
+<span class="lineNum">     272 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
