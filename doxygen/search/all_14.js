@@ -67,9 +67,10 @@ var searchData=
   ['tld_5fdga_5feval_5ft_5fa',['Tld_Dga_Eval_T_A',['../_name_pattern_8cpp.html#a3dd3c8173fba6035ed7870b322d46eac',1,'NamePattern.cpp']]],
   ['tld_5fdga_5feval_5ft_5fu',['Tld_Dga_Eval_T_U',['../_name_pattern_8cpp.html#aa960e3f2d784c30697817c14a117b8db',1,'NamePattern.cpp']]],
   ['tld_5flen',['tld_len',['../class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d',1,'TldAddressAsKey::tld_len()'],['../class_tld_as_key.html#ab539687260bf5a1b8fc3698bee1e44f4',1,'TldAsKey::tld_len()']]],
+  ['tld_5fmin_5fdelay',['tld_min_delay',['../class_tld_address_as_key.html#af231d461b5b32cdcabd3e5e6170bba07',1,'TldAddressAsKey']]],
   ['tld_5fold',['TLD_old',['../_m2_data_8h.html#a4b288d3fecca776678f6845abd79a23facd2056728d513b81d3f6c46dc6f4cce7',1,'M2Data.h']]],
   ['tld_5fold_5fcases',['tld_old_cases',['../_m2_data_test_8cpp.html#a0a7c8f4009842173000b5d4a77a7c702',1,'M2DataTest.cpp']]],
-  ['tldaddressaskey',['TldAddressAsKey',['../class_tld_address_as_key.html',1,'TldAddressAsKey'],['../class_tld_address_as_key.html#a31ff481a6aae89b7a74264026d93c1ad',1,'TldAddressAsKey::TldAddressAsKey()']]],
+  ['tldaddressaskey',['TldAddressAsKey',['../class_tld_address_as_key.html',1,'TldAddressAsKey'],['../class_tld_address_as_key.html#a1e56d59c34a5c7f51e258b923f472045',1,'TldAddressAsKey::TldAddressAsKey()']]],
   ['tldaskey',['TldAsKey',['../class_tld_as_key.html',1,'TldAsKey'],['../class_tld_as_key.html#af63b39455ceefc7b05d574701bd43f70',1,'TldAsKey::TldAsKey()']]],
   ['tldaskey_2eh',['TldAsKey.h',['../_tld_as_key_8h.html',1,'']]],
   ['tldcheck',['TldCheck',['../class_dns_stats.html#a6a34ea57582c348576f0725eb9668618',1,'DnsStats']]],
@@ -109,6 +110,8 @@ var searchData=
   ['transition_5fgroup',['transition_group',['../_name_pattern_8cpp.html#a4f0821d94769d1a2fd2b5304f7e1c13a',1,'NamePattern.cpp']]],
   ['transition_5fgroup_5fproba',['transition_group_proba',['../_name_pattern_8cpp.html#a80ec0634f42b7e808ef1dc1545029e17',1,'NamePattern.cpp']]],
   ['transition_5fgroup_5fweight',['transition_group_weight',['../_name_pattern_8cpp.html#a724302ae75d4224817efa524ab3b992b',1,'NamePattern.cpp']]],
+  ['ts',['ts',['../class_tld_address_as_key.html#a9630d7ca0610f4268f478e9294357f0a',1,'TldAddressAsKey']]],
+  ['ts_5finit',['ts_init',['../class_tld_address_as_key.html#a9e4dcd0626264b36dbaebb716a904066',1,'TldAddressAsKey']]],
   ['ts_5fsec',['ts_sec',['../structpcaprec__hdr__s.html#aa88ddb87bf93e44278ff48a4dad133da',1,'pcaprec_hdr_s']]],
   ['ts_5fusec',['ts_usec',['../structpcaprec__hdr__s.html#a28fa2562018a1703ddd97d626e000c19',1,'pcaprec_hdr_s']]]
 ];

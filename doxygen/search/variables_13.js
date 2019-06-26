@@ -24,6 +24,7 @@ var searchData=
   ['tld',['tld',['../class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8',1,'TldAddressAsKey::tld()'],['../class_tld_as_key.html#a41a88335dcef029811cbe661cb0b7f46',1,'TldAsKey::tld()']]],
   ['tld_5fcases',['tld_cases',['../_m2_data_test_8cpp.html#a30df2711dd8a32edab8a8303591a9613',1,'M2DataTest.cpp']]],
   ['tld_5flen',['tld_len',['../class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d',1,'TldAddressAsKey::tld_len()'],['../class_tld_as_key.html#ab539687260bf5a1b8fc3698bee1e44f4',1,'TldAsKey::tld_len()']]],
+  ['tld_5fmin_5fdelay',['tld_min_delay',['../class_tld_address_as_key.html#af231d461b5b32cdcabd3e5e6170bba07',1,'TldAddressAsKey']]],
   ['tld_5fold_5fcases',['tld_old_cases',['../_m2_data_test_8cpp.html#a0a7c8f4009842173000b5d4a77a7c702',1,'M2DataTest.cpp']]],
   ['tldleakage',['tldLeakage',['../class_dns_stats.html#a02b5ea45cc72041b260b3bfb75caf54d',1,'DnsStats']]],
   ['tlds_5fold_5ftest',['tlds_old_test',['../_m2_data_test_8cpp.html#a9f7875413c51a7ae6135386e19b7c1db',1,'M2DataTest.cpp']]],
@@ -51,6 +52,8 @@ var searchData=
   ['transition_5fgroup',['transition_group',['../_name_pattern_8cpp.html#a4f0821d94769d1a2fd2b5304f7e1c13a',1,'NamePattern.cpp']]],
   ['transition_5fgroup_5fproba',['transition_group_proba',['../_name_pattern_8cpp.html#a80ec0634f42b7e808ef1dc1545029e17',1,'NamePattern.cpp']]],
   ['transition_5fgroup_5fweight',['transition_group_weight',['../_name_pattern_8cpp.html#a724302ae75d4224817efa524ab3b992b',1,'NamePattern.cpp']]],
+  ['ts',['ts',['../class_tld_address_as_key.html#a9630d7ca0610f4268f478e9294357f0a',1,'TldAddressAsKey']]],
+  ['ts_5finit',['ts_init',['../class_tld_address_as_key.html#a9e4dcd0626264b36dbaebb716a904066',1,'TldAddressAsKey']]],
   ['ts_5fsec',['ts_sec',['../structpcaprec__hdr__s.html#aa88ddb87bf93e44278ff48a4dad133da',1,'pcaprec_hdr_s']]],
   ['ts_5fusec',['ts_usec',['../structpcaprec__hdr__s.html#a28fa2562018a1703ddd97d626e000c19',1,'pcaprec_hdr_s']]]
 ];
