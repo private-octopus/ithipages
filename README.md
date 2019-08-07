@@ -186,6 +186,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2019-06-26 23:13.16](analysis/2019-06-26-231316-5284-1/index.html)
   - [issues found on 2019-08-07 21:52.10](analysis/2019-08-07-215210-5030-1/index.html)
   - [issues found on 2019-08-07 21:58.01](analysis/2019-08-07-215801-5018-1/index.html)
+  - [issues found on 2019-08-07 23:03.48](analysis/2019-08-07-230348-5214-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch tld-2-level](coverage/tld-2-level/index.html)
   - [from branch tally-only-if-not-dnscap](coverage/tally-only-if-not-dnscap/index.html)
@@ -201,6 +202,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch Fix-M1-bug](coverage/Fix-M1-bug/index.html)
   - [from branch compact-first](coverage/compact-first/index.html)
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
+  - [from branch isolate-privacy](coverage/isolate-privacy/index.html)
   - [from branch web-site-bugs-2018-09](coverage/web-site-bugs-2018-09/index.html)
   - [from branch design-fixes](coverage/design-fixes/index.html)
   - [from branch tld-leak-analyse](coverage/tld-leak-analyse/index.html)
