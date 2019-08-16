@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['deltausec',['DeltaUsec',['../class_dns_stats.html#a5b639a4941444222099e500c7dfaa4f5',1,'DnsStats']]],
   ['dirent_5ffirst',['dirent_first',['../dirent_8h.html#a11433e0800895fb8a56df9b410bdea29',1,'dirent.h']]],
   ['dirent_5fmbstowcs_5fs',['dirent_mbstowcs_s',['../dirent_8h.html#aead3f72cc4062f3d0a4a613c5cd29794',1,'dirent.h']]],
   ['dirent_5fnext',['dirent_next',['../dirent_8h.html#a8f083cf02d7debbcafb78d276948e99b',1,'dirent.h']]],

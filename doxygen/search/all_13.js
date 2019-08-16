@@ -97,7 +97,7 @@ var searchData=
   ['stats_5fby_5fip_5ftest_5finput',['stats_by_ip_test_input',['../_stats_by_ip_test_8cpp.html#a57a3240734b40922b45be195cb7daa87',1,'StatsByIpTest.cpp']]],
   ['stats_5fby_5fip_5ftest_5fout_5ft',['stats_by_ip_test_out_t',['../_stats_by_ip_test_8cpp.html#ac4e5f6b3a6247d0420b3439149862f5d',1,'StatsByIpTest.cpp']]],
   ['stats_5fby_5fip_5ftest_5foutput',['stats_by_ip_test_output',['../_stats_by_ip_test_8cpp.html#a7bc52e70270e87d34821f494bd7b4e77',1,'StatsByIpTest.cpp']]],
-  ['statsbyip',['StatsByIP',['../class_stats_by_i_p.html',1,'StatsByIP'],['../class_dns_stats.html#ace528078f0390268d128858a2af844f5',1,'DnsStats::statsByIp()'],['../class_stats_by_i_p.html#a139339a7a24cb2c60bbbb2f48f14b171',1,'StatsByIP::StatsByIP()']]],
+  ['statsbyip',['StatsByIP',['../class_stats_by_i_p.html',1,'StatsByIP'],['../class_stats_by_i_p.html#a139339a7a24cb2c60bbbb2f48f14b171',1,'StatsByIP::StatsByIP()'],['../class_dns_stats.html#ace528078f0390268d128858a2af844f5',1,'DnsStats::statsByIp()']]],
   ['statsbyiptest',['StatsByIpTest',['../class_stats_by_ip_test.html',1,'StatsByIpTest'],['../class_stats_by_ip_test.html#a7b460fccd1ac28d6f583d43c58f76c48',1,'StatsByIpTest::StatsByIpTest()']]],
   ['statsbyiptest_2ecpp',['StatsByIpTest.cpp',['../_stats_by_ip_test_8cpp.html',1,'']]],
   ['statsbyiptest_2eh',['StatsByIpTest.h',['../_stats_by_ip_test_8h.html',1,'']]],
