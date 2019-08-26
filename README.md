@@ -193,6 +193,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch partner-check](coverage/partner-check/index.html)
   - [from branch export-partner](coverage/export-partner/index.html)
   - [from branch explain-links](coverage/explain-links/index.html)
+  - [from branch cbor-parse](coverage/cbor-parse/index.html)
   - [from branch master](coverage/master/index.html)
   - [from branch first-page-v2](coverage/first-page-v2/index.html)
   - [from branch stats-per-tld](coverage/stats-per-tld/index.html)
