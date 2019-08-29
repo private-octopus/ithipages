@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-08-26 23:17:52</td>
+            <td class="headerValue">2019-08-29 22:09:30</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -81,140 +81,136 @@
 <span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 <span class="lineNum">      20 </span>            : */
 <span class="lineNum">      21 </span>            : 
-<span class="lineNum">      22 </span>            : #include &quot;CaptureSummary.h&quot;
-<span class="lineNum">      23 </span>            : #include &quot;MergeTest.h&quot;
-<span class="lineNum">      24 </span>            : 
-<span class="lineNum">      25 </span>            : #ifdef _WINDOWS
-<span class="lineNum">      26 </span>            : #ifndef _WINDOWS64
-<span class="lineNum">      27 </span>            : static char const * summary1 = &quot;..\\data\\summary1.csv&quot;;
-<span class="lineNum">      28 </span>            : static char const * summary2 = &quot;..\\data\\summary2.csv&quot;;
-<span class="lineNum">      29 </span>            : static char const * target = &quot;..\\data\\merge-1-2.csv&quot;;
-<span class="lineNum">      30 </span>            : #else
-<span class="lineNum">      31 </span>            : static char const * summary1 = &quot;..\\..\\data\\summary1.csv&quot;;
-<span class="lineNum">      32 </span>            : static char const * summary2 = &quot;..\\..\\data\\summary2.csv&quot;;
-<span class="lineNum">      33 </span>            : static char const * target = &quot;..\\..\\data\\merge-1-2.csv&quot;;
-<span class="lineNum">      34 </span>            : #endif
-<span class="lineNum">      35 </span>            : #else
-<span class="lineNum">      36 </span>            : static char const * summary1 = &quot;data/summary1.csv&quot;;
-<span class="lineNum">      37 </span>            : static char const * summary2 = &quot;data/summary2.csv&quot;;
-<span class="lineNum">      38 </span>            : static char const * target = &quot;data/merge-1-2.csv&quot;;
-<a name="39"><span class="lineNum">      39 </span>            : #endif</a>
-<span class="lineNum">      40 </span>            : 
-<span class="lineNum">      41 </span><span class="lineCov">          2 : MergeTest::MergeTest()</span>
-<span class="lineNum">      42 </span>            : {
-<span class="lineNum">      43 </span><span class="lineCov">          2 : }</span>
-<a name="44"><span class="lineNum">      44 </span>            : </a>
-<span class="lineNum">      45 </span>            : 
-<span class="lineNum">      46 </span><span class="lineCov">          4 : MergeTest::~MergeTest()</span>
-<span class="lineNum">      47 </span>            : {
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">          4 : }</span></a>
-<span class="lineNum">      49 </span>            : 
-<span class="lineNum">      50 </span><span class="lineCov">          2 : bool MergeTest::DoTest()</span>
-<span class="lineNum">      51 </span>            : {
-<span class="lineNum">      52 </span><span class="lineCov">          4 :     CaptureSummary cs;</span>
-<span class="lineNum">      53 </span><span class="lineCov">          2 :     char const * list[2] = { summary1, summary2 };</span>
-<span class="lineNum">      54 </span>            : 
-<span class="lineNum">      55 </span><span class="lineCov">          2 :     bool ret = cs.Merge(2, list);</span>
-<span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span><span class="lineCov">          2 :     if (ret)</span>
-<span class="lineNum">      58 </span>            :     {
-<span class="lineNum">      59 </span><span class="lineCov">          4 :         CaptureSummary tcs;</span>
-<span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span><span class="lineCov">          2 :         ret = tcs.Load(target);</span>
-<span class="lineNum">      62 </span>            : 
-<span class="lineNum">      63 </span><span class="lineCov">          2 :         if (ret)</span>
-<span class="lineNum">      64 </span>            :         {
-<span class="lineNum">      65 </span><span class="lineCov">          2 :             tcs.Sort();</span>
-<span class="lineNum">      66 </span>            : 
-<span class="lineNum">      67 </span><span class="lineCov">          2 :             ret = cs.Compare(&amp;tcs);</span>
-<span class="lineNum">      68 </span>            :         }
-<span class="lineNum">      69 </span>            :     }
-<span class="lineNum">      70 </span>            : 
-<span class="lineNum">      71 </span><span class="lineCov">          4 :     return ret;</span>
-<span class="lineNum">      72 </span>            : }
-<span class="lineNum">      73 </span>            : 
-<a name="74"><span class="lineNum">      74 </span>            : char const * capture_list_name = &quot;capture_list.txt&quot;;</a>
-<span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span><span class="lineCov">          2 : MergeListTest::MergeListTest()</span>
-<span class="lineNum">      77 </span>            : {
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          2 : }</span></a>
-<span class="lineNum">      79 </span>            : 
-<span class="lineNum">      80 </span><span class="lineCov">          4 : MergeListTest::~MergeListTest()</span>
-<span class="lineNum">      81 </span>            : {
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">          4 : }</span></a>
-<span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span><span class="lineCov">          2 : bool MergeListTest::DoTest()</span>
-<span class="lineNum">      85 </span>            : {
-<span class="lineNum">      86 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">      87 </span>            :     FILE * F;
-<span class="lineNum">      88 </span><span class="lineCov">          2 :     char const * list[2] = { summary1, summary2 };</span>
-<span class="lineNum">      89 </span><span class="lineCov">          2 :     int nb_files = 0;</span>
-<span class="lineNum">      90 </span><span class="lineCov">          2 :     unsigned int multiplier = 257;</span>
-<span class="lineNum">      91 </span><span class="lineCov">          4 :     CaptureSummary cs;</span>
-<span class="lineNum">      92 </span>            : 
-<span class="lineNum">      93 </span>            :     /* create the capture list */
-<span class="lineNum">      94 </span>            : #ifdef _WINDOWS
-<span class="lineNum">      95 </span>            :     errno_t err = fopen_s(&amp;F, capture_list_name, &quot;w&quot;);
-<span class="lineNum">      96 </span>            :     ret = (err == 0 &amp;&amp; F != NULL);
-<span class="lineNum">      97 </span>            : #else
-<span class="lineNum">      98 </span><span class="lineCov">          2 :     F = fopen(capture_list_name, &quot;w&quot;);</span>
-<span class="lineNum">      99 </span><span class="lineCov">          2 :     ret = (F != NULL);</span>
-<span class="lineNum">     100 </span>            : #endif
-<span class="lineNum">     101 </span>            : 
-<span class="lineNum">     102 </span><span class="lineCov">          2 :     if (ret)</span>
-<span class="lineNum">     103 </span>            :     {
-<span class="lineNum">     104 </span><span class="lineCov">        516 :         for (size_t j = 0; j &lt; multiplier; j++)</span>
-<span class="lineNum">     105 </span>            :         {
-<span class="lineNum">     106 </span><span class="lineCov">       1542 :             for (size_t i = 0; i &lt; 2; i++)</span>
-<span class="lineNum">     107 </span>            :             {
-<span class="lineNum">     108 </span><span class="lineCov">       1028 :                 ret = fputs(list[i], F) != EOF;</span>
-<span class="lineNum">     109 </span><span class="lineCov">       1028 :                 if (ret)</span>
-<span class="lineNum">     110 </span>            :                 {
-<span class="lineNum">     111 </span><span class="lineCov">       1028 :                     ret = fputs(&quot;\n&quot;, F) != EOF;</span>
-<span class="lineNum">     112 </span>            :                 }
-<span class="lineNum">     113 </span><span class="lineCov">       1028 :                 nb_files++;</span>
-<span class="lineNum">     114 </span><span class="lineCov">       1028 :                 if (!ret)</span>
-<span class="lineNum">     115 </span>            :                 {
-<span class="lineNum">     116 </span><span class="lineNoCov">          0 :                     TEST_LOG(&quot;Cannot write file name %d on capture file\n&quot;, nb_files);</span>
-<span class="lineNum">     117 </span>            :                 }
-<span class="lineNum">     118 </span>            :             }
-<span class="lineNum">     119 </span>            :         }
-<span class="lineNum">     120 </span><span class="lineCov">          2 :         fclose(F);</span>
-<span class="lineNum">     121 </span>            :     }
-<span class="lineNum">     122 </span>            :     else {
-<span class="lineNum">     123 </span><span class="lineNoCov">          0 :         TEST_LOG(&quot;Cannot create capture file \n&quot;);</span>
-<span class="lineNum">     124 </span>            :     }
-<span class="lineNum">     125 </span>            : 
-<span class="lineNum">     126 </span><span class="lineCov">          2 :     if (ret)</span>
-<span class="lineNum">     127 </span>            :     {
-<span class="lineNum">     128 </span><span class="lineCov">          2 :         ret = cs.Merge(capture_list_name);</span>
-<span class="lineNum">     129 </span><span class="lineCov">          2 :         if (!ret) {</span>
-<span class="lineNum">     130 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Merge of %d capture files failed.\n&quot;, nb_files);</span>
-<span class="lineNum">     131 </span>            :         }
-<span class="lineNum">     132 </span>            :     }
+<span class="lineNum">      22 </span>            : #include &quot;ithiutil.h&quot;
+<span class="lineNum">      23 </span>            : #include &quot;CaptureSummary.h&quot;
+<span class="lineNum">      24 </span>            : #include &quot;MergeTest.h&quot;
+<span class="lineNum">      25 </span>            : 
+<span class="lineNum">      26 </span>            : #ifdef _WINDOWS
+<span class="lineNum">      27 </span>            : #ifndef _WINDOWS64
+<span class="lineNum">      28 </span>            : static char const * summary1 = &quot;..\\data\\summary1.csv&quot;;
+<span class="lineNum">      29 </span>            : static char const * summary2 = &quot;..\\data\\summary2.csv&quot;;
+<span class="lineNum">      30 </span>            : static char const * target = &quot;..\\data\\merge-1-2.csv&quot;;
+<span class="lineNum">      31 </span>            : #else
+<span class="lineNum">      32 </span>            : static char const * summary1 = &quot;..\\..\\data\\summary1.csv&quot;;
+<span class="lineNum">      33 </span>            : static char const * summary2 = &quot;..\\..\\data\\summary2.csv&quot;;
+<span class="lineNum">      34 </span>            : static char const * target = &quot;..\\..\\data\\merge-1-2.csv&quot;;
+<span class="lineNum">      35 </span>            : #endif
+<span class="lineNum">      36 </span>            : #else
+<span class="lineNum">      37 </span>            : static char const * summary1 = &quot;data/summary1.csv&quot;;
+<span class="lineNum">      38 </span>            : static char const * summary2 = &quot;data/summary2.csv&quot;;
+<span class="lineNum">      39 </span>            : static char const * target = &quot;data/merge-1-2.csv&quot;;
+<a name="40"><span class="lineNum">      40 </span>            : #endif</a>
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span><span class="lineCov">          2 : MergeTest::MergeTest()</span>
+<span class="lineNum">      43 </span>            : {
+<span class="lineNum">      44 </span><span class="lineCov">          2 : }</span>
+<a name="45"><span class="lineNum">      45 </span>            : </a>
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span><span class="lineCov">          4 : MergeTest::~MergeTest()</span>
+<span class="lineNum">      48 </span>            : {
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">          4 : }</span></a>
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span><span class="lineCov">          2 : bool MergeTest::DoTest()</span>
+<span class="lineNum">      52 </span>            : {
+<span class="lineNum">      53 </span><span class="lineCov">          4 :     CaptureSummary cs;</span>
+<span class="lineNum">      54 </span><span class="lineCov">          2 :     char const * list[2] = { summary1, summary2 };</span>
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span><span class="lineCov">          2 :     bool ret = cs.Merge(2, list);</span>
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">      59 </span>            :     {
+<span class="lineNum">      60 </span><span class="lineCov">          4 :         CaptureSummary tcs;</span>
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span><span class="lineCov">          2 :         ret = tcs.Load(target);</span>
+<span class="lineNum">      63 </span>            : 
+<span class="lineNum">      64 </span><span class="lineCov">          2 :         if (ret)</span>
+<span class="lineNum">      65 </span>            :         {
+<span class="lineNum">      66 </span><span class="lineCov">          2 :             tcs.Sort();</span>
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span><span class="lineCov">          2 :             ret = cs.Compare(&amp;tcs);</span>
+<span class="lineNum">      69 </span>            :         }
+<span class="lineNum">      70 </span>            :     }
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">          4 :     return ret;</span>
+<span class="lineNum">      73 </span>            : }
+<span class="lineNum">      74 </span>            : 
+<a name="75"><span class="lineNum">      75 </span>            : char const * capture_list_name = &quot;capture_list.txt&quot;;</a>
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span><span class="lineCov">          2 : MergeListTest::MergeListTest()</span>
+<span class="lineNum">      78 </span>            : {
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span><span class="lineCov">          4 : MergeListTest::~MergeListTest()</span>
+<span class="lineNum">      82 </span>            : {
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">          4 : }</span></a>
+<span class="lineNum">      84 </span>            : 
+<span class="lineNum">      85 </span><span class="lineCov">          2 : bool MergeListTest::DoTest()</span>
+<span class="lineNum">      86 </span>            : {
+<span class="lineNum">      87 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">      88 </span>            :     FILE * F;
+<span class="lineNum">      89 </span><span class="lineCov">          2 :     char const * list[2] = { summary1, summary2 };</span>
+<span class="lineNum">      90 </span><span class="lineCov">          2 :     int nb_files = 0;</span>
+<span class="lineNum">      91 </span><span class="lineCov">          2 :     unsigned int multiplier = 257;</span>
+<span class="lineNum">      92 </span><span class="lineCov">          4 :     CaptureSummary cs;</span>
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span>            :     /* create the capture list */
+<span class="lineNum">      95 </span><span class="lineCov">          2 :     F = ithi_file_open(capture_list_name, &quot;w&quot;);</span>
+<span class="lineNum">      96 </span><span class="lineCov">          2 :     ret &amp;= (F != NULL);</span>
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">      99 </span>            :     {
+<span class="lineNum">     100 </span><span class="lineCov">        516 :         for (size_t j = 0; j &lt; multiplier; j++)</span>
+<span class="lineNum">     101 </span>            :         {
+<span class="lineNum">     102 </span><span class="lineCov">       1542 :             for (size_t i = 0; i &lt; 2; i++)</span>
+<span class="lineNum">     103 </span>            :             {
+<span class="lineNum">     104 </span><span class="lineCov">       1028 :                 ret = fputs(list[i], F) != EOF;</span>
+<span class="lineNum">     105 </span><span class="lineCov">       1028 :                 if (ret)</span>
+<span class="lineNum">     106 </span>            :                 {
+<span class="lineNum">     107 </span><span class="lineCov">       1028 :                     ret = fputs(&quot;\n&quot;, F) != EOF;</span>
+<span class="lineNum">     108 </span>            :                 }
+<span class="lineNum">     109 </span><span class="lineCov">       1028 :                 nb_files++;</span>
+<span class="lineNum">     110 </span><span class="lineCov">       1028 :                 if (!ret)</span>
+<span class="lineNum">     111 </span>            :                 {
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :                     TEST_LOG(&quot;Cannot write file name %d on capture file\n&quot;, nb_files);</span>
+<span class="lineNum">     113 </span>            :                 }
+<span class="lineNum">     114 </span>            :             }
+<span class="lineNum">     115 </span>            :         }
+<span class="lineNum">     116 </span><span class="lineCov">          2 :         fclose(F);</span>
+<span class="lineNum">     117 </span>            :     }
+<span class="lineNum">     118 </span>            :     else {
+<span class="lineNum">     119 </span><span class="lineNoCov">          0 :         TEST_LOG(&quot;Cannot create capture file \n&quot;);</span>
+<span class="lineNum">     120 </span>            :     }
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     123 </span>            :     {
+<span class="lineNum">     124 </span><span class="lineCov">          2 :         ret = cs.Merge(capture_list_name);</span>
+<span class="lineNum">     125 </span><span class="lineCov">          2 :         if (!ret) {</span>
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Merge of %d capture files failed.\n&quot;, nb_files);</span>
+<span class="lineNum">     127 </span>            :         }
+<span class="lineNum">     128 </span>            :     }
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     131 </span>            :     {
+<span class="lineNum">     132 </span><span class="lineCov">          4 :         CaptureSummary tcs;</span>
 <span class="lineNum">     133 </span>            : 
-<span class="lineNum">     134 </span><span class="lineCov">          2 :     if (ret)</span>
-<span class="lineNum">     135 </span>            :     {
-<span class="lineNum">     136 </span><span class="lineCov">          4 :         CaptureSummary tcs;</span>
-<span class="lineNum">     137 </span>            : 
-<span class="lineNum">     138 </span><span class="lineCov">          2 :         ret = tcs.Load(target);</span>
-<span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span><span class="lineCov">          2 :         if (ret)</span>
-<span class="lineNum">     141 </span>            :         {
-<span class="lineNum">     142 </span><span class="lineCov">          2 :             tcs.MultiplyByConstantForTest(multiplier);</span>
-<span class="lineNum">     143 </span><span class="lineCov">          2 :             tcs.Sort();</span>
-<span class="lineNum">     144 </span>            : 
-<span class="lineNum">     145 </span><span class="lineCov">          2 :             ret = cs.Compare(&amp;tcs);</span>
-<span class="lineNum">     146 </span>            : 
-<span class="lineNum">     147 </span><span class="lineCov">          2 :             if (!ret)</span>
-<span class="lineNum">     148 </span>            :             {
-<span class="lineNum">     149 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Merge of %d capture files does not match prediction.\n&quot;, nb_files);</span>
-<span class="lineNum">     150 </span>            :             }
-<span class="lineNum">     151 </span>            :         }
-<span class="lineNum">     152 </span>            :     }
-<span class="lineNum">     153 </span>            : 
-<span class="lineNum">     154 </span><span class="lineCov">          4 :     return ret;</span>
-<span class="lineNum">     155 </span>            : }
+<span class="lineNum">     134 </span><span class="lineCov">          2 :         ret = tcs.Load(target);</span>
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span><span class="lineCov">          2 :         if (ret)</span>
+<span class="lineNum">     137 </span>            :         {
+<span class="lineNum">     138 </span><span class="lineCov">          2 :             tcs.MultiplyByConstantForTest(multiplier);</span>
+<span class="lineNum">     139 </span><span class="lineCov">          2 :             tcs.Sort();</span>
+<span class="lineNum">     140 </span>            : 
+<span class="lineNum">     141 </span><span class="lineCov">          2 :             ret = cs.Compare(&amp;tcs);</span>
+<span class="lineNum">     142 </span>            : 
+<span class="lineNum">     143 </span><span class="lineCov">          2 :             if (!ret)</span>
+<span class="lineNum">     144 </span>            :             {
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Merge of %d capture files does not match prediction.\n&quot;, nb_files);</span>
+<span class="lineNum">     146 </span>            :             }
+<span class="lineNum">     147 </span>            :         }
+<span class="lineNum">     148 </span>            :     }
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineCov">          4 :     return ret;</span>
+<span class="lineNum">     151 </span>            : }
 </pre>
       </td>
     </tr>
