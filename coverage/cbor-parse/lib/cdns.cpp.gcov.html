@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">0</td>
-            <td class="headerCovTableEntry">663</td>
+            <td class="headerCovTableEntry">667</td>
             <td class="headerCovTableEntryLo">0.0 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-08-29 22:24:41</td>
+            <td class="headerValue">2019-08-29 23:29:09</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">0</td>
@@ -732,506 +732,510 @@
 <span class="lineNum">     670 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
 <span class="lineNum">     671 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
 <span class="lineNum">     672 </span>            :                 }
-<span class="lineNum">     673 </span>            :             }
-<span class="lineNum">     674 </span><span class="lineNoCov">          0 :             rank++;</span>
-<span class="lineNum">     675 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
-<span class="lineNum">     676 </span><span class="lineNoCov">          0 :                 if (rank != 1) {</span>
-<span class="lineNum">     677 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;,\n&quot;);</span>
-<span class="lineNum">     678 </span>            :                 }
-<span class="lineNum">     679 </span>            :                 /* One item per line, only print the first 10 items */
-<span class="lineNum">     680 </span><span class="lineNoCov">          0 :                 in = dump_query(in, in_max, out_buf, out_max, err, F_out);</span>
-<span class="lineNum">     681 </span>            :             }
-<span class="lineNum">     682 </span>            :             else {
-<span class="lineNum">     683 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
-<span class="lineNum">     684 </span>            :             }
-<span class="lineNum">     685 </span>            :         }
-<span class="lineNum">     686 </span>            : 
-<span class="lineNum">     687 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">     688 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
-<span class="lineNum">     689 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,\n                ...\n&quot;);</span>
-<span class="lineNum">     690 </span>            :             }
-<span class="lineNum">     691 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;                -- found %d queries\n&quot;, rank);</span>
-<span class="lineNum">     692 </span>            :         }
-<span class="lineNum">     693 </span>            :     }
-<span class="lineNum">     694 </span>            : 
-<span class="lineNum">     695 </span><span class="lineNoCov">          0 :     return in;</span>
-<a name="696"><span class="lineNum">     696 </span>            : }</a>
-<span class="lineNum">     697 </span>            : 
-<span class="lineNum">     698 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_query(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
-<span class="lineNum">     699 </span>            : {
-<span class="lineNum">     700 </span>            :     char* p_out;
-<span class="lineNum">     701 </span>            :     int64_t val;
-<span class="lineNum">     702 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     703 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
-<span class="lineNum">     704 </span>            : 
-<span class="lineNum">     705 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
-<span class="lineNum">     706 </span>            : 
-<span class="lineNum">     707 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_MAP) {</span>
-<span class="lineNum">     708 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                Error, cannot parse the first bytes of query, type: %d.\n&quot;, outer_type);</span>
-<span class="lineNum">     709 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     710 </span><span class="lineNoCov">          0 :         in = NULL;</span>
-<span class="lineNum">     711 </span>            :     }
-<span class="lineNum">     712 </span>            :     else {
-<span class="lineNum">     713 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
-<span class="lineNum">     714 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                [\n&quot;);</span>
-<span class="lineNum">     715 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
-<span class="lineNum">     716 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
-<span class="lineNum">     717 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
-<span class="lineNum">     718 </span>            :         }
-<span class="lineNum">     719 </span>            : 
-<span class="lineNum">     720 </span><span class="lineNoCov">          0 :         while (val &gt; 0 &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
-<span class="lineNum">     721 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
-<span class="lineNum">     722 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n                    --end of array&quot;);</span>
-<span class="lineNum">     723 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
-<span class="lineNum">     724 </span><span class="lineNoCov">          0 :                     in++;</span>
-<span class="lineNum">     725 </span>            :                 }
-<span class="lineNum">     726 </span>            :                 else {
-<span class="lineNum">     727 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    Error, end of array mark unexpected.\n&quot;);</span>
-<span class="lineNum">     728 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     729 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">     730 </span>            :                 }
-<span class="lineNum">     731 </span><span class="lineNoCov">          0 :                 break;</span>
-<span class="lineNum">     732 </span>            :             }
-<span class="lineNum">     733 </span>            :             else {
-<span class="lineNum">     734 </span>            :                 /* There should be two elements for each map item */
-<span class="lineNum">     735 </span><span class="lineNoCov">          0 :                 int inner_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     736 </span>            :                 int64_t inner_val;
-<span class="lineNum">     737 </span>            : 
-<span class="lineNum">     738 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;inner_val);</span>
-<span class="lineNum">     739 </span><span class="lineNoCov">          0 :                 if (inner_type != CBOR_T_UINT) {</span>
-<span class="lineNum">     740 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                Unexpected type: %d(%d)\n&quot;, inner_type, (int)inner_val);</span>
-<span class="lineNum">     741 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     742 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">     743 </span>            :                 }
-<span class="lineNum">     744 </span>            :                 else {
-<span class="lineNum">     745 </span><span class="lineNoCov">          0 :                     if (rank != 0) {</span>
-<span class="lineNum">     746 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;,\n&quot;);</span>
-<span class="lineNum">     747 </span>            :                     }
-<span class="lineNum">     748 </span><span class="lineNoCov">          0 :                     rank++;</span>
-<span class="lineNum">     749 </span><span class="lineNoCov">          0 :                     if (inner_val == 0) {</span>
-<span class="lineNum">     750 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --time_useconds,\n&quot;);</span>
-<span class="lineNum">     751 </span><span class="lineNoCov">          0 :                     } else if (inner_val == 1) {</span>
-<span class="lineNum">     752 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --time_pseconds,\n&quot;);</span>
-<span class="lineNum">     753 </span>            :                     }
-<span class="lineNum">     754 </span><span class="lineNoCov">          0 :                     else if (inner_val == 2) {</span>
-<span class="lineNum">     755 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --client_address_index,\n&quot;);</span>
-<span class="lineNum">     756 </span>            :                     }
-<span class="lineNum">     757 </span><span class="lineNoCov">          0 :                     else if (inner_val == 3) {</span>
-<span class="lineNum">     758 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --client_port,\n&quot;);</span>
-<span class="lineNum">     759 </span>            :                     }
-<span class="lineNum">     760 </span><span class="lineNoCov">          0 :                     else if (inner_val == 4) {</span>
-<span class="lineNum">     761 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --transaction_id,\n&quot;);</span>
-<span class="lineNum">     762 </span>            :                     }
-<span class="lineNum">     763 </span><span class="lineNoCov">          0 :                     else if (inner_val == 5) {</span>
-<span class="lineNum">     764 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_signature_index,\n&quot;);</span>
-<span class="lineNum">     765 </span>            :                     }
-<span class="lineNum">     766 </span><span class="lineNoCov">          0 :                     else if (inner_val == 6) {</span>
-<span class="lineNum">     767 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --client_hoplimit,\n&quot;);</span>
-<span class="lineNum">     768 </span>            :                     }
-<span class="lineNum">     769 </span><span class="lineNoCov">          0 :                     else if (inner_val == 7) {</span>
-<span class="lineNum">     770 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --delay_useconds,\n&quot;);</span>
-<span class="lineNum">     771 </span>            :                     }
-<span class="lineNum">     772 </span><span class="lineNoCov">          0 :                     else if (inner_val == 8) {</span>
-<span class="lineNum">     773 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --delay_pseconds,\n&quot;);</span>
-<span class="lineNum">     774 </span>            :                     }
-<span class="lineNum">     775 </span><span class="lineNoCov">          0 :                     else if (inner_val == 9) {</span>
-<span class="lineNum">     776 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_name_index,\n&quot;);</span>
-<span class="lineNum">     777 </span>            :                     }
-<span class="lineNum">     778 </span><span class="lineNoCov">          0 :                     else if (inner_val == 10) {</span>
-<span class="lineNum">     779 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_size,\n&quot;);</span>
-<span class="lineNum">     780 </span>            :                     }
-<span class="lineNum">     781 </span><span class="lineNoCov">          0 :                     else if (inner_val == 11) {</span>
-<span class="lineNum">     782 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --response_size,\n&quot;);</span>
-<span class="lineNum">     783 </span>            :                     }
-<span class="lineNum">     784 </span><span class="lineNoCov">          0 :                     else if (inner_val == 12) {</span>
-<span class="lineNum">     785 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_extended,\n&quot;);</span>
-<span class="lineNum">     786 </span>            :                     }
-<span class="lineNum">     787 </span><span class="lineNoCov">          0 :                     else if (inner_val == 13) {</span>
-<span class="lineNum">     788 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --response_extended,\n&quot;);</span>
-<span class="lineNum">     789 </span>            :                     }
-<span class="lineNum">     790 </span>            : 
-<span class="lineNum">     791 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    %d, &quot;, (int)inner_val);</span>
-<span class="lineNum">     792 </span><span class="lineNoCov">          0 :                     p_out = out_buf;</span>
-<span class="lineNum">     793 </span><span class="lineNoCov">          0 :                     in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
-<span class="lineNum">     794 </span><span class="lineNoCov">          0 :                     fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
-<span class="lineNum">     795 </span><span class="lineNoCov">          0 :                     val--;</span>
-<span class="lineNum">     796 </span>            :                 }
-<span class="lineNum">     797 </span>            :             }
-<span class="lineNum">     798 </span>            :         }
-<span class="lineNum">     799 </span>            : 
-<span class="lineNum">     800 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">     801 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;\n                ]&quot;);</span>
-<span class="lineNum">     802 </span>            :         }
-<span class="lineNum">     803 </span>            :     }
-<span class="lineNum">     804 </span>            : 
-<span class="lineNum">     805 </span><span class="lineNoCov">          0 :     return in;</span>
-<a name="806"><span class="lineNum">     806 </span>            : }</a>
-<span class="lineNum">     807 </span>            : 
-<span class="lineNum">     808 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_class_types(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
-<span class="lineNum">     809 </span>            : {
-<span class="lineNum">     810 </span>            :     int64_t val;
-<span class="lineNum">     811 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     812 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
-<span class="lineNum">     813 </span>            : 
-<span class="lineNum">     814 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
-<span class="lineNum">     815 </span>            : 
-<span class="lineNum">     816 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_ARRAY) {</span>
-<span class="lineNum">     817 </span>            :         fprintf(F_out, &quot;                Error, cannot parse the first bytes of class-types, type= %d.\n&quot;,
-<span class="lineNum">     818 </span><span class="lineNoCov">          0 :             outer_type);</span>
-<span class="lineNum">     819 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     820 </span><span class="lineNoCov">          0 :         in = NULL;</span>
-<span class="lineNum">     821 </span>            :     }
-<span class="lineNum">     822 </span>            :     else {
-<span class="lineNum">     823 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
-<span class="lineNum">     824 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
-<span class="lineNum">     825 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
-<span class="lineNum">     826 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
-<span class="lineNum">     827 </span>            :         }
-<span class="lineNum">     828 </span>            : 
-<span class="lineNum">     829 </span><span class="lineNoCov">          0 :         while (rank &lt; val &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
-<span class="lineNum">     830 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
-<span class="lineNum">     831 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;                --end of array\n&quot;);</span>
-<span class="lineNum">     832 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
-<span class="lineNum">     833 </span><span class="lineNoCov">          0 :                     in++;</span>
-<span class="lineNum">     834 </span>            :                 }
-<span class="lineNum">     835 </span>            :                 else {
-<span class="lineNum">     836 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                Error, end of array mark unexpected.\n&quot;);</span>
-<span class="lineNum">     837 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     838 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">     839 </span>            :                 }
-<span class="lineNum">     840 </span>            :             }
-<span class="lineNum">     841 </span><span class="lineNoCov">          0 :             rank++;</span>
-<span class="lineNum">     842 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
-<span class="lineNum">     843 </span><span class="lineNoCov">          0 :                 if (rank != 1) {</span>
-<span class="lineNum">     844 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;,\n&quot;);</span>
-<span class="lineNum">     845 </span>            :                 }
-<span class="lineNum">     846 </span>            :                 /* One item per line, only print the first 10 items */
-<span class="lineNum">     847 </span><span class="lineNoCov">          0 :                 in = dump_class_type(in, in_max, out_buf, out_max, err, F_out);</span>
-<span class="lineNum">     848 </span>            :             }
-<span class="lineNum">     849 </span>            :             else {
-<span class="lineNum">     850 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
-<span class="lineNum">     851 </span>            :             }
-<span class="lineNum">     852 </span>            :         }
-<span class="lineNum">     853 </span>            : 
-<span class="lineNum">     854 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">     855 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
-<span class="lineNum">     856 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,\n                    ...\n&quot;);</span>
-<span class="lineNum">     857 </span>            :             }
-<span class="lineNum">     858 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;                    -- found %d class-types\n&quot;, rank);</span>
-<span class="lineNum">     859 </span>            :         }
-<span class="lineNum">     860 </span>            :     }
-<span class="lineNum">     861 </span>            : 
-<span class="lineNum">     862 </span><span class="lineNoCov">          0 :     return in;</span>
-<a name="863"><span class="lineNum">     863 </span>            : }</a>
-<span class="lineNum">     864 </span>            : 
-<span class="lineNum">     865 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_class_type(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
-<span class="lineNum">     866 </span>            : {
-<span class="lineNum">     867 </span>            :     char* p_out;
-<span class="lineNum">     868 </span>            :     int64_t val;
-<span class="lineNum">     869 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     870 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
-<span class="lineNum">     871 </span>            : 
-<span class="lineNum">     872 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     673 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     674 </span>            :             }
+<span class="lineNum">     675 </span><span class="lineNoCov">          0 :             rank++;</span>
+<span class="lineNum">     676 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
+<span class="lineNum">     677 </span><span class="lineNoCov">          0 :                 if (rank != 1) {</span>
+<span class="lineNum">     678 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;,\n&quot;);</span>
+<span class="lineNum">     679 </span>            :                 }
+<span class="lineNum">     680 </span>            :                 /* One item per line, only print the first 10 items */
+<span class="lineNum">     681 </span><span class="lineNoCov">          0 :                 in = dump_query(in, in_max, out_buf, out_max, err, F_out);</span>
+<span class="lineNum">     682 </span>            :             }
+<span class="lineNum">     683 </span>            :             else {
+<span class="lineNum">     684 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">     685 </span>            :             }
+<span class="lineNum">     686 </span>            :         }
+<span class="lineNum">     687 </span>            : 
+<span class="lineNum">     688 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
+<span class="lineNum">     689 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
+<span class="lineNum">     690 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,\n                ...\n&quot;);</span>
+<span class="lineNum">     691 </span>            :             }
+<span class="lineNum">     692 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;                -- found %d queries\n&quot;, rank);</span>
+<span class="lineNum">     693 </span>            :         }
+<span class="lineNum">     694 </span>            :     }
+<span class="lineNum">     695 </span>            : 
+<span class="lineNum">     696 </span><span class="lineNoCov">          0 :     return in;</span>
+<a name="697"><span class="lineNum">     697 </span>            : }</a>
+<span class="lineNum">     698 </span>            : 
+<span class="lineNum">     699 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_query(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
+<span class="lineNum">     700 </span>            : {
+<span class="lineNum">     701 </span>            :     char* p_out;
+<span class="lineNum">     702 </span>            :     int64_t val;
+<span class="lineNum">     703 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     704 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
+<span class="lineNum">     705 </span>            : 
+<span class="lineNum">     706 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     707 </span>            : 
+<span class="lineNum">     708 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_MAP) {</span>
+<span class="lineNum">     709 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                Error, cannot parse the first bytes of query, type: %d.\n&quot;, outer_type);</span>
+<span class="lineNum">     710 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     711 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">     712 </span>            :     }
+<span class="lineNum">     713 </span>            :     else {
+<span class="lineNum">     714 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
+<span class="lineNum">     715 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                [\n&quot;);</span>
+<span class="lineNum">     716 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     717 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">     718 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">     719 </span>            :         }
+<span class="lineNum">     720 </span>            : 
+<span class="lineNum">     721 </span><span class="lineNoCov">          0 :         while (val &gt; 0 &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">     722 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">     723 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n                    --end of array&quot;);</span>
+<span class="lineNum">     724 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">     725 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">     726 </span>            :                 }
+<span class="lineNum">     727 </span>            :                 else {
+<span class="lineNum">     728 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    Error, end of array mark unexpected.\n&quot;);</span>
+<span class="lineNum">     729 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     730 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     731 </span>            :                 }
+<span class="lineNum">     732 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     733 </span>            :             }
+<span class="lineNum">     734 </span>            :             else {
+<span class="lineNum">     735 </span>            :                 /* There should be two elements for each map item */
+<span class="lineNum">     736 </span><span class="lineNoCov">          0 :                 int inner_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     737 </span>            :                 int64_t inner_val;
+<span class="lineNum">     738 </span>            : 
+<span class="lineNum">     739 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;inner_val);</span>
+<span class="lineNum">     740 </span><span class="lineNoCov">          0 :                 if (inner_type != CBOR_T_UINT) {</span>
+<span class="lineNum">     741 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                Unexpected type: %d(%d)\n&quot;, inner_type, (int)inner_val);</span>
+<span class="lineNum">     742 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     743 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     744 </span>            :                 }
+<span class="lineNum">     745 </span>            :                 else {
+<span class="lineNum">     746 </span><span class="lineNoCov">          0 :                     if (rank != 0) {</span>
+<span class="lineNum">     747 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;,\n&quot;);</span>
+<span class="lineNum">     748 </span>            :                     }
+<span class="lineNum">     749 </span><span class="lineNoCov">          0 :                     rank++;</span>
+<span class="lineNum">     750 </span><span class="lineNoCov">          0 :                     if (inner_val == 0) {</span>
+<span class="lineNum">     751 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --time_useconds,\n&quot;);</span>
+<span class="lineNum">     752 </span><span class="lineNoCov">          0 :                     } else if (inner_val == 1) {</span>
+<span class="lineNum">     753 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --time_pseconds,\n&quot;);</span>
+<span class="lineNum">     754 </span>            :                     }
+<span class="lineNum">     755 </span><span class="lineNoCov">          0 :                     else if (inner_val == 2) {</span>
+<span class="lineNum">     756 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --client_address_index,\n&quot;);</span>
+<span class="lineNum">     757 </span>            :                     }
+<span class="lineNum">     758 </span><span class="lineNoCov">          0 :                     else if (inner_val == 3) {</span>
+<span class="lineNum">     759 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --client_port,\n&quot;);</span>
+<span class="lineNum">     760 </span>            :                     }
+<span class="lineNum">     761 </span><span class="lineNoCov">          0 :                     else if (inner_val == 4) {</span>
+<span class="lineNum">     762 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --transaction_id,\n&quot;);</span>
+<span class="lineNum">     763 </span>            :                     }
+<span class="lineNum">     764 </span><span class="lineNoCov">          0 :                     else if (inner_val == 5) {</span>
+<span class="lineNum">     765 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_signature_index,\n&quot;);</span>
+<span class="lineNum">     766 </span>            :                     }
+<span class="lineNum">     767 </span><span class="lineNoCov">          0 :                     else if (inner_val == 6) {</span>
+<span class="lineNum">     768 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --client_hoplimit,\n&quot;);</span>
+<span class="lineNum">     769 </span>            :                     }
+<span class="lineNum">     770 </span><span class="lineNoCov">          0 :                     else if (inner_val == 7) {</span>
+<span class="lineNum">     771 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --delay_useconds,\n&quot;);</span>
+<span class="lineNum">     772 </span>            :                     }
+<span class="lineNum">     773 </span><span class="lineNoCov">          0 :                     else if (inner_val == 8) {</span>
+<span class="lineNum">     774 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --delay_pseconds,\n&quot;);</span>
+<span class="lineNum">     775 </span>            :                     }
+<span class="lineNum">     776 </span><span class="lineNoCov">          0 :                     else if (inner_val == 9) {</span>
+<span class="lineNum">     777 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_name_index,\n&quot;);</span>
+<span class="lineNum">     778 </span>            :                     }
+<span class="lineNum">     779 </span><span class="lineNoCov">          0 :                     else if (inner_val == 10) {</span>
+<span class="lineNum">     780 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_size,\n&quot;);</span>
+<span class="lineNum">     781 </span>            :                     }
+<span class="lineNum">     782 </span><span class="lineNoCov">          0 :                     else if (inner_val == 11) {</span>
+<span class="lineNum">     783 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --response_size,\n&quot;);</span>
+<span class="lineNum">     784 </span>            :                     }
+<span class="lineNum">     785 </span><span class="lineNoCov">          0 :                     else if (inner_val == 12) {</span>
+<span class="lineNum">     786 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --query_extended,\n&quot;);</span>
+<span class="lineNum">     787 </span>            :                     }
+<span class="lineNum">     788 </span><span class="lineNoCov">          0 :                     else if (inner_val == 13) {</span>
+<span class="lineNum">     789 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                    --response_extended,\n&quot;);</span>
+<span class="lineNum">     790 </span>            :                     }
+<span class="lineNum">     791 </span>            : 
+<span class="lineNum">     792 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    %d, &quot;, (int)inner_val);</span>
+<span class="lineNum">     793 </span><span class="lineNoCov">          0 :                     p_out = out_buf;</span>
+<span class="lineNum">     794 </span><span class="lineNoCov">          0 :                     in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
+<span class="lineNum">     795 </span><span class="lineNoCov">          0 :                     fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
+<span class="lineNum">     796 </span><span class="lineNoCov">          0 :                     val--;</span>
+<span class="lineNum">     797 </span>            :                 }
+<span class="lineNum">     798 </span>            :             }
+<span class="lineNum">     799 </span>            :         }
+<span class="lineNum">     800 </span>            : 
+<span class="lineNum">     801 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
+<span class="lineNum">     802 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;\n                ]&quot;);</span>
+<span class="lineNum">     803 </span>            :         }
+<span class="lineNum">     804 </span>            :     }
+<span class="lineNum">     805 </span>            : 
+<span class="lineNum">     806 </span><span class="lineNoCov">          0 :     return in;</span>
+<a name="807"><span class="lineNum">     807 </span>            : }</a>
+<span class="lineNum">     808 </span>            : 
+<span class="lineNum">     809 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_class_types(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
+<span class="lineNum">     810 </span>            : {
+<span class="lineNum">     811 </span>            :     int64_t val;
+<span class="lineNum">     812 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     813 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
+<span class="lineNum">     814 </span>            : 
+<span class="lineNum">     815 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     816 </span>            : 
+<span class="lineNum">     817 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_ARRAY) {</span>
+<span class="lineNum">     818 </span>            :         fprintf(F_out, &quot;                Error, cannot parse the first bytes of class-types, type= %d.\n&quot;,
+<span class="lineNum">     819 </span><span class="lineNoCov">          0 :             outer_type);</span>
+<span class="lineNum">     820 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     821 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">     822 </span>            :     }
+<span class="lineNum">     823 </span>            :     else {
+<span class="lineNum">     824 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
+<span class="lineNum">     825 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     826 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">     827 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">     828 </span>            :         }
+<span class="lineNum">     829 </span>            : 
+<span class="lineNum">     830 </span><span class="lineNoCov">          0 :         while (rank &lt; val &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">     831 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">     832 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;                --end of array\n&quot;);</span>
+<span class="lineNum">     833 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">     834 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">     835 </span>            :                 }
+<span class="lineNum">     836 </span>            :                 else {
+<span class="lineNum">     837 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                Error, end of array mark unexpected.\n&quot;);</span>
+<span class="lineNum">     838 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     839 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     840 </span>            :                 }
+<span class="lineNum">     841 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     842 </span>            :             }
+<span class="lineNum">     843 </span><span class="lineNoCov">          0 :             rank++;</span>
+<span class="lineNum">     844 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
+<span class="lineNum">     845 </span><span class="lineNoCov">          0 :                 if (rank != 1) {</span>
+<span class="lineNum">     846 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;,\n&quot;);</span>
+<span class="lineNum">     847 </span>            :                 }
+<span class="lineNum">     848 </span>            :                 /* One item per line, only print the first 10 items */
+<span class="lineNum">     849 </span><span class="lineNoCov">          0 :                 in = dump_class_type(in, in_max, out_buf, out_max, err, F_out);</span>
+<span class="lineNum">     850 </span>            :             }
+<span class="lineNum">     851 </span>            :             else {
+<span class="lineNum">     852 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">     853 </span>            :             }
+<span class="lineNum">     854 </span>            :         }
+<span class="lineNum">     855 </span>            : 
+<span class="lineNum">     856 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
+<span class="lineNum">     857 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
+<span class="lineNum">     858 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,\n                    ...\n&quot;);</span>
+<span class="lineNum">     859 </span>            :             }
+<span class="lineNum">     860 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;                    -- found %d class-types\n&quot;, rank);</span>
+<span class="lineNum">     861 </span>            :         }
+<span class="lineNum">     862 </span>            :     }
+<span class="lineNum">     863 </span>            : 
+<span class="lineNum">     864 </span><span class="lineNoCov">          0 :     return in;</span>
+<a name="865"><span class="lineNum">     865 </span>            : }</a>
+<span class="lineNum">     866 </span>            : 
+<span class="lineNum">     867 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_class_type(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
+<span class="lineNum">     868 </span>            : {
+<span class="lineNum">     869 </span>            :     char* p_out;
+<span class="lineNum">     870 </span>            :     int64_t val;
+<span class="lineNum">     871 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     872 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
 <span class="lineNum">     873 </span>            : 
-<span class="lineNum">     874 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_MAP) {</span>
-<span class="lineNum">     875 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    Error, cannot parse the first bytes of class-type, type: %d.\n&quot;, outer_type);</span>
-<span class="lineNum">     876 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     877 </span><span class="lineNoCov">          0 :         in = NULL;</span>
-<span class="lineNum">     878 </span>            :     }
-<span class="lineNum">     879 </span>            :     else {
-<span class="lineNum">     880 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
-<span class="lineNum">     881 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    [\n&quot;);</span>
-<span class="lineNum">     882 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
-<span class="lineNum">     883 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
-<span class="lineNum">     884 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
-<span class="lineNum">     885 </span>            :         }
-<span class="lineNum">     886 </span>            : 
-<span class="lineNum">     887 </span><span class="lineNoCov">          0 :         while (val &gt; 0 &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
-<span class="lineNum">     888 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
-<span class="lineNum">     889 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n                        --end of array&quot;);</span>
-<span class="lineNum">     890 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
-<span class="lineNum">     891 </span><span class="lineNoCov">          0 :                     in++;</span>
-<span class="lineNum">     892 </span>            :                 }
-<span class="lineNum">     893 </span>            :                 else {
-<span class="lineNum">     894 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        Error, end of array mark unexpected.\n&quot;);</span>
-<span class="lineNum">     895 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     896 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">     897 </span>            :                 }
-<span class="lineNum">     898 </span><span class="lineNoCov">          0 :                 break;</span>
-<span class="lineNum">     899 </span>            :             }
-<span class="lineNum">     900 </span>            :             else {
-<span class="lineNum">     901 </span>            :                 /* There should be two elements for each map item */
-<span class="lineNum">     902 </span><span class="lineNoCov">          0 :                 int inner_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     903 </span>            :                 int64_t inner_val;
-<span class="lineNum">     904 </span>            : 
-<span class="lineNum">     905 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;inner_val);</span>
-<span class="lineNum">     906 </span><span class="lineNoCov">          0 :                 if (inner_type != CBOR_T_UINT) {</span>
-<span class="lineNum">     907 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    Unexpected type: %d(%d)\n&quot;, inner_type, (int)inner_val);</span>
-<span class="lineNum">     908 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     909 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">     910 </span>            :                 }
-<span class="lineNum">     911 </span>            :                 else {
-<span class="lineNum">     912 </span><span class="lineNoCov">          0 :                     if (rank != 0) {</span>
-<span class="lineNum">     913 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;,\n&quot;);</span>
-<span class="lineNum">     914 </span>            :                     }
-<span class="lineNum">     915 </span><span class="lineNoCov">          0 :                     rank++;</span>
-<span class="lineNum">     916 </span><span class="lineNoCov">          0 :                     if (inner_val == 0) {</span>
-<span class="lineNum">     917 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --type-id,\n&quot;);</span>
-<span class="lineNum">     918 </span>            :                     }
-<span class="lineNum">     919 </span><span class="lineNoCov">          0 :                     else if (inner_val == 1) {</span>
-<span class="lineNum">     920 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --class-id,\n&quot;);</span>
-<span class="lineNum">     921 </span>            :                     }
-<span class="lineNum">     922 </span>            : 
-<span class="lineNum">     923 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        %d, &quot;, (int)inner_val);</span>
-<span class="lineNum">     924 </span><span class="lineNoCov">          0 :                     p_out = out_buf;</span>
-<span class="lineNum">     925 </span><span class="lineNoCov">          0 :                     in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
-<span class="lineNum">     926 </span><span class="lineNoCov">          0 :                     fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
-<span class="lineNum">     927 </span><span class="lineNoCov">          0 :                     val--;</span>
-<span class="lineNum">     928 </span>            :                 }
-<span class="lineNum">     929 </span>            :             }
-<span class="lineNum">     930 </span>            :         }
-<span class="lineNum">     931 </span>            : 
-<span class="lineNum">     932 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">     933 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;]&quot;);</span>
-<span class="lineNum">     934 </span>            :         }
-<span class="lineNum">     935 </span>            :     }
-<span class="lineNum">     936 </span>            : 
-<span class="lineNum">     937 </span><span class="lineNoCov">          0 :     return in;</span>
-<a name="938"><span class="lineNum">     938 </span>            : }</a>
-<span class="lineNum">     939 </span>            : 
-<span class="lineNum">     940 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_qr_sigs(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
-<span class="lineNum">     941 </span>            : {
-<span class="lineNum">     942 </span>            :     int64_t val;
-<span class="lineNum">     943 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     944 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
-<span class="lineNum">     945 </span>            : 
-<span class="lineNum">     946 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     874 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     875 </span>            : 
+<span class="lineNum">     876 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_MAP) {</span>
+<span class="lineNum">     877 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    Error, cannot parse the first bytes of class-type, type: %d.\n&quot;, outer_type);</span>
+<span class="lineNum">     878 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     879 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">     880 </span>            :     }
+<span class="lineNum">     881 </span>            :     else {
+<span class="lineNum">     882 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
+<span class="lineNum">     883 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    [\n&quot;);</span>
+<span class="lineNum">     884 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     885 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">     886 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">     887 </span>            :         }
+<span class="lineNum">     888 </span>            : 
+<span class="lineNum">     889 </span><span class="lineNoCov">          0 :         while (val &gt; 0 &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">     890 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">     891 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n                        --end of array&quot;);</span>
+<span class="lineNum">     892 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">     893 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">     894 </span>            :                 }
+<span class="lineNum">     895 </span>            :                 else {
+<span class="lineNum">     896 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        Error, end of array mark unexpected.\n&quot;);</span>
+<span class="lineNum">     897 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     898 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     899 </span>            :                 }
+<span class="lineNum">     900 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     901 </span>            :             }
+<span class="lineNum">     902 </span>            :             else {
+<span class="lineNum">     903 </span>            :                 /* There should be two elements for each map item */
+<span class="lineNum">     904 </span><span class="lineNoCov">          0 :                 int inner_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     905 </span>            :                 int64_t inner_val;
+<span class="lineNum">     906 </span>            : 
+<span class="lineNum">     907 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;inner_val);</span>
+<span class="lineNum">     908 </span><span class="lineNoCov">          0 :                 if (inner_type != CBOR_T_UINT) {</span>
+<span class="lineNum">     909 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    Unexpected type: %d(%d)\n&quot;, inner_type, (int)inner_val);</span>
+<span class="lineNum">     910 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     911 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     912 </span>            :                 }
+<span class="lineNum">     913 </span>            :                 else {
+<span class="lineNum">     914 </span><span class="lineNoCov">          0 :                     if (rank != 0) {</span>
+<span class="lineNum">     915 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;,\n&quot;);</span>
+<span class="lineNum">     916 </span>            :                     }
+<span class="lineNum">     917 </span><span class="lineNoCov">          0 :                     rank++;</span>
+<span class="lineNum">     918 </span><span class="lineNoCov">          0 :                     if (inner_val == 0) {</span>
+<span class="lineNum">     919 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --type-id,\n&quot;);</span>
+<span class="lineNum">     920 </span>            :                     }
+<span class="lineNum">     921 </span><span class="lineNoCov">          0 :                     else if (inner_val == 1) {</span>
+<span class="lineNum">     922 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --class-id,\n&quot;);</span>
+<span class="lineNum">     923 </span>            :                     }
+<span class="lineNum">     924 </span>            : 
+<span class="lineNum">     925 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        %d, &quot;, (int)inner_val);</span>
+<span class="lineNum">     926 </span><span class="lineNoCov">          0 :                     p_out = out_buf;</span>
+<span class="lineNum">     927 </span><span class="lineNoCov">          0 :                     in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
+<span class="lineNum">     928 </span><span class="lineNoCov">          0 :                     fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
+<span class="lineNum">     929 </span><span class="lineNoCov">          0 :                     val--;</span>
+<span class="lineNum">     930 </span>            :                 }
+<span class="lineNum">     931 </span>            :             }
+<span class="lineNum">     932 </span>            :         }
+<span class="lineNum">     933 </span>            : 
+<span class="lineNum">     934 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
+<span class="lineNum">     935 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;]&quot;);</span>
+<span class="lineNum">     936 </span>            :         }
+<span class="lineNum">     937 </span>            :     }
+<span class="lineNum">     938 </span>            : 
+<span class="lineNum">     939 </span><span class="lineNoCov">          0 :     return in;</span>
+<a name="940"><span class="lineNum">     940 </span>            : }</a>
+<span class="lineNum">     941 </span>            : 
+<span class="lineNum">     942 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_qr_sigs(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
+<span class="lineNum">     943 </span>            : {
+<span class="lineNum">     944 </span>            :     int64_t val;
+<span class="lineNum">     945 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     946 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
 <span class="lineNum">     947 </span>            : 
-<span class="lineNum">     948 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_ARRAY) {</span>
-<span class="lineNum">     949 </span>            :         fprintf(F_out, &quot;                Error, cannot parse the first bytes of qr-sigs, type= %d.\n&quot;,
-<span class="lineNum">     950 </span><span class="lineNoCov">          0 :             outer_type);</span>
-<span class="lineNum">     951 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     952 </span><span class="lineNoCov">          0 :         in = NULL;</span>
-<span class="lineNum">     953 </span>            :     }
-<span class="lineNum">     954 </span>            :     else {
-<span class="lineNum">     955 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
-<span class="lineNum">     956 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
-<span class="lineNum">     957 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
-<span class="lineNum">     958 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
-<span class="lineNum">     959 </span>            :         }
-<span class="lineNum">     960 </span>            : 
-<span class="lineNum">     961 </span><span class="lineNoCov">          0 :         while (rank &lt; val &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
-<span class="lineNum">     962 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
-<span class="lineNum">     963 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;                --end of array\n&quot;);</span>
-<span class="lineNum">     964 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
-<span class="lineNum">     965 </span><span class="lineNoCov">          0 :                     in++;</span>
-<span class="lineNum">     966 </span>            :                 }
-<span class="lineNum">     967 </span>            :                 else {
-<span class="lineNum">     968 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                Error, end of array mark unexpected.\n&quot;);</span>
-<span class="lineNum">     969 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">     970 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">     971 </span>            :                 }
-<span class="lineNum">     972 </span>            :             }
-<span class="lineNum">     973 </span><span class="lineNoCov">          0 :             rank++;</span>
-<span class="lineNum">     974 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
-<span class="lineNum">     975 </span><span class="lineNoCov">          0 :                 if (rank != 1) {</span>
-<span class="lineNum">     976 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;,\n&quot;);</span>
-<span class="lineNum">     977 </span>            :                 }
-<span class="lineNum">     978 </span>            :                 /* One item per line, only print the first 10 items */
-<span class="lineNum">     979 </span><span class="lineNoCov">          0 :                 in = dump_qr_sig(in, in_max, out_buf, out_max, err, F_out);</span>
-<span class="lineNum">     980 </span>            :             }
-<span class="lineNum">     981 </span>            :             else {
-<span class="lineNum">     982 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">     948 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     949 </span>            : 
+<span class="lineNum">     950 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_ARRAY) {</span>
+<span class="lineNum">     951 </span>            :         fprintf(F_out, &quot;                Error, cannot parse the first bytes of qr-sigs, type= %d.\n&quot;,
+<span class="lineNum">     952 </span><span class="lineNoCov">          0 :             outer_type);</span>
+<span class="lineNum">     953 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     954 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">     955 </span>            :     }
+<span class="lineNum">     956 </span>            :     else {
+<span class="lineNum">     957 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
+<span class="lineNum">     958 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     959 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">     960 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">     961 </span>            :         }
+<span class="lineNum">     962 </span>            : 
+<span class="lineNum">     963 </span><span class="lineNoCov">          0 :         while (rank &lt; val &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">     964 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">     965 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;                --end of array\n&quot;);</span>
+<span class="lineNum">     966 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">     967 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">     968 </span>            :                 }
+<span class="lineNum">     969 </span>            :                 else {
+<span class="lineNum">     970 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                Error, end of array mark unexpected.\n&quot;);</span>
+<span class="lineNum">     971 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     972 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     973 </span>            :                 }
+<span class="lineNum">     974 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     975 </span>            :             }
+<span class="lineNum">     976 </span><span class="lineNoCov">          0 :             rank++;</span>
+<span class="lineNum">     977 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
+<span class="lineNum">     978 </span><span class="lineNoCov">          0 :                 if (rank != 1) {</span>
+<span class="lineNum">     979 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;,\n&quot;);</span>
+<span class="lineNum">     980 </span>            :                 }
+<span class="lineNum">     981 </span>            :                 /* One item per line, only print the first 10 items */
+<span class="lineNum">     982 </span><span class="lineNoCov">          0 :                 in = dump_qr_sig(in, in_max, out_buf, out_max, err, F_out);</span>
 <span class="lineNum">     983 </span>            :             }
-<span class="lineNum">     984 </span>            :         }
-<span class="lineNum">     985 </span>            : 
-<span class="lineNum">     986 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">     987 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
-<span class="lineNum">     988 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,\n                    ...\n&quot;);</span>
-<span class="lineNum">     989 </span>            :             }
-<span class="lineNum">     990 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;                    -- found %d qr-sigs\n&quot;, rank);</span>
-<span class="lineNum">     991 </span>            :         }
-<span class="lineNum">     992 </span>            :     }
-<span class="lineNum">     993 </span>            : 
-<span class="lineNum">     994 </span><span class="lineNoCov">          0 :     return in;</span>
-<a name="995"><span class="lineNum">     995 </span>            : }</a>
+<span class="lineNum">     984 </span>            :             else {
+<span class="lineNum">     985 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">     986 </span>            :             }
+<span class="lineNum">     987 </span>            :         }
+<span class="lineNum">     988 </span>            : 
+<span class="lineNum">     989 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
+<span class="lineNum">     990 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
+<span class="lineNum">     991 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,\n                    ...\n&quot;);</span>
+<span class="lineNum">     992 </span>            :             }
+<span class="lineNum">     993 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;                    -- found %d qr-sigs\n&quot;, rank);</span>
+<span class="lineNum">     994 </span>            :         }
+<span class="lineNum">     995 </span>            :     }
 <span class="lineNum">     996 </span>            : 
-<span class="lineNum">     997 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_qr_sig(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
-<span class="lineNum">     998 </span>            : {
-<span class="lineNum">     999 </span>            :     char* p_out;
-<span class="lineNum">    1000 </span>            :     int64_t val;
-<span class="lineNum">    1001 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">    1002 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
-<span class="lineNum">    1003 </span>            : 
-<span class="lineNum">    1004 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
-<span class="lineNum">    1005 </span>            : 
-<span class="lineNum">    1006 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_MAP) {</span>
-<span class="lineNum">    1007 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    Error, cannot parse the first bytes of qr-sig, type: %d.\n&quot;, outer_type);</span>
-<span class="lineNum">    1008 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">    1009 </span><span class="lineNoCov">          0 :         in = NULL;</span>
-<span class="lineNum">    1010 </span>            :     }
-<span class="lineNum">    1011 </span>            :     else {
-<span class="lineNum">    1012 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
-<span class="lineNum">    1013 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    [\n&quot;);</span>
-<span class="lineNum">    1014 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
-<span class="lineNum">    1015 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
-<span class="lineNum">    1016 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
-<span class="lineNum">    1017 </span>            :         }
-<span class="lineNum">    1018 </span>            : 
-<span class="lineNum">    1019 </span><span class="lineNoCov">          0 :         while (val &gt; 0 &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
-<span class="lineNum">    1020 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
-<span class="lineNum">    1021 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n                        --end of array&quot;);</span>
-<span class="lineNum">    1022 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
-<span class="lineNum">    1023 </span><span class="lineNoCov">          0 :                     in++;</span>
-<span class="lineNum">    1024 </span>            :                 }
-<span class="lineNum">    1025 </span>            :                 else {
-<span class="lineNum">    1026 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        Error, end of array mark unexpected.\n&quot;);</span>
-<span class="lineNum">    1027 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">    1028 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">    1029 </span>            :                 }
-<span class="lineNum">    1030 </span><span class="lineNoCov">          0 :                 break;</span>
-<span class="lineNum">    1031 </span>            :             }
-<span class="lineNum">    1032 </span>            :             else {
-<span class="lineNum">    1033 </span>            :                 /* There should be two elements for each map item */
-<span class="lineNum">    1034 </span><span class="lineNoCov">          0 :                 int inner_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">    1035 </span>            :                 int64_t inner_val;
-<span class="lineNum">    1036 </span>            : 
-<span class="lineNum">    1037 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;inner_val);</span>
-<span class="lineNum">    1038 </span><span class="lineNoCov">          0 :                 if (inner_type != CBOR_T_UINT) {</span>
-<span class="lineNum">    1039 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    Unexpected type: %d(%d)\n&quot;, inner_type, (int)inner_val);</span>
-<span class="lineNum">    1040 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">    1041 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">    1042 </span>            :                 }
-<span class="lineNum">    1043 </span>            :                 else {
-<span class="lineNum">    1044 </span><span class="lineNoCov">          0 :                     if (rank != 0) {</span>
-<span class="lineNum">    1045 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;,\n&quot;);</span>
-<span class="lineNum">    1046 </span>            :                     }
-<span class="lineNum">    1047 </span><span class="lineNoCov">          0 :                     rank++;</span>
-<span class="lineNum">    1048 </span><span class="lineNoCov">          0 :                     if (inner_val == 0) {</span>
-<span class="lineNum">    1049 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --server_address_index,\n&quot;);</span>
-<span class="lineNum">    1050 </span>            :                     }
-<span class="lineNum">    1051 </span><span class="lineNoCov">          0 :                     else if (inner_val == 1) {</span>
-<span class="lineNum">    1052 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --server_port,\n&quot;);</span>
+<span class="lineNum">     997 </span><span class="lineNoCov">          0 :     return in;</span>
+<a name="998"><span class="lineNum">     998 </span>            : }</a>
+<span class="lineNum">     999 </span>            : 
+<span class="lineNum">    1000 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_qr_sig(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* err, FILE* F_out)</span>
+<span class="lineNum">    1001 </span>            : {
+<span class="lineNum">    1002 </span>            :     char* p_out;
+<span class="lineNum">    1003 </span>            :     int64_t val;
+<span class="lineNum">    1004 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">    1005 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
+<span class="lineNum">    1006 </span>            : 
+<span class="lineNum">    1007 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">    1008 </span>            : 
+<span class="lineNum">    1009 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_MAP) {</span>
+<span class="lineNum">    1010 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    Error, cannot parse the first bytes of qr-sig, type: %d.\n&quot;, outer_type);</span>
+<span class="lineNum">    1011 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">    1012 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">    1013 </span>            :     }
+<span class="lineNum">    1014 </span>            :     else {
+<span class="lineNum">    1015 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
+<span class="lineNum">    1016 </span><span class="lineNoCov">          0 :         fprintf(F_out, &quot;                    [\n&quot;);</span>
+<span class="lineNum">    1017 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">    1018 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">    1019 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">    1020 </span>            :         }
+<span class="lineNum">    1021 </span>            : 
+<span class="lineNum">    1022 </span><span class="lineNoCov">          0 :         while (val &gt; 0 &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">    1023 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">    1024 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n                        --end of array&quot;);</span>
+<span class="lineNum">    1025 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">    1026 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">    1027 </span>            :                 }
+<span class="lineNum">    1028 </span>            :                 else {
+<span class="lineNum">    1029 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        Error, end of array mark unexpected.\n&quot;);</span>
+<span class="lineNum">    1030 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">    1031 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">    1032 </span>            :                 }
+<span class="lineNum">    1033 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">    1034 </span>            :             }
+<span class="lineNum">    1035 </span>            :             else {
+<span class="lineNum">    1036 </span>            :                 /* There should be two elements for each map item */
+<span class="lineNum">    1037 </span><span class="lineNoCov">          0 :                 int inner_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">    1038 </span>            :                 int64_t inner_val;
+<span class="lineNum">    1039 </span>            : 
+<span class="lineNum">    1040 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;inner_val);</span>
+<span class="lineNum">    1041 </span><span class="lineNoCov">          0 :                 if (inner_type != CBOR_T_UINT) {</span>
+<span class="lineNum">    1042 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                    Unexpected type: %d(%d)\n&quot;, inner_type, (int)inner_val);</span>
+<span class="lineNum">    1043 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">    1044 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">    1045 </span>            :                 }
+<span class="lineNum">    1046 </span>            :                 else {
+<span class="lineNum">    1047 </span><span class="lineNoCov">          0 :                     if (rank != 0) {</span>
+<span class="lineNum">    1048 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;,\n&quot;);</span>
+<span class="lineNum">    1049 </span>            :                     }
+<span class="lineNum">    1050 </span><span class="lineNoCov">          0 :                     rank++;</span>
+<span class="lineNum">    1051 </span><span class="lineNoCov">          0 :                     if (inner_val == 0) {</span>
+<span class="lineNum">    1052 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --server_address_index,\n&quot;);</span>
 <span class="lineNum">    1053 </span>            :                     }
-<span class="lineNum">    1054 </span><span class="lineNoCov">          0 :                     else if (inner_val == 2) {</span>
-<span class="lineNum">    1055 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --transport_flags,\n&quot;);</span>
+<span class="lineNum">    1054 </span><span class="lineNoCov">          0 :                     else if (inner_val == 1) {</span>
+<span class="lineNum">    1055 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --server_port,\n&quot;);</span>
 <span class="lineNum">    1056 </span>            :                     }
-<span class="lineNum">    1057 </span><span class="lineNoCov">          0 :                     else if (inner_val == 3) {</span>
-<span class="lineNum">    1058 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --qr_sig_flags,\n&quot;);</span>
+<span class="lineNum">    1057 </span><span class="lineNoCov">          0 :                     else if (inner_val == 2) {</span>
+<span class="lineNum">    1058 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --transport_flags,\n&quot;);</span>
 <span class="lineNum">    1059 </span>            :                     }
-<span class="lineNum">    1060 </span><span class="lineNoCov">          0 :                     else if (inner_val == 4) {</span>
-<span class="lineNum">    1061 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_opcode,\n&quot;);</span>
+<span class="lineNum">    1060 </span><span class="lineNoCov">          0 :                     else if (inner_val == 3) {</span>
+<span class="lineNum">    1061 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --qr_sig_flags,\n&quot;);</span>
 <span class="lineNum">    1062 </span>            :                     }
-<span class="lineNum">    1063 </span><span class="lineNoCov">          0 :                     else if (inner_val == 5) {</span>
-<span class="lineNum">    1064 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --qr_dns_flags,\n&quot;);</span>
+<span class="lineNum">    1063 </span><span class="lineNoCov">          0 :                     else if (inner_val == 4) {</span>
+<span class="lineNum">    1064 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_opcode,\n&quot;);</span>
 <span class="lineNum">    1065 </span>            :                     }
-<span class="lineNum">    1066 </span><span class="lineNoCov">          0 :                     else if (inner_val == 6) {</span>
-<span class="lineNum">    1067 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_rcode,\n&quot;);</span>
+<span class="lineNum">    1066 </span><span class="lineNoCov">          0 :                     else if (inner_val == 5) {</span>
+<span class="lineNum">    1067 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --qr_dns_flags,\n&quot;);</span>
 <span class="lineNum">    1068 </span>            :                     }
-<span class="lineNum">    1069 </span><span class="lineNoCov">          0 :                     else if (inner_val == 7) {</span>
-<span class="lineNum">    1070 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_classtype_index,\n&quot;);</span>
+<span class="lineNum">    1069 </span><span class="lineNoCov">          0 :                     else if (inner_val == 6) {</span>
+<span class="lineNum">    1070 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_rcode,\n&quot;);</span>
 <span class="lineNum">    1071 </span>            :                     }
-<span class="lineNum">    1072 </span><span class="lineNoCov">          0 :                     else if (inner_val == 8) {</span>
-<span class="lineNum">    1073 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_qd_count,\n&quot;);</span>
+<span class="lineNum">    1072 </span><span class="lineNoCov">          0 :                     else if (inner_val == 7) {</span>
+<span class="lineNum">    1073 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_classtype_index,\n&quot;);</span>
 <span class="lineNum">    1074 </span>            :                     }
-<span class="lineNum">    1075 </span><span class="lineNoCov">          0 :                     else if (inner_val == 9) {</span>
-<span class="lineNum">    1076 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_an_count,\n&quot;);</span>
+<span class="lineNum">    1075 </span><span class="lineNoCov">          0 :                     else if (inner_val == 8) {</span>
+<span class="lineNum">    1076 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_qd_count,\n&quot;);</span>
 <span class="lineNum">    1077 </span>            :                     }
-<span class="lineNum">    1078 </span><span class="lineNoCov">          0 :                     else if (inner_val == 10) {</span>
-<span class="lineNum">    1079 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_ar_count,\n&quot;);</span>
+<span class="lineNum">    1078 </span><span class="lineNoCov">          0 :                     else if (inner_val == 9) {</span>
+<span class="lineNum">    1079 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_an_count,\n&quot;);</span>
 <span class="lineNum">    1080 </span>            :                     }
-<span class="lineNum">    1081 </span><span class="lineNoCov">          0 :                     else if (inner_val == 11) {</span>
-<span class="lineNum">    1082 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_ns_count,\n&quot;);</span>
+<span class="lineNum">    1081 </span><span class="lineNoCov">          0 :                     else if (inner_val == 10) {</span>
+<span class="lineNum">    1082 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_ar_count,\n&quot;);</span>
 <span class="lineNum">    1083 </span>            :                     }
-<span class="lineNum">    1084 </span><span class="lineNoCov">          0 :                     else if (inner_val == 12) {</span>
-<span class="lineNum">    1085 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --edns_version,\n&quot;);</span>
+<span class="lineNum">    1084 </span><span class="lineNoCov">          0 :                     else if (inner_val == 11) {</span>
+<span class="lineNum">    1085 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --query_ns_count,\n&quot;);</span>
 <span class="lineNum">    1086 </span>            :                     }
-<span class="lineNum">    1087 </span><span class="lineNoCov">          0 :                     else if (inner_val == 13) {</span>
-<span class="lineNum">    1088 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --udp_buf_size,\n&quot;);</span>
+<span class="lineNum">    1087 </span><span class="lineNoCov">          0 :                     else if (inner_val == 12) {</span>
+<span class="lineNum">    1088 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --edns_version,\n&quot;);</span>
 <span class="lineNum">    1089 </span>            :                     }
-<span class="lineNum">    1090 </span><span class="lineNoCov">          0 :                     else if (inner_val == 14) {</span>
-<span class="lineNum">    1091 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --opt_rdata_index,\n&quot;);</span>
+<span class="lineNum">    1090 </span><span class="lineNoCov">          0 :                     else if (inner_val == 13) {</span>
+<span class="lineNum">    1091 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --udp_buf_size,\n&quot;);</span>
 <span class="lineNum">    1092 </span>            :                     }
-<span class="lineNum">    1093 </span><span class="lineNoCov">          0 :                     else if (inner_val == 15) {</span>
-<span class="lineNum">    1094 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --response_rcode,\n&quot;);</span>
+<span class="lineNum">    1093 </span><span class="lineNoCov">          0 :                     else if (inner_val == 14) {</span>
+<span class="lineNum">    1094 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --opt_rdata_index,\n&quot;);</span>
 <span class="lineNum">    1095 </span>            :                     }
-<span class="lineNum">    1096 </span>            : 
-<span class="lineNum">    1097 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        %d, &quot;, (int)inner_val);</span>
-<span class="lineNum">    1098 </span><span class="lineNoCov">          0 :                     p_out = out_buf;</span>
-<span class="lineNum">    1099 </span><span class="lineNoCov">          0 :                     in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
-<span class="lineNum">    1100 </span><span class="lineNoCov">          0 :                     fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
-<span class="lineNum">    1101 </span><span class="lineNoCov">          0 :                     val--;</span>
-<span class="lineNum">    1102 </span>            :                 }
-<span class="lineNum">    1103 </span>            :             }
-<span class="lineNum">    1104 </span>            :         }
-<span class="lineNum">    1105 </span>            : 
-<span class="lineNum">    1106 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">    1107 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;]&quot;);</span>
-<span class="lineNum">    1108 </span>            :         }
-<span class="lineNum">    1109 </span>            :     }
-<span class="lineNum">    1110 </span>            : 
-<span class="lineNum">    1111 </span><span class="lineNoCov">          0 :     return in;</span>
-<a name="1112"><span class="lineNum">    1112 </span>            : }</a>
+<span class="lineNum">    1096 </span><span class="lineNoCov">          0 :                     else if (inner_val == 15) {</span>
+<span class="lineNum">    1097 </span><span class="lineNoCov">          0 :                         fprintf(F_out, &quot;                        --response_rcode,\n&quot;);</span>
+<span class="lineNum">    1098 </span>            :                     }
+<span class="lineNum">    1099 </span>            : 
+<span class="lineNum">    1100 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;                        %d, &quot;, (int)inner_val);</span>
+<span class="lineNum">    1101 </span><span class="lineNoCov">          0 :                     p_out = out_buf;</span>
+<span class="lineNum">    1102 </span><span class="lineNoCov">          0 :                     in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
+<span class="lineNum">    1103 </span><span class="lineNoCov">          0 :                     fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
+<span class="lineNum">    1104 </span><span class="lineNoCov">          0 :                     val--;</span>
+<span class="lineNum">    1105 </span>            :                 }
+<span class="lineNum">    1106 </span>            :             }
+<span class="lineNum">    1107 </span>            :         }
+<span class="lineNum">    1108 </span>            : 
+<span class="lineNum">    1109 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
+<span class="lineNum">    1110 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;]&quot;);</span>
+<span class="lineNum">    1111 </span>            :         }
+<span class="lineNum">    1112 </span>            :     }
 <span class="lineNum">    1113 </span>            : 
-<span class="lineNum">    1114 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_list(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, char const * indent, char const * list_name, int* err, FILE* F_out)</span>
-<span class="lineNum">    1115 </span>            : {
-<span class="lineNum">    1116 </span>            :     char* p_out;
-<span class="lineNum">    1117 </span>            :     int64_t val;
-<span class="lineNum">    1118 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">    1119 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
-<span class="lineNum">    1120 </span>            : 
-<span class="lineNum">    1121 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
-<span class="lineNum">    1122 </span>            : 
-<span class="lineNum">    1123 </span><span class="lineNoCov">          0 :     if (in == NULL) {</span>
-<span class="lineNum">    1124 </span>            :         fprintf(F_out, &quot;%sError, cannot parse the first bytes of %s, type= %d.\n&quot;, 
-<span class="lineNum">    1125 </span><span class="lineNoCov">          0 :             indent, list_name, outer_type);</span>
-<span class="lineNum">    1126 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">    1127 </span><span class="lineNoCov">          0 :         in = NULL;</span>
-<span class="lineNum">    1128 </span>            :     }
-<span class="lineNum">    1129 </span>            :     else {
-<span class="lineNum">    1130 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
-<span class="lineNum">    1131 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
-<span class="lineNum">    1132 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
-<span class="lineNum">    1133 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
-<span class="lineNum">    1134 </span>            :         }
-<span class="lineNum">    1135 </span>            : 
-<span class="lineNum">    1136 </span><span class="lineNoCov">          0 :         while (rank &lt; val &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
-<span class="lineNum">    1137 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
-<span class="lineNum">    1138 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;%s--end of array\n&quot;, indent);</span>
-<span class="lineNum">    1139 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
-<span class="lineNum">    1140 </span><span class="lineNoCov">          0 :                     in++;</span>
-<span class="lineNum">    1141 </span>            :                 }
-<span class="lineNum">    1142 </span>            :                 else {
-<span class="lineNum">    1143 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;%sError, end of array mark unexpected.\n&quot;, indent);</span>
-<span class="lineNum">    1144 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
-<span class="lineNum">    1145 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
-<span class="lineNum">    1146 </span>            :                 }
-<span class="lineNum">    1147 </span>            :             }
-<span class="lineNum">    1148 </span><span class="lineNoCov">          0 :             rank++;</span>
-<span class="lineNum">    1149 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
-<span class="lineNum">    1150 </span>            :                 /* One item per line, only print the first 10 items */
-<span class="lineNum">    1151 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;%s&quot;, indent);</span>
-<span class="lineNum">    1152 </span><span class="lineNoCov">          0 :                 p_out = out_buf;</span>
-<span class="lineNum">    1153 </span><span class="lineNoCov">          0 :                 in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
-<span class="lineNum">    1154 </span><span class="lineNoCov">          0 :                 fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
-<span class="lineNum">    1155 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,&quot;);</span>
-<span class="lineNum">    1156 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n&quot;);</span>
-<span class="lineNum">    1157 </span>            :             }
-<span class="lineNum">    1158 </span>            :             else {
-<span class="lineNum">    1159 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
-<span class="lineNum">    1160 </span>            :             }
-<span class="lineNum">    1161 </span>            :         }
-<span class="lineNum">    1162 </span>            : 
-<span class="lineNum">    1163 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">    1164 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
-<span class="lineNum">    1165 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;%s...\n&quot;, indent);</span>
-<span class="lineNum">    1166 </span>            :             }
-<span class="lineNum">    1167 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;%s-- found %d %s\n&quot;, indent, rank, list_name);</span>
-<span class="lineNum">    1168 </span>            :         }
-<span class="lineNum">    1169 </span>            :     }
-<span class="lineNum">    1170 </span>            : 
-<span class="lineNum">    1171 </span><span class="lineNoCov">          0 :     return in;</span>
-<span class="lineNum">    1172 </span>            : }
+<span class="lineNum">    1114 </span><span class="lineNoCov">          0 :     return in;</span>
+<a name="1115"><span class="lineNum">    1115 </span>            : }</a>
+<span class="lineNum">    1116 </span>            : 
+<span class="lineNum">    1117 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_list(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, char const * indent, char const * list_name, int* err, FILE* F_out)</span>
+<span class="lineNum">    1118 </span>            : {
+<span class="lineNum">    1119 </span>            :     char* p_out;
+<span class="lineNum">    1120 </span>            :     int64_t val;
+<span class="lineNum">    1121 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">    1122 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
+<span class="lineNum">    1123 </span>            : 
+<span class="lineNum">    1124 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">    1125 </span>            : 
+<span class="lineNum">    1126 </span><span class="lineNoCov">          0 :     if (in == NULL) {</span>
+<span class="lineNum">    1127 </span>            :         fprintf(F_out, &quot;%sError, cannot parse the first bytes of %s, type= %d.\n&quot;, 
+<span class="lineNum">    1128 </span><span class="lineNoCov">          0 :             indent, list_name, outer_type);</span>
+<span class="lineNum">    1129 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">    1130 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">    1131 </span>            :     }
+<span class="lineNum">    1132 </span>            :     else {
+<span class="lineNum">    1133 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
+<span class="lineNum">    1134 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">    1135 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">    1136 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">    1137 </span>            :         }
+<span class="lineNum">    1138 </span>            : 
+<span class="lineNum">    1139 </span><span class="lineNoCov">          0 :         while (rank &lt; val &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">    1140 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">    1141 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;%s--end of array\n&quot;, indent);</span>
+<span class="lineNum">    1142 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">    1143 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">    1144 </span>            :                 }
+<span class="lineNum">    1145 </span>            :                 else {
+<span class="lineNum">    1146 </span><span class="lineNoCov">          0 :                     fprintf(F_out, &quot;%sError, end of array mark unexpected.\n&quot;, indent);</span>
+<span class="lineNum">    1147 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">    1148 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">    1149 </span>            :                 }
+<span class="lineNum">    1150 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">    1151 </span>            :             }
+<span class="lineNum">    1152 </span><span class="lineNoCov">          0 :             rank++;</span>
+<span class="lineNum">    1153 </span><span class="lineNoCov">          0 :             if (rank &lt;= 10) {</span>
+<span class="lineNum">    1154 </span>            :                 /* One item per line, only print the first 10 items */
+<span class="lineNum">    1155 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;%s&quot;, indent);</span>
+<span class="lineNum">    1156 </span><span class="lineNoCov">          0 :                 p_out = out_buf;</span>
+<span class="lineNum">    1157 </span><span class="lineNoCov">          0 :                 in = cbor_to_text(in, in_max, &amp;p_out, out_max, err);</span>
+<span class="lineNum">    1158 </span><span class="lineNoCov">          0 :                 fwrite(out_buf, 1, p_out - out_buf, F_out);</span>
+<span class="lineNum">    1159 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;,&quot;);</span>
+<span class="lineNum">    1160 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;\n&quot;);</span>
+<span class="lineNum">    1161 </span>            :             }
+<span class="lineNum">    1162 </span>            :             else {
+<span class="lineNum">    1163 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">    1164 </span>            :             }
+<span class="lineNum">    1165 </span>            :         }
+<span class="lineNum">    1166 </span>            : 
+<span class="lineNum">    1167 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
+<span class="lineNum">    1168 </span><span class="lineNoCov">          0 :             if (rank &gt; 10) {</span>
+<span class="lineNum">    1169 </span><span class="lineNoCov">          0 :                 fprintf(F_out, &quot;%s...\n&quot;, indent);</span>
+<span class="lineNum">    1170 </span>            :             }
+<span class="lineNum">    1171 </span><span class="lineNoCov">          0 :             fprintf(F_out, &quot;%s-- found %d %s\n&quot;, indent, rank, list_name);</span>
+<span class="lineNum">    1172 </span>            :         }
+<span class="lineNum">    1173 </span>            :     }
+<span class="lineNum">    1174 </span>            : 
+<span class="lineNum">    1175 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    1176 </span>            : }
 </pre>
       </td>
     </tr>
