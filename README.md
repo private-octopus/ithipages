@@ -199,6 +199,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [issues found on 2019-08-29 22:06.00](analysis/2019-08-29-220600-5280-1/index.html)
   - [issues found on 2019-08-29 22:21.15](analysis/2019-08-29-222115-5322-1/index.html)
   - [issues found on 2019-09-07 06:19.07](analysis/2019-09-07-061907-5196-1/index.html)
+  - [issues found on 2019-09-08 22:09.25](analysis/2019-09-08-220925-5467-1/index.html)
 - Code coverage from `ithitest` program:
   - [from branch tld-2-level](coverage/tld-2-level/index.html)
   - [from branch tally-only-if-not-dnscap](coverage/tally-only-if-not-dnscap/index.html)

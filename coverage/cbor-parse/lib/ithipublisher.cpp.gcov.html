@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-08-29 23:29:09</td>
+            <td class="headerValue">2019-09-08 22:13:42</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">29</td>
@@ -491,7 +491,7 @@
 <span class="lineNum">     429 </span><span class="lineCov">         20 :     std::vector&lt;double&gt; val;</span>
 <span class="lineNum">     430 </span><span class="lineCov">         10 :     bool ret = GetVector(metric_name, key_value, &amp;val);</span>
 <span class="lineNum">     431 </span>            : 
-<span class="lineNum">     432 </span><span class="lineCov">         10 :     *current = val[(size_t)nb_months - 1];</span>
+<span class="lineNum">     432 </span><span class="lineCov">         10 :     *current = val[((size_t)nb_months) - 1];</span>
 <span class="lineNum">     433 </span>            : 
 <span class="lineNum">     434 </span><span class="lineCov">         20 :     return ret;</span>
 <a name="435"><span class="lineNum">     435 </span>            : }</a>
@@ -513,7 +513,7 @@
 <span class="lineNum">     451 </span>            :             {
 <span class="lineNum">     452 </span><span class="lineCov">         72 :                 sum += val[i];</span>
 <span class="lineNum">     453 </span>            :             }
-<span class="lineNum">     454 </span><span class="lineCov">         72 :             *average = sum / (double)(nb_months - 1);</span>
+<span class="lineNum">     454 </span><span class="lineCov">         72 :             *average = sum / (double)(((size_t)nb_months) - 1);</span>
 <span class="lineNum">     455 </span>            :         }
 <span class="lineNum">     456 </span>            : 
 <span class="lineNum">     457 </span><span class="lineCov">         72 :         *current = val[(size_t)nb_months - 1];</span>
@@ -552,7 +552,7 @@
 <span class="lineNum">     490 </span>            :         {
 <span class="lineNum">     491 </span><span class="lineCov">        256 :             if (nb_months &gt; 1)</span>
 <span class="lineNum">     492 </span>            :             {
-<span class="lineNum">     493 </span><span class="lineCov">        256 :                 current_name.average = sum / (nb_months - 1);</span>
+<span class="lineNum">     493 </span><span class="lineCov">        256 :                 current_name.average = sum / (((size_t)nb_months) - 1);</span>
 <span class="lineNum">     494 </span>            :             }
 <span class="lineNum">     495 </span><span class="lineCov">        256 :             name_list-&gt;push_back(current_name);</span>
 <span class="lineNum">     496 </span><span class="lineCov">        256 :             current_name.name = line_list[line_index]-&gt;key_value;</span>
@@ -578,7 +578,7 @@
 <span class="lineNum">     516 </span>            :     {
 <span class="lineNum">     517 </span><span class="lineCov">         42 :         if (nb_months &gt; 1)</span>
 <span class="lineNum">     518 </span>            :         {
-<span class="lineNum">     519 </span><span class="lineCov">         42 :             current_name.average = sum / (nb_months - 1);</span>
+<span class="lineNum">     519 </span><span class="lineCov">         42 :             current_name.average = sum / (((size_t)nb_months) - 1);</span>
 <span class="lineNum">     520 </span>            :         }
 <span class="lineNum">     521 </span><span class="lineCov">         42 :         name_list-&gt;push_back(current_name);</span>
 <span class="lineNum">     522 </span>            :     }
