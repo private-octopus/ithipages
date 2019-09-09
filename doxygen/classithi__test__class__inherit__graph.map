@@ -1,29 +1,34 @@
 <map id="ithi_test_class" name="ithi_test_class">
 <area shape="rect" id="node2" href="$classcapture__fuzz.html" title="{capture_fuzz\n|+ nb_records_read\l+ nb_udp_dns_frag\l+ nb_udp_dns\l+ fuzz_fail\l+ nb_rounds\l+ fuzz_random_context\l+ buffer\l+ buffer_size\l+ fuzzed_length\l+ stats\l|+ capture_fuzz()\l+ ~capture_fuzz()\l+ DoTest()\l+ LoadPcapFile()\l+ FuzzPacket()\l+ picoquic_test_random()\l}" alt="" coords="5,248,193,531"/>
 <area shape="rect" id="node3" href="$class_capture_test.html" title="{CaptureTest\n||+ CaptureTest()\l+ ~CaptureTest()\l+ DoTest()\l}" alt="" coords="217,336,352,443"/>
-<area shape="rect" id="node4" href="$class_cmp_name_test.html" title="{CmpNameTest\n||+ CmpNameTest()\l+ ~CmpNameTest()\l+ DoTest()\l}" alt="" coords="377,336,529,443"/>
-<area shape="rect" id="node5" href="$class_csv_test.html" title="{CsvTest\n||+ CsvTest()\l+ ~CsvTest()\l+ DoTest()\l}" alt="" coords="553,336,659,443"/>
-<area shape="rect" id="node6" href="$class_dns_prefix_test.html" title="{DnsPrefixTest\n||+ DnsPrefixTest()\l+ ~DnsPrefixTest()\l+ DoTest()\l&#45; ToUpper()\l&#45; DoOneTest()\l}" alt="" coords="684,321,827,457"/>
-<area shape="rect" id="node7" href="$class_get_name_test.html" title="{GetNameTest\n|+ nb_records_max\l+ test_out\l+ stats\l|+ GetNameTest()\l+ ~GetNameTest()\l+ DoTest()\l+ LoadPcapFile()\l+ SubmitPacket()\l+ SubmitQuery()\l+ SubmitRecord()\l+ SubmitName()\l}" alt="" coords="851,285,996,494"/>
-<area shape="rect" id="node8" href="$classhashtest.html" title="{hashtest\n||+ hashtest()\l+ ~hashtest()\l+ DoTest()\l&#45; DoBinHashTest()\l&#45; DoLruHashTest()\l&#45; LruCheck()\l}" alt="" coords="1020,314,1157,465"/>
-<area shape="rect" id="node9" href="$class_is_ipv4_test.html" title="{IsIpv4Test\n||+ IsIpv4Test()\l+ ~IsIpv4Test()\l+ DoTest()\l}" alt="" coords="1181,336,1300,443"/>
-<area shape="rect" id="node10" href="$class_load_test.html" title="{LoadTest\n||+ LoadTest()\l+ ~LoadTest()\l+ DoTest()\l&#45; DoGoodTest()\l&#45; DoNoSuchTest()\l}" alt="" coords="1324,321,1459,457"/>
-<area shape="rect" id="node11" href="$class_m1_data_test.html" title="{M1DataTest\n||+ M1DataTest()\l+ ~M1DataTest()\l+ DoTest()\l}" alt="" coords="1483,336,1617,443"/>
-<area shape="rect" id="node12" href="$class_m2_data_test.html" title="{M2DataTest\n||+ M2DataTest()\l+ ~M2DataTest()\l+ DoTest()\l}" alt="" coords="1641,336,1774,443"/>
-<area shape="rect" id="node13" href="$class_merge_list_test.html" title="{MergeListTest\n||+ MergeListTest()\l+ ~MergeListTest()\l+ DoTest()\l}" alt="" coords="1799,336,1944,443"/>
-<area shape="rect" id="node14" href="$class_merge_test.html" title="{MergeTest\n||+ MergeTest()\l+ ~MergeTest()\l+ DoTest()\l}" alt="" coords="1969,336,2091,443"/>
-<area shape="rect" id="node15" href="$class_metric_capture_file_test.html" title="{MetricCaptureFileTest\n||+ MetricCaptureFileTest()\l+ ~MetricCaptureFileTest()\l+ DoTest()\l+ CopyFileToDestination()\l+ CreateDirectoryIfAbsent()\l}" alt="" coords="2115,321,2315,457"/>
-<area shape="rect" id="node16" href="$class_metric_date_test.html" title="{MetricDateTest\n||+ MetricDateTest()\l+ ~MetricDateTest()\l+ DoTest()\l}" alt="" coords="2339,336,2492,443"/>
-<area shape="rect" id="node17" href="$class_metric_test.html" title="{MetricTest\n||+ MetricTest()\l+ ~MetricTest()\l+ DoTest()\l+ compare_files()\l+ compare_lines()\l}" alt="" coords="2516,321,2656,457"/>
-<area shape="rect" id="node18" href="$class_odi_publish_test.html" title="{OdiPublishTest\n||+ OdiPublishTest()\l+ ~OdiPublishTest()\l+ DoTest()\l&#45; UpdatePublishTestOne()\l&#45; UpdateTimeTest()\l}" alt="" coords="2681,321,2865,457"/>
-<area shape="rect" id="node19" href="$class_pattern_test.html" title="{PatternTest\n||+ PatternTest()\l+ ~PatternTest()\l+ DoTest()\l&#45; TestOnePattern()\l&#45; TestRandom()\l}" alt="" coords="2889,321,3027,457"/>
-<area shape="rect" id="node20" href="$class_plugin_test.html" title="{PluginTest\n||+ PluginTest()\l+ ~PluginTest()\l+ DoTest()\l+ DoOneTest()\l&#45; LoadPcapFile()\l&#45; LoadOpt()\l}" alt="" coords="3051,314,3174,465"/>
-<area shape="rect" id="node21" href="$class_plugin_test_bad.html" title="{PluginTestBad\n|&#45; p_test\l|+ PluginTestBad()\l+ ~PluginTestBad()\l+ DoTest()\l}" alt="" coords="3198,336,3345,443"/>
-<area shape="rect" id="node22" href="$class_publish_index_test.html" title="{PublishIndexTest\n||+ PublishIndexTest()\l+ ~PublishIndexTest()\l+ DoTest()\l}" alt="" coords="3369,336,3531,443"/>
-<area shape="rect" id="node23" href="$class_publish_test.html" title="{PublishTest\n||+ PublishTest()\l+ ~PublishTest()\l+ DoTest()\l+ DoOneTest()\l+ CreateTestDirectory()\l+ CopyFileToDirectory()\l}" alt="" coords="3555,314,3729,465"/>
-<area shape="rect" id="node24" href="$class_q_name_test.html" title="{QNameTest\n||+ QNameTest()\l+ ~QNameTest()\l+ DoTest()\l}" alt="" coords="3753,336,3885,443"/>
-<area shape="rect" id="node25" href="$class_save_test.html" title="{SaveTest\n||+ SaveTest()\l+ ~SaveTest()\l+ DoTest()\l}" alt="" coords="3910,336,4025,443"/>
-<area shape="rect" id="node26" href="$class_stats_by_ip_test.html" title="{StatsByIpTest\n||+ StatsByIpTest()\l+ ~StatsByIpTest()\l+ DoTest()\l+ OptionHashTest()\l}" alt="" coords="4049,329,4195,450"/>
-<area shape="rect" id="node27" href="$classtest_rfc6761.html" title="{testRfc6761\n||+ testRfc6761()\l+ ~testRfc6761()\l+ DoTest()\l}" alt="" coords="4220,336,4355,443"/>
-<area shape="rect" id="node28" href="$class_tld_count_test.html" title="{TldCountTest\n||+ TldCountTest()\l+ ~TldCountTest()\l+ DoTest()\l+ GetTldIndex()\l}" alt="" coords="4379,329,4518,450"/>
+<area shape="rect" id="node4" href="$class_cbor_skip_test.html" title="{CborSkipTest\n||+ CborSkipTest()\l+ ~CborSkipTest()\l+ DoTest()\l&#45; DoOneTest()\l}" alt="" coords="376,329,516,450"/>
+<area shape="rect" id="node5" href="$class_cbor_test.html" title="{CborTest\n||+ CborTest()\l+ ~CborTest()\l+ DoTest()\l&#45; DoOneDumpTest()\l&#45; DoIntTest()\l&#45; DoBytesTest()\l&#45; DoMapTest()\l}" alt="" coords="541,307,690,472"/>
+<area shape="rect" id="node6" href="$class_cdns_capture_test.html" title="{CdnsCaptureTest\n||+ CdnsCaptureTest()\l+ ~CdnsCaptureTest()\l+ DoTest()\l}" alt="" coords="715,336,881,443"/>
+<area shape="rect" id="node7" href="$class_cdns_dump_test.html" title="{CdnsDumpTest\n||+ CdnsDumpTest()\l+ ~CdnsDumpTest()\l+ DoTest()\l}" alt="" coords="906,336,1061,443"/>
+<area shape="rect" id="node8" href="$class_cdns_test.html" title="{CdnsTest\n||+ CdnsTest()\l+ ~CdnsTest()\l+ DoTest()\l}" alt="" coords="1085,336,1199,443"/>
+<area shape="rect" id="node9" href="$class_cmp_name_test.html" title="{CmpNameTest\n||+ CmpNameTest()\l+ ~CmpNameTest()\l+ DoTest()\l}" alt="" coords="1223,336,1375,443"/>
+<area shape="rect" id="node10" href="$class_csv_test.html" title="{CsvTest\n||+ CsvTest()\l+ ~CsvTest()\l+ DoTest()\l}" alt="" coords="1399,336,1506,443"/>
+<area shape="rect" id="node11" href="$class_dns_prefix_test.html" title="{DnsPrefixTest\n||+ DnsPrefixTest()\l+ ~DnsPrefixTest()\l+ DoTest()\l&#45; ToUpper()\l&#45; DoOneTest()\l}" alt="" coords="1531,321,1673,457"/>
+<area shape="rect" id="node12" href="$class_get_name_test.html" title="{GetNameTest\n|+ nb_records_max\l+ test_out\l+ stats\l|+ GetNameTest()\l+ ~GetNameTest()\l+ DoTest()\l+ LoadPcapFile()\l+ SubmitPacket()\l+ SubmitQuery()\l+ SubmitRecord()\l+ SubmitName()\l}" alt="" coords="1697,285,1843,494"/>
+<area shape="rect" id="node13" href="$classhashtest.html" title="{hashtest\n||+ hashtest()\l+ ~hashtest()\l+ DoTest()\l&#45; DoBinHashTest()\l&#45; DoLruHashTest()\l&#45; LruCheck()\l}" alt="" coords="1867,314,2004,465"/>
+<area shape="rect" id="node14" href="$class_is_ipv4_test.html" title="{IsIpv4Test\n||+ IsIpv4Test()\l+ ~IsIpv4Test()\l+ DoTest()\l}" alt="" coords="2028,336,2147,443"/>
+<area shape="rect" id="node15" href="$class_load_test.html" title="{LoadTest\n||+ LoadTest()\l+ ~LoadTest()\l+ DoTest()\l&#45; DoGoodTest()\l&#45; DoNoSuchTest()\l}" alt="" coords="2171,321,2305,457"/>
+<area shape="rect" id="node16" href="$class_m1_data_test.html" title="{M1DataTest\n||+ M1DataTest()\l+ ~M1DataTest()\l+ DoTest()\l}" alt="" coords="2330,336,2463,443"/>
+<area shape="rect" id="node17" href="$class_m2_data_test.html" title="{M2DataTest\n||+ M2DataTest()\l+ ~M2DataTest()\l+ DoTest()\l}" alt="" coords="2487,336,2621,443"/>
+<area shape="rect" id="node18" href="$class_merge_list_test.html" title="{MergeListTest\n||+ MergeListTest()\l+ ~MergeListTest()\l+ DoTest()\l}" alt="" coords="2645,336,2791,443"/>
+<area shape="rect" id="node19" href="$class_merge_test.html" title="{MergeTest\n||+ MergeTest()\l+ ~MergeTest()\l+ DoTest()\l}" alt="" coords="2815,336,2938,443"/>
+<area shape="rect" id="node20" href="$class_metric_capture_file_test.html" title="{MetricCaptureFileTest\n||+ MetricCaptureFileTest()\l+ ~MetricCaptureFileTest()\l+ DoTest()\l+ CopyFileToDestination()\l+ CreateDirectoryIfAbsent()\l}" alt="" coords="2962,321,3162,457"/>
+<area shape="rect" id="node21" href="$class_metric_date_test.html" title="{MetricDateTest\n||+ MetricDateTest()\l+ ~MetricDateTest()\l+ DoTest()\l}" alt="" coords="3185,336,3339,443"/>
+<area shape="rect" id="node22" href="$class_metric_test.html" title="{MetricTest\n||+ MetricTest()\l+ ~MetricTest()\l+ DoTest()\l+ compare_files()\l+ compare_lines()\l}" alt="" coords="3363,321,3503,457"/>
+<area shape="rect" id="node23" href="$class_odi_publish_test.html" title="{OdiPublishTest\n||+ OdiPublishTest()\l+ ~OdiPublishTest()\l+ DoTest()\l&#45; UpdatePublishTestOne()\l&#45; UpdateTimeTest()\l}" alt="" coords="3527,321,3711,457"/>
+<area shape="rect" id="node24" href="$class_pattern_test.html" title="{PatternTest\n||+ PatternTest()\l+ ~PatternTest()\l+ DoTest()\l&#45; TestOnePattern()\l&#45; TestRandom()\l}" alt="" coords="3735,321,3874,457"/>
+<area shape="rect" id="node25" href="$class_plugin_test.html" title="{PluginTest\n||+ PluginTest()\l+ ~PluginTest()\l+ DoTest()\l+ DoOneTest()\l&#45; LoadPcapFile()\l&#45; LoadOpt()\l}" alt="" coords="3898,314,4021,465"/>
+<area shape="rect" id="node26" href="$class_plugin_test_bad.html" title="{PluginTestBad\n|&#45; p_test\l|+ PluginTestBad()\l+ ~PluginTestBad()\l+ DoTest()\l}" alt="" coords="4045,336,4191,443"/>
+<area shape="rect" id="node27" href="$class_publish_index_test.html" title="{PublishIndexTest\n||+ PublishIndexTest()\l+ ~PublishIndexTest()\l+ DoTest()\l}" alt="" coords="4215,336,4378,443"/>
+<area shape="rect" id="node28" href="$class_publish_test.html" title="{PublishTest\n||+ PublishTest()\l+ ~PublishTest()\l+ DoTest()\l+ DoOneTest()\l+ CreateTestDirectory()\l+ CopyFileToDirectory()\l}" alt="" coords="4402,314,4575,465"/>
+<area shape="rect" id="node29" href="$class_q_name_test.html" title="{QNameTest\n||+ QNameTest()\l+ ~QNameTest()\l+ DoTest()\l}" alt="" coords="4600,336,4732,443"/>
+<area shape="rect" id="node30" href="$class_save_test.html" title="{SaveTest\n||+ SaveTest()\l+ ~SaveTest()\l+ DoTest()\l}" alt="" coords="4757,336,4871,443"/>
+<area shape="rect" id="node31" href="$class_stats_by_ip_test.html" title="{StatsByIpTest\n||+ StatsByIpTest()\l+ ~StatsByIpTest()\l+ DoTest()\l+ OptionHashTest()\l}" alt="" coords="4895,329,5042,450"/>
+<area shape="rect" id="node32" href="$classtest_rfc6761.html" title="{testRfc6761\n||+ testRfc6761()\l+ ~testRfc6761()\l+ DoTest()\l}" alt="" coords="5067,336,5201,443"/>
+<area shape="rect" id="node33" href="$class_tld_count_test.html" title="{TldCountTest\n||+ TldCountTest()\l+ ~TldCountTest()\l+ DoTest()\l+ GetTldIndex()\l}" alt="" coords="5226,329,5365,450"/>
 </map>

@@ -9,5 +9,7 @@ var searchData=
   ['ithipublisher_2eh',['ithipublisher.h',['../ithipublisher_8h.html',1,'']]],
   ['ithitest_2ecpp',['ithitest.cpp',['../src_2ithitest_8cpp.html',1,'']]],
   ['ithitest_2ecpp',['ithitest.cpp',['../test_2ithitest_8cpp.html',1,'']]],
-  ['ithitools_2ecpp',['ithitools.cpp',['../ithitools_8cpp.html',1,'']]]
+  ['ithitools_2ecpp',['ithitools.cpp',['../ithitools_8cpp.html',1,'']]],
+  ['ithiutil_2ecpp',['ithiutil.cpp',['../ithiutil_8cpp.html',1,'']]],
+  ['ithiutil_2eh',['ithiutil.h',['../ithiutil_8h.html',1,'']]]
 ];
