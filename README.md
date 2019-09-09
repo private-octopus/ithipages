@@ -219,6 +219,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch compact-first](coverage/compact-first/index.html)
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch isolate-privacy](coverage/isolate-privacy/index.html)
+  - [from branch cbor-bugs](coverage/cbor-bugs/index.html)
   - [from branch web-site-bugs-2018-09](coverage/web-site-bugs-2018-09/index.html)
   - [from branch design-fixes](coverage/design-fixes/index.html)
   - [from branch tld-leak-analyse](coverage/tld-leak-analyse/index.html)
