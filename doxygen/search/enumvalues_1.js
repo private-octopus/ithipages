@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['dbsstateflaglisterroneousnames',['dbsStateFlagListErroneousNames',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294adf50f0c66d2957db1847f3434bb6745e',1,'DnsStats.h']]],
-  ['dbsstateflagreportresolveripaddress',['dbsStateFlagReportResolverIPAddress',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294aa164f7e0f17524a707a9b1836505e4a5',1,'DnsStats.h']]],
   ['dnsprefixexception',['DnsPrefixException',['../_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848',1,'DnsStats.h']]],
   ['dnsprefixonelevel',['DnsPrefixOneLevel',['../_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618',1,'DnsStats.h']]],
   ['dnsprefixstd',['DnsPrefixStd',['../_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437',1,'DnsStats.h']]],
@@ -43,5 +41,8 @@ var searchData=
   ['dnsstateflagcounttld',['dnsStateFlagCountTld',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af1ba4d628a50c722351122bf6a88342c',1,'DnsStats.h']]],
   ['dnsstateflagcountunderlinednames',['dnsStateFlagCountUnderlinedNames',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22',1,'DnsStats.h']]],
   ['dnsstateflagfilterlargeusers',['dnsStateFlagFilterLargeUsers',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50',1,'DnsStats.h']]],
-  ['dnsstateflaglisttldused',['dnsStateFlagListTldUsed',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea',1,'DnsStats.h']]]
+  ['dnsstateflagincludetcprecords',['dnsStateFlagIncludeTcpRecords',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294aaf9a24d25b3c40f36042c5dae3ea8ec8',1,'DnsStats.h']]],
+  ['dnsstateflaglisterroneousnames',['dnsStateFlagListErroneousNames',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a031c8a8eccc0bdd9258e9cf763fe846d',1,'DnsStats.h']]],
+  ['dnsstateflaglisttldused',['dnsStateFlagListTldUsed',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea',1,'DnsStats.h']]],
+  ['dnsstateflagreportresolveripaddress',['dnsStateFlagReportResolverIPAddress',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a8263cd2e26e8b387df83b8450935569a',1,'DnsStats.h']]]
 ];
