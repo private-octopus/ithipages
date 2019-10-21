@@ -203,6 +203,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
 - Code coverage from `ithitest` program:
   - [from branch tld-2-level](coverage/tld-2-level/index.html)
   - [from branch tally-only-if-not-dnscap](coverage/tally-only-if-not-dnscap/index.html)
+  - [from branch ingest-m5-6](coverage/ingest-m5-6/index.html)
   - [from branch partner-check](coverage/partner-check/index.html)
   - [from branch export-partner](coverage/export-partner/index.html)
   - [from branch explain-links](coverage/explain-links/index.html)

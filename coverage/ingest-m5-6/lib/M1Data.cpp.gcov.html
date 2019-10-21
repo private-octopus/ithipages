@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - lib/M1Data.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - M1Data.cpp<span style="font-size: 80%;"> (source / <a href="M1Data.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">94</td>
+            <td class="headerCovTableEntry">122</td>
+            <td class="headerCovTableEntryMed">77.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-10-21 23:44:59</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntryMed">76.9 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2018, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &lt;algorithm&gt;
+<span class="lineNum">      23 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">      24 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      25 </span>            : #include &quot;CsvHelper.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;M1Data.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;ithiutil.h&quot;
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span>            : #ifndef UNREFERENCED_PARAMETER
+<span class="lineNum">      30 </span>            : #define UNREFERENCED_PARAMETER(x) (void)(x)
+<a name="31"><span class="lineNum">      31 </span>            : #endif</a>
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span><span class="lineCov">          8 : M1Data::M1Data()</span>
+<span class="lineNum">      34 </span>            :     :
+<span class="lineNum">      35 </span>            :     totalDomain(0),
+<span class="lineNum">      36 </span>            :     total1stN(0),
+<span class="lineNum">      37 </span><span class="lineCov">          8 :     nb_registrars(0)</span>
+<span class="lineNum">      38 </span>            : {
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">          8 : }</span></a>
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span><span class="lineCov">         16 : M1Data::~M1Data()</span>
+<span class="lineNum">      42 </span>            : {
+<span class="lineNum">      43 </span><span class="lineCov">          8 :     for (size_t i = 0; i &lt; category_indices.size(); i++) {</span>
+<span class="lineNum">      44 </span><span class="lineNoCov">          0 :         if (category_indices[i] != NULL) {</span>
+<span class="lineNum">      45 </span><span class="lineNoCov">          0 :             delete[] category_indices[i];</span>
+<span class="lineNum">      46 </span><span class="lineNoCov">          0 :             category_indices[i] = NULL;</span>
+<span class="lineNum">      47 </span>            :         }
+<span class="lineNum">      48 </span>            :     }
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">          8 : }</span></a>
+<span class="lineNum">      50 </span>            : 
+<span class="lineNum">      51 </span><span class="lineCov">          4 : bool M1Data::Load(char const * monthly_compliance_file_name)</span>
+<span class="lineNum">      52 </span>            : {
+<span class="lineNum">      53 </span>            :     FILE* F;
+<span class="lineNum">      54 </span>            :     M1DataLine_t line;
+<span class="lineNum">      55 </span>            :     M1RegSummary_t reg_summary;
+<span class="lineNum">      56 </span>            :     char buffer[512];
+<span class="lineNum">      57 </span>            :     char category[512];
+<span class="lineNum">      58 </span>            :     char month[64];
+<span class="lineNum">      59 </span><span class="lineCov">          4 :     double half_sum = 0;</span>
+<span class="lineNum">      60 </span><span class="lineCov">          4 :     double ninety_mark = 0;</span>
+<span class="lineNum">      61 </span><span class="lineCov">          4 :     double current_sum = 0;</span>
+<span class="lineNum">      62 </span><span class="lineCov">          4 :     size_t current_reg = 0;</span>
+<span class="lineNum">      63 </span><span class="lineCov">          4 :     bool skip_month_column = false;</span>
+<span class="lineNum">      64 </span>            :     bool ret;
+<span class="lineNum">      65 </span><span class="lineCov">          4 :     F = ithi_file_open(monthly_compliance_file_name, &quot;r&quot;);</span>
+<span class="lineNum">      66 </span><span class="lineCov">          4 :     ret = (F != NULL);</span>
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            :     /*
+<span class="lineNum">      69 </span>            :     MAYBE parse file name for date.
+<span class="lineNum">      70 </span>            :     if (M2Type == Unknown) {
+<span class="lineNum">      71 </span>            :     parse_file_name(monthly_csv_file_name);
+<span class="lineNum">      72 </span>            :     }
+<span class="lineNum">      73 </span>            :     */
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span><span class="lineCov">          4 :     dataset.clear();</span>
+<span class="lineNum">      76 </span><span class="lineCov">          4 :     firstNotice.clear();</span>
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span><span class="lineCov">        308 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
+<span class="lineNum">      79 </span>            :     {
+<span class="lineNum">      80 </span><span class="lineCov">        152 :         int start = 0;</span>
+<span class="lineNum">      81 </span><span class="lineCov">        152 :         memset(&amp;line, 0, sizeof(M1DataLine_t));</span>
+<span class="lineNum">      82 </span><span class="lineCov">        152 :         start = CsvHelper::read_string(category, sizeof(category), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      83 </span><span class="lineCov">        152 :         start = CsvHelper::read_string(line.name, sizeof(line.name), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      84 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.RegistrarId, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      85 </span><span class="lineCov">        152 :         start = CsvHelper::read_string(line.complaint, sizeof(line.complaint), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      86 </span><span class="lineCov">        152 :         if (skip_month_column) {</span>
+<span class="lineNum">      87 </span><span class="lineNoCov">          0 :             start = CsvHelper::read_string(month, sizeof(month), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      88 </span>            :         }
+<span class="lineNum">      89 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.Domains, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      90 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.Complaints, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      91 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.nb1stNotices, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      92 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.nb3rdNotices, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      93 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.nbBreaches, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      94 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.nbSuspensions, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      95 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.nbTerminations, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      96 </span><span class="lineCov">        152 :         start = CsvHelper::read_number(&amp;line.nbNonRenewals, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span><span class="lineCov">        152 :         if (line.RegistrarId &gt; 0) {</span>
+<span class="lineNum">      99 </span>            :             /* Some files have an extra month column before the domain count */
+<span class="lineNum">     100 </span><span class="lineCov">        136 :             if (!skip_month_column &amp;&amp; line.Domains == 0) {</span>
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 :                 skip_month_column = true;</span>
+<span class="lineNum">     102 </span><span class="lineNoCov">          0 :                 line.Domains = line.Complaints;</span>
+<span class="lineNum">     103 </span><span class="lineNoCov">          0 :                 line.nb1stNotices = line.nb3rdNotices;</span>
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 :                 line.nb3rdNotices = line.nbBreaches;</span>
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 :                 line.nbBreaches = line.nbSuspensions;</span>
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :                 line.nbSuspensions = line.nbTerminations;</span>
+<span class="lineNum">     107 </span><span class="lineNoCov">          0 :                 line.nbTerminations = line.nbNonRenewals;</span>
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 :                 CsvHelper::read_number(&amp;line.nbNonRenewals, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">     109 </span>            :             }
+<span class="lineNum">     110 </span>            :             /* allocate data and add to vector */
+<span class="lineNum">     111 </span><span class="lineCov">        136 :             dataset.push_back(line);</span>
+<span class="lineNum">     112 </span>            :         }
+<span class="lineNum">     113 </span>            :     }
+<span class="lineNum">     114 </span>            : 
+<span class="lineNum">     115 </span><span class="lineCov">          4 :     if (F != NULL)</span>
+<span class="lineNum">     116 </span>            :     {
+<span class="lineNum">     117 </span><span class="lineCov">          4 :         fclose(F);</span>
+<span class="lineNum">     118 </span>            :     }
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span>            :     /* Sort by registrar ID */
+<span class="lineNum">     121 </span><span class="lineCov">          4 :     std::sort(dataset.begin(), dataset.end(), M1Data::RegistryIdIsSmaller);</span>
+<span class="lineNum">     122 </span>            : 
+<span class="lineNum">     123 </span>            :     /* Compile the summaries, one line per registry */
+<span class="lineNum">     124 </span><span class="lineCov">          4 :     firstNotice.reserve(dataset.size());</span>
+<span class="lineNum">     125 </span><span class="lineCov">          4 :     memset(&amp;reg_summary, 0, sizeof(reg_summary));</span>
+<span class="lineNum">     126 </span><span class="lineCov">        140 :     for (size_t i = 0; i &lt; dataset.size(); i++) {</span>
+<span class="lineNum">     127 </span><span class="lineCov">        136 :         if (i == 0 || dataset[i].RegistrarId != reg_summary.RegistrarId){</span>
+<span class="lineNum">     128 </span><span class="lineCov">         76 :             if (i != 0) {</span>
+<span class="lineNum">     129 </span>            :                 /* Push the old value */
+<span class="lineNum">     130 </span><span class="lineCov">         72 :                 firstNotice.push_back(reg_summary);</span>
+<span class="lineNum">     131 </span>            :             }
+<span class="lineNum">     132 </span>            :             /* Push the new values */
+<span class="lineNum">     133 </span><span class="lineCov">         76 :             reg_summary.RegistrarId = dataset[i].RegistrarId;</span>
+<span class="lineNum">     134 </span><span class="lineCov">         76 :             reg_summary.Domains = dataset[i].Domains;</span>
+<span class="lineNum">     135 </span><span class="lineCov">         76 :             reg_summary.nb1stNotices = dataset[i].nb1stNotices;</span>
+<span class="lineNum">     136 </span><span class="lineCov">         76 :             totalDomain += dataset[i].Domains;</span>
+<span class="lineNum">     137 </span><span class="lineCov">         76 :             total1stN += dataset[i].nb1stNotices;</span>
+<span class="lineNum">     138 </span>            :         } else {
+<span class="lineNum">     139 </span>            :             /* Count the notices */
+<span class="lineNum">     140 </span><span class="lineCov">         60 :             reg_summary.nb1stNotices += dataset[i].nb1stNotices;</span>
+<span class="lineNum">     141 </span><span class="lineCov">         60 :             total1stN += dataset[i].nb1stNotices;</span>
+<span class="lineNum">     142 </span>            :         }
+<span class="lineNum">     143 </span>            :     }
+<span class="lineNum">     144 </span><span class="lineCov">          4 :     if (reg_summary.Domains &gt; 0) {</span>
+<span class="lineNum">     145 </span>            :         /* Don't forget the last line */
+<span class="lineNum">     146 </span><span class="lineCov">          4 :         firstNotice.push_back(reg_summary);</span>
+<span class="lineNum">     147 </span>            :     }
+<span class="lineNum">     148 </span>            : 
+<span class="lineNum">     149 </span>            :     /* Sort by bigger to smaller number of notices */
+<span class="lineNum">     150 </span><span class="lineCov">          4 :     std::sort(firstNotice.begin(), firstNotice.end(), M1Data::FirstNoticeIsBigger);</span>
+<span class="lineNum">     151 </span>            : 
+<span class="lineNum">     152 </span>            :     /* Compute the statiscal summaries */
+<span class="lineNum">     153 </span><span class="lineCov">          4 :     half_sum = 0.5*(double)total1stN;</span>
+<span class="lineNum">     154 </span><span class="lineCov">          4 :     ninety_mark = 0.9*(double)total1stN;</span>
+<span class="lineNum">     155 </span><span class="lineCov">          4 :     current_sum = 0;</span>
+<span class="lineNum">     156 </span>            : 
+<span class="lineNum">     157 </span><span class="lineCov">         12 :     while (current_sum &lt; half_sum &amp;&amp; current_reg &lt; firstNotice.size()) {</span>
+<span class="lineNum">     158 </span><span class="lineCov">          4 :         current_sum += firstNotice[current_reg++].nb1stNotices;</span>
+<span class="lineNum">     159 </span>            :     }
+<span class="lineNum">     160 </span><span class="lineCov">          4 :     nbRegistrars50pc = (int)current_reg;</span>
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span><span class="lineCov">         36 :     while (current_sum &lt; ninety_mark &amp;&amp; current_reg &lt; firstNotice.size()) {</span>
+<span class="lineNum">     163 </span><span class="lineCov">         16 :         current_sum += firstNotice[current_reg++].nb1stNotices;</span>
+<span class="lineNum">     164 </span>            :     }
+<span class="lineNum">     165 </span><span class="lineCov">          4 :     nbRegistrars90pc = (int)current_reg;</span>
+<span class="lineNum">     166 </span>            : 
+<span class="lineNum">     167 </span><span class="lineCov">          4 :     nb_registrars = (uint32_t)firstNotice.size();</span>
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="170"><span class="lineNum">     170 </span>            : }</a>
+<span class="lineNum">     171 </span>            : 
+<span class="lineNum">     172 </span><span class="lineNoCov">          0 : int M1Data::GetCategoryIndex(char const * category)</span>
+<span class="lineNum">     173 </span>            : {
+<span class="lineNum">     174 </span><span class="lineNoCov">          0 :     int ret = -1;</span>
+<span class="lineNum">     175 </span>            : 
+<span class="lineNum">     176 </span><span class="lineNoCov">          0 :     for (size_t i = 0; i &lt; category_indices.size(); i++) {</span>
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :         if (strcmp(category, category_indices[i]) == 0) {</span>
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :             ret = (int)i;</span>
+<span class="lineNum">     179 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">     180 </span>            :         }
+<span class="lineNum">     181 </span>            :     }
+<span class="lineNum">     182 </span>            :     
+<span class="lineNum">     183 </span><span class="lineNoCov">          0 :     if (ret == -1) {</span>
+<span class="lineNum">     184 </span><span class="lineNoCov">          0 :         size_t len = strlen(category);</span>
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :         char * x = new char[len + 1];</span>
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :         if (x != NULL) {</span>
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :             memcpy(x, category, len + 1);</span>
+<span class="lineNum">     188 </span><span class="lineNoCov">          0 :             ret = (int)category_indices.size();</span>
+<span class="lineNum">     189 </span><span class="lineNoCov">          0 :             category_indices.push_back((char const *)x);</span>
+<span class="lineNum">     190 </span>            :         }
+<span class="lineNum">     191 </span>            :     }
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span><span class="lineNoCov">          0 :     return ret;</span>
+<a name="194"><span class="lineNum">     194 </span>            : }</a>
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 : bool M1Data::ParseFileName(char const * monthly_compliance_file_name)</span>
+<span class="lineNum">     197 </span>            : {
+<span class="lineNum">     198 </span>            :     UNREFERENCED_PARAMETER(monthly_compliance_file_name);
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span><span class="lineNoCov">          0 :     return false;</span>
+<a name="201"><span class="lineNum">     201 </span>            : }</a>
+<span class="lineNum">     202 </span>            : 
+<span class="lineNum">     203 </span><span class="lineCov">        832 : bool M1Data::RegistryIdIsSmaller(M1DataLine_t x, M1DataLine_t y)</span>
+<span class="lineNum">     204 </span>            : {
+<span class="lineNum">     205 </span><span class="lineCov">        832 :     return (x.RegistrarId &lt; y.RegistrarId);</span>
+<a name="206"><span class="lineNum">     206 </span>            : }</a>
+<span class="lineNum">     207 </span>            : 
+<span class="lineNum">     208 </span><span class="lineCov">        308 : bool M1Data::FirstNoticeIsBigger(M1RegSummary_t x, M1RegSummary_t y)</span>
+<span class="lineNum">     209 </span>            : {
+<span class="lineNum">     210 </span><span class="lineCov">        308 :     return (x.nb1stNotices &gt; y.nb1stNotices);</span>
+<a name="211"><span class="lineNum">     211 </span>            : }</a>
+<span class="lineNum">     212 </span>            : 
+<span class="lineNum">     213 </span><span class="lineCov">          6 : ComputeM1::ComputeM1() :</span>
+<span class="lineNum">     214 </span><span class="lineCov">          6 :     nb_registrars(0)</span>
+<span class="lineNum">     215 </span>            : {
+<span class="lineNum">     216 </span><span class="lineCov">         24 :     for (int i = 0; i &lt; 3; i++) {</span>
+<span class="lineNum">     217 </span><span class="lineCov">         18 :         ithi_m1[1] = 0;</span>
+<span class="lineNum">     218 </span>            :     }
+<a name="219"><span class="lineNum">     219 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     220 </span>            : 
+<span class="lineNum">     221 </span><span class="lineCov">          6 : ComputeM1::~ComputeM1()</span>
+<span class="lineNum">     222 </span>            : {
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     224 </span>            : 
+<span class="lineNum">     225 </span><span class="lineCov">          2 : bool ComputeM1::Load(char const * single_file_name)</span>
+<span class="lineNum">     226 </span>            : {
+<span class="lineNum">     227 </span><span class="lineCov">          2 :     return m1Data.Load(single_file_name);</span>
+<a name="228"><span class="lineNum">     228 </span>            : }</a>
+<span class="lineNum">     229 </span>            : 
+<span class="lineNum">     230 </span><span class="lineCov">          2 : bool ComputeM1::Compute()</span>
+<span class="lineNum">     231 </span>            : {
+<span class="lineNum">     232 </span><span class="lineCov">          2 :     bool ret = false;</span>
+<span class="lineNum">     233 </span>            : 
+<span class="lineNum">     234 </span><span class="lineCov">          2 :     if (m1Data.totalDomain &gt; 0) {</span>
+<span class="lineNum">     235 </span><span class="lineCov">          2 :         ithi_m1[0] = (1000000*(double)m1Data.total1stN) / ((double)m1Data.totalDomain);</span>
+<span class="lineNum">     236 </span><span class="lineCov">          2 :         ithi_m1[1] = (double)m1Data.nbRegistrars50pc;</span>
+<span class="lineNum">     237 </span><span class="lineCov">          2 :         ithi_m1[2] = (double)m1Data.nbRegistrars90pc;</span>
+<span class="lineNum">     238 </span><span class="lineCov">          2 :         nb_registrars = m1Data.nb_registrars;</span>
+<span class="lineNum">     239 </span><span class="lineCov">          2 :         ret = true;</span>
+<span class="lineNum">     240 </span>            :     }
+<span class="lineNum">     241 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="242"><span class="lineNum">     242 </span>            : }</a>
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span><span class="lineCov">          2 : bool ComputeM1::Write(FILE * F_out)</span>
+<span class="lineNum">     245 </span>            : {
+<span class="lineNum">     246 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     247 </span>            : 
+<span class="lineNum">     248 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F_out, &quot;M1.1, , %8f,\n&quot;, ithi_m1[0]) &gt; 0;</span>
+<span class="lineNum">     249 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F_out, &quot;M1.2, , %f,\n&quot;, ithi_m1[1]) &gt; 0;</span>
+<span class="lineNum">     250 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F_out, &quot;M1.3, , %f,\n&quot;, ithi_m1[2]) &gt; 0;</span>
+<span class="lineNum">     251 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F_out, &quot;M1.4, , %d,\n&quot;, nb_registrars) &gt; 0;</span>
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     254 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
