@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">65</td>
+            <td class="headerCovTableEntry">89</td>
             <td class="headerCovTableEntry">101</td>
-            <td class="headerCovTableEntryLo">64.4 %</td>
+            <td class="headerCovTableEntryMed">88.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-10-21 21:00:18</td>
+            <td class="headerValue">2019-10-22 01:08:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -208,49 +208,49 @@
 <span class="lineNum">     146 </span>            : {
 <a name="147"><span class="lineNum">     147 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">     148 </span>            : 
-<span class="lineNum">     149 </span><span class="lineCov">          2 : bool PublishTest::DoOneTest(int metric_id, char const ** metric_files, size_t nb_files,</span>
+<span class="lineNum">     149 </span><span class="lineCov">         16 : bool PublishTest::DoOneTest(int metric_id, char const ** metric_files, size_t nb_files,</span>
 <span class="lineNum">     150 </span>            :     char const * target_file, char const * ref_file)
 <span class="lineNum">     151 </span>            : {
 <span class="lineNum">     152 </span>            : 
-<span class="lineNum">     153 </span><span class="lineCov">          2 :     bool ret = CreateTestDirectory(metric_id, metric_files, (int)nb_files);</span>
+<span class="lineNum">     153 </span><span class="lineCov">         16 :     bool ret = CreateTestDirectory(metric_id, metric_files, (int)nb_files);</span>
 <span class="lineNum">     154 </span>            : 
-<span class="lineNum">     155 </span><span class="lineCov">          2 :     if (ret) {</span>
-<span class="lineNum">     156 </span><span class="lineNoCov">          0 :         ithipublisher pub(publish_test_dir_ithi, metric_id);</span>
+<span class="lineNum">     155 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     156 </span><span class="lineCov">         32 :         ithipublisher pub(publish_test_dir_ithi, metric_id);</span>
 <span class="lineNum">     157 </span>            : 
-<span class="lineNum">     158 </span><span class="lineNoCov">          0 :         ret = pub.CollectMetricFiles();</span>
-<span class="lineNum">     159 </span><span class="lineNoCov">          0 :         if (!ret) </span>
+<span class="lineNum">     158 </span><span class="lineCov">         16 :         ret = pub.CollectMetricFiles();</span>
+<span class="lineNum">     159 </span><span class="lineCov">         16 :         if (!ret) </span>
 <span class="lineNum">     160 </span>            :         {
 <span class="lineNum">     161 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;For metric M%d, cannot collect metric files\n&quot;, metric_id);</span>
 <span class="lineNum">     162 </span>            :         }
 <span class="lineNum">     163 </span>            : 
-<span class="lineNum">     164 </span><span class="lineNoCov">          0 :         if (ret &amp;&amp; pub.nb_months != (int)nb_files)</span>
+<span class="lineNum">     164 </span><span class="lineCov">         16 :         if (ret &amp;&amp; pub.nb_months != (int)nb_files)</span>
 <span class="lineNum">     165 </span>            :         {
 <span class="lineNum">     166 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     167 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;For metric M%d, got %d metric files instead of %d\n&quot;, metric_id,</span>
 <span class="lineNum">     168 </span><span class="lineNoCov">          0 :                 pub.nb_months, nb_files);</span>
 <span class="lineNum">     169 </span>            :         }
 <span class="lineNum">     170 </span>            : 
-<span class="lineNum">     171 </span><span class="lineNoCov">          0 :         if (ret &amp;&amp; (pub.last_year != 2017 || pub.last_month != 2 || pub.last_day != 28))</span>
+<span class="lineNum">     171 </span><span class="lineCov">         16 :         if (ret &amp;&amp; (pub.last_year != 2017 || pub.last_month != 2 || pub.last_day != 28))</span>
 <span class="lineNum">     172 </span>            :         {
 <span class="lineNum">     173 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     174 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;For metric M%d, dates do not match, %d/%d/%d instead of 2017/02/28\n&quot;, metric_id,</span>
 <span class="lineNum">     175 </span><span class="lineNoCov">          0 :                 target_file, pub.last_year, pub.last_month, pub.last_day);</span>
 <span class="lineNum">     176 </span>            :         }
 <span class="lineNum">     177 </span>            : 
-<span class="lineNum">     178 </span><span class="lineNoCov">          0 :         if (ret)</span>
+<span class="lineNum">     178 </span><span class="lineCov">         16 :         if (ret)</span>
 <span class="lineNum">     179 </span>            :         {
-<span class="lineNum">     180 </span><span class="lineNoCov">          0 :             ret = pub.Publish(publish_test_target);</span>
-<span class="lineNum">     181 </span><span class="lineNoCov">          0 :             if (!ret)</span>
+<span class="lineNum">     180 </span><span class="lineCov">         16 :             ret = pub.Publish(publish_test_target);</span>
+<span class="lineNum">     181 </span><span class="lineCov">         16 :             if (!ret)</span>
 <span class="lineNum">     182 </span>            :             {
 <span class="lineNum">     183 </span>            :                 TEST_LOG(&quot;For metric M%d, cannot publish %s in %s\n&quot;, metric_id, 
 <span class="lineNum">     184 </span><span class="lineNoCov">          0 :                     target_file, publish_test_target);</span>
 <span class="lineNum">     185 </span>            :             }
 <span class="lineNum">     186 </span>            :         }
 <span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span><span class="lineNoCov">          0 :         if (ret)</span>
+<span class="lineNum">     188 </span><span class="lineCov">         16 :         if (ret)</span>
 <span class="lineNum">     189 </span>            :         {
-<span class="lineNum">     190 </span><span class="lineNoCov">          0 :             ret = MetricTest::compare_files(target_file, ref_file);</span>
-<span class="lineNum">     191 </span><span class="lineNoCov">          0 :             if (!ret)</span>
+<span class="lineNum">     190 </span><span class="lineCov">         16 :             ret = MetricTest::compare_files(target_file, ref_file);</span>
+<span class="lineNum">     191 </span><span class="lineCov">         16 :             if (!ret)</span>
 <span class="lineNum">     192 </span>            :             {
 <span class="lineNum">     193 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;For metric M%d, %s != %s\n&quot;, metric_id, target_file, ref_file);</span>
 <span class="lineNum">     194 </span>            :             }
@@ -258,7 +258,7 @@
 <span class="lineNum">     196 </span>            :     }
 <span class="lineNum">     197 </span>            : 
 <span class="lineNum">     198 </span>            : 
-<span class="lineNum">     199 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     199 </span><span class="lineCov">         16 :     return ret;</span>
 <a name="200"><span class="lineNum">     200 </span>            : }</a>
 <span class="lineNum">     201 </span>            : 
 <span class="lineNum">     202 </span><span class="lineCov">          2 : bool PublishTest::DoTest()</span>
@@ -278,7 +278,7 @@
 <span class="lineNum">     216 </span>            : 
 <span class="lineNum">     217 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     218 </span>            :     {
-<span class="lineNum">     219 </span><span class="lineNoCov">          0 :         ret = DoOneTest(2, m2_files, 2, publish_test_target_m2, publish_ref_m2);</span>
+<span class="lineNum">     219 </span><span class="lineCov">          2 :         ret = DoOneTest(2, m2_files, 2, publish_test_target_m2, publish_ref_m2);</span>
 <span class="lineNum">     220 </span>            :     }
 <span class="lineNum">     221 </span>            : 
 <span class="lineNum">     222 </span>            :     /* M3 test */
@@ -286,7 +286,7 @@
 <span class="lineNum">     224 </span>            : 
 <span class="lineNum">     225 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     226 </span>            :     {
-<span class="lineNum">     227 </span><span class="lineNoCov">          0 :         ret = DoOneTest(3, m3_files, 2, publish_test_target_m3, publish_ref_m3);</span>
+<span class="lineNum">     227 </span><span class="lineCov">          2 :         ret = DoOneTest(3, m3_files, 2, publish_test_target_m3, publish_ref_m3);</span>
 <span class="lineNum">     228 </span>            :     }
 <span class="lineNum">     229 </span>            : 
 <span class="lineNum">     230 </span>            :     /* M4 test */
@@ -294,7 +294,7 @@
 <span class="lineNum">     232 </span>            : 
 <span class="lineNum">     233 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     234 </span>            :     {
-<span class="lineNum">     235 </span><span class="lineNoCov">          0 :         ret = DoOneTest(4, m4_files, 2, publish_test_target_m4, publish_ref_m4);</span>
+<span class="lineNum">     235 </span><span class="lineCov">          2 :         ret = DoOneTest(4, m4_files, 2, publish_test_target_m4, publish_ref_m4);</span>
 <span class="lineNum">     236 </span>            :     }
 <span class="lineNum">     237 </span>            : 
 <span class="lineNum">     238 </span>            : 
@@ -303,7 +303,7 @@
 <span class="lineNum">     241 </span>            : 
 <span class="lineNum">     242 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     243 </span>            :     {
-<span class="lineNum">     244 </span><span class="lineNoCov">          0 :         ret = DoOneTest(5, m5_files, 2, publish_test_target_m5, publish_ref_m5);</span>
+<span class="lineNum">     244 </span><span class="lineCov">          2 :         ret = DoOneTest(5, m5_files, 2, publish_test_target_m5, publish_ref_m5);</span>
 <span class="lineNum">     245 </span>            :     }
 <span class="lineNum">     246 </span>            : 
 <span class="lineNum">     247 </span>            :     /* M6 test */
@@ -311,7 +311,7 @@
 <span class="lineNum">     249 </span>            : 
 <span class="lineNum">     250 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     251 </span>            :     {
-<span class="lineNum">     252 </span><span class="lineNoCov">          0 :         ret = DoOneTest(6, m6_files, 2, publish_test_target_m6, publish_ref_m6);</span>
+<span class="lineNum">     252 </span><span class="lineCov">          2 :         ret = DoOneTest(6, m6_files, 2, publish_test_target_m6, publish_ref_m6);</span>
 <span class="lineNum">     253 </span>            :     }
 <span class="lineNum">     254 </span>            : 
 <span class="lineNum">     255 </span>            :     /* M7 test */
@@ -319,7 +319,7 @@
 <span class="lineNum">     257 </span>            : 
 <span class="lineNum">     258 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     259 </span>            :     {
-<span class="lineNum">     260 </span><span class="lineNoCov">          0 :         ret = DoOneTest(7, m7_files, 3, publish_test_target_m7, publish_ref_m7);</span>
+<span class="lineNum">     260 </span><span class="lineCov">          2 :         ret = DoOneTest(7, m7_files, 3, publish_test_target_m7, publish_ref_m7);</span>
 <span class="lineNum">     261 </span>            :     }
 <span class="lineNum">     262 </span>            : 
 <span class="lineNum">     263 </span>            :     /* M8 test */
@@ -327,53 +327,53 @@
 <span class="lineNum">     265 </span>            : 
 <span class="lineNum">     266 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     267 </span>            :     {
-<span class="lineNum">     268 </span><span class="lineNoCov">          0 :         ret = DoOneTest(8, m8_files, 2, publish_test_target_m8, publish_ref_m8);</span>
+<span class="lineNum">     268 </span><span class="lineCov">          2 :         ret = DoOneTest(8, m8_files, 2, publish_test_target_m8, publish_ref_m8);</span>
 <span class="lineNum">     269 </span>            :     }
 <span class="lineNum">     270 </span>            : 
 <span class="lineNum">     271 </span><span class="lineCov">          2 :     return ret;</span>
 <span class="lineNum">     272 </span>            : }
 <a name="273"><span class="lineNum">     273 </span>            : </a>
 <span class="lineNum">     274 </span>            : 
-<span class="lineNum">     275 </span><span class="lineCov">          4 : bool PublishTest::CreateTestDirectory(int metric_id, char const ** file_names, int nb_files)</span>
+<span class="lineNum">     275 </span><span class="lineCov">         24 : bool PublishTest::CreateTestDirectory(int metric_id, char const ** file_names, int nb_files)</span>
 <span class="lineNum">     276 </span>            : {
 <span class="lineNum">     277 </span>            :     char dir_met_name[512];
-<span class="lineNum">     278 </span><span class="lineCov">          4 :     bool ret = snprintf(dir_met_name, sizeof(dir_met_name), &quot;%s%sM%d%s&quot;, publish_test_dir_ithi, ITHI_FILE_PATH_SEP, metric_id, ITHI_FILE_PATH_SEP) &gt; 0;</span>
+<span class="lineNum">     278 </span><span class="lineCov">         24 :     bool ret = snprintf(dir_met_name, sizeof(dir_met_name), &quot;%s%sM%d%s&quot;, publish_test_dir_ithi, ITHI_FILE_PATH_SEP, metric_id, ITHI_FILE_PATH_SEP) &gt; 0;</span>
 <span class="lineNum">     279 </span>            :     
-<span class="lineNum">     280 </span><span class="lineCov">          4 :     if (ret)</span>
+<span class="lineNum">     280 </span><span class="lineCov">         24 :     if (ret)</span>
 <span class="lineNum">     281 </span>            :     {
-<span class="lineNum">     282 </span><span class="lineCov">          4 :         ret = MetricCaptureFileTest::CreateDirectoryIfAbsent(dir_met_name);</span>
+<span class="lineNum">     282 </span><span class="lineCov">         24 :         ret = MetricCaptureFileTest::CreateDirectoryIfAbsent(dir_met_name);</span>
 <span class="lineNum">     283 </span>            :     }
 <span class="lineNum">     284 </span>            : 
-<span class="lineNum">     285 </span><span class="lineCov">         12 :     for (int i = 0; i &lt; nb_files; i++)</span>
+<span class="lineNum">     285 </span><span class="lineCov">         74 :     for (int i = 0; i &lt; nb_files; i++)</span>
 <span class="lineNum">     286 </span>            :     {
-<span class="lineNum">     287 </span><span class="lineCov">          8 :         ret &amp;= CopyFileToDirectory(file_names[i], dir_met_name);</span>
+<span class="lineNum">     287 </span><span class="lineCov">         50 :         ret &amp;= CopyFileToDirectory(file_names[i], dir_met_name);</span>
 <span class="lineNum">     288 </span>            :     }
 <span class="lineNum">     289 </span>            : 
-<span class="lineNum">     290 </span><span class="lineCov">          4 :     return ret;</span>
+<span class="lineNum">     290 </span><span class="lineCov">         24 :     return ret;</span>
 <a name="291"><span class="lineNum">     291 </span>            : }</a>
 <span class="lineNum">     292 </span>            : 
-<span class="lineNum">     293 </span><span class="lineCov">          8 : bool PublishTest::CopyFileToDirectory(char const * file_name, char const * dir_name)</span>
+<span class="lineNum">     293 </span><span class="lineCov">         50 : bool PublishTest::CopyFileToDirectory(char const * file_name, char const * dir_name)</span>
 <span class="lineNum">     294 </span>            : {
-<span class="lineNum">     295 </span><span class="lineCov">          8 :     int file_name_index = 0;</span>
+<span class="lineNum">     295 </span><span class="lineCov">         50 :     int file_name_index = 0;</span>
 <span class="lineNum">     296 </span>            :     char dest_file_name[512];
-<span class="lineNum">     297 </span><span class="lineCov">          8 :     bool ret = true; </span>
+<span class="lineNum">     297 </span><span class="lineCov">         50 :     bool ret = true; </span>
 <span class="lineNum">     298 </span>            : 
-<span class="lineNum">     299 </span><span class="lineCov">        200 :     for (int i = 0; file_name[i] != 0; i++)</span>
+<span class="lineNum">     299 </span><span class="lineCov">       1250 :     for (int i = 0; file_name[i] != 0; i++)</span>
 <span class="lineNum">     300 </span>            :     {
-<span class="lineNum">     301 </span><span class="lineCov">        192 :         if (file_name[i] == ITHI_FILE_PATH_SEP[0])</span>
+<span class="lineNum">     301 </span><span class="lineCov">       1200 :         if (file_name[i] == ITHI_FILE_PATH_SEP[0])</span>
 <span class="lineNum">     302 </span>            :         {
-<span class="lineNum">     303 </span><span class="lineCov">         16 :             file_name_index = i + 1;</span>
+<span class="lineNum">     303 </span><span class="lineCov">        100 :             file_name_index = i + 1;</span>
 <span class="lineNum">     304 </span>            :         }
 <span class="lineNum">     305 </span>            :     }
 <span class="lineNum">     306 </span>            :     
-<span class="lineNum">     307 </span><span class="lineCov">          8 :     ret = snprintf(dest_file_name, sizeof(dest_file_name), &quot;%s%s&quot;, dir_name,file_name + file_name_index) &gt; 0;</span>
+<span class="lineNum">     307 </span><span class="lineCov">         50 :     ret = snprintf(dest_file_name, sizeof(dest_file_name), &quot;%s%s&quot;, dir_name,file_name + file_name_index) &gt; 0;</span>
 <span class="lineNum">     308 </span>            : 
-<span class="lineNum">     309 </span><span class="lineCov">          8 :     if (ret)</span>
+<span class="lineNum">     309 </span><span class="lineCov">         50 :     if (ret)</span>
 <span class="lineNum">     310 </span>            :     {
-<span class="lineNum">     311 </span><span class="lineCov">          8 :         ret = MetricCaptureFileTest::CopyFileToDestination(dest_file_name, file_name);</span>
+<span class="lineNum">     311 </span><span class="lineCov">         50 :         ret = MetricCaptureFileTest::CopyFileToDestination(dest_file_name, file_name);</span>
 <span class="lineNum">     312 </span>            :     }
 <span class="lineNum">     313 </span>            : 
-<span class="lineNum">     314 </span><span class="lineCov">          8 :     return ret;</span>
+<span class="lineNum">     314 </span><span class="lineCov">         50 :     return ret;</span>
 <a name="315"><span class="lineNum">     315 </span>            : }</a>
 <span class="lineNum">     316 </span>            : 
 <span class="lineNum">     317 </span><span class="lineCov">          2 : PublishIndexTest::PublishIndexTest()</span>
@@ -404,22 +404,22 @@
 <span class="lineNum">     342 </span><span class="lineCov">          4 :     ithiIndexPublisher pub(publish_test_dir_ithi);</span>
 <span class="lineNum">     343 </span>            : 
 <span class="lineNum">     344 </span>            :     /* Create directories and prepare all the required files */
-<span class="lineNum">     345 </span><span class="lineCov">          4 :     for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
-<span class="lineNum">     346 </span><span class="lineCov">          2 :         ret = PublishTest::CreateTestDirectory(metricId[i], file_list[i], (int)nb_files[i]);</span>
+<span class="lineNum">     345 </span><span class="lineCov">         10 :     for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
+<span class="lineNum">     346 </span><span class="lineCov">          8 :         ret = PublishTest::CreateTestDirectory(metricId[i], file_list[i], (int)nb_files[i]);</span>
 <span class="lineNum">     347 </span>            :     }
 <span class="lineNum">     348 </span>            : 
 <span class="lineNum">     349 </span>            :     /* Create the index json file in the test directory */
 <span class="lineNum">     350 </span><span class="lineCov">          2 :     if (ret) {</span>
-<span class="lineNum">     351 </span><span class="lineNoCov">          0 :         ret = pub.CollectMetricFiles();</span>
+<span class="lineNum">     351 </span><span class="lineCov">          2 :         ret = pub.CollectMetricFiles();</span>
 <span class="lineNum">     352 </span>            : 
-<span class="lineNum">     353 </span><span class="lineNoCov">          0 :         if (!ret) {</span>
+<span class="lineNum">     353 </span><span class="lineCov">          2 :         if (!ret) {</span>
 <span class="lineNum">     354 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Cannot collect metric files for index data.\n&quot;);</span>
 <span class="lineNum">     355 </span>            :         }
 <span class="lineNum">     356 </span>            :     }
 <span class="lineNum">     357 </span>            : 
 <span class="lineNum">     358 </span><span class="lineCov">          2 :     if (ret) {</span>
-<span class="lineNum">     359 </span><span class="lineNoCov">          0 :         ret = pub.Publish(publish_test_target);</span>
-<span class="lineNum">     360 </span><span class="lineNoCov">          0 :         if (!ret) {</span>
+<span class="lineNum">     359 </span><span class="lineCov">          2 :         ret = pub.Publish(publish_test_target);</span>
+<span class="lineNum">     360 </span><span class="lineCov">          2 :         if (!ret) {</span>
 <span class="lineNum">     361 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Cannot publish index data.\n&quot;);</span>
 <span class="lineNum">     362 </span>            :         }
 <span class="lineNum">     363 </span>            :     }
@@ -427,8 +427,8 @@
 <span class="lineNum">     365 </span>            :     /* Verify that the content is as expected */
 <span class="lineNum">     366 </span><span class="lineCov">          2 :     if (ret)</span>
 <span class="lineNum">     367 </span>            :     {
-<span class="lineNum">     368 </span><span class="lineNoCov">          0 :         ret = MetricTest::compare_files(publish_test_target_index, publish_ref_index);</span>
-<span class="lineNum">     369 </span><span class="lineNoCov">          0 :         if (!ret)</span>
+<span class="lineNum">     368 </span><span class="lineCov">          2 :         ret = MetricTest::compare_files(publish_test_target_index, publish_ref_index);</span>
+<span class="lineNum">     369 </span><span class="lineCov">          2 :         if (!ret)</span>
 <span class="lineNum">     370 </span>            :         {
 <span class="lineNum">     371 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;For index data, %s != %s\n&quot;, publish_test_target_index, publish_ref_index);</span>
 <span class="lineNum">     372 </span>            :         }

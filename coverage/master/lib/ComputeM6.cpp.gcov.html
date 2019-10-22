@@ -31,18 +31,18 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">49</td>
+            <td class="headerCovTableEntry">56</td>
             <td class="headerCovTableEntry">59</td>
-            <td class="headerCovTableEntryMed">83.1 %</td>
+            <td class="headerCovTableEntryHi">94.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-10-21 21:00:18</td>
+            <td class="headerValue">2019-10-22 01:08:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">6</td>
             <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntryLo">62.5 %</td>
+            <td class="headerCovTableEntryMed">75.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -492,18 +492,18 @@
 <span class="lineNum">     430 </span><span class="lineCov">          2 :     return ret;</span>
 <a name="431"><span class="lineNum">     431 </span>            : }</a>
 <span class="lineNum">     432 </span>            : 
-<span class="lineNum">     433 </span><span class="lineNoCov">          0 : metric6_def_t const * ComputeM6::GetTable(char const * m6_prefix)</span>
+<span class="lineNum">     433 </span><span class="lineCov">         40 : metric6_def_t const * ComputeM6::GetTable(char const * m6_prefix)</span>
 <span class="lineNum">     434 </span>            : {
-<span class="lineNum">     435 </span><span class="lineNoCov">          0 :     size_t m6_size = sizeof(m6_metrics_list) / sizeof(metric6_def_t);</span>
-<span class="lineNum">     436 </span><span class="lineNoCov">          0 :     metric6_def_t const * ret = NULL;</span>
+<span class="lineNum">     435 </span><span class="lineCov">         40 :     size_t m6_size = sizeof(m6_metrics_list) / sizeof(metric6_def_t);</span>
+<span class="lineNum">     436 </span><span class="lineCov">         40 :     metric6_def_t const * ret = NULL;</span>
 <span class="lineNum">     437 </span>            : 
-<span class="lineNum">     438 </span><span class="lineNoCov">          0 :     for (size_t i = 0; i &lt; m6_size; i++) {</span>
-<span class="lineNum">     439 </span><span class="lineNoCov">          0 :         if (strcmp(m6_prefix, m6_metrics_list[i].m6_prefix) == 0) {</span>
-<span class="lineNum">     440 </span><span class="lineNoCov">          0 :             ret = &amp;m6_metrics_list[i];</span>
+<span class="lineNum">     438 </span><span class="lineCov">        760 :     for (size_t i = 0; i &lt; m6_size; i++) {</span>
+<span class="lineNum">     439 </span><span class="lineCov">        720 :         if (strcmp(m6_prefix, m6_metrics_list[i].m6_prefix) == 0) {</span>
+<span class="lineNum">     440 </span><span class="lineCov">         40 :             ret = &amp;m6_metrics_list[i];</span>
 <span class="lineNum">     441 </span>            :         }
 <span class="lineNum">     442 </span>            :     }
 <span class="lineNum">     443 </span>            : 
-<span class="lineNum">     444 </span><span class="lineNoCov">          0 :     return ret;</span>
+<span class="lineNum">     444 </span><span class="lineCov">         40 :     return ret;</span>
 <span class="lineNum">     445 </span>            : }
 </pre>
       </td>
