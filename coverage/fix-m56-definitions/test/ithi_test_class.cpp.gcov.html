@@ -1,0 +1,380 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - test/ithi_test_class.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - ithi_test_class.cpp<span style="font-size: 80%;"> (source / <a href="ithi_test_class.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">102</td>
+            <td class="headerCovTableEntry">127</td>
+            <td class="headerCovTableEntryMed">80.3 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-10-22 05:19:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntryLo">70.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : </a>
+<span class="lineNum">       2 </span>            : #include &lt;stdarg.h&gt;
+<span class="lineNum">       3 </span>            : #include &lt;stdlib.h&gt;
+<span class="lineNum">       4 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">       5 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">       6 </span>            : 
+<span class="lineNum">       7 </span>            : #include &quot;hashtest.h&quot;
+<span class="lineNum">       8 </span>            : #include &quot;testRfc6761.h&quot;
+<span class="lineNum">       9 </span>            : #include &quot;LoadTest.h&quot;
+<span class="lineNum">      10 </span>            : #include &quot;SaveTest.h&quot;
+<span class="lineNum">      11 </span>            : #include &quot;MergeTest.h&quot;
+<span class="lineNum">      12 </span>            : #include &quot;CaptureTest.h&quot;
+<span class="lineNum">      13 </span>            : #include &quot;MetricTest.h&quot;
+<span class="lineNum">      14 </span>            : #include &quot;PatternTest.h&quot;
+<span class="lineNum">      15 </span>            : #include &quot;PluginTest.h&quot;
+<span class="lineNum">      16 </span>            : #include &quot;CsvTest.h&quot;
+<span class="lineNum">      17 </span>            : #include &quot;M1DataTest.h&quot;
+<span class="lineNum">      18 </span>            : #include &quot;M2DataTest.h&quot;
+<span class="lineNum">      19 </span>            : #include &quot;ithi_test_class.h&quot;
+<span class="lineNum">      20 </span>            : #include &quot;PublishTest.h&quot;
+<span class="lineNum">      21 </span>            : #include &quot;TldCountTest.h&quot;
+<span class="lineNum">      22 </span>            : #include &quot;DnsPrefixTest.h&quot;
+<span class="lineNum">      23 </span>            : #include &quot;GetNameTest.h&quot;
+<span class="lineNum">      24 </span>            : #include &quot;OdiPublishTest.h&quot;
+<span class="lineNum">      25 </span>            : #include &quot;QNameTest.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;StatsByIpTest.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;capture_fuzz.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;CborTest.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;CdnsTest.h&quot;
+<span class="lineNum">      30 </span>            : 
+<span class="lineNum">      31 </span>            : enum test_list_enum {
+<span class="lineNum">      32 </span>            :     test_enum_hash = 0,
+<span class="lineNum">      33 </span>            :     test_enum_Rfc6761,
+<span class="lineNum">      34 </span>            :     test_enum_Load,
+<span class="lineNum">      35 </span>            :     test_enum_Save,
+<span class="lineNum">      36 </span>            :     test_enum_Merge,
+<span class="lineNum">      37 </span>            :     test_enum_Merge_List,
+<span class="lineNum">      38 </span>            :     test_enum_Capture,
+<span class="lineNum">      39 </span>            :     test_enum_Metric,
+<span class="lineNum">      40 </span>            :     test_enum_MetricDate,
+<span class="lineNum">      41 </span>            :     test_enum_MetricCaptureFile,
+<span class="lineNum">      42 </span>            :     test_enum_Pattern,
+<span class="lineNum">      43 </span>            :     test_enum_Plugin,
+<span class="lineNum">      44 </span>            :     test_enum_BadPlugin,
+<span class="lineNum">      45 </span>            :     test_enum_Csv,
+<span class="lineNum">      46 </span>            :     test_enum_M1Data,
+<span class="lineNum">      47 </span>            :     test_enum_M2Data,
+<span class="lineNum">      48 </span>            :     test_enum_Publish,
+<span class="lineNum">      49 </span>            :     test_enum_PublishIndex, 
+<span class="lineNum">      50 </span>            :     test_enum_TldCount,
+<span class="lineNum">      51 </span>            :     test_enum_DnsPrefix,
+<span class="lineNum">      52 </span>            :     test_enum_GetName,
+<span class="lineNum">      53 </span>            :     test_enum_Ipv4Tld,
+<span class="lineNum">      54 </span>            :     test_enum_OdiPublish,
+<span class="lineNum">      55 </span>            :     test_enum_CmpName,
+<span class="lineNum">      56 </span>            :     test_enum_QNameMini,
+<span class="lineNum">      57 </span>            :     test_enum_StatsByIp,
+<span class="lineNum">      58 </span>            :     test_enum_CaptureFuzz,
+<span class="lineNum">      59 </span>            :     test_enum_max_number,
+<span class="lineNum">      60 </span>            :     test_enum_cbor,
+<span class="lineNum">      61 </span>            :     test_enum_cbor_skip,
+<span class="lineNum">      62 </span>            :     test_enum_cdns,
+<span class="lineNum">      63 </span>            :     test_enum_cdns_dump,
+<span class="lineNum">      64 </span>            :     test_enum_cdns_capture,
+<span class="lineNum">      65 </span>            : 
+<a name="66"><span class="lineNum">      66 </span>            : };</a>
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span><span class="lineCov">         56 : ithi_test_class::ithi_test_class()</span>
+<span class="lineNum">      69 </span>            : {
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">         56 : }</span></a>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">         56 : ithi_test_class::~ithi_test_class()</span>
+<span class="lineNum">      73 </span>            : {
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">         56 : }</span></a>
+<span class="lineNum">      75 </span>            : 
+<span class="lineNum">      76 </span><span class="lineCov">         56 : int ithi_test_class::get_number_of_tests()</span>
+<span class="lineNum">      77 </span>            : {
+<span class="lineNum">      78 </span><span class="lineCov">         56 :     return test_enum_max_number;</span>
+<a name="79"><span class="lineNum">      79 </span>            : }</a>
+<span class="lineNum">      80 </span>            : 
+<span class="lineNum">      81 </span><span class="lineCov">         54 : char const * ithi_test_class::GetTestName(int number)</span>
+<span class="lineNum">      82 </span>            : {
+<span class="lineNum">      83 </span><span class="lineCov">         54 :     switch (number) {</span>
+<span class="lineNum">      84 </span>            :     case test_enum_hash:
+<span class="lineNum">      85 </span><span class="lineCov">          2 :         return(&quot;hash&quot;);</span>
+<span class="lineNum">      86 </span>            :     case test_enum_Rfc6761:
+<span class="lineNum">      87 </span><span class="lineCov">          2 :         return(&quot;rfc6761&quot;);</span>
+<span class="lineNum">      88 </span>            :     case test_enum_Load:
+<span class="lineNum">      89 </span><span class="lineCov">          2 :         return(&quot;load&quot;);</span>
+<span class="lineNum">      90 </span>            :     case test_enum_Save:
+<span class="lineNum">      91 </span><span class="lineCov">          2 :         return(&quot;save&quot;);</span>
+<span class="lineNum">      92 </span>            :     case test_enum_Merge:
+<span class="lineNum">      93 </span><span class="lineCov">          2 :         return(&quot;merge&quot;);</span>
+<span class="lineNum">      94 </span>            :     case test_enum_Merge_List:
+<span class="lineNum">      95 </span><span class="lineCov">          2 :         return(&quot;merge_list&quot;);</span>
+<span class="lineNum">      96 </span>            :     case test_enum_Capture:
+<span class="lineNum">      97 </span><span class="lineCov">          2 :         return(&quot;capture&quot;);</span>
+<span class="lineNum">      98 </span>            :     case test_enum_Metric:
+<span class="lineNum">      99 </span><span class="lineCov">          2 :         return(&quot;metric&quot;);</span>
+<span class="lineNum">     100 </span>            :     case test_enum_MetricDate:
+<span class="lineNum">     101 </span><span class="lineCov">          2 :         return(&quot;metricDate&quot;);</span>
+<span class="lineNum">     102 </span>            :     case test_enum_MetricCaptureFile:
+<span class="lineNum">     103 </span><span class="lineCov">          2 :         return(&quot;metricCaptureFile&quot;);</span>
+<span class="lineNum">     104 </span>            :     case test_enum_Pattern:
+<span class="lineNum">     105 </span><span class="lineCov">          2 :         return(&quot;pattern&quot;);</span>
+<span class="lineNum">     106 </span>            :     case test_enum_Plugin:
+<span class="lineNum">     107 </span><span class="lineCov">          2 :         return(&quot;plugin&quot;);</span>
+<span class="lineNum">     108 </span>            :     case test_enum_BadPlugin:
+<span class="lineNum">     109 </span><span class="lineCov">          2 :         return (&quot;badPlugin&quot;);</span>
+<span class="lineNum">     110 </span>            :     case test_enum_Csv:
+<span class="lineNum">     111 </span><span class="lineCov">          2 :         return(&quot;csv&quot;);</span>
+<span class="lineNum">     112 </span>            :     case test_enum_M1Data:
+<span class="lineNum">     113 </span><span class="lineCov">          2 :         return(&quot;m1data&quot;);</span>
+<span class="lineNum">     114 </span>            :     case test_enum_M2Data:
+<span class="lineNum">     115 </span><span class="lineCov">          2 :         return(&quot;m2data&quot;);</span>
+<span class="lineNum">     116 </span>            :     case test_enum_Publish:
+<span class="lineNum">     117 </span><span class="lineCov">          2 :         return(&quot;publish&quot;);</span>
+<span class="lineNum">     118 </span>            :     case test_enum_PublishIndex:
+<span class="lineNum">     119 </span><span class="lineCov">          2 :         return(&quot;publishIndex&quot;);</span>
+<span class="lineNum">     120 </span>            :     case test_enum_TldCount:
+<span class="lineNum">     121 </span><span class="lineCov">          2 :         return(&quot;TldCount&quot;);</span>
+<span class="lineNum">     122 </span>            :     case test_enum_DnsPrefix:
+<span class="lineNum">     123 </span><span class="lineCov">          2 :         return(&quot;DnsPrefix&quot;);</span>
+<span class="lineNum">     124 </span>            :     case test_enum_GetName:
+<span class="lineNum">     125 </span><span class="lineCov">          2 :         return(&quot;GetName&quot;);</span>
+<span class="lineNum">     126 </span>            :     case test_enum_Ipv4Tld:
+<span class="lineNum">     127 </span><span class="lineCov">          2 :         return(&quot;Ipv4Tld&quot;);</span>
+<span class="lineNum">     128 </span>            :     case test_enum_OdiPublish:
+<span class="lineNum">     129 </span><span class="lineCov">          2 :         return(&quot;OdiPublish&quot;);</span>
+<span class="lineNum">     130 </span>            :     case test_enum_CmpName:
+<span class="lineNum">     131 </span><span class="lineCov">          2 :         return(&quot;CmpName&quot;);</span>
+<span class="lineNum">     132 </span>            :     case test_enum_QNameMini:
+<span class="lineNum">     133 </span><span class="lineCov">          2 :         return(&quot;QNameMini&quot;);</span>
+<span class="lineNum">     134 </span>            :     case test_enum_StatsByIp:
+<span class="lineNum">     135 </span><span class="lineCov">          2 :         return(&quot;StatsByIp&quot;);</span>
+<span class="lineNum">     136 </span>            :     case test_enum_CaptureFuzz:
+<span class="lineNum">     137 </span><span class="lineCov">          2 :         return(&quot;CaptureFuzz&quot;);</span>
+<span class="lineNum">     138 </span>            :     case test_enum_cbor:
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 :         return(&quot;cbor&quot;);</span>
+<span class="lineNum">     140 </span>            :     case test_enum_cbor_skip:
+<span class="lineNum">     141 </span><span class="lineNoCov">          0 :         return(&quot;cborSkip&quot;);</span>
+<span class="lineNum">     142 </span>            :     case test_enum_cdns:
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :         return(&quot;cdns&quot;);</span>
+<span class="lineNum">     144 </span>            :     case test_enum_cdns_dump:
+<span class="lineNum">     145 </span><span class="lineNoCov">          0 :         return(&quot;cdns_dump&quot;);</span>
+<span class="lineNum">     146 </span>            :     case test_enum_cdns_capture:
+<span class="lineNum">     147 </span><span class="lineNoCov">          0 :         return(&quot;cdns_capture&quot;);</span>
+<span class="lineNum">     148 </span>            :     default:
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     150 </span>            :     }
+<span class="lineNum">     151 </span><span class="lineNoCov">          0 :     return NULL;</span>
+<a name="152"><span class="lineNum">     152 </span>            : }</a>
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 : int ithi_test_class::GetTestNumberByName(const char * name)</span>
+<span class="lineNum">     155 </span>            : {
+<span class="lineNum">     156 </span><span class="lineNoCov">          0 :     for (int i = 0; i &lt; test_enum_max_number; i++)</span>
+<span class="lineNum">     157 </span>            :     {
+<span class="lineNum">     158 </span>            : #ifdef _WINDOWS
+<span class="lineNum">     159 </span>            :         if (_strcmpi(name, GetTestName(i)) == 0)
+<span class="lineNum">     160 </span>            : #else
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :         if (strcasecmp(name, GetTestName(i)) == 0)</span>
+<span class="lineNum">     162 </span>            : #endif
+<span class="lineNum">     163 </span>            :         {
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :             return i;</span>
+<span class="lineNum">     165 </span>            :         }
+<span class="lineNum">     166 </span>            :     }
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :     return test_enum_max_number;</span>
+<a name="168"><span class="lineNum">     168 </span>            : }</a>
+<span class="lineNum">     169 </span>            : 
+<span class="lineNum">     170 </span><span class="lineCov">         54 : ithi_test_class * ithi_test_class::TestByNumber(int number)</span>
+<span class="lineNum">     171 </span>            : {
+<span class="lineNum">     172 </span><span class="lineCov">         54 :     ithi_test_class * test = NULL;</span>
+<span class="lineNum">     173 </span>            : 
+<span class="lineNum">     174 </span><span class="lineCov">         54 :     switch ((test_list_enum)number) {</span>
+<span class="lineNum">     175 </span>            :     case test_enum_hash:
+<span class="lineNum">     176 </span><span class="lineCov">          2 :         test = new hashtest();</span>
+<span class="lineNum">     177 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     178 </span>            :     case test_enum_Rfc6761:
+<span class="lineNum">     179 </span><span class="lineCov">          2 :         test = new testRfc6761();</span>
+<span class="lineNum">     180 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     181 </span>            :     case test_enum_Load:
+<span class="lineNum">     182 </span><span class="lineCov">          2 :         test = new LoadTest();</span>
+<span class="lineNum">     183 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     184 </span>            :     case test_enum_Save:
+<span class="lineNum">     185 </span><span class="lineCov">          2 :         test = new SaveTest();</span>
+<span class="lineNum">     186 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     187 </span>            :     case test_enum_Merge:
+<span class="lineNum">     188 </span><span class="lineCov">          2 :         test = new MergeTest();</span>
+<span class="lineNum">     189 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     190 </span>            :     case test_enum_Merge_List:
+<span class="lineNum">     191 </span><span class="lineCov">          2 :         test = new MergeListTest();</span>
+<span class="lineNum">     192 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     193 </span>            :     case test_enum_Capture:
+<span class="lineNum">     194 </span><span class="lineCov">          2 :         test = new CaptureTest();</span>
+<span class="lineNum">     195 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     196 </span>            :     case test_enum_Metric:
+<span class="lineNum">     197 </span><span class="lineCov">          2 :         test = new MetricTest();</span>
+<span class="lineNum">     198 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     199 </span>            :     case test_enum_MetricDate:
+<span class="lineNum">     200 </span><span class="lineCov">          2 :         test = new MetricDateTest();</span>
+<span class="lineNum">     201 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     202 </span>            :     case test_enum_MetricCaptureFile:
+<span class="lineNum">     203 </span><span class="lineCov">          2 :         test = new MetricCaptureFileTest();</span>
+<span class="lineNum">     204 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     205 </span>            :     case test_enum_Pattern:
+<span class="lineNum">     206 </span><span class="lineCov">          2 :         test = new PatternTest();</span>
+<span class="lineNum">     207 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     208 </span>            :     case test_enum_Plugin:
+<span class="lineNum">     209 </span><span class="lineCov">          2 :         test = new PluginTest();</span>
+<span class="lineNum">     210 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     211 </span>            :     case test_enum_BadPlugin:
+<span class="lineNum">     212 </span><span class="lineCov">          2 :         test = new PluginTestBad();</span>
+<span class="lineNum">     213 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     214 </span>            :     case test_enum_Csv:
+<span class="lineNum">     215 </span><span class="lineCov">          2 :         test = new CsvTest();</span>
+<span class="lineNum">     216 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     217 </span>            :     case test_enum_M1Data:
+<span class="lineNum">     218 </span><span class="lineCov">          2 :         test = new M1DataTest();</span>
+<span class="lineNum">     219 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     220 </span>            :     case test_enum_M2Data:
+<span class="lineNum">     221 </span><span class="lineCov">          2 :         test = new M2DataTest();</span>
+<span class="lineNum">     222 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     223 </span>            :     case test_enum_Publish:
+<span class="lineNum">     224 </span><span class="lineCov">          2 :         test = new PublishTest();</span>
+<span class="lineNum">     225 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     226 </span>            :     case test_enum_PublishIndex:
+<span class="lineNum">     227 </span><span class="lineCov">          2 :         test = new PublishIndexTest();</span>
+<span class="lineNum">     228 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     229 </span>            :     case test_enum_TldCount:
+<span class="lineNum">     230 </span><span class="lineCov">          2 :         test = new TldCountTest();</span>
+<span class="lineNum">     231 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     232 </span>            :     case test_enum_DnsPrefix:
+<span class="lineNum">     233 </span><span class="lineCov">          2 :         test = new DnsPrefixTest();</span>
+<span class="lineNum">     234 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     235 </span>            :     case test_enum_GetName:
+<span class="lineNum">     236 </span><span class="lineCov">          2 :         test = new GetNameTest();</span>
+<span class="lineNum">     237 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     238 </span>            :     case test_enum_Ipv4Tld:
+<span class="lineNum">     239 </span><span class="lineCov">          2 :         test = new IsIpv4Test();</span>
+<span class="lineNum">     240 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     241 </span>            :     case test_enum_OdiPublish:
+<span class="lineNum">     242 </span><span class="lineCov">          2 :         test = new OdiPublishTest();</span>
+<span class="lineNum">     243 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     244 </span>            :     case test_enum_CmpName:
+<span class="lineNum">     245 </span><span class="lineCov">          2 :         test = new CmpNameTest();</span>
+<span class="lineNum">     246 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     247 </span>            :     case test_enum_QNameMini:
+<span class="lineNum">     248 </span><span class="lineCov">          2 :         test = new QNameTest();</span>
+<span class="lineNum">     249 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     250 </span>            :     case test_enum_StatsByIp:
+<span class="lineNum">     251 </span><span class="lineCov">          2 :         test = new StatsByIpTest();</span>
+<span class="lineNum">     252 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     253 </span>            :     case test_enum_CaptureFuzz:
+<span class="lineNum">     254 </span><span class="lineCov">          2 :         test = new capture_fuzz();</span>
+<span class="lineNum">     255 </span><span class="lineCov">          2 :         break;</span>
+<span class="lineNum">     256 </span>            :     case test_enum_cbor:
+<span class="lineNum">     257 </span><span class="lineNoCov">          0 :         test = new CborTest();</span>
+<span class="lineNum">     258 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     259 </span>            :     case test_enum_cbor_skip:
+<span class="lineNum">     260 </span><span class="lineNoCov">          0 :         test = new CborSkipTest();</span>
+<span class="lineNum">     261 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     262 </span>            :     case test_enum_cdns:
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :         test = new CdnsTest();</span>
+<span class="lineNum">     264 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     265 </span>            :     case test_enum_cdns_dump:
+<span class="lineNum">     266 </span><span class="lineNoCov">          0 :         test = new CdnsDumpTest();</span>
+<span class="lineNum">     267 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     268 </span>            :     case test_enum_cdns_capture:
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :         test = new CdnsCaptureTest();</span>
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     271 </span>            :     default:
+<span class="lineNum">     272 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">     273 </span>            :     }
+<span class="lineNum">     274 </span>            : 
+<span class="lineNum">     275 </span><span class="lineCov">         54 :     return test;</span>
+<span class="lineNum">     276 </span>            : }
+<span class="lineNum">     277 </span>            : 
+<a name="278"><span class="lineNum">     278 </span>            : static FILE * F_log = NULL;</a>
+<span class="lineNum">     279 </span>            : 
+<span class="lineNum">     280 </span><span class="lineCov">          2 : void SET_LOG_FILE(FILE * F)</span>
+<span class="lineNum">     281 </span>            : {
+<span class="lineNum">     282 </span><span class="lineCov">          2 :     F_log = F;</span>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     284 </span>            : 
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 : FILE * GET_LOG_FILE()</span>
+<span class="lineNum">     286 </span>            : {
+<span class="lineNum">     287 </span><span class="lineNoCov">          0 :     return F_log;</span>
+<a name="288"><span class="lineNum">     288 </span>            : }</a>
+<span class="lineNum">     289 </span>            : 
+<span class="lineNum">     290 </span><span class="lineCov">         16 : void TEST_LOG(const char * fmt, ...)</span>
+<span class="lineNum">     291 </span>            : {
+<span class="lineNum">     292 </span>            :     va_list args;
+<span class="lineNum">     293 </span><span class="lineCov">         16 :     va_start(args, fmt);</span>
+<span class="lineNum">     294 </span><span class="lineCov">         16 :     if (F_log != NULL)</span>
+<span class="lineNum">     295 </span>            :     {
+<span class="lineNum">     296 </span>            : #ifdef _WINDOWS
+<span class="lineNum">     297 </span>            :         vfprintf_s(F_log, fmt, args);
+<span class="lineNum">     298 </span>            : #else
+<span class="lineNum">     299 </span><span class="lineCov">         16 :         vfprintf(F_log, fmt, args);</span>
+<span class="lineNum">     300 </span>            : #endif
+<span class="lineNum">     301 </span>            :     }
+<span class="lineNum">     302 </span><span class="lineCov">         16 :     va_end(args);</span>
+<span class="lineNum">     303 </span><span class="lineCov">         16 : }</span>
+<span class="lineNum">     304 </span>            : 
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

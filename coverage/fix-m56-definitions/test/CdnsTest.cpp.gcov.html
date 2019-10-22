@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - test/CdnsTest.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - CdnsTest.cpp<span style="font-size: 80%;"> (source / <a href="CdnsTest.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">47</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-10-22 05:19:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2019, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &lt;stdint.h&gt;
+<span class="lineNum">      23 </span>            : #include &lt;stdlib.h&gt;
+<span class="lineNum">      24 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      25 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">      26 </span>            : #include &quot;cbor.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;cdns.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;DnsStats.h&quot;
+<span class="lineNum">      29 </span>            : 
+<span class="lineNum">      30 </span>            : #include &quot;CdnsTest.h&quot;
+<span class="lineNum">      31 </span>            : 
+<span class="lineNum">      32 </span>            : #ifdef _WINDOWS
+<span class="lineNum">      33 </span>            : #ifndef _WINDOWS64
+<span class="lineNum">      34 </span>            : static char const* cbor_in = &quot;..\\data\\tiny-capture.cbor&quot;;
+<span class="lineNum">      35 </span>            : static char const* cbor_csv_ref = &quot;..\\data\\tiny-capture-cbor.csv&quot;;
+<span class="lineNum">      36 </span>            : #else
+<span class="lineNum">      37 </span>            : static char const* cbor_in = &quot;..\\..\\data\\tiny-capture.cbor&quot;;
+<span class="lineNum">      38 </span>            : static char const* cbor_csv_ref = &quot;..\\..\\data\\tiny-capture-cbor.csv&quot;;
+<span class="lineNum">      39 </span>            : #endif
+<span class="lineNum">      40 </span>            : #else
+<span class="lineNum">      41 </span>            : static char const* cbor_in = &quot;data/tiny-capture.cbor&quot;;
+<span class="lineNum">      42 </span>            : static char const* cbor_csv_ref = &quot;data/tiny-capture-cbor.csv&quot;;
+<span class="lineNum">      43 </span>            : #endif
+<span class="lineNum">      44 </span>            : static char const* text_out = &quot;tiny-capture-cbor.txt&quot;;
+<span class="lineNum">      45 </span>            : static char const* cbor_csv_out = &quot;tiny-capture-cbor.csv&quot;;
+<a name="46"><span class="lineNum">      46 </span>            : </a>
+<span class="lineNum">      47 </span>            : 
+<span class="lineNum">      48 </span><span class="lineNoCov">          0 : CdnsDumpTest::CdnsDumpTest()</span>
+<span class="lineNum">      49 </span>            : {
+<a name="50"><span class="lineNum">      50 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span><span class="lineNoCov">          0 : CdnsDumpTest::~CdnsDumpTest()</span>
+<span class="lineNum">      53 </span>            : {
+<a name="54"><span class="lineNum">      54 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      55 </span>            : 
+<span class="lineNum">      56 </span><span class="lineNoCov">          0 : bool CdnsDumpTest::DoTest()</span>
+<span class="lineNum">      57 </span>            : {
+<span class="lineNum">      58 </span><span class="lineNoCov">          0 :     cdns cap_cbor;</span>
+<span class="lineNum">      59 </span><span class="lineNoCov">          0 :     bool ret = cap_cbor.open(cbor_in);</span>
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span><span class="lineNoCov">          0 :     if (ret) {</span>
+<span class="lineNum">      62 </span><span class="lineNoCov">          0 :         ret = cap_cbor.dump(text_out);</span>
+<span class="lineNum">      63 </span>            :     }
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span><span class="lineNoCov">          0 :     return ret;</span>
+<span class="lineNum">      66 </span>            : }
+<a name="67"><span class="lineNum">      67 </span>            : </a>
+<span class="lineNum">      68 </span>            : 
+<span class="lineNum">      69 </span><span class="lineNoCov">          0 : CdnsTest::CdnsTest()</span>
+<span class="lineNum">      70 </span>            : {
+<a name="71"><span class="lineNum">      71 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span><span class="lineNoCov">          0 : CdnsTest::~CdnsTest()</span>
+<span class="lineNum">      74 </span>            : {
+<a name="75"><span class="lineNum">      75 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span><span class="lineNoCov">          0 : bool CdnsTest::DoTest()</span>
+<span class="lineNum">      78 </span>            : {
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 :     cdns cap_cbor;</span>
+<span class="lineNum">      80 </span>            :     int err;
+<span class="lineNum">      81 </span><span class="lineNoCov">          0 :     int nb_calls = 0;</span>
+<span class="lineNum">      82 </span><span class="lineNoCov">          0 :     bool ret = cap_cbor.open(cbor_in);</span>
+<span class="lineNum">      83 </span>            : 
+<span class="lineNum">      84 </span><span class="lineNoCov">          0 :     if (!ret) {</span>
+<span class="lineNum">      85 </span><span class="lineNoCov">          0 :         TEST_LOG(&quot;Could not open file: %s\n&quot;, cbor_in);</span>
+<span class="lineNum">      86 </span>            :     }
+<span class="lineNum">      87 </span>            :     else {
+<span class="lineNum">      88 </span><span class="lineNoCov">          0 :         while (ret) {</span>
+<span class="lineNum">      89 </span><span class="lineNoCov">          0 :             nb_calls++;</span>
+<span class="lineNum">      90 </span><span class="lineNoCov">          0 :             ret = cap_cbor.open_block(&amp;err);</span>
+<span class="lineNum">      91 </span>            :         }
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :         if (!ret &amp;&amp; err == CBOR_END_OF_ARRAY &amp;&amp; nb_calls &gt; 1) {</span>
+<span class="lineNum">      94 </span><span class="lineNoCov">          0 :             ret = true;</span>
+<span class="lineNum">      95 </span>            :         }
+<span class="lineNum">      96 </span>            :         else {
+<span class="lineNum">      97 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Open blocks returns err: %d after %d calls\n&quot;, err, nb_calls);</span>
+<span class="lineNum">      98 </span>            :         }
+<span class="lineNum">      99 </span>            :     }
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 :     return ret;</span>
+<a name="102"><span class="lineNum">     102 </span>            : }</a>
+<span class="lineNum">     103 </span>            : 
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 : CdnsCaptureTest::CdnsCaptureTest()</span>
+<span class="lineNum">     105 </span>            : {
+<a name="106"><span class="lineNum">     106 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 : CdnsCaptureTest::~CdnsCaptureTest()</span>
+<span class="lineNum">     109 </span>            : {
+<a name="110"><span class="lineNum">     110 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">     111 </span>            : 
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 : bool CdnsCaptureTest::DoTest()</span>
+<span class="lineNum">     113 </span>            : {
+<span class="lineNum">     114 </span><span class="lineNoCov">          0 :     DnsStats capture;</span>
+<span class="lineNum">     115 </span><span class="lineNoCov">          0 :     CaptureSummary cs;</span>
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :     bool ret = capture.LoadCborFile(cbor_in);</span>
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span><span class="lineNoCov">          0 :     if (ret)</span>
+<span class="lineNum">     119 </span>            :     {
+<span class="lineNum">     120 </span><span class="lineNoCov">          0 :         ret = capture.ExportToCaptureSummary(&amp;cs);</span>
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :         if (ret)</span>
+<span class="lineNum">     123 </span>            :         {
+<span class="lineNum">     124 </span><span class="lineNoCov">          0 :             CaptureSummary tcs;</span>
+<span class="lineNum">     125 </span>            : 
+<span class="lineNum">     126 </span><span class="lineNoCov">          0 :             ret = tcs.Load(cbor_csv_ref);</span>
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :             if (ret)</span>
+<span class="lineNum">     129 </span>            :             {
+<span class="lineNum">     130 </span><span class="lineNoCov">          0 :                 cs.Sort();</span>
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :                 tcs.Sort();</span>
+<span class="lineNum">     132 </span>            : 
+<span class="lineNum">     133 </span><span class="lineNoCov">          0 :                 ret = cs.Compare(&amp;tcs);</span>
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span><span class="lineNoCov">          0 :                 if (!ret)</span>
+<span class="lineNum">     136 </span>            :                 {
+<span class="lineNum">     137 </span><span class="lineNoCov">          0 :                     cs.Save(cbor_csv_out);</span>
+<span class="lineNum">     138 </span>            :                 }
+<span class="lineNum">     139 </span>            :             }
+<span class="lineNum">     140 </span>            :         }
+<span class="lineNum">     141 </span>            :     }
+<span class="lineNum">     142 </span>            : 
+<span class="lineNum">     143 </span><span class="lineNoCov">          0 :     return ret;</span>
+<span class="lineNum">     144 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

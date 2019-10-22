@@ -1,0 +1,554 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - test/MetricTest.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - MetricTest.cpp<span style="font-size: 80%;"> (source / <a href="MetricTest.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">116</td>
+            <td class="headerCovTableEntry">161</td>
+            <td class="headerCovTableEntryLo">72.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-10-22 05:19:54</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2017, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #ifdef _WINDOWS
+<span class="lineNum">      23 </span>            : #include &lt;direct.h&gt;
+<span class="lineNum">      24 </span>            : #else
+<span class="lineNum">      25 </span>            : #include &lt;sys/stat.h&gt;
+<span class="lineNum">      26 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      27 </span>            : #include &lt;errno.h&gt;
+<span class="lineNum">      28 </span>            : #endif
+<span class="lineNum">      29 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      30 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">      31 </span>            : #include &quot;ithiutil.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;ithimetrics.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;MetricTest.h&quot;
+<span class="lineNum">      34 </span>            : 
+<span class="lineNum">      35 </span>            : #ifdef _WINDOWS
+<span class="lineNum">      36 </span>            : #ifndef _WINDOWS64
+<span class="lineNum">      37 </span>            : static char const * metric_test_input = &quot;..\\data\\tiny-capture.csv&quot;;
+<span class="lineNum">      38 </span>            : static char const * metric_test_output = &quot;metric-test.csv&quot;;
+<span class="lineNum">      39 </span>            : static char const * metric_test_ref = &quot;..\\data\\tiny-metrics.csv&quot;;
+<span class="lineNum">      40 </span>            : static char const * root_zone_file = &quot;..\\data\\root.zone&quot;;
+<span class="lineNum">      41 </span>            : static char const * tlds_test_tlds = &quot;..\\data\\2017-01-31_tlds.csv&quot;;
+<span class="lineNum">      42 </span>            : static char const * tlds_test_registrars = &quot;..\\data\\2017-01-31_registrars.csv&quot;;
+<span class="lineNum">      43 </span>            : static char const * compliance_file = &quot;..\\data\\M1-2017-01-31-compliance.csv&quot;;
+<span class="lineNum">      44 </span>            : #else
+<span class="lineNum">      45 </span>            : static char const * metric_test_input = &quot;..\\..\\data\\tiny-capture.csv&quot;;
+<span class="lineNum">      46 </span>            : static char const * metric_test_output = &quot;metric-test.csv&quot;;
+<span class="lineNum">      47 </span>            : static char const * metric_test_ref = &quot;..\\..\\data\\tiny-metrics.csv&quot;;
+<span class="lineNum">      48 </span>            : static char const * root_zone_file = &quot;..\\..\\data\\root.zone&quot;;
+<span class="lineNum">      49 </span>            : static char const * tlds_test_tlds = &quot;..\\..\\data\\2017-01-31_tlds.csv&quot;;
+<span class="lineNum">      50 </span>            : static char const * tlds_test_registrars = &quot;..\\..\\data\\2017-01-31_registrars.csv&quot;;
+<span class="lineNum">      51 </span>            : static char const * compliance_file = &quot;..\\..\\data\\M1-2017-01-31-compliance.csv&quot;;
+<span class="lineNum">      52 </span>            : #endif
+<span class="lineNum">      53 </span>            : #else
+<span class="lineNum">      54 </span>            : static char const * metric_test_input = &quot;data/tiny-capture.csv&quot;;
+<span class="lineNum">      55 </span>            : static char const * metric_test_output = &quot;metric-test.csv&quot;;
+<span class="lineNum">      56 </span>            : static char const * metric_test_ref = &quot;data/tiny-metrics.csv&quot;;
+<span class="lineNum">      57 </span>            : static char const * root_zone_file = &quot;data/root.zone&quot;;
+<span class="lineNum">      58 </span>            : static char const * tlds_test_tlds = &quot;data/2017-01-31_tlds.csv&quot;;
+<span class="lineNum">      59 </span>            : static char const * tlds_test_registrars = &quot;data/2017-01-31_registrars.csv&quot;;
+<span class="lineNum">      60 </span>            : static char const * compliance_file = &quot;data/M1-2017-01-31-compliance.csv&quot;;
+<a name="61"><span class="lineNum">      61 </span>            : #endif</a>
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span><span class="lineCov">          2 : MetricTest::MetricTest()</span>
+<span class="lineNum">      64 </span>            : {
+<span class="lineNum">      65 </span><span class="lineCov">          2 : }</span>
+<a name="66"><span class="lineNum">      66 </span>            : </a>
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span><span class="lineCov">          4 : MetricTest::~MetricTest()</span>
+<span class="lineNum">      69 </span>            : {
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">          4 : }</span></a>
+<span class="lineNum">      71 </span>            : 
+<span class="lineNum">      72 </span><span class="lineCov">          2 : bool MetricTest::DoTest()</span>
+<span class="lineNum">      73 </span>            : {
+<span class="lineNum">      74 </span><span class="lineCov">          4 :     CaptureSummary cs;</span>
+<span class="lineNum">      75 </span><span class="lineCov">          2 :     bool ret = cs.Load(metric_test_input);</span>
+<span class="lineNum">      76 </span>            : 
+<span class="lineNum">      77 </span><span class="lineCov">          2 :     if (!ret)</span>
+<span class="lineNum">      78 </span>            :     {
+<span class="lineNum">      79 </span><span class="lineNoCov">          0 :         TEST_LOG(&quot;Could not load input from %s\n&quot;, metric_test_input);</span>
+<span class="lineNum">      80 </span>            :     }
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">      83 </span>            :     {
+<span class="lineNum">      84 </span><span class="lineCov">          4 :         ithimetrics met;</span>
+<span class="lineNum">      85 </span>            : 
+<span class="lineNum">      86 </span><span class="lineCov">          2 :         if (!met.SetComplianceFileName(compliance_file))</span>
+<span class="lineNum">      87 </span>            :         {
+<span class="lineNum">      88 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">      89 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Could not set compliance file to %s\n&quot;, compliance_file);</span>
+<span class="lineNum">      90 </span>            :         } 
+<span class="lineNum">      91 </span><span class="lineCov">          2 :         else if (!met.SetRootZoneFileName(root_zone_file))</span>
+<span class="lineNum">      92 </span>            :         {
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">      94 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Could not set root zone file to %s\n&quot;, root_zone_file);</span>
+<span class="lineNum">      95 </span>            :         }
+<span class="lineNum">      96 </span><span class="lineCov">          6 :         else if (!met.SetRootCaptureFileName(metric_test_input) || !met.SetRecursiveCaptureFileName(metric_test_input)</span>
+<span class="lineNum">      97 </span><span class="lineCov">          4 :             || !met.SetAuthoritativeCaptureFileName(metric_test_input))</span>
+<span class="lineNum">      98 </span>            :         {
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Could not set capture file name to %s\n&quot;, metric_test_input);</span>
+<span class="lineNum">     101 </span>            :         }
+<span class="lineNum">     102 </span><span class="lineCov">          2 :         else if (!met.SetAbuseFileName(tlds_test_tlds, TLD))</span>
+<span class="lineNum">     103 </span>            :         {
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Could not set TLD abuse file name to %s\n&quot;, tlds_test_tlds);</span>
+<span class="lineNum">     106 </span>            :         }
+<span class="lineNum">     107 </span><span class="lineCov">          2 :         else if (!met.SetAbuseFileName(tlds_test_registrars, Registrar))</span>
+<span class="lineNum">     108 </span>            :         {
+<span class="lineNum">     109 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     110 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Could not set Registrars abuse file name to %s\n&quot;, tlds_test_tlds);</span>
+<span class="lineNum">     111 </span>            :         }
+<span class="lineNum">     112 </span>            :         else
+<span class="lineNum">     113 </span>            :         {
+<span class="lineNum">     114 </span><span class="lineCov">          2 :             ret = met.GetMetrics();</span>
+<span class="lineNum">     115 </span><span class="lineCov">          2 :             if (!ret)</span>
+<span class="lineNum">     116 </span>            :             {
+<span class="lineNum">     117 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Could not get metrics out of %s\n&quot;, metric_test_input);</span>
+<span class="lineNum">     118 </span>            :             }
+<span class="lineNum">     119 </span>            :         }
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span><span class="lineCov">          2 :         if (ret)</span>
+<span class="lineNum">     122 </span>            :         {
+<span class="lineNum">     123 </span><span class="lineCov">          2 :             ret = met.Save(metric_test_output);</span>
+<span class="lineNum">     124 </span>            : 
+<span class="lineNum">     125 </span><span class="lineCov">          2 :             if (ret)</span>
+<span class="lineNum">     126 </span>            :             {
+<span class="lineNum">     127 </span><span class="lineCov">          2 :                 ret = compare_files(metric_test_output, metric_test_ref);</span>
+<span class="lineNum">     128 </span>            :             }
+<span class="lineNum">     129 </span>            :             else
+<span class="lineNum">     130 </span>            :             {
+<span class="lineNum">     131 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Could not save metrics to %s\n&quot;, metric_test_output);</span>
+<span class="lineNum">     132 </span>            :             }
+<span class="lineNum">     133 </span>            :         }
+<span class="lineNum">     134 </span>            :     }
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     137 </span>            :     {
+<span class="lineNum">     138 </span><span class="lineCov">          2 :         TEST_LOG(&quot;Saved metrics to %s\n&quot;, metric_test_output);</span>
+<span class="lineNum">     139 </span>            :     }
+<span class="lineNum">     140 </span>            : 
+<span class="lineNum">     141 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="142"><span class="lineNum">     142 </span>            : }</a>
+<span class="lineNum">     143 </span>            : 
+<span class="lineNum">     144 </span><span class="lineCov">         54 : bool MetricTest::compare_files(char const * fname1, char const * fname2)</span>
+<span class="lineNum">     145 </span>            : {
+<span class="lineNum">     146 </span><span class="lineCov">         54 :     FILE* F2 = NULL;</span>
+<span class="lineNum">     147 </span><span class="lineCov">         54 :     FILE* F1 = ithi_file_open(fname1, &quot;r&quot;);</span>
+<span class="lineNum">     148 </span><span class="lineCov">         54 :     bool ret = (F1 != NULL);</span>
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span><span class="lineCov">         54 :     if (ret)</span>
+<span class="lineNum">     151 </span>            :     {
+<span class="lineNum">     152 </span><span class="lineCov">         54 :         F2 = ithi_file_open(fname2, &quot;r&quot;);</span>
+<span class="lineNum">     153 </span><span class="lineCov">         54 :         ret = (F2 != 0);</span>
+<span class="lineNum">     154 </span>            :     }
+<span class="lineNum">     155 </span>            : 
+<span class="lineNum">     156 </span><span class="lineCov">         54 :     if (F1 == NULL)</span>
+<span class="lineNum">     157 </span>            :     {
+<span class="lineNum">     158 </span><span class="lineNoCov">          0 :         TEST_LOG(&quot;Cannot open %s.\n&quot;, fname1);</span>
+<span class="lineNum">     159 </span>            :     }
+<span class="lineNum">     160 </span>            : 
+<span class="lineNum">     161 </span><span class="lineCov">         54 :     if (F2 == NULL)</span>
+<span class="lineNum">     162 </span>            :     {
+<span class="lineNum">     163 </span><span class="lineNoCov">          0 :         TEST_LOG(&quot;Cannot open %s.\n&quot;, fname2);</span>
+<span class="lineNum">     164 </span>            :     }
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span><span class="lineCov">         54 :     if (ret &amp;&amp; F1 != NULL &amp;&amp; F2 != NULL)</span>
+<span class="lineNum">     167 </span>            :     {
+<span class="lineNum">     168 </span>            :         char buffer1[256];
+<span class="lineNum">     169 </span>            :         char buffer2[256];
+<span class="lineNum">     170 </span>            : 
+<span class="lineNum">     171 </span><span class="lineCov">       7258 :         while (ret &amp;&amp; fgets(buffer1, sizeof(buffer1), F1) != NULL)</span>
+<span class="lineNum">     172 </span>            :         {
+<span class="lineNum">     173 </span><span class="lineCov">       3602 :             if (fgets(buffer2, sizeof(buffer2), F2) == NULL)</span>
+<span class="lineNum">     174 </span>            :             {
+<span class="lineNum">     175 </span>            :                 /* F2 is too short */
+<span class="lineNum">     176 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;File comparison fails - %s is too short.\n&quot;, fname2);</span>
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;    Missing line: %s&quot;, buffer1);</span>
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :                 ret = false;</span>
+<span class="lineNum">     179 </span>            :             }
+<span class="lineNum">     180 </span>            :             else
+<span class="lineNum">     181 </span>            :             {
+<span class="lineNum">     182 </span><span class="lineCov">       3602 :                 ret = compare_lines(buffer1, buffer2);</span>
+<span class="lineNum">     183 </span><span class="lineCov">       3602 :                 if (!ret)</span>
+<span class="lineNum">     184 </span>            :                 {
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :                     TEST_LOG(&quot;File comparison fails - different value:\n&quot;);</span>
+<span class="lineNum">     186 </span><span class="lineNoCov">          0 :                     TEST_LOG(&quot;    %s&quot;, buffer1); </span>
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :                     TEST_LOG(&quot; vs %s&quot;, buffer2);</span>
+<span class="lineNum">     188 </span>            :                 }
+<span class="lineNum">     189 </span>            :             }
+<span class="lineNum">     190 </span>            :         }
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineCov">         54 :         if (ret &amp;&amp; fgets(buffer2, sizeof(buffer2), F2) != NULL)</span>
+<span class="lineNum">     193 </span>            :         {
+<span class="lineNum">     194 </span>            :             /* F2 is too long */
+<span class="lineNum">     195 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;File comparison fails - %s is too long.\n&quot;, fname2);</span>
+<span class="lineNum">     196 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;    Extra line: %s&quot;, buffer2);</span>
+<span class="lineNum">     197 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     198 </span>            :         }
+<span class="lineNum">     199 </span>            :     }
+<span class="lineNum">     200 </span>            : 
+<span class="lineNum">     201 </span>            : 
+<span class="lineNum">     202 </span><span class="lineCov">         54 :     if (F1 != NULL)</span>
+<span class="lineNum">     203 </span>            :     {
+<span class="lineNum">     204 </span><span class="lineCov">         54 :         fclose(F1);</span>
+<span class="lineNum">     205 </span>            :     }
+<span class="lineNum">     206 </span>            : 
+<span class="lineNum">     207 </span><span class="lineCov">         54 :     if (F2 != NULL)</span>
+<span class="lineNum">     208 </span>            :     {
+<span class="lineNum">     209 </span><span class="lineCov">         54 :         fclose(F2);</span>
+<span class="lineNum">     210 </span>            :     }
+<span class="lineNum">     211 </span>            : 
+<span class="lineNum">     212 </span><span class="lineCov">         54 :     return ret;</span>
+<a name="213"><span class="lineNum">     213 </span>            : }</a>
+<span class="lineNum">     214 </span>            : 
+<span class="lineNum">     215 </span><span class="lineCov">      92064 : bool MetricTest::compare_lines(char const * b1, char const * b2)</span>
+<span class="lineNum">     216 </span>            : {
+<span class="lineNum">     217 </span><span class="lineCov">     180526 :     while (*b1 != 0 &amp;&amp; *b2 != 0)</span>
+<span class="lineNum">     218 </span>            :     {
+<span class="lineNum">     219 </span><span class="lineCov">      88462 :         if (*b1 != *b2)</span>
+<span class="lineNum">     220 </span>            :         {
+<span class="lineNum">     221 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">     222 </span>            :         }
+<span class="lineNum">     223 </span><span class="lineCov">      88462 :         b1++;</span>
+<span class="lineNum">     224 </span><span class="lineCov">      88462 :         b2++;</span>
+<span class="lineNum">     225 </span>            :     }
+<span class="lineNum">     226 </span>            : 
+<span class="lineNum">     227 </span><span class="lineCov">       3602 :     while (*b1 == '\n' || *b1 == '\r')</span>
+<span class="lineNum">     228 </span>            :     {
+<span class="lineNum">     229 </span><span class="lineNoCov">          0 :         b1++;</span>
+<span class="lineNum">     230 </span>            :     }
+<span class="lineNum">     231 </span>            : 
+<span class="lineNum">     232 </span><span class="lineCov">       3602 :     while (*b2 == '\n' || *b2 == '\r')</span>
+<span class="lineNum">     233 </span>            :     {
+<span class="lineNum">     234 </span><span class="lineNoCov">          0 :         b2++;</span>
+<span class="lineNum">     235 </span>            :     }
+<span class="lineNum">     236 </span>            : 
+<span class="lineNum">     237 </span><span class="lineCov">       3602 :     return (*b1 == 0 &amp;&amp; *b2 == 0);</span>
+<a name="238"><span class="lineNum">     238 </span>            : }</a>
+<span class="lineNum">     239 </span>            : 
+<span class="lineNum">     240 </span><span class="lineCov">          2 : MetricDateTest::MetricDateTest()</span>
+<span class="lineNum">     241 </span>            : {
+<a name="242"><span class="lineNum">     242 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span><span class="lineCov">          4 : MetricDateTest::~MetricDateTest()</span>
+<span class="lineNum">     245 </span>            : {
+<span class="lineNum">     246 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     247 </span>            : 
+<span class="lineNum">     248 </span>            : static char const * metric_date_test_jan_31_2017 = &quot;2017-01-31&quot;;
+<a name="249"><span class="lineNum">     249 </span>            : static time_t metric_date_time_t_jan_31_2017 = 1485896024;</a>
+<span class="lineNum">     250 </span>            : 
+<span class="lineNum">     251 </span><span class="lineCov">          2 : bool MetricDateTest::DoTest()</span>
+<span class="lineNum">     252 </span>            : {
+<span class="lineNum">     253 </span><span class="lineCov">          4 :     ithimetrics met;</span>
+<span class="lineNum">     254 </span>            :     bool ret;
+<span class="lineNum">     255 </span>            : 
+<span class="lineNum">     256 </span><span class="lineCov">          2 :     ret = met.SetDefaultDate(metric_date_time_t_jan_31_2017);</span>
+<span class="lineNum">     257 </span>            : 
+<span class="lineNum">     258 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     259 </span>            :     {
+<span class="lineNum">     260 </span><span class="lineCov">          2 :         if (met.GetMetricDate() == NULL)</span>
+<span class="lineNum">     261 </span>            :         {
+<span class="lineNum">     262 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Metric test: cannot get metric's date.\n&quot;);</span>
+<span class="lineNum">     263 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     264 </span>            :         }
+<span class="lineNum">     265 </span>            :         else
+<span class="lineNum">     266 </span>            :         {
+<span class="lineNum">     267 </span><span class="lineCov">          2 :             if (strcmp(metric_date_test_jan_31_2017, met.GetMetricDate()) != 0)</span>
+<span class="lineNum">     268 </span>            :             {
+<span class="lineNum">     269 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;Metric test: date value is not test date, 2017/01/31.\n&quot;);</span>
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :                 ret = false;</span>
+<span class="lineNum">     271 </span>            :             }
+<span class="lineNum">     272 </span>            :         }
+<span class="lineNum">     273 </span>            :     }
+<span class="lineNum">     274 </span>            : 
+<span class="lineNum">     275 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="276"><span class="lineNum">     276 </span>            : }</a>
+<span class="lineNum">     277 </span>            : 
+<span class="lineNum">     278 </span><span class="lineCov">          2 : MetricCaptureFileTest::MetricCaptureFileTest()</span>
+<span class="lineNum">     279 </span>            : {
+<a name="280"><span class="lineNum">     280 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     281 </span>            : 
+<span class="lineNum">     282 </span><span class="lineCov">          4 : MetricCaptureFileTest::~MetricCaptureFileTest()</span>
+<span class="lineNum">     283 </span>            : {
+<span class="lineNum">     284 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     285 </span>            : 
+<span class="lineNum">     286 </span>            : #ifdef _WINDOWS
+<span class="lineNum">     287 </span>            : static char const * metric_test_dir_ithi = &quot;.\\ithi&quot;;
+<span class="lineNum">     288 </span>            : static char const * metric_test_dir_input = &quot;.\\ithi\\input&quot;;
+<span class="lineNum">     289 </span>            : static char const * metric_test_dir_m3 = &quot;.\\ithi\\input\\M3&quot;;
+<span class="lineNum">     290 </span>            : static char const * metric_test_dir_m3_f = &quot;.\\ithi\\input\\M3\\M3-2017-01-31-summary.csv&quot;;
+<span class="lineNum">     291 </span>            : static char const * metric_test_dir_m46 = &quot;.\\ithi\\input\\M46&quot;;
+<span class="lineNum">     292 </span>            : static char const * metric_test_dir_m46_f = &quot;.\\ithi\\input\\M46\\M46-2017-01-31-summary.csv&quot;;
+<span class="lineNum">     293 </span>            : 
+<span class="lineNum">     294 </span>            : #ifdef _WINDOWS64
+<span class="lineNum">     295 </span>            : static char const * metric_test_capture = &quot;..\\..\\data\\tiny-capture.csv&quot;;
+<span class="lineNum">     296 </span>            : #else
+<span class="lineNum">     297 </span>            : static char const * metric_test_capture = &quot;..\\data\\tiny-capture.csv&quot;;
+<span class="lineNum">     298 </span>            : #endif
+<span class="lineNum">     299 </span>            : 
+<span class="lineNum">     300 </span>            : #else
+<span class="lineNum">     301 </span>            : static char const * metric_test_dir_ithi = &quot;./ithi&quot;;
+<span class="lineNum">     302 </span>            : static char const * metric_test_dir_input = &quot;./ithi/input&quot;;
+<span class="lineNum">     303 </span>            : static char const * metric_test_dir_m3 = &quot;./ithi/input/M3&quot;;
+<span class="lineNum">     304 </span>            : static char const * metric_test_dir_m3_f = &quot;./ithi/input/M3/M3-2017-01-31-summary.csv&quot;;
+<span class="lineNum">     305 </span>            : static char const * metric_test_dir_m46 = &quot;./ithi/input/M46&quot;;
+<span class="lineNum">     306 </span>            : static char const * metric_test_dir_m46_f = &quot;./ithi/input/M46/M46-2017-01-31-summary.csv&quot;;
+<span class="lineNum">     307 </span>            : static char const * metric_test_capture = &quot;data/tiny-capture.csv&quot;;
+<span class="lineNum">     308 </span>            : #endif
+<span class="lineNum">     309 </span>            : 
+<span class="lineNum">     310 </span>            : static const char * metric_test_dir_list[] = {
+<span class="lineNum">     311 </span>            :     metric_test_dir_ithi, metric_test_dir_input, metric_test_dir_m3, metric_test_dir_m46
+<span class="lineNum">     312 </span><span class="lineCov">          2 : };</span>
+<span class="lineNum">     313 </span>            : 
+<span class="lineNum">     314 </span>            : static const char * metric_test_file_list[] = {
+<span class="lineNum">     315 </span>            :     metric_test_dir_m3_f, metric_test_dir_m46_f
+<a name="316"><span class="lineNum">     316 </span><span class="lineCov">          2 : };</span></a>
+<span class="lineNum">     317 </span>            : 
+<span class="lineNum">     318 </span><span class="lineCov">          2 : bool MetricCaptureFileTest::DoTest()</span>
+<span class="lineNum">     319 </span>            : {
+<span class="lineNum">     320 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     321 </span><span class="lineCov">          4 :     ithimetrics met;</span>
+<span class="lineNum">     322 </span>            : 
+<span class="lineNum">     323 </span>            :     /* First, prepare the ITHI directories in the current folder */
+<span class="lineNum">     324 </span><span class="lineCov">         10 :     for (size_t i = 0; ret &amp;&amp; i &lt; sizeof(metric_test_dir_list) / sizeof(char *); i++)</span>
+<span class="lineNum">     325 </span>            :     {
+<span class="lineNum">     326 </span><span class="lineCov">          8 :         ret = CreateDirectoryIfAbsent(metric_test_dir_list[i]);</span>
+<span class="lineNum">     327 </span>            :     }
+<span class="lineNum">     328 </span>            : 
+<span class="lineNum">     329 </span>            :     /* Copy the default capture test file at the appropriate locations,
+<span class="lineNum">     330 </span>            :      * with appropriate names */
+<span class="lineNum">     331 </span><span class="lineCov">          6 :     for (size_t i = 0; ret &amp;&amp; i &lt; sizeof(metric_test_file_list) / sizeof(char *); i++)</span>
+<span class="lineNum">     332 </span>            :     {
+<span class="lineNum">     333 </span><span class="lineCov">          4 :         ret = CopyFileToDestination(metric_test_file_list[i], metric_test_capture);</span>
+<span class="lineNum">     334 </span>            :     }
+<span class="lineNum">     335 </span>            : 
+<span class="lineNum">     336 </span><span class="lineCov">          2 :     if (!ret)</span>
+<span class="lineNum">     337 </span>            :     {
+<span class="lineNum">     338 </span>            :         TEST_LOG(&quot;Metric test: cannot create and populate the test directory %s.\n&quot;,
+<span class="lineNum">     339 </span><span class="lineNoCov">          0 :             metric_test_dir_ithi);</span>
+<span class="lineNum">     340 </span>            :     }
+<span class="lineNum">     341 </span>            : 
+<span class="lineNum">     342 </span>            :     /* Set the target directory and target date in the metric object */
+<span class="lineNum">     343 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     344 </span>            :     {
+<span class="lineNum">     345 </span><span class="lineCov">          2 :         ret = met.SetIthiFolder(metric_test_dir_ithi);</span>
+<span class="lineNum">     346 </span>            : 
+<span class="lineNum">     347 </span><span class="lineCov">          2 :         if (!ret)</span>
+<span class="lineNum">     348 </span>            :         {
+<span class="lineNum">     349 </span>            :             TEST_LOG(&quot;Metric test: cannot the ITHI directory %s.\n&quot;,
+<span class="lineNum">     350 </span><span class="lineNoCov">          0 :                 metric_test_dir_ithi);</span>
+<span class="lineNum">     351 </span>            :         }
+<span class="lineNum">     352 </span>            : 
+<span class="lineNum">     353 </span>            :     }
+<span class="lineNum">     354 </span>            : 
+<span class="lineNum">     355 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     356 </span>            :     {
+<span class="lineNum">     357 </span><span class="lineCov">          2 :         ret = met.SetDateString(metric_date_test_jan_31_2017);</span>
+<span class="lineNum">     358 </span>            : 
+<span class="lineNum">     359 </span><span class="lineCov">          2 :         if (!ret)</span>
+<span class="lineNum">     360 </span>            :         {
+<span class="lineNum">     361 </span>            :             TEST_LOG(&quot;Metric test: cannot set the date %s.\n&quot;,
+<span class="lineNum">     362 </span><span class="lineNoCov">          0 :                 metric_date_test_jan_31_2017);</span>
+<span class="lineNum">     363 </span>            :         }
+<span class="lineNum">     364 </span>            :     }
+<span class="lineNum">     365 </span>            : 
+<span class="lineNum">     366 </span>            :     /* Obtain the default capture files for the date. */
+<span class="lineNum">     367 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     368 </span>            :     {
+<span class="lineNum">     369 </span><span class="lineCov">          2 :         ret = met.SetDefaultRootCaptureFile();</span>
+<span class="lineNum">     370 </span>            : 
+<span class="lineNum">     371 </span><span class="lineCov">          2 :         if (!ret)</span>
+<span class="lineNum">     372 </span>            :         {
+<span class="lineNum">     373 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Metric test: cannot set the default root capture file.\n&quot;);</span>
+<span class="lineNum">     374 </span>            :         }
+<span class="lineNum">     375 </span>            :     }
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     378 </span>            :     {
+<span class="lineNum">     379 </span><span class="lineCov">          2 :         ret = met.SetDefaultRecursiveCaptureFile();</span>
+<span class="lineNum">     380 </span>            : 
+<span class="lineNum">     381 </span><span class="lineCov">          2 :         if (!ret)</span>
+<span class="lineNum">     382 </span>            :         {
+<span class="lineNum">     383 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Metric test: cannot set the default recursive capture file.\n&quot;);</span>
+<span class="lineNum">     384 </span>            :         }
+<span class="lineNum">     385 </span>            :     }
+<span class="lineNum">     386 </span>            : 
+<span class="lineNum">     387 </span>            :     /* Verify that they match expectations */
+<span class="lineNum">     388 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     389 </span>            :     {
+<span class="lineNum">     390 </span><span class="lineCov">          2 :         if (strcmp(metric_test_dir_m3_f, met.GetRootCaptureFileName()) != 0)</span>
+<span class="lineNum">     391 </span>            :         {
+<span class="lineNum">     392 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     393 </span>            : 
+<span class="lineNum">     394 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Metric test: unexpected default root capture file.\n            %s\n instead of %s\n&quot;,</span>
+<span class="lineNum">     395 </span><span class="lineNoCov">          0 :                 met.GetRootCaptureFileName(), metric_test_dir_m3_f);</span>
+<span class="lineNum">     396 </span>            :         }
+<span class="lineNum">     397 </span><span class="lineCov">          2 :         else if (strcmp(metric_test_dir_m46_f, met.GetRecursiveCaptureFileName()) != 0)</span>
+<span class="lineNum">     398 </span>            :         {
+<span class="lineNum">     399 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     400 </span>            : 
+<span class="lineNum">     401 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Metric test: unexpected default recursive capture file.\n            %s\n instead of %s\n&quot;,</span>
+<span class="lineNum">     402 </span><span class="lineNoCov">          0 :                 met.GetRecursiveCaptureFileName(), metric_test_dir_m46_f);</span>
+<span class="lineNum">     403 </span>            :         }
+<span class="lineNum">     404 </span>            :     }
+<span class="lineNum">     405 </span>            : 
+<span class="lineNum">     406 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="407"><span class="lineNum">     407 </span>            : }</a>
+<span class="lineNum">     408 </span>            : 
+<span class="lineNum">     409 </span><span class="lineCov">         32 : bool MetricCaptureFileTest::CreateDirectoryIfAbsent(char const * dir_name)</span>
+<span class="lineNum">     410 </span>            : {
+<span class="lineNum">     411 </span><span class="lineCov">         32 :     bool ret = true;</span>
+<span class="lineNum">     412 </span>            : #ifdef _WINDOWS
+<span class="lineNum">     413 </span>            :     if (_mkdir(dir_name) != 0)
+<span class="lineNum">     414 </span>            :     {
+<span class="lineNum">     415 </span>            :         if (errno == EEXIST)
+<span class="lineNum">     416 </span>            :         {
+<span class="lineNum">     417 </span>            :             ret = true;
+<span class="lineNum">     418 </span>            :         }
+<span class="lineNum">     419 </span>            :         else
+<span class="lineNum">     420 </span>            :         {
+<span class="lineNum">     421 </span>            :             ret = false;
+<span class="lineNum">     422 </span>            :         }
+<span class="lineNum">     423 </span>            :     }
+<span class="lineNum">     424 </span>            : #else
+<span class="lineNum">     425 </span><span class="lineCov">         32 :     if (mkdir(dir_name, 0777) != 0)</span>
+<span class="lineNum">     426 </span>            :     {
+<span class="lineNum">     427 </span><span class="lineCov">         20 :         if (errno == EEXIST)</span>
+<span class="lineNum">     428 </span>            :         {
+<span class="lineNum">     429 </span><span class="lineCov">         20 :             ret = true;</span>
+<span class="lineNum">     430 </span>            :         }
+<span class="lineNum">     431 </span>            :         else
+<span class="lineNum">     432 </span>            :         {
+<span class="lineNum">     433 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     434 </span>            :         }
+<span class="lineNum">     435 </span>            :     }
+<span class="lineNum">     436 </span>            : #endif
+<span class="lineNum">     437 </span><span class="lineCov">         32 :     return ret;</span>
+<a name="438"><span class="lineNum">     438 </span>            : }</a>
+<span class="lineNum">     439 </span>            : 
+<span class="lineNum">     440 </span><span class="lineCov">         54 : bool MetricCaptureFileTest::CopyFileToDestination(char const * target_name, char const * source_name)</span>
+<span class="lineNum">     441 </span>            : {
+<span class="lineNum">     442 </span>            :     
+<span class="lineNum">     443 </span><span class="lineCov">         54 :     FILE* F2 = NULL;</span>
+<span class="lineNum">     444 </span><span class="lineCov">         54 :     FILE* F1 = ithi_file_open(source_name, &quot;r&quot;);</span>
+<span class="lineNum">     445 </span><span class="lineCov">         54 :     bool ret = (F1 != NULL);</span>
+<span class="lineNum">     446 </span>            : 
+<span class="lineNum">     447 </span><span class="lineCov">         54 :     if (ret) {</span>
+<span class="lineNum">     448 </span><span class="lineCov">         54 :         F2 = ithi_file_open(target_name, &quot;w&quot;);</span>
+<span class="lineNum">     449 </span><span class="lineCov">         54 :         ret &amp;= (F2 != NULL);</span>
+<span class="lineNum">     450 </span>            :     }
+<span class="lineNum">     451 </span>            : 
+<span class="lineNum">     452 </span><span class="lineCov">         54 :     if (ret &amp;&amp; F1 != NULL &amp;&amp; F2 != NULL)</span>
+<span class="lineNum">     453 </span>            :     {
+<span class="lineNum">     454 </span>            :         char buffer[512];
+<span class="lineNum">     455 </span>            : 
+<span class="lineNum">     456 </span><span class="lineCov">       7398 :         while (fgets(buffer, sizeof(buffer), F1) != NULL)</span>
+<span class="lineNum">     457 </span>            :         {
+<span class="lineNum">     458 </span><span class="lineCov">       3672 :             if (fputs(buffer, F2) == EOF)</span>
+<span class="lineNum">     459 </span>            :             {
+<span class="lineNum">     460 </span>            :                 /* Could not write on F2 */
+<span class="lineNum">     461 </span><span class="lineNoCov">          0 :                 ret = false;</span>
+<span class="lineNum">     462 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     463 </span>            :             }
+<span class="lineNum">     464 </span>            :         }
+<span class="lineNum">     465 </span>            :     }
+<span class="lineNum">     466 </span>            : 
+<span class="lineNum">     467 </span><span class="lineCov">         54 :     if (F1 != NULL)</span>
+<span class="lineNum">     468 </span>            :     {
+<span class="lineNum">     469 </span><span class="lineCov">         54 :         fclose(F1);</span>
+<span class="lineNum">     470 </span>            :     }
+<span class="lineNum">     471 </span>            : 
+<span class="lineNum">     472 </span><span class="lineCov">         54 :     if (F2 != NULL)</span>
+<span class="lineNum">     473 </span>            :     {
+<span class="lineNum">     474 </span><span class="lineCov">         54 :         fclose(F2);</span>
+<span class="lineNum">     475 </span>            :     }
+<a name="476"><span class="lineNum">     476 </span>            : </a>
+<span class="lineNum">     477 </span><span class="lineCov">         54 :     return ret;</span>
+<span class="lineNum">     478 </span><span class="lineCov">          6 : }</span>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
