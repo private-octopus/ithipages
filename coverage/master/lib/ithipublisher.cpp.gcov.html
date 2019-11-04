@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-10-22 16:28:01</td>
+            <td class="headerValue">2019-11-04 19:20:57</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">29</td>
@@ -123,11 +123,11 @@
 <span class="lineNum">      61 </span><span class="lineCov">         50 :         file_list[i] = NULL;</span>
 <span class="lineNum">      62 </span>            :     }
 <span class="lineNum">      63 </span>            : 
-<span class="lineNum">      64 </span><span class="lineCov">       1340 :     for (size_t i = 0; i &lt; line_list.size(); i++)</span>
+<span class="lineNum">      64 </span><span class="lineCov">       1404 :     for (size_t i = 0; i &lt; line_list.size(); i++)</span>
 <span class="lineNum">      65 </span>            :     {
-<span class="lineNum">      66 </span><span class="lineCov">       1316 :         MetricLine * pml = line_list[i];</span>
-<span class="lineNum">      67 </span><span class="lineCov">       1316 :         delete pml;</span>
-<span class="lineNum">      68 </span><span class="lineCov">       1316 :         line_list[i] = NULL;</span>
+<span class="lineNum">      66 </span><span class="lineCov">       1380 :         MetricLine * pml = line_list[i];</span>
+<span class="lineNum">      67 </span><span class="lineCov">       1380 :         delete pml;</span>
+<span class="lineNum">      68 </span><span class="lineCov">       1380 :         line_list[i] = NULL;</span>
 <span class="lineNum">      69 </span>            :     }
 <a name="70"><span class="lineNum">      70 </span><span class="lineCov">         24 : }</span></a>
 <span class="lineNum">      71 </span>            : 
@@ -264,26 +264,26 @@
 <span class="lineNum">     202 </span><span class="lineCov">         50 :         ret = (F != NULL);</span>
 <span class="lineNum">     203 </span>            :     }
 <span class="lineNum">     204 </span>            : 
-<span class="lineNum">     205 </span><span class="lineCov">       2682 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
+<span class="lineNum">     205 </span><span class="lineCov">       2810 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
 <span class="lineNum">     206 </span>            :     {
-<span class="lineNum">     207 </span><span class="lineCov">       1316 :         int start = 0;</span>
-<span class="lineNum">     208 </span><span class="lineCov">       1316 :         line = new MetricLine;</span>
+<span class="lineNum">     207 </span><span class="lineCov">       1380 :         int start = 0;</span>
+<span class="lineNum">     208 </span><span class="lineCov">       1380 :         line = new MetricLine;</span>
 <span class="lineNum">     209 </span>            : 
-<span class="lineNum">     210 </span><span class="lineCov">       1316 :         if (line == NULL)</span>
+<span class="lineNum">     210 </span><span class="lineCov">       1380 :         if (line == NULL)</span>
 <span class="lineNum">     211 </span>            :         {
 <span class="lineNum">     212 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     213 </span><span class="lineNoCov">          0 :             break;</span>
 <span class="lineNum">     214 </span>            :         }
 <span class="lineNum">     215 </span>            : 
-<span class="lineNum">     216 </span><span class="lineCov">       1316 :         start = CsvHelper::read_string(line-&gt;metric_name, sizeof(line-&gt;metric_name), start, buffer, sizeof(buffer));</span>
-<span class="lineNum">     217 </span><span class="lineCov">       1316 :         start = CsvHelper::read_string(line-&gt;key_value, sizeof(line-&gt;key_value), start, buffer, sizeof(buffer));</span>
-<span class="lineNum">     218 </span><span class="lineCov">       1316 :         CsvHelper::read_double(&amp;line-&gt;frequency, start, buffer, sizeof(buffer));</span>
-<span class="lineNum">     219 </span><span class="lineCov">       1316 :         line-&gt;year = file_list[file_index]-&gt;year;</span>
-<span class="lineNum">     220 </span><span class="lineCov">       1316 :         line-&gt;month = file_list[file_index]-&gt;month;</span>
+<span class="lineNum">     216 </span><span class="lineCov">       1380 :         start = CsvHelper::read_string(line-&gt;metric_name, sizeof(line-&gt;metric_name), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">     217 </span><span class="lineCov">       1380 :         start = CsvHelper::read_string(line-&gt;key_value, sizeof(line-&gt;key_value), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">     218 </span><span class="lineCov">       1380 :         CsvHelper::read_double(&amp;line-&gt;frequency, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">     219 </span><span class="lineCov">       1380 :         line-&gt;year = file_list[file_index]-&gt;year;</span>
+<span class="lineNum">     220 </span><span class="lineCov">       1380 :         line-&gt;month = file_list[file_index]-&gt;month;</span>
 <span class="lineNum">     221 </span>            : 
 <span class="lineNum">     222 </span>            :         /* TODO: check that the parsing is good */
 <span class="lineNum">     223 </span>            : 
-<span class="lineNum">     224 </span><span class="lineCov">       1316 :         line_list.push_back(line);</span>
+<span class="lineNum">     224 </span><span class="lineCov">       1380 :         line_list.push_back(line);</span>
 <span class="lineNum">     225 </span>            :     }
 <span class="lineNum">     226 </span>            : 
 <span class="lineNum">     227 </span><span class="lineCov">         50 :     if (F != NULL)</span>
@@ -300,38 +300,38 @@
 <span class="lineNum">     238 </span><span class="lineCov">        118 :         (f1-&gt;year == f2-&gt;year &amp;&amp; f1-&gt;month &lt; f2-&gt;month));</span>
 <a name="239"><span class="lineNum">     239 </span>            : }</a>
 <span class="lineNum">     240 </span>            : 
-<span class="lineNum">     241 </span><span class="lineCov">      11402 : bool ithipublisher::MetricLineIsLower(MetricLine * x, MetricLine * y)</span>
+<span class="lineNum">     241 </span><span class="lineCov">      11886 : bool ithipublisher::MetricLineIsLower(MetricLine * x, MetricLine * y)</span>
 <span class="lineNum">     242 </span>            : {
-<span class="lineNum">     243 </span><span class="lineCov">      11402 :     bool ret = false;</span>
+<span class="lineNum">     243 </span><span class="lineCov">      11886 :     bool ret = false;</span>
 <span class="lineNum">     244 </span>            :     int cmp;
 <span class="lineNum">     245 </span>            : 
-<span class="lineNum">     246 </span><span class="lineCov">      11402 :     cmp = CaptureSummary::compare_string(x-&gt;metric_name, y-&gt;metric_name);</span>
+<span class="lineNum">     246 </span><span class="lineCov">      11886 :     cmp = CaptureSummary::compare_string(x-&gt;metric_name, y-&gt;metric_name);</span>
 <span class="lineNum">     247 </span>            : 
-<span class="lineNum">     248 </span><span class="lineCov">      11402 :     if (cmp &gt; 0)</span>
+<span class="lineNum">     248 </span><span class="lineCov">      11886 :     if (cmp &gt; 0)</span>
 <span class="lineNum">     249 </span>            :     {
-<span class="lineNum">     250 </span><span class="lineCov">       5546 :         ret = true;</span>
+<span class="lineNum">     250 </span><span class="lineCov">       5886 :         ret = true;</span>
 <span class="lineNum">     251 </span>            :     }
-<span class="lineNum">     252 </span><span class="lineCov">       5856 :     else if (cmp == 0)</span>
+<span class="lineNum">     252 </span><span class="lineCov">       6000 :     else if (cmp == 0)</span>
 <span class="lineNum">     253 </span>            :     {
-<span class="lineNum">     254 </span><span class="lineCov">       3602 :         cmp = CaptureSummary::compare_string(x-&gt;key_value, y-&gt;key_value);</span>
-<span class="lineNum">     255 </span><span class="lineCov">       3602 :         if (cmp &gt; 0)</span>
+<span class="lineNum">     254 </span><span class="lineCov">       3630 :         cmp = CaptureSummary::compare_string(x-&gt;key_value, y-&gt;key_value);</span>
+<span class="lineNum">     255 </span><span class="lineCov">       3630 :         if (cmp &gt; 0)</span>
 <span class="lineNum">     256 </span>            :         {
 <span class="lineNum">     257 </span><span class="lineCov">       1710 :             ret = true;</span>
 <span class="lineNum">     258 </span>            :         }
-<span class="lineNum">     259 </span><span class="lineCov">       1892 :         else if (cmp == 0)</span>
+<span class="lineNum">     259 </span><span class="lineCov">       1920 :         else if (cmp == 0)</span>
 <span class="lineNum">     260 </span>            :         {
-<span class="lineNum">     261 </span><span class="lineCov">        854 :             if (x-&gt;year &lt; y-&gt;year)</span>
+<span class="lineNum">     261 </span><span class="lineCov">        882 :             if (x-&gt;year &lt; y-&gt;year)</span>
 <span class="lineNum">     262 </span>            :             {
 <span class="lineNum">     263 </span><span class="lineNoCov">          0 :                 ret = true;</span>
 <span class="lineNum">     264 </span>            :             }
-<span class="lineNum">     265 </span><span class="lineCov">        854 :             else if (x-&gt;year == y-&gt;year &amp;&amp; x-&gt;month &lt; y-&gt;month)</span>
+<span class="lineNum">     265 </span><span class="lineCov">        882 :             else if (x-&gt;year == y-&gt;year &amp;&amp; x-&gt;month &lt; y-&gt;month)</span>
 <span class="lineNum">     266 </span>            :             {
-<span class="lineNum">     267 </span><span class="lineCov">        420 :                 ret = true;</span>
+<span class="lineNum">     267 </span><span class="lineCov">        452 :                 ret = true;</span>
 <span class="lineNum">     268 </span>            :             }
 <span class="lineNum">     269 </span>            :         }
 <span class="lineNum">     270 </span>            :     }
 <span class="lineNum">     271 </span>            : 
-<span class="lineNum">     272 </span><span class="lineCov">      11402 :     return ret;</span>
+<span class="lineNum">     272 </span><span class="lineCov">      11886 :     return ret;</span>
 <a name="273"><span class="lineNum">     273 </span>            : }</a>
 <span class="lineNum">     274 </span>            : 
 <span class="lineNum">     275 </span><span class="lineCov">       1072 : bool ithipublisher::MetricNameLineIsBigger(MetricNameLine l1, MetricNameLine l2)</span>
@@ -421,27 +421,27 @@
 <span class="lineNum">     359 </span><span class="lineCov">         16 :     return ret;</span>
 <a name="360"><span class="lineNum">     360 </span>            : }</a>
 <span class="lineNum">     361 </span>            : 
-<span class="lineNum">     362 </span><span class="lineCov">        370 : bool ithipublisher::GetVector(char const * metric_name, char const * key_value, std::vector&lt;double&gt; * metric)</span>
+<span class="lineNum">     362 </span><span class="lineCov">        386 : bool ithipublisher::GetVector(char const * metric_name, char const * key_value, std::vector&lt;double&gt; * metric)</span>
 <span class="lineNum">     363 </span>            : {
-<span class="lineNum">     364 </span><span class="lineCov">        370 :     size_t line_index = 0;</span>
-<span class="lineNum">     365 </span><span class="lineCov">        370 :     int current_year = first_year;</span>
-<span class="lineNum">     366 </span><span class="lineCov">        370 :     int current_month = first_month;</span>
+<span class="lineNum">     364 </span><span class="lineCov">        386 :     size_t line_index = 0;</span>
+<span class="lineNum">     365 </span><span class="lineCov">        386 :     int current_year = first_year;</span>
+<span class="lineNum">     366 </span><span class="lineCov">        386 :     int current_month = first_month;</span>
 <span class="lineNum">     367 </span>            : 
-<span class="lineNum">     368 </span><span class="lineCov">        370 :     metric-&gt;clear();</span>
+<span class="lineNum">     368 </span><span class="lineCov">        386 :     metric-&gt;clear();</span>
 <span class="lineNum">     369 </span>            : 
-<span class="lineNum">     370 </span><span class="lineCov">      30010 :     while (line_index &lt; line_list.size())</span>
+<span class="lineNum">     370 </span><span class="lineCov">      31706 :     while (line_index &lt; line_list.size())</span>
 <span class="lineNum">     371 </span>            :     {
-<span class="lineNum">     372 </span><span class="lineCov">      15190 :         int cmp = strcmp(line_list[line_index]-&gt;metric_name, metric_name);</span>
+<span class="lineNum">     372 </span><span class="lineCov">      16046 :         int cmp = strcmp(line_list[line_index]-&gt;metric_name, metric_name);</span>
 <span class="lineNum">     373 </span>            : 
-<span class="lineNum">     374 </span><span class="lineCov">      15190 :         if (cmp &gt; 0)</span>
+<span class="lineNum">     374 </span><span class="lineCov">      16046 :         if (cmp &gt; 0)</span>
 <span class="lineNum">     375 </span>            :         {
 <span class="lineNum">     376 </span><span class="lineNoCov">          0 :             break;</span>
 <span class="lineNum">     377 </span>            :         }
-<span class="lineNum">     378 </span><span class="lineCov">      15190 :         else if (cmp == 0)</span>
+<span class="lineNum">     378 </span><span class="lineCov">      16046 :         else if (cmp == 0)</span>
 <span class="lineNum">     379 </span>            :         {
-<span class="lineNum">     380 </span><span class="lineCov">       1930 :             if (key_value == NULL)</span>
+<span class="lineNum">     380 </span><span class="lineCov">       1946 :             if (key_value == NULL)</span>
 <span class="lineNum">     381 </span>            :             {
-<span class="lineNum">     382 </span><span class="lineCov">        238 :                 break;</span>
+<span class="lineNum">     382 </span><span class="lineCov">        254 :                 break;</span>
 <span class="lineNum">     383 </span>            :             }
 <span class="lineNum">     384 </span>            :             else
 <span class="lineNum">     385 </span>            :             {
@@ -452,38 +452,38 @@
 <span class="lineNum">     390 </span>            :                 }
 <span class="lineNum">     391 </span>            :             }
 <span class="lineNum">     392 </span>            :         }
-<span class="lineNum">     393 </span><span class="lineCov">      14820 :         line_index++;</span>
+<span class="lineNum">     393 </span><span class="lineCov">      15660 :         line_index++;</span>
 <span class="lineNum">     394 </span>            :     }
 <span class="lineNum">     395 </span>            :         
-<span class="lineNum">     396 </span><span class="lineCov">       1114 :     for (int i = 0; i &lt; nb_months; i++)</span>
+<span class="lineNum">     396 </span><span class="lineCov">       1162 :     for (int i = 0; i &lt; nb_months; i++)</span>
 <span class="lineNum">     397 </span>            :     {
 <span class="lineNum">     398 </span>            :         double m;
 <span class="lineNum">     399 </span>            : 
-<span class="lineNum">     400 </span><span class="lineCov">       2232 :         if (line_index &gt;= line_list.size() ||</span>
-<span class="lineNum">     401 </span><span class="lineCov">       1488 :             strcmp(line_list[line_index]-&gt;metric_name, metric_name) != 0 ||</span>
-<span class="lineNum">     402 </span><span class="lineCov">       1006 :             (key_value != NULL &amp;&amp; strcmp(line_list[line_index]-&gt;key_value, key_value) != 0) ||</span>
-<span class="lineNum">     403 </span><span class="lineCov">       2244 :             line_list[line_index]-&gt;year &gt; current_year ||</span>
-<span class="lineNum">     404 </span><span class="lineCov">       1484 :             (line_list[line_index]-&gt;year == current_year &amp;&amp;</span>
-<span class="lineNum">     405 </span><span class="lineCov">        742 :                 line_list[line_index]-&gt;month &gt; current_month))</span>
+<span class="lineNum">     400 </span><span class="lineCov">       2328 :         if (line_index &gt;= line_list.size() ||</span>
+<span class="lineNum">     401 </span><span class="lineCov">       1552 :             strcmp(line_list[line_index]-&gt;metric_name, metric_name) != 0 ||</span>
+<span class="lineNum">     402 </span><span class="lineCov">       1038 :             (key_value != NULL &amp;&amp; strcmp(line_list[line_index]-&gt;key_value, key_value) != 0) ||</span>
+<span class="lineNum">     403 </span><span class="lineCov">       2340 :             line_list[line_index]-&gt;year &gt; current_year ||</span>
+<span class="lineNum">     404 </span><span class="lineCov">       1548 :             (line_list[line_index]-&gt;year == current_year &amp;&amp;</span>
+<span class="lineNum">     405 </span><span class="lineCov">        774 :                 line_list[line_index]-&gt;month &gt; current_month))</span>
 <span class="lineNum">     406 </span>            :         {
 <span class="lineNum">     407 </span><span class="lineCov">         16 :             m = 0;</span>
 <span class="lineNum">     408 </span>            :         }
 <span class="lineNum">     409 </span>            :         else
 <span class="lineNum">     410 </span>            :         {
-<span class="lineNum">     411 </span><span class="lineCov">        728 :             m = line_list[line_index]-&gt;frequency;</span>
-<span class="lineNum">     412 </span><span class="lineCov">        728 :             line_index++;</span>
+<span class="lineNum">     411 </span><span class="lineCov">        760 :             m = line_list[line_index]-&gt;frequency;</span>
+<span class="lineNum">     412 </span><span class="lineCov">        760 :             line_index++;</span>
 <span class="lineNum">     413 </span>            :         }
-<span class="lineNum">     414 </span><span class="lineCov">        744 :         metric-&gt;push_back(m);</span>
+<span class="lineNum">     414 </span><span class="lineCov">        776 :         metric-&gt;push_back(m);</span>
 <span class="lineNum">     415 </span>            : 
-<span class="lineNum">     416 </span><span class="lineCov">        744 :         current_month++;</span>
-<span class="lineNum">     417 </span><span class="lineCov">        744 :         if (current_month &gt; 12)</span>
+<span class="lineNum">     416 </span><span class="lineCov">        776 :         current_month++;</span>
+<span class="lineNum">     417 </span><span class="lineCov">        776 :         if (current_month &gt; 12)</span>
 <span class="lineNum">     418 </span>            :         {
 <span class="lineNum">     419 </span><span class="lineCov">          4 :             current_month = 1;</span>
 <span class="lineNum">     420 </span><span class="lineCov">          4 :             current_year++;</span>
 <span class="lineNum">     421 </span>            :         }
 <span class="lineNum">     422 </span>            :     }
 <span class="lineNum">     423 </span>            : 
-<span class="lineNum">     424 </span><span class="lineCov">        370 :     return true;</span>
+<span class="lineNum">     424 </span><span class="lineCov">        386 :     return true;</span>
 <a name="425"><span class="lineNum">     425 </span>            : }</a>
 <span class="lineNum">     426 </span>            : 
 <span class="lineNum">     427 </span><span class="lineCov">         10 : bool ithipublisher::GetCurrent(char const * metric_name, char const * key_value, double * current)</span>
@@ -589,22 +589,22 @@
 <span class="lineNum">     527 </span><span class="lineCov">         58 :     return true;</span>
 <a name="528"><span class="lineNum">     528 </span>            : }</a>
 <span class="lineNum">     529 </span>            : 
-<span class="lineNum">     530 </span><span class="lineCov">        284 : bool ithipublisher::PrintVector(FILE * F, std::vector&lt;double&gt; * vx, double mult)</span>
+<span class="lineNum">     530 </span><span class="lineCov">        300 : bool ithipublisher::PrintVector(FILE * F, std::vector&lt;double&gt; * vx, double mult)</span>
 <span class="lineNum">     531 </span>            : {
-<span class="lineNum">     532 </span><span class="lineCov">        284 :     bool ret = (fprintf(F, &quot;[&quot;) &gt; 0);</span>
-<span class="lineNum">     533 </span><span class="lineCov">        856 :     for (size_t i = 0; i &lt; vx-&gt;size(); i++)</span>
+<span class="lineNum">     532 </span><span class="lineCov">        300 :     bool ret = (fprintf(F, &quot;[&quot;) &gt; 0);</span>
+<span class="lineNum">     533 </span><span class="lineCov">        904 :     for (size_t i = 0; i &lt; vx-&gt;size(); i++)</span>
 <span class="lineNum">     534 </span>            :     {
-<span class="lineNum">     535 </span><span class="lineCov">        572 :         if (i != 0)</span>
+<span class="lineNum">     535 </span><span class="lineCov">        604 :         if (i != 0)</span>
 <span class="lineNum">     536 </span>            :         {
-<span class="lineNum">     537 </span><span class="lineCov">        288 :             ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
+<span class="lineNum">     537 </span><span class="lineCov">        304 :             ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
 <span class="lineNum">     538 </span>            :         }
 <span class="lineNum">     539 </span>            : 
-<span class="lineNum">     540 </span><span class="lineCov">        572 :         ret &amp;= fprintf(F, &quot;%8f&quot;, mult*(*vx)[i]) &gt; 0;</span>
+<span class="lineNum">     540 </span><span class="lineCov">        604 :         ret &amp;= fprintf(F, &quot;%8f&quot;, mult*(*vx)[i]) &gt; 0;</span>
 <span class="lineNum">     541 </span>            :     }
 <span class="lineNum">     542 </span>            : 
-<span class="lineNum">     543 </span><span class="lineCov">        284 :     ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
+<span class="lineNum">     543 </span><span class="lineCov">        300 :     ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
 <span class="lineNum">     544 </span>            : 
-<span class="lineNum">     545 </span><span class="lineCov">        284 :     return ret;</span>
+<span class="lineNum">     545 </span><span class="lineCov">        300 :     return ret;</span>
 <a name="546"><span class="lineNum">     546 </span>            : }</a>
 <span class="lineNum">     547 </span>            : 
 <span class="lineNum">     548 </span><span class="lineCov">         10 : bool ithipublisher::PrintNameVectorMetric(FILE * F, char const * sub_met_name, char const * metric_name, double mult)</span>
@@ -853,554 +853,555 @@
 <span class="lineNum">     791 </span><span class="lineCov">          2 :     bool ret = true;</span>
 <span class="lineNum">     792 </span>            :     const char * subMet[] = { &quot;M5.1.1&quot;, &quot;M5.1.2&quot;, &quot;M5.1.3&quot;, &quot;M5.1.4&quot;, &quot;M5.1.5&quot;, &quot;M5.1.6&quot;,
 <span class="lineNum">     793 </span>            :         &quot;M5.2.1&quot;, &quot;M5.2.2&quot;, &quot;M5.2.3&quot;, &quot;M5.3.1&quot;, &quot;M5.3.2&quot;, &quot;M5.4.1&quot;, &quot;M5.4.2&quot;, &quot;M5.5&quot;,
-<span class="lineNum">     794 </span>            :         &quot;M5.6.1&quot;, &quot;M5.6.2&quot;, &quot;M5.6.3&quot;, &quot;M5.6.4&quot;, &quot;M5.6.5&quot;, &quot;M5.6.6&quot;, &quot;M5.6.7&quot;, &quot;M5.6.8&quot;
-<span class="lineNum">     795 </span><span class="lineCov">          2 :     };</span>
-<span class="lineNum">     796 </span><span class="lineCov">          2 :     const size_t nbSubMet = sizeof(subMet) / sizeof(const char *);</span>
-<span class="lineNum">     797 </span>            : 
-<span class="lineNum">     798 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;\&quot;M5\&quot; : [&quot;) &gt; 0;</span>
-<span class="lineNum">     799 </span>            : 
-<span class="lineNum">     800 </span><span class="lineCov">         46 :     for (size_t i=0; i&lt;nbSubMet; i++) {</span>
-<span class="lineNum">     801 </span><span class="lineCov">         88 :         std::vector&lt;double&gt; mvec;</span>
-<span class="lineNum">     802 </span>            : 
-<span class="lineNum">     803 </span><span class="lineCov">         44 :         ret = GetVector(subMet[i], NULL, &amp;mvec);</span>
-<span class="lineNum">     804 </span>            : 
-<span class="lineNum">     805 </span><span class="lineCov">         44 :         if (i != 0) {</span>
-<span class="lineNum">     806 </span><span class="lineCov">         42 :             ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">     807 </span>            :         }
-<span class="lineNum">     808 </span>            : 
-<span class="lineNum">     809 </span><span class="lineCov">         44 :         ret &amp;= fprintf(F, &quot;{ \&quot;v\&quot; : &quot;) &gt; 0;</span>
-<span class="lineNum">     810 </span>            : 
-<span class="lineNum">     811 </span><span class="lineCov">         44 :         if (ret)</span>
-<span class="lineNum">     812 </span>            :         {
-<span class="lineNum">     813 </span><span class="lineCov">         44 :             ret = PrintVector(F, &amp;mvec, 1.0);</span>
-<span class="lineNum">     814 </span>            :         }
-<span class="lineNum">     815 </span>            : 
-<span class="lineNum">     816 </span><span class="lineCov">         44 :         ret &amp;= fprintf(F, &quot;}&quot;) &gt; 0;</span>
-<span class="lineNum">     817 </span>            :     }
-<span class="lineNum">     818 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;]\n&quot;) &gt; 0;</span>
-<span class="lineNum">     819 </span>            : 
-<span class="lineNum">     820 </span><span class="lineCov">          2 :     return ret;</span>
-<span class="lineNum">     821 </span>            : }
-<a name="822"><span class="lineNum">     822 </span>            : </a>
-<span class="lineNum">     823 </span>            : 
-<span class="lineNum">     824 </span><span class="lineCov">          2 : bool ithipublisher::PublishDataM6(FILE * F)</span>
-<span class="lineNum">     825 </span>            : {
-<span class="lineNum">     826 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">     827 </span>            :     char subMetX[64];
-<span class="lineNum">     828 </span>            :     char const * subMet[18] = {
-<span class="lineNum">     829 </span>            :         &quot;M6.DNS.01&quot;, &quot;M6.DNS.02&quot;, &quot;M6.DNS.03&quot;, &quot;M6.DNS.04&quot;, &quot;M6.DNS.05&quot;, &quot;M6.DNS.06&quot;, 
-<span class="lineNum">     830 </span>            :         &quot;M6.DNS.07&quot;, &quot;M6.DNS.08&quot;, &quot;M6.DNS.09&quot;, &quot;M6.DNS.10&quot;, &quot;M6.DNS.11&quot;, &quot;M6.DNS.12&quot;, 
-<span class="lineNum">     831 </span>            :         &quot;M6.DNSSEC.1&quot;, &quot;M6.DNSSEC.2&quot;, &quot;M6.DNSSEC.3&quot;, &quot;M6.DANE.1&quot;, &quot;M6.DANE.2&quot;, &quot;M6.DANE.3&quot;
-<span class="lineNum">     832 </span><span class="lineCov">          2 :     };</span>
-<span class="lineNum">     833 </span>            :     char const * subName[18] = {
-<span class="lineNum">     834 </span>            :         &quot;DNS CLASSes&quot;,
-<span class="lineNum">     835 </span>            :         &quot;Resource Record (RR) TYPEs&quot;,
-<span class="lineNum">     836 </span>            :         &quot;DNS OpCodes&quot;,
-<span class="lineNum">     837 </span>            :         &quot;DNS RCODEs&quot;,
-<span class="lineNum">     838 </span>            :         &quot;AFSDB RR Subtype&quot;,
-<span class="lineNum">     839 </span>            :         &quot;DHCID RR Identifier Type Codes&quot;,
-<span class="lineNum">     840 </span>            :         &quot;DNS Label Types&quot;,
-<span class="lineNum">     841 </span>            :         &quot;DNS EDNS0 Option Codes (OPT)&quot;,
-<span class="lineNum">     842 </span>            :         &quot;DNS Header Flags&quot;,
-<span class="lineNum">     843 </span>            :         &quot;EDNS Header Flags (16 bits)&quot;,
-<span class="lineNum">     844 </span>            :         &quot;EDNS version Number (8 bits)&quot;,
-<span class="lineNum">     845 </span>            :         &quot;Child Synchronization (CSYNC) Flags &quot;,
-<span class="lineNum">     846 </span>            :         &quot;DNS KEY Record Diffie-Hellman Prime Lengths&quot;,
-<span class="lineNum">     847 </span>            :         &quot;DNS KEY Record Diffie-Hellman Well-Known Prime/Generator Pairs&quot;,
-<span class="lineNum">     848 </span>            :         &quot;DNS Security Algorithm Numbers&quot;,
-<span class="lineNum">     849 </span>            :         &quot;TLSA Certificate Usages&quot;,
-<span class="lineNum">     850 </span>            :         &quot;TLSA Selectors&quot;,
-<span class="lineNum">     851 </span>            :         &quot;TLSA Matching Types&quot;
-<span class="lineNum">     852 </span><span class="lineCov">          2 :     };</span>
-<span class="lineNum">     853 </span>            : 
-<span class="lineNum">     854 </span><span class="lineCov">          2 :     ret = fprintf(F, &quot;\&quot;m6Val\&quot; : [\n&quot;) &gt; 0;</span>
-<span class="lineNum">     855 </span><span class="lineCov">         38 :     for (int m = 0; ret &amp;&amp; m &lt; 18; m++)</span>
-<span class="lineNum">     856 </span>            :     {
-<span class="lineNum">     857 </span><span class="lineCov">         36 :         ret = fprintf(F, &quot;[ \&quot;%s\&quot;, \&quot;%s\&quot;&quot;, subMet[m], subName[m]) &gt; 0;</span>
-<span class="lineNum">     858 </span>            : 
-<span class="lineNum">     859 </span><span class="lineCov">        108 :         for (int i = 1; ret &amp;&amp; i &lt; 3; i++)</span>
-<span class="lineNum">     860 </span>            :         {
-<span class="lineNum">     861 </span><span class="lineCov">         72 :             ret = snprintf(subMetX, sizeof(subMetX), &quot;%s.%d&quot;, subMet[m], i) &gt; 0;</span>
-<span class="lineNum">     862 </span>            : 
-<span class="lineNum">     863 </span><span class="lineCov">         72 :             if (ret)</span>
-<span class="lineNum">     864 </span>            :             {
-<span class="lineNum">     865 </span>            :                 double average, current;
-<span class="lineNum">     866 </span>            : 
-<span class="lineNum">     867 </span><span class="lineCov">         72 :                 ret = GetAverageAndCurrent(subMetX, NULL, &amp;average, &amp;current);</span>
-<span class="lineNum">     868 </span>            : 
-<span class="lineNum">     869 </span>            :                 /* Multiply metric value by 100, since we want to display percentages */
-<span class="lineNum">     870 </span><span class="lineCov">         72 :                 ret &amp;= fprintf(F, &quot;, %8f, %8f&quot;, 100 * current, 100 * average) &gt; 0;</span>
-<span class="lineNum">     871 </span>            :             }
-<span class="lineNum">     872 </span>            :         }
-<span class="lineNum">     873 </span>            : 
-<span class="lineNum">     874 </span><span class="lineCov">         36 :         if (ret) {</span>
-<span class="lineNum">     875 </span><span class="lineCov">         36 :             metric6_def_t const * table = ComputeM6::GetTable(subMet[m]);</span>
-<span class="lineNum">     876 </span><span class="lineCov">         72 :             std::vector&lt;MetricNameLine&gt; name_list;</span>
-<span class="lineNum">     877 </span><span class="lineCov">         36 :             double total_current = 0;</span>
-<span class="lineNum">     878 </span><span class="lineCov">         36 :             double total_average = 0;</span>
-<span class="lineNum">     879 </span>            :             double current_divider;
-<span class="lineNum">     880 </span>            :             double average_divider;
-<span class="lineNum">     881 </span>            : 
-<span class="lineNum">     882 </span><span class="lineCov">         36 :             ret = snprintf(subMetX, sizeof(subMetX), &quot;%s.3&quot;, subMet[m]) &gt; 0;</span>
-<span class="lineNum">     883 </span>            : 
-<span class="lineNum">     884 </span><span class="lineCov">         36 :             ret &amp;= fprintf(F, &quot;,[&quot;) &gt; 0;</span>
-<span class="lineNum">     885 </span>            : 
-<span class="lineNum">     886 </span><span class="lineCov">         36 :             if (ret)</span>
-<span class="lineNum">     887 </span>            :             {
-<span class="lineNum">     888 </span><span class="lineCov">         36 :                 ret = GetNameList(subMetX, &amp;name_list);</span>
-<span class="lineNum">     889 </span>            :             }
-<span class="lineNum">     890 </span>            : 
-<span class="lineNum">     891 </span><span class="lineCov">        146 :             for (size_t l = 0; ret &amp;&amp; l &lt; name_list.size(); l++)</span>
-<span class="lineNum">     892 </span>            :             {
-<span class="lineNum">     893 </span><span class="lineCov">        110 :                 total_current += name_list[l].current;</span>
-<span class="lineNum">     894 </span><span class="lineCov">        110 :                 total_average += name_list[l].average;</span>
-<span class="lineNum">     895 </span>            :             }
-<span class="lineNum">     896 </span><span class="lineCov">         36 :             current_divider = (total_current &gt; 0) ? 100.0 / total_current : 1.0;</span>
-<span class="lineNum">     897 </span><span class="lineCov">         36 :             average_divider = (total_average &gt; 0) ? 100.0 / total_average : 1.0;</span>
-<span class="lineNum">     898 </span>            : 
-<span class="lineNum">     899 </span><span class="lineCov">        146 :             for (size_t l = 0; ret &amp;&amp; l &lt; name_list.size(); l++)</span>
-<span class="lineNum">     900 </span>            :             {
-<span class="lineNum">     901 </span><span class="lineCov">        110 :                 char const * key_name = &quot;&quot;;</span>
-<span class="lineNum">     902 </span>            : 
-<span class="lineNum">     903 </span><span class="lineCov">        110 :                 if (table != NULL) {</span>
-<span class="lineNum">     904 </span><span class="lineCov">        110 :                     uint32_t key_val = (uint32_t)atoi(name_list[l].name);</span>
-<span class="lineNum">     905 </span>            : 
-<span class="lineNum">     906 </span><span class="lineCov">        110 :                     key_name = &quot;???&quot;;</span>
-<span class="lineNum">     907 </span>            : 
-<span class="lineNum">     908 </span><span class="lineCov">       1514 :                     for (size_t t = 0; t &lt; table-&gt;nb_registered; t++) {</span>
-<span class="lineNum">     909 </span><span class="lineCov">       1508 :                         if (table-&gt;registry[t].key == key_val) {</span>
-<span class="lineNum">     910 </span><span class="lineCov">        104 :                             key_name = table-&gt;registry[t].key_name;</span>
-<span class="lineNum">     911 </span><span class="lineCov">        104 :                             break;</span>
-<span class="lineNum">     912 </span>            :                         }
-<span class="lineNum">     913 </span>            :                     }
-<span class="lineNum">     914 </span>            :                 }
-<span class="lineNum">     915 </span>            : 
-<span class="lineNum">     916 </span><span class="lineCov">        110 :                 if (l == 0) {</span>
-<span class="lineNum">     917 </span><span class="lineCov">         20 :                     ret = fprintf(F, &quot;\n&quot;) &gt; 0;</span>
-<span class="lineNum">     918 </span>            :                 } else {
-<span class="lineNum">     919 </span><span class="lineCov">         90 :                     ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">     920 </span>            :                 }
-<span class="lineNum">     921 </span>            : 
-<span class="lineNum">     922 </span><span class="lineCov">        330 :                 ret &amp;= (fprintf(F, &quot;[%s, \&quot;%s\&quot;, %1f, %1f]&quot;,</span>
-<span class="lineNum">     923 </span><span class="lineCov">        110 :                     name_list[l].name, key_name, </span>
-<span class="lineNum">     924 </span><span class="lineCov">        330 :                     current_divider*name_list[l].current, average_divider*name_list[l].average) &gt; 0);</span>
-<span class="lineNum">     925 </span>            :             }
-<span class="lineNum">     926 </span>            : 
-<span class="lineNum">     927 </span><span class="lineCov">         36 :             ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
-<span class="lineNum">     928 </span>            :         }
-<span class="lineNum">     929 </span>            : 
-<span class="lineNum">     930 </span><span class="lineCov">         36 :         if (m == 17)</span>
-<span class="lineNum">     931 </span>            :         {
-<span class="lineNum">     932 </span><span class="lineCov">          2 :             ret &amp;= (fprintf(F, &quot;]]\n&quot;) &gt; 0);</span>
-<span class="lineNum">     933 </span>            :         }
-<span class="lineNum">     934 </span>            :         else
-<span class="lineNum">     935 </span>            :         {
-<span class="lineNum">     936 </span><span class="lineCov">         34 :             ret &amp;= (fprintf(F, &quot;],\n&quot;) &gt; 0);</span>
-<span class="lineNum">     937 </span>            :         }
-<span class="lineNum">     938 </span>            :     }
-<span class="lineNum">     939 </span>            : 
-<span class="lineNum">     940 </span><span class="lineCov">          2 :     return ret;</span>
-<a name="941"><span class="lineNum">     941 </span>            : }</a>
-<span class="lineNum">     942 </span>            : 
-<span class="lineNum">     943 </span><span class="lineCov">          2 : bool ithipublisher::PublishDataM7(FILE * F)</span>
-<span class="lineNum">     944 </span>            : {
-<span class="lineNum">     945 </span><span class="lineCov">          4 :     std::vector&lt;double&gt; m7x;</span>
-<span class="lineNum">     946 </span>            :     char subMetX[16];
-<span class="lineNum">     947 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">     948 </span>            : 
-<span class="lineNum">     949 </span><span class="lineCov">          2 :     fprintf(F, &quot;\&quot;M7DataSet\&quot; : [\n&quot;);</span>
-<span class="lineNum">     950 </span>            : 
-<span class="lineNum">     951 </span><span class="lineCov">          6 :     for (int i = 1; ret &amp;&amp; i &lt;= 2; i++) {</span>
-<span class="lineNum">     952 </span>            : 
-<span class="lineNum">     953 </span><span class="lineCov">          4 :         ret = snprintf(subMetX, sizeof(subMetX), &quot;M7.%d&quot;, i) &gt; 0;</span>
-<span class="lineNum">     954 </span>            : 
-<span class="lineNum">     955 </span><span class="lineCov">          4 :         if (ret) {</span>
-<span class="lineNum">     956 </span><span class="lineCov">          4 :             if (GetVector(subMetX, NULL, &amp;m7x))</span>
-<span class="lineNum">     957 </span>            :             {
-<span class="lineNum">     958 </span>            :                 /* M7.x is present */
-<span class="lineNum">     959 </span><span class="lineCov">          4 :                 ret = PrintVector(F, &amp;m7x, 100.0);</span>
-<span class="lineNum">     960 </span>            : 
-<span class="lineNum">     961 </span><span class="lineCov">          4 :                 if (i == 2) {</span>
-<span class="lineNum">     962 </span><span class="lineCov">          2 :                     ret &amp;= (fprintf(F, &quot;\n&quot;) &gt; 0);</span>
-<span class="lineNum">     963 </span>            :                 }
-<span class="lineNum">     964 </span>            :                 else {
-<span class="lineNum">     965 </span><span class="lineCov">          2 :                     ret &amp;= (fprintf(F, &quot;,\n&quot;) &gt; 0);</span>
-<span class="lineNum">     966 </span>            :                 }
-<span class="lineNum">     967 </span>            :             }
-<span class="lineNum">     968 </span>            :         }
-<span class="lineNum">     969 </span>            :     }
-<span class="lineNum">     970 </span><span class="lineCov">          2 :     fprintf(F, &quot;]\n&quot;);</span>
-<span class="lineNum">     971 </span>            : 
-<span class="lineNum">     972 </span><span class="lineCov">          4 :     return ret;</span>
-<a name="973"><span class="lineNum">     973 </span>            : }</a>
-<span class="lineNum">     974 </span>            : 
-<span class="lineNum">     975 </span><span class="lineCov">          4 : bool ithipublisher::PublishOptTable(FILE * F, char const * metric_name)</span>
-<span class="lineNum">     976 </span>            : {
-<span class="lineNum">     977 </span><span class="lineCov">          8 :     std::vector&lt;MetricNameLine&gt; name_list;</span>
-<span class="lineNum">     978 </span><span class="lineCov">          4 :     const metric6_def_t * opt_def = ComputeM6::GetTable(&quot;M6.DNS.08&quot;);</span>
-<span class="lineNum">     979 </span><span class="lineCov">          4 :     bool ret = GetNameList(metric_name, &amp;name_list);</span>
-<span class="lineNum">     980 </span><span class="lineCov">          8 :     std::vector&lt;double&gt;  mvec;</span>
-<span class="lineNum">     981 </span>            : 
-<span class="lineNum">     982 </span><span class="lineCov">          4 :     ret &amp;= (opt_def != NULL);</span>
-<span class="lineNum">     983 </span>            : 
-<span class="lineNum">     984 </span><span class="lineCov">          4 :     ret &amp;= fprintf(F, &quot;[&quot;) &gt; 0;</span>
-<span class="lineNum">     985 </span>            : 
-<span class="lineNum">     986 </span><span class="lineCov">         12 :     for (size_t i = 0; ret &amp;&amp; i &lt; name_list.size(); i++) {</span>
-<span class="lineNum">     987 </span>            :         /* Parse name to code */
-<span class="lineNum">     988 </span><span class="lineCov">          8 :         char const * opt_long_name = NULL;</span>
-<span class="lineNum">     989 </span><span class="lineCov">          8 :         uint32_t opt_code = (uint32_t)atoi(name_list[i].name);</span>
-<span class="lineNum">     990 </span>            : 
-<span class="lineNum">     991 </span><span class="lineCov">         72 :         for (size_t j = 0; j &lt; opt_def-&gt;nb_registered; j++) {</span>
-<span class="lineNum">     992 </span><span class="lineCov">         72 :             if (opt_def-&gt;registry[j].key == opt_code) {</span>
-<span class="lineNum">     993 </span><span class="lineCov">          8 :                 opt_long_name = opt_def-&gt;registry[j].key_name;</span>
-<span class="lineNum">     994 </span><span class="lineCov">          8 :                 break;</span>
-<span class="lineNum">     995 </span>            :             }
-<span class="lineNum">     996 </span>            :         }
-<span class="lineNum">     997 </span>            : 
-<span class="lineNum">     998 </span><span class="lineCov">          8 :         if (i &gt; 0) {</span>
-<span class="lineNum">     999 </span><span class="lineCov">          4 :             ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1000 </span>            :         }
-<span class="lineNum">    1001 </span>            : 
-<span class="lineNum">    1002 </span><span class="lineCov">          8 :         if (opt_long_name != NULL) {</span>
-<span class="lineNum">    1003 </span><span class="lineCov">          8 :             ret &amp;= fprintf(F, &quot;[ \&quot;%s(%s)\&quot;,&quot;, opt_long_name, name_list[i].name) &gt; 0;</span>
-<span class="lineNum">    1004 </span>            :         }
-<span class="lineNum">    1005 </span>            :         else {
-<span class="lineNum">    1006 </span><span class="lineNoCov">          0 :             ret &amp;= fprintf(F, &quot;[ \&quot;%s\&quot;,&quot;, name_list[i].name) &gt; 0;</span>
-<span class="lineNum">    1007 </span>            :         }
-<span class="lineNum">    1008 </span>            : 
-<span class="lineNum">    1009 </span><span class="lineCov">          8 :         if (ret) {</span>
-<span class="lineNum">    1010 </span><span class="lineCov">          8 :             ret = GetVector(metric_name, name_list[i].name, &amp;mvec);</span>
-<span class="lineNum">    1011 </span>            : 
-<span class="lineNum">    1012 </span><span class="lineCov">          8 :             if (ret) {</span>
-<span class="lineNum">    1013 </span><span class="lineCov">          8 :                 ret = PrintVector(F, &amp;mvec, 100);</span>
-<span class="lineNum">    1014 </span>            :             }
-<span class="lineNum">    1015 </span>            :         }
-<span class="lineNum">    1016 </span>            : 
-<span class="lineNum">    1017 </span><span class="lineCov">          8 :         ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
-<span class="lineNum">    1018 </span>            :     }
-<span class="lineNum">    1019 </span>            : 
-<span class="lineNum">    1020 </span><span class="lineCov">          4 :     ret &amp;= fprintf(F, &quot;]\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1021 </span>            : 
-<span class="lineNum">    1022 </span><span class="lineCov">          8 :     return ret;</span>
-<a name="1023"><span class="lineNum">    1023 </span>            : }</a>
-<span class="lineNum">    1024 </span>            : 
-<span class="lineNum">    1025 </span><span class="lineCov">          2 : bool ithipublisher::PublishDataM8(FILE * F)</span>
-<span class="lineNum">    1026 </span>            : {
-<span class="lineNum">    1027 </span><span class="lineCov">          4 :     std::vector&lt;double&gt; mvec;</span>
-<span class="lineNum">    1028 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">    1029 </span><span class="lineCov">          2 :     char const * met_data_name[4] = { &quot;M81&quot;, &quot;M82&quot;, &quot;M83&quot;, &quot;M84&quot; };</span>
-<span class="lineNum">    1030 </span><span class="lineCov">          2 :     char const * sub_met[4] = { &quot;M8.1&quot;, &quot;M8.2&quot;, &quot;M8.3&quot;, &quot;M8.4&quot; };</span>
-<span class="lineNum">    1031 </span>            : 
+<span class="lineNum">     794 </span>            :         &quot;M5.6.1&quot;, &quot;M5.6.2&quot;, &quot;M5.6.3&quot;, &quot;M5.6.4&quot;, &quot;M5.6.5&quot;, &quot;M5.6.6&quot;, &quot;M5.6.7&quot;, &quot;M5.6.8&quot;,
+<span class="lineNum">     795 </span>            :         &quot;M5.6.9&quot;, &quot;M5.6.10&quot;, &quot;M5.6.11&quot;, &quot;M5.6.12&quot;, &quot;M5.6.13&quot;, &quot;M5.6.14&quot;, &quot;M5.6.15&quot;, &quot;M5.6.15&quot;
+<span class="lineNum">     796 </span><span class="lineCov">          2 :     };</span>
+<span class="lineNum">     797 </span><span class="lineCov">          2 :     const size_t nbSubMet = sizeof(subMet) / sizeof(const char *);</span>
+<span class="lineNum">     798 </span>            : 
+<span class="lineNum">     799 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;\&quot;M5\&quot; : [&quot;) &gt; 0;</span>
+<span class="lineNum">     800 </span>            : 
+<span class="lineNum">     801 </span><span class="lineCov">         62 :     for (size_t i=0; i&lt;nbSubMet; i++) {</span>
+<span class="lineNum">     802 </span><span class="lineCov">        120 :         std::vector&lt;double&gt; mvec;</span>
+<span class="lineNum">     803 </span>            : 
+<span class="lineNum">     804 </span><span class="lineCov">         60 :         ret = GetVector(subMet[i], NULL, &amp;mvec);</span>
+<span class="lineNum">     805 </span>            : 
+<span class="lineNum">     806 </span><span class="lineCov">         60 :         if (i != 0) {</span>
+<span class="lineNum">     807 </span><span class="lineCov">         58 :             ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">     808 </span>            :         }
+<span class="lineNum">     809 </span>            : 
+<span class="lineNum">     810 </span><span class="lineCov">         60 :         ret &amp;= fprintf(F, &quot;{ \&quot;v\&quot; : &quot;) &gt; 0;</span>
+<span class="lineNum">     811 </span>            : 
+<span class="lineNum">     812 </span><span class="lineCov">         60 :         if (ret)</span>
+<span class="lineNum">     813 </span>            :         {
+<span class="lineNum">     814 </span><span class="lineCov">         60 :             ret = PrintVector(F, &amp;mvec, 1.0);</span>
+<span class="lineNum">     815 </span>            :         }
+<span class="lineNum">     816 </span>            : 
+<span class="lineNum">     817 </span><span class="lineCov">         60 :         ret &amp;= fprintf(F, &quot;}&quot;) &gt; 0;</span>
+<span class="lineNum">     818 </span>            :     }
+<span class="lineNum">     819 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;]\n&quot;) &gt; 0;</span>
+<span class="lineNum">     820 </span>            : 
+<span class="lineNum">     821 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     822 </span>            : }
+<a name="823"><span class="lineNum">     823 </span>            : </a>
+<span class="lineNum">     824 </span>            : 
+<span class="lineNum">     825 </span><span class="lineCov">          2 : bool ithipublisher::PublishDataM6(FILE * F)</span>
+<span class="lineNum">     826 </span>            : {
+<span class="lineNum">     827 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     828 </span>            :     char subMetX[64];
+<span class="lineNum">     829 </span>            :     char const * subMet[18] = {
+<span class="lineNum">     830 </span>            :         &quot;M6.DNS.01&quot;, &quot;M6.DNS.02&quot;, &quot;M6.DNS.03&quot;, &quot;M6.DNS.04&quot;, &quot;M6.DNS.05&quot;, &quot;M6.DNS.06&quot;, 
+<span class="lineNum">     831 </span>            :         &quot;M6.DNS.07&quot;, &quot;M6.DNS.08&quot;, &quot;M6.DNS.09&quot;, &quot;M6.DNS.10&quot;, &quot;M6.DNS.11&quot;, &quot;M6.DNS.12&quot;, 
+<span class="lineNum">     832 </span>            :         &quot;M6.DNSSEC.1&quot;, &quot;M6.DNSSEC.2&quot;, &quot;M6.DNSSEC.3&quot;, &quot;M6.DANE.1&quot;, &quot;M6.DANE.2&quot;, &quot;M6.DANE.3&quot;
+<span class="lineNum">     833 </span><span class="lineCov">          2 :     };</span>
+<span class="lineNum">     834 </span>            :     char const * subName[18] = {
+<span class="lineNum">     835 </span>            :         &quot;DNS CLASSes&quot;,
+<span class="lineNum">     836 </span>            :         &quot;Resource Record (RR) TYPEs&quot;,
+<span class="lineNum">     837 </span>            :         &quot;DNS OpCodes&quot;,
+<span class="lineNum">     838 </span>            :         &quot;DNS RCODEs&quot;,
+<span class="lineNum">     839 </span>            :         &quot;AFSDB RR Subtype&quot;,
+<span class="lineNum">     840 </span>            :         &quot;DHCID RR Identifier Type Codes&quot;,
+<span class="lineNum">     841 </span>            :         &quot;DNS Label Types&quot;,
+<span class="lineNum">     842 </span>            :         &quot;DNS EDNS0 Option Codes (OPT)&quot;,
+<span class="lineNum">     843 </span>            :         &quot;DNS Header Flags&quot;,
+<span class="lineNum">     844 </span>            :         &quot;EDNS Header Flags (16 bits)&quot;,
+<span class="lineNum">     845 </span>            :         &quot;EDNS version Number (8 bits)&quot;,
+<span class="lineNum">     846 </span>            :         &quot;Child Synchronization (CSYNC) Flags &quot;,
+<span class="lineNum">     847 </span>            :         &quot;DNS KEY Record Diffie-Hellman Prime Lengths&quot;,
+<span class="lineNum">     848 </span>            :         &quot;DNS KEY Record Diffie-Hellman Well-Known Prime/Generator Pairs&quot;,
+<span class="lineNum">     849 </span>            :         &quot;DNS Security Algorithm Numbers&quot;,
+<span class="lineNum">     850 </span>            :         &quot;TLSA Certificate Usages&quot;,
+<span class="lineNum">     851 </span>            :         &quot;TLSA Selectors&quot;,
+<span class="lineNum">     852 </span>            :         &quot;TLSA Matching Types&quot;
+<span class="lineNum">     853 </span><span class="lineCov">          2 :     };</span>
+<span class="lineNum">     854 </span>            : 
+<span class="lineNum">     855 </span><span class="lineCov">          2 :     ret = fprintf(F, &quot;\&quot;m6Val\&quot; : [\n&quot;) &gt; 0;</span>
+<span class="lineNum">     856 </span><span class="lineCov">         38 :     for (int m = 0; ret &amp;&amp; m &lt; 18; m++)</span>
+<span class="lineNum">     857 </span>            :     {
+<span class="lineNum">     858 </span><span class="lineCov">         36 :         ret = fprintf(F, &quot;[ \&quot;%s\&quot;, \&quot;%s\&quot;&quot;, subMet[m], subName[m]) &gt; 0;</span>
+<span class="lineNum">     859 </span>            : 
+<span class="lineNum">     860 </span><span class="lineCov">        108 :         for (int i = 1; ret &amp;&amp; i &lt; 3; i++)</span>
+<span class="lineNum">     861 </span>            :         {
+<span class="lineNum">     862 </span><span class="lineCov">         72 :             ret = snprintf(subMetX, sizeof(subMetX), &quot;%s.%d&quot;, subMet[m], i) &gt; 0;</span>
+<span class="lineNum">     863 </span>            : 
+<span class="lineNum">     864 </span><span class="lineCov">         72 :             if (ret)</span>
+<span class="lineNum">     865 </span>            :             {
+<span class="lineNum">     866 </span>            :                 double average, current;
+<span class="lineNum">     867 </span>            : 
+<span class="lineNum">     868 </span><span class="lineCov">         72 :                 ret = GetAverageAndCurrent(subMetX, NULL, &amp;average, &amp;current);</span>
+<span class="lineNum">     869 </span>            : 
+<span class="lineNum">     870 </span>            :                 /* Multiply metric value by 100, since we want to display percentages */
+<span class="lineNum">     871 </span><span class="lineCov">         72 :                 ret &amp;= fprintf(F, &quot;, %8f, %8f&quot;, 100 * current, 100 * average) &gt; 0;</span>
+<span class="lineNum">     872 </span>            :             }
+<span class="lineNum">     873 </span>            :         }
+<span class="lineNum">     874 </span>            : 
+<span class="lineNum">     875 </span><span class="lineCov">         36 :         if (ret) {</span>
+<span class="lineNum">     876 </span><span class="lineCov">         36 :             metric6_def_t const * table = ComputeM6::GetTable(subMet[m]);</span>
+<span class="lineNum">     877 </span><span class="lineCov">         72 :             std::vector&lt;MetricNameLine&gt; name_list;</span>
+<span class="lineNum">     878 </span><span class="lineCov">         36 :             double total_current = 0;</span>
+<span class="lineNum">     879 </span><span class="lineCov">         36 :             double total_average = 0;</span>
+<span class="lineNum">     880 </span>            :             double current_divider;
+<span class="lineNum">     881 </span>            :             double average_divider;
+<span class="lineNum">     882 </span>            : 
+<span class="lineNum">     883 </span><span class="lineCov">         36 :             ret = snprintf(subMetX, sizeof(subMetX), &quot;%s.3&quot;, subMet[m]) &gt; 0;</span>
+<span class="lineNum">     884 </span>            : 
+<span class="lineNum">     885 </span><span class="lineCov">         36 :             ret &amp;= fprintf(F, &quot;,[&quot;) &gt; 0;</span>
+<span class="lineNum">     886 </span>            : 
+<span class="lineNum">     887 </span><span class="lineCov">         36 :             if (ret)</span>
+<span class="lineNum">     888 </span>            :             {
+<span class="lineNum">     889 </span><span class="lineCov">         36 :                 ret = GetNameList(subMetX, &amp;name_list);</span>
+<span class="lineNum">     890 </span>            :             }
+<span class="lineNum">     891 </span>            : 
+<span class="lineNum">     892 </span><span class="lineCov">        146 :             for (size_t l = 0; ret &amp;&amp; l &lt; name_list.size(); l++)</span>
+<span class="lineNum">     893 </span>            :             {
+<span class="lineNum">     894 </span><span class="lineCov">        110 :                 total_current += name_list[l].current;</span>
+<span class="lineNum">     895 </span><span class="lineCov">        110 :                 total_average += name_list[l].average;</span>
+<span class="lineNum">     896 </span>            :             }
+<span class="lineNum">     897 </span><span class="lineCov">         36 :             current_divider = (total_current &gt; 0) ? 100.0 / total_current : 1.0;</span>
+<span class="lineNum">     898 </span><span class="lineCov">         36 :             average_divider = (total_average &gt; 0) ? 100.0 / total_average : 1.0;</span>
+<span class="lineNum">     899 </span>            : 
+<span class="lineNum">     900 </span><span class="lineCov">        146 :             for (size_t l = 0; ret &amp;&amp; l &lt; name_list.size(); l++)</span>
+<span class="lineNum">     901 </span>            :             {
+<span class="lineNum">     902 </span><span class="lineCov">        110 :                 char const * key_name = &quot;&quot;;</span>
+<span class="lineNum">     903 </span>            : 
+<span class="lineNum">     904 </span><span class="lineCov">        110 :                 if (table != NULL) {</span>
+<span class="lineNum">     905 </span><span class="lineCov">        110 :                     uint32_t key_val = (uint32_t)atoi(name_list[l].name);</span>
+<span class="lineNum">     906 </span>            : 
+<span class="lineNum">     907 </span><span class="lineCov">        110 :                     key_name = &quot;???&quot;;</span>
+<span class="lineNum">     908 </span>            : 
+<span class="lineNum">     909 </span><span class="lineCov">       1514 :                     for (size_t t = 0; t &lt; table-&gt;nb_registered; t++) {</span>
+<span class="lineNum">     910 </span><span class="lineCov">       1508 :                         if (table-&gt;registry[t].key == key_val) {</span>
+<span class="lineNum">     911 </span><span class="lineCov">        104 :                             key_name = table-&gt;registry[t].key_name;</span>
+<span class="lineNum">     912 </span><span class="lineCov">        104 :                             break;</span>
+<span class="lineNum">     913 </span>            :                         }
+<span class="lineNum">     914 </span>            :                     }
+<span class="lineNum">     915 </span>            :                 }
+<span class="lineNum">     916 </span>            : 
+<span class="lineNum">     917 </span><span class="lineCov">        110 :                 if (l == 0) {</span>
+<span class="lineNum">     918 </span><span class="lineCov">         20 :                     ret = fprintf(F, &quot;\n&quot;) &gt; 0;</span>
+<span class="lineNum">     919 </span>            :                 } else {
+<span class="lineNum">     920 </span><span class="lineCov">         90 :                     ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">     921 </span>            :                 }
+<span class="lineNum">     922 </span>            : 
+<span class="lineNum">     923 </span><span class="lineCov">        330 :                 ret &amp;= (fprintf(F, &quot;[%s, \&quot;%s\&quot;, %1f, %1f]&quot;,</span>
+<span class="lineNum">     924 </span><span class="lineCov">        110 :                     name_list[l].name, key_name, </span>
+<span class="lineNum">     925 </span><span class="lineCov">        330 :                     current_divider*name_list[l].current, average_divider*name_list[l].average) &gt; 0);</span>
+<span class="lineNum">     926 </span>            :             }
+<span class="lineNum">     927 </span>            : 
+<span class="lineNum">     928 </span><span class="lineCov">         36 :             ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
+<span class="lineNum">     929 </span>            :         }
+<span class="lineNum">     930 </span>            : 
+<span class="lineNum">     931 </span><span class="lineCov">         36 :         if (m == 17)</span>
+<span class="lineNum">     932 </span>            :         {
+<span class="lineNum">     933 </span><span class="lineCov">          2 :             ret &amp;= (fprintf(F, &quot;]]\n&quot;) &gt; 0);</span>
+<span class="lineNum">     934 </span>            :         }
+<span class="lineNum">     935 </span>            :         else
+<span class="lineNum">     936 </span>            :         {
+<span class="lineNum">     937 </span><span class="lineCov">         34 :             ret &amp;= (fprintf(F, &quot;],\n&quot;) &gt; 0);</span>
+<span class="lineNum">     938 </span>            :         }
+<span class="lineNum">     939 </span>            :     }
+<span class="lineNum">     940 </span>            : 
+<span class="lineNum">     941 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="942"><span class="lineNum">     942 </span>            : }</a>
+<span class="lineNum">     943 </span>            : 
+<span class="lineNum">     944 </span><span class="lineCov">          2 : bool ithipublisher::PublishDataM7(FILE * F)</span>
+<span class="lineNum">     945 </span>            : {
+<span class="lineNum">     946 </span><span class="lineCov">          4 :     std::vector&lt;double&gt; m7x;</span>
+<span class="lineNum">     947 </span>            :     char subMetX[16];
+<span class="lineNum">     948 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     949 </span>            : 
+<span class="lineNum">     950 </span><span class="lineCov">          2 :     fprintf(F, &quot;\&quot;M7DataSet\&quot; : [\n&quot;);</span>
+<span class="lineNum">     951 </span>            : 
+<span class="lineNum">     952 </span><span class="lineCov">          6 :     for (int i = 1; ret &amp;&amp; i &lt;= 2; i++) {</span>
+<span class="lineNum">     953 </span>            : 
+<span class="lineNum">     954 </span><span class="lineCov">          4 :         ret = snprintf(subMetX, sizeof(subMetX), &quot;M7.%d&quot;, i) &gt; 0;</span>
+<span class="lineNum">     955 </span>            : 
+<span class="lineNum">     956 </span><span class="lineCov">          4 :         if (ret) {</span>
+<span class="lineNum">     957 </span><span class="lineCov">          4 :             if (GetVector(subMetX, NULL, &amp;m7x))</span>
+<span class="lineNum">     958 </span>            :             {
+<span class="lineNum">     959 </span>            :                 /* M7.x is present */
+<span class="lineNum">     960 </span><span class="lineCov">          4 :                 ret = PrintVector(F, &amp;m7x, 100.0);</span>
+<span class="lineNum">     961 </span>            : 
+<span class="lineNum">     962 </span><span class="lineCov">          4 :                 if (i == 2) {</span>
+<span class="lineNum">     963 </span><span class="lineCov">          2 :                     ret &amp;= (fprintf(F, &quot;\n&quot;) &gt; 0);</span>
+<span class="lineNum">     964 </span>            :                 }
+<span class="lineNum">     965 </span>            :                 else {
+<span class="lineNum">     966 </span><span class="lineCov">          2 :                     ret &amp;= (fprintf(F, &quot;,\n&quot;) &gt; 0);</span>
+<span class="lineNum">     967 </span>            :                 }
+<span class="lineNum">     968 </span>            :             }
+<span class="lineNum">     969 </span>            :         }
+<span class="lineNum">     970 </span>            :     }
+<span class="lineNum">     971 </span><span class="lineCov">          2 :     fprintf(F, &quot;]\n&quot;);</span>
+<span class="lineNum">     972 </span>            : 
+<span class="lineNum">     973 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="974"><span class="lineNum">     974 </span>            : }</a>
+<span class="lineNum">     975 </span>            : 
+<span class="lineNum">     976 </span><span class="lineCov">          4 : bool ithipublisher::PublishOptTable(FILE * F, char const * metric_name)</span>
+<span class="lineNum">     977 </span>            : {
+<span class="lineNum">     978 </span><span class="lineCov">          8 :     std::vector&lt;MetricNameLine&gt; name_list;</span>
+<span class="lineNum">     979 </span><span class="lineCov">          4 :     const metric6_def_t * opt_def = ComputeM6::GetTable(&quot;M6.DNS.08&quot;);</span>
+<span class="lineNum">     980 </span><span class="lineCov">          4 :     bool ret = GetNameList(metric_name, &amp;name_list);</span>
+<span class="lineNum">     981 </span><span class="lineCov">          8 :     std::vector&lt;double&gt;  mvec;</span>
+<span class="lineNum">     982 </span>            : 
+<span class="lineNum">     983 </span><span class="lineCov">          4 :     ret &amp;= (opt_def != NULL);</span>
+<span class="lineNum">     984 </span>            : 
+<span class="lineNum">     985 </span><span class="lineCov">          4 :     ret &amp;= fprintf(F, &quot;[&quot;) &gt; 0;</span>
+<span class="lineNum">     986 </span>            : 
+<span class="lineNum">     987 </span><span class="lineCov">         12 :     for (size_t i = 0; ret &amp;&amp; i &lt; name_list.size(); i++) {</span>
+<span class="lineNum">     988 </span>            :         /* Parse name to code */
+<span class="lineNum">     989 </span><span class="lineCov">          8 :         char const * opt_long_name = NULL;</span>
+<span class="lineNum">     990 </span><span class="lineCov">          8 :         uint32_t opt_code = (uint32_t)atoi(name_list[i].name);</span>
+<span class="lineNum">     991 </span>            : 
+<span class="lineNum">     992 </span><span class="lineCov">         72 :         for (size_t j = 0; j &lt; opt_def-&gt;nb_registered; j++) {</span>
+<span class="lineNum">     993 </span><span class="lineCov">         72 :             if (opt_def-&gt;registry[j].key == opt_code) {</span>
+<span class="lineNum">     994 </span><span class="lineCov">          8 :                 opt_long_name = opt_def-&gt;registry[j].key_name;</span>
+<span class="lineNum">     995 </span><span class="lineCov">          8 :                 break;</span>
+<span class="lineNum">     996 </span>            :             }
+<span class="lineNum">     997 </span>            :         }
+<span class="lineNum">     998 </span>            : 
+<span class="lineNum">     999 </span><span class="lineCov">          8 :         if (i &gt; 0) {</span>
+<span class="lineNum">    1000 </span><span class="lineCov">          4 :             ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1001 </span>            :         }
+<span class="lineNum">    1002 </span>            : 
+<span class="lineNum">    1003 </span><span class="lineCov">          8 :         if (opt_long_name != NULL) {</span>
+<span class="lineNum">    1004 </span><span class="lineCov">          8 :             ret &amp;= fprintf(F, &quot;[ \&quot;%s(%s)\&quot;,&quot;, opt_long_name, name_list[i].name) &gt; 0;</span>
+<span class="lineNum">    1005 </span>            :         }
+<span class="lineNum">    1006 </span>            :         else {
+<span class="lineNum">    1007 </span><span class="lineNoCov">          0 :             ret &amp;= fprintf(F, &quot;[ \&quot;%s\&quot;,&quot;, name_list[i].name) &gt; 0;</span>
+<span class="lineNum">    1008 </span>            :         }
+<span class="lineNum">    1009 </span>            : 
+<span class="lineNum">    1010 </span><span class="lineCov">          8 :         if (ret) {</span>
+<span class="lineNum">    1011 </span><span class="lineCov">          8 :             ret = GetVector(metric_name, name_list[i].name, &amp;mvec);</span>
+<span class="lineNum">    1012 </span>            : 
+<span class="lineNum">    1013 </span><span class="lineCov">          8 :             if (ret) {</span>
+<span class="lineNum">    1014 </span><span class="lineCov">          8 :                 ret = PrintVector(F, &amp;mvec, 100);</span>
+<span class="lineNum">    1015 </span>            :             }
+<span class="lineNum">    1016 </span>            :         }
+<span class="lineNum">    1017 </span>            : 
+<span class="lineNum">    1018 </span><span class="lineCov">          8 :         ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
+<span class="lineNum">    1019 </span>            :     }
+<span class="lineNum">    1020 </span>            : 
+<span class="lineNum">    1021 </span><span class="lineCov">          4 :     ret &amp;= fprintf(F, &quot;]\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1022 </span>            : 
+<span class="lineNum">    1023 </span><span class="lineCov">          8 :     return ret;</span>
+<a name="1024"><span class="lineNum">    1024 </span>            : }</a>
+<span class="lineNum">    1025 </span>            : 
+<span class="lineNum">    1026 </span><span class="lineCov">          2 : bool ithipublisher::PublishDataM8(FILE * F)</span>
+<span class="lineNum">    1027 </span>            : {
+<span class="lineNum">    1028 </span><span class="lineCov">          4 :     std::vector&lt;double&gt; mvec;</span>
+<span class="lineNum">    1029 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">    1030 </span><span class="lineCov">          2 :     char const * met_data_name[4] = { &quot;M81&quot;, &quot;M82&quot;, &quot;M83&quot;, &quot;M84&quot; };</span>
+<span class="lineNum">    1031 </span><span class="lineCov">          2 :     char const * sub_met[4] = { &quot;M8.1&quot;, &quot;M8.2&quot;, &quot;M8.3&quot;, &quot;M8.4&quot; };</span>
 <span class="lineNum">    1032 </span>            : 
-<span class="lineNum">    1033 </span>            :     /* Publish M8.1 */
-<span class="lineNum">    1034 </span><span class="lineCov">          2 :     ret &amp;= GetVector(sub_met[0], NULL, &amp;mvec);</span>
-<span class="lineNum">    1035 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;\&quot;%s\&quot; : &quot;, met_data_name[0]) &gt; 0;</span>
-<span class="lineNum">    1036 </span><span class="lineCov">          2 :     ret &amp;= PrintVector(F, &amp;mvec, 100.0);</span>
-<span class="lineNum">    1037 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1038 </span>            : 
-<span class="lineNum">    1039 </span>            :     /* Add M8.2 data */
-<span class="lineNum">    1040 </span><span class="lineCov">          2 :     if (ret) {</span>
-<span class="lineNum">    1041 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;%s\&quot; : [&quot;, met_data_name[1]) &gt; 0;</span>
-<span class="lineNum">    1042 </span><span class="lineCov">          2 :         ret &amp;= GetVector(&quot;M8.2.1&quot;, NULL, &amp;mvec);</span>
-<span class="lineNum">    1043 </span><span class="lineCov">          2 :         ret &amp;= PrintVector(F, &amp;mvec, 100.0);</span>
-<span class="lineNum">    1044 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1045 </span><span class="lineCov">          2 :         ret &amp;= PublishOptTable(F, &quot;M8.2.2&quot;);</span>
-<span class="lineNum">    1046 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
-<span class="lineNum">    1047 </span>            :     }
-<span class="lineNum">    1048 </span>            : 
-<span class="lineNum">    1049 </span>            :     /* Add M8.3 and M8.4 */
-<span class="lineNum">    1050 </span><span class="lineCov">          6 :     for (int m = 2; ret &amp;&amp; m&lt;4; m++)</span>
-<span class="lineNum">    1051 </span>            :     {
-<span class="lineNum">    1052 </span><span class="lineCov">          4 :         ret &amp;= GetVector(sub_met[m], NULL, &amp;mvec);</span>
-<span class="lineNum">    1053 </span><span class="lineCov">          4 :         ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1054 </span><span class="lineCov">          4 :         ret &amp;= fprintf(F, &quot;\&quot;%s\&quot; : &quot;, met_data_name[m]) &gt; 0;</span>
-<span class="lineNum">    1055 </span><span class="lineCov">          4 :         ret &amp;= PrintVector(F, &amp;mvec, 100.0);</span>
-<span class="lineNum">    1056 </span>            :     }
-<span class="lineNum">    1057 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1058 </span>            : 
-<span class="lineNum">    1059 </span><span class="lineCov">          4 :     return ret;</span>
-<span class="lineNum">    1060 </span>            : }
-<span class="lineNum">    1061 </span>            : 
+<span class="lineNum">    1033 </span>            : 
+<span class="lineNum">    1034 </span>            :     /* Publish M8.1 */
+<span class="lineNum">    1035 </span><span class="lineCov">          2 :     ret &amp;= GetVector(sub_met[0], NULL, &amp;mvec);</span>
+<span class="lineNum">    1036 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;\&quot;%s\&quot; : &quot;, met_data_name[0]) &gt; 0;</span>
+<span class="lineNum">    1037 </span><span class="lineCov">          2 :     ret &amp;= PrintVector(F, &amp;mvec, 100.0);</span>
+<span class="lineNum">    1038 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1039 </span>            : 
+<span class="lineNum">    1040 </span>            :     /* Add M8.2 data */
+<span class="lineNum">    1041 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">    1042 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;%s\&quot; : [&quot;, met_data_name[1]) &gt; 0;</span>
+<span class="lineNum">    1043 </span><span class="lineCov">          2 :         ret &amp;= GetVector(&quot;M8.2.1&quot;, NULL, &amp;mvec);</span>
+<span class="lineNum">    1044 </span><span class="lineCov">          2 :         ret &amp;= PrintVector(F, &amp;mvec, 100.0);</span>
+<span class="lineNum">    1045 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1046 </span><span class="lineCov">          2 :         ret &amp;= PublishOptTable(F, &quot;M8.2.2&quot;);</span>
+<span class="lineNum">    1047 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;]&quot;) &gt; 0;</span>
+<span class="lineNum">    1048 </span>            :     }
+<span class="lineNum">    1049 </span>            : 
+<span class="lineNum">    1050 </span>            :     /* Add M8.3 and M8.4 */
+<span class="lineNum">    1051 </span><span class="lineCov">          6 :     for (int m = 2; ret &amp;&amp; m&lt;4; m++)</span>
+<span class="lineNum">    1052 </span>            :     {
+<span class="lineNum">    1053 </span><span class="lineCov">          4 :         ret &amp;= GetVector(sub_met[m], NULL, &amp;mvec);</span>
+<span class="lineNum">    1054 </span><span class="lineCov">          4 :         ret &amp;= fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1055 </span><span class="lineCov">          4 :         ret &amp;= fprintf(F, &quot;\&quot;%s\&quot; : &quot;, met_data_name[m]) &gt; 0;</span>
+<span class="lineNum">    1056 </span><span class="lineCov">          4 :         ret &amp;= PrintVector(F, &amp;mvec, 100.0);</span>
+<span class="lineNum">    1057 </span>            :     }
+<span class="lineNum">    1058 </span><span class="lineCov">          2 :     ret &amp;= fprintf(F, &quot;\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1059 </span>            : 
+<span class="lineNum">    1060 </span><span class="lineCov">          4 :     return ret;</span>
+<span class="lineNum">    1061 </span>            : }
 <span class="lineNum">    1062 </span>            : 
-<a name="1063"><span class="lineNum">    1063 </span>            : static const int ithiIndexPublisherInputMetrics[4] = { 2, 3, 4, 5 };</a>
-<span class="lineNum">    1064 </span>            : 
-<span class="lineNum">    1065 </span><span class="lineCov">          2 : ithiIndexPublisher::ithiIndexPublisher(char const * ithi_folder) :</span>
-<span class="lineNum">    1066 </span><span class="lineCov">          2 :     ithi_folder(ithi_folder)</span>
-<span class="lineNum">    1067 </span>            : {
-<span class="lineNum">    1068 </span><span class="lineCov">         10 :     for (int i = 0; i &lt; 4; i++) {</span>
-<span class="lineNum">    1069 </span><span class="lineCov">          8 :         MData[i] = NULL;</span>
-<span class="lineNum">    1070 </span>            :     }
-<span class="lineNum">    1071 </span><span class="lineCov">          8 :     for (int i = 0; i &lt; 3; i++) {</span>
-<span class="lineNum">    1072 </span><span class="lineCov">          6 :         threeRootNames[i] = NULL;</span>
-<span class="lineNum">    1073 </span><span class="lineCov">          6 :         threeStubNames[i] = NULL;</span>
-<span class="lineNum">    1074 </span>            :     }
-<a name="1075"><span class="lineNum">    1075 </span><span class="lineCov">          2 : }</span></a>
-<span class="lineNum">    1076 </span>            : 
-<span class="lineNum">    1077 </span><span class="lineCov">          4 : ithiIndexPublisher::~ithiIndexPublisher()</span>
-<span class="lineNum">    1078 </span>            : {
-<span class="lineNum">    1079 </span><span class="lineCov">         10 :     for (int i = 0; i &lt; 4; i++) {</span>
-<span class="lineNum">    1080 </span><span class="lineCov">          8 :         if (MData[i] != NULL) {</span>
-<span class="lineNum">    1081 </span><span class="lineCov">          8 :             delete MData[i];</span>
-<span class="lineNum">    1082 </span><span class="lineCov">          8 :             MData[i] = NULL;</span>
-<span class="lineNum">    1083 </span>            :         }
-<span class="lineNum">    1084 </span>            :     }
-<span class="lineNum">    1085 </span>            : 
+<span class="lineNum">    1063 </span>            : 
+<a name="1064"><span class="lineNum">    1064 </span>            : static const int ithiIndexPublisherInputMetrics[4] = { 2, 3, 4, 5 };</a>
+<span class="lineNum">    1065 </span>            : 
+<span class="lineNum">    1066 </span><span class="lineCov">          2 : ithiIndexPublisher::ithiIndexPublisher(char const * ithi_folder) :</span>
+<span class="lineNum">    1067 </span><span class="lineCov">          2 :     ithi_folder(ithi_folder)</span>
+<span class="lineNum">    1068 </span>            : {
+<span class="lineNum">    1069 </span><span class="lineCov">         10 :     for (int i = 0; i &lt; 4; i++) {</span>
+<span class="lineNum">    1070 </span><span class="lineCov">          8 :         MData[i] = NULL;</span>
+<span class="lineNum">    1071 </span>            :     }
+<span class="lineNum">    1072 </span><span class="lineCov">          8 :     for (int i = 0; i &lt; 3; i++) {</span>
+<span class="lineNum">    1073 </span><span class="lineCov">          6 :         threeRootNames[i] = NULL;</span>
+<span class="lineNum">    1074 </span><span class="lineCov">          6 :         threeStubNames[i] = NULL;</span>
+<span class="lineNum">    1075 </span>            :     }
+<a name="1076"><span class="lineNum">    1076 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">    1077 </span>            : 
+<span class="lineNum">    1078 </span><span class="lineCov">          4 : ithiIndexPublisher::~ithiIndexPublisher()</span>
+<span class="lineNum">    1079 </span>            : {
+<span class="lineNum">    1080 </span><span class="lineCov">         10 :     for (int i = 0; i &lt; 4; i++) {</span>
+<span class="lineNum">    1081 </span><span class="lineCov">          8 :         if (MData[i] != NULL) {</span>
+<span class="lineNum">    1082 </span><span class="lineCov">          8 :             delete MData[i];</span>
+<span class="lineNum">    1083 </span><span class="lineCov">          8 :             MData[i] = NULL;</span>
+<span class="lineNum">    1084 </span>            :         }
+<span class="lineNum">    1085 </span>            :     }
 <span class="lineNum">    1086 </span>            : 
-<span class="lineNum">    1087 </span><span class="lineCov">          8 :     for (int i = 0; i &lt; 3; i++) {</span>
-<span class="lineNum">    1088 </span><span class="lineCov">          6 :         if (threeRootNames[i] != NULL) {</span>
-<span class="lineNum">    1089 </span><span class="lineCov">          6 :             delete[] threeRootNames[i];</span>
-<span class="lineNum">    1090 </span><span class="lineCov">          6 :             threeRootNames[i] = NULL;</span>
-<span class="lineNum">    1091 </span>            :         }
-<span class="lineNum">    1092 </span>            : 
-<span class="lineNum">    1093 </span><span class="lineCov">          6 :         if (threeStubNames[i] != NULL) {</span>
-<span class="lineNum">    1094 </span><span class="lineCov">          6 :             delete[] threeStubNames[i];</span>
-<span class="lineNum">    1095 </span><span class="lineCov">          6 :             threeStubNames[i] = NULL;</span>
-<span class="lineNum">    1096 </span>            :         }
-<span class="lineNum">    1097 </span>            :     }
-<a name="1098"><span class="lineNum">    1098 </span><span class="lineCov">          2 : }</span></a>
-<span class="lineNum">    1099 </span>            : 
-<span class="lineNum">    1100 </span><span class="lineCov">          2 : bool ithiIndexPublisher::CollectMetricFiles()</span>
-<span class="lineNum">    1101 </span>            : {
-<span class="lineNum">    1102 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">    1103 </span>            : 
-<span class="lineNum">    1104 </span><span class="lineCov">         10 :     for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
-<span class="lineNum">    1105 </span><span class="lineCov">          8 :         MData[i] = new ithipublisher(ithi_folder, ithiIndexPublisherInputMetrics[i]);</span>
-<span class="lineNum">    1106 </span><span class="lineCov">          8 :         if (MData[i] == NULL) {</span>
-<span class="lineNum">    1107 </span><span class="lineNoCov">          0 :             ret = false;</span>
-<span class="lineNum">    1108 </span>            :         }
-<span class="lineNum">    1109 </span>            :     }
-<span class="lineNum">    1110 </span>            : 
-<span class="lineNum">    1111 </span><span class="lineCov">          2 :     if (ret) {</span>
-<span class="lineNum">    1112 </span><span class="lineCov">         10 :         for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
-<span class="lineNum">    1113 </span><span class="lineCov">          8 :             ret = MData[i]-&gt;CollectMetricFiles();</span>
-<span class="lineNum">    1114 </span>            :         }
-<span class="lineNum">    1115 </span>            :     }
-<span class="lineNum">    1116 </span>            : 
-<span class="lineNum">    1117 </span><span class="lineCov">          2 :     return ret;</span>
-<a name="1118"><span class="lineNum">    1118 </span>            : }</a>
-<span class="lineNum">    1119 </span>            : 
-<span class="lineNum">    1120 </span><span class="lineCov">          2 : bool ithiIndexPublisher::Publish(char const * web_folder)</span>
-<span class="lineNum">    1121 </span>            : {
-<span class="lineNum">    1122 </span><span class="lineCov">          4 :     std::vector&lt;double&gt; mvec;</span>
-<span class="lineNum">    1123 </span>            :     /* Find the date */
-<span class="lineNum">    1124 </span><span class="lineCov">          2 :     int year = 0;</span>
-<span class="lineNum">    1125 </span><span class="lineCov">          2 :     int month = 0;</span>
-<span class="lineNum">    1126 </span><span class="lineCov">         10 :     for (int i = 0; i &lt; 4; i++) {</span>
-<span class="lineNum">    1127 </span><span class="lineCov">         14 :         if (MData[i]-&gt;last_year &gt; year ||</span>
-<span class="lineNum">    1128 </span><span class="lineCov">         12 :             (MData[i]-&gt;last_year == year &amp;&amp;</span>
-<span class="lineNum">    1129 </span><span class="lineCov">          6 :                 MData[i]-&gt;last_month &gt; month)) {</span>
-<span class="lineNum">    1130 </span><span class="lineCov">          2 :             year = MData[i]-&gt;last_year;</span>
-<span class="lineNum">    1131 </span><span class="lineCov">          2 :             month = MData[i]-&gt;last_month;</span>
-<span class="lineNum">    1132 </span>            :         }
-<span class="lineNum">    1133 </span>            :     }
-<span class="lineNum">    1134 </span>            : 
-<span class="lineNum">    1135 </span>            :     /* Create file name for the metric */
-<span class="lineNum">    1136 </span><span class="lineCov">          2 :     FILE * F = NULL;</span>
-<span class="lineNum">    1137 </span>            :     char file_name[512];
-<span class="lineNum">    1138 </span><span class="lineCov">          2 :     bool ret = snprintf(file_name, sizeof(file_name), &quot;%s%sIndexData.txt&quot;,</span>
-<span class="lineNum">    1139 </span><span class="lineCov">          2 :         web_folder, ITHI_FILE_PATH_SEP) &gt; 0;</span>
-<span class="lineNum">    1140 </span>            : 
-<span class="lineNum">    1141 </span><span class="lineCov">          2 :     if (ret)</span>
-<span class="lineNum">    1142 </span>            :     {
-<span class="lineNum">    1143 </span>            :         /* Create the file */
-<span class="lineNum">    1144 </span><span class="lineCov">          2 :         F = ithi_file_open(file_name, &quot;w&quot;);</span>
-<span class="lineNum">    1145 </span><span class="lineCov">          2 :         ret = (F != NULL);</span>
-<span class="lineNum">    1146 </span>            :     }
-<span class="lineNum">    1147 </span>            : 
-<span class="lineNum">    1148 </span><span class="lineCov">          2 :     if (ret)</span>
-<span class="lineNum">    1149 </span>            :     {
-<span class="lineNum">    1150 </span>            :         /* Opening braces and date */
-<span class="lineNum">    1151 </span><span class="lineCov">          2 :         ret = fprintf(F, &quot;{\n\&quot;date\&quot; : \&quot;%04d/%02d\&quot;,\n&quot;, year, month) &gt; 0;</span>
-<span class="lineNum">    1152 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;year\&quot; : %d,\n&quot;, year) &gt; 0;</span>
-<span class="lineNum">    1153 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;month\&quot; : %d,\n&quot;, month) &gt; 0;</span>
-<span class="lineNum">    1154 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;mDate\&quot; : [&quot;) &gt; 0;</span>
-<span class="lineNum">    1155 </span><span class="lineCov">         10 :         for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
-<span class="lineNum">    1156 </span><span class="lineCov">          8 :             if (i != 0) {</span>
-<span class="lineNum">    1157 </span><span class="lineCov">          6 :                 ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
-<span class="lineNum">    1158 </span>            :             }
-<span class="lineNum">    1159 </span><span class="lineCov">          8 :             ret &amp;= fprintf(F, &quot;[%d, %d]&quot;, MData[i]-&gt;last_year, MData[i]-&gt;last_month) &gt; 0;</span>
-<span class="lineNum">    1160 </span>            :         }
-<span class="lineNum">    1161 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;],\n\&quot;mData\&quot; : [&quot;) &gt; 0;</span>
-<span class="lineNum">    1162 </span>            : 
-<span class="lineNum">    1163 </span>            :         /* First line: Metric M3.1 */
-<span class="lineNum">    1164 </span><span class="lineCov">          2 :         if (ret)</span>
-<span class="lineNum">    1165 </span>            :         {
-<span class="lineNum">    1166 </span><span class="lineCov">          2 :             ret = MData[1]-&gt;GetVector(&quot;M3.1&quot;, NULL, &amp;mvec);</span>
-<span class="lineNum">    1167 </span><span class="lineCov">          2 :             if (ret) {</span>
-<span class="lineNum">    1168 </span><span class="lineCov">          2 :                 ret = MData[1]-&gt;PrintVector(F, &amp;mvec, 100.0);</span>
-<span class="lineNum">    1169 </span>            :             }
-<span class="lineNum">    1170 </span>            :         }
-<span class="lineNum">    1171 </span>            :         /* Second line: Metric M5.4.2 */
-<span class="lineNum">    1172 </span><span class="lineCov">          2 :         if (ret)</span>
-<span class="lineNum">    1173 </span>            :         {
-<span class="lineNum">    1174 </span><span class="lineCov">          2 :             ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1175 </span><span class="lineCov">          2 :             ret &amp;= MData[3]-&gt;GetVector(&quot;M5.4.2&quot;, NULL, &amp;mvec);</span>
-<span class="lineNum">    1176 </span><span class="lineCov">          2 :             if (ret) {</span>
-<span class="lineNum">    1177 </span><span class="lineCov">          2 :                 ret = MData[3]-&gt;PrintVector(F, &amp;mvec, 1.0);</span>
-<span class="lineNum">    1178 </span>            :             }
-<span class="lineNum">    1179 </span>            :         }
-<span class="lineNum">    1180 </span>            :         /* Next lines: first three names from metric M3. This is interesting,
-<span class="lineNum">    1181 </span>            :          * because we need to pick the largest used from reserved and frequent names */
-<span class="lineNum">    1182 </span><span class="lineCov">          2 :         if (ret) {</span>
-<span class="lineNum">    1183 </span><span class="lineCov">          2 :             ret = PickThreeNames(F, threeRootNames, MData[1], &quot;M3.3.1&quot;, &quot;M3.3.2&quot;);</span>
-<span class="lineNum">    1184 </span>            :         }
-<span class="lineNum">    1185 </span>            : 
-<span class="lineNum">    1186 </span>            :          /* Next lines: first three names from metric M4. This is interesting,
-<span class="lineNum">    1187 </span>            :           * because we need to pick the largest used from reserved and frequent names */
-<span class="lineNum">    1188 </span>            : 
-<span class="lineNum">    1189 </span><span class="lineCov">          2 :         if (ret) {</span>
-<span class="lineNum">    1190 </span><span class="lineCov">          2 :             ret = PickThreeNames(F, threeStubNames, MData[2], &quot;M4.2&quot;, &quot;M4.3&quot;);</span>
-<span class="lineNum">    1191 </span>            :         }
-<span class="lineNum">    1192 </span>            : 
-<span class="lineNum">    1193 </span>            :         /* Then a set of submetrics for M56 */
-<span class="lineNum">    1194 </span>            :         char const* M56Metrics[2] = {
-<span class="lineNum">    1195 </span><span class="lineCov">          2 :             &quot;M5.6.1&quot;, &quot;M5.6.2&quot; };</span>
-<span class="lineNum">    1196 </span>            : 
-<span class="lineNum">    1197 </span><span class="lineCov">          6 :         for (int i = 0; ret &amp;&amp; i &lt; 2; i++) {</span>
-<span class="lineNum">    1198 </span><span class="lineCov">          4 :             ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1199 </span><span class="lineCov">          4 :             ret &amp;= MData[3]-&gt;GetVector(M56Metrics[i], NULL, &amp;mvec);</span>
-<span class="lineNum">    1200 </span><span class="lineCov">          4 :             if (ret) {</span>
-<span class="lineNum">    1201 </span><span class="lineCov">          4 :                 ret = MData[3]-&gt;PrintVector(F, &amp;mvec, 1.0);</span>
-<span class="lineNum">    1202 </span>            :             }
-<span class="lineNum">    1203 </span>            :         }
-<span class="lineNum">    1204 </span>            : 
-<span class="lineNum">    1205 </span>            :         /* Then a set of submetrics from M2 */
-<span class="lineNum">    1206 </span>            :         char const * M2Metrics[12] = { 
-<span class="lineNum">    1207 </span>            :             &quot;M2.2.1.1&quot;, &quot;M2.2.2.1&quot;, &quot;M2.2.3.1&quot;, &quot;M2.2.4.1&quot;,
-<span class="lineNum">    1208 </span>            :             &quot;M2.1.1.2&quot;, &quot;M2.1.2.2&quot;, &quot;M2.1.3.2&quot;, &quot;M2.1.4.2&quot;,
-<span class="lineNum">    1209 </span><span class="lineCov">          2 :             &quot;M2.1.1.3&quot;, &quot;M2.1.2.3&quot;, &quot;M2.1.3.3&quot;, &quot;M2.1.4.3&quot; };</span>
-<span class="lineNum">    1210 </span>            : 
-<span class="lineNum">    1211 </span><span class="lineCov">         26 :         for (int i = 0; ret &amp;&amp; i &lt; 12; i++) {</span>
-<span class="lineNum">    1212 </span><span class="lineCov">         24 :             ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1213 </span><span class="lineCov">         24 :             ret &amp;= MData[0]-&gt;GetVector(M2Metrics[i], NULL, &amp;mvec);</span>
-<span class="lineNum">    1214 </span><span class="lineCov">         24 :             if (ret) {</span>
-<span class="lineNum">    1215 </span><span class="lineCov">         24 :                 ret = MData[0]-&gt;PrintVector(F, &amp;mvec, 1.0);</span>
-<span class="lineNum">    1216 </span>            :             }
-<span class="lineNum">    1217 </span>            :         }
-<span class="lineNum">    1218 </span>            :         
-<span class="lineNum">    1219 </span>            :         /* Closing brackets, this is the end of the data part */
-<span class="lineNum">    1220 </span><span class="lineCov">          2 :         ret &amp;= (fprintf(F, &quot;],\n&quot;) &gt; 0);</span>
-<span class="lineNum">    1221 </span>            : 
-<span class="lineNum">    1222 </span><span class="lineCov">          2 :         char const * M2Metric_nbGtld = &quot;M2.1.5&quot;;</span>
-<span class="lineNum">    1223 </span><span class="lineCov">          2 :         char const * M2Metric_nbRegistrars = &quot;M2.2.5&quot;;</span>
-<span class="lineNum">    1224 </span><span class="lineCov">          2 :         double d_gtld = 0;</span>
-<span class="lineNum">    1225 </span><span class="lineCov">          2 :         double d_registrars = 0;</span>
-<span class="lineNum">    1226 </span>            : 
-<span class="lineNum">    1227 </span><span class="lineCov">          2 :         if (ret &amp;&amp; !MData[0]-&gt;GetCurrent(M2Metric_nbGtld, NULL, &amp;d_gtld)) {</span>
-<span class="lineNum">    1228 </span><span class="lineNoCov">          0 :             d_gtld = NB_GTLD;</span>
-<span class="lineNum">    1229 </span>            :         }
-<span class="lineNum">    1230 </span><span class="lineCov">          2 :         if (ret &amp;&amp; !MData[0]-&gt;GetCurrent(M2Metric_nbRegistrars, NULL, &amp;d_registrars)) {</span>
-<span class="lineNum">    1231 </span><span class="lineNoCov">          0 :             d_registrars = NB_REGISTRARS;</span>
-<span class="lineNum">    1232 </span>            :         }
-<span class="lineNum">    1233 </span>            : 
-<span class="lineNum">    1234 </span><span class="lineCov">          2 :         if (ret) {</span>
-<span class="lineNum">    1235 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;NbGtld\&quot; : %d,\n&quot;, (int)d_gtld) &gt; 0;</span>
-<span class="lineNum">    1236 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;NbRegistrars\&quot; : %d,\n&quot;, (int)d_registrars) &gt; 0;</span>
-<span class="lineNum">    1237 </span>            :         }
-<span class="lineNum">    1238 </span>            : 
-<span class="lineNum">    1239 </span>            :         /* Now, write the 3 names selected in M3, and also the 3 names from M4. */
-<span class="lineNum">    1240 </span><span class="lineCov">          2 :         if (ret) {</span>
-<span class="lineNum">    1241 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;RootNames\&quot; : [&quot;) &gt; 0;</span>
-<span class="lineNum">    1242 </span><span class="lineCov">          8 :             for (int i = 0; i &lt; 3; i++) {</span>
-<span class="lineNum">    1243 </span><span class="lineCov">          6 :                 if (i != 0) {</span>
-<span class="lineNum">    1244 </span><span class="lineCov">          4 :                     ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
-<span class="lineNum">    1245 </span>            :                 }
-<span class="lineNum">    1246 </span><span class="lineCov">          6 :                 ret &amp;= fprintf(F, &quot;\&quot;%s\&quot;&quot;, (threeRootNames[i] == NULL) ? &quot;-&quot; : threeRootNames[i]) &gt; 0;</span>
-<span class="lineNum">    1247 </span>            :             }
-<span class="lineNum">    1248 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;],\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1249 </span>            :         }
-<span class="lineNum">    1250 </span>            : 
-<span class="lineNum">    1251 </span><span class="lineCov">          2 :         if (ret) {</span>
-<span class="lineNum">    1252 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;StubNames\&quot; : [&quot;) &gt; 0;</span>
-<span class="lineNum">    1253 </span><span class="lineCov">          8 :             for (int i = 0; i &lt; 3; i++) {</span>
-<span class="lineNum">    1254 </span><span class="lineCov">          6 :                 if (i != 0) {</span>
-<span class="lineNum">    1255 </span><span class="lineCov">          4 :                     ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
-<span class="lineNum">    1256 </span>            :                 }
-<span class="lineNum">    1257 </span><span class="lineCov">          6 :                 ret &amp;= fprintf(F, &quot;\&quot;%s\&quot;&quot;, (threeRootNames[i] == NULL) ? &quot;-&quot; : threeStubNames[i]) &gt; 0;</span>
-<span class="lineNum">    1258 </span>            :             }
-<span class="lineNum">    1259 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;]\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1260 </span>            :         }
-<span class="lineNum">    1261 </span>            : 
-<span class="lineNum">    1262 </span>            :         /* Closing brackets, this is the end of the data part */
-<span class="lineNum">    1263 </span><span class="lineCov">          2 :         ret &amp;= (fprintf(F, &quot;}\n&quot;) &gt; 0);</span>
-<span class="lineNum">    1264 </span>            :     }
-<span class="lineNum">    1265 </span>            : 
-<span class="lineNum">    1266 </span>            :     /* Close the file */
-<span class="lineNum">    1267 </span><span class="lineCov">          2 :     if (F != NULL)</span>
-<span class="lineNum">    1268 </span>            :     {
-<span class="lineNum">    1269 </span><span class="lineCov">          2 :         fclose(F);</span>
-<span class="lineNum">    1270 </span>            :     }
-<span class="lineNum">    1271 </span>            : 
-<span class="lineNum">    1272 </span><span class="lineCov">          4 :     return ret;</span>
-<a name="1273"><span class="lineNum">    1273 </span>            : }</a>
-<span class="lineNum">    1274 </span>            : 
-<span class="lineNum">    1275 </span><span class="lineCov">          4 : bool ithiIndexPublisher::PickThreeNames(FILE * F, char ** threeNames, ithipublisher * mdata, char const * subMet1, char const * subMet2)</span>
-<span class="lineNum">    1276 </span>            : {
-<span class="lineNum">    1277 </span><span class="lineCov">          4 :     bool ret = true;</span>
-<span class="lineNum">    1278 </span><span class="lineCov">          8 :     std::vector&lt;MetricNameLine&gt; name_list1;</span>
-<span class="lineNum">    1279 </span><span class="lineCov">          8 :     std::vector&lt;MetricNameLine&gt; name_list2;</span>
-<span class="lineNum">    1280 </span>            : 
-<span class="lineNum">    1281 </span><span class="lineCov">          4 :     ret = mdata-&gt;GetNameList(subMet1, &amp;name_list1);</span>
-<span class="lineNum">    1282 </span><span class="lineCov">          4 :     ret &amp;= mdata-&gt;GetNameList(subMet2, &amp;name_list2);</span>
-<span class="lineNum">    1283 </span>            : 
-<span class="lineNum">    1284 </span><span class="lineCov">          4 :     if (ret) {</span>
-<span class="lineNum">    1285 </span><span class="lineCov">          4 :         int nb_published = 0;</span>
-<span class="lineNum">    1286 </span><span class="lineCov">          4 :         size_t index_1 = 0;</span>
-<span class="lineNum">    1287 </span><span class="lineCov">          4 :         size_t index_2 = 0;</span>
-<span class="lineNum">    1288 </span><span class="lineCov">          8 :         std::vector&lt;double&gt; mvec;</span>
-<span class="lineNum">    1289 </span>            : 
-<span class="lineNum">    1290 </span><span class="lineCov">         36 :         while (ret &amp;&amp; nb_published &lt; 3 &amp;&amp; (index_1 &lt; name_list1.size() || index_2 &lt; name_list2.size())){</span>
-<span class="lineNum">    1291 </span><span class="lineCov">         16 :             double frequency = 0;</span>
-<span class="lineNum">    1292 </span>            :             char const * name;
-<span class="lineNum">    1293 </span>            : 
-<span class="lineNum">    1294 </span><span class="lineCov">         16 :             if (index_1 &lt; name_list1.size()) {</span>
-<span class="lineNum">    1295 </span><span class="lineCov">         16 :                 frequency = name_list1[index_1].current;</span>
-<span class="lineNum">    1296 </span>            :             }
-<span class="lineNum">    1297 </span>            : 
-<span class="lineNum">    1298 </span><span class="lineCov">         16 :             if (index_2 &lt; name_list1.size() &amp;&amp; name_list2[index_2].current &gt; frequency) {</span>
-<span class="lineNum">    1299 </span><span class="lineCov">         12 :                 name = name_list2[index_2].name;</span>
-<span class="lineNum">    1300 </span><span class="lineCov">         12 :                 index_2++;</span>
-<span class="lineNum">    1301 </span><span class="lineCov">         12 :                 ret = mdata-&gt;GetVector(subMet2, name, &amp;mvec);</span>
-<span class="lineNum">    1302 </span>            :             }
-<span class="lineNum">    1303 </span>            :             else {
-<span class="lineNum">    1304 </span><span class="lineCov">          4 :                 name = name_list1[index_1].name;</span>
-<span class="lineNum">    1305 </span><span class="lineCov">          4 :                 index_1++;</span>
-<span class="lineNum">    1306 </span><span class="lineCov">          4 :                 ret = mdata-&gt;GetVector(subMet1, name, &amp;mvec);</span>
-<span class="lineNum">    1307 </span>            :             }
-<span class="lineNum">    1308 </span>            : 
-<span class="lineNum">    1309 </span><span class="lineCov">         16 :             if (ret &amp;&amp; DnsStats::IsValidTldSyntax((uint8_t*) name, strlen(name))) {</span>
-<span class="lineNum">    1310 </span>            :                 size_t name_len;
-<span class="lineNum">    1311 </span><span class="lineCov">         12 :                 name_len = strlen(name) + 1;</span>
-<span class="lineNum">    1312 </span><span class="lineCov">         12 :                 threeNames[nb_published] = new char[name_len];</span>
-<span class="lineNum">    1313 </span>            : 
-<span class="lineNum">    1314 </span><span class="lineCov">         12 :                 if (threeNames[nb_published] == NULL) {</span>
-<span class="lineNum">    1315 </span><span class="lineNoCov">          0 :                     ret = false;</span>
-<span class="lineNum">    1316 </span>            :                 }
-<span class="lineNum">    1317 </span>            :                 else {
-<span class="lineNum">    1318 </span><span class="lineCov">         12 :                     ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1319 </span><span class="lineCov">         12 :                     ret &amp;= mdata-&gt;PrintVector(F, &amp;mvec, 100);</span>
-<span class="lineNum">    1320 </span><span class="lineCov">         12 :                     if (ret) {</span>
-<span class="lineNum">    1321 </span><span class="lineCov">         12 :                         memcpy(threeNames[nb_published], name, name_len);</span>
-<span class="lineNum">    1322 </span><span class="lineCov">         12 :                         nb_published++;</span>
-<span class="lineNum">    1323 </span>            :                     }
-<span class="lineNum">    1324 </span>            :                     else {
-<span class="lineNum">    1325 </span><span class="lineNoCov">          0 :                         delete[] threeNames[nb_published];</span>
-<span class="lineNum">    1326 </span><span class="lineNoCov">          0 :                         threeNames[nb_published] = NULL;</span>
-<span class="lineNum">    1327 </span>            :                     }
-<span class="lineNum">    1328 </span>            :                 }
-<span class="lineNum">    1329 </span>            :             }
-<span class="lineNum">    1330 </span>            :         }
-<span class="lineNum">    1331 </span>            : 
-<span class="lineNum">    1332 </span><span class="lineCov">          4 :         if (ret &amp;&amp; nb_published &lt; 3) {</span>
-<span class="lineNum">    1333 </span><span class="lineNoCov">          0 :             for (int i = nb_published; i &lt; 3; i++) {</span>
-<span class="lineNum">    1334 </span><span class="lineNoCov">          0 :                 ret &amp;= fprintf(F, &quot;,[0, 0]\n&quot;) &gt; 0;</span>
-<span class="lineNum">    1335 </span>            :             }
-<span class="lineNum">    1336 </span>            :         }
-<span class="lineNum">    1337 </span>            :     }
-<span class="lineNum">    1338 </span>            : 
-<span class="lineNum">    1339 </span><span class="lineCov">          8 :     return ret;</span>
-<span class="lineNum">    1340 </span>            : }
-<span class="lineNum">    1341 </span>            : 
+<span class="lineNum">    1087 </span>            : 
+<span class="lineNum">    1088 </span><span class="lineCov">          8 :     for (int i = 0; i &lt; 3; i++) {</span>
+<span class="lineNum">    1089 </span><span class="lineCov">          6 :         if (threeRootNames[i] != NULL) {</span>
+<span class="lineNum">    1090 </span><span class="lineCov">          6 :             delete[] threeRootNames[i];</span>
+<span class="lineNum">    1091 </span><span class="lineCov">          6 :             threeRootNames[i] = NULL;</span>
+<span class="lineNum">    1092 </span>            :         }
+<span class="lineNum">    1093 </span>            : 
+<span class="lineNum">    1094 </span><span class="lineCov">          6 :         if (threeStubNames[i] != NULL) {</span>
+<span class="lineNum">    1095 </span><span class="lineCov">          6 :             delete[] threeStubNames[i];</span>
+<span class="lineNum">    1096 </span><span class="lineCov">          6 :             threeStubNames[i] = NULL;</span>
+<span class="lineNum">    1097 </span>            :         }
+<span class="lineNum">    1098 </span>            :     }
+<a name="1099"><span class="lineNum">    1099 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">    1100 </span>            : 
+<span class="lineNum">    1101 </span><span class="lineCov">          2 : bool ithiIndexPublisher::CollectMetricFiles()</span>
+<span class="lineNum">    1102 </span>            : {
+<span class="lineNum">    1103 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">    1104 </span>            : 
+<span class="lineNum">    1105 </span><span class="lineCov">         10 :     for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
+<span class="lineNum">    1106 </span><span class="lineCov">          8 :         MData[i] = new ithipublisher(ithi_folder, ithiIndexPublisherInputMetrics[i]);</span>
+<span class="lineNum">    1107 </span><span class="lineCov">          8 :         if (MData[i] == NULL) {</span>
+<span class="lineNum">    1108 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">    1109 </span>            :         }
+<span class="lineNum">    1110 </span>            :     }
+<span class="lineNum">    1111 </span>            : 
+<span class="lineNum">    1112 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">    1113 </span><span class="lineCov">         10 :         for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
+<span class="lineNum">    1114 </span><span class="lineCov">          8 :             ret = MData[i]-&gt;CollectMetricFiles();</span>
+<span class="lineNum">    1115 </span>            :         }
+<span class="lineNum">    1116 </span>            :     }
+<span class="lineNum">    1117 </span>            : 
+<span class="lineNum">    1118 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="1119"><span class="lineNum">    1119 </span>            : }</a>
+<span class="lineNum">    1120 </span>            : 
+<span class="lineNum">    1121 </span><span class="lineCov">          2 : bool ithiIndexPublisher::Publish(char const * web_folder)</span>
+<span class="lineNum">    1122 </span>            : {
+<span class="lineNum">    1123 </span><span class="lineCov">          4 :     std::vector&lt;double&gt; mvec;</span>
+<span class="lineNum">    1124 </span>            :     /* Find the date */
+<span class="lineNum">    1125 </span><span class="lineCov">          2 :     int year = 0;</span>
+<span class="lineNum">    1126 </span><span class="lineCov">          2 :     int month = 0;</span>
+<span class="lineNum">    1127 </span><span class="lineCov">         10 :     for (int i = 0; i &lt; 4; i++) {</span>
+<span class="lineNum">    1128 </span><span class="lineCov">         14 :         if (MData[i]-&gt;last_year &gt; year ||</span>
+<span class="lineNum">    1129 </span><span class="lineCov">         12 :             (MData[i]-&gt;last_year == year &amp;&amp;</span>
+<span class="lineNum">    1130 </span><span class="lineCov">          6 :                 MData[i]-&gt;last_month &gt; month)) {</span>
+<span class="lineNum">    1131 </span><span class="lineCov">          2 :             year = MData[i]-&gt;last_year;</span>
+<span class="lineNum">    1132 </span><span class="lineCov">          2 :             month = MData[i]-&gt;last_month;</span>
+<span class="lineNum">    1133 </span>            :         }
+<span class="lineNum">    1134 </span>            :     }
+<span class="lineNum">    1135 </span>            : 
+<span class="lineNum">    1136 </span>            :     /* Create file name for the metric */
+<span class="lineNum">    1137 </span><span class="lineCov">          2 :     FILE * F = NULL;</span>
+<span class="lineNum">    1138 </span>            :     char file_name[512];
+<span class="lineNum">    1139 </span><span class="lineCov">          2 :     bool ret = snprintf(file_name, sizeof(file_name), &quot;%s%sIndexData.txt&quot;,</span>
+<span class="lineNum">    1140 </span><span class="lineCov">          2 :         web_folder, ITHI_FILE_PATH_SEP) &gt; 0;</span>
+<span class="lineNum">    1141 </span>            : 
+<span class="lineNum">    1142 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">    1143 </span>            :     {
+<span class="lineNum">    1144 </span>            :         /* Create the file */
+<span class="lineNum">    1145 </span><span class="lineCov">          2 :         F = ithi_file_open(file_name, &quot;w&quot;);</span>
+<span class="lineNum">    1146 </span><span class="lineCov">          2 :         ret = (F != NULL);</span>
+<span class="lineNum">    1147 </span>            :     }
+<span class="lineNum">    1148 </span>            : 
+<span class="lineNum">    1149 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">    1150 </span>            :     {
+<span class="lineNum">    1151 </span>            :         /* Opening braces and date */
+<span class="lineNum">    1152 </span><span class="lineCov">          2 :         ret = fprintf(F, &quot;{\n\&quot;date\&quot; : \&quot;%04d/%02d\&quot;,\n&quot;, year, month) &gt; 0;</span>
+<span class="lineNum">    1153 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;year\&quot; : %d,\n&quot;, year) &gt; 0;</span>
+<span class="lineNum">    1154 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;month\&quot; : %d,\n&quot;, month) &gt; 0;</span>
+<span class="lineNum">    1155 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;\&quot;mDate\&quot; : [&quot;) &gt; 0;</span>
+<span class="lineNum">    1156 </span><span class="lineCov">         10 :         for (int i = 0; ret &amp;&amp; i &lt; 4; i++) {</span>
+<span class="lineNum">    1157 </span><span class="lineCov">          8 :             if (i != 0) {</span>
+<span class="lineNum">    1158 </span><span class="lineCov">          6 :                 ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
+<span class="lineNum">    1159 </span>            :             }
+<span class="lineNum">    1160 </span><span class="lineCov">          8 :             ret &amp;= fprintf(F, &quot;[%d, %d]&quot;, MData[i]-&gt;last_year, MData[i]-&gt;last_month) &gt; 0;</span>
+<span class="lineNum">    1161 </span>            :         }
+<span class="lineNum">    1162 </span><span class="lineCov">          2 :         ret &amp;= fprintf(F, &quot;],\n\&quot;mData\&quot; : [&quot;) &gt; 0;</span>
+<span class="lineNum">    1163 </span>            : 
+<span class="lineNum">    1164 </span>            :         /* First line: Metric M3.1 */
+<span class="lineNum">    1165 </span><span class="lineCov">          2 :         if (ret)</span>
+<span class="lineNum">    1166 </span>            :         {
+<span class="lineNum">    1167 </span><span class="lineCov">          2 :             ret = MData[1]-&gt;GetVector(&quot;M3.1&quot;, NULL, &amp;mvec);</span>
+<span class="lineNum">    1168 </span><span class="lineCov">          2 :             if (ret) {</span>
+<span class="lineNum">    1169 </span><span class="lineCov">          2 :                 ret = MData[1]-&gt;PrintVector(F, &amp;mvec, 100.0);</span>
+<span class="lineNum">    1170 </span>            :             }
+<span class="lineNum">    1171 </span>            :         }
+<span class="lineNum">    1172 </span>            :         /* Second line: Metric M5.4.2 */
+<span class="lineNum">    1173 </span><span class="lineCov">          2 :         if (ret)</span>
+<span class="lineNum">    1174 </span>            :         {
+<span class="lineNum">    1175 </span><span class="lineCov">          2 :             ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1176 </span><span class="lineCov">          2 :             ret &amp;= MData[3]-&gt;GetVector(&quot;M5.4.2&quot;, NULL, &amp;mvec);</span>
+<span class="lineNum">    1177 </span><span class="lineCov">          2 :             if (ret) {</span>
+<span class="lineNum">    1178 </span><span class="lineCov">          2 :                 ret = MData[3]-&gt;PrintVector(F, &amp;mvec, 1.0);</span>
+<span class="lineNum">    1179 </span>            :             }
+<span class="lineNum">    1180 </span>            :         }
+<span class="lineNum">    1181 </span>            :         /* Next lines: first three names from metric M3. This is interesting,
+<span class="lineNum">    1182 </span>            :          * because we need to pick the largest used from reserved and frequent names */
+<span class="lineNum">    1183 </span><span class="lineCov">          2 :         if (ret) {</span>
+<span class="lineNum">    1184 </span><span class="lineCov">          2 :             ret = PickThreeNames(F, threeRootNames, MData[1], &quot;M3.3.1&quot;, &quot;M3.3.2&quot;);</span>
+<span class="lineNum">    1185 </span>            :         }
+<span class="lineNum">    1186 </span>            : 
+<span class="lineNum">    1187 </span>            :          /* Next lines: first three names from metric M4. This is interesting,
+<span class="lineNum">    1188 </span>            :           * because we need to pick the largest used from reserved and frequent names */
+<span class="lineNum">    1189 </span>            : 
+<span class="lineNum">    1190 </span><span class="lineCov">          2 :         if (ret) {</span>
+<span class="lineNum">    1191 </span><span class="lineCov">          2 :             ret = PickThreeNames(F, threeStubNames, MData[2], &quot;M4.2&quot;, &quot;M4.3&quot;);</span>
+<span class="lineNum">    1192 </span>            :         }
+<span class="lineNum">    1193 </span>            : 
+<span class="lineNum">    1194 </span>            :         /* Then a set of submetrics for M56 */
+<span class="lineNum">    1195 </span>            :         char const* M56Metrics[2] = {
+<span class="lineNum">    1196 </span><span class="lineCov">          2 :             &quot;M5.6.1&quot;, &quot;M5.6.2&quot; };</span>
+<span class="lineNum">    1197 </span>            : 
+<span class="lineNum">    1198 </span><span class="lineCov">          6 :         for (int i = 0; ret &amp;&amp; i &lt; 2; i++) {</span>
+<span class="lineNum">    1199 </span><span class="lineCov">          4 :             ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1200 </span><span class="lineCov">          4 :             ret &amp;= MData[3]-&gt;GetVector(M56Metrics[i], NULL, &amp;mvec);</span>
+<span class="lineNum">    1201 </span><span class="lineCov">          4 :             if (ret) {</span>
+<span class="lineNum">    1202 </span><span class="lineCov">          4 :                 ret = MData[3]-&gt;PrintVector(F, &amp;mvec, 1.0);</span>
+<span class="lineNum">    1203 </span>            :             }
+<span class="lineNum">    1204 </span>            :         }
+<span class="lineNum">    1205 </span>            : 
+<span class="lineNum">    1206 </span>            :         /* Then a set of submetrics from M2 */
+<span class="lineNum">    1207 </span>            :         char const * M2Metrics[12] = { 
+<span class="lineNum">    1208 </span>            :             &quot;M2.2.1.1&quot;, &quot;M2.2.2.1&quot;, &quot;M2.2.3.1&quot;, &quot;M2.2.4.1&quot;,
+<span class="lineNum">    1209 </span>            :             &quot;M2.1.1.2&quot;, &quot;M2.1.2.2&quot;, &quot;M2.1.3.2&quot;, &quot;M2.1.4.2&quot;,
+<span class="lineNum">    1210 </span><span class="lineCov">          2 :             &quot;M2.1.1.3&quot;, &quot;M2.1.2.3&quot;, &quot;M2.1.3.3&quot;, &quot;M2.1.4.3&quot; };</span>
+<span class="lineNum">    1211 </span>            : 
+<span class="lineNum">    1212 </span><span class="lineCov">         26 :         for (int i = 0; ret &amp;&amp; i &lt; 12; i++) {</span>
+<span class="lineNum">    1213 </span><span class="lineCov">         24 :             ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1214 </span><span class="lineCov">         24 :             ret &amp;= MData[0]-&gt;GetVector(M2Metrics[i], NULL, &amp;mvec);</span>
+<span class="lineNum">    1215 </span><span class="lineCov">         24 :             if (ret) {</span>
+<span class="lineNum">    1216 </span><span class="lineCov">         24 :                 ret = MData[0]-&gt;PrintVector(F, &amp;mvec, 1.0);</span>
+<span class="lineNum">    1217 </span>            :             }
+<span class="lineNum">    1218 </span>            :         }
+<span class="lineNum">    1219 </span>            :         
+<span class="lineNum">    1220 </span>            :         /* Closing brackets, this is the end of the data part */
+<span class="lineNum">    1221 </span><span class="lineCov">          2 :         ret &amp;= (fprintf(F, &quot;],\n&quot;) &gt; 0);</span>
+<span class="lineNum">    1222 </span>            : 
+<span class="lineNum">    1223 </span><span class="lineCov">          2 :         char const * M2Metric_nbGtld = &quot;M2.1.5&quot;;</span>
+<span class="lineNum">    1224 </span><span class="lineCov">          2 :         char const * M2Metric_nbRegistrars = &quot;M2.2.5&quot;;</span>
+<span class="lineNum">    1225 </span><span class="lineCov">          2 :         double d_gtld = 0;</span>
+<span class="lineNum">    1226 </span><span class="lineCov">          2 :         double d_registrars = 0;</span>
+<span class="lineNum">    1227 </span>            : 
+<span class="lineNum">    1228 </span><span class="lineCov">          2 :         if (ret &amp;&amp; !MData[0]-&gt;GetCurrent(M2Metric_nbGtld, NULL, &amp;d_gtld)) {</span>
+<span class="lineNum">    1229 </span><span class="lineNoCov">          0 :             d_gtld = NB_GTLD;</span>
+<span class="lineNum">    1230 </span>            :         }
+<span class="lineNum">    1231 </span><span class="lineCov">          2 :         if (ret &amp;&amp; !MData[0]-&gt;GetCurrent(M2Metric_nbRegistrars, NULL, &amp;d_registrars)) {</span>
+<span class="lineNum">    1232 </span><span class="lineNoCov">          0 :             d_registrars = NB_REGISTRARS;</span>
+<span class="lineNum">    1233 </span>            :         }
+<span class="lineNum">    1234 </span>            : 
+<span class="lineNum">    1235 </span><span class="lineCov">          2 :         if (ret) {</span>
+<span class="lineNum">    1236 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;NbGtld\&quot; : %d,\n&quot;, (int)d_gtld) &gt; 0;</span>
+<span class="lineNum">    1237 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;NbRegistrars\&quot; : %d,\n&quot;, (int)d_registrars) &gt; 0;</span>
+<span class="lineNum">    1238 </span>            :         }
+<span class="lineNum">    1239 </span>            : 
+<span class="lineNum">    1240 </span>            :         /* Now, write the 3 names selected in M3, and also the 3 names from M4. */
+<span class="lineNum">    1241 </span><span class="lineCov">          2 :         if (ret) {</span>
+<span class="lineNum">    1242 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;RootNames\&quot; : [&quot;) &gt; 0;</span>
+<span class="lineNum">    1243 </span><span class="lineCov">          8 :             for (int i = 0; i &lt; 3; i++) {</span>
+<span class="lineNum">    1244 </span><span class="lineCov">          6 :                 if (i != 0) {</span>
+<span class="lineNum">    1245 </span><span class="lineCov">          4 :                     ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
+<span class="lineNum">    1246 </span>            :                 }
+<span class="lineNum">    1247 </span><span class="lineCov">          6 :                 ret &amp;= fprintf(F, &quot;\&quot;%s\&quot;&quot;, (threeRootNames[i] == NULL) ? &quot;-&quot; : threeRootNames[i]) &gt; 0;</span>
+<span class="lineNum">    1248 </span>            :             }
+<span class="lineNum">    1249 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;],\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1250 </span>            :         }
+<span class="lineNum">    1251 </span>            : 
+<span class="lineNum">    1252 </span><span class="lineCov">          2 :         if (ret) {</span>
+<span class="lineNum">    1253 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;\&quot;StubNames\&quot; : [&quot;) &gt; 0;</span>
+<span class="lineNum">    1254 </span><span class="lineCov">          8 :             for (int i = 0; i &lt; 3; i++) {</span>
+<span class="lineNum">    1255 </span><span class="lineCov">          6 :                 if (i != 0) {</span>
+<span class="lineNum">    1256 </span><span class="lineCov">          4 :                     ret &amp;= fprintf(F, &quot;, &quot;) &gt; 0;</span>
+<span class="lineNum">    1257 </span>            :                 }
+<span class="lineNum">    1258 </span><span class="lineCov">          6 :                 ret &amp;= fprintf(F, &quot;\&quot;%s\&quot;&quot;, (threeRootNames[i] == NULL) ? &quot;-&quot; : threeStubNames[i]) &gt; 0;</span>
+<span class="lineNum">    1259 </span>            :             }
+<span class="lineNum">    1260 </span><span class="lineCov">          2 :             ret &amp;= fprintf(F, &quot;]\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1261 </span>            :         }
+<span class="lineNum">    1262 </span>            : 
+<span class="lineNum">    1263 </span>            :         /* Closing brackets, this is the end of the data part */
+<span class="lineNum">    1264 </span><span class="lineCov">          2 :         ret &amp;= (fprintf(F, &quot;}\n&quot;) &gt; 0);</span>
+<span class="lineNum">    1265 </span>            :     }
+<span class="lineNum">    1266 </span>            : 
+<span class="lineNum">    1267 </span>            :     /* Close the file */
+<span class="lineNum">    1268 </span><span class="lineCov">          2 :     if (F != NULL)</span>
+<span class="lineNum">    1269 </span>            :     {
+<span class="lineNum">    1270 </span><span class="lineCov">          2 :         fclose(F);</span>
+<span class="lineNum">    1271 </span>            :     }
+<span class="lineNum">    1272 </span>            : 
+<span class="lineNum">    1273 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="1274"><span class="lineNum">    1274 </span>            : }</a>
+<span class="lineNum">    1275 </span>            : 
+<span class="lineNum">    1276 </span><span class="lineCov">          4 : bool ithiIndexPublisher::PickThreeNames(FILE * F, char ** threeNames, ithipublisher * mdata, char const * subMet1, char const * subMet2)</span>
+<span class="lineNum">    1277 </span>            : {
+<span class="lineNum">    1278 </span><span class="lineCov">          4 :     bool ret = true;</span>
+<span class="lineNum">    1279 </span><span class="lineCov">          8 :     std::vector&lt;MetricNameLine&gt; name_list1;</span>
+<span class="lineNum">    1280 </span><span class="lineCov">          8 :     std::vector&lt;MetricNameLine&gt; name_list2;</span>
+<span class="lineNum">    1281 </span>            : 
+<span class="lineNum">    1282 </span><span class="lineCov">          4 :     ret = mdata-&gt;GetNameList(subMet1, &amp;name_list1);</span>
+<span class="lineNum">    1283 </span><span class="lineCov">          4 :     ret &amp;= mdata-&gt;GetNameList(subMet2, &amp;name_list2);</span>
+<span class="lineNum">    1284 </span>            : 
+<span class="lineNum">    1285 </span><span class="lineCov">          4 :     if (ret) {</span>
+<span class="lineNum">    1286 </span><span class="lineCov">          4 :         int nb_published = 0;</span>
+<span class="lineNum">    1287 </span><span class="lineCov">          4 :         size_t index_1 = 0;</span>
+<span class="lineNum">    1288 </span><span class="lineCov">          4 :         size_t index_2 = 0;</span>
+<span class="lineNum">    1289 </span><span class="lineCov">          8 :         std::vector&lt;double&gt; mvec;</span>
+<span class="lineNum">    1290 </span>            : 
+<span class="lineNum">    1291 </span><span class="lineCov">         36 :         while (ret &amp;&amp; nb_published &lt; 3 &amp;&amp; (index_1 &lt; name_list1.size() || index_2 &lt; name_list2.size())){</span>
+<span class="lineNum">    1292 </span><span class="lineCov">         16 :             double frequency = 0;</span>
+<span class="lineNum">    1293 </span>            :             char const * name;
+<span class="lineNum">    1294 </span>            : 
+<span class="lineNum">    1295 </span><span class="lineCov">         16 :             if (index_1 &lt; name_list1.size()) {</span>
+<span class="lineNum">    1296 </span><span class="lineCov">         16 :                 frequency = name_list1[index_1].current;</span>
+<span class="lineNum">    1297 </span>            :             }
+<span class="lineNum">    1298 </span>            : 
+<span class="lineNum">    1299 </span><span class="lineCov">         16 :             if (index_2 &lt; name_list1.size() &amp;&amp; name_list2[index_2].current &gt; frequency) {</span>
+<span class="lineNum">    1300 </span><span class="lineCov">         12 :                 name = name_list2[index_2].name;</span>
+<span class="lineNum">    1301 </span><span class="lineCov">         12 :                 index_2++;</span>
+<span class="lineNum">    1302 </span><span class="lineCov">         12 :                 ret = mdata-&gt;GetVector(subMet2, name, &amp;mvec);</span>
+<span class="lineNum">    1303 </span>            :             }
+<span class="lineNum">    1304 </span>            :             else {
+<span class="lineNum">    1305 </span><span class="lineCov">          4 :                 name = name_list1[index_1].name;</span>
+<span class="lineNum">    1306 </span><span class="lineCov">          4 :                 index_1++;</span>
+<span class="lineNum">    1307 </span><span class="lineCov">          4 :                 ret = mdata-&gt;GetVector(subMet1, name, &amp;mvec);</span>
+<span class="lineNum">    1308 </span>            :             }
+<span class="lineNum">    1309 </span>            : 
+<span class="lineNum">    1310 </span><span class="lineCov">         16 :             if (ret &amp;&amp; DnsStats::IsValidTldSyntax((uint8_t*) name, strlen(name))) {</span>
+<span class="lineNum">    1311 </span>            :                 size_t name_len;
+<span class="lineNum">    1312 </span><span class="lineCov">         12 :                 name_len = strlen(name) + 1;</span>
+<span class="lineNum">    1313 </span><span class="lineCov">         12 :                 threeNames[nb_published] = new char[name_len];</span>
+<span class="lineNum">    1314 </span>            : 
+<span class="lineNum">    1315 </span><span class="lineCov">         12 :                 if (threeNames[nb_published] == NULL) {</span>
+<span class="lineNum">    1316 </span><span class="lineNoCov">          0 :                     ret = false;</span>
+<span class="lineNum">    1317 </span>            :                 }
+<span class="lineNum">    1318 </span>            :                 else {
+<span class="lineNum">    1319 </span><span class="lineCov">         12 :                     ret = fprintf(F, &quot;,\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1320 </span><span class="lineCov">         12 :                     ret &amp;= mdata-&gt;PrintVector(F, &amp;mvec, 100);</span>
+<span class="lineNum">    1321 </span><span class="lineCov">         12 :                     if (ret) {</span>
+<span class="lineNum">    1322 </span><span class="lineCov">         12 :                         memcpy(threeNames[nb_published], name, name_len);</span>
+<span class="lineNum">    1323 </span><span class="lineCov">         12 :                         nb_published++;</span>
+<span class="lineNum">    1324 </span>            :                     }
+<span class="lineNum">    1325 </span>            :                     else {
+<span class="lineNum">    1326 </span><span class="lineNoCov">          0 :                         delete[] threeNames[nb_published];</span>
+<span class="lineNum">    1327 </span><span class="lineNoCov">          0 :                         threeNames[nb_published] = NULL;</span>
+<span class="lineNum">    1328 </span>            :                     }
+<span class="lineNum">    1329 </span>            :                 }
+<span class="lineNum">    1330 </span>            :             }
+<span class="lineNum">    1331 </span>            :         }
+<span class="lineNum">    1332 </span>            : 
+<span class="lineNum">    1333 </span><span class="lineCov">          4 :         if (ret &amp;&amp; nb_published &lt; 3) {</span>
+<span class="lineNum">    1334 </span><span class="lineNoCov">          0 :             for (int i = nb_published; i &lt; 3; i++) {</span>
+<span class="lineNum">    1335 </span><span class="lineNoCov">          0 :                 ret &amp;= fprintf(F, &quot;,[0, 0]\n&quot;) &gt; 0;</span>
+<span class="lineNum">    1336 </span>            :             }
+<span class="lineNum">    1337 </span>            :         }
+<span class="lineNum">    1338 </span>            :     }
+<span class="lineNum">    1339 </span>            : 
+<span class="lineNum">    1340 </span><span class="lineCov">          8 :     return ret;</span>
+<span class="lineNum">    1341 </span>            : }
+<span class="lineNum">    1342 </span>            : 
 </pre>
       </td>
     </tr>
