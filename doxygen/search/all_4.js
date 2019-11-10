@@ -152,6 +152,6 @@ var searchData=
   ['dump_5fqr_5fsig',['dump_qr_sig',['../classcdns.html#a252d73b5f71ca87417648da4926c27b6',1,'cdns']]],
   ['dump_5fqr_5fsigs',['dump_qr_sigs',['../classcdns.html#a84ed1064cde7aa95ab6f7d3cc0eeb74e',1,'cdns']]],
   ['dump_5fqueries',['dump_queries',['../classcdns.html#acf02dcff26574a334360e25ff470a0f1',1,'cdns']]],
-  ['dump_5fquery',['dump_query',['../classcdns.html#a0edca94e80b2e6050425a26e33ee3d70',1,'cdns']]],
+  ['dump_5fquery',['dump_query',['../classcdns.html#a4bf6e05b2e3a0fc317fd189eba7671e6',1,'cdns']]],
   ['duration_5fusec',['duration_usec',['../class_dns_stats.html#abc24d928ba42f756729a3f832d384a6c',1,'DnsStats']]]
 ];

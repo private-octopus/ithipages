@@ -19,6 +19,7 @@ var searchData=
   ['_7ecdns_5fquery',['~cdns_query',['../classcdns__query.html#afa8da5b79b589d06bda1327c4a969f23',1,'cdns_query']]],
   ['_7ecdns_5fquery_5fsignature',['~cdns_query_signature',['../classcdns__query__signature.html#ad90380cb9707b505fce73bda495045bd',1,'cdns_query_signature']]],
   ['_7ecdns_5fquestion',['~cdns_question',['../classcdns__question.html#aaa100d4f8bc28f5d082f459c78f93e82',1,'cdns_question']]],
+  ['_7ecdns_5fquestion_5flist',['~cdns_question_list',['../classcdns__question__list.html#ac7b52f6dc39c53369153fdcfc095ee7b',1,'cdns_question_list']]],
   ['_7ecdns_5frr_5ffield',['~cdns_rr_field',['../classcdns__rr__field.html#a6c924b7ddbd3bbee7d10f45082ce72e0',1,'cdns_rr_field']]],
   ['_7ecdns_5frr_5flist',['~cdns_rr_list',['../classcdns__rr__list.html#a9a880a07398c7af476528f7e6b62e9be',1,'cdns_rr_list']]],
   ['_7ecdnsblock',['~cdnsBlock',['../classcdns_block.html#a6df06f4654da47376bea98cccdc1d1a0',1,'cdnsBlock']]],

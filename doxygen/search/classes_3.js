@@ -16,6 +16,7 @@ var searchData=
   ['cdns_5fquery',['cdns_query',['../classcdns__query.html',1,'']]],
   ['cdns_5fquery_5fsignature',['cdns_query_signature',['../classcdns__query__signature.html',1,'']]],
   ['cdns_5fquestion',['cdns_question',['../classcdns__question.html',1,'']]],
+  ['cdns_5fquestion_5flist',['cdns_question_list',['../classcdns__question__list.html',1,'']]],
   ['cdns_5frr_5ffield',['cdns_rr_field',['../classcdns__rr__field.html',1,'']]],
   ['cdns_5frr_5flist',['cdns_rr_list',['../classcdns__rr__list.html',1,'']]],
   ['cdnsblock',['cdnsBlock',['../classcdns_block.html',1,'']]],

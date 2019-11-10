@@ -104,6 +104,7 @@ var searchData=
   ['cdns_5fquery',['cdns_query',['../classcdns__query.html',1,'cdns_query'],['../classcdns__query.html#a8b9f607882e0ce417c659560e74b3f5d',1,'cdns_query::cdns_query()']]],
   ['cdns_5fquery_5fsignature',['cdns_query_signature',['../classcdns__query__signature.html',1,'cdns_query_signature'],['../classcdns__query__signature.html#a97d16daaaf370af1c0e2fd4a00b61d49',1,'cdns_query_signature::cdns_query_signature()']]],
   ['cdns_5fquestion',['cdns_question',['../classcdns__question.html',1,'cdns_question'],['../classcdns__question.html#ae7c84d71ff1fb212a521df68901d6770',1,'cdns_question::cdns_question()']]],
+  ['cdns_5fquestion_5flist',['cdns_question_list',['../classcdns__question__list.html',1,'cdns_question_list'],['../classcdns__question__list.html#a502c1ee778f9688c61a855063ab314f6',1,'cdns_question_list::cdns_question_list()']]],
   ['cdns_5frr_5ffield',['cdns_rr_field',['../classcdns__rr__field.html',1,'cdns_rr_field'],['../classcdns__rr__field.html#a687aebe4d6025268560728235c9023d5',1,'cdns_rr_field::cdns_rr_field()']]],
   ['cdns_5frr_5flist',['cdns_rr_list',['../classcdns__rr__list.html',1,'cdns_rr_list'],['../classcdns__rr__list.html#a0ed8cbaecd40766926edfbf5ce976936',1,'cdns_rr_list::cdns_rr_list()']]],
   ['cdnsblock',['cdnsBlock',['../classcdns_block.html',1,'cdnsBlock'],['../classcdns_block.html#ab6a7f28a0abbde268b1527be32bea6ea',1,'cdnsBlock::cdnsBlock()']]],
