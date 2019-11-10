@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - lib/cbor.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - cbor.h<span style="font-size: 80%;"> (source / <a href="cbor.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">50</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-11-10 02:02:53</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">33</td>
+            <td class="headerCovTableEntryLo">0.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2019, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #ifndef CBOR_H
+<span class="lineNum">      23 </span>            : #define CBOR_H
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #include &lt;vector&gt;
+<span class="lineNum">      26 </span>            : 
+<span class="lineNum">      27 </span>            : #define CBOR_CLASS(x) (((x)&gt;&gt;5)&amp;7)
+<span class="lineNum">      28 </span>            : #define CBOR_T_UINT 0
+<span class="lineNum">      29 </span>            : #define CBOR_T_NINT 1
+<span class="lineNum">      30 </span>            : #define CBOR_T_BYTES 2
+<span class="lineNum">      31 </span>            : #define CBOR_T_TEXT 3
+<span class="lineNum">      32 </span>            : #define CBOR_T_ARRAY 4
+<span class="lineNum">      33 </span>            : #define CBOR_T_MAP 5
+<span class="lineNum">      34 </span>            : #define CBOR_T_TAGGED 6
+<span class="lineNum">      35 </span>            : #define CBOR_T_FLOAT 7
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : #define CBOR_END_OF_ARRAY -1
+<span class="lineNum">      38 </span>            : #define CBOR_ILLEGAL_VALUE -2
+<span class="lineNum">      39 </span>            : #define CBOR_MALFORMED_VALUE -3
+<span class="lineNum">      40 </span>            : #define CBOR_NOT_IMPLEMENTED -4
+<span class="lineNum">      41 </span>            : #define CBOR_UNEXPECTED -5
+<span class="lineNum">      42 </span>            : #define CBOR_MEMORY -6
+<span class="lineNum">      43 </span>            : 
+<span class="lineNum">      44 </span>            : #define CBOR_END_MARK 0xff
+<span class="lineNum">      45 </span>            : 
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : uint8_t* cbor_get_number(uint8_t* in, uint8_t const* in_max, int64_t* val);
+<span class="lineNum">      48 </span>            : char* cbor_print_int(char* out, char const* out_max, int64_t val, int is_negative);
+<span class="lineNum">      49 </span>            : char* cbor_print_text_part(char* out, char const* out_max, uint8_t* in, int64_t val);
+<span class="lineNum">      50 </span>            : char* cbor_print_bytes_part(char* out, char const* out_max, uint8_t* in, int64_t val);
+<span class="lineNum">      51 </span>            : uint8_t* cbor_text_to_text(uint8_t* in, uint8_t const* in_max, char** p_out, char const* out_max, int64_t val, int* err);
+<span class="lineNum">      52 </span>            : uint8_t* cbor_bytes_to_text(uint8_t* in, uint8_t const* in_max, char** p_out, char const* out_max, int64_t val, int* err);
+<span class="lineNum">      53 </span>            : uint8_t* cbor_float_to_text(uint8_t* in, uint8_t const* in_max, char** p_out, char const* out_max, int64_t val, int* err);
+<span class="lineNum">      54 </span>            : uint8_t* cbor_array_to_text(uint8_t* in, uint8_t const* in_max, char** p_out, char const* out_max, int64_t val, int is_map, int* err);
+<span class="lineNum">      55 </span>            : uint8_t* cbor_to_text(uint8_t* in, uint8_t const* in_max, char** p_out, char const* out_max, int* err);
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span>            : uint8_t* cbor_skip(uint8_t* in, uint8_t const* in_max, int* err);
+<span class="lineNum">      58 </span>            : 
+<span class="lineNum">      59 </span>            : uint8_t* cbor_parse_int(uint8_t* in, uint8_t const* in_max, int* v, int is_signed, int* err);
+<span class="lineNum">      60 </span>            : uint8_t* cbor_parse_int64(uint8_t* in, uint8_t const* in_max, int64_t* v, int is_signed, int* err);
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span>            : class cbor_bytes {
+<span class="lineNum">      63 </span>            : public:
+<span class="lineNum">      64 </span>            :     cbor_bytes();
+<span class="lineNum">      65 </span>            :     cbor_bytes(const cbor_bytes &amp;other);
+<span class="lineNum">      66 </span>            :     ~cbor_bytes();
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            :     uint8_t* parse(uint8_t* in, uint8_t const* in_max, int* err);
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            :     uint8_t* v;
+<span class="lineNum">      71 </span>            :     size_t l;
+<a name="72"><span class="lineNum">      72 </span>            : };</a>
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span><span class="lineNoCov">          0 : template &lt;class ParsedClass&gt; uint8_t* cbor_object_parse(uint8_t* in, uint8_t const* in_max, ParsedClass* v, int* err)</span>
+<span class="lineNum">      75 </span>            : {
+<span class="lineNum">      76 </span><span class="lineNoCov">          0 :     in = v-&gt;parse(in, in_max, err);</span>
+<span class="lineNum">      77 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">      78 </span>            : }
+<span class="lineNum">      79 </span>            : 
+<span class="lineNum">      80 </span>            : uint8_t* cbor_object_parse(uint8_t* in, uint8_t const* in_max, int* v, int* err);
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span>            : /* cbor_array_parse:
+<span class="lineNum">      83 </span>            :    Parse a CBOR input into an array of InnerType.
+<span class="lineNum">      84 </span>            :    This construct assumes that the Inner Class is copy insertable, i.e. has copy constructor,
+<span class="lineNum">      85 </span>            :    and that it can be parsed using cbor_objest_parse.
+<span class="lineNum">      86 </span>            :    If the generic cbor_object_parse&lt;InnerClass&gt; does not work, the implementation
+<span class="lineNum">      87 </span>            :    must supply a specific function, as in the integer example above.
+<a name="88"><span class="lineNum">      88 </span>            :    */</a>
+<span class="lineNum">      89 </span>            : template &lt;class InnerClass&gt;
+<span class="lineNum">      90 </span><span class="lineNoCov">          0 : uint8_t* cbor_array_parse(uint8_t* in, uint8_t const* in_max, std::vector&lt;InnerClass&gt; * v, int* err)</span>
+<span class="lineNum">      91 </span>            : {
+<span class="lineNum">      92 </span>            :     int64_t val;
+<span class="lineNum">      93 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">      94 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_ARRAY) {</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">     101 </span>            :     }
+<span class="lineNum">     102 </span>            :     else {
+<span class="lineNum">     103 </span><span class="lineNoCov">          0 :         int rank = 0;</span>
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     105 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">     107 </span>            :         }
+<span class="lineNum">     108 </span>            :         
+<span class="lineNum">     109 </span><span class="lineNoCov">          0 :         while (rank &lt; val &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">     110 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">     111 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">     112 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">     113 </span>            :                 }
+<span class="lineNum">     114 </span>            :                 else {
+<span class="lineNum">     115 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     116 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     117 </span>            :                 }
+<span class="lineNum">     118 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     119 </span>            :             }
+<span class="lineNum">     120 </span>            :             else {
+<span class="lineNum">     121 </span><span class="lineNoCov">          0 :                 v-&gt;resize((size_t)rank + 1);</span>
+<span class="lineNum">     122 </span><span class="lineNoCov">          0 :                 in = cbor_object_parse(in, in_max, &amp;(*v)[rank], err);</span>
+<span class="lineNum">     123 </span><span class="lineNoCov">          0 :                 rank++;</span>
+<span class="lineNum">     124 </span>            :             }
+<span class="lineNum">     125 </span>            :         }
+<span class="lineNum">     126 </span>            :     }
+<span class="lineNum">     127 </span>            : 
+<span class="lineNum">     128 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">     129 </span>            : }
+<span class="lineNum">     130 </span>            : 
+<span class="lineNum">     131 </span>            : /* cbor_map_parse: 
+<span class="lineNum">     132 </span>            :    Parse a CBOR input into a map element, in which each index is an integer.
+<span class="lineNum">     133 </span>            :    This construct assumes that the InnerClass has a method:
+<span class="lineNum">     134 </span>            :    uint8_t * parse_map_item(uint8_t *in, uint8_t const* in_max, int64_t index, int * err);
+<span class="lineNum">     135 </span>            :    The method is called for each index that is present, and shall parse the
+<span class="lineNum">     136 </span>            :    corresponding index.
+<a name="137"><span class="lineNum">     137 </span>            : */</a>
+<span class="lineNum">     138 </span>            : template &lt;class InnerClass&gt;
+<span class="lineNum">     139 </span><span class="lineNoCov">          0 : uint8_t* cbor_map_parse(uint8_t* in, uint8_t const* in_max, InnerClass * v, int* err)</span>
+<span class="lineNum">     140 </span>            : {
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     143 </span>            :     int64_t val;
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :     int is_undef = 0;</span>
+<span class="lineNum">     145 </span>            : 
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_MAP) {</span>
+<span class="lineNum">     149 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     150 </span><span class="lineNoCov">          0 :         in = NULL;</span>
+<span class="lineNum">     151 </span>            :     }
+<span class="lineNum">     152 </span>            :     else {
+<span class="lineNum">     153 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     154 </span><span class="lineNoCov">          0 :             is_undef = 1;</span>
+<span class="lineNum">     155 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
+<span class="lineNum">     156 </span>            :         }
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span><span class="lineNoCov">          0 :         while (val &gt; 0 &amp;&amp; in != NULL &amp;&amp; in &lt; in_max) {</span>
+<span class="lineNum">     159 </span><span class="lineNoCov">          0 :             if (*in == 0xff) {</span>
+<span class="lineNum">     160 </span><span class="lineNoCov">          0 :                 if (is_undef) {</span>
+<span class="lineNum">     161 </span><span class="lineNoCov">          0 :                     in++;</span>
+<span class="lineNum">     162 </span>            :                 }
+<span class="lineNum">     163 </span>            :                 else {
+<span class="lineNum">     164 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     165 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     166 </span>            :                 }
+<span class="lineNum">     167 </span><span class="lineNoCov">          0 :                 break;</span>
+<span class="lineNum">     168 </span>            :             }
+<span class="lineNum">     169 </span>            :             else {
+<span class="lineNum">     170 </span>            :                 /* There should be two elements for each map item */
+<span class="lineNum">     171 </span><span class="lineNoCov">          0 :                 int inner_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     172 </span>            :                 int64_t inner_val;
+<span class="lineNum">     173 </span>            : 
+<span class="lineNum">     174 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;inner_val);</span>
+<span class="lineNum">     175 </span><span class="lineNoCov">          0 :                 if (inner_type != CBOR_T_UINT) {</span>
+<span class="lineNum">     176 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
+<span class="lineNum">     177 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
+<span class="lineNum">     178 </span>            :                 }
+<span class="lineNum">     179 </span>            :                 else {
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :                     in = v-&gt;parse_map_item(in, in_max, inner_val, err);</span>
+<span class="lineNum">     181 </span><span class="lineNoCov">          0 :                     val--;</span>
+<span class="lineNum">     182 </span>            :                 }
+<span class="lineNum">     183 </span>            :             }
+<span class="lineNum">     184 </span>            :         }
+<span class="lineNum">     185 </span>            :     }
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">     188 </span>            : }
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span>            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
