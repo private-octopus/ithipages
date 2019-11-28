@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-18 13:37:02</td>
+            <td class="headerValue">2019-11-28 02:25:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -473,17 +473,17 @@
 <span class="lineNum">     411 </span><span class="lineCov">          2 :     return found_at_least_one;</span>
 <a name="412"><span class="lineNum">     412 </span>            : }</a>
 <span class="lineNum">     413 </span>            : 
-<span class="lineNum">     414 </span><span class="lineCov">          2 : bool ComputeM6::Write(FILE * F_out)</span>
+<span class="lineNum">     414 </span><span class="lineCov">          2 : bool ComputeM6::Write(FILE * F_out, char const* date, char const* version)</span>
 <span class="lineNum">     415 </span>            : {
 <span class="lineNum">     416 </span><span class="lineCov">          2 :     bool ret = true;</span>
 <span class="lineNum">     417 </span>            : 
 <span class="lineNum">     418 </span><span class="lineCov">         38 :     for (size_t i = 0; i &lt; m6.size(); i++)</span>
 <span class="lineNum">     419 </span>            :     {
-<span class="lineNum">     420 </span><span class="lineCov">         36 :         ret &amp;= fprintf(F_out, &quot;%s.1, , %6f,\n&quot;, m6[i].m6_prefix, m6[i].m6_x_1) &gt; 0;</span>
-<span class="lineNum">     421 </span><span class="lineCov">         36 :         ret &amp;= fprintf(F_out, &quot;%s.2, , %6f,\n&quot;, m6[i].m6_prefix, m6[i].m6_x_2) &gt; 0;</span>
+<span class="lineNum">     420 </span><span class="lineCov">         36 :         ret &amp;= fprintf(F_out, &quot;%s.1,%s,%s, , %6f,\n&quot;, m6[i].m6_prefix,date, version, m6[i].m6_x_1) &gt; 0;</span>
+<span class="lineNum">     421 </span><span class="lineCov">         36 :         ret &amp;= fprintf(F_out, &quot;%s.2,%s,%s, , %6f,\n&quot;, m6[i].m6_prefix, date, version, m6[i].m6_x_2) &gt; 0;</span>
 <span class="lineNum">     422 </span><span class="lineCov">        100 :         for (size_t j = 0; j &lt; m6[i].m6_x_3.size(); j++)</span>
 <span class="lineNum">     423 </span>            :         {
-<span class="lineNum">     424 </span><span class="lineCov">         64 :             ret &amp;= fprintf(F_out, &quot;%s.3, %d, %llu,\n&quot;, m6[i].m6_prefix,</span>
+<span class="lineNum">     424 </span><span class="lineCov">         64 :             ret &amp;= fprintf(F_out, &quot;%s.3,%s,%s, %d, %llu,\n&quot;, m6[i].m6_prefix, date, version,</span>
 <span class="lineNum">     425 </span><span class="lineCov">         64 :                 m6[i].m6_x_3[j].parameter_value,</span>
 <span class="lineNum">     426 </span><span class="lineCov">        128 :                 (unsigned long long)m6[i].m6_x_3[j].parameter_count) &gt; 0;</span>
 <span class="lineNum">     427 </span>            :         }

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-18 13:37:02</td>
+            <td class="headerValue">2019-11-28 02:25:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -199,11 +199,11 @@
 <span class="lineNum">     137 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     138 </span>            :     }
 <span class="lineNum">     139 </span>            : 
-<span class="lineNum">     140 </span><span class="lineCov">         80 :     while (ret) {</span>
-<span class="lineNum">     141 </span><span class="lineCov">         48 :         size_t nb_read = fread(line, 1, sizeof(line), F_in);</span>
+<span class="lineNum">     140 </span><span class="lineCov">        108 :     while (ret) {</span>
+<span class="lineNum">     141 </span><span class="lineCov">         62 :         size_t nb_read = fread(line, 1, sizeof(line), F_in);</span>
 <span class="lineNum">     142 </span>            : 
-<span class="lineNum">     143 </span><span class="lineCov">         48 :         if (nb_read &gt; 0) {</span>
-<span class="lineNum">     144 </span><span class="lineCov">         32 :             ret = fwrite(line, 1, nb_read, F_out) &gt; 0;</span>
+<span class="lineNum">     143 </span><span class="lineCov">         62 :         if (nb_read &gt; 0) {</span>
+<span class="lineNum">     144 </span><span class="lineCov">         46 :             ret = fwrite(line, 1, nb_read, F_out) &gt; 0;</span>
 <span class="lineNum">     145 </span>            :         }
 <span class="lineNum">     146 </span>            :         else {
 <span class="lineNum">     147 </span><span class="lineCov">         16 :             ret = feof(F_in) != 0;</span>

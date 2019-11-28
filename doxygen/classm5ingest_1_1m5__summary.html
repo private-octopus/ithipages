@@ -109,8 +109,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a0429c6aaa28f84ec91ce0c79fd4f079e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7117e230e1ad1383617bdd564d41aa38"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classm5ingest_1_1m5__summary.html#a7117e230e1ad1383617bdd564d41aa38">average</a> (self)</td></tr>
 <tr class="separator:a7117e230e1ad1383617bdd564d41aa38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa6360304a98523b3d58aa9baf83c9f8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classm5ingest_1_1m5__summary.html#afa6360304a98523b3d58aa9baf83c9f8">save_as_csv</a> (self, f_name)</td></tr>
-<tr class="separator:afa6360304a98523b3d58aa9baf83c9f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3df49e366b7f046f39711ed6d8fee17"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classm5ingest_1_1m5__summary.html#aa3df49e366b7f046f39711ed6d8fee17">save_as_csv</a> (self, f_name, date_string)</td></tr>
+<tr class="separator:aa3df49e366b7f046f39711ed6d8fee17"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -198,7 +198,7 @@ Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="afa6360304a98523b3d58aa9baf83c9f8"></a>
+<a class="anchor" id="aa3df49e366b7f046f39711ed6d8fee17"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -212,7 +212,13 @@ Public Attributes</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>f_name</em>&#160;</td>
+          <td class="paramname"><em>f_name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>date_string</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -221,8 +227,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classm5ingest_1_1m5__summary.html#afa6360304a98523b3d58aa9baf83c9f8">   46</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classm5ingest_1_1m5__summary.html#afa6360304a98523b3d58aa9baf83c9f8">save_as_csv</a>(self, f_name):</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="stringliteral">&quot;Save the summary as a CSV file&quot;</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        csv_file = open(f_name, <span class="stringliteral">&quot;w&quot;</span>)</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        i = 0</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">while</span> i &lt; len(self.<a class="code" href="classm5ingest_1_1m5__summary.html#aff851105bd405098acf48418d77e80ad">key_list</a>):</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            csv_file.write(self.<a class="code" href="classm5ingest_1_1m5__summary.html#aff851105bd405098acf48418d77e80ad">key_list</a>[i] + <span class="stringliteral">&quot;, , &quot;</span> + str(self.<a class="code" href="classm5ingest_1_1m5__summary.html#af7143e77bba5331b177d5d8fc9892439">total</a>[i]) + <span class="stringliteral">&quot;,\n&quot;</span>)</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            i += 1</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        csv_file.close()</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"># Main </span></div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="ttc" id="classm5ingest_1_1m5__summary_html_afa6360304a98523b3d58aa9baf83c9f8"><div class="ttname"><a href="classm5ingest_1_1m5__summary.html#afa6360304a98523b3d58aa9baf83c9f8">m5ingest.m5_summary.save_as_csv</a></div><div class="ttdeci">def save_as_csv(self, f_name)</div><div class="ttdef"><b>Definition:</b> m5ingest.py:46</div></div>
-<div class="ttc" id="classm5ingest_1_1m5__summary_html_af7143e77bba5331b177d5d8fc9892439"><div class="ttname"><a href="classm5ingest_1_1m5__summary.html#af7143e77bba5331b177d5d8fc9892439">m5ingest.m5_summary.total</a></div><div class="ttdeci">total</div><div class="ttdef"><b>Definition:</b> m5ingest.py:12</div></div>
+<div class="fragment"><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classm5ingest_1_1m5__summary.html#aa3df49e366b7f046f39711ed6d8fee17">   46</a></span>&#160;    <span class="keyword">def </span><a class="code" href="classm5ingest_1_1m5__summary.html#aa3df49e366b7f046f39711ed6d8fee17">save_as_csv</a>(self, f_name, date_string):</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        <span class="stringliteral">&quot;Save the summary as a CSV file&quot;</span></div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        csv_file = open(f_name, <span class="stringliteral">&quot;w&quot;</span>)</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        i = 0</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keywordflow">while</span> i &lt; len(self.<a class="code" href="classm5ingest_1_1m5__summary.html#aff851105bd405098acf48418d77e80ad">key_list</a>):</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;            csv_file.write(self.<a class="code" href="classm5ingest_1_1m5__summary.html#aff851105bd405098acf48418d77e80ad">key_list</a>[i] + <span class="stringliteral">&quot;,&quot;</span> + date_string + <span class="stringliteral">&quot;,v1.06, , &quot;</span> + str(self.<a class="code" href="classm5ingest_1_1m5__summary.html#af7143e77bba5331b177d5d8fc9892439">total</a>[i]) + <span class="stringliteral">&quot;,\n&quot;</span>)</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;            i += 1</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        csv_file.close()</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;</div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment"># Main </span></div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div><div class="ttc" id="classm5ingest_1_1m5__summary_html_af7143e77bba5331b177d5d8fc9892439"><div class="ttname"><a href="classm5ingest_1_1m5__summary.html#af7143e77bba5331b177d5d8fc9892439">m5ingest.m5_summary.total</a></div><div class="ttdeci">total</div><div class="ttdef"><b>Definition:</b> m5ingest.py:12</div></div>
+<div class="ttc" id="classm5ingest_1_1m5__summary_html_aa3df49e366b7f046f39711ed6d8fee17"><div class="ttname"><a href="classm5ingest_1_1m5__summary.html#aa3df49e366b7f046f39711ed6d8fee17">m5ingest.m5_summary.save_as_csv</a></div><div class="ttdeci">def save_as_csv(self, f_name, date_string)</div><div class="ttdef"><b>Definition:</b> m5ingest.py:46</div></div>
 <div class="ttc" id="classm5ingest_1_1m5__summary_html_aff851105bd405098acf48418d77e80ad"><div class="ttname"><a href="classm5ingest_1_1m5__summary.html#aff851105bd405098acf48418d77e80ad">m5ingest.m5_summary.key_list</a></div><div class="ttdeci">key_list</div><div class="ttdef"><b>Definition:</b> m5ingest.py:13</div></div>
 </div><!-- fragment -->
 </div>

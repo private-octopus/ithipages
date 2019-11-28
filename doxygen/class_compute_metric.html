@@ -127,10 +127,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ad6fa03004df6f42492e7cfc854081a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a888ca1c3859741a56d4859aa7a70eddc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_compute_metric.html#a888ca1c3859741a56d4859aa7a70eddc">Compute</a> ()=0</td></tr>
 <tr class="separator:a888ca1c3859741a56d4859aa7a70eddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b9c1c55073bf9450a338906920bae33"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_compute_metric.html#a2b9c1c55073bf9450a338906920bae33">Save</a> (char const *out_file)</td></tr>
-<tr class="separator:a2b9c1c55073bf9450a338906920bae33"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedc795936eb1fa088a22432ae6618eaa"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_compute_metric.html#aedc795936eb1fa088a22432ae6618eaa">Write</a> (FILE *F_out)=0</td></tr>
-<tr class="separator:aedc795936eb1fa088a22432ae6618eaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee32d4712912c15081650a3a78ea3602"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_compute_metric.html#aee32d4712912c15081650a3a78ea3602">Save</a> (char const *out_file, char const *date, char const *version)</td></tr>
+<tr class="separator:aee32d4712912c15081650a3a78ea3602"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab845e5f1cd5fcd61aa54122f3ac0e3a2"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_compute_metric.html#ab845e5f1cd5fcd61aa54122f3ac0e3a2">Write</a> (FILE *F_out, char const *date, char const *version)=0</td></tr>
+<tr class="separator:ab845e5f1cd5fcd61aa54122f3ac0e3a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -267,7 +267,7 @@ Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="a2b9c1c55073bf9450a338906920bae33"></a>
+<a class="anchor" id="aee32d4712912c15081650a3a78ea3602"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -278,8 +278,24 @@ Public Attributes</h2></td></tr>
           <td class="memname">bool ComputeMetric::Save </td>
           <td>(</td>
           <td class="paramtype">char const *&#160;</td>
-          <td class="paramname"><em>out_file</em></td><td>)</td>
+          <td class="paramname"><em>out_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>version</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -288,8 +304,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> ret;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    FILE * F = NULL;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    F = <a class="code" href="ithiutil_8h.html#a15ff2a2fa36a32b2e6438f5694de50a7">ithi_file_open</a>(out_file, <span class="stringliteral">&quot;w&quot;</span>);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ret = (F != NULL);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (ret)</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        ret = <a class="code" href="class_compute_metric.html#aedc795936eb1fa088a22432ae6618eaa">Write</a>(F);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        fclose(F);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> ret;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div><div class="ttc" id="ithiutil_8h_html_a15ff2a2fa36a32b2e6438f5694de50a7"><div class="ttname"><a href="ithiutil_8h.html#a15ff2a2fa36a32b2e6438f5694de50a7">ithi_file_open</a></div><div class="ttdeci">FILE * ithi_file_open(char const *file_name, char const *flags)</div><div class="ttdef"><b>Definition:</b> ithiutil.cpp:58</div></div>
-<div class="ttc" id="class_compute_metric_html_aedc795936eb1fa088a22432ae6618eaa"><div class="ttname"><a href="class_compute_metric.html#aedc795936eb1fa088a22432ae6618eaa">ComputeMetric::Write</a></div><div class="ttdeci">virtual bool Write(FILE *F_out)=0</div></div>
+<div class="fragment"><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">bool</span> ret;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    FILE * F = NULL;</div><div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    </div><div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    F = <a class="code" href="ithiutil_8h.html#a15ff2a2fa36a32b2e6438f5694de50a7">ithi_file_open</a>(out_file, <span class="stringliteral">&quot;w&quot;</span>);</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    ret = (F != NULL);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">if</span> (ret)</div><div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div><div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        ret = <a class="code" href="class_compute_metric.html#ab845e5f1cd5fcd61aa54122f3ac0e3a2">Write</a>(F, date, version);</div><div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        fclose(F);</div><div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    }</div><div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;</div><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> ret;</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;}</div><div class="ttc" id="ithiutil_8h_html_a15ff2a2fa36a32b2e6438f5694de50a7"><div class="ttname"><a href="ithiutil_8h.html#a15ff2a2fa36a32b2e6438f5694de50a7">ithi_file_open</a></div><div class="ttdeci">FILE * ithi_file_open(char const *file_name, char const *flags)</div><div class="ttdef"><b>Definition:</b> ithiutil.cpp:58</div></div>
+<div class="ttc" id="class_compute_metric_html_ab845e5f1cd5fcd61aa54122f3ac0e3a2"><div class="ttname"><a href="class_compute_metric.html#ab845e5f1cd5fcd61aa54122f3ac0e3a2">ComputeMetric::Write</a></div><div class="ttdeci">virtual bool Write(FILE *F_out, char const *date, char const *version)=0</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -318,7 +334,7 @@ Public Attributes</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a class="anchor" id="aedc795936eb1fa088a22432ae6618eaa"></a>
+<a class="anchor" id="ab845e5f1cd5fcd61aa54122f3ac0e3a2"></a>
 <div class="memitem">
 <div class="memproto">
 <table class="mlabels">
@@ -329,8 +345,24 @@ Public Attributes</h2></td></tr>
           <td class="memname">virtual bool ComputeMetric::Write </td>
           <td>(</td>
           <td class="paramtype">FILE *&#160;</td>
-          <td class="paramname"><em>F_out</em></td><td>)</td>
+          <td class="paramname"><em>F_out</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>date</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>version</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -340,7 +372,7 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_compute_m8.html#a64777a66f53e566053b4684d70ac39d5">ComputeM8</a>, <a class="el" href="class_compute_m2.html#a5c3942a1938bb9e5510e53e0b175bd05">ComputeM2</a>, <a class="el" href="class_compute_m4.html#aaed69c58a2c0dd3e06249e3db99c294b">ComputeM4</a>, <a class="el" href="class_compute_m1.html#a2f4fff3d4a2998ff00487a7b436012d8">ComputeM1</a>, <a class="el" href="class_compute_m6.html#a69102c2bb28ecdd64b53a233b2dfbdbc">ComputeM6</a>, <a class="el" href="class_compute_m7.html#a77aa5912fb1e02262c185fc551d073a6">ComputeM7</a>, and <a class="el" href="class_compute_m3.html#a44d665e25eb28509fbbb0afc023a46ec">ComputeM3</a>.</p>
+<p>Implemented in <a class="el" href="class_compute_m8.html#a265083dd92362b516d6ce69ef6e175b9">ComputeM8</a>, <a class="el" href="class_compute_m2.html#ac9c2853214e5b57c7a006d0f0ea8474b">ComputeM2</a>, <a class="el" href="class_compute_m4.html#acf0315276a340df6aa918a178d131c09">ComputeM4</a>, <a class="el" href="class_compute_m1.html#af7ae9dd9ac69fb1c42a0ade3d521b939">ComputeM1</a>, <a class="el" href="class_compute_m6.html#aed7963ac39a13e715f336d8e79ea894d">ComputeM6</a>, <a class="el" href="class_compute_m7.html#aee4e3b2ab3424b856bd53d4dfea4a5d4">ComputeM7</a>, and <a class="el" href="class_compute_m3.html#a5d1d0055d61dc1f13cfdb933b146b4cd">ComputeM3</a>.</p>
 
 </div>
 </div>

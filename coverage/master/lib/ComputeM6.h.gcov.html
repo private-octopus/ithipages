@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-18 13:37:02</td>
+            <td class="headerValue">2019-11-28 02:25:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -123,7 +123,7 @@
 <span class="lineNum">      61 </span>            :     bool Load(char const * single_file_name) override;
 <span class="lineNum">      62 </span>            :     bool LoadMultipleFiles(char const ** in_files, int nb_files) override;
 <span class="lineNum">      63 </span>            :     bool Compute() override;
-<span class="lineNum">      64 </span>            :     bool Write(FILE * F_out) override;
+<span class="lineNum">      64 </span>            :     bool Write(FILE * F_out, char const* date, char const* version) override;
 <span class="lineNum">      65 </span>            :     static metric6_def_t const * GetTable(char const * m6_prefix);
 <span class="lineNum">      66 </span>            : 
 <span class="lineNum">      67 </span>            : private:

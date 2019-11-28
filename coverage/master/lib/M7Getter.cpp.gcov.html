@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-18 13:37:02</td>
+            <td class="headerValue">2019-11-28 02:25:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -384,12 +384,12 @@
 <span class="lineNum">     322 </span><span class="lineCov">          2 :     return ret;</span>
 <a name="323"><span class="lineNum">     323 </span>            : }</a>
 <span class="lineNum">     324 </span>            : 
-<span class="lineNum">     325 </span><span class="lineCov">          2 : bool ComputeM7::Write(FILE * F_out)</span>
+<span class="lineNum">     325 </span><span class="lineCov">          2 : bool ComputeM7::Write(FILE * F_out, char const* date, char const* version)</span>
 <span class="lineNum">     326 </span>            : {
 <span class="lineNum">     327 </span><span class="lineCov">          2 :     bool ret = true;</span>
 <span class="lineNum">     328 </span>            : 
-<span class="lineNum">     329 </span><span class="lineCov">          2 :     ret = (fprintf(F_out, &quot;M7.1, , %6f,\n&quot;, m71) &gt; 0);</span>
-<span class="lineNum">     330 </span><span class="lineCov">          2 :     ret &amp;= (fprintf(F_out, &quot;M7.2, , %6f,\n&quot;, m72) &gt; 0);</span>
+<span class="lineNum">     329 </span><span class="lineCov">          2 :     ret = (fprintf(F_out, &quot;M7.1,%s,%s, , %6f,\n&quot;, date, version, m71) &gt; 0);</span>
+<span class="lineNum">     330 </span><span class="lineCov">          2 :     ret &amp;= (fprintf(F_out, &quot;M7.2,%s,%s, , %6f,\n&quot;, date, version, m72) &gt; 0);</span>
 <span class="lineNum">     331 </span>            : 
 <span class="lineNum">     332 </span><span class="lineCov">          2 :     return ret;</span>
 <span class="lineNum">     333 </span>            : }

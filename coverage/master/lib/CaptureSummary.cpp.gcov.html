@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-18 13:37:02</td>
+            <td class="headerValue">2019-11-28 02:25:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -741,30 +741,30 @@
 <span class="lineNum">     679 </span><span class="lineCov">          8 :     return ret;</span>
 <a name="680"><span class="lineNum">     680 </span>            : }</a>
 <span class="lineNum">     681 </span>            : 
-<span class="lineNum">     682 </span><span class="lineCov">    6991810 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
+<span class="lineNum">     682 </span><span class="lineCov">    6992172 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
 <span class="lineNum">     683 </span>            : {
-<span class="lineNum">     684 </span><span class="lineCov">    6991810 :     int ret = 0;</span>
+<span class="lineNum">     684 </span><span class="lineCov">    6992172 :     int ret = 0;</span>
 <span class="lineNum">     685 </span>            :     uint8_t ux, uy;
 <span class="lineNum">     686 </span>            : 
-<span class="lineNum">     687 </span><span class="lineCov">  107490722 :     while (*x == *y &amp;&amp; *x != 0)</span>
+<span class="lineNum">     687 </span><span class="lineCov">  107492112 :     while (*x == *y &amp;&amp; *x != 0)</span>
 <span class="lineNum">     688 </span>            :     {
-<span class="lineNum">     689 </span><span class="lineCov">   50249456 :         x++;</span>
-<span class="lineNum">     690 </span><span class="lineCov">   50249456 :         y++;</span>
+<span class="lineNum">     689 </span><span class="lineCov">   50249970 :         x++;</span>
+<span class="lineNum">     690 </span><span class="lineCov">   50249970 :         y++;</span>
 <span class="lineNum">     691 </span>            :     }
 <span class="lineNum">     692 </span>            : 
-<span class="lineNum">     693 </span><span class="lineCov">    6991810 :     ux = (uint8_t)*x;</span>
-<span class="lineNum">     694 </span><span class="lineCov">    6991810 :     uy = (uint8_t)*y;</span>
+<span class="lineNum">     693 </span><span class="lineCov">    6992172 :     ux = (uint8_t)*x;</span>
+<span class="lineNum">     694 </span><span class="lineCov">    6992172 :     uy = (uint8_t)*y;</span>
 <span class="lineNum">     695 </span>            : 
-<span class="lineNum">     696 </span><span class="lineCov">    6991810 :     if (ux &lt; uy)</span>
+<span class="lineNum">     696 </span><span class="lineCov">    6992172 :     if (ux &lt; uy)</span>
 <span class="lineNum">     697 </span>            :     {
-<span class="lineNum">     698 </span><span class="lineCov">    1429640 :         ret = 1;</span>
+<span class="lineNum">     698 </span><span class="lineCov">    1429746 :         ret = 1;</span>
 <span class="lineNum">     699 </span>            :     }
-<span class="lineNum">     700 </span><span class="lineCov">    5562170 :     else if (ux &gt; uy)</span>
+<span class="lineNum">     700 </span><span class="lineCov">    5562426 :     else if (ux &gt; uy)</span>
 <span class="lineNum">     701 </span>            :     {
-<span class="lineNum">     702 </span><span class="lineCov">     690910 :         ret = -1;</span>
+<span class="lineNum">     702 </span><span class="lineCov">     690990 :         ret = -1;</span>
 <span class="lineNum">     703 </span>            :     }
 <span class="lineNum">     704 </span>            : 
-<span class="lineNum">     705 </span><span class="lineCov">    6991810 :     return ret;</span>
+<span class="lineNum">     705 </span><span class="lineCov">    6992172 :     return ret;</span>
 <a name="706"><span class="lineNum">     706 </span>            : }</a>
 <span class="lineNum">     707 </span>            : 
 <span class="lineNum">     708 </span><span class="lineCov">          2 : void CaptureSummary::MultiplyByConstantForTest(unsigned int multiplier)</span>
