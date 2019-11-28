@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2019-11-28 01:48:02</td>
+            <td class="headerValue">2019-11-28 01:55:29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -555,107 +555,106 @@
 <span class="lineNum">     493 </span>            : 
 <span class="lineNum">     494 </span><span class="lineCov">          2 : bool ithimetrics::Save(char const * file_name)</span>
 <span class="lineNum">     495 </span>            : {
-<span class="lineNum">     496 </span>            : 
-<span class="lineNum">     497 </span><span class="lineCov">          2 :     ComputeMetric * cm[ITHI_NUMBER_OF_METRICS] = { &amp;cm1, &amp;cm2, &amp;cm3, &amp;cm4, NULL, &amp;cm6, &amp;cm7, &amp;cm8 };</span>
-<span class="lineNum">     498 </span>            :     FILE* F;
-<span class="lineNum">     499 </span>            :     char version[128];
-<span class="lineNum">     500 </span><span class="lineCov">          2 :     bool ret = true;</span>
-<span class="lineNum">     501 </span>            : 
-<span class="lineNum">     502 </span>            :     /* Set the version number */
-<span class="lineNum">     503 </span><span class="lineCov">          2 :     if (ret)</span>
-<span class="lineNum">     504 </span>            :     {
-<span class="lineNum">     505 </span><span class="lineCov">          2 :         ret = snprintf(version, sizeof(version), &quot;v%d.%02d&quot;, ITHITOOLS_VERSION_MAJOR, ITHITOOLS_VERSION_MINOR) &gt; 0;</span>
-<span class="lineNum">     506 </span>            :     }
-<span class="lineNum">     507 </span>            : 
-<span class="lineNum">     508 </span><span class="lineCov">          2 :     F = ithi_file_open(file_name, &quot;w&quot;);</span>
-<span class="lineNum">     509 </span><span class="lineCov">          2 :     ret = (F != NULL);</span>
-<span class="lineNum">     510 </span>            : 
-<span class="lineNum">     511 </span><span class="lineCov">         18 :     for (int i = 0; ret &amp;&amp; i &lt; ITHI_NUMBER_OF_METRICS; i++)</span>
-<span class="lineNum">     512 </span>            :     {
-<span class="lineNum">     513 </span><span class="lineCov">         16 :         if (!metric_is_available[i] || cm[i] == NULL)</span>
-<span class="lineNum">     514 </span>            :         {
-<span class="lineNum">     515 </span><span class="lineCov">          2 :             continue;</span>
-<span class="lineNum">     516 </span>            :         }
-<span class="lineNum">     517 </span>            : 
-<span class="lineNum">     518 </span><span class="lineCov">         14 :         ret = cm[i]-&gt;Write(F, metric_date, version);</span>
-<span class="lineNum">     519 </span>            :     }
-<span class="lineNum">     520 </span>            : 
-<span class="lineNum">     521 </span><span class="lineCov">          2 :     if (F != NULL)</span>
-<span class="lineNum">     522 </span>            :     {
-<span class="lineNum">     523 </span><span class="lineCov">          2 :         fclose(F);</span>
-<span class="lineNum">     524 </span>            :     }
-<span class="lineNum">     525 </span>            : 
-<span class="lineNum">     526 </span><span class="lineCov">          2 :     return ret;</span>
-<span class="lineNum">     527 </span>            : }
-<a name="528"><span class="lineNum">     528 </span>            : </a>
-<span class="lineNum">     529 </span>            : 
-<span class="lineNum">     530 </span><span class="lineCov">        114 : bool ithimetrics::ParseMetricFileName(const char * name, int * metric_id, int * year, int * month, int * day, size_t * name_offset)</span>
-<span class="lineNum">     531 </span>            : {
-<span class="lineNum">     532 </span><span class="lineCov">        114 :     size_t ch_index = 0;</span>
-<span class="lineNum">     533 </span><span class="lineCov">        114 :     size_t char_after_sep_index = 0;</span>
-<span class="lineNum">     534 </span><span class="lineCov">        114 :     size_t name_len = strlen(name);</span>
-<span class="lineNum">     535 </span><span class="lineCov">        114 :     int val[4] = { 0, 0, 0, 0 };</span>
-<span class="lineNum">     536 </span><span class="lineCov">        114 :     bool ret = true;</span>
-<span class="lineNum">     537 </span>            : 
-<span class="lineNum">     538 </span>            :     /* Find the last separator in the file name */
-<span class="lineNum">     539 </span><span class="lineCov">        114 :     if (ret)</span>
-<span class="lineNum">     540 </span>            :     {
-<span class="lineNum">     541 </span><span class="lineCov">       2726 :         while (name[ch_index] != 0)</span>
-<span class="lineNum">     542 </span>            :         {
-<span class="lineNum">     543 </span><span class="lineCov">       1306 :             if (name[ch_index] == ITHI_FILE_PATH_SEP[0])</span>
-<span class="lineNum">     544 </span>            :             {
-<span class="lineNum">     545 </span><span class="lineCov">         32 :                 char_after_sep_index = ch_index + 1;</span>
-<span class="lineNum">     546 </span>            :             }
-<span class="lineNum">     547 </span><span class="lineCov">       1306 :             ch_index++;</span>
-<span class="lineNum">     548 </span>            :         }
-<span class="lineNum">     549 </span>            : 
-<span class="lineNum">     550 </span>            :         /* Check that the name length matches expectation */
-<span class="lineNum">     551 </span><span class="lineCov">        114 :         ret &amp;= (char_after_sep_index + 17u) &lt;= name_len;</span>
-<span class="lineNum">     552 </span>            :     }
-<span class="lineNum">     553 </span>            : 
-<span class="lineNum">     554 </span><span class="lineCov">        114 :     if (ret)</span>
-<span class="lineNum">     555 </span>            :     {
-<span class="lineNum">     556 </span>            : 
-<span class="lineNum">     557 </span><span class="lineCov">        132 :         ret = name[char_after_sep_index] == 'M' &amp;&amp;</span>
-<span class="lineNum">     558 </span><span class="lineCov">        132 :             name[char_after_sep_index + 2] == '-' &amp;&amp;</span>
-<span class="lineNum">     559 </span><span class="lineCov">        132 :             name[char_after_sep_index + 7] == '-' &amp;&amp;</span>
-<span class="lineNum">     560 </span><span class="lineCov">        132 :             name[char_after_sep_index + 10] == '-' &amp;&amp;</span>
-<span class="lineNum">     561 </span><span class="lineCov">        132 :             name[char_after_sep_index + 13] == '.' &amp;&amp;</span>
-<span class="lineNum">     562 </span><span class="lineCov">        132 :             name[char_after_sep_index + 14] == 'c' &amp;&amp;</span>
-<span class="lineNum">     563 </span><span class="lineCov">        132 :             name[char_after_sep_index + 15] == 's' &amp;&amp;</span>
-<span class="lineNum">     564 </span><span class="lineCov">        198 :             name[char_after_sep_index + 16] == 'v' &amp;&amp;</span>
-<span class="lineNum">     565 </span><span class="lineCov">        132 :             name[char_after_sep_index + 17] == 0;</span>
-<span class="lineNum">     566 </span>            :     }
-<span class="lineNum">     567 </span>            : 
-<span class="lineNum">     568 </span><span class="lineCov">        114 :     if (ret)</span>
-<span class="lineNum">     569 </span>            :     {
-<span class="lineNum">     570 </span>            :         char digits[5];
-<span class="lineNum">     571 </span><span class="lineCov">         66 :         const int delta[4] = { 1, 3, 8, 11 };</span>
-<span class="lineNum">     572 </span><span class="lineCov">         66 :         const int len[4] = { 1, 4, 2, 2 };</span>
-<span class="lineNum">     573 </span>            : 
-<span class="lineNum">     574 </span><span class="lineCov">        330 :         for (int i = 0; i &lt; 4; i++)</span>
-<span class="lineNum">     575 </span>            :         {
-<span class="lineNum">     576 </span><span class="lineCov">        858 :             for (int j = 0; j &lt; len[i]; j++)</span>
-<span class="lineNum">     577 </span>            :             {
-<span class="lineNum">     578 </span><span class="lineCov">        594 :                 digits[j] = name[char_after_sep_index + delta[i] + j];</span>
-<span class="lineNum">     579 </span><span class="lineCov">        594 :                 ret &amp;= (isdigit(digits[j]) != 0);</span>
-<span class="lineNum">     580 </span>            :             }
-<span class="lineNum">     581 </span><span class="lineCov">        264 :             digits[len[i]] = 0;</span>
-<span class="lineNum">     582 </span><span class="lineCov">        264 :             val[i] = atoi(digits);</span>
-<span class="lineNum">     583 </span>            :         }
-<span class="lineNum">     584 </span>            :     }
-<span class="lineNum">     585 </span>            : 
-<span class="lineNum">     586 </span>            :     /* In case of error, return whatever value was parsed, or possibly zero.
-<span class="lineNum">     587 </span>            :     */
-<span class="lineNum">     588 </span>            : 
-<span class="lineNum">     589 </span><span class="lineCov">        114 :     *metric_id = val[0];</span>
-<span class="lineNum">     590 </span><span class="lineCov">        114 :     *year = val[1];</span>
-<span class="lineNum">     591 </span><span class="lineCov">        114 :     *month = val[2];</span>
-<span class="lineNum">     592 </span><span class="lineCov">        114 :     *day = val[3];</span>
-<span class="lineNum">     593 </span><span class="lineCov">        114 :     *name_offset = char_after_sep_index;</span>
-<span class="lineNum">     594 </span>            : 
-<span class="lineNum">     595 </span><span class="lineCov">        114 :     return ret;</span>
-<span class="lineNum">     596 </span>            : }
+<span class="lineNum">     496 </span><span class="lineCov">          2 :     ComputeMetric * cm[ITHI_NUMBER_OF_METRICS] = { &amp;cm1, &amp;cm2, &amp;cm3, &amp;cm4, NULL, &amp;cm6, &amp;cm7, &amp;cm8 };</span>
+<span class="lineNum">     497 </span>            :     FILE* F;
+<span class="lineNum">     498 </span>            :     char version[128];
+<span class="lineNum">     499 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     500 </span>            : 
+<span class="lineNum">     501 </span><span class="lineCov">          2 :     F = ithi_file_open(file_name, &quot;w&quot;);</span>
+<span class="lineNum">     502 </span><span class="lineCov">          2 :     ret = (F != NULL);</span>
+<span class="lineNum">     503 </span>            : 
+<span class="lineNum">     504 </span>            :     /* Set the version number */
+<span class="lineNum">     505 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     506 </span>            :     {
+<span class="lineNum">     507 </span><span class="lineCov">          2 :         ret = snprintf(version, sizeof(version), &quot;v%d.%02d&quot;, ITHITOOLS_VERSION_MAJOR, ITHITOOLS_VERSION_MINOR) &gt; 0;</span>
+<span class="lineNum">     508 </span>            :     }
+<span class="lineNum">     509 </span>            : 
+<span class="lineNum">     510 </span><span class="lineCov">         18 :     for (int i = 0; ret &amp;&amp; i &lt; ITHI_NUMBER_OF_METRICS; i++)</span>
+<span class="lineNum">     511 </span>            :     {
+<span class="lineNum">     512 </span><span class="lineCov">         16 :         if (!metric_is_available[i] || cm[i] == NULL)</span>
+<span class="lineNum">     513 </span>            :         {
+<span class="lineNum">     514 </span><span class="lineCov">          2 :             continue;</span>
+<span class="lineNum">     515 </span>            :         }
+<span class="lineNum">     516 </span>            : 
+<span class="lineNum">     517 </span><span class="lineCov">         14 :         ret = cm[i]-&gt;Write(F, metric_date, version);</span>
+<span class="lineNum">     518 </span>            :     }
+<span class="lineNum">     519 </span>            : 
+<span class="lineNum">     520 </span><span class="lineCov">          2 :     if (F != NULL)</span>
+<span class="lineNum">     521 </span>            :     {
+<span class="lineNum">     522 </span><span class="lineCov">          2 :         fclose(F);</span>
+<span class="lineNum">     523 </span>            :     }
+<span class="lineNum">     524 </span>            : 
+<span class="lineNum">     525 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     526 </span>            : }
+<a name="527"><span class="lineNum">     527 </span>            : </a>
+<span class="lineNum">     528 </span>            : 
+<span class="lineNum">     529 </span><span class="lineCov">        114 : bool ithimetrics::ParseMetricFileName(const char * name, int * metric_id, int * year, int * month, int * day, size_t * name_offset)</span>
+<span class="lineNum">     530 </span>            : {
+<span class="lineNum">     531 </span><span class="lineCov">        114 :     size_t ch_index = 0;</span>
+<span class="lineNum">     532 </span><span class="lineCov">        114 :     size_t char_after_sep_index = 0;</span>
+<span class="lineNum">     533 </span><span class="lineCov">        114 :     size_t name_len = strlen(name);</span>
+<span class="lineNum">     534 </span><span class="lineCov">        114 :     int val[4] = { 0, 0, 0, 0 };</span>
+<span class="lineNum">     535 </span><span class="lineCov">        114 :     bool ret = true;</span>
+<span class="lineNum">     536 </span>            : 
+<span class="lineNum">     537 </span>            :     /* Find the last separator in the file name */
+<span class="lineNum">     538 </span><span class="lineCov">        114 :     if (ret)</span>
+<span class="lineNum">     539 </span>            :     {
+<span class="lineNum">     540 </span><span class="lineCov">       2726 :         while (name[ch_index] != 0)</span>
+<span class="lineNum">     541 </span>            :         {
+<span class="lineNum">     542 </span><span class="lineCov">       1306 :             if (name[ch_index] == ITHI_FILE_PATH_SEP[0])</span>
+<span class="lineNum">     543 </span>            :             {
+<span class="lineNum">     544 </span><span class="lineCov">         32 :                 char_after_sep_index = ch_index + 1;</span>
+<span class="lineNum">     545 </span>            :             }
+<span class="lineNum">     546 </span><span class="lineCov">       1306 :             ch_index++;</span>
+<span class="lineNum">     547 </span>            :         }
+<span class="lineNum">     548 </span>            : 
+<span class="lineNum">     549 </span>            :         /* Check that the name length matches expectation */
+<span class="lineNum">     550 </span><span class="lineCov">        114 :         ret &amp;= (char_after_sep_index + 17u) &lt;= name_len;</span>
+<span class="lineNum">     551 </span>            :     }
+<span class="lineNum">     552 </span>            : 
+<span class="lineNum">     553 </span><span class="lineCov">        114 :     if (ret)</span>
+<span class="lineNum">     554 </span>            :     {
+<span class="lineNum">     555 </span>            : 
+<span class="lineNum">     556 </span><span class="lineCov">        132 :         ret = name[char_after_sep_index] == 'M' &amp;&amp;</span>
+<span class="lineNum">     557 </span><span class="lineCov">        132 :             name[char_after_sep_index + 2] == '-' &amp;&amp;</span>
+<span class="lineNum">     558 </span><span class="lineCov">        132 :             name[char_after_sep_index + 7] == '-' &amp;&amp;</span>
+<span class="lineNum">     559 </span><span class="lineCov">        132 :             name[char_after_sep_index + 10] == '-' &amp;&amp;</span>
+<span class="lineNum">     560 </span><span class="lineCov">        132 :             name[char_after_sep_index + 13] == '.' &amp;&amp;</span>
+<span class="lineNum">     561 </span><span class="lineCov">        132 :             name[char_after_sep_index + 14] == 'c' &amp;&amp;</span>
+<span class="lineNum">     562 </span><span class="lineCov">        132 :             name[char_after_sep_index + 15] == 's' &amp;&amp;</span>
+<span class="lineNum">     563 </span><span class="lineCov">        198 :             name[char_after_sep_index + 16] == 'v' &amp;&amp;</span>
+<span class="lineNum">     564 </span><span class="lineCov">        132 :             name[char_after_sep_index + 17] == 0;</span>
+<span class="lineNum">     565 </span>            :     }
+<span class="lineNum">     566 </span>            : 
+<span class="lineNum">     567 </span><span class="lineCov">        114 :     if (ret)</span>
+<span class="lineNum">     568 </span>            :     {
+<span class="lineNum">     569 </span>            :         char digits[5];
+<span class="lineNum">     570 </span><span class="lineCov">         66 :         const int delta[4] = { 1, 3, 8, 11 };</span>
+<span class="lineNum">     571 </span><span class="lineCov">         66 :         const int len[4] = { 1, 4, 2, 2 };</span>
+<span class="lineNum">     572 </span>            : 
+<span class="lineNum">     573 </span><span class="lineCov">        330 :         for (int i = 0; i &lt; 4; i++)</span>
+<span class="lineNum">     574 </span>            :         {
+<span class="lineNum">     575 </span><span class="lineCov">        858 :             for (int j = 0; j &lt; len[i]; j++)</span>
+<span class="lineNum">     576 </span>            :             {
+<span class="lineNum">     577 </span><span class="lineCov">        594 :                 digits[j] = name[char_after_sep_index + delta[i] + j];</span>
+<span class="lineNum">     578 </span><span class="lineCov">        594 :                 ret &amp;= (isdigit(digits[j]) != 0);</span>
+<span class="lineNum">     579 </span>            :             }
+<span class="lineNum">     580 </span><span class="lineCov">        264 :             digits[len[i]] = 0;</span>
+<span class="lineNum">     581 </span><span class="lineCov">        264 :             val[i] = atoi(digits);</span>
+<span class="lineNum">     582 </span>            :         }
+<span class="lineNum">     583 </span>            :     }
+<span class="lineNum">     584 </span>            : 
+<span class="lineNum">     585 </span>            :     /* In case of error, return whatever value was parsed, or possibly zero.
+<span class="lineNum">     586 </span>            :     */
+<span class="lineNum">     587 </span>            : 
+<span class="lineNum">     588 </span><span class="lineCov">        114 :     *metric_id = val[0];</span>
+<span class="lineNum">     589 </span><span class="lineCov">        114 :     *year = val[1];</span>
+<span class="lineNum">     590 </span><span class="lineCov">        114 :     *month = val[2];</span>
+<span class="lineNum">     591 </span><span class="lineCov">        114 :     *day = val[3];</span>
+<span class="lineNum">     592 </span><span class="lineCov">        114 :     *name_offset = char_after_sep_index;</span>
+<span class="lineNum">     593 </span>            : 
+<span class="lineNum">     594 </span><span class="lineCov">        114 :     return ret;</span>
+<span class="lineNum">     595 </span>            : }
 </pre>
       </td>
     </tr>
