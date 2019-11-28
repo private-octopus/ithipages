@@ -30,5 +30,6 @@ var searchData=
   ['ithiindexpublisher',['ithiIndexPublisher',['../classithi_index_publisher.html#a6f3da942a4b51f2bd27c71da7c892fda',1,'ithiIndexPublisher']]],
   ['ithimetrics',['ithimetrics',['../classithimetrics.html#a04279683cd12774363d6283c8cdaec7f',1,'ithimetrics']]],
   ['ithipublisher',['ithipublisher',['../classithipublisher.html#afda5c9fa5057995f9ff7f825688e45c1',1,'ithipublisher']]],
-  ['ithitools_5fversion',['ithitools_version',['../ithitools_8cpp.html#a5c21898403ff11ac051298ec2f43e157',1,'ithitools.cpp']]]
+  ['ithitools_5fversion',['ithitools_version',['../ithitools_8cpp.html#a5c21898403ff11ac051298ec2f43e157',1,'ithitools.cpp']]],
+  ['ithiwalk',['ithiwalk',['../namespaceadd-date-version-to-metric.html#ac1264c9a7cd2def2c91b1ecfa25ea98c',1,'add-date-version-to-metric']]]
 ];

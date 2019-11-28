@@ -32,7 +32,6 @@ var searchData=
   ['save_5fas_5fcsv',['save_as_csv',['../classm5ingest_1_1m5__summary.html#aa3df49e366b7f046f39711ed6d8fee17',1,'m5ingest::m5_summary']]],
   ['save_5fas_5fjson',['save_as_json',['../classpartnercheck_1_1partner__summary.html#ad2e7f240da78e132dd64e36b58d7a94c',1,'partnercheck::partner_summary']]],
   ['save_5ffile',['save_file',['../namespaceadd-date-version-to-metric.html#a92e0ffe00ea2a5df1b82d8d463f53407',1,'add-date-version-to-metric']]],
-  ['save_5fname',['save_name',['../namespaceadd-date-version-to-metric.html#a1cb483dc0f8d6e7427225c393ec4d205',1,'add-date-version-to-metric']]],
   ['saved_5ffile',['saved_file',['../_save_test_8cpp.html#a80c54be0e0ab85dcdaef21acf9f2af8a',1,'SaveTest.cpp']]],
   ['savemetricfiles',['SaveMetricFiles',['../classithimetrics.html#a6a256b8c018851ea16d789b000b524f2',1,'ithimetrics']]],
   ['savetest',['SaveTest',['../class_save_test.html',1,'SaveTest'],['../class_save_test.html#ad4f89d2fbe616804da10fd57df4c1e93',1,'SaveTest::SaveTest()']]],

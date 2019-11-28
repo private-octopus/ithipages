@@ -78,8 +78,6 @@ var searchData=
   ['mergetest',['MergeTest',['../class_merge_test.html',1,'MergeTest'],['../class_merge_test.html#ade9db876c3082585b6b6271e07bc07b6',1,'MergeTest::MergeTest()']]],
   ['mergetest_2ecpp',['MergeTest.cpp',['../_merge_test_8cpp.html',1,'']]],
   ['mergetest_2eh',['MergeTest.h',['../_merge_test_8h.html',1,'']]],
-  ['met_5fdate',['met_date',['../namespaceadd-date-version-to-metric.html#ae16088121d77a4f3f7c6b29a57378862',1,'add-date-version-to-metric']]],
-  ['met_5flist',['met_list',['../namespaceadd-date-version-to-metric.html#a377818542236ac814daae673d10469ba',1,'add-date-version-to-metric']]],
   ['metric34_5fline_5fis_5fbigger',['metric34_line_is_bigger',['../_compute_m34_8cpp.html#a30a2625d037cfda1589acc3aa07e40bd',1,'ComputeM34.cpp']]],
   ['metric34_5fline_5ft',['metric34_line_t',['../_compute_m34_8h.html#a97eccf1c96d73a72a933eadf801cc34b',1,'ComputeM34.h']]],
   ['metric6_5fdef_5ft',['metric6_def_t',['../_compute_m6_8h.html#a07eca7baf3cdabc523d50452264922db',1,'ComputeM6.h']]],

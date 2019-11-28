@@ -115,5 +115,6 @@ var searchData=
   ['ithitools_5fversion_5fmajor',['ITHITOOLS_VERSION_MAJOR',['../_version_8h.html#ad9cb6de77ccd5a66a49525e31047d420',1,'Version.h']]],
   ['ithitools_5fversion_5fminor',['ITHITOOLS_VERSION_MINOR',['../_version_8h.html#ab0a0d2bd09591789b88005e2debb22ce',1,'Version.h']]],
   ['ithiutil_2ecpp',['ithiutil.cpp',['../ithiutil_8cpp.html',1,'']]],
-  ['ithiutil_2eh',['ithiutil.h',['../ithiutil_8h.html',1,'']]]
+  ['ithiutil_2eh',['ithiutil.h',['../ithiutil_8h.html',1,'']]],
+  ['ithiwalk',['ithiwalk',['../namespaceadd-date-version-to-metric.html#ac1264c9a7cd2def2c91b1ecfa25ea98c',1,'add-date-version-to-metric']]]
 ];

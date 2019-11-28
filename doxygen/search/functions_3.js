@@ -77,6 +77,8 @@ var searchData=
   ['computem8',['ComputeM8',['../class_compute_m8.html#a06fa1aeb5c608149bd331e3f1dee27df',1,'ComputeM8']]],
   ['computemetric',['ComputeMetric',['../class_compute_metric.html#afc7e60a7c32d88352430418a0c949264',1,'ComputeMetric']]],
   ['computemetrics',['ComputeMetrics',['../class_m2_data.html#a9a3331d0d332ef28f519683bff2a4bf0',1,'M2Data']]],
+  ['convert_5ffile',['convert_file',['../namespaceadd-date-version-to-metric.html#a21d20791351b54df1453ee8d541cda7b',1,'add-date-version-to-metric']]],
+  ['convert_5ffolder',['convert_folder',['../namespaceadd-date-version-to-metric.html#a38043bcb679213c6640f524853a39661',1,'add-date-version-to-metric']]],
   ['copy_5fname',['copy_name',['../classithimetrics.html#aaa34e145f742053963722b23310cdb82',1,'ithimetrics']]],
   ['copyfile',['CopyFile',['../class_odi_publisher.html#a3cacf97420c4101ca7e522d51e4123ea',1,'OdiPublisher']]],
   ['copyfiletodestination',['CopyFileToDestination',['../class_metric_capture_file_test.html#a1d79a709fc31f3a5042c353382beec37',1,'MetricCaptureFileTest']]],

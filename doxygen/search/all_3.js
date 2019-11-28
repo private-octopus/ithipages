@@ -187,6 +187,8 @@ var searchData=
   ['computemetric_2eh',['ComputeMetric.h',['../_compute_metric_8h.html',1,'']]],
   ['computemetrics',['ComputeMetrics',['../class_m2_data.html#a9a3331d0d332ef28f519683bff2a4bf0',1,'M2Data']]],
   ['config_2eh',['config.h',['../config_8h.html',1,'']]],
+  ['convert_5ffile',['convert_file',['../namespaceadd-date-version-to-metric.html#a21d20791351b54df1453ee8d541cda7b',1,'add-date-version-to-metric']]],
+  ['convert_5ffolder',['convert_folder',['../namespaceadd-date-version-to-metric.html#a38043bcb679213c6640f524853a39661',1,'add-date-version-to-metric']]],
   ['convertlist',['convertlist',['../namespaceconvertlist.html',1,'']]],
   ['convertlist_2epy',['convertlist.py',['../convertlist_8py.html',1,'']]],
   ['copy_5fname',['copy_name',['../classithimetrics.html#aaa34e145f742053963722b23310cdb82',1,'ithimetrics']]],
