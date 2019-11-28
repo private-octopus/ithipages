@@ -1,0 +1,449 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - test/GetNameTest.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - GetNameTest.cpp<span style="font-size: 80%;"> (source / <a href="GetNameTest.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">113</td>
+            <td class="headerCovTableEntry">132</td>
+            <td class="headerCovTableEntryMed">85.6 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-11-28 01:48:02</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntry">13</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2018, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &quot;pcap_reader.h&quot;
+<span class="lineNum">      23 </span>            : #include &quot;DnsStats.h&quot;
+<span class="lineNum">      24 </span>            : #include &quot;MetricTest.h&quot;
+<span class="lineNum">      25 </span>            : #include &quot;GetNameTest.h&quot;
+<span class="lineNum">      26 </span>            : #include &quot;ithiutil.h&quot;
+<span class="lineNum">      27 </span>            : 
+<span class="lineNum">      28 </span>            : #ifdef _WINDOWS
+<span class="lineNum">      29 </span>            : #ifndef _WINDOWS64
+<span class="lineNum">      30 </span>            : static char const * getname_input_test = &quot;..\\data\\tiny-capture.pcap&quot;;
+<span class="lineNum">      31 </span>            : static char const * getname_test_output = &quot;..\\data\\getname-test.txt&quot;;
+<span class="lineNum">      32 </span>            : #else
+<span class="lineNum">      33 </span>            : static char const * getname_input_test = &quot;..\\..\\data\\tiny-capture.pcap&quot;;
+<span class="lineNum">      34 </span>            : static char const * getname_test_output = &quot;..\\..\\data\\getname-test.txt&quot;;
+<span class="lineNum">      35 </span>            : #endif
+<span class="lineNum">      36 </span>            : #else
+<span class="lineNum">      37 </span>            : static char const * getname_input_test = &quot;data/tiny-capture.pcap&quot;;
+<span class="lineNum">      38 </span>            : static char const * getname_test_output = &quot;data/getname-test.txt&quot;;
+<span class="lineNum">      39 </span>            : #endif
+<a name="40"><span class="lineNum">      40 </span>            : static char const * getname_test_debug = &quot;getname-out.txt&quot;;</a>
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span><span class="lineCov">          2 : GetNameTest::GetNameTest() :</span>
+<span class="lineNum">      43 </span>            :     nb_records_max(64),
+<span class="lineNum">      44 </span>            :     test_out(NULL),
+<span class="lineNum">      45 </span><span class="lineCov">          2 :     stats(NULL)</span>
+<span class="lineNum">      46 </span>            : {
+<span class="lineNum">      47 </span><span class="lineCov">          2 : }</span>
+<a name="48"><span class="lineNum">      48 </span>            : </a>
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span><span class="lineCov">          6 : GetNameTest::~GetNameTest()</span>
+<span class="lineNum">      51 </span>            : {
+<span class="lineNum">      52 </span><span class="lineCov">          2 :     if (stats != NULL) {</span>
+<span class="lineNum">      53 </span><span class="lineCov">          2 :         delete stats;</span>
+<span class="lineNum">      54 </span><span class="lineCov">          2 :         stats = NULL;</span>
+<span class="lineNum">      55 </span>            :     }
+<span class="lineNum">      56 </span>            : 
+<span class="lineNum">      57 </span><span class="lineCov">          2 :     if (test_out != NULL) {</span>
+<span class="lineNum">      58 </span><span class="lineNoCov">          0 :         fclose(test_out);</span>
+<span class="lineNum">      59 </span><span class="lineNoCov">          0 :         test_out = NULL;</span>
+<span class="lineNum">      60 </span>            :     }
+<span class="lineNum">      61 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">      62 </span>            : 
+<span class="lineNum">      63 </span>            : static uint8_t getNameTest1[] = { 7, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      64 </span>            : static uint8_t getNameTest2[] = { 9, 'e', 'x', 'a', 'm', 'p', 'l', 'e', '-', '2', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      65 </span>            : static uint8_t getNameTest3[] = { 9, 'e', 'x', 'a', 'm', 'p', 'l', 'e', '_', '3', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      66 </span>            : static uint8_t getNameTest4[] = { 9, 'e', 'x', 'a', 'm', 'p', 'l', 'e', ':', '4', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      67 </span>            : static uint8_t getNameTest5[] = { 9, 'e', 'x', 'a', 'm', 'p', 'l', 'e', '.', '5', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      68 </span>            : static uint8_t getNameTest6[] = { 9, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x7F, '6', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      69 </span>            : static uint8_t getNameTest7[] = { 9, 'e', 'x', 'a', 'm', 'p', 'l', 'e', ' ', '7', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      70 </span>            : static uint8_t getNameTest8[] = { 10, ' ', 'e', 'x', 'a', 'm', 'p', 'l', 'e', '-', '8', 3, 'c', 'o', 'm', 0 };
+<span class="lineNum">      71 </span>            : static uint8_t getNameTest9[] = { 9, 'e', 'x', 'a', 'm', 'p', 'l', 'e', '-', '9', 3, 0x8c, 0xFF, 0x81, 0 };
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            : static struct st_getNameTestLine {
+<span class="lineNum">      74 </span>            :     uint8_t * dns;
+<span class="lineNum">      75 </span>            :     size_t dns_length;
+<span class="lineNum">      76 </span>            :     char const * expected;
+<span class="lineNum">      77 </span>            : } getNameTestData[] = {
+<span class="lineNum">      78 </span>            :     { getNameTest1, sizeof(getNameTest1), &quot;example.com&quot; },
+<span class="lineNum">      79 </span>            :     { getNameTest2, sizeof(getNameTest2), &quot;example-2.com&quot; },
+<span class="lineNum">      80 </span>            :     { getNameTest3, sizeof(getNameTest3), &quot;example_3.com&quot; },
+<span class="lineNum">      81 </span>            :     { getNameTest4, sizeof(getNameTest4), &quot;example:4.com&quot; },
+<span class="lineNum">      82 </span>            :     { getNameTest5, sizeof(getNameTest5), &quot;example\\0465.com&quot; },
+<span class="lineNum">      83 </span>            :     { getNameTest6, sizeof(getNameTest6), &quot;example\\1276.com&quot; },
+<span class="lineNum">      84 </span>            :     { getNameTest7, sizeof(getNameTest7), &quot;example 7.com&quot; },
+<span class="lineNum">      85 </span>            :     { getNameTest8, sizeof(getNameTest8), &quot;\\032example-8.com&quot; },
+<span class="lineNum">      86 </span>            :     { getNameTest9, sizeof(getNameTest9), &quot;example-9.\\140\\255\\129&quot; }
+<a name="87"><span class="lineNum">      87 </span>            : };</a>
+<span class="lineNum">      88 </span>            : 
+<span class="lineNum">      89 </span><span class="lineCov">          2 : bool GetNameTest::DoTest()</span>
+<span class="lineNum">      90 </span>            : {
+<span class="lineNum">      91 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">      92 </span>            : 
+<span class="lineNum">      93 </span><span class="lineCov">          2 :     test_out = ithi_file_open(getname_test_debug, &quot;w&quot;);</span>
+<span class="lineNum">      94 </span><span class="lineCov">          2 :     ret = (test_out != NULL);</span>
+<span class="lineNum">      95 </span>            : 
+<span class="lineNum">      96 </span><span class="lineCov">         20 :     for (size_t i = 0; ret &amp;&amp; i &lt; sizeof(getNameTestData) / sizeof(struct st_getNameTestLine); i++) {</span>
+<span class="lineNum">      97 </span>            :         char name_out[1024];
+<span class="lineNum">      98 </span><span class="lineCov">         18 :         size_t name_length = 0;</span>
+<span class="lineNum">      99 </span><span class="lineCov">         18 :         size_t next = 0;</span>
+<span class="lineNum">     100 </span>            : 
+<span class="lineNum">     101 </span><span class="lineCov">         18 :         next = DnsStats::GetDnsName(getNameTestData[i].dns, (uint32_t)getNameTestData[i].dns_length, 0, (uint8_t *)name_out, sizeof(name_out), &amp;name_length);</span>
+<span class="lineNum">     102 </span>            : 
+<span class="lineNum">     103 </span><span class="lineCov">         18 :         if (next != getNameTestData[i].dns_length) {</span>
+<span class="lineNum">     104 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     105 </span><span class="lineCov">         18 :         } else  if (strlen(getNameTestData[i].expected) != name_length) {</span>
+<span class="lineNum">     106 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     107 </span><span class="lineCov">         18 :         } else if (memcmp(getNameTestData[i].expected, name_out, name_length) != 0) {</span>
+<span class="lineNum">     108 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     109 </span>            :         }
+<span class="lineNum">     110 </span>            :     }
+<span class="lineNum">     111 </span>            : 
+<span class="lineNum">     112 </span>            : 
+<span class="lineNum">     113 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     114 </span><span class="lineCov">          2 :         stats = new DnsStats();</span>
+<span class="lineNum">     115 </span>            : 
+<span class="lineNum">     116 </span><span class="lineCov">          2 :         if (stats == NULL) {</span>
+<span class="lineNum">     117 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     118 </span>            :         }
+<span class="lineNum">     119 </span>            :     }
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     122 </span><span class="lineCov">          2 :         ret = LoadPcapFile(getname_input_test);</span>
+<span class="lineNum">     123 </span>            :     }
+<span class="lineNum">     124 </span>            : 
+<span class="lineNum">     125 </span><span class="lineCov">          2 :     if (test_out != NULL) {</span>
+<span class="lineNum">     126 </span><span class="lineCov">          2 :         fclose(test_out);</span>
+<span class="lineNum">     127 </span><span class="lineCov">          2 :         test_out = NULL;</span>
+<span class="lineNum">     128 </span>            :     }
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     131 </span><span class="lineCov">          2 :         ret = MetricTest::compare_files(getname_test_debug, getname_test_output);</span>
+<span class="lineNum">     132 </span>            :     }
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="135"><span class="lineNum">     135 </span>            : }</a>
+<span class="lineNum">     136 </span>            : 
+<span class="lineNum">     137 </span><span class="lineCov">          2 : bool GetNameTest::LoadPcapFile(char const * fileName)</span>
+<span class="lineNum">     138 </span>            : {
+<span class="lineNum">     139 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     140 </span><span class="lineCov">          4 :     pcap_reader reader;</span>
+<span class="lineNum">     141 </span><span class="lineCov">          2 :     size_t nb_records_read = 0;</span>
+<span class="lineNum">     142 </span><span class="lineCov">          2 :     size_t nb_udp_dns = 0;</span>
+<span class="lineNum">     143 </span>            : 
+<span class="lineNum">     144 </span><span class="lineCov">          2 :     if (!reader.Open(fileName, NULL))</span>
+<span class="lineNum">     145 </span>            :     {
+<span class="lineNum">     146 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     147 </span>            :     }
+<span class="lineNum">     148 </span>            :     else
+<span class="lineNum">     149 </span>            :     {
+<span class="lineNum">     150 </span><span class="lineCov">        258 :         while (reader.ReadNext() &amp;&amp; nb_udp_dns &lt; nb_records_max)</span>
+<span class="lineNum">     151 </span>            :         {
+<span class="lineNum">     152 </span><span class="lineCov">        128 :             nb_records_read++;</span>
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span><span class="lineCov">        256 :             if (reader.tp_version == 17 &amp;&amp;</span>
+<span class="lineNum">     155 </span><span class="lineCov">        192 :                 (reader.tp_port1 == 53 || reader.tp_port2 == 53))</span>
+<span class="lineNum">     156 </span>            :             {
+<span class="lineNum">     157 </span><span class="lineCov">        128 :                 if (!reader.is_fragment &amp;&amp; reader.tp_length - 8 &gt; 12)</span>
+<span class="lineNum">     158 </span>            :                 {
+<span class="lineNum">     159 </span><span class="lineCov">        128 :                     nb_udp_dns++;</span>
+<span class="lineNum">     160 </span>            : 
+<span class="lineNum">     161 </span><span class="lineCov">        128 :                     fprintf(test_out, &quot;Packet #%d\n&quot;, (int)nb_udp_dns);</span>
+<span class="lineNum">     162 </span>            : 
+<span class="lineNum">     163 </span><span class="lineCov">        128 :                     SubmitPacket(reader.buffer + reader.tp_offset + 8,</span>
+<span class="lineNum">     164 </span><span class="lineCov">        256 :                         reader.tp_length - 8);</span>
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span><span class="lineCov">        128 :                     fprintf(test_out, &quot;\n&quot;);</span>
+<span class="lineNum">     167 </span>            :                 }
+<span class="lineNum">     168 </span>            :             }
+<span class="lineNum">     169 </span>            :         }
+<span class="lineNum">     170 </span>            :     }
+<span class="lineNum">     171 </span>            : 
+<span class="lineNum">     172 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="173"><span class="lineNum">     173 </span>            : }</a>
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span><span class="lineCov">        128 : void GetNameTest::SubmitPacket(uint8_t * packet, uint32_t length)</span>
+<span class="lineNum">     176 </span>            : {
+<span class="lineNum">     177 </span><span class="lineCov">        128 :     uint32_t qdcount = 0;</span>
+<span class="lineNum">     178 </span><span class="lineCov">        128 :     uint32_t ancount = 0;</span>
+<span class="lineNum">     179 </span><span class="lineCov">        128 :     uint32_t nscount = 0;</span>
+<span class="lineNum">     180 </span><span class="lineCov">        128 :     uint32_t arcount = 0;</span>
+<span class="lineNum">     181 </span><span class="lineCov">        128 :     uint32_t parse_index = 12;</span>
+<span class="lineNum">     182 </span><span class="lineCov">        128 :     uint32_t tld_offset = 0;</span>
+<span class="lineNum">     183 </span><span class="lineCov">        128 :     uint32_t previous_offset = 0;</span>
+<span class="lineNum">     184 </span><span class="lineCov">        128 :     int nb_name_parts = 0;</span>
+<span class="lineNum">     185 </span><span class="lineCov">        128 :     bool gotTld = DnsStats::GetTLD(packet, length, 12, &amp;tld_offset, &amp;previous_offset, &amp;nb_name_parts);</span>
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span><span class="lineCov">        128 :     qdcount = (packet[4] &lt;&lt; 8) | packet[5];</span>
+<span class="lineNum">     188 </span><span class="lineCov">        128 :     ancount = (packet[6] &lt;&lt; 8) | packet[7];</span>
+<span class="lineNum">     189 </span><span class="lineCov">        128 :     nscount = (packet[8] &lt;&lt; 8) | packet[9];</span>
+<span class="lineNum">     190 </span><span class="lineCov">        128 :     arcount = (packet[10] &lt;&lt; 8) | packet[11];</span>
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineCov">        128 :     if (gotTld) {</span>
+<span class="lineNum">     193 </span>            :         char text[256];
+<span class="lineNum">     194 </span>            :         uint32_t flags;
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineCov">        128 :         if (previous_offset != 0) {</span>
+<span class="lineNum">     197 </span><span class="lineCov">         94 :             (void) DnsStats::NormalizeNamePart(packet[previous_offset],</span>
+<span class="lineNum">     198 </span><span class="lineCov">        188 :                 &amp;packet[previous_offset + 1], (uint8_t *)text, sizeof(text), &amp;flags);</span>
+<span class="lineNum">     199 </span><span class="lineCov">         94 :             fprintf(test_out, &quot;%s.&quot;, text);</span>
+<span class="lineNum">     200 </span>            :         }
+<span class="lineNum">     201 </span><span class="lineCov">        128 :         (void) DnsStats::NormalizeNamePart(packet[tld_offset],</span>
+<span class="lineNum">     202 </span><span class="lineCov">        256 :             &amp;packet[tld_offset + 1], (uint8_t *)text, sizeof(text), &amp;flags);</span>
+<span class="lineNum">     203 </span><span class="lineCov">        128 :         fprintf(test_out, &quot;%s&quot;, text);</span>
+<span class="lineNum">     204 </span>            : 
+<span class="lineNum">     205 </span><span class="lineCov">        128 :         fprintf(test_out, &quot; %d\n&quot;, nb_name_parts);</span>
+<span class="lineNum">     206 </span>            :     }
+<span class="lineNum">     207 </span>            :     else {
+<span class="lineNum">     208 </span><span class="lineNoCov">          0 :         fprintf(test_out, &quot;??? %d\n&quot;, nb_name_parts);</span>
+<span class="lineNum">     209 </span>            :     }
+<span class="lineNum">     210 </span>            : 
+<span class="lineNum">     211 </span><span class="lineCov">        256 :     for (uint32_t i = 0; i &lt; qdcount; i++)</span>
+<span class="lineNum">     212 </span>            :     {
+<span class="lineNum">     213 </span><span class="lineCov">        128 :         if (parse_index &gt;= length)</span>
+<span class="lineNum">     214 </span>            :         {
+<span class="lineNum">     215 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">     216 </span>            :         }
+<span class="lineNum">     217 </span>            :         else
+<span class="lineNum">     218 </span>            :         {
+<span class="lineNum">     219 </span><span class="lineCov">        128 :             parse_index = SubmitQuery(packet, length, parse_index);</span>
+<span class="lineNum">     220 </span>            :         }
+<span class="lineNum">     221 </span>            :     }
+<span class="lineNum">     222 </span>            : 
+<span class="lineNum">     223 </span><span class="lineCov">        128 :     for (uint32_t i = 0; i &lt; ancount; i++)</span>
+<span class="lineNum">     224 </span>            :     {
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :         if (parse_index &gt;= length)</span>
+<span class="lineNum">     226 </span>            :         {
+<span class="lineNum">     227 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">     228 </span>            :         }
+<span class="lineNum">     229 </span>            :         else
+<span class="lineNum">     230 </span>            :         {
+<span class="lineNum">     231 </span><span class="lineNoCov">          0 :             parse_index = SubmitRecord(packet, length, parse_index);</span>
+<span class="lineNum">     232 </span>            :         }
+<span class="lineNum">     233 </span>            :     }
+<span class="lineNum">     234 </span>            : 
+<span class="lineNum">     235 </span><span class="lineCov">        656 :     for (uint32_t i = 0; i &lt; nscount; i++)</span>
+<span class="lineNum">     236 </span>            :     {
+<span class="lineNum">     237 </span><span class="lineCov">        528 :         if (parse_index &gt;= length)</span>
+<span class="lineNum">     238 </span>            :         {
+<span class="lineNum">     239 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">     240 </span>            :         }
+<span class="lineNum">     241 </span>            :         else
+<span class="lineNum">     242 </span>            :         {
+<span class="lineNum">     243 </span><span class="lineCov">        528 :             parse_index = SubmitRecord(packet, length, parse_index);</span>
+<span class="lineNum">     244 </span>            :         }
+<span class="lineNum">     245 </span>            :     }
+<span class="lineNum">     246 </span>            : 
+<span class="lineNum">     247 </span><span class="lineCov">        652 :     for (uint32_t i = 0; i &lt; arcount; i++)</span>
+<span class="lineNum">     248 </span>            :     {
+<span class="lineNum">     249 </span><span class="lineCov">        524 :         if (parse_index &gt;= length)</span>
+<span class="lineNum">     250 </span>            :         {
+<span class="lineNum">     251 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">     252 </span>            :         }
+<span class="lineNum">     253 </span>            :         else
+<span class="lineNum">     254 </span>            :         {
+<span class="lineNum">     255 </span><span class="lineCov">        524 :             parse_index = SubmitRecord(packet, length, parse_index);</span>
+<span class="lineNum">     256 </span>            :         }
+<span class="lineNum">     257 </span>            :     }
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">        128 : }</span></a>
+<span class="lineNum">     259 </span>            : 
+<span class="lineNum">     260 </span><span class="lineCov">        128 : int GetNameTest::SubmitQuery(uint8_t * packet, uint32_t length, uint32_t start)</span>
+<span class="lineNum">     261 </span>            : {
+<span class="lineNum">     262 </span><span class="lineCov">        128 :     start = SubmitName(packet, length, start);</span>
+<span class="lineNum">     263 </span>            : 
+<span class="lineNum">     264 </span><span class="lineCov">        128 :     if (start + 4 &lt;= length)</span>
+<span class="lineNum">     265 </span>            :     {
+<span class="lineNum">     266 </span><span class="lineCov">        128 :         start += 4;</span>
+<span class="lineNum">     267 </span>            :     }
+<span class="lineNum">     268 </span>            :     else
+<span class="lineNum">     269 </span>            :     {
+<span class="lineNum">     270 </span><span class="lineNoCov">          0 :         start = length;</span>
+<span class="lineNum">     271 </span>            :     }
+<span class="lineNum">     272 </span>            : 
+<span class="lineNum">     273 </span><span class="lineCov">        128 :     return start;</span>
+<a name="274"><span class="lineNum">     274 </span>            : }</a>
+<span class="lineNum">     275 </span>            : 
+<span class="lineNum">     276 </span><span class="lineCov">       1052 : int GetNameTest::SubmitRecord(uint8_t * packet, uint32_t length, uint32_t start)</span>
+<span class="lineNum">     277 </span>            : {
+<span class="lineNum">     278 </span><span class="lineCov">       1052 :     int ldata = 0;</span>
+<span class="lineNum">     279 </span>            : 
+<span class="lineNum">     280 </span>            :     /* Labels are only tabulated in responses, to avoid polluting data with erroneous packets */
+<span class="lineNum">     281 </span><span class="lineCov">       1052 :     start = SubmitName(packet, length, start);</span>
+<span class="lineNum">     282 </span>            : 
+<span class="lineNum">     283 </span><span class="lineCov">       1052 :     if ((start + 10) &gt; length)</span>
+<span class="lineNum">     284 </span>            :     {
+<span class="lineNum">     285 </span><span class="lineNoCov">          0 :         start = length;</span>
+<span class="lineNum">     286 </span>            :     }
+<span class="lineNum">     287 </span>            :     else
+<span class="lineNum">     288 </span>            :     {
+<span class="lineNum">     289 </span><span class="lineCov">       1052 :         ldata = (packet[start + 8] &lt;&lt; 8) | packet[start + 9];</span>
+<span class="lineNum">     290 </span>            : 
+<span class="lineNum">     291 </span><span class="lineCov">       1052 :         if (start + ldata + 10 &gt; length)</span>
+<span class="lineNum">     292 </span>            :         {
+<span class="lineNum">     293 </span><span class="lineNoCov">          0 :             start = length;</span>
+<span class="lineNum">     294 </span>            :         }
+<span class="lineNum">     295 </span>            :         else
+<span class="lineNum">     296 </span>            :         {
+<span class="lineNum">     297 </span><span class="lineCov">       1052 :             start += ldata + 10;</span>
+<span class="lineNum">     298 </span>            :         }
+<span class="lineNum">     299 </span>            :     }
+<span class="lineNum">     300 </span>            : 
+<span class="lineNum">     301 </span><span class="lineCov">       1052 :     return start;</span>
+<a name="302"><span class="lineNum">     302 </span>            : }</a>
+<span class="lineNum">     303 </span>            : 
+<span class="lineNum">     304 </span><span class="lineCov">       1180 : int GetNameTest::SubmitName(uint8_t * packet, uint32_t length, uint32_t start)</span>
+<span class="lineNum">     305 </span>            : {
+<span class="lineNum">     306 </span>            :     uint8_t name[1024];
+<span class="lineNum">     307 </span><span class="lineCov">       1180 :     size_t name_len = 0;</span>
+<span class="lineNum">     308 </span>            :     
+<span class="lineNum">     309 </span><span class="lineCov">       1180 :     start = stats-&gt;GetDnsName(packet, length, start, name, sizeof(name), &amp;name_len);</span>
+<span class="lineNum">     310 </span>            : 
+<span class="lineNum">     311 </span><span class="lineCov">       1180 :     if (name_len &gt; 0) {</span>
+<span class="lineNum">     312 </span><span class="lineCov">        964 :         DnsStats::SetToUpperCase(name, name_len);</span>
+<span class="lineNum">     313 </span><span class="lineCov">        964 :         fprintf(test_out, &quot;%s\n&quot;, (char *)name);</span>
+<span class="lineNum">     314 </span>            :     }
+<span class="lineNum">     315 </span>            : 
+<span class="lineNum">     316 </span><span class="lineCov">       1180 :     return start;</span>
+<a name="317"><span class="lineNum">     317 </span>            : }</a>
+<span class="lineNum">     318 </span>            : 
+<span class="lineNum">     319 </span><span class="lineCov">          2 : IsIpv4Test::IsIpv4Test()</span>
+<span class="lineNum">     320 </span>            : {
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     322 </span>            : 
+<span class="lineNum">     323 </span><span class="lineCov">          4 : IsIpv4Test::~IsIpv4Test()</span>
+<span class="lineNum">     324 </span>            : {
+<span class="lineNum">     325 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">     326 </span>            : 
+<span class="lineNum">     327 </span>            : static struct st_is_ipv4_test_data {
+<span class="lineNum">     328 </span>            :     char const * name;
+<span class="lineNum">     329 </span>            :     bool expected;
+<span class="lineNum">     330 </span>            : } is_ipv4_test_data[] = {
+<span class="lineNum">     331 </span>            :     { &quot;0.0.0.0&quot;, true },
+<span class="lineNum">     332 </span>            :     { &quot;1.2.3.4&quot;, true },
+<span class="lineNum">     333 </span>            :     { &quot;11.12.13.14&quot;, true },
+<span class="lineNum">     334 </span>            :     { &quot;111.112.113.114&quot;, true },
+<span class="lineNum">     335 </span>            :     { &quot;255.255.255.255&quot;, true },
+<span class="lineNum">     336 </span>            :     { &quot;example.com.0.0.0.0&quot;, true },
+<span class="lineNum">     337 </span>            :     { &quot;example.com.1.2.3.4&quot;, true },
+<span class="lineNum">     338 </span>            :     { &quot;example.com.11.12.13.14&quot;, true },
+<span class="lineNum">     339 </span>            :     { &quot;example.com.111.112.113.114&quot;, true },
+<span class="lineNum">     340 </span>            :     { &quot;example.com.255.255.255.255&quot;, true },
+<span class="lineNum">     341 </span>            :     { &quot;a.0.0.0.0&quot;, true },
+<span class="lineNum">     342 </span>            :     { &quot;b.1.2.3.4&quot;, true },
+<span class="lineNum">     343 </span>            :     { &quot;c.11.12.13.14&quot;, true },
+<span class="lineNum">     344 </span>            :     { &quot;example-com.111.112.113.114&quot;, true },
+<span class="lineNum">     345 </span>            :     { &quot;example_com.255.255.255.255&quot;, true },
+<span class="lineNum">     346 </span>            :     { &quot;0.0.0&quot;, false },
+<span class="lineNum">     347 </span>            :     { &quot;0.0.0.-1&quot;, false },
+<span class="lineNum">     348 </span>            :     { &quot;1000.2.3.4&quot;, false },
+<span class="lineNum">     349 </span>            :     { &quot;13.14&quot;, false },
+<span class="lineNum">     350 </span>            :     { &quot;111.-112.113.114&quot;, false },
+<span class="lineNum">     351 </span>            :     { &quot;example.com.1000.2.3.4&quot;, false },
+<span class="lineNum">     352 </span>            :     { &quot;example.com.13.14&quot;, false },
+<span class="lineNum">     353 </span>            :     { &quot;example.com.111.-112.113.114&quot;, false },
+<span class="lineNum">     354 </span>            :     { &quot;example-com111.112.113.114&quot;, false },
+<span class="lineNum">     355 </span>            :     { &quot;example.com&quot;, false }
+<a name="356"><span class="lineNum">     356 </span>            : };</a>
+<span class="lineNum">     357 </span>            : 
+<span class="lineNum">     358 </span><span class="lineCov">          2 : bool IsIpv4Test::DoTest()</span>
+<span class="lineNum">     359 </span>            : {
+<span class="lineNum">     360 </span><span class="lineCov">          2 :     size_t nb_test = sizeof(is_ipv4_test_data) / sizeof(struct st_is_ipv4_test_data);</span>
+<span class="lineNum">     361 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     362 </span>            : 
+<span class="lineNum">     363 </span><span class="lineCov">         52 :     for (size_t i = 0; i &lt; nb_test; i++) {</span>
+<span class="lineNum">     364 </span><span class="lineCov">         50 :         bool actual = DnsStats::IsIpv4Name((uint8_t *)is_ipv4_test_data[i].name, strlen(is_ipv4_test_data[i].name));</span>
+<span class="lineNum">     365 </span>            : 
+<span class="lineNum">     366 </span><span class="lineCov">         50 :         if (actual != is_ipv4_test_data[i].expected) {</span>
+<span class="lineNum">     367 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     368 </span><span class="lineNoCov">          0 :             break;</span>
+<span class="lineNum">     369 </span>            :         }
+<span class="lineNum">     370 </span>            :     }
+<span class="lineNum">     371 </span>            : 
+<span class="lineNum">     372 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     373 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
