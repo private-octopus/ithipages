@@ -37,6 +37,7 @@ var searchData=
   ['is_5fipv4_5ftest_5fdata',['is_ipv4_test_data',['../_get_name_test_8cpp.html#a00a0503508c44032b605c8ec70cd27f1',1,'GetNameTest.cpp']]],
   ['is_5fminimized',['is_minimized',['../structst__qname__test__line__t.html#aaad85c68a06b383365abab94ceb6ad3e',1,'st_qname_test_line_t']]],
   ['is_5fnew',['is_new',['../structst__stats__by__ip__test__in__t.html#ab992ded8ad1329f1967564a165ee2fd5',1,'st_stats_by_ip_test_in_t']]],
+  ['is_5fnx',['is_nx',['../class_dns_name_entry.html#a5e3550b1dc48394a7ce7569c2e93b5b0',1,'DnsNameEntry::is_nx()'],['../class_tld_address_as_key.html#ab19bea5a700d0dcaf7289ec5f61a9e76',1,'TldAddressAsKey::is_nx()']]],
   ['is_5fqname_5fminimized',['is_qname_minimized',['../class_dns_stats.html#a86a918db6e2b7fb4efb5ef0c39f7bc88',1,'DnsStats::is_qname_minimized()'],['../structst__stats__by__ip__test__out__t.html#aaf99983db8d802126ae8b062ee400e00',1,'st_stats_by_ip_test_out_t::is_qname_minimized()']]],
   ['is_5frandom',['is_random',['../struct_name_pattern_def.html#a5ed084b4a31aef20846ce6bed8f997d8',1,'NamePatternDef']]],
   ['is_5fusing_5fedns',['is_using_edns',['../class_dns_stats.html#a5dc1a6993cb040b9bc9a676c0fb7f386',1,'DnsStats']]],

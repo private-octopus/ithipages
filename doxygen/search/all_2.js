@@ -6,6 +6,7 @@ var searchData=
   ['before_5fmonth',['before_month',['../namespacepartnercheck.html#aaa2ea1e91f496d459c9d3e082f1a0cb3',1,'partnercheck']]],
   ['binhash',['BinHash',['../class_bin_hash.html',1,'BinHash&lt; KeyObj &gt;'],['../class_lru_hash.html#ae1c03af6ab02cb485a4257c993bd7efa',1,'LruHash::binHash()'],['../class_bin_hash.html#a57b824d67f99b59e340072a4651c1f46',1,'BinHash::BinHash()']]],
   ['binhash_3c_20dnshashentry_20_3e',['BinHash&lt; DnsHashEntry &gt;',['../class_bin_hash.html',1,'']]],
+  ['binhash_3c_20dnsnameentry_20_3e',['BinHash&lt; DnsNameEntry &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20dnsprefixentry_20_3e',['BinHash&lt; DnsPrefixEntry &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20dnssecprefixentry_20_3e',['BinHash&lt; DnssecPrefixEntry &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20ipaskey_20_3e',['BinHash&lt; IPAsKey &gt;',['../class_bin_hash.html',1,'']]],

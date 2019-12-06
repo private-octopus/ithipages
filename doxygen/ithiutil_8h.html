@@ -92,10 +92,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ithiutil.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="ithiutil_8h__incl.png" border="0" usemap="#lib_2ithiutil_8h" alt=""/></div>
+<map name="lib_2ithiutil_8h" id="lib_2ithiutil_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -106,17 +109,18 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" id="node3" href="_capture_summary_8cpp.html" title="lib/CaptureSummary.cpp" alt="" coords="178,80,357,107"/>
 <area shape="rect" id="node4" href="cdns_8cpp.html" title="lib/cdns.cpp" alt="" coords="381,80,479,107"/>
 <area shape="rect" id="node5" href="_compute_metric_8cpp.html" title="lib/ComputeMetric.cpp" alt="" coords="503,80,669,107"/>
-<area shape="rect" id="node6" href="ithimetrics_8cpp.html" title="lib/ithimetrics.cpp" alt="" coords="693,80,828,107"/>
-<area shape="rect" id="node7" href="ithipublisher_8cpp.html" title="lib/ithipublisher.cpp" alt="" coords="852,80,995,107"/>
-<area shape="rect" id="node8" href="ithiutil_8cpp.html" title="lib/ithiutil.cpp" alt="" coords="1019,80,1124,107"/>
-<area shape="rect" id="node9" href="_m1_data_8cpp.html" title="lib/M1Data.cpp" alt="" coords="1147,80,1265,107"/>
-<area shape="rect" id="node10" href="_m2_data_8cpp.html" title="lib/M2Data.cpp" alt="" coords="1289,80,1406,107"/>
-<area shape="rect" id="node11" href="_m7_getter_8cpp.html" title="lib/M7Getter.cpp" alt="" coords="1431,80,1557,107"/>
-<area shape="rect" id="node12" href="_odi_publisher_8cpp.html" title="lib/OdiPublisher.cpp" alt="" coords="1581,80,1727,107"/>
-<area shape="rect" id="node13" href="_get_name_test_8cpp.html" title="test/GetNameTest.cpp" alt="" coords="1751,80,1917,107"/>
-<area shape="rect" id="node14" href="_load_test_8cpp.html" title="test/LoadTest.cpp" alt="" coords="1941,80,2076,107"/>
-<area shape="rect" id="node15" href="_merge_test_8cpp.html" title="test/MergeTest.cpp" alt="" coords="2100,80,2243,107"/>
-<area shape="rect" id="node16" href="_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="2267,80,2409,107"/>
+<area shape="rect" id="node6" href="_dns_stats_8cpp.html" title="lib/DnsStats.cpp" alt="" coords="693,80,820,107"/>
+<area shape="rect" id="node7" href="ithimetrics_8cpp.html" title="lib/ithimetrics.cpp" alt="" coords="844,80,979,107"/>
+<area shape="rect" id="node8" href="ithipublisher_8cpp.html" title="lib/ithipublisher.cpp" alt="" coords="1003,80,1145,107"/>
+<area shape="rect" id="node9" href="ithiutil_8cpp.html" title="lib/ithiutil.cpp" alt="" coords="1169,80,1275,107"/>
+<area shape="rect" id="node10" href="_m1_data_8cpp.html" title="lib/M1Data.cpp" alt="" coords="1298,80,1415,107"/>
+<area shape="rect" id="node11" href="_m2_data_8cpp.html" title="lib/M2Data.cpp" alt="" coords="1439,80,1557,107"/>
+<area shape="rect" id="node12" href="_m7_getter_8cpp.html" title="lib/M7Getter.cpp" alt="" coords="1581,80,1708,107"/>
+<area shape="rect" id="node13" href="_odi_publisher_8cpp.html" title="lib/OdiPublisher.cpp" alt="" coords="1732,80,1877,107"/>
+<area shape="rect" id="node14" href="_get_name_test_8cpp.html" title="test/GetNameTest.cpp" alt="" coords="1902,80,2067,107"/>
+<area shape="rect" id="node15" href="_load_test_8cpp.html" title="test/LoadTest.cpp" alt="" coords="2092,80,2227,107"/>
+<area shape="rect" id="node16" href="_merge_test_8cpp.html" title="test/MergeTest.cpp" alt="" coords="2251,80,2393,107"/>
+<area shape="rect" id="node17" href="_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="2417,80,2560,107"/>
 </map>
 </div>
 </div>
@@ -126,8 +130,49 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:a15ff2a2fa36a32b2e6438f5694de50a7"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ithiutil_8h.html#a15ff2a2fa36a32b2e6438f5694de50a7">ithi_file_open</a> (char const *file_name, char const *flags)</td></tr>
 <tr class="separator:a15ff2a2fa36a32b2e6438f5694de50a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7a45871761b2e6cc55d515ef0b57eac"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ithiutil_8h.html#ad7a45871761b2e6cc55d515ef0b57eac">ithi_copy_to_safe_text</a> (char *text, size_t text_max, uint8_t *x_in, size_t l_in)</td></tr>
+<tr class="separator:ad7a45871761b2e6cc55d515ef0b57eac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="ad7a45871761b2e6cc55d515ef0b57eac"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">size_t ithi_copy_to_safe_text </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>text</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>text_max</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>x_in</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">size_t&#160;</td>
+          <td class="paramname"><em>l_in</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div><div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordtype">size_t</span> text_length = 0;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordtype">bool</span> previous_was_space = <span class="keyword">true</span>; <span class="comment">/* Cannot have space at beginning */</span></div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="comment">/* escape any non printable character */</span></div><div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">for</span> (uint32_t <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> = 0; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &lt; l_in &amp;&amp; text_length + 1 &lt; text_max; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>++)</div><div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div><div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        <span class="keywordtype">int</span> x = x_in[<a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a>];</div><div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        <span class="keywordtype">bool</span> should_escape = <span class="keyword">false</span>;</div><div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <span class="keywordflow">if</span> (x &gt; <span class="charliteral">&#39; &#39;</span> &amp;&amp; x &lt; 127 &amp;&amp; x != <span class="charliteral">&#39;&quot;&#39;</span> &amp;&amp; x != <span class="charliteral">&#39;,&#39;</span> &amp;&amp; x != <span class="charliteral">&#39;&quot;&#39;</span> &amp;&amp; x != <span class="charliteral">&#39;\&#39;&#39;</span></div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            &amp;&amp; (x != <span class="charliteral">&#39;=&#39;</span> || <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> &gt; 0))</div><div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        {</div><div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;            previous_was_space = <span class="keyword">false</span>;</div><div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        }</div><div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (x == <span class="charliteral">&#39; &#39;</span> &amp;&amp; !previous_was_space &amp;&amp; <a class="code" href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">i</a> != l_in - 1)</div><div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        {</div><div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="comment">/* Cannot have several spaces */</span></div><div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            previous_was_space = <span class="keyword">true</span>;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        }</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <span class="keywordflow">else</span></div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div><div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            should_escape = <span class="keyword">true</span>;</div><div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div><div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;</div><div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (should_escape) {</div><div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;            <span class="keywordflow">if</span> (text_length + 5 &lt; text_max) {</div><div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                text[text_length++] = <span class="charliteral">&#39;\\&#39;</span>;</div><div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                text[text_length++] = <span class="charliteral">&#39;0&#39;</span> + (x / 100);</div><div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                text[text_length++] = <span class="charliteral">&#39;0&#39;</span> + (x % 100) / 10;</div><div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                text[text_length++] = <span class="charliteral">&#39;0&#39;</span> + x % 10;</div><div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            }</div><div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <span class="keywordflow">else</span> {</div><div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                text[text_length++] = <span class="charliteral">&#39;!&#39;</span>;</div><div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            }</div><div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        }</div><div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keywordflow">else</span> {</div><div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            text[text_length++] = (char)x;</div><div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        }</div><div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    }</div><div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div><div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">if</span> (text_length &lt; text_max) {</div><div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        text[text_length] = 0;</div><div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div><div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;</div><div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <span class="keywordflow">return</span> (text_length);</div><div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div><div class="ttc" id="namespacem5ingest_html_ab4d70453733346799e82b410de2b6ae7"><div class="ttname"><a href="namespacem5ingest.html#ab4d70453733346799e82b410de2b6ae7">m5ingest.i</a></div><div class="ttdeci">int i</div><div class="ttdef"><b>Definition:</b> m5ingest.py:71</div></div>
+</div><!-- fragment -->
+</div>
+</div>
 <a class="anchor" id="a15ff2a2fa36a32b2e6438f5694de50a7"></a>
 <div class="memitem">
 <div class="memproto">

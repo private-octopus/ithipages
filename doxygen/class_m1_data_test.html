@@ -97,7 +97,7 @@ Inheritance diagram for M1DataTest:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_m1_data_test__inherit__graph.png" border="0" usemap="#_m1_data_test_inherit__map" alt="Inheritance graph"/></div>
 <map name="_m1_data_test_inherit__map" id="_m1_data_test_inherit__map">
-<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ SetLog()\l+ GetLog()\l}" alt="" coords="5,5,208,200"/>
+<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ CompareCS()\l}" alt="" coords="5,5,208,185"/>
 </map>
 </div>
 <div class="dynheader">
@@ -105,7 +105,7 @@ Collaboration diagram for M1DataTest:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_m1_data_test__coll__graph.png" border="0" usemap="#_m1_data_test_coll__map" alt="Collaboration graph"/></div>
 <map name="_m1_data_test_coll__map" id="_m1_data_test_coll__map">
-<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ SetLog()\l+ GetLog()\l}" alt="" coords="5,5,208,200"/>
+<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ CompareCS()\l}" alt="" coords="5,5,208,185"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -134,10 +134,8 @@ Additional Inherited Members</h2></td></tr>
 <tr class="separator:af211bc6631d03c51a645d90709e3de75 inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af89d5b1c0b39b8f8455a56180fcc4356 inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classithi__test__class.html">ithi_test_class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#af89d5b1c0b39b8f8455a56180fcc4356">TestByNumber</a> (int number)</td></tr>
 <tr class="separator:af89d5b1c0b39b8f8455a56180fcc4356 inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78dde9022a2fe9eacd48959d375ef420 inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#a78dde9022a2fe9eacd48959d375ef420">SetLog</a> (FILE *F)</td></tr>
-<tr class="separator:a78dde9022a2fe9eacd48959d375ef420 inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a027bb176b38a05cf9837930b556a1d1d inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#a027bb176b38a05cf9837930b556a1d1d">GetLog</a> ()</td></tr>
-<tr class="separator:a027bb176b38a05cf9837930b556a1d1d inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64bd71c173a5bcf869660dc63098a30c inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#a64bd71c173a5bcf869660dc63098a30c">CompareCS</a> (<a class="el" href="class_capture_summary.html">CaptureSummary</a> *x, <a class="el" href="class_capture_summary.html">CaptureSummary</a> *y)</td></tr>
+<tr class="separator:a64bd71c173a5bcf869660dc63098a30c inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -198,7 +196,7 @@ Additional Inherited Members</h2></td></tr>
 <div class="ttc" id="class_m1_data_html_aeda90506ff3897291a01d7f2278cff6b"><div class="ttname"><a href="class_m1_data.html#aeda90506ff3897291a01d7f2278cff6b">M1Data::Load</a></div><div class="ttdeci">bool Load(char const *monthly_compliance_file_name)</div><div class="ttdef"><b>Definition:</b> M1Data.cpp:53</div></div>
 <div class="ttc" id="class_m1_data_html_a986957aed1f33195377db4cbea935c8b"><div class="ttname"><a href="class_m1_data.html#a986957aed1f33195377db4cbea935c8b">M1Data::total1stN</a></div><div class="ttdeci">uint64_t total1stN</div><div class="ttdef"><b>Definition:</b> M1Data.h:71</div></div>
 <div class="ttc" id="class_m1_data_html_ad46daf4211957f338ebb48af9b7d8a57"><div class="ttname"><a href="class_m1_data.html#ad46daf4211957f338ebb48af9b7d8a57">M1Data::nbRegistrars90pc</a></div><div class="ttdeci">int nbRegistrars90pc</div><div class="ttdef"><b>Definition:</b> M1Data.h:73</div></div>
-<div class="ttc" id="ithi__test__class_8h_html_a067ad17d4113603efc0c04d078bde662"><div class="ttname"><a href="ithi__test__class_8h.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a></div><div class="ttdeci">void TEST_LOG(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> ithi_test_class.cpp:290</div></div>
+<div class="ttc" id="ithi__test__class_8h_html_a067ad17d4113603efc0c04d078bde662"><div class="ttname"><a href="ithi__test__class_8h.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a></div><div class="ttdeci">void TEST_LOG(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> ithi_test_class.cpp:395</div></div>
 <div class="ttc" id="_m1_data_test_8cpp_html_aa3873543dc45316e7a1c6cc527ab8bb4"><div class="ttname"><a href="_m1_data_test_8cpp.html#aa3873543dc45316e7a1c6cc527ab8bb4">compliance_test</a></div><div class="ttdeci">static char const * compliance_test</div><div class="ttdef"><b>Definition:</b> M1DataTest.cpp:32</div></div>
 <div class="ttc" id="_m1_data_test_8cpp_html_a6a25b86549f460b27eba5e753ef5c397"><div class="ttname"><a href="_m1_data_test_8cpp.html#a6a25b86549f460b27eba5e753ef5c397">compliance_test_total_1st</a></div><div class="ttdeci">static const uint64_t compliance_test_total_1st</div><div class="ttdef"><b>Definition:</b> M1DataTest.cpp:38</div></div>
 <div class="ttc" id="_m1_data_test_8cpp_html_abe85d7784361c54c9f9f25fa7e3ffc19"><div class="ttname"><a href="_m1_data_test_8cpp.html#abe85d7784361c54c9f9f25fa7e3ffc19">compliance_test_lines</a></div><div class="ttdeci">static const size_t compliance_test_lines</div><div class="ttdef"><b>Definition:</b> M1DataTest.cpp:35</div></div>

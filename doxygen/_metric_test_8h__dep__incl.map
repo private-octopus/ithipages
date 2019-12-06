@@ -1,7 +1,8 @@
 <map id="test/MetricTest.h" name="test/MetricTest.h">
-<area shape="rect" id="node2" href="$_get_name_test_8cpp.html" title="test/GetNameTest.cpp" alt="" coords="5,80,171,107"/>
-<area shape="rect" id="node3" href="$ithi__test__class_8cpp.html" title="test/ithi_test_class.cpp" alt="" coords="195,80,363,107"/>
-<area shape="rect" id="node4" href="$_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="387,80,530,107"/>
-<area shape="rect" id="node5" href="$_odi_publish_test_8cpp.html" title="test/OdiPublishTest.cpp" alt="" coords="554,80,723,107"/>
-<area shape="rect" id="node6" href="$_publish_test_8cpp.html" title="test/PublishTest.cpp" alt="" coords="747,80,895,107"/>
+<area shape="rect" id="node2" href="$_capture_test_8cpp.html" title="test/CaptureTest.cpp" alt="" coords="5,80,160,107"/>
+<area shape="rect" id="node3" href="$_get_name_test_8cpp.html" title="test/GetNameTest.cpp" alt="" coords="184,80,349,107"/>
+<area shape="rect" id="node4" href="$ithi__test__class_8cpp.html" title="test/ithi_test_class.cpp" alt="" coords="373,80,541,107"/>
+<area shape="rect" id="node5" href="$_metric_test_8cpp.html" title="test/MetricTest.cpp" alt="" coords="566,80,709,107"/>
+<area shape="rect" id="node6" href="$_odi_publish_test_8cpp.html" title="test/OdiPublishTest.cpp" alt="" coords="733,80,902,107"/>
+<area shape="rect" id="node7" href="$_publish_test_8cpp.html" title="test/PublishTest.cpp" alt="" coords="926,80,1074,107"/>
 </map>

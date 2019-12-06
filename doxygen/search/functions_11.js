@@ -24,7 +24,7 @@ var searchData=
   ['setdefaultrootzonefile',['SetDefaultRootZoneFile',['../classithimetrics.html#a96f772774ce9db9f53cf4fd81f6b083a',1,'ithimetrics']]],
   ['setithifolder',['SetIthiFolder',['../classithimetrics.html#aacc730eb5037ad77c59cee166a37c9eb',1,'ithimetrics']]],
   ['setlist',['SetList',['../class_address_filter.html#a9bbf31c62504fbbc860f7c731443d508',1,'AddressFilter::SetList(char const *fname)'],['../class_address_filter.html#a6c7be8f456341ec4e1dc6f5bcb151bd5',1,'AddressFilter::SetList(char const **addr_list, size_t nb_names)']]],
-  ['setlog',['SetLog',['../classithi__test__class.html#a78dde9022a2fe9eacd48959d375ef420',1,'ithi_test_class::SetLog()'],['../class_compute_metric.html#aa852fa3a8ad31fcf18c6a3a076d06d79',1,'ComputeMetric::SetLog()']]],
+  ['setlog',['SetLog',['../class_compute_metric.html#aa852fa3a8ad31fcf18c6a3a076d06d79',1,'ComputeMetric']]],
   ['setmetricfilenames',['SetMetricFileNames',['../classithimetrics.html#a5af357679d8034a86937191cd2a852a6',1,'ithimetrics']]],
   ['setnbgtld',['SetNbGtld',['../class_compute_m2.html#a301e74022935993a355e549fb05c0cb7',1,'ComputeM2']]],
   ['setnbregistrars',['SetNbRegistrars',['../class_compute_m2.html#a57edb50200e2d55ad7e54b2717b75433',1,'ComputeM2']]],

@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['leaktypename',['LeakTypeName',['../class_dns_stats.html#a8c8805a4f719ed3b34e65fa1d0fe3541',1,'DnsStats']]],
   ['libithicap_5fclose',['libithicap_close',['../_dnscap_plug_in_8cpp.html#ad3946a1e53ad8135fd476c218bdca630',1,'DnscapPlugIn.cpp']]],
   ['libithicap_5fgetopt',['libithicap_getopt',['../_dnscap_plug_in_8cpp.html#adc657dbbba61e3abbcbbcc435f454d09',1,'DnscapPlugIn.cpp']]],
   ['libithicap_5fopen',['libithicap_open',['../_dnscap_plug_in_8cpp.html#ae83c6b9899989eb6fa44ae2c4b3be90c',1,'DnscapPlugIn.cpp']]],

@@ -98,7 +98,7 @@ Inheritance diagram for MetricCaptureFileTest:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_metric_capture_file_test__inherit__graph.png" border="0" usemap="#_metric_capture_file_test_inherit__map" alt="Inheritance graph"/></div>
 <map name="_metric_capture_file_test_inherit__map" id="_metric_capture_file_test_inherit__map">
-<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ SetLog()\l+ GetLog()\l}" alt="" coords="5,5,208,200"/>
+<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ CompareCS()\l}" alt="" coords="5,5,208,185"/>
 </map>
 </div>
 <div class="dynheader">
@@ -106,7 +106,7 @@ Collaboration diagram for MetricCaptureFileTest:</div>
 <div class="dyncontent">
 <div class="center"><img src="class_metric_capture_file_test__coll__graph.png" border="0" usemap="#_metric_capture_file_test_coll__map" alt="Collaboration graph"/></div>
 <map name="_metric_capture_file_test_coll__map" id="_metric_capture_file_test_coll__map">
-<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ SetLog()\l+ GetLog()\l}" alt="" coords="5,5,208,200"/>
+<area shape="rect" id="node2" href="classithi__test__class.html" title="{ithi_test_class\n||+ ithi_test_class()\l+ ~ithi_test_class()\l+ DoTest()\l+ get_number_of_tests()\l+ GetTestName()\l+ GetTestNumberByName()\l+ TestByNumber()\l+ CompareCS()\l}" alt="" coords="5,5,208,185"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -139,10 +139,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:af211bc6631d03c51a645d90709e3de75 inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af89d5b1c0b39b8f8455a56180fcc4356 inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classithi__test__class.html">ithi_test_class</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#af89d5b1c0b39b8f8455a56180fcc4356">TestByNumber</a> (int number)</td></tr>
 <tr class="separator:af89d5b1c0b39b8f8455a56180fcc4356 inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78dde9022a2fe9eacd48959d375ef420 inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#a78dde9022a2fe9eacd48959d375ef420">SetLog</a> (FILE *F)</td></tr>
-<tr class="separator:a78dde9022a2fe9eacd48959d375ef420 inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a027bb176b38a05cf9837930b556a1d1d inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#a027bb176b38a05cf9837930b556a1d1d">GetLog</a> ()</td></tr>
-<tr class="separator:a027bb176b38a05cf9837930b556a1d1d inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64bd71c173a5bcf869660dc63098a30c inherit pub_static_methods_classithi__test__class"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classithi__test__class.html#a64bd71c173a5bcf869660dc63098a30c">CompareCS</a> (<a class="el" href="class_capture_summary.html">CaptureSummary</a> *x, <a class="el" href="class_capture_summary.html">CaptureSummary</a> *y)</td></tr>
+<tr class="separator:a64bd71c173a5bcf869660dc63098a30c inherit pub_static_methods_classithi__test__class"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"></div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -265,7 +263,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="ttc" id="classithimetrics_html_a26b099b3ee5b1931ec0ff9983cc1c02b"><div class="ttname"><a href="classithimetrics.html#a26b099b3ee5b1931ec0ff9983cc1c02b">ithimetrics::GetRootCaptureFileName</a></div><div class="ttdeci">const char * GetRootCaptureFileName()</div><div class="ttdef"><b>Definition:</b> ithimetrics.h:78</div></div>
 <div class="ttc" id="classithimetrics_html_a7be3dd2b4e0ea66dcdcfe600991fe34d"><div class="ttname"><a href="classithimetrics.html#a7be3dd2b4e0ea66dcdcfe600991fe34d">ithimetrics::SetDateString</a></div><div class="ttdeci">bool SetDateString(char const *date_string)</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:119</div></div>
 <div class="ttc" id="classithimetrics_html"><div class="ttname"><a href="classithimetrics.html">ithimetrics</a></div><div class="ttdef"><b>Definition:</b> ithimetrics.h:52</div></div>
-<div class="ttc" id="ithi__test__class_8h_html_a067ad17d4113603efc0c04d078bde662"><div class="ttname"><a href="ithi__test__class_8h.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a></div><div class="ttdeci">void TEST_LOG(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> ithi_test_class.cpp:290</div></div>
+<div class="ttc" id="ithi__test__class_8h_html_a067ad17d4113603efc0c04d078bde662"><div class="ttname"><a href="ithi__test__class_8h.html#a067ad17d4113603efc0c04d078bde662">TEST_LOG</a></div><div class="ttdeci">void TEST_LOG(const char *fmt,...)</div><div class="ttdef"><b>Definition:</b> ithi_test_class.cpp:395</div></div>
 <div class="ttc" id="_metric_test_8cpp_html_a4884ac4ea37632ff4ffe8b9cf94e6917"><div class="ttname"><a href="_metric_test_8cpp.html#a4884ac4ea37632ff4ffe8b9cf94e6917">metric_test_dir_list</a></div><div class="ttdeci">static const char * metric_test_dir_list[]</div><div class="ttdef"><b>Definition:</b> MetricTest.cpp:316</div></div>
 <div class="ttc" id="classithimetrics_html_a53e4cadf291af9bb322bed19eafa5da6"><div class="ttname"><a href="classithimetrics.html#a53e4cadf291af9bb322bed19eafa5da6">ithimetrics::SetDefaultRootCaptureFile</a></div><div class="ttdeci">bool SetDefaultRootCaptureFile()</div><div class="ttdef"><b>Definition:</b> ithimetrics.cpp:270</div></div>
 <div class="ttc" id="_metric_test_8cpp_html_ada5778785b56ef437dd7c97ae5ea0972"><div class="ttname"><a href="_metric_test_8cpp.html#ada5778785b56ef437dd7c97ae5ea0972">metric_test_dir_m3_f</a></div><div class="ttdeci">static char const * metric_test_dir_m3_f</div><div class="ttdef"><b>Definition:</b> MetricTest.cpp:310</div></div>

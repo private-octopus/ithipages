@@ -1,5 +1,5 @@
 <map id="lib/TldAsKey.h" name="lib/TldAsKey.h">
-<area shape="rect" id="node2" href="$_capture_summary_8h.html" title="lib/CaptureSummary.h" alt="" coords="2703,80,2867,107"/>
+<area shape="rect" id="node2" href="$_capture_summary_8h.html" title="lib/CaptureSummary.h" alt="" coords="2728,80,2892,107"/>
 <area shape="rect" id="node4" href="$_dns_stats_8h.html" title="lib/DnsStats.h" alt="" coords="1188,155,1299,181"/>
 <area shape="rect" id="node3" href="$src_2ithitest_8cpp.html" title="src/ithitest.cpp" alt="" coords="333,304,449,331"/>
 <area shape="rect" id="node5" href="$ithitools_8cpp.html" title="src/ithitools.cpp" alt="" coords="2433,304,2555,331"/>
@@ -11,10 +11,11 @@
 <area shape="rect" id="node22" href="$ithimetrics_8h.html" title="lib/ithimetrics.h" alt="" coords="2888,229,3007,256"/>
 <area shape="rect" id="node26" href="$_compute_m34_8h.html" title="lib/ComputeM34.h" alt="" coords="2847,155,2986,181"/>
 <area shape="rect" id="node27" href="$_compute_m6_8h.html" title="lib/ComputeM6.h" alt="" coords="3061,155,3191,181"/>
-<area shape="rect" id="node28" href="$_load_test_8cpp.html" title="test/LoadTest.cpp" alt="" coords="3216,155,3351,181"/>
-<area shape="rect" id="node29" href="$_merge_test_8cpp.html" title="test/MergeTest.cpp" alt="" coords="3375,155,3517,181"/>
-<area shape="rect" id="node30" href="$_plugin_test_8cpp.html" title="test/PluginTest.cpp" alt="" coords="3541,155,3682,181"/>
-<area shape="rect" id="node31" href="$_save_test_8cpp.html" title="test/SaveTest.cpp" alt="" coords="3707,155,3841,181"/>
+<area shape="rect" id="node28" href="$ithi__test__class_8cpp.html" title="test/ithi_test_class.cpp" alt="" coords="3215,155,3383,181"/>
+<area shape="rect" id="node29" href="$_load_test_8cpp.html" title="test/LoadTest.cpp" alt="" coords="3408,155,3543,181"/>
+<area shape="rect" id="node30" href="$_merge_test_8cpp.html" title="test/MergeTest.cpp" alt="" coords="3567,155,3709,181"/>
+<area shape="rect" id="node31" href="$_plugin_test_8cpp.html" title="test/PluginTest.cpp" alt="" coords="3733,155,3874,181"/>
+<area shape="rect" id="node32" href="$_save_test_8cpp.html" title="test/SaveTest.cpp" alt="" coords="3899,155,4033,181"/>
 <area shape="rect" id="node7" href="$_compute_m34_8cpp.html" title="lib/ComputeM34.cpp" alt="" coords="2348,229,2501,256"/>
 <area shape="rect" id="node8" href="$_compute_m6_8cpp.html" title="lib/ComputeM6.cpp" alt="" coords="2525,229,2671,256"/>
 <area shape="rect" id="node9" href="$_dnscap_plug_in_8cpp.html" title="lib/DnscapPlugIn.cpp" alt="" coords="480,229,633,256"/>

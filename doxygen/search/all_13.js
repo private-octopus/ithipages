@@ -60,7 +60,7 @@ var searchData=
   ['setdefaultrootzonefile',['SetDefaultRootZoneFile',['../classithimetrics.html#a96f772774ce9db9f53cf4fd81f6b083a',1,'ithimetrics']]],
   ['setithifolder',['SetIthiFolder',['../classithimetrics.html#aacc730eb5037ad77c59cee166a37c9eb',1,'ithimetrics']]],
   ['setlist',['SetList',['../class_address_filter.html#a9bbf31c62504fbbc860f7c731443d508',1,'AddressFilter::SetList(char const *fname)'],['../class_address_filter.html#a6c7be8f456341ec4e1dc6f5bcb151bd5',1,'AddressFilter::SetList(char const **addr_list, size_t nb_names)']]],
-  ['setlog',['SetLog',['../classithi__test__class.html#a78dde9022a2fe9eacd48959d375ef420',1,'ithi_test_class::SetLog()'],['../class_compute_metric.html#aa852fa3a8ad31fcf18c6a3a076d06d79',1,'ComputeMetric::SetLog()']]],
+  ['setlog',['SetLog',['../class_compute_metric.html#aa852fa3a8ad31fcf18c6a3a076d06d79',1,'ComputeMetric']]],
   ['setmetricfilenames',['SetMetricFileNames',['../classithimetrics.html#a5af357679d8034a86937191cd2a852a6',1,'ithimetrics']]],
   ['setnbgtld',['SetNbGtld',['../class_compute_m2.html#a301e74022935993a355e549fb05c0cb7',1,'ComputeM2']]],
   ['setnbregistrars',['SetNbRegistrars',['../class_compute_m2.html#a57edb50200e2d55ad7e54b2717b75433',1,'ComputeM2']]],
@@ -137,7 +137,7 @@ var searchData=
   ['submitregistrystringandcount',['SubmitRegistryStringAndCount',['../class_dns_stats.html#a3bedc19b8875413ef86c31a2e1523ceb',1,'DnsStats']]],
   ['submitrrsigrecord',['SubmitRRSIGRecord',['../class_dns_stats.html#a379a47f400ab923515cdf0f5a6044838',1,'DnsStats']]],
   ['submittlsarecord',['SubmitTLSARecord',['../class_dns_stats.html#addc82ccad43e6942f0e343878e6739a1',1,'DnsStats']]],
-  ['summary',['summary',['../class_capture_summary.html#aa85d203290af7d80154a6d911ba71338',1,'CaptureSummary::summary()'],['../namespacem5ingest.html#a5ae7aeda26644aaf17fbf02a8b510c9a',1,'m5ingest.summary()'],['../namespacepartnercheck.html#a7a2df32ed37b36a4a8cd7229d36bce41',1,'partnercheck.summary()']]],
+  ['summary',['summary',['../class_capture_summary.html#a863673694d54fe8930acccb88ff11e27',1,'CaptureSummary::summary()'],['../namespacem5ingest.html#a5ae7aeda26644aaf17fbf02a8b510c9a',1,'m5ingest.summary()'],['../namespacepartnercheck.html#a7a2df32ed37b36a4a8cd7229d36bce41',1,'partnercheck.summary()']]],
   ['summary1',['summary1',['../_merge_test_8cpp.html#a3b9d772e73dba61bdd8d87aaebec17d0',1,'MergeTest.cpp']]],
   ['summary2',['summary2',['../_merge_test_8cpp.html#af582e8420cb61b3044c42306cc8c52cd',1,'MergeTest.cpp']]]
 ];

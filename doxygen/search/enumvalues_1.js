@@ -1,5 +1,15 @@
 var searchData=
 [
+  ['dnsleakbadsyntax',['dnsLeakBadSyntax',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfaf9e1c491c19552cf69e28cde4a157a45',1,'DnsStats.h']]],
+  ['dnsleakbinary',['dnsLeakBinary',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfa244d2b9b3b53ac8b54a6ad74863078c6',1,'DnsStats.h']]],
+  ['dnsleakdga',['dnsLeakDGA',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfa0be48e987717e6fb7b051e0c0852b109',1,'DnsStats.h']]],
+  ['dnsleakfrequent',['dnsLeakFrequent',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfa5323c316e1f3d41e7c6317c2f583bf70',1,'DnsStats.h']]],
+  ['dnsleakjumbo',['dnsLeakJumbo',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfa64a9960a4b954eddd6d8d5e4b826d3ce',1,'DnsStats.h']]],
+  ['dnsleaknoleak',['dnsLeakNoLeak',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfabd14727016b36ff9949b87021c25d684',1,'DnsStats.h']]],
+  ['dnsleaknumeric',['dnsLeakNumeric',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfa4b1ee6c8331bda9312b2bd0cf1e41bd2',1,'DnsStats.h']]],
+  ['dnsleakother',['dnsLeakOther',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfa1153292dc3861312df3f9e29e9447a02',1,'DnsStats.h']]],
+  ['dnsleakrfc6771',['dnsLeakRfc6771',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfaea795e8973e4158acd0119e139b81869',1,'DnsStats.h']]],
+  ['dnsleakroot',['dnsLeakRoot',['../_dns_stats_8h.html#a87deef54f97f748d8abf843eff8ec1cfa698936d23c87b7bffcf05bdd180baf73',1,'DnsStats.h']]],
   ['dnsprefixexception',['DnsPrefixException',['../_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290a2ef29f336aba3c2111f3192863c00848',1,'DnsStats.h']]],
   ['dnsprefixonelevel',['DnsPrefixOneLevel',['../_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ae3ab39882fb7be91245ce68e79679618',1,'DnsStats.h']]],
   ['dnsprefixstd',['DnsPrefixStd',['../_dns_stats_8h.html#a7c35f73e76fd7519b19906e036e19290ab515999c7e04efbbe29b845fc4b54437',1,'DnsStats.h']]],
@@ -42,7 +52,5 @@ var searchData=
   ['dnsstateflagcountunderlinednames',['dnsStateFlagCountUnderlinedNames',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a85c6ffef4b6266240df547fd6939be22',1,'DnsStats.h']]],
   ['dnsstateflagfilterlargeusers',['dnsStateFlagFilterLargeUsers',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294af7a54c93bf8320894de8864a62322b50',1,'DnsStats.h']]],
   ['dnsstateflagincludetcprecords',['dnsStateFlagIncludeTcpRecords',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294aaf9a24d25b3c40f36042c5dae3ea8ec8',1,'DnsStats.h']]],
-  ['dnsstateflaglisterroneousnames',['dnsStateFlagListErroneousNames',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a031c8a8eccc0bdd9258e9cf763fe846d',1,'DnsStats.h']]],
-  ['dnsstateflaglisttldused',['dnsStateFlagListTldUsed',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea',1,'DnsStats.h']]],
-  ['dnsstateflagreportresolveripaddress',['dnsStateFlagReportResolverIPAddress',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a8263cd2e26e8b387df83b8450935569a',1,'DnsStats.h']]]
+  ['dnsstateflaglisttldused',['dnsStateFlagListTldUsed',['../_dns_stats_8h.html#ae63f99fa7005c65b37d2248467620294a42d393103668908dab691b7e6f6175ea',1,'DnsStats.h']]]
 ];

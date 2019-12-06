@@ -2,6 +2,7 @@ var searchData=
 [
   ['binhash',['BinHash',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20dnshashentry_20_3e',['BinHash&lt; DnsHashEntry &gt;',['../class_bin_hash.html',1,'']]],
+  ['binhash_3c_20dnsnameentry_20_3e',['BinHash&lt; DnsNameEntry &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20dnsprefixentry_20_3e',['BinHash&lt; DnsPrefixEntry &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20dnssecprefixentry_20_3e',['BinHash&lt; DnssecPrefixEntry &gt;',['../class_bin_hash.html',1,'']]],
   ['binhash_3c_20ipaskey_20_3e',['BinHash&lt; IPAsKey &gt;',['../class_bin_hash.html',1,'']]],

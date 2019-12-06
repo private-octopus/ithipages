@@ -4,6 +4,7 @@ var searchData=
   ['exportdnssecusagebytable',['ExportDnssecUsageByTable',['../class_dns_stats.html#aaf4599fa8375c62fe3bf23d5bdcbef7d',1,'DnsStats']]],
   ['exportdomains',['ExportDomains',['../class_dns_stats.html#a12730ac8543d957687689da7f5a7cd14',1,'DnsStats']]],
   ['exportleakeddomains',['ExportLeakedDomains',['../class_dns_stats.html#a18ff6ef244a2fbc3aa30ec8e9783930f',1,'DnsStats']]],
+  ['exportnamereport',['ExportNameReport',['../class_dns_stats.html#a2376c45a086b65872191f4923aa5770d',1,'DnsStats']]],
   ['exportqueryusage',['ExportQueryUsage',['../class_dns_stats.html#a4565b24e1c91597debb689683fcd076d',1,'DnsStats']]],
   ['exportsecondleaked',['ExportSecondLeaked',['../class_dns_stats.html#a9f0f3314ab20a6d95ff7906290f2bd47',1,'DnsStats']]],
   ['exportstatsbyip',['ExportStatsByIp',['../class_dns_stats.html#ac0583d4a14245c5fd18da3afd52289b5',1,'DnsStats']]],
