@@ -213,6 +213,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch explain-links](coverage/explain-links/index.html)
   - [from branch cbor-parse](coverage/cbor-parse/index.html)
   - [from branch cbor-debug-question](coverage/cbor-debug-question/index.html)
+  - [from branch detect-anomaly](coverage/detect-anomaly/index.html)
   - [from branch master](coverage/master/index.html)
   - [from branch first-page-v2](coverage/first-page-v2/index.html)
   - [from branch stats-per-tld](coverage/stats-per-tld/index.html)
