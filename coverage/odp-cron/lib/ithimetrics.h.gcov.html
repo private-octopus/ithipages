@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - lib/ithimetrics.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - ithimetrics.h<span style="font-size: 80%;"> (source / <a href="ithimetrics.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntry">5</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2019-12-13 02:31:06</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntry">3</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2018, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #ifndef ITHI_METRICS_H
+<span class="lineNum">      23 </span>            : #define ITHI_METRICS_H
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #include &lt;time.h&gt;
+<span class="lineNum">      26 </span>            : #include &quot;CaptureSummary.h&quot;
+<span class="lineNum">      27 </span>            : #include &quot;M1Data.h&quot;
+<span class="lineNum">      28 </span>            : #include &quot;M2Data.h&quot;
+<span class="lineNum">      29 </span>            : #include &quot;ComputeM34.h&quot;
+<span class="lineNum">      30 </span>            : #include &quot;ComputeM6.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;M7Getter.h&quot;
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span>            : 
+<span class="lineNum">      34 </span>            : #ifdef _WINDOWS
+<span class="lineNum">      35 </span>            : #ifndef ITHI_DEFAULT_FOLDER
+<span class="lineNum">      36 </span>            : #define ITHI_DEFAULT_FOLDER &quot;.\\&quot;
+<span class="lineNum">      37 </span>            : #endif
+<span class="lineNum">      38 </span>            : #ifndef ITHI_FILE_PATH_SEP
+<span class="lineNum">      39 </span>            : #define ITHI_FILE_PATH_SEP &quot;\\&quot;
+<span class="lineNum">      40 </span>            : #endif
+<span class="lineNum">      41 </span>            : #else
+<span class="lineNum">      42 </span>            : #ifndef ITHI_DEFAULT_FOLDER
+<span class="lineNum">      43 </span>            : #define ITHI_DEFAULT_FOLDER &quot;./&quot;
+<span class="lineNum">      44 </span>            : #endif
+<span class="lineNum">      45 </span>            : #ifndef ITHI_FILE_PATH_SEP
+<span class="lineNum">      46 </span>            : #define ITHI_FILE_PATH_SEP &quot;/&quot;
+<span class="lineNum">      47 </span>            : #endif
+<span class="lineNum">      48 </span>            : #endif
+<span class="lineNum">      49 </span>            : 
+<span class="lineNum">      50 </span>            : #define ITHI_NUMBER_OF_METRICS 8
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            : class ithimetrics
+<span class="lineNum">      53 </span>            : {
+<span class="lineNum">      54 </span>            : public:
+<span class="lineNum">      55 </span>            :     ithimetrics();
+<span class="lineNum">      56 </span>            :     ~ithimetrics();
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span>            :     bool GetMetrics();
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span>            :     bool SetIthiFolder(char const * folder);
+<span class="lineNum">      61 </span>            :     const char * GetIthiFolderName() {
+<span class="lineNum">      62 </span>            :         return ithi_folder;
+<span class="lineNum">      63 </span>            :     };
+<span class="lineNum">      64 </span>            : 
+<span class="lineNum">      65 </span>            :     bool SetMetricFileNames(int metric_number, char const * metric_file_name);
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span>            :     bool SetRootCaptureFileName(char const * file_name);
+<span class="lineNum">      68 </span>            :     bool SetRecursiveCaptureFileName(char const * file_name);
+<span class="lineNum">      69 </span>            :     bool SetAuthoritativeCaptureFileName(char const * file_name);
+<span class="lineNum">      70 </span>            : 
+<span class="lineNum">      71 </span>            :     bool SetRootZoneFileName(char const * file_name);
+<span class="lineNum">      72 </span>            : 
+<span class="lineNum">      73 </span>            :     bool SetDefaultRootCaptureFile();
+<span class="lineNum">      74 </span>            :     bool SetDefaultRecursiveCaptureFile();
+<span class="lineNum">      75 </span>            :     bool SetDefaultAuthoritativeCaptureFile();
+<a name="76"><span class="lineNum">      76 </span>            :     bool SetDefaultRootZoneFile();</a>
+<span class="lineNum">      77 </span>            : 
+<span class="lineNum">      78 </span><span class="lineCov">          2 :     const char * GetRootCaptureFileName() {</span>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          2 :         return root_capture_file_name;</span></a>
+<span class="lineNum">      80 </span>            :     };
+<span class="lineNum">      81 </span><span class="lineCov">          2 :     const char * GetRecursiveCaptureFileName() {</span>
+<span class="lineNum">      82 </span><span class="lineCov">          2 :         return recursive_capture_file_name;</span>
+<span class="lineNum">      83 </span>            :     };
+<span class="lineNum">      84 </span>            :     const char * GetAuthoritativeCaptureFileName() {
+<span class="lineNum">      85 </span>            :         return recursive_capture_file_name;
+<span class="lineNum">      86 </span>            :     };
+<span class="lineNum">      87 </span>            :     const char * GetRootZoneFileName() {
+<span class="lineNum">      88 </span>            :         return root_zone_file_name;
+<span class="lineNum">      89 </span>            :     };
+<span class="lineNum">      90 </span>            : 
+<a name="91"><span class="lineNum">      91 </span>            :     bool SetDateString(char const * date_string);</a>
+<span class="lineNum">      92 </span>            :     bool SetDefaultDate(time_t current_time);
+<span class="lineNum">      93 </span><span class="lineCov">          4 :     const char * GetMetricDate() { return (const char *)metric_date; };</span>
+<span class="lineNum">      94 </span>            : 
+<span class="lineNum">      95 </span>            :     bool SetAbuseFileName(char const * abuse_file_name, M2DataType f_type);
+<span class="lineNum">      96 </span>            :     bool SetDefaultAbuseFileName(M2DataType f_type);
+<span class="lineNum">      97 </span>            :     const char * GetAbuseFileName(M2DataType f_type);
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span>            :     bool SetComplianceFileName(char const * compliance_file_name);
+<span class="lineNum">     100 </span>            :     bool SetDefaultComplianceFileName();
+<span class="lineNum">     101 </span>            :     const char * GetComplianceFileName() { return (const char *)compliance_file_name; };
+<span class="lineNum">     102 </span>            : 
+<span class="lineNum">     103 </span>            :     bool SaveMetricFiles();
+<span class="lineNum">     104 </span>            : 
+<span class="lineNum">     105 </span>            :     bool Save(char const * file_name);
+<span class="lineNum">     106 </span>            : 
+<span class="lineNum">     107 </span>            :     static bool ParseMetricFileName(const char * name, int * metric_id, int * year, int * month, int * day, size_t * name_offset);
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span>            : private:
+<span class="lineNum">     110 </span>            :     ComputeM1 cm1;
+<span class="lineNum">     111 </span>            :     ComputeM2 cm2;
+<span class="lineNum">     112 </span>            :     ComputeM3 cm3;
+<span class="lineNum">     113 </span>            :     ComputeM4 cm4;
+<span class="lineNum">     114 </span>            :     ComputeM6 cm6;
+<span class="lineNum">     115 </span>            :     ComputeM7 cm7;
+<span class="lineNum">     116 </span>            :     ComputeM8 cm8;
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            :     char * metric_date;
+<span class="lineNum">     119 </span>            :     char * ithi_folder;
+<span class="lineNum">     120 </span>            :     char * metric_file[ITHI_NUMBER_OF_METRICS];
+<span class="lineNum">     121 </span>            :     bool metric_is_available[ITHI_NUMBER_OF_METRICS];
+<span class="lineNum">     122 </span>            :     char * compliance_file_name;
+<span class="lineNum">     123 </span>            :     char * root_capture_file_name;
+<span class="lineNum">     124 </span>            :     char * recursive_capture_file_name;
+<span class="lineNum">     125 </span>            :     char * authoritative_capture_file_name;
+<span class="lineNum">     126 </span>            :     char * abuse_file_name_tlds;
+<span class="lineNum">     127 </span>            :     char * abuse_file_name_registrars;
+<span class="lineNum">     128 </span>            :     char * root_zone_file_name;
+<span class="lineNum">     129 </span>            : 
+<span class="lineNum">     130 </span>            :     bool SetDefaultCaptureFiles(char const * metric_name, char const * suffix, char ** p_file_name);
+<span class="lineNum">     131 </span>            : 
+<span class="lineNum">     132 </span>            :     static bool copy_name(char ** target, char const * name);
+<span class="lineNum">     133 </span>            : };
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span>            : #endif /* ITHI_METRICS_H */
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
