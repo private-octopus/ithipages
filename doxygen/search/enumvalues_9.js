@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unknown',['Unknown',['../_m2_data_8h.html#a4b288d3fecca776678f6845abd79a23fa4e81c184ac3ad48a389cd4454c4a05bb',1,'M2Data.h']]]
+  ['unknownm2type',['UnknownM2Type',['../_m2_data_8h.html#a4b288d3fecca776678f6845abd79a23fa0804736e9184434eb7dccbb745e5d68c',1,'M2Data.h']]]
 ];
