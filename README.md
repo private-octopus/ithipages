@@ -237,6 +237,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch design-fixes](coverage/design-fixes/index.html)
   - [from branch load-m3-bare](coverage/load-m3-bare/index.html)
   - [from branch tld-leak-analyse](coverage/tld-leak-analyse/index.html)
+  - [from branch fix-tld-report](coverage/fix-tld-report/index.html)
   - [from branch display-cur-ave-min-max](coverage/display-cur-ave-min-max/index.html)
   - [from branch m2-www-bug](coverage/m2-www-bug/index.html)
   - [from branch nb-gtld-in-m2](coverage/nb-gtld-in-m2/index.html)
