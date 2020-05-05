@@ -22,6 +22,7 @@ var searchData=
   ['st_5fstats_5fby_5fip_5ftest_5fin_5ft',['st_stats_by_ip_test_in_t',['../structst__stats__by__ip__test__in__t.html',1,'']]],
   ['st_5fstats_5fby_5fip_5ftest_5fout_5ft',['st_stats_by_ip_test_out_t',['../structst__stats__by__ip__test__out__t.html',1,'']]],
   ['st_5ftld_5fcount_5ftest_5fhash_5finput_5ft',['st_tld_count_test_hash_input_t',['../structst__tld__count__test__hash__input__t.html',1,'']]],
+  ['st_5ftld_5ferror_5freport_5ft',['st_tld_error_report_t',['../structst__tld__error__report__t.html',1,'']]],
   ['statsbyip',['StatsByIP',['../class_stats_by_i_p.html',1,'']]],
   ['statsbyiptest',['StatsByIpTest',['../class_stats_by_ip_test.html',1,'']]]
 ];

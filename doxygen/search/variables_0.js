@@ -8,6 +8,7 @@ var searchData=
   ['abuse_5ffile_5fname_5ftlds',['abuse_file_name_tlds',['../classithimetrics.html#a6c72040a387818765bbdb02284344614',1,'ithimetrics']]],
   ['abusescore',['AbuseScore',['../structst___m2_data_line__t.html#a3cb1693efff9197d55ceb77efb8bdc27',1,'st_M2DataLine_t']]],
   ['abusivedomains',['AbusiveDomains',['../structst___m2_data_line__t.html#a08c5c08b79d54e8a00c303d952a0a7b3',1,'st_M2DataLine_t']]],
+  ['actual_5fcount',['actual_count',['../structst__tld__error__report__t.html#ac010fb551cb286e8c13a37ea32121547',1,'st_tld_error_report_t']]],
   ['add_5fquery',['add_query',['../structst__stats__by__ip__test__in__t.html#a62cfbf3123bf0fae8368bd41405a3f0b',1,'st_stats_by_ip_test_in_t']]],
   ['additional_5findex',['additional_index',['../classcdns__qr__extended.html#a77e0d3af9e3dee100a93b85011ad9c29',1,'cdns_qr_extended']]],
   ['addr',['addr',['../class_tld_address_as_key.html#a166bccba91c90ff3f3b4dd60ae0c2fb3',1,'TldAddressAsKey::addr()'],['../class_i_p_as_key.html#add6afa0d74787e7a9278d8702e10bf5d',1,'IPAsKey::addr()'],['../class_stats_by_i_p.html#aa1d259cf425486c4888fc7e89007268f',1,'StatsByIP::addr()'],['../structst__stats__by__ip__test__in__t.html#a7e4d1274e04be12c890829be9fb5a8d8',1,'st_stats_by_ip_test_in_t::addr()'],['../structst__stats__by__ip__test__out__t.html#a9469dd8c5e93f0d10e210f9845f2a501',1,'st_stats_by_ip_test_out_t::addr()']]],

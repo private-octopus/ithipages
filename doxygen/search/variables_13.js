@@ -24,7 +24,7 @@ var searchData=
   ['threerootnames',['threeRootNames',['../classithi_index_publisher.html#ae63771ccc9f0a002dd6dc58e9ecfb420',1,'ithiIndexPublisher']]],
   ['threestubnames',['threeStubNames',['../classithi_index_publisher.html#ae4f3bba00481f468c8f30bb2c2e1347e',1,'ithiIndexPublisher']]],
   ['time_5foffset_5fusec',['time_offset_usec',['../classcdns__query.html#adaab1cafae4c02240c64e4c5517f134e',1,'cdns_query']]],
-  ['tld',['tld',['../class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8',1,'TldAddressAsKey::tld()'],['../class_tld_as_key.html#a41a88335dcef029811cbe661cb0b7f46',1,'TldAsKey::tld()']]],
+  ['tld',['tld',['../class_tld_address_as_key.html#a0ca30d816226d0be326b1e3b9af043b8',1,'TldAddressAsKey::tld()'],['../class_tld_as_key.html#a41a88335dcef029811cbe661cb0b7f46',1,'TldAsKey::tld()'],['../structst__tld__error__report__t.html#a66295319da93597396169f0a4fc1002f',1,'st_tld_error_report_t::tld()']]],
   ['tld_5fcases',['tld_cases',['../_m2_data_test_8cpp.html#a30df2711dd8a32edab8a8303591a9613',1,'M2DataTest.cpp']]],
   ['tld_5flen',['tld_len',['../class_tld_address_as_key.html#ae397f0d0cba0c75183c11091b724052d',1,'TldAddressAsKey::tld_len()'],['../class_tld_as_key.html#ab539687260bf5a1b8fc3698bee1e44f4',1,'TldAsKey::tld_len()']]],
   ['tld_5fmin_5fdelay',['tld_min_delay',['../class_tld_address_as_key.html#af231d461b5b32cdcabd3e5e6170bba07',1,'TldAddressAsKey']]],
