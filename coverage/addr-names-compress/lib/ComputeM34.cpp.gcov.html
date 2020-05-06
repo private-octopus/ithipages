@@ -1,0 +1,872 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - lib/ComputeM34.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - ComputeM34.cpp<span style="font-size: 80%;"> (source / <a href="ComputeM34.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">333</td>
+            <td class="headerCovTableEntry">362</td>
+            <td class="headerCovTableEntryHi">92.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2020-05-06 18:19:34</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">42</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntryMed">87.5 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2018, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">      23 </span>            : #include &lt;algorithm&gt;
+<span class="lineNum">      24 </span>            : #include &quot;DnsStats.h&quot;
+<span class="lineNum">      25 </span>            : #include &quot;ComputeM34.h&quot;
+<span class="lineNum">      26 </span>            : 
+<a name="27"><span class="lineNum">      27 </span>            : static char const * leaked_local_names = &quot;(local host names)&quot;;</a>
+<span class="lineNum">      28 </span>            : 
+<span class="lineNum">      29 </span><span class="lineCov">       4506 : bool metric34_line_is_bigger(metric34_line_t x, metric34_line_t y)</span>
+<span class="lineNum">      30 </span>            : {
+<span class="lineNum">      31 </span><span class="lineCov">       4506 :     bool ret = false;</span>
+<span class="lineNum">      32 </span>            : 
+<span class="lineNum">      33 </span><span class="lineCov">       4506 :     if (x.frequency &gt; y.frequency)</span>
+<span class="lineNum">      34 </span>            :     {
+<span class="lineNum">      35 </span><span class="lineCov">        500 :         ret = true;</span>
+<span class="lineNum">      36 </span>            :     }
+<span class="lineNum">      37 </span><span class="lineCov">       4006 :     else if (x.frequency == y.frequency)</span>
+<span class="lineNum">      38 </span>            :     {
+<span class="lineNum">      39 </span><span class="lineCov">       3722 :         ret = CaptureSummary::compare_string(x.domain, y.domain) &gt; 0;</span>
+<span class="lineNum">      40 </span>            :     }
+<span class="lineNum">      41 </span>            : 
+<span class="lineNum">      42 </span><span class="lineCov">       4506 :     return (ret);</span>
+<a name="43"><span class="lineNum">      43 </span>            : }</a>
+<span class="lineNum">      44 </span>            : 
+<span class="lineNum">      45 </span><span class="lineCov">          8 : bool metric8_line_is_bigger(metric8_line_t x, metric8_line_t y)</span>
+<span class="lineNum">      46 </span>            : {
+<span class="lineNum">      47 </span><span class="lineCov">          8 :     bool ret = false;</span>
+<span class="lineNum">      48 </span>            : 
+<span class="lineNum">      49 </span><span class="lineCov">          8 :     if (x.frequency &gt; y.frequency)</span>
+<span class="lineNum">      50 </span>            :     {
+<span class="lineNum">      51 </span><span class="lineNoCov">          0 :         ret = true;</span>
+<span class="lineNum">      52 </span>            :     }
+<span class="lineNum">      53 </span><span class="lineCov">          8 :     else if (x.frequency == y.frequency)</span>
+<span class="lineNum">      54 </span>            :     {
+<span class="lineNum">      55 </span><span class="lineNoCov">          0 :         ret = x.opt_code &lt; y.opt_code;</span>
+<span class="lineNum">      56 </span>            :     }
+<span class="lineNum">      57 </span>            : 
+<span class="lineNum">      58 </span><span class="lineCov">          8 :     return (ret);</span>
+<a name="59"><span class="lineNum">      59 </span>            : }</a>
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span><span class="lineCov">         14 : static double scalar_metric_from_extract(std::vector&lt;CaptureLine*&gt; * extract)</span>
+<span class="lineNum">      62 </span>            : {
+<span class="lineNum">      63 </span><span class="lineCov">         14 :     double ret = 0;</span>
+<span class="lineNum">      64 </span><span class="lineCov">         14 :     uint64_t total = 0;</span>
+<span class="lineNum">      65 </span><span class="lineCov">         14 :     uint64_t support = 0;</span>
+<span class="lineNum">      66 </span>            : 
+<span class="lineNum">      67 </span><span class="lineCov">         42 :     for (size_t i = 0; i &lt; extract-&gt;size(); i++) {</span>
+<span class="lineNum">      68 </span><span class="lineCov">         28 :         total += (*extract)[i]-&gt;count;</span>
+<span class="lineNum">      69 </span><span class="lineCov">         28 :         if ((*extract)[i]-&gt;key_type == 0 &amp;&amp; (*extract)[i]-&gt;key_number == 1) {</span>
+<span class="lineNum">      70 </span><span class="lineCov">         14 :             support += (*extract)[i]-&gt;count;</span>
+<span class="lineNum">      71 </span>            :         }
+<span class="lineNum">      72 </span>            :     }
+<span class="lineNum">      73 </span>            : 
+<span class="lineNum">      74 </span><span class="lineCov">         14 :     if (total &gt; 0) {</span>
+<span class="lineNum">      75 </span><span class="lineCov">         14 :         ret = (double)support;</span>
+<span class="lineNum">      76 </span><span class="lineCov">         14 :         ret /= (double)total;</span>
+<span class="lineNum">      77 </span>            :     }
+<span class="lineNum">      78 </span>            : 
+<span class="lineNum">      79 </span><span class="lineCov">         14 :     return ret;</span>
+<a name="80"><span class="lineNum">      80 </span>            : }</a>
+<span class="lineNum">      81 </span>            : 
+<span class="lineNum">      82 </span><span class="lineCov">         14 : static double scalar_metric_from_capture(CaptureSummary * cs, uint32_t table_id)</span>
+<span class="lineNum">      83 </span>            : {
+<span class="lineNum">      84 </span><span class="lineCov">         28 :     std::vector&lt;CaptureLine*&gt; extract;</span>
+<span class="lineNum">      85 </span><span class="lineCov">         14 :     cs-&gt;Extract(DnsStats::GetTableName(table_id), &amp;extract);</span>
+<span class="lineNum">      86 </span>            : 
+<span class="lineNum">      87 </span><span class="lineCov">         28 :     return scalar_metric_from_extract(&amp;extract);</span>
+<span class="lineNum">      88 </span>            : }
+<a name="89"><span class="lineNum">      89 </span>            : </a>
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span><span class="lineCov">         10 : void GetStringM_X(CaptureSummary * cs, uint32_t table_id,</span>
+<span class="lineNum">      92 </span>            :     std::vector&lt;metric34_line_t&gt;* mstring_x, uint64_t nbqueries, double min_share)
+<span class="lineNum">      93 </span>            : {
+<span class="lineNum">      94 </span><span class="lineCov">         10 :     if (nbqueries &gt; 0)</span>
+<span class="lineNum">      95 </span>            :     {
+<span class="lineNum">      96 </span><span class="lineCov">         20 :         std::vector&lt;CaptureLine *&gt; extract;</span>
+<span class="lineNum">      97 </span>            : 
+<span class="lineNum">      98 </span><span class="lineCov">         10 :         cs-&gt;Extract(</span>
+<span class="lineNum">      99 </span><span class="lineCov">         10 :             DnsStats::GetTableName(table_id), &amp;extract);</span>
+<span class="lineNum">     100 </span><span class="lineCov">         10 :         mstring_x-&gt;reserve(extract.size());</span>
+<span class="lineNum">     101 </span>            : 
+<span class="lineNum">     102 </span><span class="lineCov">        964 :         for (size_t i = 0; i &lt; extract.size(); i++)</span>
+<span class="lineNum">     103 </span>            :         {
+<span class="lineNum">     104 </span>            :             metric34_line_t line;
+<span class="lineNum">     105 </span>            : 
+<span class="lineNum">     106 </span><span class="lineCov">        954 :             line.domain[strlen(extract[i]-&gt;key_value)] = 0;</span>
+<span class="lineNum">     107 </span><span class="lineCov">        954 :             line.frequency = ((double)extract[i]-&gt;count) / ((double)nbqueries);</span>
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span><span class="lineCov">        954 :             if (extract.size() &lt; 8 || line.frequency &gt;= min_share)</span>
+<span class="lineNum">     110 </span>            :             {
+<span class="lineNum">     111 </span><span class="lineCov">        498 :                 memcpy(line.domain, extract[i]-&gt;key_value, strlen(extract[i]-&gt;key_value));</span>
+<span class="lineNum">     112 </span><span class="lineCov">        498 :                 mstring_x-&gt;push_back(line);</span>
+<span class="lineNum">     113 </span>            :             }
+<span class="lineNum">     114 </span>            :         }
+<span class="lineNum">     115 </span>            : 
+<span class="lineNum">     116 </span><span class="lineCov">         10 :         std::sort(mstring_x-&gt;begin(), mstring_x-&gt;end(), metric34_line_is_bigger);</span>
+<span class="lineNum">     117 </span>            :     }
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">         10 : }</span></a>
+<span class="lineNum">     119 </span>            : 
+<span class="lineNum">     120 </span><span class="lineCov">          6 : ComputeM3::ComputeM3()</span>
+<span class="lineNum">     121 </span>            :     :
+<span class="lineNum">     122 </span>            :     nb_rootqueries(0),
+<span class="lineNum">     123 </span>            :     m3_1(0),
+<span class="lineNum">     124 </span>            :     m3_2(0),
+<span class="lineNum">     125 </span>            :     m33_4(0),
+<span class="lineNum">     126 </span>            :     m33_5(0),
+<span class="lineNum">     127 </span>            :     m3_4_1(0),
+<span class="lineNum">     128 </span>            :     m3_5(0),
+<span class="lineNum">     129 </span><span class="lineCov">          6 :     m3_6(0)</span>
+<span class="lineNum">     130 </span>            : {
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     132 </span>            : 
+<span class="lineNum">     133 </span><span class="lineCov">          6 : ComputeM3::~ComputeM3()</span>
+<span class="lineNum">     134 </span>            : {
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     136 </span>            : 
+<span class="lineNum">     137 </span><span class="lineCov">          2 : bool ComputeM3::Load(char const * single_file_name)</span>
+<span class="lineNum">     138 </span>            : {
+<span class="lineNum">     139 </span><span class="lineCov">          2 :     return cs.Load(single_file_name);</span>
+<a name="140"><span class="lineNum">     140 </span>            : }</a>
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span><span class="lineNoCov">          0 : bool ComputeM3::LoadMultipleFiles(char const ** in_files, int nb_files)</span>
+<span class="lineNum">     143 </span>            : {
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :     return (nb_files == 1)?Load(in_files[0]):cs.Merge(nb_files, in_files);</span>
+<a name="145"><span class="lineNum">     145 </span>            : }</a>
+<span class="lineNum">     146 </span>            : 
+<span class="lineNum">     147 </span><span class="lineCov">          2 : bool ComputeM3::Compute()</span>
+<span class="lineNum">     148 </span>            : {
+<span class="lineNum">     149 </span>            :     bool ret;
+<span class="lineNum">     150 </span>            :     
+<span class="lineNum">     151 </span><span class="lineCov">          4 :     ret = GetM3_1() &amp;&amp;</span>
+<span class="lineNum">     152 </span><span class="lineCov">          4 :         GetM3_2() &amp;&amp;</span>
+<span class="lineNum">     153 </span><span class="lineCov">          4 :         GetM33_1() &amp;&amp;</span>
+<span class="lineNum">     154 </span><span class="lineCov">          6 :         GetM33_2() &amp;&amp;</span>
+<span class="lineNum">     155 </span><span class="lineCov">          4 :         GetM33_3();</span>
+<span class="lineNum">     156 </span>            : 
+<span class="lineNum">     157 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     158 </span><span class="lineCov">          2 :         ret = GetM33_5();</span>
+<span class="lineNum">     159 </span>            :     }
+<span class="lineNum">     160 </span>            : 
+<span class="lineNum">     161 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     162 </span><span class="lineCov">          2 :         m33_4 = m3_1;</span>
+<span class="lineNum">     163 </span>            : 
+<span class="lineNum">     164 </span><span class="lineCov">         10 :         for (size_t i = 0; ret &amp;&amp; i &lt; m33_1.size(); i++) {</span>
+<span class="lineNum">     165 </span>            :             /* Check for data collection bug */
+<span class="lineNum">     166 </span><span class="lineCov">          8 :             if (DnsStats::IsRfc6761Tld((uint8_t *)(m33_1[i].domain), strlen(m33_1[i].domain))) {</span>
+<span class="lineNum">     167 </span><span class="lineCov">          8 :                 m33_4 -= m33_1[i].frequency;</span>
+<span class="lineNum">     168 </span>            :             }
+<span class="lineNum">     169 </span>            :         }
+<span class="lineNum">     170 </span>            : 
+<span class="lineNum">     171 </span><span class="lineCov">         36 :         for (size_t i = 0; ret &amp;&amp; i &lt; m33_2.size(); i++) {</span>
+<span class="lineNum">     172 </span><span class="lineCov">         34 :             m33_4 -= m33_2[i].frequency;</span>
+<span class="lineNum">     173 </span>            :         }
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span><span class="lineCov">         38 :         for (size_t i = 0; ret &amp;&amp; i &lt; m33_3.size(); i++) {</span>
+<span class="lineNum">     176 </span><span class="lineCov">         36 :             m33_4 -= m33_3[i].frequency;</span>
+<span class="lineNum">     177 </span>            :         }
+<span class="lineNum">     178 </span>            : 
+<span class="lineNum">     179 </span><span class="lineCov">          2 :         if (m33_4 &lt; 0) {</span>
+<span class="lineNum">     180 </span><span class="lineNoCov">          0 :             m33_4 = 0;</span>
+<span class="lineNum">     181 </span>            :         }
+<span class="lineNum">     182 </span>            :     }
+<span class="lineNum">     183 </span>            : 
+<span class="lineNum">     184 </span><span class="lineCov">          2 :     ret &amp;= GetM3_4();</span>
+<span class="lineNum">     185 </span><span class="lineCov">          2 :     ret &amp;= GetM3_5();</span>
+<span class="lineNum">     186 </span><span class="lineCov">          2 :     ret &amp;= GetM3_6();</span>
+<span class="lineNum">     187 </span>            : 
+<span class="lineNum">     188 </span><span class="lineCov">          2 :     ret &amp;= GetM3_7();</span>
+<span class="lineNum">     189 </span>            : 
+<span class="lineNum">     190 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="191"><span class="lineNum">     191 </span>            : }</a>
+<span class="lineNum">     192 </span>            : 
+<span class="lineNum">     193 </span><span class="lineCov">          2 : bool ComputeM3::Write(FILE * F_out, char const* date, char const* version)</span>
+<span class="lineNum">     194 </span>            : {
+<span class="lineNum">     195 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     196 </span>            : 
+<span class="lineNum">     197 </span><span class="lineCov">          4 :     ret = (fprintf(F_out, &quot;M3.1,%s,%s, , %6f,\n&quot;, date, version, m3_1) &gt; 0 &amp;&amp;</span>
+<span class="lineNum">     198 </span><span class="lineCov">          4 :         fprintf(F_out, &quot;M3.2,%s,%s, , %6f,\n&quot;, date, version, m3_2) &gt; 0);</span>
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span><span class="lineCov">         10 :     for (size_t i = 0; ret &amp;&amp; i &lt; m33_1.size(); i++)</span>
+<span class="lineNum">     201 </span>            :     {
+<span class="lineNum">     202 </span>            :         /* This is the RFC 6761 table. We need a check to fix a data collection bug. */
+<span class="lineNum">     203 </span><span class="lineCov">          8 :         if (DnsStats::IsRfc6761Tld((uint8_t *)(m33_1[i].domain), strlen(m33_1[i].domain))) {</span>
+<span class="lineNum">     204 </span><span class="lineCov">          8 :             ret = fprintf(F_out, &quot;M3.3.1,%s,%s, %s, %6f,\n&quot;, date, version, m33_1[i].domain, m33_1[i].frequency) &gt; 0;</span>
+<span class="lineNum">     205 </span>            :         }
+<span class="lineNum">     206 </span>            :     }
+<span class="lineNum">     207 </span>            : 
+<span class="lineNum">     208 </span><span class="lineCov">         36 :     for (size_t i = 0; ret &amp;&amp; i &lt; m33_2.size(); i++)</span>
+<span class="lineNum">     209 </span>            :     {
+<span class="lineNum">     210 </span><span class="lineCov">         34 :         ret = fprintf(F_out, &quot;M3.3.2,%s,%s, %s, %6f,\n&quot;, date, version, m33_2[i].domain, m33_2[i].frequency) &gt; 0;</span>
+<span class="lineNum">     211 </span>            :     }
+<span class="lineNum">     212 </span>            : 
+<span class="lineNum">     213 </span><span class="lineCov">         38 :     for (size_t i = 0; ret &amp;&amp; i &lt; m33_3.size(); i++)</span>
+<span class="lineNum">     214 </span>            :     {
+<span class="lineNum">     215 </span><span class="lineCov">         36 :         ret = fprintf(F_out, &quot;M3.3.3,%s,%s, %s, %6f,\n&quot;, date, version, m33_3[i].domain, m33_3[i].frequency) &gt; 0;</span>
+<span class="lineNum">     216 </span>            :     }
+<span class="lineNum">     217 </span>            : 
+<span class="lineNum">     218 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     219 </span>            :     {
+<span class="lineNum">     220 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M3.3.4,%s,%s, , %6f,\n&quot;, date, version, (m33_4 &gt; 0) ? m33_4 : 0);</span>
+<span class="lineNum">     221 </span>            :     }
+<span class="lineNum">     222 </span>            : 
+<span class="lineNum">     223 </span><span class="lineCov">          2 :     if (ret &amp;&amp; m33_5 &gt; 0)</span>
+<span class="lineNum">     224 </span>            :     {
+<span class="lineNum">     225 </span><span class="lineNoCov">          0 :         ret = fprintf(F_out, &quot;M3.3.5,%s,%s, , %6f,\n&quot;, date, version, m33_5);</span>
+<span class="lineNum">     226 </span>            :     }
+<span class="lineNum">     227 </span>            : 
+<span class="lineNum">     228 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     229 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M3.4.1,%s,%s, , %6f,\n&quot;, date, version, m3_4_1) &gt; 0;</span>
+<span class="lineNum">     230 </span>            :     }
+<span class="lineNum">     231 </span>            : 
+<span class="lineNum">     232 </span><span class="lineCov">          6 :     for (size_t i = 0; ret &amp;&amp; i &lt; m3_4_2.size(); i++) {</span>
+<span class="lineNum">     233 </span><span class="lineCov">          8 :         ret = fprintf(F_out, &quot;M3.4.2,%s,%s, %d, %6f,\n&quot;, date, version,</span>
+<span class="lineNum">     234 </span><span class="lineCov">          4 :             m3_4_2[i].opt_code,</span>
+<span class="lineNum">     235 </span><span class="lineCov">          8 :             m3_4_2[i].frequency) &gt; 0;</span>
+<span class="lineNum">     236 </span>            :     }
+<span class="lineNum">     237 </span>            : 
+<span class="lineNum">     238 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     239 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M3.5,%s,%s, , %6f,\n&quot;, date, version, m3_5) &gt; 0;</span>
+<span class="lineNum">     240 </span>            :     }
+<span class="lineNum">     241 </span>            : 
+<span class="lineNum">     242 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     243 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M3.6,%s,%s, , %6f,\n&quot;, date, version, m3_6) &gt; 0;</span>
+<span class="lineNum">     244 </span>            :     }
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     247 </span><span class="lineCov">         26 :         for (size_t i = 0; ret &amp;&amp; i &lt; m3_7.size(); i++)</span>
+<span class="lineNum">     248 </span>            :         {
+<span class="lineNum">     249 </span><span class="lineCov">         24 :             ret = fprintf(F_out, &quot;M3.7,%s,%s, %s, %6f,\n&quot;, date, version, m3_7[i].domain, m3_7[i].frequency) &gt; 0;</span>
+<span class="lineNum">     250 </span>            :         }
+<span class="lineNum">     251 </span>            :     }
+<span class="lineNum">     252 </span>            : 
+<span class="lineNum">     253 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="254"><span class="lineNum">     254 </span>            : }</a>
+<span class="lineNum">     255 </span>            : 
+<span class="lineNum">     256 </span><span class="lineCov">          6 : void ComputeM3::GetM3_X(uint32_t table_id,</span>
+<span class="lineNum">     257 </span>            :     std::vector&lt;metric34_line_t&gt;* mstring_x, double min_share)
+<span class="lineNum">     258 </span>            : {
+<span class="lineNum">     259 </span><span class="lineCov">          6 :     GetStringM_X(&amp;cs, table_id, mstring_x, nb_rootqueries, min_share);</span>
+<span class="lineNum">     260 </span><span class="lineCov">          6 : }</span>
+<a name="261"><span class="lineNum">     261 </span>            : </a>
+<span class="lineNum">     262 </span>            : 
+<span class="lineNum">     263 </span><span class="lineCov">          2 : bool ComputeM3::GetM3_1()</span>
+<span class="lineNum">     264 </span>            : {
+<span class="lineNum">     265 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     266 </span><span class="lineCov">          2 :     uint64_t nb_noerror = cs.GetCountByNumber(</span>
+<span class="lineNum">     267 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_root_QR), 0);</span>
+<span class="lineNum">     268 </span><span class="lineCov">          2 :     uint64_t nb_nxdomain = cs.GetCountByNumber(</span>
+<span class="lineNum">     269 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_root_QR), 3);</span>
+<span class="lineNum">     270 </span><span class="lineCov">          2 :     nb_rootqueries = nb_noerror + nb_nxdomain;</span>
+<span class="lineNum">     271 </span>            : 
+<span class="lineNum">     272 </span><span class="lineCov">          2 :     if (nb_rootqueries &gt; 0)</span>
+<span class="lineNum">     273 </span>            :     {
+<span class="lineNum">     274 </span><span class="lineCov">          2 :         m3_1 = (double)nb_nxdomain;</span>
+<span class="lineNum">     275 </span><span class="lineCov">          2 :         m3_1 /= (double)nb_rootqueries;</span>
+<span class="lineNum">     276 </span>            :     }
+<span class="lineNum">     277 </span>            :     else
+<span class="lineNum">     278 </span>            :     {
+<span class="lineNum">     279 </span><span class="lineNoCov">          0 :         m3_1 = 0;</span>
+<span class="lineNum">     280 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     281 </span>            :     }
+<span class="lineNum">     282 </span>            : 
+<span class="lineNum">     283 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="284"><span class="lineNum">     284 </span>            : }</a>
+<span class="lineNum">     285 </span>            : 
+<span class="lineNum">     286 </span><span class="lineCov">          2 : bool ComputeM3::GetM3_2()</span>
+<span class="lineNum">     287 </span>            : {
+<span class="lineNum">     288 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     289 </span><span class="lineCov">          2 :     uint64_t nb_useful = cs.GetCountByNumber(</span>
+<span class="lineNum">     290 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_UsefulQueries), 1);</span>
+<span class="lineNum">     291 </span><span class="lineCov">          2 :     uint64_t nb_useless = cs.GetCountByNumber(</span>
+<span class="lineNum">     292 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_UsefulQueries), 0);</span>
+<span class="lineNum">     293 </span><span class="lineCov">          2 :     uint64_t total = nb_useful + nb_useless;</span>
+<span class="lineNum">     294 </span>            : 
+<span class="lineNum">     295 </span><span class="lineCov">          2 :     if (total &gt; 0)</span>
+<span class="lineNum">     296 </span>            :     {
+<span class="lineNum">     297 </span><span class="lineCov">          2 :         m3_2 = (double)nb_useless;</span>
+<span class="lineNum">     298 </span><span class="lineCov">          2 :         m3_2 /= (double)total;</span>
+<span class="lineNum">     299 </span>            :     }
+<span class="lineNum">     300 </span>            :     else
+<span class="lineNum">     301 </span>            :     {
+<span class="lineNum">     302 </span><span class="lineNoCov">          0 :         m3_2 = 0;</span>
+<span class="lineNum">     303 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     304 </span>            :     }
+<span class="lineNum">     305 </span>            : 
+<span class="lineNum">     306 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="307"><span class="lineNum">     307 </span>            : }</a>
+<span class="lineNum">     308 </span>            : 
+<span class="lineNum">     309 </span><span class="lineCov">          2 : bool ComputeM3::GetM33_1()</span>
+<span class="lineNum">     310 </span>            : {
+<span class="lineNum">     311 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     312 </span><span class="lineCov">          2 :     GetM3_X(REGISTRY_DNS_RFC6761TLD, &amp;m33_1, 0);</span>
+<span class="lineNum">     313 </span>            : 
+<span class="lineNum">     314 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="315"><span class="lineNum">     315 </span>            : }</a>
+<span class="lineNum">     316 </span>            : 
+<span class="lineNum">     317 </span><span class="lineCov">          2 : bool ComputeM3::GetM33_2()</span>
+<span class="lineNum">     318 </span>            : {
+<span class="lineNum">     319 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     320 </span><span class="lineCov">          2 :     GetM3_X(REGISTRY_DNS_LeakedTLD, &amp;m33_2, 0.001);</span>
+<span class="lineNum">     321 </span>            : 
+<span class="lineNum">     322 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="323"><span class="lineNum">     323 </span>            : }</a>
+<span class="lineNum">     324 </span>            : 
+<span class="lineNum">     325 </span><span class="lineCov">          8 : void ComputeM3::GetM33_3_pattern(int registry_id, char const * pattern_name)</span>
+<span class="lineNum">     326 </span>            : {
+<span class="lineNum">     327 </span><span class="lineCov">          8 :     uint64_t nb = cs.GetCountByNumber(DnsStats::GetTableName(registry_id), 0);</span>
+<span class="lineNum">     328 </span><span class="lineCov">          8 :     if (nb &gt; 0) {</span>
+<span class="lineNum">     329 </span>            :         metric34_line_t line;
+<span class="lineNum">     330 </span><span class="lineCov">          8 :         size_t len = strlen(pattern_name);</span>
+<span class="lineNum">     331 </span>            : 
+<span class="lineNum">     332 </span><span class="lineCov">          8 :         if (len + 1 &gt; sizeof(line.domain)) {</span>
+<span class="lineNum">     333 </span><span class="lineNoCov">          0 :             len = sizeof(line.domain) - 1;</span>
+<span class="lineNum">     334 </span>            :         }
+<span class="lineNum">     335 </span>            : 
+<span class="lineNum">     336 </span><span class="lineCov">          8 :         memcpy(line.domain, pattern_name, len);</span>
+<span class="lineNum">     337 </span><span class="lineCov">          8 :         line.domain[len] = 0;</span>
+<span class="lineNum">     338 </span><span class="lineCov">          8 :         line.frequency = ((double)nb) / ((double)nb_rootqueries);</span>
+<span class="lineNum">     339 </span><span class="lineCov">          8 :         m33_3.push_back(line);</span>
+<span class="lineNum">     340 </span>            :     }
+<a name="341"><span class="lineNum">     341 </span><span class="lineCov">          8 : }</span></a>
+<span class="lineNum">     342 </span>            : 
+<span class="lineNum">     343 </span><span class="lineCov">          2 : bool ComputeM3::GetM33_3()</span>
+<span class="lineNum">     344 </span>            : {
+<span class="lineNum">     345 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     346 </span><span class="lineCov">          2 :     if (nb_rootqueries &lt;= 0)</span>
+<span class="lineNum">     347 </span>            :     {
+<span class="lineNum">     348 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     349 </span>            :     }
+<span class="lineNum">     350 </span>            :     else
+<span class="lineNum">     351 </span>            :     {
+<span class="lineNum">     352 </span><span class="lineCov">          4 :         std::vector&lt;CaptureLine *&gt; extract;</span>
+<span class="lineNum">     353 </span>            : 
+<span class="lineNum">     354 </span><span class="lineCov">          2 :         cs.Extract(</span>
+<span class="lineNum">     355 </span><span class="lineCov">          2 :             DnsStats::GetTableName(REGISTRY_DNS_LeakByLength), &amp;extract);</span>
+<span class="lineNum">     356 </span><span class="lineCov">          2 :         m33_3.reserve(extract.size());</span>
+<span class="lineNum">     357 </span>            : 
+<span class="lineNum">     358 </span><span class="lineCov">         52 :         for (size_t i = 0; i &lt; extract.size(); i++)</span>
+<span class="lineNum">     359 </span>            :         {
+<span class="lineNum">     360 </span>            :             metric34_line_t line;
+<span class="lineNum">     361 </span><span class="lineCov">         50 :             size_t indx = 0;</span>
+<span class="lineNum">     362 </span>            : 
+<span class="lineNum">     363 </span><span class="lineCov">         50 :             line.domain[indx++] = 'l';</span>
+<span class="lineNum">     364 </span><span class="lineCov">         50 :             line.domain[indx++] = 'e';</span>
+<span class="lineNum">     365 </span><span class="lineCov">         50 :             line.domain[indx++] = 'n';</span>
+<span class="lineNum">     366 </span><span class="lineCov">         50 :             line.domain[indx++] = 'g';</span>
+<span class="lineNum">     367 </span><span class="lineCov">         50 :             line.domain[indx++] = 't';</span>
+<span class="lineNum">     368 </span><span class="lineCov">         50 :             line.domain[indx++] = 'h';</span>
+<span class="lineNum">     369 </span><span class="lineCov">         50 :             line.domain[indx++] = '_';</span>
+<span class="lineNum">     370 </span>            :             /* Length is between 0 and 64, and itoa is not portable */
+<span class="lineNum">     371 </span><span class="lineCov">         50 :             if (extract[i]-&gt;key_number &lt; 10)</span>
+<span class="lineNum">     372 </span>            :             {
+<span class="lineNum">     373 </span><span class="lineCov">         16 :                 line.domain[indx++] = '0' + extract[i]-&gt;key_number;</span>
+<span class="lineNum">     374 </span>            :             }
+<span class="lineNum">     375 </span>            :             else
+<span class="lineNum">     376 </span>            :             {
+<span class="lineNum">     377 </span><span class="lineCov">         34 :                 line.domain[indx++] = '0' + extract[i]-&gt;key_number / 10;</span>
+<span class="lineNum">     378 </span><span class="lineCov">         34 :                 line.domain[indx++] = '0' + extract[i]-&gt;key_number % 10;</span>
+<span class="lineNum">     379 </span>            :             }
+<span class="lineNum">     380 </span><span class="lineCov">         50 :             line.domain[indx++] = 0;</span>
+<span class="lineNum">     381 </span><span class="lineCov">         50 :             line.frequency = ((double)extract[i]-&gt;count) / ((double)nb_rootqueries);</span>
+<span class="lineNum">     382 </span>            : 
+<span class="lineNum">     383 </span><span class="lineCov">         50 :             if (extract.size() &lt; 8 || line.frequency &gt;= 0.001)</span>
+<span class="lineNum">     384 </span>            :             {
+<span class="lineNum">     385 </span><span class="lineCov">         28 :                 m33_3.push_back(line);</span>
+<span class="lineNum">     386 </span>            :             }
+<span class="lineNum">     387 </span>            :         }
+<span class="lineNum">     388 </span>            : 
+<span class="lineNum">     389 </span>            :         /* Add line for binary pattern if present */
+<span class="lineNum">     390 </span><span class="lineCov">          2 :         GetM33_3_pattern(REGISTRY_DNS_LEAK_BINARY, &quot;binary&quot;);</span>
+<span class="lineNum">     391 </span>            : 
+<span class="lineNum">     392 </span>            :         /* Add line for bad syntax pattern if present */
+<span class="lineNum">     393 </span><span class="lineCov">          2 :         GetM33_3_pattern(REGISTRY_DNS_LEAK_SYNTAX, &quot;bad_syntax&quot;);</span>
+<span class="lineNum">     394 </span>            : 
+<span class="lineNum">     395 </span>            :         /* Add line for bad syntax pattern if present */
+<span class="lineNum">     396 </span><span class="lineCov">          2 :         GetM33_3_pattern(REGISTRY_DNS_LEAK_IPV4, &quot;ipv4&quot;);</span>
+<span class="lineNum">     397 </span>            : 
+<span class="lineNum">     398 </span>            :         /* Add line for bad syntax pattern if present */
+<span class="lineNum">     399 </span><span class="lineCov">          2 :         GetM33_3_pattern(REGISTRY_DNS_LEAK_NUMERIC, &quot;numeric&quot;);</span>
+<span class="lineNum">     400 </span>            : 
+<span class="lineNum">     401 </span><span class="lineCov">          2 :         std::sort(m33_3.begin(), m33_3.end(), metric34_line_is_bigger);</span>
+<span class="lineNum">     402 </span>            :     }
+<span class="lineNum">     403 </span>            : 
+<span class="lineNum">     404 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="405"><span class="lineNum">     405 </span>            : }</a>
+<span class="lineNum">     406 </span>            : 
+<span class="lineNum">     407 </span><span class="lineCov">          2 : bool ComputeM3::GetM33_5()</span>
+<span class="lineNum">     408 </span>            : {
+<span class="lineNum">     409 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     410 </span><span class="lineCov">          2 :     uint64_t nb_useful = cs.GetCountByNumber(</span>
+<span class="lineNum">     411 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_UsefulQueries), 2);</span>
+<span class="lineNum">     412 </span><span class="lineCov">          2 :     uint64_t nb_useless = cs.GetCountByNumber(</span>
+<span class="lineNum">     413 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_UsefulQueries), 3);</span>
+<span class="lineNum">     414 </span><span class="lineCov">          2 :     uint64_t total = nb_useful + nb_useless;</span>
+<span class="lineNum">     415 </span>            : 
+<span class="lineNum">     416 </span><span class="lineCov">          2 :     if (total &gt; 0)</span>
+<span class="lineNum">     417 </span>            :     {
+<span class="lineNum">     418 </span><span class="lineNoCov">          0 :         m33_5 = (double)nb_useless;</span>
+<span class="lineNum">     419 </span><span class="lineNoCov">          0 :         m33_5 /= (double)total;</span>
+<span class="lineNum">     420 </span>            :     }
+<span class="lineNum">     421 </span>            :     else
+<span class="lineNum">     422 </span>            :     {
+<span class="lineNum">     423 </span><span class="lineCov">          2 :         m33_5 = 0;</span>
+<span class="lineNum">     424 </span>            :     }
+<span class="lineNum">     425 </span>            : 
+<span class="lineNum">     426 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="427"><span class="lineNum">     427 </span>            : }</a>
+<span class="lineNum">     428 </span>            : 
+<span class="lineNum">     429 </span><span class="lineCov">          2 : bool ComputeM3::GetM3_4()</span>
+<span class="lineNum">     430 </span>            : {
+<span class="lineNum">     431 </span><span class="lineCov">          2 :     return ComputeM8::ComputeEdnsMetrics(&amp;cs, &amp;m3_4_1, &amp;m3_4_2);</span>
+<a name="432"><span class="lineNum">     432 </span>            : }</a>
+<span class="lineNum">     433 </span>            : 
+<span class="lineNum">     434 </span><span class="lineCov">          2 : bool ComputeM3::GetM3_5()</span>
+<span class="lineNum">     435 </span>            : {
+<span class="lineNum">     436 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     437 </span>            : 
+<span class="lineNum">     438 </span><span class="lineCov">          2 :     m3_5 = scalar_metric_from_capture(&amp;cs, REGISTRY_DNSSEC_Client_Usage);</span>
+<span class="lineNum">     439 </span>            : 
+<span class="lineNum">     440 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="441"><span class="lineNum">     441 </span>            : }</a>
+<span class="lineNum">     442 </span>            : 
+<span class="lineNum">     443 </span><span class="lineCov">          2 : bool ComputeM3::GetM3_6()</span>
+<span class="lineNum">     444 </span>            : {
+<span class="lineNum">     445 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     446 </span>            : 
+<span class="lineNum">     447 </span><span class="lineCov">          2 :     m3_6 = scalar_metric_from_capture(&amp;cs, REGISTRY_QNAME_MINIMIZATION_Usage);</span>
+<span class="lineNum">     448 </span>            : 
+<span class="lineNum">     449 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="450"><span class="lineNum">     450 </span>            : }</a>
+<span class="lineNum">     451 </span>            : 
+<span class="lineNum">     452 </span><span class="lineCov">          2 : bool ComputeM3::GetM3_7()</span>
+<span class="lineNum">     453 </span>            : {
+<span class="lineNum">     454 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     455 </span>            : 
+<span class="lineNum">     456 </span><span class="lineCov">          2 :     GetM3_X(REGISTRY_DNS_LEAK_2NDLEVEL, &amp;m3_7, 0.001);</span>
+<span class="lineNum">     457 </span>            : 
+<span class="lineNum">     458 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="459"><span class="lineNum">     459 </span>            : }</a>
+<span class="lineNum">     460 </span>            : 
+<span class="lineNum">     461 </span><span class="lineCov">          6 : ComputeM4::ComputeM4()</span>
+<span class="lineNum">     462 </span>            :     :
+<span class="lineNum">     463 </span>            :     nb_userqueries(0),
+<span class="lineNum">     464 </span>            :     nb_nondelegated(0),
+<span class="lineNum">     465 </span>            :     nb_delegated(0),
+<span class="lineNum">     466 </span>            :     m4_1(0),
+<span class="lineNum">     467 </span>            :     m4_4(0),
+<span class="lineNum">     468 </span><span class="lineCov">          6 :     m4_5(0)</span>
+<span class="lineNum">     469 </span>            : {
+<a name="470"><span class="lineNum">     470 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     471 </span>            : 
+<span class="lineNum">     472 </span><span class="lineCov">          6 : ComputeM4::~ComputeM4()</span>
+<span class="lineNum">     473 </span>            : {
+<a name="474"><span class="lineNum">     474 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     475 </span>            : 
+<span class="lineNum">     476 </span><span class="lineCov">          2 : bool ComputeM4::Load(char const * single_file_name)</span>
+<span class="lineNum">     477 </span>            : {
+<span class="lineNum">     478 </span><span class="lineCov">          2 :     return cs.Load(single_file_name);</span>
+<a name="479"><span class="lineNum">     479 </span>            : }</a>
+<span class="lineNum">     480 </span>            : 
+<span class="lineNum">     481 </span><span class="lineNoCov">          0 : bool ComputeM4::LoadMultipleFiles(char const ** in_files, int nb_files)</span>
+<span class="lineNum">     482 </span>            : {
+<span class="lineNum">     483 </span><span class="lineNoCov">          0 :     return (nb_files == 1) ? Load(in_files[0]) : cs.Merge(nb_files, in_files);</span>
+<a name="484"><span class="lineNum">     484 </span>            : }</a>
+<span class="lineNum">     485 </span>            : 
+<span class="lineNum">     486 </span><span class="lineCov">          2 : bool ComputeM4::Compute()</span>
+<span class="lineNum">     487 </span>            : {
+<span class="lineNum">     488 </span><span class="lineCov">          4 :     bool ret = GetM4_1() &amp;&amp;</span>
+<span class="lineNum">     489 </span><span class="lineCov">          4 :         GetM4_2() &amp;&amp;</span>
+<span class="lineNum">     490 </span><span class="lineCov">          4 :         GetM4_3();</span>
+<span class="lineNum">     491 </span>            : 
+<span class="lineNum">     492 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     493 </span>            :     {
+<span class="lineNum">     494 </span><span class="lineCov">          2 :         m4_4 = 1.0 - m4_1;</span>
+<span class="lineNum">     495 </span>            : 
+<span class="lineNum">     496 </span><span class="lineCov">          8 :         for (size_t i = 0; ret &amp;&amp; i &lt; m4_2.size(); i++)</span>
+<span class="lineNum">     497 </span>            :         {
+<span class="lineNum">     498 </span><span class="lineCov">          6 :             m4_4 -= m4_2[i].frequency;</span>
+<span class="lineNum">     499 </span>            :         }
+<span class="lineNum">     500 </span>            : 
+<span class="lineNum">     501 </span><span class="lineCov">        428 :         for (size_t i = 0; ret &amp;&amp; i &lt; m4_3.size(); i++)</span>
+<span class="lineNum">     502 </span>            :         {
+<span class="lineNum">     503 </span><span class="lineCov">        426 :             m4_4 -= m4_3[i].frequency;</span>
+<span class="lineNum">     504 </span>            :         }
+<span class="lineNum">     505 </span>            : 
+<span class="lineNum">     506 </span><span class="lineCov">          2 :         if (m4_4 &lt; 0)</span>
+<span class="lineNum">     507 </span>            :         {
+<span class="lineNum">     508 </span><span class="lineCov">          2 :             m4_4 = 0;</span>
+<span class="lineNum">     509 </span>            :         }
+<span class="lineNum">     510 </span>            :     }
+<span class="lineNum">     511 </span>            : 
+<span class="lineNum">     512 </span><span class="lineCov">          2 :     if (ret) </span>
+<span class="lineNum">     513 </span>            :     {
+<span class="lineNum">     514 </span><span class="lineCov">          2 :         ret = GetM4_DNSSEC();</span>
+<span class="lineNum">     515 </span>            :     }
+<span class="lineNum">     516 </span>            : 
+<span class="lineNum">     517 </span>            : 
+<span class="lineNum">     518 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="519"><span class="lineNum">     519 </span>            : }</a>
+<span class="lineNum">     520 </span>            : 
+<span class="lineNum">     521 </span><span class="lineCov">          2 : bool ComputeM4::Write(FILE * F_out, char const* date, char const* version)</span>
+<span class="lineNum">     522 </span>            : {
+<span class="lineNum">     523 </span><span class="lineCov">          2 :     bool ret = fprintf(F_out, &quot;M4.1,%s,%s, , %6f,\n&quot;, date, version, m4_1) &gt; 0;</span>
+<span class="lineNum">     524 </span>            : 
+<span class="lineNum">     525 </span><span class="lineCov">          8 :     for (size_t i = 0; ret &amp;&amp; i &lt; m4_2.size(); i++) {</span>
+<span class="lineNum">     526 </span><span class="lineCov">          6 :         ret = fprintf(F_out, &quot;M4.2,%s,%s, %s, %6f,\n&quot;, date, version, m4_2[i].domain, m4_2[i].frequency) &gt; 0;</span>
+<span class="lineNum">     527 </span>            :     }
+<span class="lineNum">     528 </span>            : 
+<span class="lineNum">     529 </span><span class="lineCov">        428 :     for (size_t i = 0; ret &amp;&amp; i &lt; m4_3.size(); i++) {</span>
+<span class="lineNum">     530 </span><span class="lineCov">        426 :         ret = fprintf(F_out, &quot;M4.3,%s,%s, %s, %6f,\n&quot;, date, version, m4_3[i].domain, m4_3[i].frequency) &gt; 0;</span>
+<span class="lineNum">     531 </span>            :     }
+<span class="lineNum">     532 </span>            : 
+<span class="lineNum">     533 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     534 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M4.4,%s,%s, , %6f,\n&quot;, date, version, m4_4) &gt; 0;</span>
+<span class="lineNum">     535 </span>            :     }
+<span class="lineNum">     536 </span>            : 
+<span class="lineNum">     537 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     538 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M4.5,%s,%s, , %6f,\n&quot;, date, version, m4_5) &gt; 0;</span>
+<span class="lineNum">     539 </span>            :     }
+<span class="lineNum">     540 </span>            :     /* Removing metric M4.6 until investigation completes */
+<span class="lineNum">     541 </span>            : #if 0
+<span class="lineNum">     542 </span>            :     if (ret) {
+<span class="lineNum">     543 </span>            :         ret = fprintf(F_out, &quot;M4.6,%s,%s, , %6f,\n&quot;, date, version, m4_6) &gt; 0;
+<span class="lineNum">     544 </span>            :     }
+<span class="lineNum">     545 </span>            : #endif
+<span class="lineNum">     546 </span>            : 
+<span class="lineNum">     547 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="548"><span class="lineNum">     548 </span>            : }</a>
+<span class="lineNum">     549 </span>            : 
+<span class="lineNum">     550 </span><span class="lineCov">          4 : bool ComputeM4::GetM4_X(uint32_t table_id, std::vector&lt;metric34_line_t&gt;* mstring_x, double min_share)</span>
+<span class="lineNum">     551 </span>            : {
+<span class="lineNum">     552 </span><span class="lineCov">          4 :     bool ret = true;</span>
+<span class="lineNum">     553 </span>            :     /* compute using nb_userqueries */
+<span class="lineNum">     554 </span><span class="lineCov">          4 :     if (nb_userqueries &gt; 0)</span>
+<span class="lineNum">     555 </span>            :     {
+<span class="lineNum">     556 </span><span class="lineCov">          4 :         GetStringM_X(&amp;cs, table_id, mstring_x, nb_userqueries, min_share);</span>
+<span class="lineNum">     557 </span>            : 
+<span class="lineNum">     558 </span>            :     }
+<span class="lineNum">     559 </span>            :     else
+<span class="lineNum">     560 </span>            :     {
+<span class="lineNum">     561 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     562 </span>            :     }
+<span class="lineNum">     563 </span>            : 
+<span class="lineNum">     564 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="565"><span class="lineNum">     565 </span>            : }</a>
+<span class="lineNum">     566 </span>            : 
+<span class="lineNum">     567 </span><span class="lineCov">          2 : bool ComputeM4::GetM4_1()</span>
+<span class="lineNum">     568 </span>            : {
+<span class="lineNum">     569 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     570 </span>            : 
+<span class="lineNum">     571 </span><span class="lineCov">          2 :     nb_nondelegated = cs.GetCountByNumber(</span>
+<span class="lineNum">     572 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_TLD_Usage_Count), 0);</span>
+<span class="lineNum">     573 </span><span class="lineCov">          2 :     nb_delegated = cs.GetCountByNumber(</span>
+<span class="lineNum">     574 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_TLD_Usage_Count), 1);</span>
+<span class="lineNum">     575 </span><span class="lineCov">          2 :     nb_userqueries = nb_nondelegated + nb_delegated;</span>
+<span class="lineNum">     576 </span>            : 
+<span class="lineNum">     577 </span><span class="lineCov">          2 :     if (nb_userqueries &gt; 0)</span>
+<span class="lineNum">     578 </span>            :     {
+<span class="lineNum">     579 </span><span class="lineCov">          2 :         m4_1 = (double)nb_delegated;</span>
+<span class="lineNum">     580 </span><span class="lineCov">          2 :         m4_1 /= (double)nb_userqueries;</span>
+<span class="lineNum">     581 </span>            :     }
+<span class="lineNum">     582 </span>            :     else
+<span class="lineNum">     583 </span>            :     {
+<span class="lineNum">     584 </span><span class="lineNoCov">          0 :         m4_1 = 0;</span>
+<span class="lineNum">     585 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     586 </span>            :     }
+<span class="lineNum">     587 </span>            : 
+<span class="lineNum">     588 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="589"><span class="lineNum">     589 </span>            : }</a>
+<span class="lineNum">     590 </span>            : 
+<span class="lineNum">     591 </span><span class="lineCov">          2 : bool ComputeM4::GetM4_2()</span>
+<span class="lineNum">     592 </span>            : {
+<span class="lineNum">     593 </span><span class="lineCov">          2 :     GetM4_X(REGISTRY_DNS_RFC6761_Usage, &amp;m4_2, 0);</span>
+<span class="lineNum">     594 </span>            : 
+<span class="lineNum">     595 </span><span class="lineCov">          2 :     return true;</span>
+<a name="596"><span class="lineNum">     596 </span>            : }</a>
+<span class="lineNum">     597 </span>            : 
+<span class="lineNum">     598 </span><span class="lineCov">          2 : bool ComputeM4::GetM4_3()</span>
+<span class="lineNum">     599 </span>            : {
+<span class="lineNum">     600 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     601 </span><span class="lineCov">          2 :     double min_val = 0;</span>
+<span class="lineNum">     602 </span>            : 
+<span class="lineNum">     603 </span><span class="lineCov">          2 :     if (nb_userqueries &gt; 0)</span>
+<span class="lineNum">     604 </span>            :     {
+<span class="lineNum">     605 </span>            :         /*
+<span class="lineNum">     606 </span>            :         * We adjust the threshold to 1% of the non delegated TLD queries,
+<span class="lineNum">     607 </span>            :         * or 0.1% of total queries, whichever is lower.
+<span class="lineNum">     608 </span>            :         */
+<span class="lineNum">     609 </span><span class="lineCov">          2 :         min_val = (double)nb_nondelegated;</span>
+<span class="lineNum">     610 </span><span class="lineCov">          2 :         min_val /= nb_userqueries;</span>
+<span class="lineNum">     611 </span><span class="lineCov">          2 :         min_val /= 500;</span>
+<span class="lineNum">     612 </span>            : 
+<span class="lineNum">     613 </span><span class="lineCov">          2 :         if (min_val &gt; 0.001)</span>
+<span class="lineNum">     614 </span>            :         {
+<span class="lineNum">     615 </span><span class="lineCov">          2 :             min_val = 0.001;</span>
+<span class="lineNum">     616 </span>            :         }
+<span class="lineNum">     617 </span>            : 
+<span class="lineNum">     618 </span><span class="lineCov">          2 :         GetM4_X(REGISTRY_DNS_Frequent_TLD_Usage, &amp;m4_3, min_val);</span>
+<span class="lineNum">     619 </span>            : 
+<span class="lineNum">     620 </span>            :         /* Add the count of locally defined domains */
+<span class="lineNum">     621 </span><span class="lineCov">          4 :         std::vector&lt;CaptureLine *&gt; extract;</span>
+<span class="lineNum">     622 </span>            : 
+<span class="lineNum">     623 </span><span class="lineCov">          2 :         cs.Extract(</span>
+<span class="lineNum">     624 </span><span class="lineCov">          2 :             DnsStats::GetTableName(REGISTRY_DNS_Local_TLD_Usage_Count), &amp;extract);</span>
+<span class="lineNum">     625 </span>            : 
+<span class="lineNum">     626 </span><span class="lineCov">          2 :         if (extract.size() != 0)</span>
+<span class="lineNum">     627 </span>            :         {
+<span class="lineNum">     628 </span>            :             metric34_line_t line;
+<span class="lineNum">     629 </span>            : 
+<span class="lineNum">     630 </span><span class="lineNoCov">          0 :             line.frequency = ((double)extract[0]-&gt;count) / ((double)nb_userqueries);</span>
+<span class="lineNum">     631 </span>            : 
+<span class="lineNum">     632 </span><span class="lineNoCov">          0 :             if (line.frequency &gt;= min_val)</span>
+<span class="lineNum">     633 </span>            :             {
+<span class="lineNum">     634 </span><span class="lineNoCov">          0 :                 memcpy(line.domain, leaked_local_names, strlen(leaked_local_names) + 1);</span>
+<span class="lineNum">     635 </span><span class="lineNoCov">          0 :                 m4_3.push_back(line);</span>
+<span class="lineNum">     636 </span><span class="lineNoCov">          0 :                 std::sort(m4_3.begin(), m4_3.end(), metric34_line_is_bigger);</span>
+<span class="lineNum">     637 </span>            :             }
+<span class="lineNum">     638 </span>            :         }
+<span class="lineNum">     639 </span>            :     }
+<span class="lineNum">     640 </span>            :     else
+<span class="lineNum">     641 </span>            :     {
+<span class="lineNum">     642 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     643 </span>            :     }
+<span class="lineNum">     644 </span>            : 
+<span class="lineNum">     645 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="646"><span class="lineNum">     646 </span>            : }</a>
+<span class="lineNum">     647 </span>            : 
+<span class="lineNum">     648 </span><span class="lineCov">          2 : bool ComputeM4::GetM4_DNSSEC()</span>
+<span class="lineNum">     649 </span>            : {
+<span class="lineNum">     650 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     651 </span>            : 
+<span class="lineNum">     652 </span><span class="lineCov">          2 :     m4_5 = scalar_metric_from_capture(&amp;cs, REGISTRY_DNSSEC_Client_Usage);</span>
+<span class="lineNum">     653 </span>            :     /* Removing M4.6 for now, until investigation completes */
+<span class="lineNum">     654 </span>            :     /* m4_6 = scalar_metric_from_capture(&amp;cs, REGISTRY_DNSSEC_Zone_Usage); */
+<span class="lineNum">     655 </span>            : 
+<span class="lineNum">     656 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="657"><span class="lineNum">     657 </span>            : }</a>
+<span class="lineNum">     658 </span>            : 
+<span class="lineNum">     659 </span><span class="lineCov">          6 : ComputeM8::ComputeM8() :</span>
+<span class="lineNum">     660 </span>            :     m8_1(0),
+<span class="lineNum">     661 </span>            :     m8_2_1(0),
+<span class="lineNum">     662 </span>            :     m8_3(0),
+<span class="lineNum">     663 </span><span class="lineCov">          6 :     m8_4(0)</span>
+<span class="lineNum">     664 </span>            : {
+<a name="665"><span class="lineNum">     665 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     666 </span>            : 
+<span class="lineNum">     667 </span><span class="lineCov">          6 : ComputeM8::~ComputeM8()</span>
+<span class="lineNum">     668 </span>            : {
+<a name="669"><span class="lineNum">     669 </span><span class="lineCov">          6 : }</span></a>
+<span class="lineNum">     670 </span>            : 
+<span class="lineNum">     671 </span><span class="lineCov">          2 : bool ComputeM8::Load(char const * single_file_name)</span>
+<span class="lineNum">     672 </span>            : {
+<span class="lineNum">     673 </span><span class="lineCov">          2 :     return cs.Load(single_file_name);</span>
+<a name="674"><span class="lineNum">     674 </span>            : }</a>
+<span class="lineNum">     675 </span>            : 
+<span class="lineNum">     676 </span><span class="lineNoCov">          0 : bool ComputeM8::LoadMultipleFiles(char const ** in_files, int nb_files)</span>
+<span class="lineNum">     677 </span>            : {
+<span class="lineNum">     678 </span><span class="lineNoCov">          0 :     return (nb_files == 1) ? Load(in_files[0]) : cs.Merge(nb_files, in_files);</span>
+<a name="679"><span class="lineNum">     679 </span>            : }</a>
+<span class="lineNum">     680 </span>            : 
+<span class="lineNum">     681 </span><span class="lineCov">          2 : bool ComputeM8::Compute()</span>
+<span class="lineNum">     682 </span>            : {
+<span class="lineNum">     683 </span><span class="lineCov">          4 :     bool ret = GetM8_1() &amp;&amp;</span>
+<span class="lineNum">     684 </span><span class="lineCov">          4 :         GetM8_2() &amp;&amp;</span>
+<span class="lineNum">     685 </span><span class="lineCov">          6 :         GetM8_3() &amp;&amp;</span>
+<span class="lineNum">     686 </span><span class="lineCov">          4 :         GetM8_4();</span>
+<span class="lineNum">     687 </span>            : 
+<span class="lineNum">     688 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="689"><span class="lineNum">     689 </span>            : }</a>
+<span class="lineNum">     690 </span>            : 
+<span class="lineNum">     691 </span><span class="lineCov">          2 : bool ComputeM8::Write(FILE * F_out, char const* date, char const* version)</span>
+<span class="lineNum">     692 </span>            : {
+<span class="lineNum">     693 </span><span class="lineCov">          2 :     bool ret = fprintf(F_out, &quot;M8.1,%s,%s, %6f,\n&quot;, date, version, m8_1) &gt; 0;</span>
+<span class="lineNum">     694 </span>            : 
+<span class="lineNum">     695 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     696 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M8.2.1,%s,%s, , %6f,\n&quot;, date, version, m8_2_1) &gt; 0;</span>
+<span class="lineNum">     697 </span>            :     }
+<span class="lineNum">     698 </span>            : 
+<span class="lineNum">     699 </span><span class="lineCov">          6 :     for (size_t i = 0; ret &amp;&amp; i &lt; m8_2_2.size(); i++) {</span>
+<span class="lineNum">     700 </span><span class="lineCov">          8 :         ret = fprintf(F_out, &quot;M8.2.2,%s,%s, %d, %6f,\n&quot;, date, version,</span>
+<span class="lineNum">     701 </span><span class="lineCov">          4 :             m8_2_2[i].opt_code,</span>
+<span class="lineNum">     702 </span><span class="lineCov">          8 :             m8_2_2[i].frequency) &gt; 0;</span>
+<span class="lineNum">     703 </span>            :     }
+<span class="lineNum">     704 </span>            : 
+<span class="lineNum">     705 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     706 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M8.3,%s,%s, , %6f,\n&quot;, date, version, m8_3) &gt; 0;</span>
+<span class="lineNum">     707 </span>            :     }
+<span class="lineNum">     708 </span>            : 
+<span class="lineNum">     709 </span><span class="lineCov">          2 :     if (ret) {</span>
+<span class="lineNum">     710 </span><span class="lineCov">          2 :         ret = fprintf(F_out, &quot;M8.4,%s,%s, , %6f,\n&quot;, date, version, m8_4) &gt; 0;</span>
+<span class="lineNum">     711 </span>            :     }
+<span class="lineNum">     712 </span>            : 
+<span class="lineNum">     713 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="714"><span class="lineNum">     714 </span>            : }</a>
+<span class="lineNum">     715 </span>            : 
+<span class="lineNum">     716 </span><span class="lineCov">          2 : bool ComputeM8::GetM8_1()</span>
+<span class="lineNum">     717 </span>            : {
+<span class="lineNum">     718 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     719 </span><span class="lineCov">          2 :     uint64_t nb_noerror = cs.GetCountByNumber(</span>
+<span class="lineNum">     720 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_RCODES), 0);</span>
+<span class="lineNum">     721 </span><span class="lineCov">          2 :     uint64_t nb_nxdomain = cs.GetCountByNumber(</span>
+<span class="lineNum">     722 </span><span class="lineCov">          2 :         DnsStats::GetTableName(REGISTRY_DNS_RCODES), 3);</span>
+<span class="lineNum">     723 </span><span class="lineCov">          2 :     uint64_t nb_responses = (nb_noerror + nb_nxdomain) / 2;</span>
+<span class="lineNum">     724 </span>            : 
+<span class="lineNum">     725 </span><span class="lineCov">          2 :     if (nb_responses &gt; 0)</span>
+<span class="lineNum">     726 </span>            :     {
+<span class="lineNum">     727 </span><span class="lineCov">          2 :         m8_1 = (double)nb_nxdomain;</span>
+<span class="lineNum">     728 </span><span class="lineCov">          2 :         m8_1 /= (double)nb_responses;</span>
+<span class="lineNum">     729 </span>            :     }
+<span class="lineNum">     730 </span>            :     else
+<span class="lineNum">     731 </span>            :     {
+<span class="lineNum">     732 </span><span class="lineNoCov">          0 :         m8_1 = 0;</span>
+<span class="lineNum">     733 </span><span class="lineNoCov">          0 :         ret = false;</span>
+<span class="lineNum">     734 </span>            :     }
+<span class="lineNum">     735 </span>            : 
+<span class="lineNum">     736 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="737"><span class="lineNum">     737 </span>            : }</a>
+<span class="lineNum">     738 </span>            : 
+<span class="lineNum">     739 </span><span class="lineCov">          4 : bool ComputeM8::ComputeEdnsMetrics(CaptureSummary * cs, double * m_edns, std::vector&lt;metric8_line_t&gt; * m_edns_opt)</span>
+<span class="lineNum">     740 </span>            : {
+<span class="lineNum">     741 </span><span class="lineCov">          4 :     bool ret = true;</span>
+<span class="lineNum">     742 </span><span class="lineCov">          4 :     uint64_t nb_edns_opt_usage_ref = cs-&gt;GetCountByNumber(</span>
+<span class="lineNum">     743 </span><span class="lineCov">          4 :         DnsStats::GetTableName(REGISTRY_EDNS_OPT_USAGE_REF), 0);</span>
+<span class="lineNum">     744 </span><span class="lineCov">          4 :     *m_edns = scalar_metric_from_capture(cs, REGISTRY_EDNS_Client_Usage);</span>
+<span class="lineNum">     745 </span>            : 
+<span class="lineNum">     746 </span><span class="lineCov">          4 :     if (nb_edns_opt_usage_ref &gt; 0) {</span>
+<span class="lineNum">     747 </span><span class="lineCov">          8 :         std::vector&lt;CaptureLine *&gt; extract;</span>
+<span class="lineNum">     748 </span>            : 
+<span class="lineNum">     749 </span><span class="lineCov">          4 :         cs-&gt;Extract(</span>
+<span class="lineNum">     750 </span><span class="lineCov">          4 :             DnsStats::GetTableName(REGISTRY_EDNS_OPT_USAGE), &amp;extract);</span>
+<span class="lineNum">     751 </span>            : 
+<span class="lineNum">     752 </span><span class="lineCov">          4 :         if (extract.size() &gt; 0) {</span>
+<span class="lineNum">     753 </span><span class="lineCov">          4 :             m_edns_opt-&gt;reserve(extract.size());</span>
+<span class="lineNum">     754 </span>            : 
+<span class="lineNum">     755 </span><span class="lineCov">         12 :             for (size_t i = 0; i &lt; extract.size(); i++)</span>
+<span class="lineNum">     756 </span>            :             {
+<span class="lineNum">     757 </span>            :                 metric8_line_t line;
+<span class="lineNum">     758 </span>            : 
+<span class="lineNum">     759 </span><span class="lineCov">          8 :                 line.opt_code = extract[i]-&gt;key_number;</span>
+<span class="lineNum">     760 </span><span class="lineCov">          8 :                 line.frequency = ((double)extract[i]-&gt;count) / ((double)nb_edns_opt_usage_ref);</span>
+<span class="lineNum">     761 </span>            : 
+<span class="lineNum">     762 </span><span class="lineCov">          8 :                 if (extract.size() &lt; 8 || line.frequency &gt;= 0.001)</span>
+<span class="lineNum">     763 </span>            :                 {
+<span class="lineNum">     764 </span><span class="lineCov">          8 :                     m_edns_opt-&gt;push_back(line);</span>
+<span class="lineNum">     765 </span>            :                 }
+<span class="lineNum">     766 </span>            :             }
+<span class="lineNum">     767 </span>            : 
+<span class="lineNum">     768 </span><span class="lineCov">          4 :             std::sort(m_edns_opt-&gt;begin(), m_edns_opt-&gt;end(), metric8_line_is_bigger);</span>
+<span class="lineNum">     769 </span>            :         }
+<span class="lineNum">     770 </span>            :     }
+<span class="lineNum">     771 </span>            : 
+<span class="lineNum">     772 </span><span class="lineCov">          4 :     return ret;</span>
+<a name="773"><span class="lineNum">     773 </span>            : }</a>
+<span class="lineNum">     774 </span>            : 
+<span class="lineNum">     775 </span><span class="lineCov">          2 : bool ComputeM8::GetM8_2()</span>
+<span class="lineNum">     776 </span>            : {
+<span class="lineNum">     777 </span><span class="lineCov">          2 :     return ComputeEdnsMetrics(&amp;cs, &amp;m8_2_1, &amp;m8_2_2);</span>
+<a name="778"><span class="lineNum">     778 </span>            : }</a>
+<span class="lineNum">     779 </span>            : 
+<span class="lineNum">     780 </span><span class="lineCov">          2 : bool ComputeM8::GetM8_3()</span>
+<span class="lineNum">     781 </span>            : {
+<span class="lineNum">     782 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     783 </span>            : 
+<span class="lineNum">     784 </span><span class="lineCov">          2 :     m8_3 = scalar_metric_from_capture(&amp;cs, REGISTRY_DNSSEC_Client_Usage);</span>
+<span class="lineNum">     785 </span>            : 
+<span class="lineNum">     786 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="787"><span class="lineNum">     787 </span>            : }</a>
+<span class="lineNum">     788 </span>            : 
+<span class="lineNum">     789 </span><span class="lineCov">          2 : bool ComputeM8::GetM8_4()</span>
+<span class="lineNum">     790 </span>            : {
+<span class="lineNum">     791 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     792 </span>            : 
+<span class="lineNum">     793 </span><span class="lineCov">          2 :     m8_4 = scalar_metric_from_capture(&amp;cs, REGISTRY_QNAME_MINIMIZATION_Usage);</span>
+<span class="lineNum">     794 </span>            : 
+<span class="lineNum">     795 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     796 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
