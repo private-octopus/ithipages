@@ -235,6 +235,7 @@ Sorry, but for the other distributions you will have to clone the sources from G
   - [from branch fuzz-test-dev](coverage/fuzz-test-dev/index.html)
   - [from branch odp-cron](coverage/odp-cron/index.html)
   - [from branch isolate-privacy](coverage/isolate-privacy/index.html)
+  - [from branch tune-kafka](coverage/tune-kafka/index.html)
   - [from branch separate-a-e-files](coverage/separate-a-e-files/index.html)
   - [from branch cbor-bugs](coverage/cbor-bugs/index.html)
   - [from branch web-site-bugs-2018-09](coverage/web-site-bugs-2018-09/index.html)
