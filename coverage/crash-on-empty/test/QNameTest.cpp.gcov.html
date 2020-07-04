@@ -1,0 +1,334 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - test/QNameTest.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - QNameTest.cpp<span style="font-size: 80%;"> (source / <a href="QNameTest.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">31</td>
+            <td class="headerCovTableEntry">40</td>
+            <td class="headerCovTableEntryMed">77.5 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2020-07-04 19:22:11</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Copyright (c) 2018, Private Octopus, Inc.
+<span class="lineNum">       3 </span>            : * All rights reserved.
+<span class="lineNum">       4 </span>            : *
+<span class="lineNum">       5 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       6 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       7 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       8 </span>            : *
+<span class="lineNum">       9 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      10 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      11 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      12 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      13 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      14 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      15 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      16 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      17 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      18 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      19 </span>            : */
+<span class="lineNum">      20 </span>            : 
+<span class="lineNum">      21 </span>            : #include &quot;DnsStats.h&quot;
+<span class="lineNum">      22 </span>            : #include &quot;QNameTest.h&quot;
+<span class="lineNum">      23 </span>            : 
+<span class="lineNum">      24 </span>            : static uint8_t p1[] = {
+<span class="lineNum">      25 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      26 </span>            :     0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      27 </span>            :     0x03, 'w', 'w', 'w', 0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      28 </span>            :     0xC0, 0x18, 0x00, 0x00, 0x01, 0x00, 0x02, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 'r', 'o', 'o', 't', 0x04, 'a', 'r', 'p', 'a', 0x00,
+<span class="lineNum">      29 </span>            :     0xC0, 0x18, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      30 </span>            : };
+<span class="lineNum">      31 </span>            : 
+<span class="lineNum">      32 </span>            : static uint8_t p2[] = {
+<span class="lineNum">      33 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      34 </span>            :     0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      35 </span>            :     0x03, 'w', 'w', 'w', 0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      36 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x02,  0x00, 0x08, 0x02, 'n', 's', 0xC0, 0x21,
+<span class="lineNum">      37 </span>            :     0xC0, 0x34, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      38 </span>            : };
+<span class="lineNum">      39 </span>            : 
+<span class="lineNum">      40 </span>            : static uint8_t p3[] = {
+<span class="lineNum">      41 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      42 </span>            :     0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00,
+<span class="lineNum">      43 </span>            :     0x03, 'w', 'w', 'w', 0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      44 </span>            :     0xC0, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      45 </span>            : };
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : static uint8_t p4[] = {
+<span class="lineNum">      48 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      49 </span>            :     0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00,
+<span class="lineNum">      50 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      51 </span>            :     0xC0, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      52 </span>            : };
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            : static uint8_t p5[] = {
+<span class="lineNum">      55 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      56 </span>            :     0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00,
+<span class="lineNum">      57 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      58 </span>            :     0x07, 'E', 'x', 'A', 'm', 'P', 'l', 'E', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      59 </span>            : };
+<span class="lineNum">      60 </span>            : 
+<span class="lineNum">      61 </span>            : static uint8_t p6[] = {
+<span class="lineNum">      62 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      63 </span>            :     0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00,
+<span class="lineNum">      64 </span>            :     0x07, 'e', 'X', 'a', 'M', 'p', 'L', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      65 </span>            :     0x07, 'E', 'x', 'A', 'm', 'P', 'l', 'E', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      66 </span>            : };
+<span class="lineNum">      67 </span>            : 
+<span class="lineNum">      68 </span>            : static uint8_t p7[] = {
+<span class="lineNum">      69 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      70 </span>            :     0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x00,
+<span class="lineNum">      71 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      72 </span>            :     0xC0, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      73 </span>            : };
+<span class="lineNum">      74 </span>            : 
+<span class="lineNum">      75 </span>            : static uint8_t p8[] = {
+<span class="lineNum">      76 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      77 </span>            :     0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x01,
+<span class="lineNum">      78 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x02,
+<span class="lineNum">      79 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x02,  0x00, 0x08, 0x02, 'n', 's', 0xC0, 0x21,
+<span class="lineNum">      80 </span>            :     0xC0, 0x34, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      81 </span>            : };
+<span class="lineNum">      82 </span>            : 
+<span class="lineNum">      83 </span>            : static uint8_t p9[] = {
+<span class="lineNum">      84 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      85 </span>            :     0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      86 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      87 </span>            :     0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x02,  0x00, 0x08, 0x02, 'n', 's', 0xC0, 0x21,
+<span class="lineNum">      88 </span>            :     0xC0, 0x34, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      89 </span>            : };
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span>            : static uint8_t p10[] = {
+<span class="lineNum">      92 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">      93 </span>            :     0x00, 0x01, 0x00, 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      94 </span>            :     0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">      95 </span>            :     0xC0, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x02, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 'r', 'o', 'o', 't', 0x04, 'a', 'r', 'p', 'a', 0x00,
+<span class="lineNum">      96 </span>            :     0xC0, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">      97 </span>            : };
+<span class="lineNum">      98 </span>            : 
+<span class="lineNum">      99 </span>            : static uint8_t p11[] = {
+<span class="lineNum">     100 </span>            :     0x12, 0x23, 0x80, 0x00,
+<span class="lineNum">     101 </span>            :     0x00, 0x02, 0x00,0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">     102 </span>            :     0x03, 'c', 'o', 'm', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">     103 </span>            :     0x03, 'f', 'o', 'o', 0x00, 0x00, 0x01, 0x00, 0x01,
+<span class="lineNum">     104 </span>            :     0xC0, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x02, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 'r', 'o', 'o', 't', 0x04, 'a', 'r', 'p', 'a', 0x00,
+<span class="lineNum">     105 </span>            :     0xC0, 0x0C, 0x00, 0x00, 0x01, 0x00, 0x01, 0x00, 0x00, 0x00, 0x80, 0x00, 0x08, 0x04, 0x0A, 0x00, 0x00, 0x01
+<span class="lineNum">     106 </span>            : };
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            : typedef struct st_qname_test_line_t {
+<span class="lineNum">     109 </span>            :     uint8_t * packet;
+<span class="lineNum">     110 </span>            :     size_t length;
+<span class="lineNum">     111 </span>            :     uint32_t nb_queries;
+<span class="lineNum">     112 </span>            :     uint32_t q_class;
+<span class="lineNum">     113 </span>            :     uint32_t q_type;
+<span class="lineNum">     114 </span>            :     uint32_t qr_start;
+<span class="lineNum">     115 </span>            :     uint32_t an_start;
+<span class="lineNum">     116 </span>            :     uint32_t ns_start;
+<span class="lineNum">     117 </span>            :     bool name_cmp;
+<span class="lineNum">     118 </span>            :     bool is_minimized;
+<span class="lineNum">     119 </span>            : } qname_test_line_t;
+<span class="lineNum">     120 </span>            : 
+<span class="lineNum">     121 </span>            : static const qname_test_line_t qname_test_case[] = {
+<span class="lineNum">     122 </span>            :     { p1, sizeof(p1), 1, 1, 1, 0x0C, 0, 0x21, false, false },
+<span class="lineNum">     123 </span>            :     { p2, sizeof(p2), 1, 1, 1, 0x0C, 0, 0x21, false, false },
+<span class="lineNum">     124 </span>            :     { p3, sizeof(p3), 1, 1, 1, 0x0C,  0x21, 0, true, true },
+<span class="lineNum">     125 </span>            :     { p4, sizeof(p4), 1, 1, 1, 0x0C, 0x1D, 0, true, true },
+<span class="lineNum">     126 </span>            :     { p5, sizeof(p5), 1, 1, 1, 0x0C, 0x1D, 0, true, true },
+<span class="lineNum">     127 </span>            :     { p5, sizeof(p6), 1, 1, 1, 0x0C, 0x1D, 0, true, true },
+<span class="lineNum">     128 </span>            :     { p6, sizeof(p6), 1, 1, 1, 0x0C, 0x1D, 0, true, true },
+<span class="lineNum">     129 </span>            :     { p7, sizeof(p7), 1, 1, 1, 0x0C, 0x1D, 0, true, true },
+<span class="lineNum">     130 </span>            :     { p8, sizeof(p8), 1, 1, 2, 0x0C, 0x1D, 0, true, true },
+<span class="lineNum">     131 </span>            :     { p9, sizeof(p9), 1, 1, 1, 0x0C, 0, 0x1D, true, true },
+<span class="lineNum">     132 </span>            :     { p10, sizeof(p10), 1, 1, 1, 0x0C, 0, 0x15, true, true },
+<span class="lineNum">     133 </span>            :     { p11, sizeof(p11), 2, 1, 1, 0x0C, 0, 0x1E, true, false },
+<span class="lineNum">     134 </span>            : };
+<span class="lineNum">     135 </span>            : 
+<span class="lineNum">     136 </span>            : static const size_t nb_qname_test_cases = sizeof(qname_test_case) / sizeof(qname_test_line_t);
+<span class="lineNum">     137 </span>            : 
+<span class="lineNum">     138 </span>            : static const uint8_t n1[] = {
+<span class="lineNum">     139 </span>            :     0x03, 'w', 'w', 'w', 0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00
+<span class="lineNum">     140 </span>            : };
+<span class="lineNum">     141 </span>            : 
+<span class="lineNum">     142 </span>            : static const uint8_t n1b[] = {
+<span class="lineNum">     143 </span>            :     0x03, 'w', 'w', 'w', 0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00
+<span class="lineNum">     144 </span>            : };
+<span class="lineNum">     145 </span>            : 
+<span class="lineNum">     146 </span>            : static const uint8_t n2[] = {
+<span class="lineNum">     147 </span>            :      0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00
+<span class="lineNum">     148 </span>            : };
+<span class="lineNum">     149 </span>            : 
+<span class="lineNum">     150 </span>            : static const uint8_t n2b[] = {
+<span class="lineNum">     151 </span>            :      0x07, 'e', 'x', 'a', 'm', 'p', 'l', 'e', 0x03, 'c', 'o', 'm', 0x00
+<span class="lineNum">     152 </span>            : };
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span>            : static const uint8_t n3[] = {
+<span class="lineNum">     155 </span>            :     0x03, 'c', 'o', 'm', 0x00
+<span class="lineNum">     156 </span>            : };
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span>            : static const uint8_t n3b[] = {
+<span class="lineNum">     159 </span>            :     0x03, 'c', 'o', 'm', 0x00
+<span class="lineNum">     160 </span>            : };
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span>            : static const uint8_t n0[] = {
+<span class="lineNum">     163 </span>            :     0x00, 0x00
+<span class="lineNum">     164 </span>            : };
+<span class="lineNum">     165 </span>            : 
+<span class="lineNum">     166 </span>            : typedef struct st_qname_test_line2_t {
+<span class="lineNum">     167 </span>            :     const uint8_t* name1;
+<span class="lineNum">     168 </span>            :     size_t length1;
+<span class="lineNum">     169 </span>            :     const uint8_t* name2;
+<span class="lineNum">     170 </span>            :     size_t length2;
+<span class="lineNum">     171 </span>            :     bool name_cmp;
+<span class="lineNum">     172 </span>            : } qname_test_line2_t;
+<span class="lineNum">     173 </span>            : 
+<span class="lineNum">     174 </span>            : static const qname_test_line2_t qname_test_case2[] = {
+<span class="lineNum">     175 </span>            :     { n1, sizeof(n1), n1, sizeof(n1), true},
+<span class="lineNum">     176 </span>            :     { n1, sizeof(n1), n1b, sizeof(n1b), true},
+<span class="lineNum">     177 </span>            :     { n1, sizeof(n1), n2, sizeof(n2), false},
+<span class="lineNum">     178 </span>            :     { n1, sizeof(n1), n3, sizeof(n3), false},
+<span class="lineNum">     179 </span>            :     { n1, sizeof(n1), n0, 0, false},
+<span class="lineNum">     180 </span>            :     { n2, sizeof(n2), n2, sizeof(n2), true},
+<span class="lineNum">     181 </span>            :     { n2, sizeof(n2), n2b, sizeof(n2b), true},
+<span class="lineNum">     182 </span>            :     { n2, sizeof(n2), n3, sizeof(n3), false},
+<span class="lineNum">     183 </span>            :     { n2, sizeof(n2), n0, 0, false},
+<span class="lineNum">     184 </span>            :     { n3, sizeof(n3), n3, sizeof(n3), true},
+<span class="lineNum">     185 </span>            :     { n3, sizeof(n3), n3b, sizeof(n3b), true},
+<span class="lineNum">     186 </span>            :     { n3, sizeof(n3), n0, 0, false},
+<span class="lineNum">     187 </span>            :     { n0, 0, n0, 0, false},
+<span class="lineNum">     188 </span>            : };
+<span class="lineNum">     189 </span>            : 
+<a name="190"><span class="lineNum">     190 </span>            : static const size_t nb_qname_test_case2 = sizeof(qname_test_case2) / sizeof(qname_test_line2_t);</a>
+<span class="lineNum">     191 </span>            : 
+<span class="lineNum">     192 </span><span class="lineCov">          2 : CmpNameTest::CmpNameTest()</span>
+<span class="lineNum">     193 </span>            : {
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     195 </span>            : 
+<span class="lineNum">     196 </span><span class="lineCov">          4 : CmpNameTest::~CmpNameTest()</span>
+<span class="lineNum">     197 </span>            : {
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">          4 : }</span></a>
+<span class="lineNum">     199 </span>            : 
+<span class="lineNum">     200 </span><span class="lineCov">          2 : bool CmpNameTest::DoTest()</span>
+<span class="lineNum">     201 </span>            : {
+<span class="lineNum">     202 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     203 </span>            :     
+<span class="lineNum">     204 </span><span class="lineCov">         26 :     for (size_t i = 0; i &lt; nb_qname_test_cases; i++) {</span>
+<span class="lineNum">     205 </span><span class="lineCov">         24 :         uint32_t n2 = (qname_test_case[i].an_start == 0) ? qname_test_case[i].ns_start : qname_test_case[i].an_start;</span>
+<span class="lineNum">     206 </span><span class="lineCov">         24 :         bool x = DnsStats::CompareDnsName(qname_test_case[i].packet,</span>
+<span class="lineNum">     207 </span><span class="lineCov">         48 :             (uint32_t)qname_test_case[i].length, qname_test_case[i].qr_start, n2);</span>
+<span class="lineNum">     208 </span>            : 
+<span class="lineNum">     209 </span><span class="lineCov">         24 :         if (x != qname_test_case[i].name_cmp) {</span>
+<span class="lineNum">     210 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Comparison case %d fails, returns %s instead of %s\n&quot;, (int)i,</span>
+<span class="lineNum">     211 </span><span class="lineNoCov">          0 :                 (x)?&quot;true&quot;:&quot;false&quot;, (qname_test_case[i].name_cmp) ? &quot;true&quot; : &quot;false&quot;);</span>
+<span class="lineNum">     212 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     213 </span>            :         }
+<span class="lineNum">     214 </span>            :     }
+<span class="lineNum">     215 </span>            : 
+<span class="lineNum">     216 </span><span class="lineCov">         28 :     for (size_t i = 0; i &lt; nb_qname_test_case2; i++) {</span>
+<span class="lineNum">     217 </span><span class="lineCov">         52 :         bool x = DnsStats::Compare2DnsNames(qname_test_case2[i].name1,</span>
+<span class="lineNum">     218 </span><span class="lineCov">         26 :             (uint32_t)qname_test_case2[i].length1, 0, qname_test_case2[i].name2,</span>
+<span class="lineNum">     219 </span><span class="lineCov">         52 :             (uint32_t)qname_test_case2[i].length2, 0);</span>
+<span class="lineNum">     220 </span>            : 
+<span class="lineNum">     221 </span><span class="lineCov">         26 :         if (x != qname_test_case2[i].name_cmp) {</span>
+<span class="lineNum">     222 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Comparison case2 %d fails, returns %s instead of %s\n&quot;, (int)i,</span>
+<span class="lineNum">     223 </span><span class="lineNoCov">          0 :                 (x) ? &quot;true&quot; : &quot;false&quot;, (qname_test_case[i].name_cmp) ? &quot;true&quot; : &quot;false&quot;);</span>
+<span class="lineNum">     224 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     225 </span>            :         }
+<span class="lineNum">     226 </span>            :     }
+<span class="lineNum">     227 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     228 </span>            : }
+<a name="229"><span class="lineNum">     229 </span>            : </a>
+<span class="lineNum">     230 </span>            : 
+<span class="lineNum">     231 </span><span class="lineCov">          2 : QNameTest::QNameTest()</span>
+<span class="lineNum">     232 </span>            : {
+<span class="lineNum">     233 </span><span class="lineCov">          2 : }</span>
+<a name="234"><span class="lineNum">     234 </span>            : </a>
+<span class="lineNum">     235 </span>            : 
+<span class="lineNum">     236 </span><span class="lineCov">          4 : QNameTest::~QNameTest()</span>
+<span class="lineNum">     237 </span>            : {
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">          4 : }</span></a>
+<span class="lineNum">     239 </span>            : 
+<span class="lineNum">     240 </span><span class="lineCov">          2 : bool QNameTest::DoTest()</span>
+<span class="lineNum">     241 </span>            : {
+<span class="lineNum">     242 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span><span class="lineCov">         26 :     for (size_t i = 0; i &lt; nb_qname_test_cases; i++) {</span>
+<span class="lineNum">     245 </span><span class="lineCov">        120 :         bool x = DnsStats::IsQNameMinimized(</span>
+<span class="lineNum">     246 </span><span class="lineCov">         72 :             qname_test_case[i].nb_queries, qname_test_case[i].q_class, qname_test_case[i].q_type,</span>
+<span class="lineNum">     247 </span><span class="lineCov">         48 :             qname_test_case[i].packet, (uint32_t)qname_test_case[i].length, qname_test_case[i].qr_start,</span>
+<span class="lineNum">     248 </span><span class="lineCov">         48 :             qname_test_case[i].packet, (uint32_t)qname_test_case[i].length, </span>
+<span class="lineNum">     249 </span><span class="lineCov">         48 :             (qname_test_case[i].an_start ==0)?qname_test_case[i].ns_start: qname_test_case[i].an_start);</span>
+<span class="lineNum">     250 </span>            : 
+<span class="lineNum">     251 </span><span class="lineCov">         24 :         if (x != qname_test_case[i].is_minimized) {</span>
+<span class="lineNum">     252 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Is QName case %d fails, returns %s instead of %s\n&quot;, (int)i,</span>
+<span class="lineNum">     253 </span><span class="lineNoCov">          0 :                 (x) ? &quot;true&quot; : &quot;false&quot;, (qname_test_case[i].is_minimized) ? &quot;true&quot; : &quot;false&quot;);</span>
+<span class="lineNum">     254 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     255 </span>            :         }
+<span class="lineNum">     256 </span>            :     }
+<span class="lineNum">     257 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     258 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
