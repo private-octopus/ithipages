@@ -4,6 +4,7 @@ var searchData=
   ['cached',['cached',['../struct___w_d_i_r.html#a9b7432df163d1e291ba5925347fd4af3',1,'_WDIR']]],
   ['canoniccopy',['CanonicCopy',['../class_tld_as_key.html#a2450b612cf904e3fe8cda81a70a66741',1,'TldAsKey']]],
   ['capture_5fcache_5fratio_5fnx_5fdomain',['capture_cache_ratio_nx_domain',['../class_dns_stats.html#a99a237ffa3b40cb5bed78130806427a8',1,'DnsStats']]],
+  ['capture_5fempty_5flist_5fname',['capture_empty_list_name',['../_merge_test_8cpp.html#afee4a0a47f078749251186ffa794e112',1,'MergeTest.cpp']]],
   ['capture_5ffuzz',['capture_fuzz',['../classcapture__fuzz.html',1,'capture_fuzz'],['../classcapture__fuzz.html#aa9ede3ae9b6537d9d07e981809e486f6',1,'capture_fuzz::capture_fuzz()']]],
   ['capture_5ffuzz_2ecpp',['capture_fuzz.cpp',['../capture__fuzz_8cpp.html',1,'']]],
   ['capture_5ffuzz_2eh',['capture_fuzz.h',['../capture__fuzz_8h.html',1,'']]],

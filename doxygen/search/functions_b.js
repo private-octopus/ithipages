@@ -7,6 +7,7 @@ var searchData=
   ['m7getter',['M7Getter',['../class_m7_getter.html#a5cae41a0b73f6c9effac64072efcba43',1,'M7Getter']]],
   ['main',['main',['../src_2ithitest_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;ithitest.cpp'],['../ithitools_8cpp.html#a3c04138a5bfe5d72780bb7e82a18e627',1,'main(int argc, char **argv):&#160;ithitools.cpp']]],
   ['merge',['Merge',['../class_capture_summary.html#a426034bdf9edaab5be355e4a1d630034',1,'CaptureSummary::Merge(char const *list_file_name)'],['../class_capture_summary.html#a48e4e32b1e3c3731666a6bf6e543e6ef',1,'CaptureSummary::Merge(size_t nb_files, char const **file_name)'],['../class_capture_summary.html#a5ab14e2206395572dfaf1e9bdd59ae0b',1,'CaptureSummary::Merge(size_t nb_summaries, CaptureSummary **cs)']]],
+  ['mergeemptylisttest',['MergeEmptyListTest',['../class_merge_empty_list_test.html#a4a324e8692448193b153720fa99e4c30',1,'MergeEmptyListTest']]],
   ['mergelisttest',['MergeListTest',['../class_merge_list_test.html#ae078ab2b08b16dc76a70b74b62fbe8c5',1,'MergeListTest']]],
   ['mergetest',['MergeTest',['../class_merge_test.html#ade9db876c3082585b6b6271e07bc07b6',1,'MergeTest']]],
   ['metric34_5fline_5fis_5fbigger',['metric34_line_is_bigger',['../_compute_m34_8cpp.html#a30a2625d037cfda1589acc3aa07e40bd',1,'ComputeM34.cpp']]],

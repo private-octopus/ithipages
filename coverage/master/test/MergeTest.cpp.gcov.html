@@ -31,17 +31,17 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">48</td>
-            <td class="headerCovTableEntry">52</td>
-            <td class="headerCovTableEntryHi">92.3 %</td>
+            <td class="headerCovTableEntry">64</td>
+            <td class="headerCovTableEntry">70</td>
+            <td class="headerCovTableEntryHi">91.4 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-06-25 04:26:54</td>
+            <td class="headerValue">2020-07-04 19:50:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">8</td>
-            <td class="headerCovTableEntry">8</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">12</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
@@ -210,6 +210,46 @@
 <span class="lineNum">     148 </span>            : 
 <span class="lineNum">     149 </span><span class="lineCov">          4 :     return ret;</span>
 <span class="lineNum">     150 </span>            : }
+<span class="lineNum">     151 </span>            : 
+<a name="152"><span class="lineNum">     152 </span>            : char const* capture_empty_list_name = &quot;capture_empty_list.txt&quot;;</a>
+<span class="lineNum">     153 </span>            : 
+<span class="lineNum">     154 </span><span class="lineCov">          2 : MergeEmptyListTest::MergeEmptyListTest()</span>
+<span class="lineNum">     155 </span>            : {
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">          2 : }</span></a>
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span><span class="lineCov">          4 : MergeEmptyListTest::~MergeEmptyListTest()</span>
+<span class="lineNum">     159 </span>            : {
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">          4 : }</span></a>
+<span class="lineNum">     161 </span>            : 
+<span class="lineNum">     162 </span><span class="lineCov">          2 : bool MergeEmptyListTest::DoTest()</span>
+<span class="lineNum">     163 </span>            : {
+<span class="lineNum">     164 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     165 </span>            :     FILE* F;
+<span class="lineNum">     166 </span><span class="lineCov">          2 :     int nb_files = 0;</span>
+<span class="lineNum">     167 </span><span class="lineCov">          4 :     CaptureSummary cs;</span>
+<span class="lineNum">     168 </span>            : 
+<span class="lineNum">     169 </span>            :     /* create the capture list */
+<span class="lineNum">     170 </span><span class="lineCov">          2 :     F = ithi_file_open(capture_empty_list_name, &quot;w&quot;);</span>
+<span class="lineNum">     171 </span><span class="lineCov">          2 :     ret &amp;= (F != NULL);</span>
+<span class="lineNum">     172 </span>            : 
+<span class="lineNum">     173 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     174 </span>            :     {
+<span class="lineNum">     175 </span><span class="lineCov">          2 :         fclose(F);</span>
+<span class="lineNum">     176 </span>            :     }
+<span class="lineNum">     177 </span>            :     else {
+<span class="lineNum">     178 </span><span class="lineNoCov">          0 :         TEST_LOG(&quot;Cannot create empty capture file \n&quot;);</span>
+<span class="lineNum">     179 </span>            :     }
+<span class="lineNum">     180 </span>            : 
+<span class="lineNum">     181 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     182 </span>            :     {
+<span class="lineNum">     183 </span><span class="lineCov">          2 :         ret = cs.Merge(capture_empty_list_name);</span>
+<span class="lineNum">     184 </span><span class="lineCov">          2 :         if (!ret) {</span>
+<span class="lineNum">     185 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Merge of %d capture files failed.\n&quot;, nb_files);</span>
+<span class="lineNum">     186 </span>            :         }
+<span class="lineNum">     187 </span>            :     }
+<span class="lineNum">     188 </span>            : 
+<span class="lineNum">     189 </span><span class="lineCov">          4 :     return ret;</span>
+<span class="lineNum">     190 </span>            : }
 </pre>
       </td>
     </tr>
