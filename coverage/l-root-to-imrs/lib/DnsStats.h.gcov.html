@@ -1,0 +1,564 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - lib/DnsStats.h</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">lib</a> - DnsStats.h<span style="font-size: 80%;"> (source / <a href="DnsStats.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2020-07-22 01:45:35</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntry">2</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2017, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #ifndef DNSSTAT_H
+<span class="lineNum">      23 </span>            : #define DNSSTAT_H
+<span class="lineNum">      24 </span>            : 
+<span class="lineNum">      25 </span>            : #include &lt;stdint.h&gt;
+<span class="lineNum">      26 </span>            : #include &lt;stdio.h&gt;
+<span class="lineNum">      27 </span>            : #if 0
+<span class="lineNum">      28 </span>            : #include &quot;DnsStatHash.h&quot;
+<span class="lineNum">      29 </span>            : #endif
+<span class="lineNum">      30 </span>            : #include &quot;AddressFilter.h&quot;
+<span class="lineNum">      31 </span>            : #include &quot;HashBinGeneric.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;CaptureSummary.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;TldAsKey.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;dnscap_common.h&quot;
+<span class="lineNum">      35 </span>            : #include &quot;cdns.h&quot;
+<span class="lineNum">      36 </span>            : 
+<span class="lineNum">      37 </span>            : #ifndef UNREFERENCED_PARAMETER
+<span class="lineNum">      38 </span>            : #define UNREFERENCED_PARAMETER(x) (void)(x)
+<span class="lineNum">      39 </span>            : #endif
+<span class="lineNum">      40 </span>            : 
+<span class="lineNum">      41 </span>            : /*
+<span class="lineNum">      42 </span>            :  * List of registry definitions 
+<span class="lineNum">      43 </span>            :  */
+<span class="lineNum">      44 </span>            : #define REGISTRY_ITHITOOLS_VERSION      0
+<span class="lineNum">      45 </span>            : #define REGISTRY_DNS_CLASSES    1
+<span class="lineNum">      46 </span>            : #define REGISTRY_DNS_RRType     2
+<span class="lineNum">      47 </span>            : #define REGISTRY_DNS_OpCodes    3
+<span class="lineNum">      48 </span>            : #define REGISTRY_DNS_RCODES     4
+<span class="lineNum">      49 </span>            : #define REGISTRY_DNS_AFSDB_RRSubtype    5
+<span class="lineNum">      50 </span>            : #define REGISTRY_DNS_DHCID_RRIdType     6
+<span class="lineNum">      51 </span>            : #define REGISTRY_DNS_LabelType  7
+<span class="lineNum">      52 </span>            : #define REGISTRY_EDNS_OPT_CODE  8
+<span class="lineNum">      53 </span>            : #define REGISTRY_DNS_Header_Flags       9
+<span class="lineNum">      54 </span>            : #define REGISTRY_EDNS_Header_Flags      10
+<span class="lineNum">      55 </span>            : #define REGISTRY_EDNS_Version_number    11
+<span class="lineNum">      56 </span>            : #define REGISTRY_DNS_CSYNC_Flags        12
+<span class="lineNum">      57 </span>            : #define REGISTRY_DNSSEC_Algorithm_Numbers       13
+<span class="lineNum">      58 </span>            : #define REGISTRY_DNSSEC_KEY_Prime_Lengths       14
+<span class="lineNum">      59 </span>            : #define REGISTRY_DNS_Q_CLASSES  15
+<span class="lineNum">      60 </span>            : #define REGISTRY_DNS_Q_RRType   16
+<span class="lineNum">      61 </span>            : #define REGISTRY_DNSSEC_KEY_Well_Known_Primes   17
+<span class="lineNum">      62 </span>            : #define REGISTRY_EDNS_Packet_Size 18
+<span class="lineNum">      63 </span>            : #define REGISTRY_DNS_Query_Size 19
+<span class="lineNum">      64 </span>            : #define REGISTRY_DNS_Response_Size 20
+<span class="lineNum">      65 </span>            : #define REGISTRY_DNS_TC_length 21
+<span class="lineNum">      66 </span>            : #define REGISTRY_TLD_query 22
+<span class="lineNum">      67 </span>            : #define REGISTRY_TLD_response 23
+<span class="lineNum">      68 </span>            : #define REGISTRY_DNS_error_flag 24
+<span class="lineNum">      69 </span>            : // #define      REGISTRY_TLD_error_class 25
+<span class="lineNum">      70 </span>            : #define REGISTRY_DNS_txt_underline 26
+<span class="lineNum">      71 </span>            : #define REGISTRY_DNS_root_QR 27
+<span class="lineNum">      72 </span>            : #define REGISTRY_DNS_LeakByLength 28
+<span class="lineNum">      73 </span>            : #define REGISTRY_DNS_LeakedTLD 29
+<span class="lineNum">      74 </span>            : #define REGISTRY_DNS_RFC6761TLD 30
+<span class="lineNum">      75 </span>            : #define REGISTRY_DNS_UsefulQueries 31
+<span class="lineNum">      76 </span>            : #define REGISTRY_DANE_CertUsage 32
+<span class="lineNum">      77 </span>            : #define REGISTRY_DANE_TlsaSelector 33
+<span class="lineNum">      78 </span>            : #define REGISTRY_DANE_TlsaMatchingType 34
+<span class="lineNum">      79 </span>            : #define REGISTRY_TOOL_FrequentAddress 35
+<span class="lineNum">      80 </span>            : #define REGISTRY_DNS_Tld_Usage 36
+<span class="lineNum">      81 </span>            : #define REGISTRY_DNS_RFC6761_Usage 37
+<span class="lineNum">      82 </span>            : #define REGISTRY_DNS_Frequent_TLD_Usage 38
+<span class="lineNum">      83 </span>            : #define REGISTRY_DNS_TLD_Usage_Count 39
+<span class="lineNum">      84 </span>            : #define REGISTRY_DNS_Local_TLD_Usage_Count 40
+<span class="lineNum">      85 </span>            : #define REGISTRY_DNSSEC_Client_Usage 41
+<span class="lineNum">      86 </span>            : #define REGISTRY_DNSSEC_Zone_Usage 42
+<span class="lineNum">      87 </span>            : #define REGISTRY_EDNS_Client_Usage 43
+<span class="lineNum">      88 </span>            : #define REGISTRY_QNAME_MINIMIZATION_Usage 44
+<span class="lineNum">      89 </span>            : #define REGISTRY_EDNS_OPT_USAGE 45
+<span class="lineNum">      90 </span>            : #define REGISTRY_EDNS_OPT_USAGE_REF 46
+<span class="lineNum">      91 </span>            : #define REGISTRY_VOLUME_PER_PROTO 47
+<span class="lineNum">      92 </span>            : #define REGISTRY_TCPSYN_PER_PROTO 48
+<span class="lineNum">      93 </span>            : #define REGISTRY_CAPTURE_DURATION 49
+<span class="lineNum">      94 </span>            : #define REGISTRY_VOLUME_53ONLY 50
+<span class="lineNum">      95 </span>            : #define REGISTRY_CAPTURE_DURATION53 51
+<span class="lineNum">      96 </span>            : #define REGISTRY_DNS_LEAK_BINARY 52
+<span class="lineNum">      97 </span>            : #define REGISTRY_DNS_LEAK_SYNTAX 53
+<span class="lineNum">      98 </span>            : #define REGISTRY_DNS_LEAK_IPV4 54
+<span class="lineNum">      99 </span>            : #define REGISTRY_DNS_LEAK_NUMERIC 55
+<span class="lineNum">     100 </span>            : #define REGISTRY_DNS_LEAK_2NDLEVEL 56
+<span class="lineNum">     101 </span>            : #define REGISTRY_DNS_ADDRESS_LIST 57
+<span class="lineNum">     102 </span>            : #define REGISTRY_DNS_ERRONEOUS_NAME_LIST 58
+<span class="lineNum">     103 </span>            : #define REGISTRY_DNS_TLD_MIN_DELAY_IP 59
+<span class="lineNum">     104 </span>            : #define REGISTRY_DNS_TLD_AVG_DELAY_IP 60
+<span class="lineNum">     105 </span>            : #define REGISTRY_DNS_TLD_MIN_DELAY_LOAD 61
+<span class="lineNum">     106 </span>            : #define REGISTRY_DNS_ADDRESS_DELAY 62
+<span class="lineNum">     107 </span>            : 
+<span class="lineNum">     108 </span>            : #define DNS_REGISTRY_ERROR_RRTYPE (1&lt;&lt;0)
+<span class="lineNum">     109 </span>            : #define DNS_REGISTRY_ERROR_RRCLASS (1&lt;&lt;1)
+<span class="lineNum">     110 </span>            : #define DNS_REGISTRY_ERROR_OPCODE (1&lt;&lt;2)
+<span class="lineNum">     111 </span>            : #define DNS_REGISTRY_ERROR_RCODE (1&lt;&lt;3)
+<span class="lineNum">     112 </span>            : #define DNS_REGISTRY_ERROR_KALGO (1&lt;&lt;4)
+<span class="lineNum">     113 </span>            : #define DNS_REGISTRY_ERROR_OPTO (1&lt;&lt;5)
+<span class="lineNum">     114 </span>            : #define DNS_REGISTRY_ERROR_TLD (1&lt;&lt;6)
+<span class="lineNum">     115 </span>            : #define DNS_REGISTRY_ERROR_LABEL (1&lt;&lt;7)
+<span class="lineNum">     116 </span>            : #define DNS_REGISTRY_ERROR_FORMAT (1&lt;&lt;8)
+<span class="lineNum">     117 </span>            : 
+<span class="lineNum">     118 </span>            : #define DNS_OPCODE_QUERY 0
+<span class="lineNum">     119 </span>            : #define DNS_RCODE_NOERROR 0
+<span class="lineNum">     120 </span>            : #define DNS_RCODE_NXDOMAIN 3
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span>            : 
+<span class="lineNum">     123 </span>            : enum DnsStatsFlags
+<span class="lineNum">     124 </span>            : {
+<span class="lineNum">     125 </span>            :     dnsStateFlagFilterLargeUsers = 1,
+<span class="lineNum">     126 </span>            :     dnsStateFlagCountTld = 2,
+<span class="lineNum">     127 </span>            :     dnsStateFlagCountQueryParms = 4,
+<span class="lineNum">     128 </span>            :     dnsStateFlagCountUnderlinedNames = 8,
+<span class="lineNum">     129 </span>            :     dnsStateFlagCountPacketSizes = 16,
+<span class="lineNum">     130 </span>            :     dnsStateFlagListTldUsed = 32,
+<span class="lineNum">     131 </span>            :     dnsStateFlagIncludeTcpRecords = 64
+<span class="lineNum">     132 </span>            : };
+<span class="lineNum">     133 </span>            : 
+<span class="lineNum">     134 </span>            : enum DnsStatsLeakType
+<span class="lineNum">     135 </span>            : {
+<span class="lineNum">     136 </span>            :     dnsLeakNoLeak = 0,
+<span class="lineNum">     137 </span>            :     dnsLeakRoot,
+<span class="lineNum">     138 </span>            :     dnsLeakBinary,
+<span class="lineNum">     139 </span>            :     dnsLeakBadSyntax,
+<span class="lineNum">     140 </span>            :     dnsLeakNumeric,
+<span class="lineNum">     141 </span>            :     dnsLeakRfc6771,
+<span class="lineNum">     142 </span>            :     dnsLeakFrequent,
+<span class="lineNum">     143 </span>            :     dnsLeakDGA,
+<span class="lineNum">     144 </span>            :     dnsLeakJumbo,
+<span class="lineNum">     145 </span>            :     dnsLeakOther
+<span class="lineNum">     146 </span>            : };
+<span class="lineNum">     147 </span>            : 
+<span class="lineNum">     148 </span>            : class DnsHashEntry {
+<span class="lineNum">     149 </span>            : public:
+<span class="lineNum">     150 </span>            :     DnsHashEntry();
+<span class="lineNum">     151 </span>            :     ~DnsHashEntry();
+<span class="lineNum">     152 </span>            : 
+<span class="lineNum">     153 </span>            :     bool IsSameKey(DnsHashEntry* key);
+<span class="lineNum">     154 </span>            :     uint32_t Hash();
+<span class="lineNum">     155 </span>            :     DnsHashEntry* CreateCopy();
+<span class="lineNum">     156 </span>            :     void Add(DnsHashEntry* key);
+<span class="lineNum">     157 </span>            : 
+<span class="lineNum">     158 </span>            :     DnsHashEntry * HashNext;
+<span class="lineNum">     159 </span>            : 
+<span class="lineNum">     160 </span>            :     uint32_t hash;
+<span class="lineNum">     161 </span>            :     uint32_t registry_id;
+<span class="lineNum">     162 </span>            :     uint64_t count;
+<span class="lineNum">     163 </span>            :     uint32_t key_type;
+<span class="lineNum">     164 </span>            :     uint32_t key_length;
+<span class="lineNum">     165 </span>            :     union {
+<span class="lineNum">     166 </span>            :         uint32_t key_number;
+<span class="lineNum">     167 </span>            :         uint8_t key_value[64];
+<span class="lineNum">     168 </span>            :     };
+<span class="lineNum">     169 </span>            : };
+<span class="lineNum">     170 </span>            : 
+<span class="lineNum">     171 </span>            : enum DnsPrefixClass {
+<span class="lineNum">     172 </span>            :     DnsPrefixStd = 0,
+<span class="lineNum">     173 </span>            :     DnsPrefixOneLevel,
+<span class="lineNum">     174 </span>            :     DnsPrefixException
+<span class="lineNum">     175 </span>            : };
+<span class="lineNum">     176 </span>            : 
+<span class="lineNum">     177 </span>            : class DnsPrefixEntry {
+<span class="lineNum">     178 </span>            : public:
+<span class="lineNum">     179 </span>            :     DnsPrefixEntry();
+<span class="lineNum">     180 </span>            :     ~DnsPrefixEntry();
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            :     bool IsSameKey(DnsPrefixEntry* key);
+<span class="lineNum">     183 </span>            :     uint32_t Hash();
+<span class="lineNum">     184 </span>            :     DnsPrefixEntry* CreateCopy();
+<span class="lineNum">     185 </span>            :     void Add(DnsPrefixEntry* key);
+<span class="lineNum">     186 </span>            : 
+<span class="lineNum">     187 </span>            :     DnsPrefixEntry * HashNext;
+<span class="lineNum">     188 </span>            : 
+<span class="lineNum">     189 </span>            :     uint32_t hash;
+<span class="lineNum">     190 </span>            :     char * dnsPrefix;
+<span class="lineNum">     191 </span>            :     DnsPrefixClass dnsPrefixClass;
+<span class="lineNum">     192 </span>            : };
+<span class="lineNum">     193 </span>            : 
+<span class="lineNum">     194 </span>            : class DnsNameEntry {
+<span class="lineNum">     195 </span>            : public:
+<span class="lineNum">     196 </span>            :     DnsNameEntry();
+<span class="lineNum">     197 </span>            :     ~DnsNameEntry();
+<span class="lineNum">     198 </span>            : 
+<span class="lineNum">     199 </span>            :     bool IsSameKey(DnsNameEntry* key);
+<span class="lineNum">     200 </span>            :     uint32_t Hash();
+<span class="lineNum">     201 </span>            :     DnsNameEntry* CreateCopy();
+<span class="lineNum">     202 </span>            :     void Add(DnsNameEntry* key);
+<span class="lineNum">     203 </span>            : 
+<span class="lineNum">     204 </span>            :     DnsNameEntry* HashNext;
+<span class="lineNum">     205 </span>            : 
+<span class="lineNum">     206 </span>            :     uint32_t hash;
+<span class="lineNum">     207 </span>            :     size_t name_len;
+<span class="lineNum">     208 </span>            :     uint8_t* name;
+<span class="lineNum">     209 </span>            :     uint64_t count;
+<span class="lineNum">     210 </span>            :     int is_nx;
+<span class="lineNum">     211 </span>            :     DnsStatsLeakType leakType;
+<span class="lineNum">     212 </span>            : };
+<span class="lineNum">     213 </span>            : 
+<span class="lineNum">     214 </span>            : class DnssecPrefixEntry {
+<span class="lineNum">     215 </span>            : public:
+<span class="lineNum">     216 </span>            :     DnssecPrefixEntry();
+<span class="lineNum">     217 </span>            :     ~DnssecPrefixEntry();
+<span class="lineNum">     218 </span>            : 
+<span class="lineNum">     219 </span>            :     bool IsSameKey(DnssecPrefixEntry* key);
+<span class="lineNum">     220 </span>            :     uint32_t Hash();
+<span class="lineNum">     221 </span>            :     DnssecPrefixEntry* CreateCopy();
+<span class="lineNum">     222 </span>            :     void Add(DnssecPrefixEntry* key);
+<span class="lineNum">     223 </span>            : 
+<span class="lineNum">     224 </span>            :     DnssecPrefixEntry * HashNext;
+<span class="lineNum">     225 </span>            : 
+<span class="lineNum">     226 </span>            :     uint32_t hash;
+<span class="lineNum">     227 </span>            :     uint8_t * prefix;
+<span class="lineNum">     228 </span>            :     size_t prefix_len;
+<span class="lineNum">     229 </span>            :     bool is_dnssec;
+<span class="lineNum">     230 </span>            : private:
+<span class="lineNum">     231 </span>            :     uint8_t * prefix_data;
+<span class="lineNum">     232 </span>            : };
+<span class="lineNum">     233 </span>            : 
+<span class="lineNum">     234 </span>            : class DomainEntry {
+<span class="lineNum">     235 </span>            : public:
+<span class="lineNum">     236 </span>            :     DomainEntry();
+<span class="lineNum">     237 </span>            :     ~DomainEntry();
+<span class="lineNum">     238 </span>            : 
+<span class="lineNum">     239 </span>            :     bool IsSameKey(DomainEntry* key);
+<span class="lineNum">     240 </span>            :     uint32_t Hash();
+<span class="lineNum">     241 </span>            :     DomainEntry* CreateCopy();
+<span class="lineNum">     242 </span>            :     void Add(DomainEntry* key);
+<span class="lineNum">     243 </span>            : 
+<span class="lineNum">     244 </span>            :     DomainEntry * HashNext;
+<span class="lineNum">     245 </span>            : 
+<span class="lineNum">     246 </span>            :     uint32_t hash;
+<span class="lineNum">     247 </span>            :     uint32_t domain_length;
+<span class="lineNum">     248 </span>            :     char * domain;
+<span class="lineNum">     249 </span>            :     uint64_t count;
+<span class="lineNum">     250 </span>            : };
+<span class="lineNum">     251 </span>            : 
+<span class="lineNum">     252 </span>            : class TldAddressAsKey
+<span class="lineNum">     253 </span>            : {
+<span class="lineNum">     254 </span>            : public:
+<span class="lineNum">     255 </span>            :     TldAddressAsKey(uint8_t * addr, size_t addr_len, uint8_t * tld, size_t tld_len, my_bpftimeval ts, int is_nx, DnsStatsLeakType leakType);
+<span class="lineNum">     256 </span>            :     ~TldAddressAsKey();
+<span class="lineNum">     257 </span>            : 
+<span class="lineNum">     258 </span>            :     bool IsSameKey(TldAddressAsKey* key);
+<span class="lineNum">     259 </span>            :     uint32_t Hash();
+<span class="lineNum">     260 </span>            :     TldAddressAsKey* CreateCopy();
+<span class="lineNum">     261 </span>            :     void Add(TldAddressAsKey* key);
+<span class="lineNum">     262 </span>            : 
+<span class="lineNum">     263 </span>            :     TldAddressAsKey * HashNext;
+<span class="lineNum">     264 </span>            : 
+<span class="lineNum">     265 </span>            :     static bool CompareByAddressAndTld(TldAddressAsKey * x, TldAddressAsKey * y);
+<span class="lineNum">     266 </span>            : 
+<span class="lineNum">     267 </span>            :     size_t addr_len;
+<span class="lineNum">     268 </span>            :     uint8_t addr[16];
+<span class="lineNum">     269 </span>            :     size_t tld_len;
+<span class="lineNum">     270 </span>            :     uint8_t tld[65];
+<span class="lineNum">     271 </span>            :     uint32_t count;
+<span class="lineNum">     272 </span>            :     uint32_t hash;
+<span class="lineNum">     273 </span>            :     my_bpftimeval ts;
+<span class="lineNum">     274 </span>            :     my_bpftimeval ts_init;
+<span class="lineNum">     275 </span>            :     int64_t tld_min_delay;
+<span class="lineNum">     276 </span>            :     int is_nx;
+<span class="lineNum">     277 </span>            :     DnsStatsLeakType leakType;
+<span class="lineNum">     278 </span>            : };
+<span class="lineNum">     279 </span>            : 
+<span class="lineNum">     280 </span>            : class DnsStats
+<span class="lineNum">     281 </span>            : {
+<span class="lineNum">     282 </span>            : public:
+<span class="lineNum">     283 </span>            :     DnsStats();
+<span class="lineNum">     284 </span>            :     ~DnsStats();
+<span class="lineNum">     285 </span>            : 
+<span class="lineNum">     286 </span>            :     BinHash&lt;DnsHashEntry&gt; hashTable;
+<span class="lineNum">     287 </span>            :     AddressFilter rootAddresses;
+<span class="lineNum">     288 </span>            :     AddressFilter allowedAddresses;
+<span class="lineNum">     289 </span>            :     AddressFilter bannedAddresses;
+<span class="lineNum">     290 </span>            :     AddressUseTracker frequentAddresses;
+<span class="lineNum">     291 </span>            : 
+<span class="lineNum">     292 </span>            :     LruHash&lt;TldAsKey&gt; tldLeakage; 
+<span class="lineNum">     293 </span>            :     LruHash&lt;TldAsKey&gt; secondLdLeakage;
+<span class="lineNum">     294 </span>            :     BinHash&lt;TldAddressAsKey&gt; queryUsage;
+<span class="lineNum">     295 </span>            : 
+<span class="lineNum">     296 </span>            :     BinHash&lt;TldAsKey&gt; registeredTld;
+<span class="lineNum">     297 </span>            :     LruHash&lt;TldAsKey&gt; tldStringUsage;
+<span class="lineNum">     298 </span>            : 
+<span class="lineNum">     299 </span>            :     BinHash&lt;DnsPrefixEntry&gt; dnsPrefixTable;
+<span class="lineNum">     300 </span>            :     BinHash&lt;DnssecPrefixEntry&gt; dnssecPrefixTable;
+<span class="lineNum">     301 </span>            :     BinHash&lt;StatsByIP&gt; statsByIp;
+<span class="lineNum">     302 </span>            : 
+<span class="lineNum">     303 </span>            :     BinHash&lt;DnsNameEntry&gt; nameList;
+<span class="lineNum">     304 </span>            : 
+<span class="lineNum">     305 </span>            :     /* For the plug in */
+<span class="lineNum">     306 </span>            :     void SubmitPacket(uint8_t * packet, uint32_t length,
+<span class="lineNum">     307 </span>            :         uint8_t * source_addr, size_t source_addr_length,
+<span class="lineNum">     308 </span>            :         uint8_t * dest_addr, size_t dest_addr_length,
+<span class="lineNum">     309 </span>            :         my_bpftimeval ts);
+<span class="lineNum">     310 </span>            : 
+<span class="lineNum">     311 </span>            :     /* For the command line tools */
+<span class="lineNum">     312 </span>            :     bool LoadPcapFiles(size_t nb_files, char const ** fileNames);
+<span class="lineNum">     313 </span>            :     bool LoadCborFiles(size_t nb_files, char const** fileNames);
+<span class="lineNum">     314 </span>            :     bool LoadCborFile(char const* fileNames);
+<a name="315"><span class="lineNum">     315 </span>            :     bool ExportToCaptureSummary(CaptureSummary * cs);</a>
+<a name="316"><span class="lineNum">     316 </span>            : </a>
+<span class="lineNum">     317 </span><span class="lineCov">      39126 :     bool IsCaptureStopped() { return is_capture_stopped; };</span>
+<span class="lineNum">     318 </span><span class="lineCov">          4 :     void StopCapture() { is_capture_stopped = true; }</span>
+<span class="lineNum">     319 </span>            :     
+<span class="lineNum">     320 </span>            :     bool is_capture_dns_only;
+<span class="lineNum">     321 </span>            :     bool is_capture_stopped;
+<span class="lineNum">     322 </span>            :     uint32_t t_start_sec;
+<span class="lineNum">     323 </span>            :     uint32_t t_start_usec;
+<span class="lineNum">     324 </span>            :     int64_t duration_usec;
+<span class="lineNum">     325 </span>            :     uint64_t volume_53only;
+<span class="lineNum">     326 </span>            :     bool enable_frequent_address_filtering;
+<span class="lineNum">     327 </span>            :     bool capture_cache_ratio_nx_domain;
+<span class="lineNum">     328 </span>            :     uint32_t target_number_dns_packets;
+<span class="lineNum">     329 </span>            :     uint32_t frequent_address_max_count;
+<span class="lineNum">     330 </span>            :     uint32_t max_tld_leakage_count; 
+<span class="lineNum">     331 </span>            :     uint32_t max_tld_leakage_table_count;
+<span class="lineNum">     332 </span>            :     uint32_t max_query_usage_count;
+<span class="lineNum">     333 </span>            :     uint32_t max_tld_string_usage_count;
+<span class="lineNum">     334 </span>            :     uint32_t max_tld_string_leakage_count;
+<span class="lineNum">     335 </span>            :     uint32_t max_stats_by_ip_count;
+<span class="lineNum">     336 </span>            :     uint32_t dnsstat_flags;
+<span class="lineNum">     337 </span>            :     int record_count; 
+<span class="lineNum">     338 </span>            :     int query_count;
+<span class="lineNum">     339 </span>            :     int response_count;
+<span class="lineNum">     340 </span>            :     uint32_t error_flags;
+<span class="lineNum">     341 </span>            :     uint32_t dnssec_name_index;
+<span class="lineNum">     342 </span>            :     uint8_t * dnssec_packet;
+<span class="lineNum">     343 </span>            :     uint32_t dnssec_packet_length;
+<span class="lineNum">     344 </span>            :     bool is_do_flag_set;
+<span class="lineNum">     345 </span>            :     bool is_using_edns;
+<span class="lineNum">     346 </span>            :     uint8_t * edns_options;
+<span class="lineNum">     347 </span>            :     uint32_t edns_options_length;
+<span class="lineNum">     348 </span>            :     bool is_qname_minimized;
+<span class="lineNum">     349 </span>            :     char const* address_report;
+<span class="lineNum">     350 </span>            :     char const* name_report;
+<span class="lineNum">     351 </span>            :     bool compress_name_and_address_reports;
+<span class="lineNum">     352 </span>            : 
+<span class="lineNum">     353 </span>            :     static bool IsValidTldSyntax(uint8_t * tld, size_t length);
+<span class="lineNum">     354 </span>            :     static bool IsInSortedList(const char ** list, size_t nb_list, uint8_t * tld, size_t length);
+<span class="lineNum">     355 </span>            :     static bool IsRfc6761Tld(uint8_t * tld, size_t length);
+<span class="lineNum">     356 </span>            :     static bool IsFrequentLeakTld(uint8_t * tld, size_t length);
+<span class="lineNum">     357 </span>            :     static bool IsProbablyDgaTld(uint8_t * tld, size_t length);
+<span class="lineNum">     358 </span>            :     static void SetToUpperCase(uint8_t * domain, size_t length);
+<span class="lineNum">     359 </span>            :     static void TldCheck(uint8_t * domain, size_t length, bool * is_binary, bool * is_wrong_syntax, bool * is_numeric);
+<span class="lineNum">     360 </span>            : 
+<span class="lineNum">     361 </span>            :     static char const * GetTableName(uint32_t tableId);
+<span class="lineNum">     362 </span>            :     const char * GetZonePrefix(const char * dnsName);
+<span class="lineNum">     363 </span>            : 
+<span class="lineNum">     364 </span>            :     void RegisterDnssecUsageByName(uint8_t * packet, uint32_t length, uint32_t name_start,
+<span class="lineNum">     365 </span>            :         bool is_dnssec);
+<span class="lineNum">     366 </span>            :     void ExportDnssecUsage();
+<span class="lineNum">     367 </span>            : 
+<span class="lineNum">     368 </span>            :     void RegisterStatsByIp(uint8_t * dest_addr, size_t dest_addr_length);
+<span class="lineNum">     369 </span>            :     void RegisterOptionsByIp(uint8_t * source_addr, size_t source_addr_length);
+<span class="lineNum">     370 </span>            : 
+<span class="lineNum">     371 </span>            :     void RegisterTcpSynByIp(uint8_t * source_addr, size_t source_addr_length, bool tcp_port_583, bool tcp_port_443);
+<span class="lineNum">     372 </span>            : 
+<span class="lineNum">     373 </span>            :     void ExportStatsByIp();
+<span class="lineNum">     374 </span>            : 
+<span class="lineNum">     375 </span>            :     static size_t NormalizeNamePart(uint32_t length, uint8_t * value, uint8_t * normalized, size_t normalized_max, uint32_t * flags);
+<span class="lineNum">     376 </span>            : 
+<span class="lineNum">     377 </span>            :     static int GetDnsName(uint8_t * packet, uint32_t length, uint32_t start,
+<span class="lineNum">     378 </span>            :         uint8_t * name, size_t name_max, size_t * name_length);
+<span class="lineNum">     379 </span>            : 
+<span class="lineNum">     380 </span>            :     static int CompareDnsName(const uint8_t * packet, uint32_t length, uint32_t start1, uint32_t start2);
+<span class="lineNum">     381 </span>            :     static int Compare2DnsNames(const uint8_t* packet1, uint32_t length1, uint32_t start1, 
+<span class="lineNum">     382 </span>            :         const uint8_t* packet2, uint32_t length2, uint32_t start2);
+<span class="lineNum">     383 </span>            : 
+<span class="lineNum">     384 </span>            :     static bool IsIpv4Name(const uint8_t * name, size_t name_length);
+<span class="lineNum">     385 </span>            :     static bool IsIpv4Tld(uint8_t * packet, uint32_t length, uint32_t start);
+<span class="lineNum">     386 </span>            : 
+<span class="lineNum">     387 </span>            :     static bool IsQNameMinimized(uint32_t nb_queries, int q_rclass, int q_rtype,
+<span class="lineNum">     388 </span>            :         uint8_t* packet1, uint32_t length1, uint32_t qr_name_offset,
+<span class="lineNum">     389 </span>            :         uint8_t* packet2, uint32_t length2, uint32_t rr_name_offset);
+<span class="lineNum">     390 </span>            :     static void GetSourceAddress(int ip_type, uint8_t * ip_header, uint8_t ** addr, size_t * addr_length);
+<span class="lineNum">     391 </span>            :     static void GetDestAddress(int ip_type, uint8_t * ip_header, uint8_t ** addr, size_t * addr_length);
+<span class="lineNum">     392 </span>            : 
+<span class="lineNum">     393 </span>            :     void SubmitPacket(uint8_t * packet, uint32_t length, int ip_type, uint8_t* ip_header,
+<span class="lineNum">     394 </span>            :         my_bpftimeval ts);
+<span class="lineNum">     395 </span>            : 
+<span class="lineNum">     396 </span>            :     void UpdateDuration(my_bpftimeval ts);
+<span class="lineNum">     397 </span>            : 
+<span class="lineNum">     398 </span>            :     void SubmitCborPacket(cdns* cdns_ctx, size_t packet_id);
+<span class="lineNum">     399 </span>            :     void SubmitCborPacketQuery(cdns* cdns_ctx, cdns_query* query, cdns_query_signature* q_sig);
+<span class="lineNum">     400 </span>            :     void SubmitCborPacketResponse(cdns* cdns_ctx, cdns_query* query, cdns_query_signature* r_sig);
+<span class="lineNum">     401 </span>            : 
+<span class="lineNum">     402 </span>            :     /* Parallel construction for parsing CBOR and PCAP records. */
+<span class="lineNum">     403 </span>            :     void SubmitCborRecords(cdns* cdns_ctx, cdns_query* query, cdns_query_signature* q_sig,
+<span class="lineNum">     404 </span>            :         cdns_qr_extended* ext, bool is_response);
+<span class="lineNum">     405 </span>            :     void SubmitPcapRecords(uint8_t* packet, uint32_t length, uint32_t parse_index,
+<span class="lineNum">     406 </span>            :         bool is_response, bool has_header, uint32_t rcode, uint32_t flags,
+<span class="lineNum">     407 </span>            :         uint32_t qdcount, uint32_t ancount, uint32_t nscount, uint32_t arcount);
+<span class="lineNum">     408 </span>            : 
+<span class="lineNum">     409 </span>            :     static bool GetTLD(uint8_t * packet, uint32_t length, uint32_t start, uint32_t *offset, uint32_t * previous_offset, int * nb_name_parts);
+<span class="lineNum">     410 </span>            : 
+<span class="lineNum">     411 </span>            :     static int64_t DeltaUsec(long tv_sec, long tv_usec, long tv_sec_start, long tv_usec_start);
+<span class="lineNum">     412 </span>            : 
+<span class="lineNum">     413 </span>            :     static char const* LeakTypeName(DnsStatsLeakType leakType);
+<span class="lineNum">     414 </span>            : 
+<span class="lineNum">     415 </span>            : private:
+<span class="lineNum">     416 </span>            :     bool LoadPcapFile(char const * fileName);
+<span class="lineNum">     417 </span>            : 
+<span class="lineNum">     418 </span>            :     int SubmitQuery(uint8_t * packet, uint32_t length, uint32_t start, bool is_response, int * qclass, int * qtype);
+<span class="lineNum">     419 </span>            :     void SubmitQueryContent(int rrtype, int rrclass,
+<span class="lineNum">     420 </span>            :         uint8_t* packet, uint32_t packet_length, uint32_t name_offset);
+<span class="lineNum">     421 </span>            :     void SubmitQueryExtensions(
+<span class="lineNum">     422 </span>            :         uint8_t* packet, uint32_t length, uint32_t name_offset,
+<span class="lineNum">     423 </span>            :         uint8_t* client_addr, size_t client_addr_length);
+<span class="lineNum">     424 </span>            : 
+<span class="lineNum">     425 </span>            :     int SubmitRecord(uint8_t * packet, uint32_t length, uint32_t start, 
+<span class="lineNum">     426 </span>            :         uint32_t * e_rcode, uint32_t * e_length, bool is_response);
+<span class="lineNum">     427 </span>            :     void SubmitRecordContent(int rrtype, int rrclass, int ttl, int ldata,
+<span class="lineNum">     428 </span>            :         uint8_t* data, uint8_t* packet, uint32_t packet_length, uint32_t name_offset,
+<span class="lineNum">     429 </span>            :         uint32_t* e_rcode, uint32_t* e_length, bool is_response);
+<span class="lineNum">     430 </span>            : 
+<span class="lineNum">     431 </span>            :     void SubmitOpcodeAndFlags(uint32_t opcode, uint32_t flags);
+<span class="lineNum">     432 </span>            : 
+<span class="lineNum">     433 </span>            :     int SubmitName(uint8_t * packet, uint32_t length, uint32_t start, bool should_tabulate);
+<span class="lineNum">     434 </span>            : 
+<span class="lineNum">     435 </span>            :     void SubmitOPTRecord(uint32_t flags, uint8_t * content, uint32_t length, uint32_t * e_rcode);
+<span class="lineNum">     436 </span>            :     void RegisterEdnsUsage(uint32_t flags, uint32_t* e_rcode);
+<span class="lineNum">     437 </span>            :     void SubmitKeyRecord(uint8_t * content, uint32_t length);
+<span class="lineNum">     438 </span>            :     void SubmitRRSIGRecord(uint8_t * content, uint32_t length);
+<span class="lineNum">     439 </span>            :     void SubmitDSRecord(uint8_t * content, uint32_t length);
+<span class="lineNum">     440 </span>            :     void SubmitTLSARecord(uint8_t * content, uint32_t length);
+<span class="lineNum">     441 </span>            : 
+<span class="lineNum">     442 </span>            :     void SubmitRegistryNumberAndCount(uint32_t registry_id, uint32_t number, uint64_t count);
+<span class="lineNum">     443 </span>            :     void SubmitRegistryNumber(uint32_t registry_id, uint32_t number);
+<span class="lineNum">     444 </span>            :     void SubmitRegistryStringAndCount(uint32_t registry_id, uint32_t length, uint8_t * value, uint64_t count);
+<span class="lineNum">     445 </span>            :     void SubmitRegistryString(uint32_t registry_id, uint32_t length, uint8_t * value);
+<span class="lineNum">     446 </span>            : 
+<span class="lineNum">     447 </span>            :     void NameLeaksAnalysis(
+<span class="lineNum">     448 </span>            :         uint8_t* server_addr,
+<span class="lineNum">     449 </span>            :         size_t server_addr_length,
+<span class="lineNum">     450 </span>            :         uint8_t* client_addr,
+<span class="lineNum">     451 </span>            :         size_t client_addr_length,
+<span class="lineNum">     452 </span>            :         int rcode,
+<span class="lineNum">     453 </span>            :         uint8_t* packet,
+<span class="lineNum">     454 </span>            :         uint32_t packet_length,
+<span class="lineNum">     455 </span>            :         uint32_t name_offset,
+<span class="lineNum">     456 </span>            :         my_bpftimeval ts,
+<span class="lineNum">     457 </span>            :         bool is_not_empty_response
+<span class="lineNum">     458 </span>            :     );
+<span class="lineNum">     459 </span>            : 
+<span class="lineNum">     460 </span>            : 
+<span class="lineNum">     461 </span>            : 
+<span class="lineNum">     462 </span>            :     int CheckForUnderline(uint8_t * packet, uint32_t length, uint32_t start);
+<span class="lineNum">     463 </span>            : 
+<span class="lineNum">     464 </span>            :     bool IsNumericDomain(uint8_t * tld, uint32_t length);
+<span class="lineNum">     465 </span>            : 
+<span class="lineNum">     466 </span>            :     void ExportDomains(LruHash&lt;TldAsKey&gt; * table, uint32_t registry_id, uint32_t max_leak_count);
+<span class="lineNum">     467 </span>            :     void ExportLeakedDomains();
+<span class="lineNum">     468 </span>            :     void ExportStringUsage();
+<span class="lineNum">     469 </span>            :     void ExportSecondLeaked();
+<span class="lineNum">     470 </span>            :     void ExportQueryUsage();
+<span class="lineNum">     471 </span>            : #ifdef PRIVACY_CONSCIOUS
+<span class="lineNum">     472 </span>            :     void ExportNameReport();
+<span class="lineNum">     473 </span>            : #endif
+<span class="lineNum">     474 </span>            : 
+<span class="lineNum">     475 </span>            :     void LoadRegisteredTLD_from_memory();
+<span class="lineNum">     476 </span>            : 
+<span class="lineNum">     477 </span>            :     bool CheckAddress(uint8_t* addr, size_t addr_len);
+<span class="lineNum">     478 </span>            : 
+<span class="lineNum">     479 </span>            :     void LoadPrefixTable_from_memory();
+<span class="lineNum">     480 </span>            : 
+<span class="lineNum">     481 </span>            :     void RegisterDnssecUsageByPrefix(
+<span class="lineNum">     482 </span>            :         BinHash&lt;DnssecPrefixEntry&gt; * dnssecTable,
+<span class="lineNum">     483 </span>            :         uint8_t * prefix, size_t prefix_length, bool is_dnssec);
+<span class="lineNum">     484 </span>            : 
+<span class="lineNum">     485 </span>            :     void ExportDnssecUsageByTable(BinHash&lt;DnssecPrefixEntry&gt; * dnssecTable, uint32_t registry_id);
+<span class="lineNum">     486 </span>            : };
+<span class="lineNum">     487 </span>            : 
+<span class="lineNum">     488 </span>            : #endif /* DNSTAT_H */
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
