@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - ithi.info - test/OdiPublishTest.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">test</a> - OdiPublishTest.cpp<span style="font-size: 80%;"> (source / <a href="OdiPublishTest.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">ithi.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntryMed">88.9 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2020-07-29 17:47:33</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntry">6</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : /*</a>
+<span class="lineNum">       2 </span>            : * Author: Christian Huitema
+<span class="lineNum">       3 </span>            : * Copyright (c) 2017, Private Octopus, Inc.
+<span class="lineNum">       4 </span>            : * All rights reserved.
+<span class="lineNum">       5 </span>            : *
+<span class="lineNum">       6 </span>            : * Permission to use, copy, modify, and distribute this software for any
+<span class="lineNum">       7 </span>            : * purpose with or without fee is hereby granted, provided that the above
+<span class="lineNum">       8 </span>            : * copyright notice and this permission notice appear in all copies.
+<span class="lineNum">       9 </span>            : *
+<span class="lineNum">      10 </span>            : * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND
+<span class="lineNum">      11 </span>            : * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+<span class="lineNum">      12 </span>            : * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+<span class="lineNum">      13 </span>            : * DISCLAIMED. IN NO EVENT SHALL Private Octopus, Inc. BE LIABLE FOR ANY
+<span class="lineNum">      14 </span>            : * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+<span class="lineNum">      15 </span>            : * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+<span class="lineNum">      16 </span>            : * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+<span class="lineNum">      17 </span>            : * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+<span class="lineNum">      18 </span>            : * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+<span class="lineNum">      19 </span>            : * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+<span class="lineNum">      20 </span>            : */
+<span class="lineNum">      21 </span>            : 
+<span class="lineNum">      22 </span>            : #include &lt;stdint.h&gt;
+<span class="lineNum">      23 </span>            : #include &lt;string.h&gt;
+<span class="lineNum">      24 </span>            : #ifdef _WINDOWS
+<span class="lineNum">      25 </span>            : #include &lt;direct.h&gt;
+<span class="lineNum">      26 </span>            : #else
+<span class="lineNum">      27 </span>            : #include &lt;sys/stat.h&gt;
+<span class="lineNum">      28 </span>            : #include &lt;sys/types.h&gt;
+<span class="lineNum">      29 </span>            : #endif
+<span class="lineNum">      30 </span>            : #include &lt;errno.h&gt;
+<span class="lineNum">      31 </span>            : #include &quot;ithimetrics.h&quot;
+<span class="lineNum">      32 </span>            : #include &quot;OdiPublisher.h&quot;
+<span class="lineNum">      33 </span>            : #include &quot;MetricTest.h&quot;
+<span class="lineNum">      34 </span>            : #include &quot;OdiPublishTest.h&quot;
+<span class="lineNum">      35 </span>            : 
+<a name="36"><span class="lineNum">      36 </span>            : </a>
+<span class="lineNum">      37 </span>            : 
+<span class="lineNum">      38 </span><span class="lineCov">          2 : OdiPublishTest::OdiPublishTest()</span>
+<span class="lineNum">      39 </span>            : {
+<span class="lineNum">      40 </span><span class="lineCov">          2 : }</span>
+<a name="41"><span class="lineNum">      41 </span>            : </a>
+<span class="lineNum">      42 </span>            : 
+<span class="lineNum">      43 </span><span class="lineCov">          4 : OdiPublishTest::~OdiPublishTest()</span>
+<span class="lineNum">      44 </span>            : {
+<span class="lineNum">      45 </span><span class="lineCov">          4 : }</span>
+<span class="lineNum">      46 </span>            : 
+<span class="lineNum">      47 </span>            : typedef struct st_odi_update_time_test_t {
+<span class="lineNum">      48 </span>            :     time_t unix_time;
+<span class="lineNum">      49 </span>            :     char const * iso_time_string;
+<span class="lineNum">      50 </span>            : } odi_update_time_test_t;
+<span class="lineNum">      51 </span>            : 
+<span class="lineNum">      52 </span>            : static time_t test_publish_time = 0x5b73baf4;
+<span class="lineNum">      53 </span>            : 
+<span class="lineNum">      54 </span>            : static const odi_update_time_test_t update_time_test[] = {
+<span class="lineNum">      55 </span>            :     { 0, &quot;1970-01-01T00:00:00UTC&quot; },
+<span class="lineNum">      56 </span>            :     { static_cast&lt;time_t&gt;(0x5b73baf4), &quot;2018-08-15T05:32:36UTC&quot;},
+<span class="lineNum">      57 </span>            :     { static_cast&lt;time_t&gt;(0xdeadbeef), &quot;2088-05-20T21:55:59UTC&quot;}
+<span class="lineNum">      58 </span>            : };
+<span class="lineNum">      59 </span>            : 
+<span class="lineNum">      60 </span>            : static const size_t nb_testupdate_time_test = sizeof(update_time_test) / sizeof(odi_update_time_test_t);
+<span class="lineNum">      61 </span>            : 
+<span class="lineNum">      62 </span>            : typedef struct st_odi_publish_test_t {
+<span class="lineNum">      63 </span>            :     char const * metric_file_in;
+<span class="lineNum">      64 </span>            :     char const * json_file_ref;
+<span class="lineNum">      65 </span>            :     char const * odi_folder;
+<span class="lineNum">      66 </span>            :     char const * odi_metric_file;
+<span class="lineNum">      67 </span>            :     char const * odi_json_file;
+<span class="lineNum">      68 </span>            : } odi_publish_test_t;
+<span class="lineNum">      69 </span>            : 
+<span class="lineNum">      70 </span>            : static const odi_publish_test_t odi_publish_test[] = {
+<span class="lineNum">      71 </span>            :     { &quot;M1-2017-01-31.csv&quot;, &quot;Ref-Odi-M1.json&quot;, &quot;ITHI-M1&quot;, &quot;20170131-2359.csv&quot;, &quot;20170131-2359.csv-metadata.json&quot; },
+<span class="lineNum">      72 </span>            :     { &quot;M2-2017-02-28.csv&quot;, &quot;Ref-Odi-M2.json&quot;, &quot;ITHI-M2&quot;, &quot;20170228-2359.csv&quot;, &quot;20170228-2359.csv-metadata.json&quot; },
+<span class="lineNum">      73 </span>            :     { &quot;M3-2017-01-31.csv&quot;, &quot;Ref-Odi-M3.json&quot;, &quot;ITHI-M3&quot;, &quot;20170131-2359.csv&quot;, &quot;20170131-2359.csv-metadata.json&quot; },
+<span class="lineNum">      74 </span>            :     { &quot;M4-2017-02-28.csv&quot;, &quot;Ref-Odi-M4.json&quot;, &quot;ITHI-M4&quot;, &quot;20170228-2359.csv&quot;, &quot;20170228-2359.csv-metadata.json&quot; },
+<span class="lineNum">      75 </span>            :     { &quot;M5-2017-01-31.csv&quot;, &quot;Ref-Odi-M5.json&quot;, &quot;ITHI-M5&quot;, &quot;20170131-2359.csv&quot;, &quot;20170131-2359.csv-metadata.json&quot; },
+<span class="lineNum">      76 </span>            :     { &quot;M6-2017-02-28.csv&quot;, &quot;Ref-Odi-M6.json&quot;, &quot;ITHI-M6&quot;, &quot;20170228-2359.csv&quot;, &quot;20170228-2359.csv-metadata.json&quot; },
+<span class="lineNum">      77 </span>            :     { &quot;M7-2017-01-31.csv&quot;, &quot;Ref-Odi-M7.json&quot;, &quot;ITHI-M7&quot;, &quot;20170131-2359.csv&quot;, &quot;20170131-2359.csv-metadata.json&quot; },
+<span class="lineNum">      78 </span>            :     { &quot;M8-2017-02-28.csv&quot;, &quot;Ref-Odi-M8.json&quot;, &quot;ITHI-M8&quot;, &quot;20170228-2359.csv&quot;, &quot;20170228-2359.csv-metadata.json&quot; }
+<span class="lineNum">      79 </span>            : };
+<span class="lineNum">      80 </span>            : 
+<a name="81"><span class="lineNum">      81 </span>            : static const size_t nb_odi_publish_test = sizeof(odi_publish_test) / sizeof(odi_publish_test_t);</a>
+<span class="lineNum">      82 </span>            : 
+<span class="lineNum">      83 </span><span class="lineCov">          2 : bool OdiPublishTest::UpdateTimeTest()</span>
+<span class="lineNum">      84 </span>            : {
+<span class="lineNum">      85 </span>            :     char buffer[256];
+<span class="lineNum">      86 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">      87 </span>            : 
+<span class="lineNum">      88 </span>            : 
+<span class="lineNum">      89 </span><span class="lineCov">          2 :     TEST_LOG(&quot;Current time: %x\n&quot;, time(0));</span>
+<span class="lineNum">      90 </span>            : 
+<span class="lineNum">      91 </span><span class="lineCov">          8 :     for (size_t i = 0; i &lt; nb_testupdate_time_test; i++) {</span>
+<span class="lineNum">      92 </span><span class="lineCov">          6 :         bool x = OdiPublisher::GetUpdateTime(buffer, sizeof(buffer), update_time_test[i].unix_time);</span>
+<span class="lineNum">      93 </span>            : 
+<span class="lineNum">      94 </span><span class="lineCov">          6 :         if (!x) {</span>
+<span class="lineNum">      95 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Cannot GetUpdateTime([%d]:%x)\n&quot;, i, (int)update_time_test[i].unix_time);</span>
+<span class="lineNum">      96 </span><span class="lineNoCov">          0 :             ret = x;</span>
+<span class="lineNum">      97 </span>            :         } else {
+<span class="lineNum">      98 </span><span class="lineCov">          6 :             if (strcmp(buffer, update_time_test[i].iso_time_string) != 0) {</span>
+<span class="lineNum">      99 </span><span class="lineNoCov">          0 :                 TEST_LOG(&quot;GetUpdateTime([%d]:%x) returns %s instead of %s\n&quot;, i,</span>
+<span class="lineNum">     100 </span><span class="lineNoCov">          0 :                     (int)update_time_test[0].unix_time, buffer, update_time_test[i].iso_time_string);</span>
+<span class="lineNum">     101 </span><span class="lineNoCov">          0 :                 ret = false;</span>
+<span class="lineNum">     102 </span>            :             }
+<span class="lineNum">     103 </span>            :         }
+<span class="lineNum">     104 </span>            :     }
+<span class="lineNum">     105 </span>            : 
+<span class="lineNum">     106 </span><span class="lineCov">          2 :     return ret;</span>
+<a name="107"><span class="lineNum">     107 </span>            : }</a>
+<span class="lineNum">     108 </span>            : 
+<span class="lineNum">     109 </span><span class="lineCov">         16 : bool OdiPublishTest::UpdatePublishTestOne(int test_id)</span>
+<span class="lineNum">     110 </span>            : {
+<span class="lineNum">     111 </span><span class="lineCov">         16 :     bool ret = true;</span>
+<span class="lineNum">     112 </span>            :     char input_file_name[512];
+<span class="lineNum">     113 </span>            :     char target_file_name[512];
+<span class="lineNum">     114 </span>            :     char ref_file_name[512];
+<span class="lineNum">     115 </span>            : 
+<span class="lineNum">     116 </span>            :     /* Compose the folder name, and ensure that it exists */
+<span class="lineNum">     117 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     118 </span><span class="lineCov">         16 :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s&quot;,</span>
+<span class="lineNum">     119 </span><span class="lineCov">         32 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder);</span>
+<span class="lineNum">     120 </span>            :     }
+<span class="lineNum">     121 </span>            : 
+<span class="lineNum">     122 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     123 </span>            : #ifdef _WINDOWS
+<span class="lineNum">     124 </span>            :         if (_mkdir(target_file_name) != 0) {
+<span class="lineNum">     125 </span>            :             int err = errno;
+<span class="lineNum">     126 </span>            :             ret = (err == EEXIST);
+<span class="lineNum">     127 </span>            :         }
+<span class="lineNum">     128 </span>            : #else
+<span class="lineNum">     129 </span><span class="lineCov">         16 :         if (mkdir(target_file_name, 0777) != 0) {</span>
+<span class="lineNum">     130 </span><span class="lineCov">          8 :             ret = errno == EEXIST;</span>
+<span class="lineNum">     131 </span>            :         }
+<span class="lineNum">     132 </span>            : #endif
+<span class="lineNum">     133 </span>            :     }
+<span class="lineNum">     134 </span>            : 
+<span class="lineNum">     135 </span>            :     /* Compose the input file name */
+<span class="lineNum">     136 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     137 </span><span class="lineCov">         16 :         ret = snprintf(input_file_name, sizeof(input_file_name), &quot;%s%s%s&quot;,</span>
+<span class="lineNum">     138 </span><span class="lineCov">         32 :             ITHI_DEFAULT_DATA_FOLDER, ITHI_FILE_PATH_SEP, odi_publish_test[test_id].metric_file_in);</span>
+<span class="lineNum">     139 </span>            :     }
+<span class="lineNum">     140 </span>            :     /* Publish at test time */
+<span class="lineNum">     141 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     142 </span><span class="lineCov">         16 :         ret = OdiPublisher::PublishMetricFile(input_file_name, &quot;.&quot;, ITHI_DEFAULT_DATA_FOLDER, test_publish_time);</span>
+<span class="lineNum">     143 </span><span class="lineCov">         16 :         if (!ret) {</span>
+<span class="lineNum">     144 </span><span class="lineNoCov">          0 :             TEST_LOG(&quot;Cannot publish ODI files for input: %s\n&quot;, input_file_name);</span>
+<span class="lineNum">     145 </span>            :         }
+<span class="lineNum">     146 </span>            :     }
+<span class="lineNum">     147 </span>            :     /* Compose the metric file name */
+<span class="lineNum">     148 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     149 </span><span class="lineCov">         16 :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s%s%s&quot;,</span>
+<span class="lineNum">     150 </span><span class="lineCov">         16 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder,</span>
+<span class="lineNum">     151 </span><span class="lineCov">         32 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_metric_file);</span>
+<span class="lineNum">     152 </span>            :     }
+<span class="lineNum">     153 </span>            :     /* Verify that the metric file is present and matches the input */
+<span class="lineNum">     154 </span><span class="lineCov">         16 :     if (ret)</span>
+<span class="lineNum">     155 </span>            :     {
+<span class="lineNum">     156 </span><span class="lineCov">         16 :         ret = MetricTest::compare_files(input_file_name, target_file_name);</span>
+<span class="lineNum">     157 </span>            :     }
+<span class="lineNum">     158 </span>            :     /* Compose the JSON file name */
+<span class="lineNum">     159 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     160 </span><span class="lineCov">         16 :         ret = snprintf(target_file_name, sizeof(target_file_name), &quot;.%s%s%s%s&quot;,</span>
+<span class="lineNum">     161 </span><span class="lineCov">         16 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_folder,</span>
+<span class="lineNum">     162 </span><span class="lineCov">         32 :             ITHI_FILE_PATH_SEP, odi_publish_test[test_id].odi_json_file);</span>
+<span class="lineNum">     163 </span>            :     }
+<span class="lineNum">     164 </span>            :     /* Compose the JSON ref name */
+<span class="lineNum">     165 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     166 </span><span class="lineCov">         16 :         ret = snprintf(ref_file_name, sizeof(ref_file_name), &quot;%s%s%s&quot;,</span>
+<span class="lineNum">     167 </span><span class="lineCov">         32 :             ITHI_DEFAULT_DATA_FOLDER, ITHI_FILE_PATH_SEP, odi_publish_test[test_id].json_file_ref);</span>
+<span class="lineNum">     168 </span>            :     }
+<span class="lineNum">     169 </span>            :     /* Verify that the JSON file is present and matches the input */
+<span class="lineNum">     170 </span><span class="lineCov">         16 :     if (ret)</span>
+<span class="lineNum">     171 </span>            :     {
+<span class="lineNum">     172 </span><span class="lineCov">         16 :         ret = MetricTest::compare_files(ref_file_name, target_file_name);</span>
+<span class="lineNum">     173 </span>            :     }
+<span class="lineNum">     174 </span>            : 
+<span class="lineNum">     175 </span><span class="lineCov">         16 :     return ret;</span>
+<a name="176"><span class="lineNum">     176 </span>            : }</a>
+<span class="lineNum">     177 </span>            : 
+<span class="lineNum">     178 </span><span class="lineCov">          2 : bool OdiPublishTest::DoTest()</span>
+<span class="lineNum">     179 </span>            : {
+<span class="lineNum">     180 </span><span class="lineCov">          2 :     bool ret = true;</span>
+<span class="lineNum">     181 </span>            : 
+<span class="lineNum">     182 </span>            :     /* First, test the update time computation */
+<span class="lineNum">     183 </span><span class="lineCov">          2 :     ret = UpdateTimeTest();</span>
+<span class="lineNum">     184 </span>            : 
+<span class="lineNum">     185 </span>            :     /* Then check the different files */
+<span class="lineNum">     186 </span><span class="lineCov">         18 :     for (size_t test_id = 0; test_id &lt; nb_odi_publish_test; test_id++) {</span>
+<span class="lineNum">     187 </span><span class="lineCov">         16 :         ret &amp;= UpdatePublishTestOne((int)test_id);</span>
+<span class="lineNum">     188 </span>            :     }
+<span class="lineNum">     189 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     190 </span>            : }
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.12</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
