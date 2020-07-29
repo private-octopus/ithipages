@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['l',['l',['../classcbor__bytes.html#afb318fe937ee6120f4b8f8ccca812484',1,'cbor_bytes']]],
   ['last_5fday',['last_day',['../classithipublisher.html#ab056355f631c4dae2693bf723b2410d0',1,'ithipublisher']]],
   ['last_5fmonth',['last_month',['../classithipublisher.html#a41153565c65b087814b358e4e9e33135',1,'ithipublisher']]],
   ['last_5fyear',['last_year',['../classithipublisher.html#a78288f0d97b01d03fa5c32ba4a16ddbc',1,'ithipublisher']]],

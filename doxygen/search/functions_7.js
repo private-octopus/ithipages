@@ -2,8 +2,6 @@ var searchData=
 [
   ['get_5fdate',['get_date',['../namespaceadd-date-version-to-metric.html#a6ce89fbbcd915b86418e1180d1c780d2',1,'add-date-version-to-metric']]],
   ['get_5fdate_5ffrom_5ffile_5fname',['get_date_from_file_name',['../namespacemetric_format.html#a788e22cc82e3eba76da0bd5b89d09991',1,'metricFormat']]],
-  ['get_5fdns_5fflags',['get_dns_flags',['../classcdns.html#ad6c86e98df72e673bddd9dfe42224da0',1,'cdns']]],
-  ['get_5fedns_5fflags',['get_edns_flags',['../classcdns.html#a26b413cb16c6b58dc08e3ac9b7b285ff',1,'cdns']]],
   ['get_5ffile_5fname',['get_file_name',['../class_m2_data.html#a3e850bb7d462cdfa3e226957c2d3602d',1,'M2Data']]],
   ['get_5ffile_5fsuffix',['get_file_suffix',['../class_m2_data.html#a8410395943256a295c31410766f8b8bb',1,'M2Data']]],
   ['get_5flog_5ffile',['GET_LOG_FILE',['../ithi__test__class_8h.html#a93b0d68cd97fe7db47257b93248dfa58',1,'GET_LOG_FILE():&#160;ithi_test_class.cpp'],['../ithi__test__class_8cpp.html#a93b0d68cd97fe7db47257b93248dfa58',1,'GET_LOG_FILE():&#160;ithi_test_class.cpp']]],

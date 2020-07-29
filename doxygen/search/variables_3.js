@@ -11,7 +11,6 @@ var searchData=
   ['day',['day',['../class_m2_data.html#ac99d9ca8a2a61af3db810baeaa3704e4',1,'M2Data::day()'],['../struct___metric_file_holder.html#afca681407a2f9677275c7c1033318125',1,'_MetricFileHolder::day()'],['../structst__m2__data__test__case__t.html#a21e5754b74cc2b02bbc0c2f441ea5907',1,'st_m2_data_test_case_t::day()']]],
   ['default_5fcsv_5ffile',['default_csv_file',['../_dnscap_plug_in_8cpp.html#a6a0a941cfd3bcf3d09444f907f9fa7b2',1,'DnscapPlugIn.cpp']]],
   ['defaultrootaddresses',['DefaultRootAddresses',['../_dns_stats_8cpp.html#a678ba18a51a8ef131fb67211d37999d2',1,'DnsStats.cpp']]],
-  ['delay_5fuseconds',['delay_useconds',['../classcdns__query.html#a3cdba129d8b8d010fedbf11f6365821b',1,'cdns_query']]],
   ['dga_5ftest_5fstrings',['dga_test_strings',['../_pattern_test_8cpp.html#a50d847a3dc905868e76e86923434da8d',1,'PatternTest.cpp']]],
   ['dns',['dns',['../structst__get_name_test_line.html#a22e9711e86e8903d379cf3f75eb46e40',1,'st_getNameTestLine']]],
   ['dns_5flength',['dns_length',['../structst__get_name_test_line.html#a2c54ab06ebb58e23b53d67023a3a767c',1,'st_getNameTestLine']]],

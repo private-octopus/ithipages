@@ -16,6 +16,5 @@ var searchData=
   ['have_5fgetopt',['HAVE_GETOPT',['../config_8h.html#aa3fb147cded6017f7a95a8a090e2eeab',1,'config.h']]],
   ['have_5fgetopt_5fmake_5fiso_5fcompilers_5fhappy',['have_getopt_make_iso_compilers_happy',['../getopt_8c.html#a8c0f8e3c741092fd93862685ac77a0eb',1,'getopt.c']]],
   ['header',['header',['../classpcap__reader.html#a74097aef0776f61dc614f90a07c746df',1,'pcap_reader']]],
-  ['hex_5fto_5fchar',['hex_to_char',['../cbor_8cpp.html#adde77bc55ac44ff2c3ceb8d1403454e1',1,'cbor.cpp']]],
   ['hexa_5ftest_5fstrings',['hexa_test_strings',['../_pattern_test_8cpp.html#a16fdacce1b8358dac334b89a18ad4e55',1,'PatternTest.cpp']]]
 ];

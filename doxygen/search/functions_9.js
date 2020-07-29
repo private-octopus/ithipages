@@ -4,8 +4,6 @@ var searchData=
   ['insertoradd',['InsertOrAdd',['../class_bin_hash.html#a301497f461c5ab764cb77292a670df66',1,'BinHash::InsertOrAdd()'],['../class_lru_hash.html#a12b37fe073405154b03c1c7fd7810e8c',1,'LruHash::InsertOrAdd()']]],
   ['ipaskey',['IPAsKey',['../class_i_p_as_key.html#aef6f71243a46f8c2ef3141e0f4ee8b17',1,'IPAsKey']]],
   ['ipaskeylru',['IPAsKeyLRU',['../class_i_p_as_key_l_r_u.html#a4ecc61b724fb1a8b7fcd6336564d2c2f',1,'IPAsKeyLRU']]],
-  ['is_5ffirst_5fblock',['is_first_block',['../classcdns.html#a040581d8281e13fa614ff2c24c0e273e',1,'cdns']]],
-  ['is_5flast_5fblock',['is_last_block',['../classcdns.html#ad1901b10f501d54ffc3da136e1b58624',1,'cdns']]],
   ['iscapturestopped',['IsCaptureStopped',['../class_dns_stats.html#af317407c0fcd4622a9b586454a36eb79',1,'DnsStats']]],
   ['isdoused',['IsDoUsed',['../class_stats_by_i_p.html#a9dead5be16869ee4589e4a00e556361d',1,'StatsByIP']]],
   ['isednssupported',['IsEdnsSupported',['../class_stats_by_i_p.html#a18ed0ae59d882ca2c2de480eeacb69b8',1,'StatsByIP']]],

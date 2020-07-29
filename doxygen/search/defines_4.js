@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getopt_5fh',['GETOPT_H',['../ithi__getopt_8h.html#a743f7f3565ccf0be8077552153c1f153',1,'ithi_getopt.h']]]
+  ['have_5fgetopt',['HAVE_GETOPT',['../config_8h.html#aa3fb147cded6017f7a95a8a090e2eeab',1,'config.h']]]
 ];

@@ -5,7 +5,6 @@ var searchData=
   ['read_5fdouble',['read_double',['../class_csv_helper.html#ab14b1c15f6cc11a63f79652d2c8adda3',1,'CsvHelper']]],
   ['read_5fnumber',['read_number',['../class_csv_helper.html#a33d36477e8a5f0825cc27c7f4ba27347',1,'CsvHelper']]],
   ['read_5fnumber64',['read_number64',['../class_csv_helper.html#a8c859bdfba3ac1fc1c2e0872b3e27196',1,'CsvHelper']]],
-  ['read_5fpreamble',['read_preamble',['../classcdns.html#a0f2d271260fe6a10bdc7f720f4237b79',1,'cdns']]],
   ['read_5fstring',['read_string',['../class_csv_helper.html#a5dabcd89802bc12063ccc28be4ddc70b',1,'CsvHelper']]],
   ['readdir',['readdir',['../dirent_8h.html#aff48ec2514bda89769c968c66db181f3',1,'dirent.h']]],
   ['readdir_5fr',['readdir_r',['../dirent_8h.html#aba172ac13df3f453b85c5d68c5003213',1,'dirent.h']]],
