@@ -31,18 +31,18 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">3</td>
             <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">42.9 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-08-21 02:21:26</td>
+            <td class="headerValue">2020-08-21 02:34:29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">2</td>
             <td class="headerCovTableEntry">6</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">33.3 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -303,7 +303,7 @@
 <span class="lineNum">     241 </span>            : };
 <a name="242"><span class="lineNum">     242 </span>            : </a>
 <span class="lineNum">     243 </span>            : /* The RR list table */
-<span class="lineNum">     244 </span><span class="lineNoCov">          0 : class cdns_rr_list{</span>
+<span class="lineNum">     244 </span><span class="lineCov">      16380 : class cdns_rr_list{</span>
 <span class="lineNum">     245 </span>            : public:
 <span class="lineNum">     246 </span>            :     cdns_rr_list();
 <span class="lineNum">     247 </span>            :     ~cdns_rr_list();
@@ -538,8 +538,8 @@
 <span class="lineNum">     476 </span>            :         return nb_blocks_read == nb_blocks_present;
 <a name="477"><span class="lineNum">     477 </span>            :     }</a>
 <span class="lineNum">     478 </span>            : 
-<span class="lineNum">     479 </span><span class="lineNoCov">          0 :     bool is_old_version() {</span>
-<span class="lineNum">     480 </span><span class="lineNoCov">          0 :         return (preamble_parsed &amp;&amp; preamble.cdns_version_major == 0);</span>
+<span class="lineNum">     479 </span><span class="lineCov">     294008 :     bool is_old_version() {</span>
+<span class="lineNum">     480 </span><span class="lineCov">     294008 :         return (preamble_parsed &amp;&amp; preamble.cdns_version_major == 0);</span>
 <span class="lineNum">     481 </span>            :     }
 <span class="lineNum">     482 </span>            : 
 <span class="lineNum">     483 </span>            :     int64_t get_ticks_per_second(int64_t block_id);

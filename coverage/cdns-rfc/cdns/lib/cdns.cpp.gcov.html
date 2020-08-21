@@ -31,18 +31,18 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">471</td>
             <td class="headerCovTableEntry">1739</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">27.1 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-08-21 02:21:26</td>
+            <td class="headerValue">2020-08-21 02:34:29</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">0</td>
+            <td class="headerCovTableEntry">71</td>
             <td class="headerCovTableEntry">125</td>
-            <td class="headerCovTableEntryLo">0.0 %</td>
+            <td class="headerCovTableEntryLo">56.8 %</td>
           </tr>
           <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -88,7 +88,7 @@
 <span class="lineNum">      26 </span>            : #include &quot;cbor.h&quot;
 <a name="27"><span class="lineNum">      27 </span>            : #include &quot;cdns.h&quot;</a>
 <span class="lineNum">      28 </span>            : 
-<span class="lineNum">      29 </span><span class="lineNoCov">          0 : cdns::cdns():</span>
+<span class="lineNum">      29 </span><span class="lineCov">          4 : cdns::cdns():</span>
 <span class="lineNum">      30 </span>            :     first_block_start_us(0),
 <span class="lineNum">      31 </span>            :     index_offset(0),
 <span class="lineNum">      32 </span>            :     F(NULL),
@@ -101,22 +101,22 @@
 <span class="lineNum">      39 </span>            :     file_head_undef(false),
 <span class="lineNum">      40 </span>            :     block_list_undef(false),
 <span class="lineNum">      41 </span>            :     nb_blocks_present(0),
-<span class="lineNum">      42 </span><span class="lineNoCov">          0 :     nb_blocks_read(0)</span>
+<span class="lineNum">      42 </span><span class="lineCov">          4 :     nb_blocks_read(0)</span>
 <span class="lineNum">      43 </span>            : {
-<a name="44"><span class="lineNum">      44 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">      45 </span>            : 
-<span class="lineNum">      46 </span><span class="lineNoCov">          0 : cdns::~cdns()</span>
+<span class="lineNum">      46 </span><span class="lineCov">          8 : cdns::~cdns()</span>
 <span class="lineNum">      47 </span>            : {
-<span class="lineNum">      48 </span><span class="lineNoCov">          0 :     if (F != NULL) {</span>
-<span class="lineNum">      49 </span><span class="lineNoCov">          0 :         fclose(F);</span>
+<span class="lineNum">      48 </span><span class="lineCov">          4 :     if (F != NULL) {</span>
+<span class="lineNum">      49 </span><span class="lineCov">          4 :         fclose(F);</span>
 <span class="lineNum">      50 </span>            :     }
 <span class="lineNum">      51 </span>            :     
-<span class="lineNum">      52 </span><span class="lineNoCov">          0 :     if (buf != NULL) {</span>
-<span class="lineNum">      53 </span><span class="lineNoCov">          0 :         delete[] buf;</span>
+<span class="lineNum">      52 </span><span class="lineCov">          4 :     if (buf != NULL) {</span>
+<span class="lineNum">      53 </span><span class="lineCov">          4 :         delete[] buf;</span>
 <span class="lineNum">      54 </span>            :     }
-<a name="55"><span class="lineNum">      55 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span><span class="lineNoCov">          0 : FILE * cnds_file_open(char const* file_name, char const* flags)</span>
+<span class="lineNum">      57 </span><span class="lineCov">          4 : FILE * cnds_file_open(char const* file_name, char const* flags)</span>
 <span class="lineNum">      58 </span>            : {
 <span class="lineNum">      59 </span>            :     FILE* F;
 <span class="lineNum">      60 </span>            : 
@@ -129,25 +129,25 @@
 <span class="lineNum">      67 </span>            :         }
 <span class="lineNum">      68 </span>            :     }
 <span class="lineNum">      69 </span>            : #else
-<span class="lineNum">      70 </span><span class="lineNoCov">          0 :     F = fopen(file_name, flags);</span>
+<span class="lineNum">      70 </span><span class="lineCov">          4 :     F = fopen(file_name, flags);</span>
 <span class="lineNum">      71 </span>            : #endif
 <span class="lineNum">      72 </span>            : 
-<span class="lineNum">      73 </span><span class="lineNoCov">          0 :     return F;</span>
+<span class="lineNum">      73 </span><span class="lineCov">          4 :     return F;</span>
 <a name="74"><span class="lineNum">      74 </span>            : }</a>
 <span class="lineNum">      75 </span>            : 
-<span class="lineNum">      76 </span><span class="lineNoCov">          0 : bool cdns::open(char const* file_name)</span>
+<span class="lineNum">      76 </span><span class="lineCov">          4 : bool cdns::open(char const* file_name)</span>
 <span class="lineNum">      77 </span>            : {
-<span class="lineNum">      78 </span><span class="lineNoCov">          0 :     bool ret = false;</span>
+<span class="lineNum">      78 </span><span class="lineCov">          4 :     bool ret = false;</span>
 <span class="lineNum">      79 </span>            : 
-<span class="lineNum">      80 </span><span class="lineNoCov">          0 :     if (F == NULL &amp;&amp; buf == NULL) {</span>
+<span class="lineNum">      80 </span><span class="lineCov">          4 :     if (F == NULL &amp;&amp; buf == NULL) {</span>
 <span class="lineNum">      81 </span>            : 
-<span class="lineNum">      82 </span><span class="lineNoCov">          0 :         F = cnds_file_open(file_name, &quot;rb&quot;);</span>
-<span class="lineNum">      83 </span><span class="lineNoCov">          0 :         if (F != NULL) {</span>
-<span class="lineNum">      84 </span><span class="lineNoCov">          0 :             ret = load_entire_file();</span>
+<span class="lineNum">      82 </span><span class="lineCov">          4 :         F = cnds_file_open(file_name, &quot;rb&quot;);</span>
+<span class="lineNum">      83 </span><span class="lineCov">          4 :         if (F != NULL) {</span>
+<span class="lineNum">      84 </span><span class="lineCov">          4 :             ret = load_entire_file();</span>
 <span class="lineNum">      85 </span>            :         }
 <span class="lineNum">      86 </span>            :     }
 <span class="lineNum">      87 </span>            : 
-<span class="lineNum">      88 </span><span class="lineNoCov">          0 :     return ret;</span>
+<span class="lineNum">      88 </span><span class="lineCov">          4 :     return ret;</span>
 <a name="89"><span class="lineNum">      89 </span>            : }</a>
 <span class="lineNum">      90 </span>            : 
 <span class="lineNum">      91 </span><span class="lineNoCov">          0 : bool cdns::dump(char const* file_out)</span>
@@ -234,47 +234,47 @@
 <span class="lineNum">     172 </span><span class="lineNoCov">          0 :     return ret;</span>
 <a name="173"><span class="lineNum">     173 </span>            : }</a>
 <span class="lineNum">     174 </span>            : 
-<span class="lineNum">     175 </span><span class="lineNoCov">          0 : bool cdns::open_block(int* err)</span>
+<span class="lineNum">     175 </span><span class="lineCov">          8 : bool cdns::open_block(int* err)</span>
 <span class="lineNum">     176 </span>            : {
-<span class="lineNum">     177 </span><span class="lineNoCov">          0 :     bool ret = true;</span>
+<span class="lineNum">     177 </span><span class="lineCov">          8 :     bool ret = true;</span>
 <span class="lineNum">     178 </span>            : 
-<span class="lineNum">     179 </span><span class="lineNoCov">          0 :     *err = 0;</span>
-<span class="lineNum">     180 </span><span class="lineNoCov">          0 :     if (!preamble_parsed) {</span>
-<span class="lineNum">     181 </span><span class="lineNoCov">          0 :         ret = read_preamble(err);</span>
-<span class="lineNum">     182 </span><span class="lineNoCov">          0 :         if (is_old_version()) {</span>
-<span class="lineNum">     183 </span><span class="lineNoCov">          0 :             index_offset = 1;</span>
+<span class="lineNum">     179 </span><span class="lineCov">          8 :     *err = 0;</span>
+<span class="lineNum">     180 </span><span class="lineCov">          8 :     if (!preamble_parsed) {</span>
+<span class="lineNum">     181 </span><span class="lineCov">          4 :         ret = read_preamble(err);</span>
+<span class="lineNum">     182 </span><span class="lineCov">          4 :         if (is_old_version()) {</span>
+<span class="lineNum">     183 </span><span class="lineCov">          4 :             index_offset = 1;</span>
 <span class="lineNum">     184 </span>            :         }
 <span class="lineNum">     185 </span>            :     }
 <span class="lineNum">     186 </span>            : 
-<span class="lineNum">     187 </span><span class="lineNoCov">          0 :     if (ret &amp;&amp; nb_blocks_read &gt;= nb_blocks_present) {</span>
+<span class="lineNum">     187 </span><span class="lineCov">          8 :     if (ret &amp;&amp; nb_blocks_read &gt;= nb_blocks_present) {</span>
 <span class="lineNum">     188 </span><span class="lineNoCov">          0 :         *err = CBOR_END_OF_ARRAY;</span>
 <span class="lineNum">     189 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     190 </span>            :     }
 <span class="lineNum">     191 </span>            : 
-<span class="lineNum">     192 </span><span class="lineNoCov">          0 :     if (ret){</span>
-<span class="lineNum">     193 </span><span class="lineNoCov">          0 :         uint8_t* in = buf + buf_parsed;</span>
-<span class="lineNum">     194 </span><span class="lineNoCov">          0 :         uint8_t* in_max = buf + buf_read;</span>
+<span class="lineNum">     192 </span><span class="lineCov">          8 :     if (ret){</span>
+<span class="lineNum">     193 </span><span class="lineCov">          8 :         uint8_t* in = buf + buf_parsed;</span>
+<span class="lineNum">     194 </span><span class="lineCov">          8 :         uint8_t* in_max = buf + buf_read;</span>
 <span class="lineNum">     195 </span>            : 
-<span class="lineNum">     196 </span><span class="lineNoCov">          0 :         if (*in == CBOR_END_MARK) {</span>
-<span class="lineNum">     197 </span><span class="lineNoCov">          0 :             in++;</span>
-<span class="lineNum">     198 </span><span class="lineNoCov">          0 :             buf_parsed = in - buf;</span>
-<span class="lineNum">     199 </span><span class="lineNoCov">          0 :             if (block_list_undef) {</span>
-<span class="lineNum">     200 </span><span class="lineNoCov">          0 :                 nb_blocks_present = nb_blocks_read;</span>
-<span class="lineNum">     201 </span><span class="lineNoCov">          0 :                 *err = CBOR_END_OF_ARRAY;</span>
+<span class="lineNum">     196 </span><span class="lineCov">          8 :         if (*in == CBOR_END_MARK) {</span>
+<span class="lineNum">     197 </span><span class="lineCov">          4 :             in++;</span>
+<span class="lineNum">     198 </span><span class="lineCov">          4 :             buf_parsed = in - buf;</span>
+<span class="lineNum">     199 </span><span class="lineCov">          4 :             if (block_list_undef) {</span>
+<span class="lineNum">     200 </span><span class="lineCov">          4 :                 nb_blocks_present = nb_blocks_read;</span>
+<span class="lineNum">     201 </span><span class="lineCov">          4 :                 *err = CBOR_END_OF_ARRAY;</span>
 <span class="lineNum">     202 </span>            :             }
 <span class="lineNum">     203 </span>            :             else {
 <span class="lineNum">     204 </span><span class="lineNoCov">          0 :                 *err = CBOR_MALFORMED_VALUE;</span>
 <span class="lineNum">     205 </span>            :             }
-<span class="lineNum">     206 </span><span class="lineNoCov">          0 :             ret = false;</span>
+<span class="lineNum">     206 </span><span class="lineCov">          4 :             ret = false;</span>
 <span class="lineNum">     207 </span>            :         }
 <span class="lineNum">     208 </span>            :         else {
-<span class="lineNum">     209 </span><span class="lineNoCov">          0 :             uint8_t* old_in = in;</span>
+<span class="lineNum">     209 </span><span class="lineCov">          4 :             uint8_t* old_in = in;</span>
 <span class="lineNum">     210 </span>            : 
-<span class="lineNum">     211 </span><span class="lineNoCov">          0 :             in = block.parse(old_in, in_max, err, this);</span>
+<span class="lineNum">     211 </span><span class="lineCov">          4 :             in = block.parse(old_in, in_max, err, this);</span>
 <span class="lineNum">     212 </span>            : 
-<span class="lineNum">     213 </span><span class="lineNoCov">          0 :             if (in != NULL) {</span>
-<span class="lineNum">     214 </span><span class="lineNoCov">          0 :                 nb_blocks_read++;</span>
-<span class="lineNum">     215 </span><span class="lineNoCov">          0 :                 buf_parsed = in - buf;</span>
+<span class="lineNum">     213 </span><span class="lineCov">          4 :             if (in != NULL) {</span>
+<span class="lineNum">     214 </span><span class="lineCov">          4 :                 nb_blocks_read++;</span>
+<span class="lineNum">     215 </span><span class="lineCov">          4 :                 buf_parsed = in - buf;</span>
 <span class="lineNum">     216 </span>            :             }
 <span class="lineNum">     217 </span>            :             else {
 <span class="lineNum">     218 </span><span class="lineNoCov">          0 :                 fprintf(stderr, &quot;\nBlock parsing error %d after %d blocks at position %lld.\n&quot;, *err, (int)(nb_blocks_read+1),</span>
@@ -287,11 +287,11 @@
 <span class="lineNum">     225 </span>            :         }
 <span class="lineNum">     226 </span>            :     }
 <span class="lineNum">     227 </span>            : 
-<span class="lineNum">     228 </span><span class="lineNoCov">          0 :     if (ret &amp;&amp; first_block_start_us == 0) {</span>
-<span class="lineNum">     229 </span><span class="lineNoCov">          0 :         first_block_start_us = block.block_start_us;</span>
+<span class="lineNum">     228 </span><span class="lineCov">          8 :     if (ret &amp;&amp; first_block_start_us == 0) {</span>
+<span class="lineNum">     229 </span><span class="lineCov">          4 :         first_block_start_us = block.block_start_us;</span>
 <span class="lineNum">     230 </span>            :     }
 <span class="lineNum">     231 </span>            : 
-<span class="lineNum">     232 </span><span class="lineNoCov">          0 :     return ret;</span>
+<span class="lineNum">     232 </span><span class="lineCov">          8 :     return ret;</span>
 <a name="233"><span class="lineNum">     233 </span>            : }</a>
 <span class="lineNum">     234 </span>            : 
 <span class="lineNum">     235 </span><span class="lineNoCov">          0 : int64_t cdns::get_ticks_per_second(int64_t block_id)</span>
@@ -317,137 +317,137 @@
 <span class="lineNum">     255 </span><span class="lineNoCov">          0 :     return ticks;</span>
 <a name="256"><span class="lineNum">     256 </span>            : }</a>
 <span class="lineNum">     257 </span>            : 
-<span class="lineNum">     258 </span><span class="lineNoCov">          0 : int cdns::get_dns_flags(int q_dns_flags, bool is_response)</span>
+<span class="lineNum">     258 </span><span class="lineCov">      39104 : int cdns::get_dns_flags(int q_dns_flags, bool is_response)</span>
 <span class="lineNum">     259 </span>            : {
-<span class="lineNum">     260 </span><span class="lineNoCov">          0 :     int flags = 0;</span>
+<span class="lineNum">     260 </span><span class="lineCov">      39104 :     int flags = 0;</span>
 <span class="lineNum">     261 </span>            : 
-<span class="lineNum">     262 </span><span class="lineNoCov">          0 :     if (is_response) {</span>
-<span class="lineNum">     263 </span><span class="lineNoCov">          0 :         flags = (q_dns_flags &gt;&gt; 8) &amp; 0x7E;</span>
+<span class="lineNum">     262 </span><span class="lineCov">      39104 :     if (is_response) {</span>
+<span class="lineNum">     263 </span><span class="lineCov">      19440 :         flags = (q_dns_flags &gt;&gt; 8) &amp; 0x7E;</span>
 <span class="lineNum">     264 </span>            :     }
 <span class="lineNum">     265 </span>            :     else {
-<span class="lineNum">     266 </span><span class="lineNoCov">          0 :         flags = q_dns_flags &amp; 0x7C;</span>
+<span class="lineNum">     266 </span><span class="lineCov">      19664 :         flags = q_dns_flags &amp; 0x7C;</span>
 <span class="lineNum">     267 </span>            :     }
 <span class="lineNum">     268 </span>            : 
-<span class="lineNum">     269 </span><span class="lineNoCov">          0 :     return flags;</span>
+<span class="lineNum">     269 </span><span class="lineCov">      39104 :     return flags;</span>
 <a name="270"><span class="lineNum">     270 </span>            : }</a>
 <span class="lineNum">     271 </span>            : 
-<span class="lineNum">     272 </span><span class="lineNoCov">          0 : int cdns::get_edns_flags(int q_dns_flags)</span>
+<span class="lineNum">     272 </span><span class="lineCov">      34628 : int cdns::get_edns_flags(int q_dns_flags)</span>
 <span class="lineNum">     273 </span>            : {
-<span class="lineNum">     274 </span><span class="lineNoCov">          0 :     return (q_dns_flags &lt;&lt; 8) &amp; (1&lt;&lt;15);</span>
+<span class="lineNum">     274 </span><span class="lineCov">      34628 :     return (q_dns_flags &lt;&lt; 8) &amp; (1&lt;&lt;15);</span>
 <a name="275"><span class="lineNum">     275 </span>            : }</a>
 <span class="lineNum">     276 </span>            : 
-<span class="lineNum">     277 </span><span class="lineNoCov">          0 : bool cdns::load_entire_file()</span>
+<span class="lineNum">     277 </span><span class="lineCov">          4 : bool cdns::load_entire_file()</span>
 <span class="lineNum">     278 </span>            : {
-<span class="lineNum">     279 </span><span class="lineNoCov">          0 :     bool ret = true;</span>
-<span class="lineNum">     280 </span><span class="lineNoCov">          0 :     do {</span>
-<span class="lineNum">     281 </span><span class="lineNoCov">          0 :         if (buf == NULL) {</span>
+<span class="lineNum">     279 </span><span class="lineCov">          4 :     bool ret = true;</span>
+<span class="lineNum">     280 </span><span class="lineCov">         20 :     do {</span>
+<span class="lineNum">     281 </span><span class="lineCov">         24 :         if (buf == NULL) {</span>
 <span class="lineNum">     282 </span>            :             /* Initialize to a small size, so we make sure that the reallocation code is well tested */
-<span class="lineNum">     283 </span><span class="lineNoCov">          0 :             buf_size = 0x20000;</span>
-<span class="lineNum">     284 </span><span class="lineNoCov">          0 :             buf = new uint8_t[buf_size];</span>
-<span class="lineNum">     285 </span><span class="lineNoCov">          0 :             if (buf == NULL) {</span>
+<span class="lineNum">     283 </span><span class="lineCov">          4 :             buf_size = 0x20000;</span>
+<span class="lineNum">     284 </span><span class="lineCov">          4 :             buf = new uint8_t[buf_size];</span>
+<span class="lineNum">     285 </span><span class="lineCov">          4 :             if (buf == NULL) {</span>
 <span class="lineNum">     286 </span><span class="lineNoCov">          0 :                 ret = false;</span>
 <span class="lineNum">     287 </span><span class="lineNoCov">          0 :                 buf_size = 0;</span>
 <span class="lineNum">     288 </span>            :             }
-<span class="lineNum">     289 </span><span class="lineNoCov">          0 :         } else if (buf_read &gt; 0 &amp;&amp; buf_read == buf_size) {</span>
+<span class="lineNum">     289 </span><span class="lineCov">         20 :         } else if (buf_read &gt; 0 &amp;&amp; buf_read == buf_size) {</span>
 <span class="lineNum">     290 </span>            :             uint8_t* new_buf;
-<span class="lineNum">     291 </span><span class="lineNoCov">          0 :             size_t new_size = 4 * buf_size;</span>
-<span class="lineNum">     292 </span><span class="lineNoCov">          0 :             new_buf = new uint8_t[new_size];</span>
-<span class="lineNum">     293 </span><span class="lineNoCov">          0 :             if (new_buf == NULL) {</span>
+<span class="lineNum">     291 </span><span class="lineCov">          8 :             size_t new_size = 4 * buf_size;</span>
+<span class="lineNum">     292 </span><span class="lineCov">          8 :             new_buf = new uint8_t[new_size];</span>
+<span class="lineNum">     293 </span><span class="lineCov">          8 :             if (new_buf == NULL) {</span>
 <span class="lineNum">     294 </span><span class="lineNoCov">          0 :                 ret = false;</span>
 <span class="lineNum">     295 </span>            :             }
 <span class="lineNum">     296 </span>            :             else {
-<span class="lineNum">     297 </span><span class="lineNoCov">          0 :                 memcpy(new_buf, buf, buf_read);</span>
-<span class="lineNum">     298 </span><span class="lineNoCov">          0 :                 delete[] buf;</span>
-<span class="lineNum">     299 </span><span class="lineNoCov">          0 :                 buf = new_buf;</span>
-<span class="lineNum">     300 </span><span class="lineNoCov">          0 :                 buf_size = new_size;</span>
-<span class="lineNum">     301 </span><span class="lineNoCov">          0 :             }</span>
+<span class="lineNum">     297 </span><span class="lineCov">          8 :                 memcpy(new_buf, buf, buf_read);</span>
+<span class="lineNum">     298 </span><span class="lineCov">          8 :                 delete[] buf;</span>
+<span class="lineNum">     299 </span><span class="lineCov">          8 :                 buf = new_buf;</span>
+<span class="lineNum">     300 </span><span class="lineCov">          8 :                 buf_size = new_size;</span>
+<span class="lineNum">     301 </span><span class="lineCov">          8 :             }</span>
 <span class="lineNum">     302 </span>            :         }
 <span class="lineNum">     303 </span>            :         else {
-<span class="lineNum">     304 </span><span class="lineNoCov">          0 :             size_t asked = buf_size - buf_read;</span>
-<span class="lineNum">     305 </span><span class="lineNoCov">          0 :             size_t n_bytes = fread(buf + buf_read, 1, asked, F);</span>
-<span class="lineNum">     306 </span><span class="lineNoCov">          0 :             end_of_file = (n_bytes &lt; asked);</span>
-<span class="lineNum">     307 </span><span class="lineNoCov">          0 :             buf_read += n_bytes;</span>
+<span class="lineNum">     304 </span><span class="lineCov">         12 :             size_t asked = buf_size - buf_read;</span>
+<span class="lineNum">     305 </span><span class="lineCov">         12 :             size_t n_bytes = fread(buf + buf_read, 1, asked, F);</span>
+<span class="lineNum">     306 </span><span class="lineCov">         12 :             end_of_file = (n_bytes &lt; asked);</span>
+<span class="lineNum">     307 </span><span class="lineCov">         12 :             buf_read += n_bytes;</span>
 <span class="lineNum">     308 </span>            :         }
-<span class="lineNum">     309 </span><span class="lineNoCov">          0 :     } while (ret &amp;&amp; !end_of_file);</span>
+<span class="lineNum">     309 </span><span class="lineCov">         24 :     } while (ret &amp;&amp; !end_of_file);</span>
 <span class="lineNum">     310 </span>            : 
-<span class="lineNum">     311 </span><span class="lineNoCov">          0 :     return (ret);</span>
+<span class="lineNum">     311 </span><span class="lineCov">          4 :     return (ret);</span>
 <a name="312"><span class="lineNum">     312 </span>            : }</a>
 <span class="lineNum">     313 </span>            : 
-<span class="lineNum">     314 </span><span class="lineNoCov">          0 : bool cdns::read_preamble(int * err)</span>
+<span class="lineNum">     314 </span><span class="lineCov">          4 : bool cdns::read_preamble(int * err)</span>
 <span class="lineNum">     315 </span>            : {
-<span class="lineNum">     316 </span><span class="lineNoCov">          0 :     bool ret = true;</span>
+<span class="lineNum">     316 </span><span class="lineCov">          4 :     bool ret = true;</span>
 <span class="lineNum">     317 </span>            :     int64_t val;
-<span class="lineNum">     318 </span><span class="lineNoCov">          0 :     uint8_t * in = buf;</span>
-<span class="lineNum">     319 </span><span class="lineNoCov">          0 :     uint8_t * in_max = in + buf_read;</span>
-<span class="lineNum">     320 </span><span class="lineNoCov">          0 :     int outer_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     321 </span><span class="lineNoCov">          0 :     in = cbor_get_number(in, in_max, &amp;val);</span>
+<span class="lineNum">     318 </span><span class="lineCov">          4 :     uint8_t * in = buf;</span>
+<span class="lineNum">     319 </span><span class="lineCov">          4 :     uint8_t * in_max = in + buf_read;</span>
+<span class="lineNum">     320 </span><span class="lineCov">          4 :     int outer_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     321 </span><span class="lineCov">          4 :     in = cbor_get_number(in, in_max, &amp;val);</span>
 <span class="lineNum">     322 </span>            : 
-<span class="lineNum">     323 </span><span class="lineNoCov">          0 :     if (preamble_parsed) {</span>
+<span class="lineNum">     323 </span><span class="lineCov">          4 :     if (preamble_parsed) {</span>
 <span class="lineNum">     324 </span><span class="lineNoCov">          0 :         return true;</span>
 <span class="lineNum">     325 </span>            :     }
 <span class="lineNum">     326 </span>            : 
-<span class="lineNum">     327 </span><span class="lineNoCov">          0 :     if (in == NULL || outer_type != CBOR_T_ARRAY) {</span>
+<span class="lineNum">     327 </span><span class="lineCov">          4 :     if (in == NULL || outer_type != CBOR_T_ARRAY) {</span>
 <span class="lineNum">     328 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
 <span class="lineNum">     329 </span><span class="lineNoCov">          0 :         in = NULL;</span>
 <span class="lineNum">     330 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     331 </span>            :     }
 <span class="lineNum">     332 </span>            :     else {
-<span class="lineNum">     333 </span><span class="lineNoCov">          0 :         if (val == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     333 </span><span class="lineCov">          4 :         if (val == CBOR_END_OF_ARRAY) {</span>
 <span class="lineNum">     334 </span><span class="lineNoCov">          0 :             file_head_undef = 1;</span>
 <span class="lineNum">     335 </span><span class="lineNoCov">          0 :             val = 0xffffffff;</span>
 <span class="lineNum">     336 </span>            :         }
-<span class="lineNum">     337 </span><span class="lineNoCov">          0 :         else if (val &lt; 3) {</span>
+<span class="lineNum">     337 </span><span class="lineCov">          4 :         else if (val &lt; 3) {</span>
 <span class="lineNum">     338 </span><span class="lineNoCov">          0 :             *err = CBOR_MALFORMED_VALUE;</span>
 <span class="lineNum">     339 </span><span class="lineNoCov">          0 :             in = NULL;</span>
 <span class="lineNum">     340 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     341 </span>            :         }
 <span class="lineNum">     342 </span>            : 
-<span class="lineNum">     343 </span><span class="lineNoCov">          0 :         if (ret) {</span>
-<span class="lineNum">     344 </span><span class="lineNoCov">          0 :             if (in != NULL &amp;&amp; in &lt; in_max &amp;&amp; *in != 0xff) {</span>
+<span class="lineNum">     343 </span><span class="lineCov">          4 :         if (ret) {</span>
+<span class="lineNum">     344 </span><span class="lineCov">          4 :             if (in != NULL &amp;&amp; in &lt; in_max &amp;&amp; *in != 0xff) {</span>
 <span class="lineNum">     345 </span>            :                 /* Skip file type -- to do, check for value == CDNS */
-<span class="lineNum">     346 </span><span class="lineNoCov">          0 :                 in = cbor_skip(in, in_max, err);</span>
-<span class="lineNum">     347 </span><span class="lineNoCov">          0 :                 val--;</span>
+<span class="lineNum">     346 </span><span class="lineCov">          4 :                 in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">     347 </span><span class="lineCov">          4 :                 val--;</span>
 <span class="lineNum">     348 </span>            :             }
 <span class="lineNum">     349 </span>            : 
-<span class="lineNum">     350 </span><span class="lineNoCov">          0 :             if (in != NULL &amp;&amp; in &lt; in_max &amp;&amp; *in != 0xff) {</span>
+<span class="lineNum">     350 </span><span class="lineCov">          4 :             if (in != NULL &amp;&amp; in &lt; in_max &amp;&amp; *in != 0xff) {</span>
 <span class="lineNum">     351 </span>            :                 /* Parse preamble and store values  */
-<span class="lineNum">     352 </span><span class="lineNoCov">          0 :                 in = preamble.parse(in, in_max, err);</span>
-<span class="lineNum">     353 </span><span class="lineNoCov">          0 :                 val--;</span>
+<span class="lineNum">     352 </span><span class="lineCov">          4 :                 in = preamble.parse(in, in_max, err);</span>
+<span class="lineNum">     353 </span><span class="lineCov">          4 :                 val--;</span>
 <span class="lineNum">     354 </span>            :             }
 <span class="lineNum">     355 </span>            : 
-<span class="lineNum">     356 </span><span class="lineNoCov">          0 :             if (in != NULL &amp;&amp; in &lt; in_max &amp;&amp; *in != 0xff) {</span>
+<span class="lineNum">     356 </span><span class="lineCov">          4 :             if (in != NULL &amp;&amp; in &lt; in_max &amp;&amp; *in != 0xff) {</span>
 <span class="lineNum">     357 </span>            :                 int64_t nb_blocks;
-<span class="lineNum">     358 </span><span class="lineNoCov">          0 :                 int blocks_type = CBOR_CLASS(*in);</span>
-<span class="lineNum">     359 </span><span class="lineNoCov">          0 :                 in = cbor_get_number(in, in_max, &amp;nb_blocks);</span>
+<span class="lineNum">     358 </span><span class="lineCov">          4 :                 int blocks_type = CBOR_CLASS(*in);</span>
+<span class="lineNum">     359 </span><span class="lineCov">          4 :                 in = cbor_get_number(in, in_max, &amp;nb_blocks);</span>
 <span class="lineNum">     360 </span>            : 
-<span class="lineNum">     361 </span><span class="lineNoCov">          0 :                 if (in == NULL || blocks_type != CBOR_T_ARRAY) {</span>
+<span class="lineNum">     361 </span><span class="lineCov">          4 :                 if (in == NULL || blocks_type != CBOR_T_ARRAY) {</span>
 <span class="lineNum">     362 </span><span class="lineNoCov">          0 :                     *err = CBOR_MALFORMED_VALUE;</span>
 <span class="lineNum">     363 </span><span class="lineNoCov">          0 :                     in = NULL;</span>
 <span class="lineNum">     364 </span><span class="lineNoCov">          0 :                     ret = false;</span>
 <span class="lineNum">     365 </span>            :                 }
 <span class="lineNum">     366 </span>            :                 else {
-<span class="lineNum">     367 </span><span class="lineNoCov">          0 :                     if (nb_blocks == CBOR_END_OF_ARRAY) {</span>
-<span class="lineNum">     368 </span><span class="lineNoCov">          0 :                         block_list_undef = 1;</span>
-<span class="lineNum">     369 </span><span class="lineNoCov">          0 :                         nb_blocks_present = 0xffffffff;</span>
+<span class="lineNum">     367 </span><span class="lineCov">          4 :                     if (nb_blocks == CBOR_END_OF_ARRAY) {</span>
+<span class="lineNum">     368 </span><span class="lineCov">          4 :                         block_list_undef = 1;</span>
+<span class="lineNum">     369 </span><span class="lineCov">          4 :                         nb_blocks_present = 0xffffffff;</span>
 <span class="lineNum">     370 </span>            :                     }
 <span class="lineNum">     371 </span>            :                     else {
 <span class="lineNum">     372 </span><span class="lineNoCov">          0 :                         nb_blocks_present = val;</span>
 <span class="lineNum">     373 </span>            :                     }
-<span class="lineNum">     374 </span><span class="lineNoCov">          0 :                     buf_parsed = in - buf;</span>
+<span class="lineNum">     374 </span><span class="lineCov">          4 :                     buf_parsed = in - buf;</span>
 <span class="lineNum">     375 </span>            :                 }
 <span class="lineNum">     376 </span>            :             }
 <span class="lineNum">     377 </span>            :         }
 <span class="lineNum">     378 </span>            :     }
 <span class="lineNum">     379 </span>            : 
-<span class="lineNum">     380 </span><span class="lineNoCov">          0 :     preamble_parsed = true;</span>
+<span class="lineNum">     380 </span><span class="lineCov">          4 :     preamble_parsed = true;</span>
 <span class="lineNum">     381 </span>            : 
-<span class="lineNum">     382 </span><span class="lineNoCov">          0 :     if (in == NULL || !ret) {</span>
+<span class="lineNum">     382 </span><span class="lineCov">          4 :     if (in == NULL || !ret) {</span>
 <span class="lineNum">     383 </span><span class="lineNoCov">          0 :         buf_parsed = buf_read;</span>
 <span class="lineNum">     384 </span><span class="lineNoCov">          0 :         nb_blocks_present = 0;</span>
 <span class="lineNum">     385 </span><span class="lineNoCov">          0 :         ret = false;</span>
 <span class="lineNum">     386 </span>            :     }
 <span class="lineNum">     387 </span>            : 
-<span class="lineNum">     388 </span><span class="lineNoCov">          0 :     return ret;</span>
+<span class="lineNum">     388 </span><span class="lineCov">          4 :     return ret;</span>
 <a name="389"><span class="lineNum">     389 </span>            : }</a>
 <span class="lineNum">     390 </span>            : 
 <span class="lineNum">     391 </span><span class="lineNoCov">          0 : uint8_t* cdns::dump_preamble(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* cdns_version, int* err, FILE* F_out)</span>
@@ -1820,70 +1820,70 @@
 <span class="lineNum">    1758 </span><span class="lineNoCov">          0 :     return in;</span>
 <a name="1759"><span class="lineNum">    1759 </span>            : }</a>
 <span class="lineNum">    1760 </span>            : 
-<span class="lineNum">    1761 </span><span class="lineNoCov">          0 : cdnsBlock::cdnsBlock():</span>
+<span class="lineNum">    1761 </span><span class="lineCov">          4 : cdnsBlock::cdnsBlock():</span>
 <span class="lineNum">    1762 </span>            :     current_cdns(NULL),
 <span class="lineNum">    1763 </span>            :     is_filled(false),
-<span class="lineNum">    1764 </span><span class="lineNoCov">          0 :     block_start_us(0)</span>
+<span class="lineNum">    1764 </span><span class="lineCov">          4 :     block_start_us(0)</span>
 <span class="lineNum">    1765 </span>            : {
-<a name="1766"><span class="lineNum">    1766 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1766"><span class="lineNum">    1766 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    1767 </span>            : 
-<span class="lineNum">    1768 </span><span class="lineNoCov">          0 : cdnsBlock::~cdnsBlock()</span>
+<span class="lineNum">    1768 </span><span class="lineCov">          4 : cdnsBlock::~cdnsBlock()</span>
 <span class="lineNum">    1769 </span>            : {
-<a name="1770"><span class="lineNum">    1770 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1770"><span class="lineNum">    1770 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    1771 </span>            : 
-<span class="lineNum">    1772 </span><span class="lineNoCov">          0 : uint8_t * cdnsBlock::parse(uint8_t* in, uint8_t const* in_max, int* err, cdns * current_cdns)</span>
+<span class="lineNum">    1772 </span><span class="lineCov">          4 : uint8_t * cdnsBlock::parse(uint8_t* in, uint8_t const* in_max, int* err, cdns * current_cdns)</span>
 <span class="lineNum">    1773 </span>            : {
 <span class="lineNum">    1774 </span>            :     /* Records are held in a map */
-<span class="lineNum">    1775 </span><span class="lineNoCov">          0 :     clear();</span>
-<span class="lineNum">    1776 </span><span class="lineNoCov">          0 :     this-&gt;current_cdns = current_cdns;</span>
-<span class="lineNum">    1777 </span><span class="lineNoCov">          0 :     is_filled = 1;</span>
-<span class="lineNum">    1778 </span><span class="lineNoCov">          0 :     in = cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    1775 </span><span class="lineCov">          4 :     clear();</span>
+<span class="lineNum">    1776 </span><span class="lineCov">          4 :     this-&gt;current_cdns = current_cdns;</span>
+<span class="lineNum">    1777 </span><span class="lineCov">          4 :     is_filled = 1;</span>
+<span class="lineNum">    1778 </span><span class="lineCov">          4 :     in = cbor_map_parse(in, in_max, this, err);</span>
 <span class="lineNum">    1779 </span>            : 
-<span class="lineNum">    1780 </span><span class="lineNoCov">          0 :     if (preamble.is_filled) {</span>
-<span class="lineNum">    1781 </span><span class="lineNoCov">          0 :         block_start_us = preamble.earliest_time_sec;</span>
-<span class="lineNum">    1782 </span><span class="lineNoCov">          0 :         block_start_us *= 1000000;</span>
-<span class="lineNum">    1783 </span><span class="lineNoCov">          0 :         block_start_us += preamble.earliest_time_usec;</span>
+<span class="lineNum">    1780 </span><span class="lineCov">          4 :     if (preamble.is_filled) {</span>
+<span class="lineNum">    1781 </span><span class="lineCov">          4 :         block_start_us = preamble.earliest_time_sec;</span>
+<span class="lineNum">    1782 </span><span class="lineCov">          4 :         block_start_us *= 1000000;</span>
+<span class="lineNum">    1783 </span><span class="lineCov">          4 :         block_start_us += preamble.earliest_time_usec;</span>
 <span class="lineNum">    1784 </span>            :     }
 <span class="lineNum">    1785 </span>            : 
-<span class="lineNum">    1786 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    1786 </span><span class="lineCov">          4 :     return in;</span>
 <a name="1787"><span class="lineNum">    1787 </span>            : }</a>
 <span class="lineNum">    1788 </span>            : 
-<span class="lineNum">    1789 </span><span class="lineNoCov">          0 : uint8_t* cdnsBlock::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    1789 </span><span class="lineCov">         20 : uint8_t* cdnsBlock::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    1790 </span>            : {
-<span class="lineNum">    1791 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    1791 </span><span class="lineCov">         20 :     switch (val) {</span>
 <span class="lineNum">    1792 </span>            :     case 0: /* Block preamble */
-<span class="lineNum">    1793 </span><span class="lineNoCov">          0 :         in = preamble.parse(in, in_max, err, this);</span>
-<span class="lineNum">    1794 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1793 </span><span class="lineCov">          4 :         in = preamble.parse(in, in_max, err, this);</span>
+<span class="lineNum">    1794 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1795 </span>            :     case 1: /* Block statistics */
-<span class="lineNum">    1796 </span><span class="lineNoCov">          0 :         in = statistics.parse(in, in_max, err, this);</span>
-<span class="lineNum">    1797 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1796 </span><span class="lineCov">          4 :         in = statistics.parse(in, in_max, err, this);</span>
+<span class="lineNum">    1797 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1798 </span>            :     case 2: /* Block Tables */
-<span class="lineNum">    1799 </span><span class="lineNoCov">          0 :         in = tables.parse(in, in_max, err, this);</span>
-<span class="lineNum">    1800 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1799 </span><span class="lineCov">          4 :         in = tables.parse(in, in_max, err, this);</span>
+<span class="lineNum">    1800 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1801 </span>            :     case 3: /* Block Queries */
-<span class="lineNum">    1802 </span><span class="lineNoCov">          0 :         in = cbor_ctx_array_parse(in, in_max, &amp;queries, err, this);</span>
-<span class="lineNum">    1803 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1802 </span><span class="lineCov">          4 :         in = cbor_ctx_array_parse(in, in_max, &amp;queries, err, this);</span>
+<span class="lineNum">    1803 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1804 </span>            :     case 4: /* Address event counts */
-<span class="lineNum">    1805 </span><span class="lineNoCov">          0 :         in = cbor_ctx_array_parse(in, in_max, &amp;address_events, err, this);</span>
-<span class="lineNum">    1806 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1805 </span><span class="lineCov">          4 :         in = cbor_ctx_array_parse(in, in_max, &amp;address_events, err, this);</span>
+<span class="lineNum">    1806 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1807 </span>            :     default:
 <span class="lineNum">    1808 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    1809 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    1810 </span>            :     }
 <span class="lineNum">    1811 </span>            : 
-<span class="lineNum">    1812 </span><span class="lineNoCov">          0 :     if (in == NULL) {</span>
+<span class="lineNum">    1812 </span><span class="lineCov">         20 :     if (in == NULL) {</span>
 <span class="lineNum">    1813 </span><span class="lineNoCov">          0 :         char const* e[] = { &quot;preamble&quot;, &quot;statistics&quot;, &quot;tables&quot;, &quot;queries&quot;, &quot;address_events&quot; };</span>
 <span class="lineNum">    1814 </span><span class="lineNoCov">          0 :         int nb_e = (int)sizeof(e) / sizeof(char const*);</span>
 <span class="lineNum">    1815 </span>            : 
 <span class="lineNum">    1816 </span><span class="lineNoCov">          0 :         fprintf(stderr, &quot;Cannot parse block element %d (%s), err=%d\n&quot;, (int)val, (val &gt;= 0 &amp;&amp; val &lt; nb_e) ? e[val] : &quot;unknown&quot;, *err);</span>
 <span class="lineNum">    1817 </span>            :     }
-<span class="lineNum">    1818 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    1818 </span><span class="lineCov">         20 :     return in;</span>
 <a name="1819"><span class="lineNum">    1819 </span>            : }</a>
 <span class="lineNum">    1820 </span>            : 
-<span class="lineNum">    1821 </span><span class="lineNoCov">          0 : void cdnsBlock::clear()</span>
+<span class="lineNum">    1821 </span><span class="lineCov">          4 : void cdnsBlock::clear()</span>
 <span class="lineNum">    1822 </span>            : {
-<span class="lineNum">    1823 </span><span class="lineNoCov">          0 :     current_cdns = NULL;</span>
-<span class="lineNum">    1824 </span><span class="lineNoCov">          0 :     if (is_filled) {</span>
+<span class="lineNum">    1823 </span><span class="lineCov">          4 :     current_cdns = NULL;</span>
+<span class="lineNum">    1824 </span><span class="lineCov">          4 :     if (is_filled) {</span>
 <span class="lineNum">    1825 </span><span class="lineNoCov">          0 :         preamble.clear();</span>
 <span class="lineNum">    1826 </span><span class="lineNoCov">          0 :         statistics.clear();</span>
 <span class="lineNum">    1827 </span><span class="lineNoCov">          0 :         tables.clear();</span>
@@ -1892,94 +1892,94 @@
 <span class="lineNum">    1830 </span><span class="lineNoCov">          0 :         is_filled = false;</span>
 <span class="lineNum">    1831 </span><span class="lineNoCov">          0 :         block_start_us = 0;</span>
 <span class="lineNum">    1832 </span>            :     }
-<a name="1833"><span class="lineNum">    1833 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1833"><span class="lineNum">    1833 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    1834 </span>            :    
-<span class="lineNum">    1835 </span><span class="lineNoCov">          0 : cdns_class_id::cdns_class_id() :</span>
+<span class="lineNum">    1835 </span><span class="lineCov">         72 : cdns_class_id::cdns_class_id() :</span>
 <span class="lineNum">    1836 </span>            :     rr_type(0),
-<span class="lineNum">    1837 </span><span class="lineNoCov">          0 :     rr_class(0)</span>
+<span class="lineNum">    1837 </span><span class="lineCov">         72 :     rr_class(0)</span>
 <span class="lineNum">    1838 </span>            : {
-<a name="1839"><span class="lineNum">    1839 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1839"><span class="lineNum">    1839 </span><span class="lineCov">         72 : }</span></a>
 <span class="lineNum">    1840 </span>            : 
-<span class="lineNum">    1841 </span><span class="lineNoCov">          0 : cdns_class_id::~cdns_class_id()</span>
+<span class="lineNum">    1841 </span><span class="lineCov">        196 : cdns_class_id::~cdns_class_id()</span>
 <span class="lineNum">    1842 </span>            : {
-<a name="1843"><span class="lineNum">    1843 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1843"><span class="lineNum">    1843 </span><span class="lineCov">        196 : }</span></a>
 <span class="lineNum">    1844 </span>            : 
-<span class="lineNum">    1845 </span><span class="lineNoCov">          0 : uint8_t * cdns_class_id::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
+<span class="lineNum">    1845 </span><span class="lineCov">         72 : uint8_t * cdns_class_id::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    1846 </span>            : {
-<span class="lineNum">    1847 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    1847 </span><span class="lineCov">         72 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="1848"><span class="lineNum">    1848 </span>            : }</a>
 <span class="lineNum">    1849 </span>            : 
-<span class="lineNum">    1850 </span><span class="lineNoCov">          0 : uint8_t* cdns_class_id::parse_map_item(uint8_t* in, uint8_t const * in_max, int64_t val, int* err)</span>
+<span class="lineNum">    1850 </span><span class="lineCov">        144 : uint8_t* cdns_class_id::parse_map_item(uint8_t* in, uint8_t const * in_max, int64_t val, int* err)</span>
 <span class="lineNum">    1851 </span>            : {
-<span class="lineNum">    1852 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    1852 </span><span class="lineCov">        144 :     switch (val) {</span>
 <span class="lineNum">    1853 </span>            :     case 0:
-<span class="lineNum">    1854 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;rr_type, 0, err);</span>
-<span class="lineNum">    1855 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1854 </span><span class="lineCov">         72 :         in = cbor_parse_int(in, in_max, &amp;rr_type, 0, err);</span>
+<span class="lineNum">    1855 </span><span class="lineCov">         72 :         break;</span>
 <span class="lineNum">    1856 </span>            :     case 1:
-<span class="lineNum">    1857 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;rr_class, 0, err);</span>
-<span class="lineNum">    1858 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1857 </span><span class="lineCov">         72 :         in = cbor_parse_int(in, in_max, &amp;rr_class, 0, err);</span>
+<span class="lineNum">    1858 </span><span class="lineCov">         72 :         break;</span>
 <span class="lineNum">    1859 </span>            :     default:
 <span class="lineNum">    1860 </span><span class="lineNoCov">          0 :         in = NULL;</span>
 <span class="lineNum">    1861 </span><span class="lineNoCov">          0 :         *err = CBOR_ILLEGAL_VALUE;</span>
 <span class="lineNum">    1862 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    1863 </span>            :     }
-<span class="lineNum">    1864 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    1864 </span><span class="lineCov">        144 :     return in;</span>
 <a name="1865"><span class="lineNum">    1865 </span>            : }</a>
 <span class="lineNum">    1866 </span>            : 
-<span class="lineNum">    1867 </span><span class="lineNoCov">          0 : cdnsBlockTables::cdnsBlockTables():</span>
+<span class="lineNum">    1867 </span><span class="lineCov">          4 : cdnsBlockTables::cdnsBlockTables():</span>
 <span class="lineNum">    1868 </span>            :     current_block(NULL),
-<span class="lineNum">    1869 </span><span class="lineNoCov">          0 :     is_filled(false)</span>
+<span class="lineNum">    1869 </span><span class="lineCov">          4 :     is_filled(false)</span>
 <span class="lineNum">    1870 </span>            : {
-<a name="1871"><span class="lineNum">    1871 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1871"><span class="lineNum">    1871 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    1872 </span>            : 
-<span class="lineNum">    1873 </span><span class="lineNoCov">          0 : cdnsBlockTables::~cdnsBlockTables()</span>
+<span class="lineNum">    1873 </span><span class="lineCov">          4 : cdnsBlockTables::~cdnsBlockTables()</span>
 <span class="lineNum">    1874 </span>            : {
-<a name="1875"><span class="lineNum">    1875 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1875"><span class="lineNum">    1875 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    1876 </span>            : 
-<span class="lineNum">    1877 </span><span class="lineNoCov">          0 : uint8_t* cdnsBlockTables::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock * current_block)</span>
+<span class="lineNum">    1877 </span><span class="lineCov">          4 : uint8_t* cdnsBlockTables::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock * current_block)</span>
 <span class="lineNum">    1878 </span>            : {
-<span class="lineNum">    1879 </span><span class="lineNoCov">          0 :     if (is_filled) {</span>
+<span class="lineNum">    1879 </span><span class="lineCov">          4 :     if (is_filled) {</span>
 <span class="lineNum">    1880 </span><span class="lineNoCov">          0 :         clear();</span>
 <span class="lineNum">    1881 </span>            :     }
-<span class="lineNum">    1882 </span><span class="lineNoCov">          0 :     this-&gt;current_block = current_block;</span>
-<span class="lineNum">    1883 </span><span class="lineNoCov">          0 :     is_filled = true;</span>
-<span class="lineNum">    1884 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    1882 </span><span class="lineCov">          4 :     this-&gt;current_block = current_block;</span>
+<span class="lineNum">    1883 </span><span class="lineCov">          4 :     is_filled = true;</span>
+<span class="lineNum">    1884 </span><span class="lineCov">          4 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="1885"><span class="lineNum">    1885 </span>            : }</a>
 <span class="lineNum">    1886 </span>            : 
-<span class="lineNum">    1887 </span><span class="lineNoCov">          0 : uint8_t* cdnsBlockTables::parse_map_item(uint8_t* old_in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    1887 </span><span class="lineCov">         32 : uint8_t* cdnsBlockTables::parse_map_item(uint8_t* old_in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    1888 </span>            : {
-<span class="lineNum">    1889 </span><span class="lineNoCov">          0 :     uint8_t * in = old_in;</span>
+<span class="lineNum">    1889 </span><span class="lineCov">         32 :     uint8_t * in = old_in;</span>
 <span class="lineNum">    1890 </span>            : 
-<span class="lineNum">    1891 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    1891 </span><span class="lineCov">         32 :     switch (val) {</span>
 <span class="lineNum">    1892 </span>            :     case 0: // ip_address
-<span class="lineNum">    1893 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;addresses, err);</span>
-<span class="lineNum">    1894 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1893 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;addresses, err);</span>
+<span class="lineNum">    1894 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1895 </span>            :     case 1: // classtype
-<span class="lineNum">    1896 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;class_ids, err);</span>
-<span class="lineNum">    1897 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1896 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;class_ids, err);</span>
+<span class="lineNum">    1897 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1898 </span>            :     case 2: // name_rdata
-<span class="lineNum">    1899 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;name_rdata, err);</span>
-<span class="lineNum">    1900 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1899 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;name_rdata, err);</span>
+<span class="lineNum">    1900 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1901 </span>            :     case 3: // query_signature
-<span class="lineNum">    1902 </span><span class="lineNoCov">          0 :         in = cbor_ctx_array_parse(in, in_max, &amp;q_sigs, err, current_block);</span>
-<span class="lineNum">    1903 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1902 </span><span class="lineCov">          4 :         in = cbor_ctx_array_parse(in, in_max, &amp;q_sigs, err, current_block);</span>
+<span class="lineNum">    1903 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1904 </span>            :     case 4: // question_list,
-<span class="lineNum">    1905 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;question_list, err);</span>
-<span class="lineNum">    1906 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1905 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;question_list, err);</span>
+<span class="lineNum">    1906 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1907 </span>            :     case 5: // question_rr,
-<span class="lineNum">    1908 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;qrr, err);</span>
-<span class="lineNum">    1909 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1908 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;qrr, err);</span>
+<span class="lineNum">    1909 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1910 </span>            :     case 6: // rr_list,
-<span class="lineNum">    1911 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;rr_list, err);</span>
-<span class="lineNum">    1912 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1911 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;rr_list, err);</span>
+<span class="lineNum">    1912 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1913 </span>            :     case 7: // rr,
-<span class="lineNum">    1914 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;rrs, err);</span>
-<span class="lineNum">    1915 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    1914 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;rrs, err);</span>
+<span class="lineNum">    1915 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    1916 </span>            :     default:
 <span class="lineNum">    1917 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    1918 </span>            :     }
 <span class="lineNum">    1919 </span>            : 
-<span class="lineNum">    1920 </span><span class="lineNoCov">          0 :     if (in == NULL) {</span>
+<span class="lineNum">    1920 </span><span class="lineCov">         32 :     if (in == NULL) {</span>
 <span class="lineNum">    1921 </span>            :         char out_buf[1024];
 <span class="lineNum">    1922 </span><span class="lineNoCov">          0 :         char* p_out = out_buf;</span>
 <span class="lineNum">    1923 </span><span class="lineNoCov">          0 :         int dump_err = 0;</span>
@@ -1994,7 +1994,7 @@
 <span class="lineNum">    1932 </span><span class="lineNoCov">          0 :         fprintf(stderr, &quot;%s\n&quot;, out_buf);</span>
 <span class="lineNum">    1933 </span>            :     }
 <span class="lineNum">    1934 </span>            : 
-<span class="lineNum">    1935 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    1935 </span><span class="lineCov">         32 :     return in;</span>
 <a name="1936"><span class="lineNum">    1936 </span>            : }</a>
 <span class="lineNum">    1937 </span>            : 
 <span class="lineNum">    1938 </span><span class="lineNoCov">          0 : void cdnsBlockTables::clear()</span>
@@ -2011,7 +2011,7 @@
 <span class="lineNum">    1949 </span><span class="lineNoCov">          0 :     is_filled = false;</span>
 <a name="1950"><span class="lineNum">    1950 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    1951 </span>            : 
-<span class="lineNum">    1952 </span><span class="lineNoCov">          0 : cdns_query::cdns_query():</span>
+<span class="lineNum">    1952 </span><span class="lineCov">      19780 : cdns_query::cdns_query():</span>
 <span class="lineNum">    1953 </span>            :     current_block(NULL),
 <span class="lineNum">    1954 </span>            :     time_offset_usec(0),
 <span class="lineNum">    1955 </span>            :     client_address_index(-1),
@@ -2022,31 +2022,31 @@
 <span class="lineNum">    1960 </span>            :     delay_useconds(0),
 <span class="lineNum">    1961 </span>            :     query_name_index(-1),
 <span class="lineNum">    1962 </span>            :     query_size(0),
-<span class="lineNum">    1963 </span><span class="lineNoCov">          0 :     response_size(0)</span>
+<span class="lineNum">    1963 </span><span class="lineCov">      19780 :     response_size(0)</span>
 <span class="lineNum">    1964 </span>            : {
-<a name="1965"><span class="lineNum">    1965 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1965"><span class="lineNum">    1965 </span><span class="lineCov">      19780 : }</span></a>
 <span class="lineNum">    1966 </span>            : 
-<span class="lineNum">    1967 </span><span class="lineNoCov">          0 : cdns_query::~cdns_query()</span>
+<span class="lineNum">    1967 </span><span class="lineCov">      52544 : cdns_query::~cdns_query()</span>
 <span class="lineNum">    1968 </span>            : {
-<a name="1969"><span class="lineNum">    1969 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="1969"><span class="lineNum">    1969 </span><span class="lineCov">      52544 : }</span></a>
 <span class="lineNum">    1970 </span>            : 
-<span class="lineNum">    1971 </span><span class="lineNoCov">          0 : uint8_t* cdns_query::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
+<span class="lineNum">    1971 </span><span class="lineCov">      19780 : uint8_t* cdns_query::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
 <span class="lineNum">    1972 </span>            : {
-<span class="lineNum">    1973 </span><span class="lineNoCov">          0 :     this-&gt;current_block = current_block;</span>
-<span class="lineNum">    1974 </span><span class="lineNoCov">          0 :     in = cbor_map_parse(in, in_max, this, err);</span>
-<span class="lineNum">    1975 </span><span class="lineNoCov">          0 :     if (!current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
+<span class="lineNum">    1973 </span><span class="lineCov">      19780 :     this-&gt;current_block = current_block;</span>
+<span class="lineNum">    1974 </span><span class="lineCov">      19780 :     in = cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    1975 </span><span class="lineCov">      19780 :     if (!current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
 <span class="lineNum">    1976 </span><span class="lineNoCov">          0 :         time_offset_usec = (int)current_block-&gt;current_cdns-&gt;ticks_to_microseconds(time_offset_usec, </span>
 <span class="lineNum">    1977 </span><span class="lineNoCov">          0 :             current_block-&gt;preamble.block_parameter_index);</span>
 <span class="lineNum">    1978 </span>            :     }
-<span class="lineNum">    1979 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    1979 </span><span class="lineCov">      19780 :     return in;</span>
 <a name="1980"><span class="lineNum">    1980 </span>            : }</a>
 <span class="lineNum">    1981 </span>            : 
-<span class="lineNum">    1982 </span><span class="lineNoCov">          0 : uint8_t* cdns_query::parse_map_item(uint8_t* old_in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    1982 </span><span class="lineCov">     235868 : uint8_t* cdns_query::parse_map_item(uint8_t* old_in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    1983 </span>            : {
-<span class="lineNum">    1984 </span><span class="lineNoCov">          0 :     uint8_t* in = old_in;</span>
+<span class="lineNum">    1984 </span><span class="lineCov">     235868 :     uint8_t* in = old_in;</span>
 <span class="lineNum">    1985 </span>            : 
-<span class="lineNum">    1986 </span><span class="lineNoCov">          0 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
-<span class="lineNum">    1987 </span><span class="lineNoCov">          0 :         in = parse_map_item_old(in, in_max, val, err);</span>
+<span class="lineNum">    1986 </span><span class="lineCov">     235868 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
+<span class="lineNum">    1987 </span><span class="lineCov">     235868 :         in = parse_map_item_old(in, in_max, val, err);</span>
 <span class="lineNum">    1988 </span>            :     }
 <span class="lineNum">    1989 </span>            :     else {
 <span class="lineNum">    1990 </span><span class="lineNoCov">          0 :         switch (val) {</span>
@@ -2100,16 +2100,16 @@
 <span class="lineNum">    2038 </span>            :         }
 <span class="lineNum">    2039 </span>            :     }
 <span class="lineNum">    2040 </span>            : 
-<span class="lineNum">    2041 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2041 </span><span class="lineCov">     235868 :     return in;</span>
 <a name="2042"><span class="lineNum">    2042 </span>            : }</a>
 <span class="lineNum">    2043 </span>            : 
-<span class="lineNum">    2044 </span><span class="lineNoCov">          0 : uint8_t* cdns_query::parse_map_item_old(uint8_t* old_in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2044 </span><span class="lineCov">     235868 : uint8_t* cdns_query::parse_map_item_old(uint8_t* old_in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2045 </span>            : {
-<span class="lineNum">    2046 </span><span class="lineNoCov">          0 :     uint8_t* in = old_in;</span>
-<span class="lineNum">    2047 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2046 </span><span class="lineCov">     235868 :     uint8_t* in = old_in;</span>
+<span class="lineNum">    2047 </span><span class="lineCov">     235868 :     switch (val) {</span>
 <span class="lineNum">    2048 </span>            :     case 0: // time_useconds
-<span class="lineNum">    2049 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;time_offset_usec, 1, err);</span>
-<span class="lineNum">    2050 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2049 </span><span class="lineCov">      19780 :         in = cbor_parse_int(in, in_max, &amp;time_offset_usec, 1, err);</span>
+<span class="lineNum">    2050 </span><span class="lineCov">      19780 :         break;</span>
 <span class="lineNum">    2051 </span>            :     case 1: // time_pseconds
 <span class="lineNum">    2052 </span>            :     {
 <span class="lineNum">    2053 </span><span class="lineNoCov">          0 :         int64_t t = 0;</span>
@@ -2121,23 +2121,23 @@
 <span class="lineNum">    2059 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2060 </span>            :     }
 <span class="lineNum">    2061 </span>            :     case 2: // client_address_index
-<span class="lineNum">    2062 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;client_address_index, 0, err);</span>
-<span class="lineNum">    2063 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2062 </span><span class="lineCov">      19780 :         in = cbor_parse_int(in, in_max, &amp;client_address_index, 0, err);</span>
+<span class="lineNum">    2063 </span><span class="lineCov">      19780 :         break;</span>
 <span class="lineNum">    2064 </span>            :     case 3: // client_port,
-<span class="lineNum">    2065 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;client_port, 0, err);</span>
-<span class="lineNum">    2066 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2065 </span><span class="lineCov">      19780 :         in = cbor_parse_int(in, in_max, &amp;client_port, 0, err);</span>
+<span class="lineNum">    2066 </span><span class="lineCov">      19780 :         break;</span>
 <span class="lineNum">    2067 </span>            :     case 4: // transaction_id
-<span class="lineNum">    2068 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;transaction_id, 0, err);</span>
-<span class="lineNum">    2069 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2068 </span><span class="lineCov">      19780 :         in = cbor_parse_int(in, in_max, &amp;transaction_id, 0, err);</span>
+<span class="lineNum">    2069 </span><span class="lineCov">      19780 :         break;</span>
 <span class="lineNum">    2070 </span>            :     case 5: // query_signature_index
-<span class="lineNum">    2071 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_signature_index, 0, err);</span>
-<span class="lineNum">    2072 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2071 </span><span class="lineCov">      19780 :         in = cbor_parse_int(in, in_max, &amp;query_signature_index, 0, err);</span>
+<span class="lineNum">    2072 </span><span class="lineCov">      19780 :         break;</span>
 <span class="lineNum">    2073 </span>            :     case 6: // client_hoplimit
-<span class="lineNum">    2074 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;client_hoplimit, 0, err);</span>
-<span class="lineNum">    2075 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2074 </span><span class="lineCov">      19664 :         in = cbor_parse_int(in, in_max, &amp;client_hoplimit, 0, err);</span>
+<span class="lineNum">    2075 </span><span class="lineCov">      19664 :         break;</span>
 <span class="lineNum">    2076 </span>            :     case 7: // delay_useconds
-<span class="lineNum">    2077 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;delay_useconds, 1, err);</span>
-<span class="lineNum">    2078 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2077 </span><span class="lineCov">      19324 :         in = cbor_parse_int(in, in_max, &amp;delay_useconds, 1, err);</span>
+<span class="lineNum">    2078 </span><span class="lineCov">      19324 :         break;</span>
 <span class="lineNum">    2079 </span>            :     case 8: // delay_pseconds
 <span class="lineNum">    2080 </span>            :     {
 <span class="lineNum">    2081 </span><span class="lineNoCov">          0 :         int64_t t = 0;</span>
@@ -2149,76 +2149,76 @@
 <span class="lineNum">    2087 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2088 </span>            :     }
 <span class="lineNum">    2089 </span>            :     case 9: // query_name_index
-<span class="lineNum">    2090 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_name_index, 0, err);</span>
-<span class="lineNum">    2091 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2090 </span><span class="lineCov">      19772 :         in = cbor_parse_int(in, in_max, &amp;query_name_index, 0, err);</span>
+<span class="lineNum">    2091 </span><span class="lineCov">      19772 :         break;</span>
 <span class="lineNum">    2092 </span>            :     case 10: // query_size
-<span class="lineNum">    2093 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_size, 0, err);</span>
-<span class="lineNum">    2094 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2093 </span><span class="lineCov">      19664 :         in = cbor_parse_int(in, in_max, &amp;query_size, 0, err);</span>
+<span class="lineNum">    2094 </span><span class="lineCov">      19664 :         break;</span>
 <span class="lineNum">    2095 </span>            :     case 11: // response_size
-<span class="lineNum">    2096 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;response_size, 0, err);</span>
-<span class="lineNum">    2097 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2096 </span><span class="lineCov">      19440 :         in = cbor_parse_int(in, in_max, &amp;response_size, 0, err);</span>
+<span class="lineNum">    2097 </span><span class="lineCov">      19440 :         break;</span>
 <span class="lineNum">    2098 </span>            :     case 12: // query_extended
-<span class="lineNum">    2099 </span><span class="lineNoCov">          0 :         in = q_extended.parse(in, in_max, err);</span>
-<span class="lineNum">    2100 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2099 </span><span class="lineCov">      19664 :         in = q_extended.parse(in, in_max, err);</span>
+<span class="lineNum">    2100 </span><span class="lineCov">      19664 :         break;</span>
 <span class="lineNum">    2101 </span>            :     case 13: // response_extended,\n&quot;);
-<span class="lineNum">    2102 </span><span class="lineNoCov">          0 :         in = r_extended.parse(in, in_max, err);</span>
-<span class="lineNum">    2103 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2102 </span><span class="lineCov">      19440 :         in = r_extended.parse(in, in_max, err);</span>
+<span class="lineNum">    2103 </span><span class="lineCov">      19440 :         break;</span>
 <span class="lineNum">    2104 </span>            :     default:
 <span class="lineNum">    2105 </span>            :         /* TODO: something */
 <span class="lineNum">    2106 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2107 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2108 </span>            :     }
 <span class="lineNum">    2109 </span>            : 
-<span class="lineNum">    2110 </span><span class="lineNoCov">          0 :     if (in == NULL) {</span>
+<span class="lineNum">    2110 </span><span class="lineCov">     235868 :     if (in == NULL) {</span>
 <span class="lineNum">    2111 </span><span class="lineNoCov">          0 :         fprintf(stderr, &quot;\nError %d parsing query field type %d\n&quot;, *err, (int)val);</span>
 <span class="lineNum">    2112 </span>            :     }
 <span class="lineNum">    2113 </span>            : 
-<a name="2114"><span class="lineNum">    2114 </span><span class="lineNoCov">          0 :     return in;</span></a>
+<a name="2114"><span class="lineNum">    2114 </span><span class="lineCov">     235868 :     return in;</span></a>
 <span class="lineNum">    2115 </span>            : }
-<span class="lineNum">    2116 </span><span class="lineNoCov">          0 : cdns_qr_extended::cdns_qr_extended():</span>
+<span class="lineNum">    2116 </span><span class="lineCov">      39560 : cdns_qr_extended::cdns_qr_extended():</span>
 <span class="lineNum">    2117 </span>            :     question_index(-1),
 <span class="lineNum">    2118 </span>            :     answer_index(-1),
 <span class="lineNum">    2119 </span>            :     authority_index(-1),
 <span class="lineNum">    2120 </span>            :     additional_index(-1),
-<span class="lineNum">    2121 </span><span class="lineNoCov">          0 :     is_filled(false)</span>
+<span class="lineNum">    2121 </span><span class="lineCov">      39560 :     is_filled(false)</span>
 <span class="lineNum">    2122 </span>            : {
-<a name="2123"><span class="lineNum">    2123 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2123"><span class="lineNum">    2123 </span><span class="lineCov">      39560 : }</span></a>
 <span class="lineNum">    2124 </span>            : 
-<span class="lineNum">    2125 </span><span class="lineNoCov">          0 : cdns_qr_extended::~cdns_qr_extended()</span>
+<span class="lineNum">    2125 </span><span class="lineCov">     105088 : cdns_qr_extended::~cdns_qr_extended()</span>
 <span class="lineNum">    2126 </span>            : {
-<a name="2127"><span class="lineNum">    2127 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2127"><span class="lineNum">    2127 </span><span class="lineCov">     105088 : }</span></a>
 <span class="lineNum">    2128 </span>            : 
-<span class="lineNum">    2129 </span><span class="lineNoCov">          0 : uint8_t* cdns_qr_extended::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
+<span class="lineNum">    2129 </span><span class="lineCov">      39104 : uint8_t* cdns_qr_extended::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    2130 </span>            : {
-<span class="lineNum">    2131 </span><span class="lineNoCov">          0 :     if (is_filled) {</span>
+<span class="lineNum">    2131 </span><span class="lineCov">      39104 :     if (is_filled) {</span>
 <span class="lineNum">    2132 </span><span class="lineNoCov">          0 :         clear();</span>
 <span class="lineNum">    2133 </span>            :     }
-<span class="lineNum">    2134 </span><span class="lineNoCov">          0 :     is_filled = true;</span>
+<span class="lineNum">    2134 </span><span class="lineCov">      39104 :     is_filled = true;</span>
 <span class="lineNum">    2135 </span>            : 
-<span class="lineNum">    2136 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2136 </span><span class="lineCov">      39104 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="2137"><span class="lineNum">    2137 </span>            : }</a>
 <span class="lineNum">    2138 </span>            : 
-<span class="lineNum">    2139 </span><span class="lineNoCov">          0 : uint8_t* cdns_qr_extended::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2139 </span><span class="lineCov">      36612 : uint8_t* cdns_qr_extended::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2140 </span>            : {
-<span class="lineNum">    2141 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2141 </span><span class="lineCov">      36612 :     switch (val) {</span>
 <span class="lineNum">    2142 </span>            :     case 0: // question_index
 <span class="lineNum">    2143 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;question_index, 0, err);</span>
 <span class="lineNum">    2144 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2145 </span>            :     case 1: // answer_index
-<span class="lineNum">    2146 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;answer_index, 0, err);</span>
-<span class="lineNum">    2147 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2146 </span><span class="lineCov">       1292 :         in = cbor_parse_int(in, in_max, &amp;answer_index, 0, err);</span>
+<span class="lineNum">    2147 </span><span class="lineCov">       1292 :         break;</span>
 <span class="lineNum">    2148 </span>            :     case 2: // authority_index
-<span class="lineNum">    2149 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;authority_index, 0, err);</span>
-<span class="lineNum">    2150 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2149 </span><span class="lineCov">      17900 :         in = cbor_parse_int(in, in_max, &amp;authority_index, 0, err);</span>
+<span class="lineNum">    2150 </span><span class="lineCov">      17900 :         break;</span>
 <span class="lineNum">    2151 </span>            :     case 3: // additional_index
-<span class="lineNum">    2152 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;additional_index, 0, err);</span>
-<span class="lineNum">    2153 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2152 </span><span class="lineCov">      17420 :         in = cbor_parse_int(in, in_max, &amp;additional_index, 0, err);</span>
+<span class="lineNum">    2153 </span><span class="lineCov">      17420 :         break;</span>
 <span class="lineNum">    2154 </span>            :     default:
 <span class="lineNum">    2155 </span>            :         /* TODO: something */
 <span class="lineNum">    2156 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2157 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2158 </span>            :     }
-<span class="lineNum">    2159 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2159 </span><span class="lineCov">      36612 :     return in;</span>
 <a name="2160"><span class="lineNum">    2160 </span>            : }</a>
 <span class="lineNum">    2161 </span>            : 
 <span class="lineNum">    2162 </span><span class="lineNoCov">          0 : void cdns_qr_extended::clear()</span>
@@ -2230,7 +2230,7 @@
 <span class="lineNum">    2168 </span><span class="lineNoCov">          0 :     is_filled = false;</span>
 <a name="2169"><span class="lineNum">    2169 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    2170 </span>            : 
-<span class="lineNum">    2171 </span><span class="lineNoCov">          0 : cdns_query_signature::cdns_query_signature() :</span>
+<span class="lineNum">    2171 </span><span class="lineCov">       1216 : cdns_query_signature::cdns_query_signature() :</span>
 <span class="lineNum">    2172 </span>            :     current_block(NULL),
 <span class="lineNum">    2173 </span>            :     server_address_index(-1),
 <span class="lineNum">    2174 </span>            :     server_port(0),
@@ -2248,25 +2248,25 @@
 <span class="lineNum">    2186 </span>            :     edns_version(-1),
 <span class="lineNum">    2187 </span>            :     udp_buf_size(0),
 <span class="lineNum">    2188 </span>            :     opt_rdata_index(-1),
-<span class="lineNum">    2189 </span><span class="lineNoCov">          0 :     response_rcode(0)</span>
+<span class="lineNum">    2189 </span><span class="lineCov">       1216 :     response_rcode(0)</span>
 <span class="lineNum">    2190 </span>            : {
-<a name="2191"><span class="lineNum">    2191 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2191"><span class="lineNum">    2191 </span><span class="lineCov">       1216 : }</span></a>
 <span class="lineNum">    2192 </span>            : 
-<span class="lineNum">    2193 </span><span class="lineNoCov">          0 : cdns_query_signature::~cdns_query_signature()</span>
+<span class="lineNum">    2193 </span><span class="lineCov">       3260 : cdns_query_signature::~cdns_query_signature()</span>
 <span class="lineNum">    2194 </span>            : {
-<a name="2195"><span class="lineNum">    2195 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2195"><span class="lineNum">    2195 </span><span class="lineCov">       3260 : }</span></a>
 <span class="lineNum">    2196 </span>            : 
-<span class="lineNum">    2197 </span><span class="lineNoCov">          0 : uint8_t* cdns_query_signature::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
+<span class="lineNum">    2197 </span><span class="lineCov">       1216 : uint8_t* cdns_query_signature::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
 <span class="lineNum">    2198 </span>            : {
-<span class="lineNum">    2199 </span><span class="lineNoCov">          0 :     this-&gt;current_block = current_block;</span>
-<span class="lineNum">    2200 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2199 </span><span class="lineCov">       1216 :     this-&gt;current_block = current_block;</span>
+<span class="lineNum">    2200 </span><span class="lineCov">       1216 :     return cbor_map_parse(in, in_max, this, err);</span>
 <span class="lineNum">    2201 </span>            :     /* TODO: deal with index pointers changes between old and new. */
 <a name="2202"><span class="lineNum">    2202 </span>            : }</a>
 <span class="lineNum">    2203 </span>            : 
-<span class="lineNum">    2204 </span><span class="lineNoCov">          0 : uint8_t* cdns_query_signature::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2204 </span><span class="lineCov">      18264 : uint8_t* cdns_query_signature::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2205 </span>            : {
-<span class="lineNum">    2206 </span><span class="lineNoCov">          0 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
-<span class="lineNum">    2207 </span><span class="lineNoCov">          0 :         in = parse_map_item_old(in, in_max, val, err);</span>
+<span class="lineNum">    2206 </span><span class="lineCov">      18264 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
+<span class="lineNum">    2207 </span><span class="lineCov">      18264 :         in = parse_map_item_old(in, in_max, val, err);</span>
 <span class="lineNum">    2208 </span>            :     }
 <span class="lineNum">    2209 </span>            :     else {
 <span class="lineNum">    2210 </span><span class="lineNoCov">          0 :         switch (val) {</span>
@@ -2326,65 +2326,65 @@
 <span class="lineNum">    2264 </span><span class="lineNoCov">          0 :             break;</span>
 <span class="lineNum">    2265 </span>            :         }
 <span class="lineNum">    2266 </span>            :     }
-<span class="lineNum">    2267 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2267 </span><span class="lineCov">      18264 :     return in;</span>
 <a name="2268"><span class="lineNum">    2268 </span>            : }</a>
 <span class="lineNum">    2269 </span>            : 
-<span class="lineNum">    2270 </span><span class="lineNoCov">          0 : uint8_t* cdns_query_signature::parse_map_item_old(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2270 </span><span class="lineCov">      18264 : uint8_t* cdns_query_signature::parse_map_item_old(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2271 </span>            : {
-<span class="lineNum">    2272 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2272 </span><span class="lineCov">      18264 :     switch (val) {</span>
 <span class="lineNum">    2273 </span>            :     case 0: /*  server_address_index */
-<span class="lineNum">    2274 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;server_address_index, 0, err);</span>
-<span class="lineNum">    2275 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2274 </span><span class="lineCov">       1216 :         in = cbor_parse_int(in, in_max, &amp;server_address_index, 0, err);</span>
+<span class="lineNum">    2275 </span><span class="lineCov">       1216 :         break;</span>
 <span class="lineNum">    2276 </span>            :     case 1: /*  server_port */
-<span class="lineNum">    2277 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;server_port, 0, err);</span>
-<span class="lineNum">    2278 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2277 </span><span class="lineCov">       1216 :         in = cbor_parse_int(in, in_max, &amp;server_port, 0, err);</span>
+<span class="lineNum">    2278 </span><span class="lineCov">       1216 :         break;</span>
 <span class="lineNum">    2279 </span>            :     case 2: /*  transport_flags */
-<span class="lineNum">    2280 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;qr_transport_flags, 0, err);</span>
-<span class="lineNum">    2281 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2280 </span><span class="lineCov">       1216 :         in = cbor_parse_int(in, in_max, &amp;qr_transport_flags, 0, err);</span>
+<span class="lineNum">    2281 </span><span class="lineCov">       1216 :         break;</span>
 <span class="lineNum">    2282 </span>            :     case 3: /*  qr_sig_flags */
-<span class="lineNum">    2283 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;qr_sig_flags, 0, err);</span>
-<span class="lineNum">    2284 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2283 </span><span class="lineCov">       1216 :         in = cbor_parse_int(in, in_max, &amp;qr_sig_flags, 0, err);</span>
+<span class="lineNum">    2284 </span><span class="lineCov">       1216 :         break;</span>
 <span class="lineNum">    2285 </span>            :     case 4: /*  query_opcode */
-<span class="lineNum">    2286 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_opcode, 0, err);</span>
-<span class="lineNum">    2287 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2286 </span><span class="lineCov">       1156 :         in = cbor_parse_int(in, in_max, &amp;query_opcode, 0, err);</span>
+<span class="lineNum">    2287 </span><span class="lineCov">       1156 :         break;</span>
 <span class="lineNum">    2288 </span>            :     case 5: /*  qr_dns_flags */
-<span class="lineNum">    2289 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;qr_dns_flags, 0, err);</span>
-<span class="lineNum">    2290 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2289 </span><span class="lineCov">       1216 :         in = cbor_parse_int(in, in_max, &amp;qr_dns_flags, 0, err);</span>
+<span class="lineNum">    2290 </span><span class="lineCov">       1216 :         break;</span>
 <span class="lineNum">    2291 </span>            :     case 6: /*  query_rcode */
-<span class="lineNum">    2292 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_rcode, 0, err);</span>
-<span class="lineNum">    2293 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2292 </span><span class="lineCov">       1156 :         in = cbor_parse_int(in, in_max, &amp;query_rcode, 0, err);</span>
+<span class="lineNum">    2293 </span><span class="lineCov">       1156 :         break;</span>
 <span class="lineNum">    2294 </span>            :     case 7: /*  query_classtype_index */
-<span class="lineNum">    2295 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_classtype_index, 0, err);</span>
-<span class="lineNum">    2296 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2295 </span><span class="lineCov">       1208 :         in = cbor_parse_int(in, in_max, &amp;query_classtype_index, 0, err);</span>
+<span class="lineNum">    2296 </span><span class="lineCov">       1208 :         break;</span>
 <span class="lineNum">    2297 </span>            :     case 8: /*  query_qd_count */
-<span class="lineNum">    2298 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_qd_count, 0, err);</span>
-<span class="lineNum">    2299 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2298 </span><span class="lineCov">       1216 :         in = cbor_parse_int(in, in_max, &amp;query_qd_count, 0, err);</span>
+<span class="lineNum">    2299 </span><span class="lineCov">       1216 :         break;</span>
 <span class="lineNum">    2300 </span>            :     case 9: /*  query_an_count */
-<span class="lineNum">    2301 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_an_count, 0, err);</span>
-<span class="lineNum">    2302 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2301 </span><span class="lineCov">       1156 :         in = cbor_parse_int(in, in_max, &amp;query_an_count, 0, err);</span>
+<span class="lineNum">    2302 </span><span class="lineCov">       1156 :         break;</span>
 <span class="lineNum">    2303 </span>            :     case 10: /*  query_ar_count */
-<span class="lineNum">    2304 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_ar_count, 0, err);</span>
-<span class="lineNum">    2305 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2304 </span><span class="lineCov">       1156 :         in = cbor_parse_int(in, in_max, &amp;query_ar_count, 0, err);</span>
+<span class="lineNum">    2305 </span><span class="lineCov">       1156 :         break;</span>
 <span class="lineNum">    2306 </span>            :     case 11: /*  query_ns_count */
-<span class="lineNum">    2307 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;query_ns_count, 0, err);</span>
-<span class="lineNum">    2308 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2307 </span><span class="lineCov">       1156 :         in = cbor_parse_int(in, in_max, &amp;query_ns_count, 0, err);</span>
+<span class="lineNum">    2308 </span><span class="lineCov">       1156 :         break;</span>
 <span class="lineNum">    2309 </span>            :     case 12: /*  edns_version */
-<span class="lineNum">    2310 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;edns_version, 0, err);</span>
-<span class="lineNum">    2311 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2310 </span><span class="lineCov">        948 :         in = cbor_parse_int(in, in_max, &amp;edns_version, 0, err);</span>
+<span class="lineNum">    2311 </span><span class="lineCov">        948 :         break;</span>
 <span class="lineNum">    2312 </span>            :     case 13: /*  udp_buf_size */
-<span class="lineNum">    2313 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;udp_buf_size, 0, err);</span>
-<span class="lineNum">    2314 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2313 </span><span class="lineCov">        948 :         in = cbor_parse_int(in, in_max, &amp;udp_buf_size, 0, err);</span>
+<span class="lineNum">    2314 </span><span class="lineCov">        948 :         break;</span>
 <span class="lineNum">    2315 </span>            :     case 14: /*  opt_rdata_index */
-<span class="lineNum">    2316 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;opt_rdata_index, 0, err);</span>
-<span class="lineNum">    2317 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2316 </span><span class="lineCov">        948 :         in = cbor_parse_int(in, in_max, &amp;opt_rdata_index, 0, err);</span>
+<span class="lineNum">    2317 </span><span class="lineCov">        948 :         break;</span>
 <span class="lineNum">    2318 </span>            :     case 15: /*  response_rcode */
-<span class="lineNum">    2319 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;response_rcode, 0, err);</span>
-<span class="lineNum">    2320 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2319 </span><span class="lineCov">       1136 :         in = cbor_parse_int(in, in_max, &amp;response_rcode, 0, err);</span>
+<span class="lineNum">    2320 </span><span class="lineCov">       1136 :         break;</span>
 <span class="lineNum">    2321 </span>            :     default:
 <span class="lineNum">    2322 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2323 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2324 </span>            :     }
-<span class="lineNum">    2325 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2325 </span><span class="lineCov">      18264 :     return in;</span>
 <span class="lineNum">    2326 </span>            : }
 <a name="2327"><span class="lineNum">    2327 </span>            : </a>
 <span class="lineNum">    2328 </span>            : 
@@ -2430,60 +2430,60 @@
 <span class="lineNum">    2368 </span><span class="lineNoCov">          0 :     return in;</span>
 <a name="2369"><span class="lineNum">    2369 </span>            : }</a>
 <span class="lineNum">    2370 </span>            : 
-<span class="lineNum">    2371 </span><span class="lineNoCov">          0 : cdns_rr_field::cdns_rr_field() :</span>
+<span class="lineNum">    2371 </span><span class="lineCov">      10972 : cdns_rr_field::cdns_rr_field() :</span>
 <span class="lineNum">    2372 </span>            :     name_index(-1),
 <span class="lineNum">    2373 </span>            :     classtype_index(-1),
 <span class="lineNum">    2374 </span>            :     ttl(0),
-<span class="lineNum">    2375 </span><span class="lineNoCov">          0 :     rdata_index(-1)</span>
+<span class="lineNum">    2375 </span><span class="lineCov">      10972 :     rdata_index(-1)</span>
 <span class="lineNum">    2376 </span>            : {
-<a name="2377"><span class="lineNum">    2377 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2377"><span class="lineNum">    2377 </span><span class="lineCov">      10972 : }</span></a>
 <span class="lineNum">    2378 </span>            : 
-<span class="lineNum">    2379 </span><span class="lineNoCov">          0 : cdns_rr_field::~cdns_rr_field()</span>
+<span class="lineNum">    2379 </span><span class="lineCov">      27352 : cdns_rr_field::~cdns_rr_field()</span>
 <span class="lineNum">    2380 </span>            : {
-<a name="2381"><span class="lineNum">    2381 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2381"><span class="lineNum">    2381 </span><span class="lineCov">      27352 : }</span></a>
 <span class="lineNum">    2382 </span>            : 
-<span class="lineNum">    2383 </span><span class="lineNoCov">          0 : uint8_t* cdns_rr_field::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
+<span class="lineNum">    2383 </span><span class="lineCov">      10972 : uint8_t* cdns_rr_field::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    2384 </span>            : {
-<span class="lineNum">    2385 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2385 </span><span class="lineCov">      10972 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="2386"><span class="lineNum">    2386 </span>            : }</a>
 <span class="lineNum">    2387 </span>            : 
-<span class="lineNum">    2388 </span><span class="lineNoCov">          0 : uint8_t* cdns_rr_field::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2388 </span><span class="lineCov">      43888 : uint8_t* cdns_rr_field::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2389 </span>            : {
-<span class="lineNum">    2390 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2390 </span><span class="lineCov">      43888 :     switch (val) {</span>
 <span class="lineNum">    2391 </span>            :     case 0: // name_index
-<span class="lineNum">    2392 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;name_index, 0, err);</span>
-<span class="lineNum">    2393 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2392 </span><span class="lineCov">      10972 :         in = cbor_parse_int(in, in_max, &amp;name_index, 0, err);</span>
+<span class="lineNum">    2393 </span><span class="lineCov">      10972 :         break;</span>
 <span class="lineNum">    2394 </span>            :     case 1: // classtype_index
-<span class="lineNum">    2395 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;classtype_index, 0, err);</span>
-<span class="lineNum">    2396 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2395 </span><span class="lineCov">      10972 :         in = cbor_parse_int(in, in_max, &amp;classtype_index, 0, err);</span>
+<span class="lineNum">    2396 </span><span class="lineCov">      10972 :         break;</span>
 <span class="lineNum">    2397 </span>            :     case 2: // ttl
-<span class="lineNum">    2398 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;ttl, 0, err);</span>
-<span class="lineNum">    2399 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2398 </span><span class="lineCov">      10972 :         in = cbor_parse_int(in, in_max, &amp;ttl, 0, err);</span>
+<span class="lineNum">    2399 </span><span class="lineCov">      10972 :         break;</span>
 <span class="lineNum">    2400 </span>            :     case 3: // rdata_index
-<span class="lineNum">    2401 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;rdata_index, 0, err);</span>
-<span class="lineNum">    2402 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2401 </span><span class="lineCov">      10972 :         in = cbor_parse_int(in, in_max, &amp;rdata_index, 0, err);</span>
+<span class="lineNum">    2402 </span><span class="lineCov">      10972 :         break;</span>
 <span class="lineNum">    2403 </span>            :     default:
 <span class="lineNum">    2404 </span>            :         /* TODO: something */
 <span class="lineNum">    2405 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2406 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2407 </span>            :     }
-<span class="lineNum">    2408 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2408 </span><span class="lineCov">      43888 :     return in;</span>
 <a name="2409"><span class="lineNum">    2409 </span>            : }</a>
 <span class="lineNum">    2410 </span>            : 
-<span class="lineNum">    2411 </span><span class="lineNoCov">          0 : cdns_rr_list::cdns_rr_list()</span>
+<span class="lineNum">    2411 </span><span class="lineCov">      10688 : cdns_rr_list::cdns_rr_list()</span>
 <span class="lineNum">    2412 </span>            : {
-<a name="2413"><span class="lineNum">    2413 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2413"><span class="lineNum">    2413 </span><span class="lineCov">      10688 : }</span></a>
 <span class="lineNum">    2414 </span>            : 
-<span class="lineNum">    2415 </span><span class="lineNoCov">          0 : cdns_rr_list::~cdns_rr_list()</span>
+<span class="lineNum">    2415 </span><span class="lineCov">      27068 : cdns_rr_list::~cdns_rr_list()</span>
 <span class="lineNum">    2416 </span>            : {
-<a name="2417"><span class="lineNum">    2417 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2417"><span class="lineNum">    2417 </span><span class="lineCov">      27068 : }</span></a>
 <span class="lineNum">    2418 </span>            : 
-<span class="lineNum">    2419 </span><span class="lineNoCov">          0 : uint8_t* cdns_rr_list::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
+<span class="lineNum">    2419 </span><span class="lineCov">      10688 : uint8_t* cdns_rr_list::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    2420 </span>            : {
-<span class="lineNum">    2421 </span><span class="lineNoCov">          0 :     return cbor_array_parse(in, in_max, &amp;rr_index, err);</span>
+<span class="lineNum">    2421 </span><span class="lineCov">      10688 :     return cbor_array_parse(in, in_max, &amp;rr_index, err);</span>
 <a name="2422"><span class="lineNum">    2422 </span>            : }</a>
 <span class="lineNum">    2423 </span>            : 
-<span class="lineNum">    2424 </span><span class="lineNoCov">          0 : cdns_block_statistics::cdns_block_statistics() :</span>
+<span class="lineNum">    2424 </span><span class="lineCov">          4 : cdns_block_statistics::cdns_block_statistics() :</span>
 <span class="lineNum">    2425 </span>            :     current_block(NULL),
 <span class="lineNum">    2426 </span>            :     processed_messages(0),
 <span class="lineNum">    2427 </span>            :     qr_data_items(0),
@@ -2491,46 +2491,46 @@
 <span class="lineNum">    2429 </span>            :     unmatched_responses(0),
 <span class="lineNum">    2430 </span>            :     discarded_opcode(0),
 <span class="lineNum">    2431 </span>            :     malformed_items(0),
-<span class="lineNum">    2432 </span><span class="lineNoCov">          0 :     is_filled(false)</span>
+<span class="lineNum">    2432 </span><span class="lineCov">          4 :     is_filled(false)</span>
 <span class="lineNum">    2433 </span>            : {
-<a name="2434"><span class="lineNum">    2434 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2434"><span class="lineNum">    2434 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2435 </span>            : 
-<span class="lineNum">    2436 </span><span class="lineNoCov">          0 : cdns_block_statistics::~cdns_block_statistics()</span>
+<span class="lineNum">    2436 </span><span class="lineCov">          4 : cdns_block_statistics::~cdns_block_statistics()</span>
 <span class="lineNum">    2437 </span>            : {
-<a name="2438"><span class="lineNum">    2438 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2438"><span class="lineNum">    2438 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2439 </span>            : 
-<span class="lineNum">    2440 </span><span class="lineNoCov">          0 : uint8_t* cdns_block_statistics::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
+<span class="lineNum">    2440 </span><span class="lineCov">          4 : uint8_t* cdns_block_statistics::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
 <span class="lineNum">    2441 </span>            : {
-<span class="lineNum">    2442 </span><span class="lineNoCov">          0 :     clear();</span>
-<span class="lineNum">    2443 </span><span class="lineNoCov">          0 :     is_filled = true;</span>
-<span class="lineNum">    2444 </span><span class="lineNoCov">          0 :     this-&gt;current_block = current_block;</span>
-<span class="lineNum">    2445 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2442 </span><span class="lineCov">          4 :     clear();</span>
+<span class="lineNum">    2443 </span><span class="lineCov">          4 :     is_filled = true;</span>
+<span class="lineNum">    2444 </span><span class="lineCov">          4 :     this-&gt;current_block = current_block;</span>
+<span class="lineNum">    2445 </span><span class="lineCov">          4 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="2446"><span class="lineNum">    2446 </span>            : }</a>
 <span class="lineNum">    2447 </span>            : 
-<span class="lineNum">    2448 </span><span class="lineNoCov">          0 : uint8_t* cdns_block_statistics::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2448 </span><span class="lineCov">         40 : uint8_t* cdns_block_statistics::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2449 </span>            : {
 <span class="lineNum">    2450 </span>            : 
-<span class="lineNum">    2451 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2451 </span><span class="lineCov">         40 :     switch (val) {</span>
 <span class="lineNum">    2452 </span>            :     case 0:
-<span class="lineNum">    2453 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;processed_messages, 0, err);</span>
-<span class="lineNum">    2454 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2453 </span><span class="lineCov">          4 :         in = cbor_parse_int(in, in_max, &amp;processed_messages, 0, err);</span>
+<span class="lineNum">    2454 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2455 </span>            :     case 1:
-<span class="lineNum">    2456 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;qr_data_items, 0, err);</span>
-<span class="lineNum">    2457 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2456 </span><span class="lineCov">          4 :         in = cbor_parse_int(in, in_max, &amp;qr_data_items, 0, err);</span>
+<span class="lineNum">    2457 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2458 </span>            :     case 2: // unmatched_queries,
-<span class="lineNum">    2459 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;unmatched_queries, 0, err);</span>
-<span class="lineNum">    2460 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2459 </span><span class="lineCov">          4 :         in = cbor_parse_int(in, in_max, &amp;unmatched_queries, 0, err);</span>
+<span class="lineNum">    2460 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2461 </span>            :     case 3: // unmatched_responses,
-<span class="lineNum">    2462 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;unmatched_responses, 0, err);</span>
-<span class="lineNum">    2463 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2462 </span><span class="lineCov">          4 :         in = cbor_parse_int(in, in_max, &amp;unmatched_responses, 0, err);</span>
+<span class="lineNum">    2463 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2464 </span>            :     case 4: // discarded opcode (v1.0) or malformed_packets (v0.5)
-<span class="lineNum">    2465 </span><span class="lineNoCov">          0 :         if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
-<span class="lineNum">    2466 </span><span class="lineNoCov">          0 :             in = cbor_parse_int(in, in_max, &amp;malformed_items, 0, err);</span>
+<span class="lineNum">    2465 </span><span class="lineCov">          4 :         if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
+<span class="lineNum">    2466 </span><span class="lineCov">          4 :             in = cbor_parse_int(in, in_max, &amp;malformed_items, 0, err);</span>
 <span class="lineNum">    2467 </span>            :         }
 <span class="lineNum">    2468 </span>            :         else {
 <span class="lineNum">    2469 </span><span class="lineNoCov">          0 :             in = cbor_parse_int(in, in_max, &amp;discarded_opcode, 0, err);</span>
 <span class="lineNum">    2470 </span>            :         }
-<span class="lineNum">    2471 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2471 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2472 </span>            :     case 5: // partially_malformed_packets,
 <span class="lineNum">    2473 </span><span class="lineNoCov">          0 :         if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
 <span class="lineNum">    2474 </span><span class="lineNoCov">          0 :             in = cbor_parse_int(in, in_max, &amp;malformed_items, 0, err);</span>
@@ -2540,15 +2540,15 @@
 <span class="lineNum">    2478 </span>            :         }
 <span class="lineNum">    2479 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2480 </span>            :     default:
-<span class="lineNum">    2481 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">    2481 </span><span class="lineCov">         20 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2482 </span>            :     }
 <span class="lineNum">    2483 </span>            : 
-<span class="lineNum">    2484 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2484 </span><span class="lineCov">         40 :     return in;</span>
 <a name="2485"><span class="lineNum">    2485 </span>            : }</a>
 <span class="lineNum">    2486 </span>            : 
-<span class="lineNum">    2487 </span><span class="lineNoCov">          0 : void cdns_block_statistics::clear()</span>
+<span class="lineNum">    2487 </span><span class="lineCov">          4 : void cdns_block_statistics::clear()</span>
 <span class="lineNum">    2488 </span>            : {
-<span class="lineNum">    2489 </span><span class="lineNoCov">          0 :     if (is_filled) {</span>
+<span class="lineNum">    2489 </span><span class="lineCov">          4 :     if (is_filled) {</span>
 <span class="lineNum">    2490 </span><span class="lineNoCov">          0 :         current_block = NULL;</span>
 <span class="lineNum">    2491 </span><span class="lineNoCov">          0 :         processed_messages = 0;</span>
 <span class="lineNum">    2492 </span><span class="lineNoCov">          0 :         qr_data_items = 0;</span>
@@ -2558,44 +2558,44 @@
 <span class="lineNum">    2496 </span><span class="lineNoCov">          0 :         malformed_items = 0;</span>
 <span class="lineNum">    2497 </span><span class="lineNoCov">          0 :         is_filled = 0;</span>
 <span class="lineNum">    2498 </span>            :     }
-<a name="2499"><span class="lineNum">    2499 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2499"><span class="lineNum">    2499 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2500 </span>            : 
-<span class="lineNum">    2501 </span><span class="lineNoCov">          0 : cdns_block_preamble_old::cdns_block_preamble_old() :</span>
+<span class="lineNum">    2501 </span><span class="lineCov">          4 : cdns_block_preamble_old::cdns_block_preamble_old() :</span>
 <span class="lineNum">    2502 </span>            :     earliest_time_sec(0),
 <span class="lineNum">    2503 </span>            :     earliest_time_usec(0),
-<span class="lineNum">    2504 </span><span class="lineNoCov">          0 :     is_filled(false)</span>
+<span class="lineNum">    2504 </span><span class="lineCov">          4 :     is_filled(false)</span>
 <span class="lineNum">    2505 </span>            : {
-<a name="2506"><span class="lineNum">    2506 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2506"><span class="lineNum">    2506 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2507 </span>            : 
-<span class="lineNum">    2508 </span><span class="lineNoCov">          0 : cdns_block_preamble_old::~cdns_block_preamble_old()</span>
+<span class="lineNum">    2508 </span><span class="lineCov">          4 : cdns_block_preamble_old::~cdns_block_preamble_old()</span>
 <span class="lineNum">    2509 </span>            : {
-<span class="lineNum">    2510 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">    2510 </span><span class="lineCov">          4 : }</span>
 <a name="2511"><span class="lineNum">    2511 </span>            : </a>
 <span class="lineNum">    2512 </span>            : /* TODO: change this to define the new and old formats. */
-<span class="lineNum">    2513 </span><span class="lineNoCov">          0 : uint8_t* cdns_block_preamble_old::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
+<span class="lineNum">    2513 </span><span class="lineCov">          4 : uint8_t* cdns_block_preamble_old::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    2514 </span>            : {
-<span class="lineNum">    2515 </span><span class="lineNoCov">          0 :     in = cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2515 </span><span class="lineCov">          4 :     in = cbor_map_parse(in, in_max, this, err);</span>
 <span class="lineNum">    2516 </span>            : 
-<span class="lineNum">    2517 </span><span class="lineNoCov">          0 :     if (!is_filled) {</span>
+<span class="lineNum">    2517 </span><span class="lineCov">          4 :     if (!is_filled) {</span>
 <span class="lineNum">    2518 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
 <span class="lineNum">    2519 </span><span class="lineNoCov">          0 :         in = NULL;</span>
 <span class="lineNum">    2520 </span>            :     }
-<span class="lineNum">    2521 </span><span class="lineNoCov">          0 :     return(in);</span>
+<span class="lineNum">    2521 </span><span class="lineCov">          4 :     return(in);</span>
 <a name="2522"><span class="lineNum">    2522 </span>            : }</a>
 <span class="lineNum">    2523 </span>            : 
-<span class="lineNum">    2524 </span><span class="lineNoCov">          0 : uint8_t* cdns_block_preamble_old::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2524 </span><span class="lineCov">          4 : uint8_t* cdns_block_preamble_old::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2525 </span>            : {
-<span class="lineNum">    2526 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2526 </span><span class="lineCov">          4 :     switch (val) {</span>
 <span class="lineNum">    2527 </span>            :     case 1: // total_packets
 <span class="lineNum">    2528 </span>            :     {
-<span class="lineNum">    2529 </span><span class="lineNoCov">          0 :         std::vector&lt;int&gt; t;</span>
-<span class="lineNum">    2530 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;t, err);</span>
+<span class="lineNum">    2529 </span><span class="lineCov">          8 :         std::vector&lt;int&gt; t;</span>
+<span class="lineNum">    2530 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;t, err);</span>
 <span class="lineNum">    2531 </span>            : 
-<span class="lineNum">    2532 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">    2533 </span><span class="lineNoCov">          0 :             if (t.size() == 2) {</span>
-<span class="lineNum">    2534 </span><span class="lineNoCov">          0 :                 earliest_time_sec = t[0];</span>
-<span class="lineNum">    2535 </span><span class="lineNoCov">          0 :                 earliest_time_usec = t[1];</span>
-<span class="lineNum">    2536 </span><span class="lineNoCov">          0 :                 is_filled = true;</span>
+<span class="lineNum">    2532 </span><span class="lineCov">          4 :         if (in != NULL) {</span>
+<span class="lineNum">    2533 </span><span class="lineCov">          4 :             if (t.size() == 2) {</span>
+<span class="lineNum">    2534 </span><span class="lineCov">          4 :                 earliest_time_sec = t[0];</span>
+<span class="lineNum">    2535 </span><span class="lineCov">          4 :                 earliest_time_usec = t[1];</span>
+<span class="lineNum">    2536 </span><span class="lineCov">          4 :                 is_filled = true;</span>
 <span class="lineNum">    2537 </span>            :             }
 <span class="lineNum">    2538 </span>            :             else {
 <span class="lineNum">    2539 </span><span class="lineNoCov">          0 :                 *err = CBOR_MALFORMED_VALUE;</span>
@@ -2603,46 +2603,46 @@
 <span class="lineNum">    2541 </span>            :             }
 <span class="lineNum">    2542 </span>            :         }
 <span class="lineNum">    2543 </span>            : 
-<span class="lineNum">    2544 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2544 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2545 </span>            :     }
 <span class="lineNum">    2546 </span>            :     default:
 <span class="lineNum">    2547 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2548 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2549 </span>            :     }
 <span class="lineNum">    2550 </span>            : 
-<span class="lineNum">    2551 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2551 </span><span class="lineCov">          4 :     return in;</span>
 <span class="lineNum">    2552 </span>            : }
 <a name="2553"><span class="lineNum">    2553 </span>            : </a>
 <span class="lineNum">    2554 </span>            : 
-<span class="lineNum">    2555 </span><span class="lineNoCov">          0 : cdns_block_preamble::cdns_block_preamble():</span>
+<span class="lineNum">    2555 </span><span class="lineCov">          4 : cdns_block_preamble::cdns_block_preamble():</span>
 <span class="lineNum">    2556 </span>            :     current_block(NULL),
 <span class="lineNum">    2557 </span>            :     earliest_time_sec(0), 
 <span class="lineNum">    2558 </span>            :     earliest_time_usec(0),
 <span class="lineNum">    2559 </span>            :     block_parameter_index(0),
-<span class="lineNum">    2560 </span><span class="lineNoCov">          0 :     is_filled(false)</span>
+<span class="lineNum">    2560 </span><span class="lineCov">          4 :     is_filled(false)</span>
 <span class="lineNum">    2561 </span>            : {
-<a name="2562"><span class="lineNum">    2562 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2562"><span class="lineNum">    2562 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2563 </span>            : 
-<span class="lineNum">    2564 </span><span class="lineNoCov">          0 : cdns_block_preamble::~cdns_block_preamble()</span>
+<span class="lineNum">    2564 </span><span class="lineCov">          4 : cdns_block_preamble::~cdns_block_preamble()</span>
 <span class="lineNum">    2565 </span>            : {
-<span class="lineNum">    2566 </span><span class="lineNoCov">          0 : }</span>
+<span class="lineNum">    2566 </span><span class="lineCov">          4 : }</span>
 <a name="2567"><span class="lineNum">    2567 </span>            : </a>
 <span class="lineNum">    2568 </span>            : 
-<span class="lineNum">    2569 </span><span class="lineNoCov">          0 : uint8_t* cdns_block_preamble::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock * current_block)</span>
+<span class="lineNum">    2569 </span><span class="lineCov">          4 : uint8_t* cdns_block_preamble::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock * current_block)</span>
 <span class="lineNum">    2570 </span>            : {
-<span class="lineNum">    2571 </span><span class="lineNoCov">          0 :     clear();</span>
-<span class="lineNum">    2572 </span><span class="lineNoCov">          0 :     this-&gt;current_block = current_block;</span>
+<span class="lineNum">    2571 </span><span class="lineCov">          4 :     clear();</span>
+<span class="lineNum">    2572 </span><span class="lineCov">          4 :     this-&gt;current_block = current_block;</span>
 <span class="lineNum">    2573 </span>            : 
-<span class="lineNum">    2574 </span><span class="lineNoCov">          0 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
+<span class="lineNum">    2574 </span><span class="lineCov">          4 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
 <span class="lineNum">    2575 </span>            :         /* TODO: put the parsing of the time stamp inline, instead of creating an intermediate object */
-<span class="lineNum">    2576 </span><span class="lineNoCov">          0 :         cdns_block_preamble_old old_preamble;</span>
+<span class="lineNum">    2576 </span><span class="lineCov">          8 :         cdns_block_preamble_old old_preamble;</span>
 <span class="lineNum">    2577 </span>            : 
-<span class="lineNum">    2578 </span><span class="lineNoCov">          0 :         in = old_preamble.parse(in, in_max, err);</span>
+<span class="lineNum">    2578 </span><span class="lineCov">          4 :         in = old_preamble.parse(in, in_max, err);</span>
 <span class="lineNum">    2579 </span>            : 
-<span class="lineNum">    2580 </span><span class="lineNoCov">          0 :         if (in != NULL) {</span>
-<span class="lineNum">    2581 </span><span class="lineNoCov">          0 :             earliest_time_sec = old_preamble.earliest_time_sec;</span>
-<span class="lineNum">    2582 </span><span class="lineNoCov">          0 :             earliest_time_usec = old_preamble.earliest_time_usec;</span>
-<span class="lineNum">    2583 </span><span class="lineNoCov">          0 :             is_filled = true;</span>
+<span class="lineNum">    2580 </span><span class="lineCov">          4 :         if (in != NULL) {</span>
+<span class="lineNum">    2581 </span><span class="lineCov">          4 :             earliest_time_sec = old_preamble.earliest_time_sec;</span>
+<span class="lineNum">    2582 </span><span class="lineCov">          4 :             earliest_time_usec = old_preamble.earliest_time_usec;</span>
+<span class="lineNum">    2583 </span><span class="lineCov">          4 :             is_filled = true;</span>
 <span class="lineNum">    2584 </span>            :         }
 <span class="lineNum">    2585 </span>            :     }
 <span class="lineNum">    2586 </span>            :     else {
@@ -2650,11 +2650,11 @@
 <span class="lineNum">    2588 </span><span class="lineNoCov">          0 :         earliest_time_usec = current_block-&gt;current_cdns-&gt;ticks_to_microseconds(earliest_time_usec, block_parameter_index);</span>
 <span class="lineNum">    2589 </span>            :     }
 <span class="lineNum">    2590 </span>            : 
-<span class="lineNum">    2591 </span><span class="lineNoCov">          0 :     if (!is_filled) {</span>
+<span class="lineNum">    2591 </span><span class="lineCov">          4 :     if (!is_filled) {</span>
 <span class="lineNum">    2592 </span><span class="lineNoCov">          0 :         *err = CBOR_MALFORMED_VALUE;</span>
 <span class="lineNum">    2593 </span><span class="lineNoCov">          0 :         in = NULL;</span>
 <span class="lineNum">    2594 </span>            :     }
-<span class="lineNum">    2595 </span><span class="lineNoCov">          0 :     return(in);</span>
+<span class="lineNum">    2595 </span><span class="lineCov">          4 :     return(in);</span>
 <a name="2596"><span class="lineNum">    2596 </span>            : }</a>
 <span class="lineNum">    2597 </span>            : 
 <span class="lineNum">    2598 </span><span class="lineNoCov">          0 : uint8_t* cdns_block_preamble::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
@@ -2694,38 +2694,38 @@
 <span class="lineNum">    2632 </span><span class="lineNoCov">          0 :     return in;</span>
 <a name="2633"><span class="lineNum">    2633 </span>            : }</a>
 <span class="lineNum">    2634 </span>            : 
-<span class="lineNum">    2635 </span><span class="lineNoCov">          0 : void cdns_block_preamble::clear()</span>
+<span class="lineNum">    2635 </span><span class="lineCov">          4 : void cdns_block_preamble::clear()</span>
 <span class="lineNum">    2636 </span>            : {
-<span class="lineNum">    2637 </span><span class="lineNoCov">          0 :     current_block = NULL;</span>
-<span class="lineNum">    2638 </span><span class="lineNoCov">          0 :     earliest_time_sec = 0;</span>
-<span class="lineNum">    2639 </span><span class="lineNoCov">          0 :     earliest_time_usec = 0;</span>
-<span class="lineNum">    2640 </span><span class="lineNoCov">          0 :     is_filled = false;</span>
-<a name="2641"><span class="lineNum">    2641 </span><span class="lineNoCov">          0 : }</span></a>
+<span class="lineNum">    2637 </span><span class="lineCov">          4 :     current_block = NULL;</span>
+<span class="lineNum">    2638 </span><span class="lineCov">          4 :     earliest_time_sec = 0;</span>
+<span class="lineNum">    2639 </span><span class="lineCov">          4 :     earliest_time_usec = 0;</span>
+<span class="lineNum">    2640 </span><span class="lineCov">          4 :     is_filled = false;</span>
+<a name="2641"><span class="lineNum">    2641 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2642 </span>            : 
-<span class="lineNum">    2643 </span><span class="lineNoCov">          0 : cdns_address_event_count::cdns_address_event_count():</span>
+<span class="lineNum">    2643 </span><span class="lineCov">         76 : cdns_address_event_count::cdns_address_event_count():</span>
 <span class="lineNum">    2644 </span>            :     current_block(NULL),
 <span class="lineNum">    2645 </span>            :     ae_type(0),
 <span class="lineNum">    2646 </span>            :     ae_code(0),
 <span class="lineNum">    2647 </span>            :     ae_transport_flags(0),
 <span class="lineNum">    2648 </span>            :     ae_address_index(0),
-<span class="lineNum">    2649 </span><span class="lineNoCov">          0 :     ae_count(0)</span>
+<span class="lineNum">    2649 </span><span class="lineCov">         76 :     ae_count(0)</span>
 <span class="lineNum">    2650 </span>            : {
-<a name="2651"><span class="lineNum">    2651 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2651"><span class="lineNum">    2651 </span><span class="lineCov">         76 : }</span></a>
 <span class="lineNum">    2652 </span>            : 
-<span class="lineNum">    2653 </span><span class="lineNoCov">          0 : cdns_address_event_count::~cdns_address_event_count()</span>
+<span class="lineNum">    2653 </span><span class="lineCov">        200 : cdns_address_event_count::~cdns_address_event_count()</span>
 <span class="lineNum">    2654 </span>            : {
-<a name="2655"><span class="lineNum">    2655 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2655"><span class="lineNum">    2655 </span><span class="lineCov">        200 : }</span></a>
 <span class="lineNum">    2656 </span>            : 
-<span class="lineNum">    2657 </span><span class="lineNoCov">          0 : uint8_t* cdns_address_event_count::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
+<span class="lineNum">    2657 </span><span class="lineCov">         76 : uint8_t* cdns_address_event_count::parse(uint8_t* in, uint8_t const* in_max, int* err, cdnsBlock* current_block)</span>
 <span class="lineNum">    2658 </span>            : {
-<span class="lineNum">    2659 </span><span class="lineNoCov">          0 :     this-&gt;current_block = current_block;</span>
-<span class="lineNum">    2660 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2659 </span><span class="lineCov">         76 :     this-&gt;current_block = current_block;</span>
+<span class="lineNum">    2660 </span><span class="lineCov">         76 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="2661"><span class="lineNum">    2661 </span>            : }</a>
 <span class="lineNum">    2662 </span>            : 
-<span class="lineNum">    2663 </span><span class="lineNoCov">          0 : uint8_t* cdns_address_event_count::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2663 </span><span class="lineCov">        304 : uint8_t* cdns_address_event_count::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2664 </span>            : {
-<span class="lineNum">    2665 </span><span class="lineNoCov">          0 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
-<span class="lineNum">    2666 </span><span class="lineNoCov">          0 :         in = parse_map_item_old(in, in_max, val, err);</span>
+<span class="lineNum">    2665 </span><span class="lineCov">        304 :     if (current_block-&gt;current_cdns-&gt;is_old_version()) {</span>
+<span class="lineNum">    2666 </span><span class="lineCov">        304 :         in = parse_map_item_old(in, in_max, val, err);</span>
 <span class="lineNum">    2667 </span>            :     }
 <span class="lineNum">    2668 </span>            :     else {
 <span class="lineNum">    2669 </span><span class="lineNoCov">          0 :         switch (val) {</span>
@@ -2748,29 +2748,29 @@
 <span class="lineNum">    2686 </span><span class="lineNoCov">          0 :             in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2687 </span>            :         }
 <span class="lineNum">    2688 </span>            :     }
-<span class="lineNum">    2689 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2689 </span><span class="lineCov">        304 :     return in;</span>
 <a name="2690"><span class="lineNum">    2690 </span>            : }</a>
 <span class="lineNum">    2691 </span>            : 
-<span class="lineNum">    2692 </span><span class="lineNoCov">          0 : uint8_t* cdns_address_event_count::parse_map_item_old(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2692 </span><span class="lineCov">        304 : uint8_t* cdns_address_event_count::parse_map_item_old(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2693 </span>            : {
-<span class="lineNum">    2694 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2694 </span><span class="lineCov">        304 :     switch (val) {</span>
 <span class="lineNum">    2695 </span>            :     case 0: // ae_type
-<span class="lineNum">    2696 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;ae_type, 1, err);</span>
-<span class="lineNum">    2697 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2696 </span><span class="lineCov">         76 :         in = cbor_parse_int(in, in_max, &amp;ae_type, 1, err);</span>
+<span class="lineNum">    2697 </span><span class="lineCov">         76 :         break;</span>
 <span class="lineNum">    2698 </span>            :     case 1: // ae_code,
-<span class="lineNum">    2699 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;ae_code, 1, err);</span>
-<span class="lineNum">    2700 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2699 </span><span class="lineCov">         76 :         in = cbor_parse_int(in, in_max, &amp;ae_code, 1, err);</span>
+<span class="lineNum">    2700 </span><span class="lineCov">         76 :         break;</span>
 <span class="lineNum">    2701 </span>            :     case 2: // ae_address_index,
-<span class="lineNum">    2702 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;ae_address_index, 1, err);</span>
-<span class="lineNum">    2703 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2702 </span><span class="lineCov">         76 :         in = cbor_parse_int(in, in_max, &amp;ae_address_index, 1, err);</span>
+<span class="lineNum">    2703 </span><span class="lineCov">         76 :         break;</span>
 <span class="lineNum">    2704 </span>            :     case 3: // ae_count
-<span class="lineNum">    2705 </span><span class="lineNoCov">          0 :         in = cbor_parse_int(in, in_max, &amp;ae_count, 1, err);</span>
-<span class="lineNum">    2706 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2705 </span><span class="lineCov">         76 :         in = cbor_parse_int(in, in_max, &amp;ae_count, 1, err);</span>
+<span class="lineNum">    2706 </span><span class="lineCov">         76 :         break;</span>
 <span class="lineNum">    2707 </span>            :     default:
 <span class="lineNum">    2708 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2709 </span>            :     }
 <span class="lineNum">    2710 </span>            : 
-<span class="lineNum">    2711 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2711 </span><span class="lineCov">        304 :     return in;</span>
 <span class="lineNum">    2712 </span>            : }
 <a name="2713"><span class="lineNum">    2713 </span>            : </a>
 <span class="lineNum">    2714 </span>            : 
@@ -2827,59 +2827,59 @@
 <span class="lineNum">    2765 </span>            : {
 <a name="2766"><span class="lineNum">    2766 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    2767 </span>            : 
-<span class="lineNum">    2768 </span><span class="lineNoCov">          0 : cdnsPreamble::cdnsPreamble()</span>
+<span class="lineNum">    2768 </span><span class="lineCov">          4 : cdnsPreamble::cdnsPreamble()</span>
 <span class="lineNum">    2769 </span>            : {
-<a name="2770"><span class="lineNum">    2770 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2770"><span class="lineNum">    2770 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2771 </span>            : 
-<span class="lineNum">    2772 </span><span class="lineNoCov">          0 : cdnsPreamble::~cdnsPreamble()</span>
+<span class="lineNum">    2772 </span><span class="lineCov">          4 : cdnsPreamble::~cdnsPreamble()</span>
 <span class="lineNum">    2773 </span>            : {
-<a name="2774"><span class="lineNum">    2774 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2774"><span class="lineNum">    2774 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2775 </span>            : 
-<span class="lineNum">    2776 </span><span class="lineNoCov">          0 : uint8_t* cdnsPreamble::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
+<span class="lineNum">    2776 </span><span class="lineCov">          4 : uint8_t* cdnsPreamble::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    2777 </span>            : {
-<span class="lineNum">    2778 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2778 </span><span class="lineCov">          4 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="2779"><span class="lineNum">    2779 </span>            : }</a>
 <span class="lineNum">    2780 </span>            : 
-<span class="lineNum">    2781 </span><span class="lineNoCov">          0 : uint8_t* cdnsPreamble::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2781 </span><span class="lineCov">         20 : uint8_t* cdnsPreamble::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2782 </span>            : {
-<span class="lineNum">    2783 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2783 </span><span class="lineCov">         20 :     switch (val) {</span>
 <span class="lineNum">    2784 </span>            :     case 0: /* Version Major */
-<span class="lineNum">    2785 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;cdns_version_major, 0, err);</span>
-<span class="lineNum">    2786 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2785 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;cdns_version_major, 0, err);</span>
+<span class="lineNum">    2786 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2787 </span>            :     case 1: /* Version Minor */
-<span class="lineNum">    2788 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;cdns_version_minor, 0, err);</span>
-<span class="lineNum">    2789 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2788 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;cdns_version_minor, 0, err);</span>
+<span class="lineNum">    2789 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2790 </span>            :     case 2: /* Version Private */
 <span class="lineNum">    2791 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;cdns_version_private, 0, err);</span>
 <span class="lineNum">    2792 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2793 </span>            :     case 3: /* Block Parameters */
-<span class="lineNum">    2794 </span><span class="lineNoCov">          0 :         if (this-&gt;cdns_version_major &gt; 0) {</span>
+<span class="lineNum">    2794 </span><span class="lineCov">          4 :         if (this-&gt;cdns_version_major &gt; 0) {</span>
 <span class="lineNum">    2795 </span><span class="lineNoCov">          0 :             in = cbor_array_parse(in, in_max, &amp;block_parameters, err);</span>
 <span class="lineNum">    2796 </span>            :         }
 <span class="lineNum">    2797 </span>            :         else {
-<span class="lineNum">    2798 </span><span class="lineNoCov">          0 :             in = old_block_parameters.parse(in, in_max, err);</span>
+<span class="lineNum">    2798 </span><span class="lineCov">          4 :             in = old_block_parameters.parse(in, in_max, err);</span>
 <span class="lineNum">    2799 </span>            :         }
-<span class="lineNum">    2800 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2800 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2801 </span>            :     case 4: /* generator-id  -- only present in draft version, part of
 <span class="lineNum">    2802 </span>            :              * block parameter collection data otherwise. */
-<span class="lineNum">    2803 </span><span class="lineNoCov">          0 :         in = generator_id.parse(in, in_max, err);</span>
-<span class="lineNum">    2804 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2803 </span><span class="lineCov">          4 :         in = generator_id.parse(in, in_max, err);</span>
+<span class="lineNum">    2804 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2805 </span>            :     case 5: /* host-id   -- only present in draft version, part of
 <span class="lineNum">    2806 </span>            :              * block parameter collection data otherwise. */
-<span class="lineNum">    2807 </span><span class="lineNoCov">          0 :         in = host_id.parse(in, in_max, err);</span>
-<span class="lineNum">    2808 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2807 </span><span class="lineCov">          4 :         in = host_id.parse(in, in_max, err);</span>
+<span class="lineNum">    2808 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2809 </span>            :     default:
 <span class="lineNum">    2810 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
 <span class="lineNum">    2811 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    2812 </span>            :     }
 <span class="lineNum">    2813 </span>            : 
-<span class="lineNum">    2814 </span><span class="lineNoCov">          0 :     if (in == NULL) {</span>
+<span class="lineNum">    2814 </span><span class="lineCov">         20 :     if (in == NULL) {</span>
 <span class="lineNum">    2815 </span><span class="lineNoCov">          0 :         char const* e[] = { &quot;v_major&quot;, &quot;v_minor&quot;, &quot;v_private&quot;, &quot;block_param&quot;, &quot;generator_id&quot;, &quot;host_id&quot; };</span>
 <span class="lineNum">    2816 </span><span class="lineNoCov">          0 :         int nb_e = (int)sizeof(e) / sizeof(char const*);</span>
 <span class="lineNum">    2817 </span>            : 
 <span class="lineNum">    2818 </span><span class="lineNoCov">          0 :         fprintf(stderr, &quot;Cannot parse block element %d (%s), err=%d\n&quot;, (int)val, (val &gt;= 0 &amp;&amp; val &lt; nb_e) ? e[val] : &quot;unknown&quot;, *err);</span>
 <span class="lineNum">    2819 </span>            :     }
-<span class="lineNum">    2820 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    2820 </span><span class="lineCov">         20 :     return in;</span>
 <a name="2821"><span class="lineNum">    2821 </span>            : }</a>
 <span class="lineNum">    2822 </span>            : 
 <span class="lineNum">    2823 </span><span class="lineNoCov">          0 : void cdnsPreamble::clear()</span>
@@ -3022,7 +3022,7 @@
 <span class="lineNum">    2960 </span>            : {
 <a name="2961"><span class="lineNum">    2961 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    2962 </span>            : 
-<span class="lineNum">    2963 </span><span class="lineNoCov">          0 : cdnsBlockParameterOld::cdnsBlockParameterOld():</span>
+<span class="lineNum">    2963 </span><span class="lineCov">          4 : cdnsBlockParameterOld::cdnsBlockParameterOld():</span>
 <span class="lineNum">    2964 </span>            :     query_timeout(0),
 <span class="lineNum">    2965 </span>            :     skew_timeout(0),
 <span class="lineNum">    2966 </span>            :     snaplen(0),
@@ -3030,72 +3030,72 @@
 <span class="lineNum">    2968 </span>            :     query_options(0),
 <span class="lineNum">    2969 </span>            :     response_options(0),
 <span class="lineNum">    2970 </span>            :     max_block_qr_items(0),
-<span class="lineNum">    2971 </span><span class="lineNoCov">          0 :     collect_malformed(0)</span>
+<span class="lineNum">    2971 </span><span class="lineCov">          4 :     collect_malformed(0)</span>
 <span class="lineNum">    2972 </span>            : {
-<a name="2973"><span class="lineNum">    2973 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2973"><span class="lineNum">    2973 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2974 </span>            : 
-<span class="lineNum">    2975 </span><span class="lineNoCov">          0 : cdnsBlockParameterOld::~cdnsBlockParameterOld()</span>
+<span class="lineNum">    2975 </span><span class="lineCov">          4 : cdnsBlockParameterOld::~cdnsBlockParameterOld()</span>
 <span class="lineNum">    2976 </span>            : {
-<a name="2977"><span class="lineNum">    2977 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="2977"><span class="lineNum">    2977 </span><span class="lineCov">          4 : }</span></a>
 <span class="lineNum">    2978 </span>            : 
-<span class="lineNum">    2979 </span><span class="lineNoCov">          0 : uint8_t* cdnsBlockParameterOld::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
+<span class="lineNum">    2979 </span><span class="lineCov">          4 : uint8_t* cdnsBlockParameterOld::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    2980 </span>            : {
-<span class="lineNum">    2981 </span><span class="lineNoCov">          0 :     return cbor_map_parse(in, in_max, this, err);</span>
+<span class="lineNum">    2981 </span><span class="lineCov">          4 :     return cbor_map_parse(in, in_max, this, err);</span>
 <a name="2982"><span class="lineNum">    2982 </span>            : }</a>
 <span class="lineNum">    2983 </span>            : 
-<span class="lineNum">    2984 </span><span class="lineNoCov">          0 : uint8_t* cdnsBlockParameterOld::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
+<span class="lineNum">    2984 </span><span class="lineCov">         52 : uint8_t* cdnsBlockParameterOld::parse_map_item(uint8_t* in, uint8_t const* in_max, int64_t val, int* err)</span>
 <span class="lineNum">    2985 </span>            : {
-<span class="lineNum">    2986 </span><span class="lineNoCov">          0 :     switch (val) {</span>
+<span class="lineNum">    2986 </span><span class="lineCov">         52 :     switch (val) {</span>
 <span class="lineNum">    2987 </span>            :     case 0: 
-<span class="lineNum">    2988 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;query_timeout, 0, err);</span>
-<span class="lineNum">    2989 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2988 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;query_timeout, 0, err);</span>
+<span class="lineNum">    2989 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2990 </span>            :     case 1:
-<span class="lineNum">    2991 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;skew_timeout, 0, err);</span>
-<span class="lineNum">    2992 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2991 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;skew_timeout, 0, err);</span>
+<span class="lineNum">    2992 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2993 </span>            :     case 2: 
-<span class="lineNum">    2994 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;snaplen, 0, err);</span>
-<span class="lineNum">    2995 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2994 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;snaplen, 0, err);</span>
+<span class="lineNum">    2995 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2996 </span>            :     case 3:
-<span class="lineNum">    2997 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;promisc, 0, err);</span>
-<span class="lineNum">    2998 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    2997 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;promisc, 0, err);</span>
+<span class="lineNum">    2998 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    2999 </span>            :     case 4:
-<span class="lineNum">    3000 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;interfaces, err);</span>
-<span class="lineNum">    3001 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3000 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;interfaces, err);</span>
+<span class="lineNum">    3001 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3002 </span>            :     case 5:
-<span class="lineNum">    3003 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;server_addresses, err);</span>
-<span class="lineNum">    3004 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3003 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;server_addresses, err);</span>
+<span class="lineNum">    3004 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3005 </span>            :     /*case 6:
 <span class="lineNum">    3006 </span>            :         in = cbor_array_parse(in, in_max, &amp;vlan_id, err);
 <span class="lineNum">    3007 </span>            :         break; */
 <span class="lineNum">    3008 </span>            :     case 6:
-<span class="lineNum">    3009 </span><span class="lineNoCov">          0 :         in = filter.parse(in, in_max, err);</span>
-<span class="lineNum">    3010 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3009 </span><span class="lineCov">          4 :         in = filter.parse(in, in_max, err);</span>
+<span class="lineNum">    3010 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3011 </span>            :     case 7:
-<span class="lineNum">    3012 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;query_options, 0, err);</span>
-<span class="lineNum">    3013 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3012 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;query_options, 0, err);</span>
+<span class="lineNum">    3013 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3014 </span>            :     case 8:
-<span class="lineNum">    3015 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;response_options, 0, err);</span>
-<span class="lineNum">    3016 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3015 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;response_options, 0, err);</span>
+<span class="lineNum">    3016 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3017 </span>            :     case 9:
-<span class="lineNum">    3018 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;accept_rr_types, err);</span>
-<span class="lineNum">    3019 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3018 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;accept_rr_types, err);</span>
+<span class="lineNum">    3019 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3020 </span>            :     case 10:
-<span class="lineNum">    3021 </span><span class="lineNoCov">          0 :         in = cbor_array_parse(in, in_max, &amp;ignore_rr_types, err);</span>
-<span class="lineNum">    3022 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3021 </span><span class="lineCov">          4 :         in = cbor_array_parse(in, in_max, &amp;ignore_rr_types, err);</span>
+<span class="lineNum">    3022 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3023 </span>            :     case 12:
-<span class="lineNum">    3024 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;max_block_qr_items, 0, err);</span>
-<span class="lineNum">    3025 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3024 </span><span class="lineCov">          4 :         in = cbor_parse_int64(in, in_max, &amp;max_block_qr_items, 0, err);</span>
+<span class="lineNum">    3025 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3026 </span>            :     case 13:
 <span class="lineNum">    3027 </span><span class="lineNoCov">          0 :         in = cbor_parse_int64(in, in_max, &amp;collect_malformed, 0, err);</span>
 <span class="lineNum">    3028 </span><span class="lineNoCov">          0 :         break;</span>
 <span class="lineNum">    3029 </span>            :     default:
-<span class="lineNum">    3030 </span><span class="lineNoCov">          0 :         in = cbor_skip(in, in_max, err);</span>
-<span class="lineNum">    3031 </span><span class="lineNoCov">          0 :         break;</span>
+<span class="lineNum">    3030 </span><span class="lineCov">          4 :         in = cbor_skip(in, in_max, err);</span>
+<span class="lineNum">    3031 </span><span class="lineCov">          4 :         break;</span>
 <span class="lineNum">    3032 </span>            :     }
-<span class="lineNum">    3033 </span><span class="lineNoCov">          0 :     if (in == NULL) {</span>
+<span class="lineNum">    3033 </span><span class="lineCov">         52 :     if (in == NULL) {</span>
 <span class="lineNum">    3034 </span><span class="lineNoCov">          0 :         fprintf(stderr, &quot;Cannot parse cdnsBlockParameterOld %d, err=%d\n&quot;, (int)val, *err);</span>
 <span class="lineNum">    3035 </span>            :     }
-<span class="lineNum">    3036 </span><span class="lineNoCov">          0 :     return in;</span>
+<span class="lineNum">    3036 </span><span class="lineCov">         52 :     return in;</span>
 <a name="3037"><span class="lineNum">    3037 </span>            : }</a>
 <span class="lineNum">    3038 </span>            : 
 <span class="lineNum">    3039 </span><span class="lineNoCov">          0 : void cdnsBlockParameterOld::clear()</span>
@@ -3148,16 +3148,16 @@
 <span class="lineNum">    3086 </span>            : {
 <a name="3087"><span class="lineNum">    3087 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">    3088 </span>            : 
-<span class="lineNum">    3089 </span><span class="lineNoCov">          0 : cdns_response_processing_data::cdns_response_processing_data():</span>
+<span class="lineNum">    3089 </span><span class="lineCov">      19780 : cdns_response_processing_data::cdns_response_processing_data():</span>
 <span class="lineNum">    3090 </span>            :     is_present(false),
 <span class="lineNum">    3091 </span>            :     bailiwick_index(0),
-<span class="lineNum">    3092 </span><span class="lineNoCov">          0 :     processing_flags(0)</span>
+<span class="lineNum">    3092 </span><span class="lineCov">      19780 :     processing_flags(0)</span>
 <span class="lineNum">    3093 </span>            : {
-<a name="3094"><span class="lineNum">    3094 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="3094"><span class="lineNum">    3094 </span><span class="lineCov">      19780 : }</span></a>
 <span class="lineNum">    3095 </span>            : 
-<span class="lineNum">    3096 </span><span class="lineNoCov">          0 : cdns_response_processing_data::~cdns_response_processing_data()</span>
+<span class="lineNum">    3096 </span><span class="lineCov">      52544 : cdns_response_processing_data::~cdns_response_processing_data()</span>
 <span class="lineNum">    3097 </span>            : {
-<a name="3098"><span class="lineNum">    3098 </span><span class="lineNoCov">          0 : }</span></a>
+<a name="3098"><span class="lineNum">    3098 </span><span class="lineCov">      52544 : }</span></a>
 <span class="lineNum">    3099 </span>            : 
 <span class="lineNum">    3100 </span><span class="lineNoCov">          0 : uint8_t* cdns_response_processing_data::parse(uint8_t* in, uint8_t const* in_max, int* err)</span>
 <span class="lineNum">    3101 </span>            : {
