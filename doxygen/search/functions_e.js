@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['parse',['parse',['../classcbor__map__test.html#a17c5cef2af90ba7b075671af75c39580',1,'cbor_map_test']]],
   ['parse_5ffile_5fname',['parse_file_name',['../class_m2_data.html#a4a5682aef386983703bc5a92ad0aec89',1,'M2Data']]],
-  ['parse_5fmap_5fitem',['parse_map_item',['../classcbor__map__test.html#a3980e6bfd2b9977a7882ec4546ca6fb9',1,'cbor_map_test']]],
   ['parsefilename',['ParseFileName',['../class_m1_data.html#ad5c1b73bfeafa6ebf1908da38aef5972',1,'M1Data::ParseFileName()'],['../classithipublisher.html#a0c7004140e2f29b433a247cb322e00ab',1,'ithipublisher::ParseFileName()']]],
   ['parsemetricfilename',['ParseMetricFileName',['../classithimetrics.html#a18ceae9cc0bc4dc15538d0a5fe7e3736',1,'ithimetrics']]],
   ['parserecord',['ParseRecord',['../class_m7_getter.html#a0b02c8b7992e5eff9571725da9325c71',1,'M7Getter']]],

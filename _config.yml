@@ -44,6 +44,17 @@ include:
   - _cbor_test_8h__incl.map
   - _cbor_test_8h__incl.md5
   - _cbor_test_8h__incl.png
+  - _cdns_capture_test_8cpp.html
+  - _cdns_capture_test_8cpp__incl.map
+  - _cdns_capture_test_8cpp__incl.md5
+  - _cdns_capture_test_8cpp__incl.png
+  - _cdns_capture_test_8h__dep__incl.map
+  - _cdns_capture_test_8h__dep__incl.md5
+  - _cdns_capture_test_8h__dep__incl.png
+  - _cdns_capture_test_8h.html
+  - _cdns_capture_test_8h__incl.map
+  - _cdns_capture_test_8h__incl.md5
+  - _cdns_capture_test_8h__incl.png
   - _cdns_test_8cpp.html
   - _cdns_test_8cpp__incl.map
   - _cdns_test_8cpp__incl.md5

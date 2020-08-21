@@ -1,10 +1,6 @@
 var searchData=
 [
   ['savetest',['SaveTest',['../class_save_test.html',1,'']]],
-  ['st_5fcbor_5fbytes_5ftest_5fdesc_5ft',['st_cbor_bytes_test_desc_t',['../structst__cbor__bytes__test__desc__t.html',1,'']]],
-  ['st_5fcbor_5fint_5ftest_5fdesc_5ft',['st_cbor_int_test_desc_t',['../structst__cbor__int__test__desc__t.html',1,'']]],
-  ['st_5fcbor_5fmap_5ftest_5fdesc_5ft',['st_cbor_map_test_desc_t',['../structst__cbor__map__test__desc__t.html',1,'']]],
-  ['st_5fcbor_5ftest_5fdesc_5ft',['st_cbor_test_desc_t',['../structst__cbor__test__desc__t.html',1,'']]],
   ['st_5fcsvtest_5fdouble_5ft',['st_CsvTest_double_t',['../structst___csv_test__double__t.html',1,'']]],
   ['st_5fcsvtest_5fint_5ft',['st_CsvTest_int_t',['../structst___csv_test__int__t.html',1,'']]],
   ['st_5fcsvtest_5fstring_5ft',['st_CsvTest_string_t',['../structst___csv_test__string__t.html',1,'']]],
