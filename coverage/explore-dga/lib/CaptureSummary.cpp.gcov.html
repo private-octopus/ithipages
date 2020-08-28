@@ -31,13 +31,13 @@
             <td class="headerValue">ithi.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">291</td>
+            <td class="headerCovTableEntry">292</td>
             <td class="headerCovTableEntry">353</td>
-            <td class="headerCovTableEntryMed">82.4 %</td>
+            <td class="headerCovTableEntryMed">82.7 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-08-28 00:27:42</td>
+            <td class="headerValue">2020-08-28 00:29:55</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -91,63 +91,63 @@
 <span class="lineNum">      29 </span>            : #include &quot;ithiutil.h&quot;
 <a name="30"><span class="lineNum">      30 </span>            : #include &quot;CaptureSummary.h&quot;</a>
 <span class="lineNum">      31 </span>            : 
-<span class="lineNum">      32 </span><span class="lineCov">       1106 : CaptureSummary::CaptureSummary()</span>
+<span class="lineNum">      32 </span><span class="lineCov">       1130 : CaptureSummary::CaptureSummary()</span>
 <span class="lineNum">      33 </span>            :     :
-<span class="lineNum">      34 </span><span class="lineCov">       1106 :     capture_version(ITHITOOLS_VERSION)</span>
+<span class="lineNum">      34 </span><span class="lineCov">       1130 :     capture_version(ITHITOOLS_VERSION)</span>
 <span class="lineNum">      35 </span>            : {
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">       1106 : }</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">       1130 : }</span></a>
 <span class="lineNum">      37 </span>            : 
-<span class="lineNum">      38 </span><span class="lineCov">       2212 : CaptureSummary::~CaptureSummary()</span>
+<span class="lineNum">      38 </span><span class="lineCov">       2260 : CaptureSummary::~CaptureSummary()</span>
 <span class="lineNum">      39 </span>            : {
-<span class="lineNum">      40 </span><span class="lineCov">     271158 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
+<span class="lineNum">      40 </span><span class="lineCov">     275854 :     for (size_t i = 0; i &lt; summary.size(); i++)</span>
 <span class="lineNum">      41 </span>            :     {
-<span class="lineNum">      42 </span><span class="lineCov">     270052 :         if (summary[i] != NULL)</span>
+<span class="lineNum">      42 </span><span class="lineCov">     274724 :         if (summary[i] != NULL)</span>
 <span class="lineNum">      43 </span>            :         {
-<span class="lineNum">      44 </span><span class="lineCov">     270052 :             delete summary[i];</span>
-<span class="lineNum">      45 </span><span class="lineCov">     270052 :             summary[i] = NULL;</span>
+<span class="lineNum">      44 </span><span class="lineCov">     274724 :             delete summary[i];</span>
+<span class="lineNum">      45 </span><span class="lineCov">     274724 :             summary[i] = NULL;</span>
 <span class="lineNum">      46 </span>            :         }
 <span class="lineNum">      47 </span>            :     }
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">       1106 : }</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">       1130 : }</span></a>
 <span class="lineNum">      49 </span>            : 
-<span class="lineNum">      50 </span><span class="lineCov">       1066 : bool CaptureSummary::Load(char const * file_name)</span>
+<span class="lineNum">      50 </span><span class="lineCov">       1070 : bool CaptureSummary::Load(char const * file_name)</span>
 <span class="lineNum">      51 </span>            : {
 <span class="lineNum">      52 </span>            :     CaptureLine line;
 <span class="lineNum">      53 </span>            :     char buffer[512];
-<span class="lineNum">      54 </span><span class="lineCov">       1066 :     FILE * F = ithi_file_open(file_name, &quot;r&quot;);</span>
-<span class="lineNum">      55 </span><span class="lineCov">       1066 :     bool ret = (F != NULL);</span>
+<span class="lineNum">      54 </span><span class="lineCov">       1070 :     FILE * F = ithi_file_open(file_name, &quot;r&quot;);</span>
+<span class="lineNum">      55 </span><span class="lineCov">       1070 :     bool ret = (F != NULL);</span>
 <span class="lineNum">      56 </span>            : 
-<span class="lineNum">      57 </span><span class="lineCov">     522034 :     while ( ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
+<span class="lineNum">      57 </span><span class="lineCov">     526718 :     while ( ret &amp;&amp; fgets(buffer, sizeof(buffer), F))</span>
 <span class="lineNum">      58 </span>            :     {
-<span class="lineNum">      59 </span><span class="lineCov">     260484 :         int start = 0;</span>
-<span class="lineNum">      60 </span><span class="lineCov">     260484 :         start = CsvHelper::read_string(line.registry_name, sizeof(line.registry_name), start, buffer, sizeof(buffer));</span>
-<span class="lineNum">      61 </span><span class="lineCov">     260484 :         start = CsvHelper::read_number(&amp;line.key_type, start, buffer, sizeof(buffer));</span>
-<span class="lineNum">      62 </span><span class="lineCov">     260484 :         if (line.key_type == 0)</span>
+<span class="lineNum">      59 </span><span class="lineCov">     262824 :         int start = 0;</span>
+<span class="lineNum">      60 </span><span class="lineCov">     262824 :         start = CsvHelper::read_string(line.registry_name, sizeof(line.registry_name), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      61 </span><span class="lineCov">     262824 :         start = CsvHelper::read_number(&amp;line.key_type, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      62 </span><span class="lineCov">     262824 :         if (line.key_type == 0)</span>
 <span class="lineNum">      63 </span>            :         {
-<span class="lineNum">      64 </span><span class="lineCov">     112962 :             start = CsvHelper::read_number(&amp;line.key_number, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      64 </span><span class="lineCov">     113394 :             start = CsvHelper::read_number(&amp;line.key_number, start, buffer, sizeof(buffer));</span>
 <span class="lineNum">      65 </span>            :         }
 <span class="lineNum">      66 </span>            :         else
 <span class="lineNum">      67 </span>            :         {
-<span class="lineNum">      68 </span><span class="lineCov">     147522 :             start = CsvHelper::read_string(line.key_value, sizeof(line.key_value), start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      68 </span><span class="lineCov">     149430 :             start = CsvHelper::read_string(line.key_value, sizeof(line.key_value), start, buffer, sizeof(buffer));</span>
 <span class="lineNum">      69 </span>            :         }
-<span class="lineNum">      70 </span><span class="lineCov">     260484 :         (void)CsvHelper::read_number64(&amp;line.count, start, buffer, sizeof(buffer));</span>
+<span class="lineNum">      70 </span><span class="lineCov">     262824 :         (void)CsvHelper::read_number64(&amp;line.count, start, buffer, sizeof(buffer));</span>
 <span class="lineNum">      71 </span>            : 
 <span class="lineNum">      72 </span>            : 
 <span class="lineNum">      73 </span>            :         /* TODO: check that the parsing is good */
 <span class="lineNum">      74 </span>            : 
 <span class="lineNum">      75 </span>            :         /* Notice the version number */
-<span class="lineNum">      76 </span><span class="lineCov">     260484 :         if (strcmp(line.registry_name, DnsStats::GetTableName(REGISTRY_ITHITOOLS_VERSION)) == 0) {</span>
-<span class="lineNum">      77 </span><span class="lineCov">         24 :             capture_version = (int) line.count;</span>
+<span class="lineNum">      76 </span><span class="lineCov">     262824 :         if (strcmp(line.registry_name, DnsStats::GetTableName(REGISTRY_ITHITOOLS_VERSION)) == 0) {</span>
+<span class="lineNum">      77 </span><span class="lineCov">         28 :             capture_version = (int) line.count;</span>
 <span class="lineNum">      78 </span>            :         } else {
 <span class="lineNum">      79 </span>            :             /* allocate data and add to vector */
-<span class="lineNum">      80 </span><span class="lineCov">     260460 :             ret = AddLine(&amp;line, true);</span>
+<span class="lineNum">      80 </span><span class="lineCov">     262796 :             ret = AddLine(&amp;line, true);</span>
 <span class="lineNum">      81 </span>            :         }
 <span class="lineNum">      82 </span>            :     }
 <span class="lineNum">      83 </span>            : 
-<span class="lineNum">      84 </span><span class="lineCov">       1066 :     if (F != NULL)</span>
+<span class="lineNum">      84 </span><span class="lineCov">       1070 :     if (F != NULL)</span>
 <span class="lineNum">      85 </span>            :     {
-<span class="lineNum">      86 </span><span class="lineCov">       1064 :         fclose(F);</span>
+<span class="lineNum">      86 </span><span class="lineCov">       1068 :         fclose(F);</span>
 <span class="lineNum">      87 </span>            :     }
-<span class="lineNum">      88 </span><span class="lineCov">       1066 :     return ret;</span>
+<span class="lineNum">      88 </span><span class="lineCov">       1070 :     return ret;</span>
 <a name="89"><span class="lineNum">      89 </span>            : }</a>
 <span class="lineNum">      90 </span>            : 
 <span class="lineNum">      91 </span><span class="lineCov">          6 : bool CaptureSummary::Save(char const * file_name)</span>
@@ -210,22 +210,22 @@
 <span class="lineNum">     148 </span><span class="lineNoCov">          0 :     return ret;</span>
 <a name="149"><span class="lineNum">     149 </span>            : }</a>
 <span class="lineNum">     150 </span>            : 
-<span class="lineNum">     151 </span><span class="lineCov">     270052 : bool CaptureSummary::AddLine(CaptureLine * line, bool need_allocation)</span>
+<span class="lineNum">     151 </span><span class="lineCov">     274724 : bool CaptureSummary::AddLine(CaptureLine * line, bool need_allocation)</span>
 <span class="lineNum">     152 </span>            : {
-<span class="lineNum">     153 </span><span class="lineCov">     270052 :     bool ret = true;</span>
+<span class="lineNum">     153 </span><span class="lineCov">     274724 :     bool ret = true;</span>
 <span class="lineNum">     154 </span>            :     CaptureLine * new_line;
 <span class="lineNum">     155 </span>            : 
-<span class="lineNum">     156 </span><span class="lineCov">     270052 :     if (need_allocation)</span>
+<span class="lineNum">     156 </span><span class="lineCov">     274724 :     if (need_allocation)</span>
 <span class="lineNum">     157 </span>            :     {
-<span class="lineNum">     158 </span><span class="lineCov">     270052 :         new_line = new CaptureLine;</span>
+<span class="lineNum">     158 </span><span class="lineCov">     274724 :         new_line = new CaptureLine;</span>
 <span class="lineNum">     159 </span>            : 
-<span class="lineNum">     160 </span><span class="lineCov">     270052 :         if (new_line == NULL)</span>
+<span class="lineNum">     160 </span><span class="lineCov">     274724 :         if (new_line == NULL)</span>
 <span class="lineNum">     161 </span>            :         {
 <span class="lineNum">     162 </span><span class="lineNoCov">          0 :             ret = false;</span>
 <span class="lineNum">     163 </span>            :         }
 <span class="lineNum">     164 </span>            :         else
 <span class="lineNum">     165 </span>            :         {
-<span class="lineNum">     166 </span><span class="lineCov">     270052 :             memcpy(new_line, line, sizeof(CaptureLine));</span>
+<span class="lineNum">     166 </span><span class="lineCov">     274724 :             memcpy(new_line, line, sizeof(CaptureLine));</span>
 <span class="lineNum">     167 </span>            :         }
 <span class="lineNum">     168 </span>            :     }
 <span class="lineNum">     169 </span>            :     else
@@ -233,52 +233,52 @@
 <span class="lineNum">     171 </span><span class="lineNoCov">          0 :         new_line = line;</span>
 <span class="lineNum">     172 </span>            :     }
 <span class="lineNum">     173 </span>            : 
-<span class="lineNum">     174 </span><span class="lineCov">     270052 :     if (ret)</span>
+<span class="lineNum">     174 </span><span class="lineCov">     274724 :     if (ret)</span>
 <span class="lineNum">     175 </span>            :     {
-<span class="lineNum">     176 </span><span class="lineCov">     270052 :         summary.push_back(new_line);</span>
+<span class="lineNum">     176 </span><span class="lineCov">     274724 :         summary.push_back(new_line);</span>
 <span class="lineNum">     177 </span>            :     }
 <span class="lineNum">     178 </span>            : 
-<span class="lineNum">     179 </span><span class="lineCov">     270052 :     return ret;</span>
+<span class="lineNum">     179 </span><span class="lineCov">     274724 :     return ret;</span>
 <a name="180"><span class="lineNum">     180 </span>            : }</a>
 <span class="lineNum">     181 </span>            : 
-<span class="lineNum">     182 </span><span class="lineCov">         24 : void CaptureSummary::Reserve(size_t target_size)</span>
+<span class="lineNum">     182 </span><span class="lineCov">         30 : void CaptureSummary::Reserve(size_t target_size)</span>
 <span class="lineNum">     183 </span>            : {
-<span class="lineNum">     184 </span><span class="lineCov">         24 :     summary.reserve(target_size);</span>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         24 : }</span></a>
+<span class="lineNum">     184 </span><span class="lineCov">         30 :     summary.reserve(target_size);</span>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">         30 : }</span></a>
 <span class="lineNum">     186 </span>            : 
-<span class="lineNum">     187 </span><span class="lineCov">    4267736 : bool CaptureSummary::CaptureLineIsLower(CaptureLine * x, CaptureLine * y)</span>
+<span class="lineNum">     187 </span><span class="lineCov">    4337016 : bool CaptureSummary::CaptureLineIsLower(CaptureLine * x, CaptureLine * y)</span>
 <span class="lineNum">     188 </span>            : {
-<span class="lineNum">     189 </span><span class="lineCov">    4267736 :     bool ret = false;</span>
+<span class="lineNum">     189 </span><span class="lineCov">    4337016 :     bool ret = false;</span>
 <span class="lineNum">     190 </span>            :     int cmp;
 <span class="lineNum">     191 </span>            : 
-<span class="lineNum">     192 </span><span class="lineCov">    4267736 :     cmp = CaptureSummary::compare_string(x-&gt;registry_name, y-&gt;registry_name);</span>
+<span class="lineNum">     192 </span><span class="lineCov">    4337016 :     cmp = CaptureSummary::compare_string(x-&gt;registry_name, y-&gt;registry_name);</span>
 <span class="lineNum">     193 </span>            : 
-<span class="lineNum">     194 </span><span class="lineCov">    4267736 :     if (cmp &gt; 0)</span>
+<span class="lineNum">     194 </span><span class="lineCov">    4337016 :     if (cmp &gt; 0)</span>
 <span class="lineNum">     195 </span>            :     {
-<span class="lineNum">     196 </span><span class="lineCov">     848912 :         ret = true;</span>
+<span class="lineNum">     196 </span><span class="lineCov">     868512 :         ret = true;</span>
 <span class="lineNum">     197 </span>            :     }
-<span class="lineNum">     198 </span><span class="lineCov">    3418824 :     else if (cmp == 0)</span>
+<span class="lineNum">     198 </span><span class="lineCov">    3468504 :     else if (cmp == 0)</span>
 <span class="lineNum">     199 </span>            :     {
-<span class="lineNum">     200 </span><span class="lineCov">    3202218 :         if (x-&gt;key_type &lt; y-&gt;key_type)</span>
+<span class="lineNum">     200 </span><span class="lineCov">    3248242 :         if (x-&gt;key_type &lt; y-&gt;key_type)</span>
 <span class="lineNum">     201 </span>            :         {
 <span class="lineNum">     202 </span><span class="lineNoCov">          0 :             ret = true;</span>
 <span class="lineNum">     203 </span>            :         }
-<span class="lineNum">     204 </span><span class="lineCov">    3202218 :         else if (x-&gt;key_type == y-&gt;key_type)</span>
+<span class="lineNum">     204 </span><span class="lineCov">    3248242 :         else if (x-&gt;key_type == y-&gt;key_type)</span>
 <span class="lineNum">     205 </span>            :         {
-<span class="lineNum">     206 </span><span class="lineCov">    3202218 :             if (x-&gt;key_type == 0)</span>
+<span class="lineNum">     206 </span><span class="lineCov">    3248242 :             if (x-&gt;key_type == 0)</span>
 <span class="lineNum">     207 </span>            :             {
-<span class="lineNum">     208 </span><span class="lineCov">    1152462 :                 ret = (x-&gt;key_number &lt; y-&gt;key_number);</span>
+<span class="lineNum">     208 </span><span class="lineCov">    1155382 :                 ret = (x-&gt;key_number &lt; y-&gt;key_number);</span>
 <span class="lineNum">     209 </span>            :             }
 <span class="lineNum">     210 </span>            :             else
 <span class="lineNum">     211 </span>            :             {
-<span class="lineNum">     212 </span><span class="lineCov">    2049756 :                 cmp = compare_string(x-&gt;key_value, y-&gt;key_value);</span>
+<span class="lineNum">     212 </span><span class="lineCov">    2092860 :                 cmp = compare_string(x-&gt;key_value, y-&gt;key_value);</span>
 <span class="lineNum">     213 </span>            : 
-<span class="lineNum">     214 </span><span class="lineCov">    2049756 :                 ret = cmp &gt; 0;</span>
+<span class="lineNum">     214 </span><span class="lineCov">    2092860 :                 ret = cmp &gt; 0;</span>
 <span class="lineNum">     215 </span>            :             }
 <span class="lineNum">     216 </span>            :         }
 <span class="lineNum">     217 </span>            :     }
 <span class="lineNum">     218 </span>            : 
-<span class="lineNum">     219 </span><span class="lineCov">    4267736 :     return ret;</span>
+<span class="lineNum">     219 </span><span class="lineCov">    4337016 :     return ret;</span>
 <a name="220"><span class="lineNum">     220 </span>            : }</a>
 <span class="lineNum">     221 </span>            : 
 <span class="lineNum">     222 </span><span class="lineCov">      13034 : bool CaptureSummary::CaptureLineIsLargerCount(CaptureLine * x, CaptureLine * y)</span>
@@ -326,14 +326,14 @@
 <span class="lineNum">     264 </span>            : }
 <a name="265"><span class="lineNum">     265 </span>            : </a>
 <span class="lineNum">     266 </span>            : 
-<span class="lineNum">     267 </span><span class="lineCov">         44 : void CaptureSummary::Sort()</span>
+<span class="lineNum">     267 </span><span class="lineCov">         58 : void CaptureSummary::Sort()</span>
 <span class="lineNum">     268 </span>            : {
-<span class="lineNum">     269 </span><span class="lineCov">         44 :     std::sort(summary.begin(), summary.end(), CaptureLineIsLower);</span>
-<a name="270"><span class="lineNum">     270 </span><span class="lineCov">         44 : }</span></a>
+<span class="lineNum">     269 </span><span class="lineCov">         58 :     std::sort(summary.begin(), summary.end(), CaptureLineIsLower);</span>
+<a name="270"><span class="lineNum">     270 </span><span class="lineCov">         58 : }</span></a>
 <span class="lineNum">     271 </span>            : 
-<span class="lineNum">     272 </span><span class="lineCov">     250712 : size_t CaptureSummary::Size()</span>
+<span class="lineNum">     272 </span><span class="lineCov">     250732 : size_t CaptureSummary::Size()</span>
 <span class="lineNum">     273 </span>            : {
-<span class="lineNum">     274 </span><span class="lineCov">     250712 :     return summary.size();</span>
+<span class="lineNum">     274 </span><span class="lineCov">     250732 :     return summary.size();</span>
 <a name="275"><span class="lineNum">     275 </span>            : }</a>
 <span class="lineNum">     276 </span>            : 
 <span class="lineNum">     277 </span><span class="lineCov">         32 : uint64_t CaptureSummary::GetCountByNumber(char const * table_name, uint32_t number)</span>
@@ -365,22 +365,22 @@
 <span class="lineNum">     303 </span>            :     }
 <a name="304"><span class="lineNum">     304 </span><span class="lineCov">         68 : }</span></a>
 <span class="lineNum">     305 </span>            : 
-<span class="lineNum">     306 </span><span class="lineCov">          2 : bool CaptureSummary::Merge(char const * list_file_name)</span>
+<span class="lineNum">     306 </span><span class="lineCov">          4 : bool CaptureSummary::Merge(char const * list_file_name)</span>
 <span class="lineNum">     307 </span>            : {
-<span class="lineNum">     308 </span><span class="lineCov">          2 :     size_t nb_alloc = 0;</span>
-<span class="lineNum">     309 </span><span class="lineCov">          2 :     char ** file_list = NULL;</span>
-<span class="lineNum">     310 </span><span class="lineCov">          2 :     size_t nb_files = 0;</span>
+<span class="lineNum">     308 </span><span class="lineCov">          4 :     size_t nb_alloc = 0;</span>
+<span class="lineNum">     309 </span><span class="lineCov">          4 :     char ** file_list = NULL;</span>
+<span class="lineNum">     310 </span><span class="lineCov">          4 :     size_t nb_files = 0;</span>
 <span class="lineNum">     311 </span>            :     FILE* F;
 <span class="lineNum">     312 </span>            :     char buffer[512];
-<span class="lineNum">     313 </span><span class="lineCov">          2 :     const size_t batch_size = 128;</span>
+<span class="lineNum">     313 </span><span class="lineCov">          4 :     const size_t batch_size = 128;</span>
 <span class="lineNum">     314 </span>            : 
 <span class="lineNum">     315 </span>            :     /* Open the list file */
 <span class="lineNum">     316 </span>            :     bool ret;
-<span class="lineNum">     317 </span><span class="lineCov">          2 :     F = ithi_file_open(list_file_name, &quot;r&quot;);</span>
-<span class="lineNum">     318 </span><span class="lineCov">          2 :     ret = (F != NULL);</span>
+<span class="lineNum">     317 </span><span class="lineCov">          4 :     F = ithi_file_open(list_file_name, &quot;r&quot;);</span>
+<span class="lineNum">     318 </span><span class="lineCov">          4 :     ret = (F != NULL);</span>
 <span class="lineNum">     319 </span>            : 
 <span class="lineNum">     320 </span>            :     /* Read each file name and add it to the list */
-<span class="lineNum">     321 </span><span class="lineCov">       2058 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F) != NULL) {</span>
+<span class="lineNum">     321 </span><span class="lineCov">       2060 :     while (ret &amp;&amp; fgets(buffer, sizeof(buffer), F) != NULL) {</span>
 <span class="lineNum">     322 </span>            :         /* Clean up the end of the buffer */
 <span class="lineNum">     323 </span><span class="lineCov">       1028 :         size_t len = strlen(buffer);</span>
 <span class="lineNum">     324 </span>            : 
@@ -439,10 +439,10 @@
 <span class="lineNum">     377 </span>            : 
 <span class="lineNum">     378 </span>            : 
 <span class="lineNum">     379 </span>            :     /* Merge the list */
-<span class="lineNum">     380 </span><span class="lineCov">          2 :     if (ret)</span>
+<span class="lineNum">     380 </span><span class="lineCov">          4 :     if (ret)</span>
 <span class="lineNum">     381 </span>            :     {
 <span class="lineNum">     382 </span>            :         /* Create intermediate merge files if there are more than 100 summaries */
-<span class="lineNum">     383 </span><span class="lineCov">          2 :         if (nb_files &gt; batch_size) {</span>
+<span class="lineNum">     383 </span><span class="lineCov">          4 :         if (nb_files &gt; batch_size) {</span>
 <span class="lineNum">     384 </span><span class="lineCov">          2 :             size_t nb_compiled = 0;</span>
 <span class="lineNum">     385 </span><span class="lineCov">          2 :             size_t nb_intermediate_summaries = (nb_files + batch_size - 1) / batch_size;</span>
 <span class="lineNum">     386 </span><span class="lineCov">          2 :             size_t nb_created = 0;</span>
@@ -486,12 +486,12 @@
 <span class="lineNum">     424 </span>            :             }
 <span class="lineNum">     425 </span>            :         }
 <span class="lineNum">     426 </span>            :         else {
-<span class="lineNum">     427 </span><span class="lineNoCov">          0 :             ret = Merge(nb_files, (char const**)file_list);</span>
+<span class="lineNum">     427 </span><span class="lineCov">          2 :             ret = Merge(nb_files, (char const**)file_list);</span>
 <span class="lineNum">     428 </span>            :         }
 <span class="lineNum">     429 </span>            :     }
 <span class="lineNum">     430 </span>            : 
 <span class="lineNum">     431 </span>            :     /* Clean up */
-<span class="lineNum">     432 </span><span class="lineCov">          2 :     if (file_list != NULL)</span>
+<span class="lineNum">     432 </span><span class="lineCov">          4 :     if (file_list != NULL)</span>
 <span class="lineNum">     433 </span>            :     {
 <span class="lineNum">     434 </span><span class="lineCov">       1030 :         for (size_t i = 0; i &lt; nb_files; i++)</span>
 <span class="lineNum">     435 </span>            :         {
@@ -502,92 +502,92 @@
 <span class="lineNum">     440 </span><span class="lineCov">          2 :         delete[] file_list;</span>
 <span class="lineNum">     441 </span>            :     }
 <span class="lineNum">     442 </span>            : 
-<span class="lineNum">     443 </span><span class="lineCov">          2 :     if (F != NULL)</span>
+<span class="lineNum">     443 </span><span class="lineCov">          4 :     if (F != NULL)</span>
 <span class="lineNum">     444 </span>            :     {
-<span class="lineNum">     445 </span><span class="lineCov">          2 :         fclose(F);</span>
+<span class="lineNum">     445 </span><span class="lineCov">          4 :         fclose(F);</span>
 <span class="lineNum">     446 </span>            :     }
 <span class="lineNum">     447 </span>            : 
-<span class="lineNum">     448 </span><span class="lineCov">          2 :     return ret;</span>
+<span class="lineNum">     448 </span><span class="lineCov">          4 :     return ret;</span>
 <a name="449"><span class="lineNum">     449 </span>            : }</a>
 <span class="lineNum">     450 </span>            : 
-<span class="lineNum">     451 </span><span class="lineCov">         12 : bool CaptureSummary::Merge(size_t nb_files, char const ** file_name)</span>
+<span class="lineNum">     451 </span><span class="lineCov">         14 : bool CaptureSummary::Merge(size_t nb_files, char const ** file_name)</span>
 <span class="lineNum">     452 </span>            : {
-<span class="lineNum">     453 </span><span class="lineCov">         12 :     CaptureSummary ** list = new  CaptureSummary*[nb_files];</span>
-<span class="lineNum">     454 </span><span class="lineCov">         12 :     CaptureSummary * baselist = new  CaptureSummary[nb_files];</span>
+<span class="lineNum">     453 </span><span class="lineCov">         14 :     CaptureSummary ** list = new  CaptureSummary*[nb_files + 1];</span>
+<span class="lineNum">     454 </span><span class="lineCov">         14 :     CaptureSummary * baselist = new  CaptureSummary[nb_files + 1];</span>
 <span class="lineNum">     455 </span>            : 
-<span class="lineNum">     456 </span><span class="lineCov">         12 :     bool ret = list != NULL &amp;&amp; baselist != NULL;</span>
+<span class="lineNum">     456 </span><span class="lineCov">         14 :     bool ret = list != NULL &amp;&amp; baselist != NULL;</span>
 <span class="lineNum">     457 </span>            : 
-<span class="lineNum">     458 </span><span class="lineCov">         12 :     if (ret)</span>
+<span class="lineNum">     458 </span><span class="lineCov">         14 :     if (ret)</span>
 <span class="lineNum">     459 </span>            :     {
-<span class="lineNum">     460 </span><span class="lineCov">       1044 :         for (size_t i = 0; ret &amp;&amp; i &lt; nb_files; i++)</span>
+<span class="lineNum">     460 </span><span class="lineCov">       1046 :         for (size_t i = 0; ret &amp;&amp; i &lt; nb_files; i++)</span>
 <span class="lineNum">     461 </span>            :         {
 <span class="lineNum">     462 </span><span class="lineCov">       1032 :             list[i] = &amp;baselist[i];</span>
 <span class="lineNum">     463 </span>            :         }
 <span class="lineNum">     464 </span>            :     }
 <span class="lineNum">     465 </span>            : 
-<span class="lineNum">     466 </span><span class="lineCov">       1044 :     for (size_t i=0; ret &amp;&amp; i &lt; nb_files; i++)</span>
+<span class="lineNum">     466 </span><span class="lineCov">       1046 :     for (size_t i=0; ret &amp;&amp; i &lt; nb_files; i++)</span>
 <span class="lineNum">     467 </span>            :     {
 <span class="lineNum">     468 </span><span class="lineCov">       1032 :         ret = list[i]-&gt;Load(file_name[i]);</span>
 <span class="lineNum">     469 </span>            :     }
 <span class="lineNum">     470 </span>            : 
-<span class="lineNum">     471 </span><span class="lineCov">         12 :     if (ret)</span>
+<span class="lineNum">     471 </span><span class="lineCov">         14 :     if (ret)</span>
 <span class="lineNum">     472 </span>            :     {
-<span class="lineNum">     473 </span><span class="lineCov">         12 :         ret = Merge(nb_files, list);</span>
+<span class="lineNum">     473 </span><span class="lineCov">         14 :         ret = Merge(nb_files, list);</span>
 <span class="lineNum">     474 </span>            :     }
 <span class="lineNum">     475 </span>            : 
-<span class="lineNum">     476 </span><span class="lineCov">         12 :     if (baselist != NULL)</span>
+<span class="lineNum">     476 </span><span class="lineCov">         14 :     if (baselist != NULL)</span>
 <span class="lineNum">     477 </span>            :     {
-<span class="lineNum">     478 </span><span class="lineCov">         12 :         delete[] baselist;</span>
+<span class="lineNum">     478 </span><span class="lineCov">         14 :         delete[] baselist;</span>
 <span class="lineNum">     479 </span>            :     }
 <span class="lineNum">     480 </span>            : 
-<span class="lineNum">     481 </span><span class="lineCov">         12 :     if (list != NULL)</span>
+<span class="lineNum">     481 </span><span class="lineCov">         14 :     if (list != NULL)</span>
 <span class="lineNum">     482 </span>            :     {
-<span class="lineNum">     483 </span><span class="lineCov">         12 :         delete[] list;</span>
+<span class="lineNum">     483 </span><span class="lineCov">         14 :         delete[] list;</span>
 <span class="lineNum">     484 </span>            :     }
 <span class="lineNum">     485 </span>            : 
-<span class="lineNum">     486 </span><span class="lineCov">         12 :     return ret;</span>
+<span class="lineNum">     486 </span><span class="lineCov">         14 :     return ret;</span>
 <a name="487"><span class="lineNum">     487 </span>            : }</a>
 <span class="lineNum">     488 </span>            : 
-<span class="lineNum">     489 </span><span class="lineCov">         14 : bool CaptureSummary::Merge(size_t nb_summaries, CaptureSummary ** cs)</span>
+<span class="lineNum">     489 </span><span class="lineCov">         16 : bool CaptureSummary::Merge(size_t nb_summaries, CaptureSummary ** cs)</span>
 <span class="lineNum">     490 </span>            : {
-<span class="lineNum">     491 </span><span class="lineCov">         14 :     bool ret = true;</span>
-<span class="lineNum">     492 </span><span class="lineCov">         14 :     size_t max_size = 0;</span>
-<span class="lineNum">     493 </span><span class="lineCov">         14 :     size_t complete_size = 0;</span>
-<span class="lineNum">     494 </span><span class="lineCov">         28 :     std::vector&lt;CaptureLine *&gt; complete;</span>
-<span class="lineNum">     495 </span><span class="lineCov">         28 :     std::vector&lt;CaptureLine *&gt; leaked_tld;</span>
-<span class="lineNum">     496 </span><span class="lineCov">         28 :     std::vector&lt;CaptureLine*&gt; leaked_2ld;</span>
-<span class="lineNum">     497 </span><span class="lineCov">         28 :     std::vector&lt;CaptureLine *&gt; frequent_tld;</span>
-<span class="lineNum">     498 </span><span class="lineCov">         14 :     char const * leak_tld_id = NULL;</span>
-<span class="lineNum">     499 </span><span class="lineCov">         14 :     char const * leak_2ld_id = NULL;</span>
-<span class="lineNum">     500 </span><span class="lineCov">         14 :     char const * frequent_tld_id = NULL;</span>
-<span class="lineNum">     501 </span><span class="lineCov">         14 :     char const * local_tld_id = NULL;</span>
-<span class="lineNum">     502 </span><span class="lineCov">         14 :     char const * leak_by_length_id = NULL;</span>
-<span class="lineNum">     503 </span><span class="lineCov">         14 :     char const* name_list_id = NULL;</span>
-<span class="lineNum">     504 </span><span class="lineCov">         14 :     char const* addr_list_id = NULL;</span>
+<span class="lineNum">     491 </span><span class="lineCov">         16 :     bool ret = true;</span>
+<span class="lineNum">     492 </span><span class="lineCov">         16 :     size_t max_size = 0;</span>
+<span class="lineNum">     493 </span><span class="lineCov">         16 :     size_t complete_size = 0;</span>
+<span class="lineNum">     494 </span><span class="lineCov">         32 :     std::vector&lt;CaptureLine *&gt; complete;</span>
+<span class="lineNum">     495 </span><span class="lineCov">         32 :     std::vector&lt;CaptureLine *&gt; leaked_tld;</span>
+<span class="lineNum">     496 </span><span class="lineCov">         32 :     std::vector&lt;CaptureLine*&gt; leaked_2ld;</span>
+<span class="lineNum">     497 </span><span class="lineCov">         32 :     std::vector&lt;CaptureLine *&gt; frequent_tld;</span>
+<span class="lineNum">     498 </span><span class="lineCov">         16 :     char const * leak_tld_id = NULL;</span>
+<span class="lineNum">     499 </span><span class="lineCov">         16 :     char const * leak_2ld_id = NULL;</span>
+<span class="lineNum">     500 </span><span class="lineCov">         16 :     char const * frequent_tld_id = NULL;</span>
+<span class="lineNum">     501 </span><span class="lineCov">         16 :     char const * local_tld_id = NULL;</span>
+<span class="lineNum">     502 </span><span class="lineCov">         16 :     char const * leak_by_length_id = NULL;</span>
+<span class="lineNum">     503 </span><span class="lineCov">         16 :     char const* name_list_id = NULL;</span>
+<span class="lineNum">     504 </span><span class="lineCov">         16 :     char const* addr_list_id = NULL;</span>
 <span class="lineNum">     505 </span>            :     CaptureLine current_line;
-<span class="lineNum">     506 </span><span class="lineCov">         14 :     uint64_t nb_locally_leaked_tld = 0;</span>
-<span class="lineNum">     507 </span><span class="lineCov">         14 :     CaptureLine *local_leak = new CaptureLine;</span>
+<span class="lineNum">     506 </span><span class="lineCov">         16 :     uint64_t nb_locally_leaked_tld = 0;</span>
+<span class="lineNum">     507 </span><span class="lineCov">         16 :     CaptureLine *local_leak = new CaptureLine;</span>
 <span class="lineNum">     508 </span>            :     uint64_t skipped_tld_length[64];
-<span class="lineNum">     509 </span><span class="lineCov">         14 :     int nb_obsolete = 0;</span>
+<span class="lineNum">     509 </span><span class="lineCov">         16 :     int nb_obsolete = 0;</span>
 <span class="lineNum">     510 </span>            : 
-<span class="lineNum">     511 </span><span class="lineCov">         14 :     memset(skipped_tld_length, 0, sizeof(skipped_tld_length));</span>
+<span class="lineNum">     511 </span><span class="lineCov">         16 :     memset(skipped_tld_length, 0, sizeof(skipped_tld_length));</span>
 <span class="lineNum">     512 </span>            : 
-<span class="lineNum">     513 </span><span class="lineCov">         14 :     if (ret)</span>
+<span class="lineNum">     513 </span><span class="lineCov">         16 :     if (ret)</span>
 <span class="lineNum">     514 </span>            :     {
-<span class="lineNum">     515 </span><span class="lineCov">         14 :         leak_tld_id = DnsStats::GetTableName(REGISTRY_DNS_LeakedTLD);</span>
-<span class="lineNum">     516 </span><span class="lineCov">         14 :         leak_2ld_id = DnsStats::GetTableName(REGISTRY_DNS_LEAK_2NDLEVEL);</span>
-<span class="lineNum">     517 </span><span class="lineCov">         14 :         frequent_tld_id = DnsStats::GetTableName(REGISTRY_DNS_Frequent_TLD_Usage);</span>
-<span class="lineNum">     518 </span><span class="lineCov">         14 :         local_tld_id = DnsStats::GetTableName(REGISTRY_DNS_Local_TLD_Usage_Count);</span>
-<span class="lineNum">     519 </span><span class="lineCov">         14 :         leak_by_length_id = DnsStats::GetTableName(REGISTRY_DNS_LeakByLength);</span>
-<span class="lineNum">     520 </span><span class="lineCov">         14 :         name_list_id = DnsStats::GetTableName(REGISTRY_DNS_ERRONEOUS_NAME_LIST);</span>
-<span class="lineNum">     521 </span><span class="lineCov">         14 :         addr_list_id = DnsStats::GetTableName(REGISTRY_DNS_ADDRESS_LIST);</span>
+<span class="lineNum">     515 </span><span class="lineCov">         16 :         leak_tld_id = DnsStats::GetTableName(REGISTRY_DNS_LeakedTLD);</span>
+<span class="lineNum">     516 </span><span class="lineCov">         16 :         leak_2ld_id = DnsStats::GetTableName(REGISTRY_DNS_LEAK_2NDLEVEL);</span>
+<span class="lineNum">     517 </span><span class="lineCov">         16 :         frequent_tld_id = DnsStats::GetTableName(REGISTRY_DNS_Frequent_TLD_Usage);</span>
+<span class="lineNum">     518 </span><span class="lineCov">         16 :         local_tld_id = DnsStats::GetTableName(REGISTRY_DNS_Local_TLD_Usage_Count);</span>
+<span class="lineNum">     519 </span><span class="lineCov">         16 :         leak_by_length_id = DnsStats::GetTableName(REGISTRY_DNS_LeakByLength);</span>
+<span class="lineNum">     520 </span><span class="lineCov">         16 :         name_list_id = DnsStats::GetTableName(REGISTRY_DNS_ERRONEOUS_NAME_LIST);</span>
+<span class="lineNum">     521 </span><span class="lineCov">         16 :         addr_list_id = DnsStats::GetTableName(REGISTRY_DNS_ADDRESS_LIST);</span>
 <span class="lineNum">     522 </span>            : 
-<span class="lineNum">     523 </span><span class="lineCov">         14 :         ret = (leak_tld_id != NULL &amp;&amp; frequent_tld_id != NULL &amp;&amp; local_tld_id != NULL &amp;&amp; leak_by_length_id != NULL &amp;&amp; local_leak != NULL</span>
-<span class="lineNum">     524 </span><span class="lineCov">         28 :             &amp;&amp; name_list_id != NULL &amp;&amp; addr_list_id != NULL);</span>
+<span class="lineNum">     523 </span><span class="lineCov">         16 :         ret = (leak_tld_id != NULL &amp;&amp; frequent_tld_id != NULL &amp;&amp; local_tld_id != NULL &amp;&amp; leak_by_length_id != NULL &amp;&amp; local_leak != NULL</span>
+<span class="lineNum">     524 </span><span class="lineCov">         32 :             &amp;&amp; name_list_id != NULL &amp;&amp; addr_list_id != NULL);</span>
 <span class="lineNum">     525 </span>            :     }
 <span class="lineNum">     526 </span>            : 
 <span class="lineNum">     527 </span>            :     /* Compute the plausible max size and the complete size */
-<span class="lineNum">     528 </span><span class="lineCov">       1056 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_summaries; i++)</span>
+<span class="lineNum">     528 </span><span class="lineCov">       1058 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_summaries; i++)</span>
 <span class="lineNum">     529 </span>            :     {
 <span class="lineNum">     530 </span><span class="lineCov">       1042 :         if (cs[i]-&gt;Size() &gt; max_size)</span>
 <span class="lineNum">     531 </span>            :         {
@@ -598,15 +598,15 @@
 <span class="lineNum">     536 </span>            :     }
 <span class="lineNum">     537 </span>            : 
 <span class="lineNum">     538 </span>            :     /* Create a complete list that contains all the summaries */
-<span class="lineNum">     539 </span><span class="lineCov">         14 :     if (ret)</span>
+<span class="lineNum">     539 </span><span class="lineCov">         16 :     if (ret)</span>
 <span class="lineNum">     540 </span>            :     {
-<span class="lineNum">     541 </span><span class="lineCov">         14 :         complete.reserve(complete_size);</span>
-<span class="lineNum">     542 </span><span class="lineCov">         14 :         leaked_tld.reserve(48 * nb_summaries);</span>
-<span class="lineNum">     543 </span><span class="lineCov">         14 :         leaked_2ld.reserve(48 * nb_summaries);</span>
-<span class="lineNum">     544 </span><span class="lineCov">         14 :         frequent_tld.reserve(16 * nb_summaries);</span>
+<span class="lineNum">     541 </span><span class="lineCov">         16 :         complete.reserve(complete_size);</span>
+<span class="lineNum">     542 </span><span class="lineCov">         16 :         leaked_tld.reserve(48 * nb_summaries);</span>
+<span class="lineNum">     543 </span><span class="lineCov">         16 :         leaked_2ld.reserve(48 * nb_summaries);</span>
+<span class="lineNum">     544 </span><span class="lineCov">         16 :         frequent_tld.reserve(16 * nb_summaries);</span>
 <span class="lineNum">     545 </span>            :     }
 <span class="lineNum">     546 </span>            : 
-<span class="lineNum">     547 </span><span class="lineCov">       1056 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_summaries; i++) {</span>
+<span class="lineNum">     547 </span><span class="lineCov">       1058 :     for (size_t i = 0; ret &amp;&amp; i &lt; nb_summaries; i++) {</span>
 <span class="lineNum">     548 </span><span class="lineCov">     248542 :         for (size_t j = 0; j &lt; cs[i]-&gt;Size(); j++) {</span>
 <span class="lineNum">     549 </span><span class="lineCov">     247500 :             if (strcmp(cs[i]-&gt;summary[j]-&gt;registry_name, frequent_tld_id) == 0)</span>
 <span class="lineNum">     550 </span>            :             {
@@ -652,7 +652,7 @@
 <span class="lineNum">     590 </span>            :         }
 <span class="lineNum">     591 </span>            :     }
 <span class="lineNum">     592 </span>            : 
-<span class="lineNum">     593 </span><span class="lineCov">         14 :     if (ret &amp;&amp; nb_locally_leaked_tld != 0)</span>
+<span class="lineNum">     593 </span><span class="lineCov">         16 :     if (ret &amp;&amp; nb_locally_leaked_tld != 0)</span>
 <span class="lineNum">     594 </span>            :     {
 <span class="lineNum">     595 </span><span class="lineNoCov">          0 :         local_leak-&gt;count = nb_locally_leaked_tld;</span>
 <span class="lineNum">     596 </span><span class="lineNoCov">          0 :         local_leak-&gt;key_type = 0;</span>
@@ -664,13 +664,13 @@
 <span class="lineNum">     602 </span>            :     }
 <span class="lineNum">     603 </span>            : 
 <span class="lineNum">     604 </span>            :     /* Sort the complete list */
-<span class="lineNum">     605 </span><span class="lineCov">         14 :     std::sort(complete.begin(), complete.end(), CaptureLineIsLower);</span>
+<span class="lineNum">     605 </span><span class="lineCov">         16 :     std::sort(complete.begin(), complete.end(), CaptureLineIsLower);</span>
 <span class="lineNum">     606 </span>            : 
 <span class="lineNum">     607 </span>            :     /* Now go through the list and perform the summations.
 <span class="lineNum">     608 </span>            :      * Put the frequent tld, 2nd ld and tls usage in separate lists */
-<span class="lineNum">     609 </span><span class="lineCov">         14 :     Reserve(max_size + 64* nb_summaries);</span>
+<span class="lineNum">     609 </span><span class="lineCov">         16 :     Reserve(max_size + 64* nb_summaries);</span>
 <span class="lineNum">     610 </span>            : 
-<span class="lineNum">     611 </span><span class="lineCov">       3374 :     for (size_t i = 0; ret &amp;&amp; i &lt; complete.size();) {</span>
+<span class="lineNum">     611 </span><span class="lineCov">       3376 :     for (size_t i = 0; ret &amp;&amp; i &lt; complete.size();) {</span>
 <span class="lineNum">     612 </span>            :         /* Read the next capture line */
 <span class="lineNum">     613 </span><span class="lineCov">       3360 :         current_line = *complete[i++];</span>
 <span class="lineNum">     614 </span>            : 
@@ -727,30 +727,30 @@
 <span class="lineNum">     665 </span>            :     }
 <span class="lineNum">     666 </span>            : 
 <span class="lineNum">     667 </span>            :     /* Sort and tabulate the most used TLD. */
-<span class="lineNum">     668 </span><span class="lineCov">         14 :     if (ret) {</span>
-<span class="lineNum">     669 </span><span class="lineCov">         14 :         std::sort(frequent_tld.begin(), frequent_tld.end(), CaptureLineIsLargerCount);</span>
-<span class="lineNum">     670 </span><span class="lineCov">         14 :         for (size_t i = 0; i &lt; frequent_tld.size() &amp;&amp; i &lt; 256; i++) {</span>
+<span class="lineNum">     668 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     669 </span><span class="lineCov">         16 :         std::sort(frequent_tld.begin(), frequent_tld.end(), CaptureLineIsLargerCount);</span>
+<span class="lineNum">     670 </span><span class="lineCov">         16 :         for (size_t i = 0; i &lt; frequent_tld.size() &amp;&amp; i &lt; 256; i++) {</span>
 <span class="lineNum">     671 </span><span class="lineNoCov">          0 :             AddLine(frequent_tld[i], true);</span>
 <span class="lineNum">     672 </span>            :         }
 <span class="lineNum">     673 </span>            :     }
 <span class="lineNum">     674 </span>            : 
 <span class="lineNum">     675 </span>            :     /* Sort and tabulate the most used 2LD. */
-<span class="lineNum">     676 </span><span class="lineCov">         14 :     if (ret) {</span>
-<span class="lineNum">     677 </span><span class="lineCov">         14 :         std::sort(leaked_2ld.begin(), leaked_2ld.end(), CaptureLineIsLargerCount);</span>
-<span class="lineNum">     678 </span><span class="lineCov">         14 :         for (size_t i = 0; i &lt; frequent_tld.size() &amp;&amp; i &lt; 256; i++) {</span>
+<span class="lineNum">     676 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     677 </span><span class="lineCov">         16 :         std::sort(leaked_2ld.begin(), leaked_2ld.end(), CaptureLineIsLargerCount);</span>
+<span class="lineNum">     678 </span><span class="lineCov">         16 :         for (size_t i = 0; i &lt; leaked_2ld.size() &amp;&amp; i &lt; 256; i++) {</span>
 <span class="lineNum">     679 </span><span class="lineNoCov">          0 :             AddLine(leaked_2ld[i], true);</span>
 <span class="lineNum">     680 </span>            :         }
 <span class="lineNum">     681 </span>            :     }
 <span class="lineNum">     682 </span>            : 
 <span class="lineNum">     683 </span>            :     /* Sort and tabulate the most leaked TLD. 
 <span class="lineNum">     684 </span>            :      * TODO: tabulate the length of the discarded TLD, and correct the captured values */
-<span class="lineNum">     685 </span><span class="lineCov">         14 :     if (ret) {</span>
-<span class="lineNum">     686 </span><span class="lineCov">         14 :         std::sort(leaked_tld.begin(), leaked_tld.end(), CaptureLineIsLargerCount);</span>
-<span class="lineNum">     687 </span><span class="lineCov">       1806 :         for (size_t i = 0; i &lt; leaked_tld.size() &amp;&amp; i &lt; 256; i++) {</span>
+<span class="lineNum">     685 </span><span class="lineCov">         16 :     if (ret) {</span>
+<span class="lineNum">     686 </span><span class="lineCov">         16 :         std::sort(leaked_tld.begin(), leaked_tld.end(), CaptureLineIsLargerCount);</span>
+<span class="lineNum">     687 </span><span class="lineCov">       1808 :         for (size_t i = 0; i &lt; leaked_tld.size() &amp;&amp; i &lt; 256; i++) {</span>
 <span class="lineNum">     688 </span><span class="lineCov">       1792 :             AddLine(leaked_tld[i], true);</span>
 <span class="lineNum">     689 </span>            :         }
 <span class="lineNum">     690 </span>            : 
-<span class="lineNum">     691 </span><span class="lineCov">         14 :         for (size_t i = 256; i &lt; leaked_tld.size() &amp;&amp; i &lt; 256; i++) {</span>
+<span class="lineNum">     691 </span><span class="lineCov">         16 :         for (size_t i = 256; i &lt; leaked_tld.size() &amp;&amp; i &lt; 256; i++) {</span>
 <span class="lineNum">     692 </span><span class="lineNoCov">          0 :             size_t len = strlen(leaked_tld[i]-&gt;key_value);</span>
 <span class="lineNum">     693 </span>            : 
 <span class="lineNum">     694 </span><span class="lineNoCov">          0 :             if (len &lt; 64)</span>
@@ -760,9 +760,9 @@
 <span class="lineNum">     698 </span>            :         }
 <span class="lineNum">     699 </span>            :     }
 <span class="lineNum">     700 </span>            : 
-<span class="lineNum">     701 </span><span class="lineCov">         14 :     if (ret) {</span>
+<span class="lineNum">     701 </span><span class="lineCov">         16 :     if (ret) {</span>
 <span class="lineNum">     702 </span>            :         /* Add the leaked length to the current counts */
-<span class="lineNum">     703 </span><span class="lineCov">       3374 :         for (size_t i = 0; i &lt; summary.size(); i++)</span>
+<span class="lineNum">     703 </span><span class="lineCov">       3376 :         for (size_t i = 0; i &lt; summary.size(); i++)</span>
 <span class="lineNum">     704 </span>            :         {
 <span class="lineNum">     705 </span><span class="lineCov">       7574 :             if (strcmp(summary[i]-&gt;registry_name, leak_by_length_id) == 0 &amp;&amp;</span>
 <span class="lineNum">     706 </span><span class="lineCov">       4214 :                 summary[i]-&gt;key_number &gt; 0 &amp;&amp;</span>
@@ -773,9 +773,9 @@
 <span class="lineNum">     711 </span>            :             }
 <span class="lineNum">     712 </span>            :         }
 <span class="lineNum">     713 </span>            : 
-<span class="lineNum">     714 </span><span class="lineCov">        910 :         for (int i = 0; i &lt; 64; i++)</span>
+<span class="lineNum">     714 </span><span class="lineCov">       1040 :         for (int i = 0; i &lt; 64; i++)</span>
 <span class="lineNum">     715 </span>            :         {
-<span class="lineNum">     716 </span><span class="lineCov">        896 :             if (skipped_tld_length[i] != 0)</span>
+<span class="lineNum">     716 </span><span class="lineCov">       1024 :             if (skipped_tld_length[i] != 0)</span>
 <span class="lineNum">     717 </span>            :             {
 <span class="lineNum">     718 </span>            :                 CaptureLine length_pattern;
 <span class="lineNum">     719 </span>            : 
@@ -791,14 +791,14 @@
 <span class="lineNum">     729 </span>            :         }
 <span class="lineNum">     730 </span>            :     }
 <span class="lineNum">     731 </span>            : 
-<span class="lineNum">     732 </span><span class="lineCov">         14 :     if (ret) {</span>
+<span class="lineNum">     732 </span><span class="lineCov">         16 :     if (ret) {</span>
 <span class="lineNum">     733 </span>            :         /* Sort the whole thing again */
-<span class="lineNum">     734 </span><span class="lineCov">         14 :         Sort();</span>
+<span class="lineNum">     734 </span><span class="lineCov">         16 :         Sort();</span>
 <span class="lineNum">     735 </span>            :     }
 <span class="lineNum">     736 </span>            : 
 <span class="lineNum">     737 </span>            :     /* Clean up */
 <span class="lineNum">     738 </span>            : 
-<span class="lineNum">     739 </span><span class="lineCov">         14 :     for (size_t i = 0; i &lt; frequent_tld.size(); i++)</span>
+<span class="lineNum">     739 </span><span class="lineCov">         16 :     for (size_t i = 0; i &lt; frequent_tld.size(); i++)</span>
 <span class="lineNum">     740 </span>            :     {
 <span class="lineNum">     741 </span><span class="lineNoCov">          0 :         if (frequent_tld[i] != NULL)</span>
 <span class="lineNum">     742 </span>            :         {
@@ -807,7 +807,7 @@
 <span class="lineNum">     745 </span>            :         }
 <span class="lineNum">     746 </span>            :     }
 <span class="lineNum">     747 </span>            : 
-<span class="lineNum">     748 </span><span class="lineCov">       1806 :     for (size_t i = 0; i &lt; leaked_tld.size(); i++)</span>
+<span class="lineNum">     748 </span><span class="lineCov">       1808 :     for (size_t i = 0; i &lt; leaked_tld.size(); i++)</span>
 <span class="lineNum">     749 </span>            :     {
 <span class="lineNum">     750 </span><span class="lineCov">       1792 :         if (leaked_tld[i] != NULL)</span>
 <span class="lineNum">     751 </span>            :         {
@@ -816,7 +816,7 @@
 <span class="lineNum">     754 </span>            :         }
 <span class="lineNum">     755 </span>            :     }
 <span class="lineNum">     756 </span>            : 
-<span class="lineNum">     757 </span><span class="lineCov">         14 :     for (size_t i = 0; i &lt; leaked_2ld.size(); i++)</span>
+<span class="lineNum">     757 </span><span class="lineCov">         16 :     for (size_t i = 0; i &lt; leaked_2ld.size(); i++)</span>
 <span class="lineNum">     758 </span>            :     {
 <span class="lineNum">     759 </span><span class="lineNoCov">          0 :         if (leaked_2ld[i] != NULL)</span>
 <span class="lineNum">     760 </span>            :         {
@@ -825,39 +825,39 @@
 <span class="lineNum">     763 </span>            :         }
 <span class="lineNum">     764 </span>            :     }
 <span class="lineNum">     765 </span>            : 
-<span class="lineNum">     766 </span><span class="lineCov">         14 :     if (local_leak != NULL)</span>
+<span class="lineNum">     766 </span><span class="lineCov">         16 :     if (local_leak != NULL)</span>
 <span class="lineNum">     767 </span>            :     {
-<span class="lineNum">     768 </span><span class="lineCov">         14 :         delete local_leak;</span>
-<span class="lineNum">     769 </span><span class="lineCov">         14 :         local_leak = NULL;</span>
+<span class="lineNum">     768 </span><span class="lineCov">         16 :         delete local_leak;</span>
+<span class="lineNum">     769 </span><span class="lineCov">         16 :         local_leak = NULL;</span>
 <span class="lineNum">     770 </span>            :     }
 <span class="lineNum">     771 </span>            : 
-<span class="lineNum">     772 </span><span class="lineCov">         28 :     return ret;</span>
+<span class="lineNum">     772 </span><span class="lineCov">         32 :     return ret;</span>
 <a name="773"><span class="lineNum">     773 </span>            : }</a>
 <span class="lineNum">     774 </span>            : 
-<span class="lineNum">     775 </span><span class="lineCov">    6784908 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
+<span class="lineNum">     775 </span><span class="lineCov">    6900056 : int CaptureSummary::compare_string(char const * x, char const * y)</span>
 <span class="lineNum">     776 </span>            : {
-<span class="lineNum">     777 </span><span class="lineCov">    6784908 :     int ret = 0;</span>
+<span class="lineNum">     777 </span><span class="lineCov">    6900056 :     int ret = 0;</span>
 <span class="lineNum">     778 </span>            :     uint8_t ux, uy;
 <span class="lineNum">     779 </span>            : 
-<span class="lineNum">     780 </span><span class="lineCov">   97101796 :     while (*x == *y &amp;&amp; *x != 0)</span>
+<span class="lineNum">     780 </span><span class="lineCov">   98676184 :     while (*x == *y &amp;&amp; *x != 0)</span>
 <span class="lineNum">     781 </span>            :     {
-<span class="lineNum">     782 </span><span class="lineCov">   45158444 :         x++;</span>
-<span class="lineNum">     783 </span><span class="lineCov">   45158444 :         y++;</span>
+<span class="lineNum">     782 </span><span class="lineCov">   45888064 :         x++;</span>
+<span class="lineNum">     783 </span><span class="lineCov">   45888064 :         y++;</span>
 <span class="lineNum">     784 </span>            :     }
 <span class="lineNum">     785 </span>            : 
-<span class="lineNum">     786 </span><span class="lineCov">    6784908 :     ux = (uint8_t)*x;</span>
-<span class="lineNum">     787 </span><span class="lineCov">    6784908 :     uy = (uint8_t)*y;</span>
+<span class="lineNum">     786 </span><span class="lineCov">    6900056 :     ux = (uint8_t)*x;</span>
+<span class="lineNum">     787 </span><span class="lineCov">    6900056 :     uy = (uint8_t)*y;</span>
 <span class="lineNum">     788 </span>            : 
-<span class="lineNum">     789 </span><span class="lineCov">    6784908 :     if (ux &lt; uy)</span>
+<span class="lineNum">     789 </span><span class="lineCov">    6900056 :     if (ux &lt; uy)</span>
 <span class="lineNum">     790 </span>            :     {
-<span class="lineNum">     791 </span><span class="lineCov">    1807300 :         ret = 1;</span>
+<span class="lineNum">     791 </span><span class="lineCov">    1858404 :         ret = 1;</span>
 <span class="lineNum">     792 </span>            :     }
-<span class="lineNum">     793 </span><span class="lineCov">    4977608 :     else if (ux &gt; uy)</span>
+<span class="lineNum">     793 </span><span class="lineCov">    5041652 :     else if (ux &gt; uy)</span>
 <span class="lineNum">     794 </span>            :     {
-<span class="lineNum">     795 </span><span class="lineCov">     703932 :         ret = -1;</span>
+<span class="lineNum">     795 </span><span class="lineCov">     719188 :         ret = -1;</span>
 <span class="lineNum">     796 </span>            :     }
 <span class="lineNum">     797 </span>            : 
-<span class="lineNum">     798 </span><span class="lineCov">    6784908 :     return ret;</span>
+<span class="lineNum">     798 </span><span class="lineCov">    6900056 :     return ret;</span>
 <a name="799"><span class="lineNum">     799 </span>            : }</a>
 <span class="lineNum">     800 </span>            : 
 <span class="lineNum">     801 </span><span class="lineCov">          2 : void CaptureSummary::MultiplyByConstantForTest(unsigned int multiplier)</span>

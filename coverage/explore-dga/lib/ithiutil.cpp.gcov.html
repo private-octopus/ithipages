@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-08-28 00:27:42</td>
+            <td class="headerValue">2020-08-28 00:29:55</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -95,7 +95,7 @@
 <span class="lineNum">      33 </span>            : #include &quot;ithiutil.h&quot;
 <a name="34"><span class="lineNum">      34 </span>            : </a>
 <span class="lineNum">      35 </span>            : /* Safely open files in a portable way */
-<span class="lineNum">      36 </span><span class="lineCov">       1468 : FILE* ithi_file_open_ex(char const* file_name, char const* flags, int* last_err)</span>
+<span class="lineNum">      36 </span><span class="lineCov">       1476 : FILE* ithi_file_open_ex(char const* file_name, char const* flags, int* last_err)</span>
 <span class="lineNum">      37 </span>            : {
 <span class="lineNum">      38 </span>            :     FILE* F;
 <span class="lineNum">      39 </span>            : 
@@ -111,18 +111,18 @@
 <span class="lineNum">      49 </span>            :         }
 <span class="lineNum">      50 </span>            :     }
 <span class="lineNum">      51 </span>            : #else
-<span class="lineNum">      52 </span><span class="lineCov">       1468 :     F = fopen(file_name, flags);</span>
-<span class="lineNum">      53 </span><span class="lineCov">       1468 :     if (F == NULL &amp;&amp; last_err != NULL) {</span>
+<span class="lineNum">      52 </span><span class="lineCov">       1476 :     F = fopen(file_name, flags);</span>
+<span class="lineNum">      53 </span><span class="lineCov">       1476 :     if (F == NULL &amp;&amp; last_err != NULL) {</span>
 <span class="lineNum">      54 </span><span class="lineNoCov">          0 :         *last_err = errno;</span>
 <span class="lineNum">      55 </span>            :     }
 <span class="lineNum">      56 </span>            : #endif
 <span class="lineNum">      57 </span>            : 
-<span class="lineNum">      58 </span><span class="lineCov">       1468 :     return F;</span>
+<span class="lineNum">      58 </span><span class="lineCov">       1476 :     return F;</span>
 <a name="59"><span class="lineNum">      59 </span>            : }</a>
 <span class="lineNum">      60 </span>            : 
-<span class="lineNum">      61 </span><span class="lineCov">       1446 : FILE* ithi_file_open(char const* file_name, char const* flags)</span>
+<span class="lineNum">      61 </span><span class="lineCov">       1454 : FILE* ithi_file_open(char const* file_name, char const* flags)</span>
 <span class="lineNum">      62 </span>            : {
-<span class="lineNum">      63 </span><span class="lineCov">       1446 :     return ithi_file_open_ex(file_name, flags, NULL);</span>
+<span class="lineNum">      63 </span><span class="lineCov">       1454 :     return ithi_file_open_ex(file_name, flags, NULL);</span>
 <a name="64"><span class="lineNum">      64 </span>            : }</a>
 <span class="lineNum">      65 </span>            : 
 <span class="lineNum">      66 </span><span class="lineNoCov">          0 : FILE* ithi_reopen_stdin(int* last_err)</span>
@@ -201,33 +201,33 @@
 <span class="lineNum">     139 </span>            : #endif
 <a name="140"><span class="lineNum">     140 </span><span class="lineNoCov">          0 : }</span></a>
 <span class="lineNum">     141 </span>            : 
-<span class="lineNum">     142 </span><span class="lineCov">       5014 : size_t ithi_copy_to_safe_text(char* text, size_t text_max, uint8_t * x_in, size_t l_in)</span>
+<span class="lineNum">     142 </span><span class="lineCov">       6922 : size_t ithi_copy_to_safe_text(char* text, size_t text_max, uint8_t * x_in, size_t l_in)</span>
 <span class="lineNum">     143 </span>            : {
-<span class="lineNum">     144 </span><span class="lineCov">       5014 :     size_t text_length = 0;</span>
-<span class="lineNum">     145 </span><span class="lineCov">       5014 :     bool previous_was_space = true; /* Cannot have space at beginning */</span>
+<span class="lineNum">     144 </span><span class="lineCov">       6922 :     size_t text_length = 0;</span>
+<span class="lineNum">     145 </span><span class="lineCov">       6922 :     bool previous_was_space = true; /* Cannot have space at beginning */</span>
 <span class="lineNum">     146 </span>            : 
 <span class="lineNum">     147 </span>            :     /* escape any non printable character */
-<span class="lineNum">     148 </span><span class="lineCov">      52462 :     for (uint32_t i = 0; i &lt; l_in &amp;&amp; text_length + 1 &lt; text_max; i++)</span>
+<span class="lineNum">     148 </span><span class="lineCov">      72294 :     for (uint32_t i = 0; i &lt; l_in &amp;&amp; text_length + 1 &lt; text_max; i++)</span>
 <span class="lineNum">     149 </span>            :     {
-<span class="lineNum">     150 </span><span class="lineCov">      47448 :         int x = x_in[i];</span>
-<span class="lineNum">     151 </span><span class="lineCov">      47448 :         bool should_escape = false;</span>
+<span class="lineNum">     150 </span><span class="lineCov">      65372 :         int x = x_in[i];</span>
+<span class="lineNum">     151 </span><span class="lineCov">      65372 :         bool should_escape = false;</span>
 <span class="lineNum">     152 </span>            : 
-<span class="lineNum">     153 </span><span class="lineCov">      47448 :         if (x &gt; ' ' &amp;&amp; x &lt; 127 &amp;&amp; x != '&quot;' &amp;&amp; x != ',' &amp;&amp; x != '&quot;' &amp;&amp; x != '\''</span>
-<span class="lineNum">     154 </span><span class="lineCov">      47340 :             &amp;&amp; (x != '=' || i &gt; 0))</span>
+<span class="lineNum">     153 </span><span class="lineCov">      65372 :         if (x &gt; ' ' &amp;&amp; x &lt; 127 &amp;&amp; x != '&quot;' &amp;&amp; x != ',' &amp;&amp; x != '&quot;' &amp;&amp; x != '\''</span>
+<span class="lineNum">     154 </span><span class="lineCov">      65224 :             &amp;&amp; (x != '=' || i &gt; 0))</span>
 <span class="lineNum">     155 </span>            :         {
-<span class="lineNum">     156 </span><span class="lineCov">      47340 :             previous_was_space = false;</span>
+<span class="lineNum">     156 </span><span class="lineCov">      65224 :             previous_was_space = false;</span>
 <span class="lineNum">     157 </span>            :         }
-<span class="lineNum">     158 </span><span class="lineCov">        108 :         else if (x == ' ' &amp;&amp; !previous_was_space &amp;&amp; i != l_in - 1)</span>
+<span class="lineNum">     158 </span><span class="lineCov">        148 :         else if (x == ' ' &amp;&amp; !previous_was_space &amp;&amp; i != l_in - 1)</span>
 <span class="lineNum">     159 </span>            :         {
 <span class="lineNum">     160 </span>            :             /* Cannot have several spaces */
-<span class="lineNum">     161 </span><span class="lineCov">        108 :             previous_was_space = true;</span>
+<span class="lineNum">     161 </span><span class="lineCov">        148 :             previous_was_space = true;</span>
 <span class="lineNum">     162 </span>            :         }
 <span class="lineNum">     163 </span>            :         else
 <span class="lineNum">     164 </span>            :         {
 <span class="lineNum">     165 </span><span class="lineNoCov">          0 :             should_escape = true;</span>
 <span class="lineNum">     166 </span>            :         }
 <span class="lineNum">     167 </span>            : 
-<span class="lineNum">     168 </span><span class="lineCov">      47448 :         if (should_escape) {</span>
+<span class="lineNum">     168 </span><span class="lineCov">      65372 :         if (should_escape) {</span>
 <span class="lineNum">     169 </span><span class="lineNoCov">          0 :             if (text_length + 5 &lt; text_max) {</span>
 <span class="lineNum">     170 </span><span class="lineNoCov">          0 :                 text[text_length++] = '\\';</span>
 <span class="lineNum">     171 </span><span class="lineNoCov">          0 :                 text[text_length++] = '0' + (x / 100);</span>
@@ -239,15 +239,15 @@
 <span class="lineNum">     177 </span>            :             }
 <span class="lineNum">     178 </span>            :         }
 <span class="lineNum">     179 </span>            :         else {
-<span class="lineNum">     180 </span><span class="lineCov">      47448 :             text[text_length++] = (char)x;</span>
+<span class="lineNum">     180 </span><span class="lineCov">      65372 :             text[text_length++] = (char)x;</span>
 <span class="lineNum">     181 </span>            :         }
 <span class="lineNum">     182 </span>            :     }
 <span class="lineNum">     183 </span>            : 
-<span class="lineNum">     184 </span><span class="lineCov">       5014 :     if (text_length &lt; text_max) {</span>
-<span class="lineNum">     185 </span><span class="lineCov">       5014 :         text[text_length] = 0;</span>
+<span class="lineNum">     184 </span><span class="lineCov">       6922 :     if (text_length &lt; text_max) {</span>
+<span class="lineNum">     185 </span><span class="lineCov">       6922 :         text[text_length] = 0;</span>
 <span class="lineNum">     186 </span>            :     }
 <span class="lineNum">     187 </span>            : 
-<span class="lineNum">     188 </span><span class="lineCov">       5014 :     return (text_length);</span>
+<span class="lineNum">     188 </span><span class="lineCov">       6922 :     return (text_length);</span>
 <span class="lineNum">     189 </span>            : }
 <span class="lineNum">     190 </span>            : 
 </pre>
