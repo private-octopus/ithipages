@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-10-08 22:06:09</td>
+            <td class="headerValue">2020-11-13 00:47:36</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -440,8 +440,8 @@
 <span class="lineNum">     378 </span>            :     int64_t client_address_prefix_ipv6;
 <span class="lineNum">     379 </span>            :     int64_t server_address_prefix_ipv4;
 <span class="lineNum">     380 </span>            :     int64_t server_address_prefix_ipv6;
-<span class="lineNum">     381 </span>            :     cbor_bytes sampling_method;
-<span class="lineNum">     382 </span>            :     cbor_bytes anonymization_method;
+<span class="lineNum">     381 </span>            :     cbor_text sampling_method;
+<span class="lineNum">     382 </span>            :     cbor_text anonymization_method;
 <a name="383"><span class="lineNum">     383 </span>            : };</a>
 <span class="lineNum">     384 </span>            : 
 <span class="lineNum">     385 </span><span class="lineNoCov">          0 : class cdnsCollectionParameters</span>
@@ -460,10 +460,10 @@
 <span class="lineNum">     398 </span>            :     int64_t skew_timeout;
 <span class="lineNum">     399 </span>            :     int64_t snaplen;
 <span class="lineNum">     400 </span>            :     bool promisc;
-<span class="lineNum">     401 </span>            :     std::vector&lt;cbor_bytes&gt; interfaces;
+<span class="lineNum">     401 </span>            :     std::vector&lt;cbor_text&gt; interfaces;
 <span class="lineNum">     402 </span>            :     std::vector&lt;cbor_bytes&gt; server_addresses;
-<span class="lineNum">     403 </span>            :     std::vector&lt;cbor_bytes&gt; vlan_id;
-<span class="lineNum">     404 </span>            :     cbor_bytes filter;
+<span class="lineNum">     403 </span>            :     std::vector&lt;int&gt; vlan_id;
+<span class="lineNum">     404 </span>            :     cbor_text filter;
 <span class="lineNum">     405 </span>            :     int64_t query_options;
 <span class="lineNum">     406 </span>            :     int64_t response_options;
 <span class="lineNum">     407 </span>            :     cbor_text generator_id;
@@ -550,51 +550,51 @@
 <span class="lineNum">     488 </span>            : 
 <span class="lineNum">     489 </span>            :     bool dump(char const* file_out);
 <span class="lineNum">     490 </span>            : 
-<span class="lineNum">     491 </span>            :     bool open_block(int* err);
+<span class="lineNum">     491 </span>            :     bool read_preamble(int* err); /* Leaves nb_read pointing to the beginning of the 1st block */
 <span class="lineNum">     492 </span>            : 
-<span class="lineNum">     493 </span>            :     bool is_first_block() {
-<span class="lineNum">     494 </span>            :         return nb_blocks_read == 1;
-<span class="lineNum">     495 </span>            :     }
-<span class="lineNum">     496 </span>            : 
-<span class="lineNum">     497 </span>            :     bool is_last_block() {
-<span class="lineNum">     498 </span>            :         return nb_blocks_read == nb_blocks_present;
-<a name="499"><span class="lineNum">     499 </span>            :     }</a>
-<span class="lineNum">     500 </span>            : 
-<span class="lineNum">     501 </span><span class="lineCov">     294008 :     bool is_old_version() {</span>
-<span class="lineNum">     502 </span><span class="lineCov">     294008 :         return (preamble_parsed &amp;&amp; preamble.cdns_version_major == 0);</span>
-<span class="lineNum">     503 </span>            :     }
-<span class="lineNum">     504 </span>            : 
-<span class="lineNum">     505 </span>            :     int64_t get_ticks_per_second(int64_t block_id);
+<span class="lineNum">     493 </span>            :     bool open_block(int* err);
+<span class="lineNum">     494 </span>            : 
+<span class="lineNum">     495 </span>            :     bool is_first_block() {
+<span class="lineNum">     496 </span>            :         return nb_blocks_read == 1;
+<span class="lineNum">     497 </span>            :     }
+<span class="lineNum">     498 </span>            : 
+<span class="lineNum">     499 </span>            :     bool is_last_block() {
+<span class="lineNum">     500 </span>            :         return nb_blocks_read == nb_blocks_present;
+<a name="501"><span class="lineNum">     501 </span>            :     }</a>
+<span class="lineNum">     502 </span>            : 
+<span class="lineNum">     503 </span><span class="lineCov">     294008 :     bool is_old_version() {</span>
+<span class="lineNum">     504 </span><span class="lineCov">     294008 :         return (preamble_parsed &amp;&amp; preamble.cdns_version_major == 0);</span>
+<span class="lineNum">     505 </span>            :     }
 <span class="lineNum">     506 </span>            : 
-<span class="lineNum">     507 </span>            :     int64_t ticks_to_microseconds(int64_t ticks, int64_t block_id);
+<span class="lineNum">     507 </span>            :     int64_t get_ticks_per_second(int64_t block_id);
 <span class="lineNum">     508 </span>            : 
-<span class="lineNum">     509 </span>            :     static int get_dns_flags(int q_dns_flags, bool is_response);
-<span class="lineNum">     510 </span>            :     static int get_edns_flags(int q_dns_flags);
-<span class="lineNum">     511 </span>            : 
-<span class="lineNum">     512 </span>            : 
-<span class="lineNum">     513 </span>            :     static uint8_t* dump_query(uint8_t* in, const uint8_t* in_max, char* out_buf, char* out_max, int cdns_version, int* err, FILE* F_out);
+<span class="lineNum">     509 </span>            :     int64_t ticks_to_microseconds(int64_t ticks, int64_t block_id);
+<span class="lineNum">     510 </span>            : 
+<span class="lineNum">     511 </span>            :     static int get_dns_flags(int q_dns_flags, bool is_response);
+<span class="lineNum">     512 </span>            :     static int get_edns_flags(int q_dns_flags);
+<span class="lineNum">     513 </span>            : 
 <span class="lineNum">     514 </span>            : 
-<span class="lineNum">     515 </span>            :     cdnsPreamble preamble;
-<span class="lineNum">     516 </span>            :     cdnsBlock block; /* Current block */
-<span class="lineNum">     517 </span>            :     uint64_t first_block_start_us;
-<span class="lineNum">     518 </span>            :     int index_offset;
-<span class="lineNum">     519 </span>            : 
-<span class="lineNum">     520 </span>            : private:
-<span class="lineNum">     521 </span>            :     FILE* F;
-<span class="lineNum">     522 </span>            :     uint8_t* buf;
-<span class="lineNum">     523 </span>            :     size_t buf_size;
-<span class="lineNum">     524 </span>            :     size_t buf_read;
-<span class="lineNum">     525 </span>            :     size_t buf_parsed;
-<span class="lineNum">     526 </span>            :     bool end_of_file;
-<span class="lineNum">     527 </span>            :     bool preamble_parsed;
-<span class="lineNum">     528 </span>            :     bool file_head_undef;
-<span class="lineNum">     529 </span>            :     bool block_list_undef;
-<span class="lineNum">     530 </span>            :     int64_t nb_blocks_present;
-<span class="lineNum">     531 </span>            :     int64_t nb_blocks_read;
-<span class="lineNum">     532 </span>            : 
-<span class="lineNum">     533 </span>            :     bool load_entire_file();
-<span class="lineNum">     534 </span>            :     bool read_preamble(int* err); /* Leaves nb_read pointing to the beginning of the 1st block */
-<span class="lineNum">     535 </span>            : 
+<span class="lineNum">     515 </span>            :     static uint8_t* dump_query(uint8_t* in, const uint8_t* in_max, char* out_buf, char* out_max, int cdns_version, int* err, FILE* F_out);
+<span class="lineNum">     516 </span>            : 
+<span class="lineNum">     517 </span>            :     cdnsPreamble preamble;
+<span class="lineNum">     518 </span>            :     cdnsBlock block; /* Current block */
+<span class="lineNum">     519 </span>            :     uint64_t first_block_start_us;
+<span class="lineNum">     520 </span>            :     int index_offset;
+<span class="lineNum">     521 </span>            : 
+<span class="lineNum">     522 </span>            : private:
+<span class="lineNum">     523 </span>            :     FILE* F;
+<span class="lineNum">     524 </span>            :     uint8_t* buf;
+<span class="lineNum">     525 </span>            :     size_t buf_size;
+<span class="lineNum">     526 </span>            :     size_t buf_read;
+<span class="lineNum">     527 </span>            :     size_t buf_parsed;
+<span class="lineNum">     528 </span>            :     bool end_of_file;
+<span class="lineNum">     529 </span>            :     bool preamble_parsed;
+<span class="lineNum">     530 </span>            :     bool file_head_undef;
+<span class="lineNum">     531 </span>            :     bool block_list_undef;
+<span class="lineNum">     532 </span>            :     int64_t nb_blocks_present;
+<span class="lineNum">     533 </span>            :     int64_t nb_blocks_read;
+<span class="lineNum">     534 </span>            : 
+<span class="lineNum">     535 </span>            :     bool load_entire_file();
 <span class="lineNum">     536 </span>            : 
 <span class="lineNum">     537 </span>            : 
 <span class="lineNum">     538 </span>            :     uint8_t* dump_preamble(uint8_t* in, uint8_t* in_max, char* out_buf, char* out_max, int* cdns_version, int* err, FILE* F_out);
