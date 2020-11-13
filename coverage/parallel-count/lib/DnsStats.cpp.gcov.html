@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-11-13 00:49:52</td>
+            <td class="headerValue">2020-11-13 00:54:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">98</td>
@@ -358,7 +358,7 @@
 <span class="lineNum">     296 </span>            :     &quot;SHIA&quot;, &quot;SHIKSHA&quot;, &quot;SHOES&quot;, &quot;SHOP&quot;, &quot;SHOPPING&quot;, &quot;SHOUJI&quot;, &quot;SHOW&quot;, &quot;SHOWTIME&quot;, &quot;SHRIRAM&quot;,
 <span class="lineNum">     297 </span>            :     &quot;SI&quot;, &quot;SILK&quot;, &quot;SINA&quot;, &quot;SINGLES&quot;, &quot;SITE&quot;, &quot;SJ&quot;, &quot;SK&quot;, &quot;SKI&quot;, &quot;SKIN&quot;, &quot;SKY&quot;, &quot;SKYPE&quot;, &quot;SL&quot;,
 <span class="lineNum">     298 </span>            :     &quot;SLING&quot;, &quot;SM&quot;, &quot;SMART&quot;, &quot;SMILE&quot;, &quot;SN&quot;, &quot;SNCF&quot;, &quot;SO&quot;, &quot;SOCCER&quot;, &quot;SOCIAL&quot;, &quot;SOFTBANK&quot;,
-<span class="lineNum">     299 </span>            :     &quot;SOFTWARE&quot;, &quot;SOHU&quot;, &quot;SOLAR&quot;, &quot;SOLUTIONS&quot;, &quot;SONG&quot;, &quot;SONY&quot;, &quot;SOY&quot;, &quot;SPACE&quot;, &quot;SPORT&quot;,
+<span class="lineNum">     299 </span>            :     &quot;SOFTWARE&quot;, &quot;SOHU&quot;, &quot;SOLAR&quot;, &quot;SOLUTIONS&quot;, &quot;SONG&quot;, &quot;SONY&quot;, &quot;SOY&quot;, &quot;SPA&quot;, &quot;SPACE&quot;, &quot;SPORT&quot;,
 <span class="lineNum">     300 </span>            :     &quot;SPOT&quot;, &quot;SPREADBETTING&quot;, &quot;SR&quot;, &quot;SRL&quot;, &quot;SS&quot;, 
 <span class="lineNum">     301 </span>            :     &quot;ST&quot;, &quot;STADA&quot;, &quot;STAPLES&quot;, &quot;STAR&quot;, 
 <span class="lineNum">     302 </span>            :     &quot;STATEBANK&quot;, &quot;STATEFARM&quot;, &quot;STC&quot;, &quot;STCGROUP&quot;, &quot;STOCKHOLM&quot;, &quot;STORAGE&quot;, &quot;STORE&quot;,
@@ -1636,15 +1636,15 @@
 <span class="lineNum">    1574 </span>            : 
 <span class="lineNum">    1575 </span><span class="lineCov">         14 : void DnsStats::LoadRegisteredTLD_from_memory()</span>
 <span class="lineNum">    1576 </span>            : {
-<span class="lineNum">    1577 </span><span class="lineCov">      21112 :     for (size_t i = 0; i &lt; RegisteredTldNameNb; i++)</span>
+<span class="lineNum">    1577 </span><span class="lineCov">      21126 :     for (size_t i = 0; i &lt; RegisteredTldNameNb; i++)</span>
 <span class="lineNum">    1578 </span>            :     {
-<span class="lineNum">    1579 </span><span class="lineCov">      21098 :         bool stored = false;</span>
+<span class="lineNum">    1579 </span><span class="lineCov">      21112 :         bool stored = false;</span>
 <span class="lineNum">    1580 </span>            :         TldAsKey * tak = new
-<span class="lineNum">    1581 </span><span class="lineCov">      21098 :             TldAsKey((uint8_t *) RegisteredTldName[i], strlen(RegisteredTldName[i]));</span>
+<span class="lineNum">    1581 </span><span class="lineCov">      21112 :             TldAsKey((uint8_t *) RegisteredTldName[i], strlen(RegisteredTldName[i]));</span>
 <span class="lineNum">    1582 </span>            : 
-<span class="lineNum">    1583 </span><span class="lineCov">      21098 :         registeredTld.InsertOrAdd(tak, false, &amp;stored);</span>
+<span class="lineNum">    1583 </span><span class="lineCov">      21112 :         registeredTld.InsertOrAdd(tak, false, &amp;stored);</span>
 <span class="lineNum">    1584 </span>            : 
-<span class="lineNum">    1585 </span><span class="lineCov">      21098 :         if (!stored)</span>
+<span class="lineNum">    1585 </span><span class="lineCov">      21112 :         if (!stored)</span>
 <span class="lineNum">    1586 </span>            :         {
 <span class="lineNum">    1587 </span><span class="lineNoCov">          0 :             delete tak;</span>
 <span class="lineNum">    1588 </span>            :         }
@@ -3271,42 +3271,42 @@
 <span class="lineNum">    3209 </span><span class="lineCov">         14 :     return true;</span>
 <a name="3210"><span class="lineNum">    3210 </span>            : }</a>
 <span class="lineNum">    3211 </span>            : 
-<span class="lineNum">    3212 </span><span class="lineCov">    2038782 : TldAsKey::TldAsKey(uint8_t * tld, size_t tld_len)</span>
+<span class="lineNum">    3212 </span><span class="lineCov">    2038796 : TldAsKey::TldAsKey(uint8_t * tld, size_t tld_len)</span>
 <span class="lineNum">    3213 </span>            :     :
 <span class="lineNum">    3214 </span>            :     HashNext(NULL),
 <span class="lineNum">    3215 </span>            :     MoreRecentKey(NULL),
 <span class="lineNum">    3216 </span>            :     LessRecentKey(NULL),
 <span class="lineNum">    3217 </span>            :     count(1),
-<span class="lineNum">    3218 </span><span class="lineCov">    2038782 :     hash(0)</span>
+<span class="lineNum">    3218 </span><span class="lineCov">    2038796 :     hash(0)</span>
 <span class="lineNum">    3219 </span>            : {
-<span class="lineNum">    3220 </span><span class="lineCov">    2038782 :     CanonicCopy(this-&gt;tld, sizeof(this-&gt;tld) - 1, &amp;this-&gt;tld_len, tld, tld_len);</span>
-<a name="3221"><span class="lineNum">    3221 </span><span class="lineCov">    2038782 : }</span></a>
+<span class="lineNum">    3220 </span><span class="lineCov">    2038796 :     CanonicCopy(this-&gt;tld, sizeof(this-&gt;tld) - 1, &amp;this-&gt;tld_len, tld, tld_len);</span>
+<a name="3221"><span class="lineNum">    3221 </span><span class="lineCov">    2038796 : }</span></a>
 <span class="lineNum">    3222 </span>            : 
-<span class="lineNum">    3223 </span><span class="lineCov">    2038782 : TldAsKey::~TldAsKey()</span>
+<span class="lineNum">    3223 </span><span class="lineCov">    2038796 : TldAsKey::~TldAsKey()</span>
 <span class="lineNum">    3224 </span>            : {
-<a name="3225"><span class="lineNum">    3225 </span><span class="lineCov">    2038782 : }</span></a>
+<a name="3225"><span class="lineNum">    3225 </span><span class="lineCov">    2038796 : }</span></a>
 <span class="lineNum">    3226 </span>            : 
-<span class="lineNum">    3227 </span><span class="lineCov">    1527634 : bool TldAsKey::IsSameKey(TldAsKey * key)</span>
+<span class="lineNum">    3227 </span><span class="lineCov">    1527680 : bool TldAsKey::IsSameKey(TldAsKey * key)</span>
 <span class="lineNum">    3228 </span>            : {
-<span class="lineNum">    3229 </span><span class="lineCov">    2968068 :     bool ret = (this-&gt;tld_len == key-&gt;tld_len &amp;&amp;</span>
-<span class="lineNum">    3230 </span><span class="lineCov">    2968068 :         memcmp(this-&gt;tld, key-&gt;tld, this-&gt;tld_len) == 0);</span>
+<span class="lineNum">    3229 </span><span class="lineCov">    2968114 :     bool ret = (this-&gt;tld_len == key-&gt;tld_len &amp;&amp;</span>
+<span class="lineNum">    3230 </span><span class="lineCov">    2968114 :         memcmp(this-&gt;tld, key-&gt;tld, this-&gt;tld_len) == 0);</span>
 <span class="lineNum">    3231 </span>            : 
-<span class="lineNum">    3232 </span><span class="lineCov">    1527634 :     return ret;</span>
+<span class="lineNum">    3232 </span><span class="lineCov">    1527680 :     return ret;</span>
 <a name="3233"><span class="lineNum">    3233 </span>            : }</a>
 <span class="lineNum">    3234 </span>            : 
-<span class="lineNum">    3235 </span><span class="lineCov">    2036660 : uint32_t TldAsKey::Hash()</span>
+<span class="lineNum">    3235 </span><span class="lineCov">    2036674 : uint32_t TldAsKey::Hash()</span>
 <span class="lineNum">    3236 </span>            : {
-<span class="lineNum">    3237 </span><span class="lineCov">    2036660 :     if (hash == 0)</span>
+<span class="lineNum">    3237 </span><span class="lineCov">    2036674 :     if (hash == 0)</span>
 <span class="lineNum">    3238 </span>            :     {
-<span class="lineNum">    3239 </span><span class="lineCov">    1964944 :         hash = 0xBABAC001;</span>
+<span class="lineNum">    3239 </span><span class="lineCov">    1964958 :         hash = 0xBABAC001;</span>
 <span class="lineNum">    3240 </span>            : 
-<span class="lineNum">    3241 </span><span class="lineCov">   28675030 :         for (size_t i = 0; i &lt; tld_len; i++)</span>
+<span class="lineNum">    3241 </span><span class="lineCov">   28675086 :         for (size_t i = 0; i &lt; tld_len; i++)</span>
 <span class="lineNum">    3242 </span>            :         {
-<span class="lineNum">    3243 </span><span class="lineCov">   26710086 :             hash = hash * 101 + tld[i];</span>
+<span class="lineNum">    3243 </span><span class="lineCov">   26710128 :             hash = hash * 101 + tld[i];</span>
 <span class="lineNum">    3244 </span>            :         }
 <span class="lineNum">    3245 </span>            :     }
 <span class="lineNum">    3246 </span>            : 
-<span class="lineNum">    3247 </span><span class="lineCov">    2036660 :     return hash;</span>
+<span class="lineNum">    3247 </span><span class="lineCov">    2036674 :     return hash;</span>
 <a name="3248"><span class="lineNum">    3248 </span>            : }</a>
 <span class="lineNum">    3249 </span>            : 
 <span class="lineNum">    3250 </span><span class="lineCov">     825862 : TldAsKey * TldAsKey::CreateCopy()</span>
@@ -3326,27 +3326,27 @@
 <span class="lineNum">    3264 </span><span class="lineCov">     293110 :     this-&gt;count += key-&gt;count;</span>
 <a name="3265"><span class="lineNum">    3265 </span><span class="lineCov">     293110 : }</span></a>
 <span class="lineNum">    3266 </span>            : 
-<span class="lineNum">    3267 </span><span class="lineCov">    2087824 : void TldAsKey::CanonicCopy(uint8_t * tldDest, size_t tldDestMax, size_t * tldDestLength, </span>
+<span class="lineNum">    3267 </span><span class="lineCov">    2087838 : void TldAsKey::CanonicCopy(uint8_t * tldDest, size_t tldDestMax, size_t * tldDestLength, </span>
 <span class="lineNum">    3268 </span>            :     uint8_t * tldSrce, size_t tldSrceLength)
 <span class="lineNum">    3269 </span>            : {
-<span class="lineNum">    3270 </span><span class="lineCov">    2087824 :     size_t i = 0;</span>
+<span class="lineNum">    3270 </span><span class="lineCov">    2087838 :     size_t i = 0;</span>
 <span class="lineNum">    3271 </span>            : 
-<span class="lineNum">    3272 </span><span class="lineCov">   58126308 :     for (; i &lt; tldSrceLength &amp;&amp; i &lt; tldDestMax; i++)</span>
+<span class="lineNum">    3272 </span><span class="lineCov">   58126406 :     for (; i &lt; tldSrceLength &amp;&amp; i &lt; tldDestMax; i++)</span>
 <span class="lineNum">    3273 </span>            :     {
-<span class="lineNum">    3274 </span><span class="lineCov">   28019242 :         int c = tldSrce[i];</span>
+<span class="lineNum">    3274 </span><span class="lineCov">   28019284 :         int c = tldSrce[i];</span>
 <span class="lineNum">    3275 </span>            : 
-<span class="lineNum">    3276 </span><span class="lineCov">   28019242 :         if (c &gt;= 'a' &amp;&amp; c &lt;= 'z')</span>
+<span class="lineNum">    3276 </span><span class="lineCov">   28019284 :         if (c &gt;= 'a' &amp;&amp; c &lt;= 'z')</span>
 <span class="lineNum">    3277 </span>            :         {
 <span class="lineNum">    3278 </span><span class="lineCov">      45864 :             c += 'A' - 'a';</span>
 <span class="lineNum">    3279 </span>            :         }
 <span class="lineNum">    3280 </span>            : 
-<span class="lineNum">    3281 </span><span class="lineCov">   28019242 :         tldDest[i] = c;</span>
+<span class="lineNum">    3281 </span><span class="lineCov">   28019284 :         tldDest[i] = c;</span>
 <span class="lineNum">    3282 </span>            :     }
 <span class="lineNum">    3283 </span>            : 
-<span class="lineNum">    3284 </span><span class="lineCov">    2087824 :     *tldDestLength = i;</span>
+<span class="lineNum">    3284 </span><span class="lineCov">    2087838 :     *tldDestLength = i;</span>
 <span class="lineNum">    3285 </span>            : 
-<span class="lineNum">    3286 </span><span class="lineCov">    2087824 :     tldDest[i] = 0;</span>
-<span class="lineNum">    3287 </span><span class="lineCov">    2087824 : }</span>
+<span class="lineNum">    3286 </span><span class="lineCov">    2087838 :     tldDest[i] = 0;</span>
+<span class="lineNum">    3287 </span><span class="lineCov">    2087838 : }</span>
 <a name="3288"><span class="lineNum">    3288 </span>            : </a>
 <span class="lineNum">    3289 </span>            : 
 <span class="lineNum">    3290 </span><span class="lineCov">      49042 : TldAddressAsKey::TldAddressAsKey(uint8_t * addr, size_t addr_len, uint8_t * tld, size_t tld_len, my_bpftimeval ts, int is_nx, DnsStatsLeakType leakType)</span>
