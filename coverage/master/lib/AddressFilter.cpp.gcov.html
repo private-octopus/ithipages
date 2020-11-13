@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-10-07 04:32:45</td>
+            <td class="headerValue">2020-11-13 01:04:47</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">24</td>
@@ -380,7 +380,7 @@
 <span class="lineNum">     318 </span>            : }
 <a name="319"><span class="lineNum">     319 </span>            : </a>
 <span class="lineNum">     320 </span>            : 
-<span class="lineNum">     321 </span><span class="lineCov">      72146 : StatsByIP::StatsByIP(uint8_t * addr, size_t addr_len, bool has_do, bool has_edns, </span>
+<span class="lineNum">     321 </span><span class="lineCov">      72134 : StatsByIP::StatsByIP(uint8_t * addr, size_t addr_len, bool has_do, bool has_edns, </span>
 <span class="lineNum">     322 </span>            :     bool not_qname_mini) :
 <span class="lineNum">     323 </span>            :     HashNext(NULL),
 <span class="lineNum">     324 </span>            :     count(1),
@@ -392,39 +392,39 @@
 <span class="lineNum">     330 </span>            :     nb_tcp_583(0),
 <span class="lineNum">     331 </span>            :     query_seen(false),
 <span class="lineNum">     332 </span>            :     response_seen(false),
-<span class="lineNum">     333 </span><span class="lineCov">      72146 :     option_mask(0)</span>
+<span class="lineNum">     333 </span><span class="lineCov">      72134 :     option_mask(0)</span>
 <span class="lineNum">     334 </span>            : {
-<span class="lineNum">     335 </span><span class="lineCov">      72146 :     if (addr_len &gt; 16)</span>
+<span class="lineNum">     335 </span><span class="lineCov">      72134 :     if (addr_len &gt; 16)</span>
 <span class="lineNum">     336 </span>            :     {
 <span class="lineNum">     337 </span><span class="lineNoCov">          0 :         addr_len = 16;</span>
 <span class="lineNum">     338 </span>            :     }
 <span class="lineNum">     339 </span>            : 
-<span class="lineNum">     340 </span><span class="lineCov">      72146 :     memcpy(this-&gt;addr, addr, addr_len);</span>
-<span class="lineNum">     341 </span><span class="lineCov">      72146 :     this-&gt;addr_len = addr_len;</span>
-<a name="342"><span class="lineNum">     342 </span><span class="lineCov">      72146 : }</span></a>
+<span class="lineNum">     340 </span><span class="lineCov">      72134 :     memcpy(this-&gt;addr, addr, addr_len);</span>
+<span class="lineNum">     341 </span><span class="lineCov">      72134 :     this-&gt;addr_len = addr_len;</span>
+<a name="342"><span class="lineNum">     342 </span><span class="lineCov">      72134 : }</span></a>
 <span class="lineNum">     343 </span>            : 
-<span class="lineNum">     344 </span><span class="lineCov">      84018 : StatsByIP::~StatsByIP()</span>
+<span class="lineNum">     344 </span><span class="lineCov">      84006 : StatsByIP::~StatsByIP()</span>
 <span class="lineNum">     345 </span>            : {
-<a name="346"><span class="lineNum">     346 </span><span class="lineCov">      84018 : }</span></a>
+<a name="346"><span class="lineNum">     346 </span><span class="lineCov">      84006 : }</span></a>
 <span class="lineNum">     347 </span>            : 
-<span class="lineNum">     348 </span><span class="lineCov">      61390 : bool StatsByIP::IsSameKey(StatsByIP * key)</span>
+<span class="lineNum">     348 </span><span class="lineCov">      61378 : bool StatsByIP::IsSameKey(StatsByIP * key)</span>
 <span class="lineNum">     349 </span>            : {
-<span class="lineNum">     350 </span><span class="lineCov">     119906 :     bool ret = (key-&gt;addr_len == this-&gt;addr_len &amp;&amp;</span>
-<span class="lineNum">     351 </span><span class="lineCov">     119906 :         memcmp(key-&gt;addr, this-&gt;addr, this-&gt;addr_len) == 0);</span>
-<span class="lineNum">     352 </span><span class="lineCov">      61390 :     return ret;</span>
+<span class="lineNum">     350 </span><span class="lineCov">     119882 :     bool ret = (key-&gt;addr_len == this-&gt;addr_len &amp;&amp;</span>
+<span class="lineNum">     351 </span><span class="lineCov">     119882 :         memcmp(key-&gt;addr, this-&gt;addr, this-&gt;addr_len) == 0);</span>
+<span class="lineNum">     352 </span><span class="lineCov">      61378 :     return ret;</span>
 <a name="353"><span class="lineNum">     353 </span>            : }</a>
 <span class="lineNum">     354 </span>            : 
-<span class="lineNum">     355 </span><span class="lineCov">      76600 : uint32_t StatsByIP::Hash()</span>
+<span class="lineNum">     355 </span><span class="lineCov">      76588 : uint32_t StatsByIP::Hash()</span>
 <span class="lineNum">     356 </span>            : {
-<span class="lineNum">     357 </span><span class="lineCov">      76600 :     if (hash == 0)</span>
+<span class="lineNum">     357 </span><span class="lineCov">      76588 :     if (hash == 0)</span>
 <span class="lineNum">     358 </span>            :     {
-<span class="lineNum">     359 </span><span class="lineCov">      60272 :         hash = 0xDEADBEEF;</span>
-<span class="lineNum">     360 </span><span class="lineCov">     358264 :         for (size_t i = 0; i &lt; addr_len; i++)</span>
+<span class="lineNum">     359 </span><span class="lineCov">      60260 :         hash = 0xDEADBEEF;</span>
+<span class="lineNum">     360 </span><span class="lineCov">     358204 :         for (size_t i = 0; i &lt; addr_len; i++)</span>
 <span class="lineNum">     361 </span>            :         {
-<span class="lineNum">     362 </span><span class="lineCov">     297992 :             hash = hash * 101 + addr[i];</span>
+<span class="lineNum">     362 </span><span class="lineCov">     297944 :             hash = hash * 101 + addr[i];</span>
 <span class="lineNum">     363 </span>            :         }
 <span class="lineNum">     364 </span>            :     }
-<span class="lineNum">     365 </span><span class="lineCov">      76600 :     return hash;</span>
+<span class="lineNum">     365 </span><span class="lineCov">      76588 :     return hash;</span>
 <span class="lineNum">     366 </span>            : }
 <a name="367"><span class="lineNum">     367 </span>            : </a>
 <span class="lineNum">     368 </span>            : 
@@ -448,18 +448,18 @@
 <span class="lineNum">     386 </span><span class="lineCov">      11872 :     return x;</span>
 <a name="387"><span class="lineNum">     387 </span>            : }</a>
 <span class="lineNum">     388 </span>            : 
-<span class="lineNum">     389 </span><span class="lineCov">      28782 : void StatsByIP::Add(StatsByIP * key)</span>
+<span class="lineNum">     389 </span><span class="lineCov">      28770 : void StatsByIP::Add(StatsByIP * key)</span>
 <span class="lineNum">     390 </span>            : {
-<span class="lineNum">     391 </span><span class="lineCov">      28782 :     count += key-&gt;count;</span>
-<span class="lineNum">     392 </span><span class="lineCov">      28782 :     nb_do += key-&gt;nb_do;</span>
-<span class="lineNum">     393 </span><span class="lineCov">      28782 :     nb_edns += key-&gt;nb_edns;</span>
-<span class="lineNum">     394 </span><span class="lineCov">      28782 :     nb_not_qname_mini += key-&gt;nb_not_qname_mini;</span>
-<span class="lineNum">     395 </span><span class="lineCov">      28782 :     nb_tcp_443 += key-&gt;nb_tcp_443;</span>
-<span class="lineNum">     396 </span><span class="lineCov">      28782 :     nb_tcp_583 += key-&gt;nb_tcp_583;</span>
-<span class="lineNum">     397 </span><span class="lineCov">      28782 :     query_seen |= key-&gt;query_seen;</span>
-<span class="lineNum">     398 </span><span class="lineCov">      28782 :     response_seen |= key-&gt;response_seen;</span>
-<span class="lineNum">     399 </span><span class="lineCov">      28782 :     option_mask |= key-&gt;option_mask;</span>
-<a name="400"><span class="lineNum">     400 </span><span class="lineCov">      28782 : }</span></a>
+<span class="lineNum">     391 </span><span class="lineCov">      28770 :     count += key-&gt;count;</span>
+<span class="lineNum">     392 </span><span class="lineCov">      28770 :     nb_do += key-&gt;nb_do;</span>
+<span class="lineNum">     393 </span><span class="lineCov">      28770 :     nb_edns += key-&gt;nb_edns;</span>
+<span class="lineNum">     394 </span><span class="lineCov">      28770 :     nb_not_qname_mini += key-&gt;nb_not_qname_mini;</span>
+<span class="lineNum">     395 </span><span class="lineCov">      28770 :     nb_tcp_443 += key-&gt;nb_tcp_443;</span>
+<span class="lineNum">     396 </span><span class="lineCov">      28770 :     nb_tcp_583 += key-&gt;nb_tcp_583;</span>
+<span class="lineNum">     397 </span><span class="lineCov">      28770 :     query_seen |= key-&gt;query_seen;</span>
+<span class="lineNum">     398 </span><span class="lineCov">      28770 :     response_seen |= key-&gt;response_seen;</span>
+<span class="lineNum">     399 </span><span class="lineCov">      28770 :     option_mask |= key-&gt;option_mask;</span>
+<a name="400"><span class="lineNum">     400 </span><span class="lineCov">      28770 : }</span></a>
 <span class="lineNum">     401 </span>            : 
 <span class="lineNum">     402 </span><span class="lineCov">      11022 : bool StatsByIP::IsDoUsed()</span>
 <span class="lineNum">     403 </span>            : {
